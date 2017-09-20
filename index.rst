@@ -30,7 +30,6 @@ This is a collection of the modules that have been created by E-CAM community
 within the four initial target areas of E-CAM:
 
 .. toctree::
-    :glob:
     :maxdepth: 1
 
     ./Classical-MD-Modules/index
