@@ -81,7 +81,7 @@ contribute to this effort then please follow the steps below to allow us to incl
 
 .. toctree::
     :glob:
-    :maxdepth: 2
+    :maxdepth: 1
 
     ./contributing
 
