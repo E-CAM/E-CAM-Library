@@ -117,6 +117,11 @@ write them into a text file (say, `input.txt`), one per line (in the right order
 
 **Test: water in oil**
 
+.. toctree::
+    :hidden:
+
+    ./dimers.rst
+
 As a test, we suggest to consider a fluid made of harmonically bonded dimers
 :math:`(+q,-q)`. Fixing appropriately the partial charge :math:`q`
 and the Bjerrum length :math:`l_B` this system
