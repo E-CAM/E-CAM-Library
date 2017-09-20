@@ -57,7 +57,6 @@ The following modules connected to the DL_MESO_DPD code have been produce so far
     ./modules/DL_MESO_DPD/dipole_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD/format_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD/dipole_af_dlmeso_dpd/readme
-    ./modules/DL_MESO_DPD/dipole_af_dlmeso_dpd/dimers
     ./modules/DL_MESO_DPD/moldip_af_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD_onGPU/add_gpu_version/readme
 
