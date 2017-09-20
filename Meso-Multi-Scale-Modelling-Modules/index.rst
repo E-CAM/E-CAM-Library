@@ -48,6 +48,7 @@ Extended Software Development Workshops
 
 DL_MESO_DPD
 -----------
+
 The following modules connected to the DL_MESO_DPD code have been produce so far:
 
 .. toctree::
@@ -59,6 +60,19 @@ The following modules connected to the DL_MESO_DPD code have been produce so far
     ./modules/DL_MESO_DPD/dipole_af_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD/moldip_af_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD_onGPU/add_gpu_version/readme
+
+ESPRESSO++
+----------
+
+The following modules connected to the ESPRESSO++ code have been produce so far:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/hierarchical-strategy/components/fixed-local-tuple/readme
+    ./modules/hierarchical-strategy/components/md-softblob/readme
+    ./modules/hierarchical-strategy/components/minimize-energy/readme
 
 ESDW Barcelona 2017
 -------------------
