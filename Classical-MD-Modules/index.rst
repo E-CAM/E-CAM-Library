@@ -14,7 +14,7 @@ Introduction
 
 .. sidebar:: General Information
 
-    .. contents:: :local:
+    .. contents:: :depth: 2
 
     * :ref:`search`
 
