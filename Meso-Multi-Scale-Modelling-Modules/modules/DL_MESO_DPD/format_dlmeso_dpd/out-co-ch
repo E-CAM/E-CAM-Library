@@ -1,0 +1,66 @@
+ # nspe, nmoldef, nusyst, nsyst, nbeads, nbonds
+           3           2           1           5           5           2
+ # dimx, dimy, dimz, volm
+     3.000        3.000        3.000       27.000
+ # keytrj, srfx, srfy, srfz
+           0           0           0           0
+ # SPECIES:
+ # namspe, amass, rcii, lfrzn
+ A               1.000        1.000    0
+ B               1.000        1.000    0
+ C               1.000        1.000    0
+ # MOLECULES:
+ # nammol
+ AB      
+ AC      
+ # Simulation name:
+ Simple test                                                                     
+ # BEADS:
+ # global, species, molecule, chain
+           1           1           0           0
+           2           1           1           1
+           3           2           1           1
+           4           1           2           2
+           5           3           2           2
+ # BONDS:
+ # extremes of the bond
+           2           3
+           4           5
+ # Build and check ltp, ltm, mole
+           1           1           0           0
+           2           1           1           1
+           3           2           1           1
+           4           1           2           2
+           5           3           2           2
+ # Check of molecules: nammol, ndbmol, nmol
+ AB                 2           1
+ AC                 2           1
+ # Total number of molecules =            2
+ # --- TRAJECTORIES --- (key =           0 )
+ # mglobal, x, y, z
+ # time, mbeads, dimx, dimy, dimz, shrdx, shrdy, shrdz
+     0.000        5.000        3.000        3.000        3.000        0.000        0.000        0.000
+ # snapshot number:           1
+       1.0   1.471873E+00    1.525203E+00    1.507395E+00
+       2.0   1.364570E+00    2.228593E+00    2.475293E+00
+       3.0   1.300679E+00    2.256132E+00    2.340013E+00
+       4.0   2.306000E+00    2.535871E+00    2.718987E-01
+       5.0   2.292338E+00    2.576789E+00    2.972781E-01
+ # time, mbeads, dimx, dimy, dimz, shrdx, shrdy, shrdz
+     0.020        5.000        3.000        3.000        3.000        0.000        0.000        0.000
+ # snapshot number:           2
+       1.0   1.443747E+00    1.550407E+00    1.514791E+00
+       2.0   1.403396E+00    2.234155E+00    2.504685E+00
+       3.0   1.294301E+00    2.264003E+00    2.309210E+00
+       4.0   2.296760E+00    2.511000E+00    2.881257E-01
+       5.0   2.297256E+00    2.563023E+00    2.750665E-01
+ # time, mbeads, dimx, dimy, dimz, shrdx, shrdy, shrdz
+     0.040        5.000        3.000        3.000        3.000        0.000        0.000        0.000
+ # snapshot number:           3
+       1.0   1.415620E+00    1.575610E+00    1.522186E+00
+       2.0   1.444185E+00    2.239136E+00    2.537687E+00
+       3.0   1.285960E+00    2.272457E+00    2.274797E+00
+       4.0   2.287877E+00    2.466031E+00    3.080055E-01
+       5.0   2.301818E+00    2.569355E+00    2.492021E-01
+ # time, mbeads, dimx, dimy, dimz, shrdx, shrdy, shrdz
+     0.040        5.000        3.000        3.000        3.000        0.000        0.000        0.000

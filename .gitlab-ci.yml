@@ -1,0 +1,12 @@
+image: plaindocs/docker-sphinx
+
+pages:
+  script:
+  - sudo apt-get -y install dvipng
+  - make html
+  - mv _build/html/ public/
+  artifacts:
+    paths:
+    - public
+  only:
+  - master

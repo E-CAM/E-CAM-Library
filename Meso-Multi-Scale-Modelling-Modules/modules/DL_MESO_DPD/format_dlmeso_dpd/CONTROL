@@ -1,0 +1,23 @@
+Simple test
+
+volume 3.0  3.0  3.0
+temperature 1.0
+cutoff 1.0
+
+timestep 0.01
+steps 6
+equilibration steps 2
+traj  2  2  0
+stats every 2
+stack size 2
+print every 2
+job time 100.0
+close time 10.0
+
+#surface shear y
+#surface frozen  x
+#surface hard  x
+
+ensemble nvt mdvv
+
+finish

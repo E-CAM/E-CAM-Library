@@ -1,0 +1,37 @@
+Two kinds of molecules: branched and dimer
+
+SPECIES 4
+A    1.0   0.2   0   0
+B    1.0  -1.0   0   0
+C    1.0   0.6   0   0
+D    1.0   1.0   0   0
+
+MOLECULES 2
+BRANCH
+nummols 10
+beads 4
+B   0.0  0.0  0.0
+A   0.0  0.2  0.0
+C   0.0  0.4  0.0
+A   0.2  0.2  0.0
+bonds 3
+harm 1 2 5.0 0.25
+harm 2 3 5.0 0.25
+harm 2 4 5.0 0.25
+finish
+BD
+nummols 10
+beads 2
+B   0.0  0.0  0.3
+D   0.0  0.0  0.1 
+bonds 1
+harm 1 2 5.0 0.25
+finish
+
+INTERACTIONS 4
+A    A    dpd 25.0 1.0 4.5
+B    B    dpd 25.0 1.0 4.5
+C    C    dpd 25.0 1.0 4.5
+D    D    dpd 25.0 1.0 4.5
+
+CLOSE

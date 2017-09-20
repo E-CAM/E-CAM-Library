@@ -1,0 +1,23 @@
+DL_MESO charged harmonic dimers with dpd repulsion
+
+SPECIES 2
+solp  1.0   0.46  0
+solm  1.0  -0.46  0
+
+MOLECULES 1
+DIMER
+nummols 96
+beads 2
+solp  0.0 0.0 0.0
+solm  0.1 0.0 0.0
+bonds 1
+harm 1 2 5.0 0.0
+
+finish
+
+INTERACTIONS 3
+solp  solp  dpd 25.0 1.0 4.5
+solm  solm  dpd 25.0 1.0 4.5
+solp  solm  dpd 25.0 1.0 4.5
+
+CLOSE
