@@ -18,7 +18,6 @@ In  both cases you will simply be adding a simple text file that uses ReST_ and 
 you get started:
 
 * :ref:`example`
-* :ref:`pilot`
 
 You will find these examples within the repository of this documentation under the directory *modules*. You should make
 a copy of the appropriate directory (renaming it).
