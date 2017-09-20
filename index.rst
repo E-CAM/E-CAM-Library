@@ -13,16 +13,16 @@ The E-CAM Module Library
 Introduction
 ************
 
-.. sidebar:: Quicklinks
-
-    .. contents:: :local:
-
-    **Scientific Areas**
+.. sidebar:: Scientific Areas
 
     * :ref:`readme_classical_md`
     * :ref:`readme_electronic_structure`
     * :ref:`readme_quantum_dynamics`
     * :ref:`readme_meso_multi`   
+
+    **Quicklinks**
+
+    .. contents:: :local:
 
     * :ref:`search`
 
