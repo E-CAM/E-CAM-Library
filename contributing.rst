@@ -33,7 +33,7 @@ If you do not have a (free) GitLab account yet on the E-CAM GitLab service, you'
 Fork the repository
 -------------------
 
-First, you'll need to fork the repository on GitLab you want to work with. Go to https://gitlab.e-cam2020.eu/e-cam/Classical-MD-Modules , and click the grey 'Fork' button under the repository name.
+First, you'll need to fork the repository on GitLab you want to work with. Go to https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library , and click the grey 'Fork' button under the repository name.
 
 SSH public key @ GitLab
 -----------------------
@@ -49,14 +49,14 @@ Clone your fork of the repository to your favorite workstation.
 
 .. code-block:: bash
 
-    git clone ssh://git@gitlab.e-cam2020.eu:10022/<Your GitLab username>/Classical-MD-Modules.git
+    git clone ssh://git@gitlab.e-cam2020.eu:10022/<Your GitLab username>/E-CAM-Library.git
 
 Pull the master branch from the main repository:
 
 .. code-block:: bash
 
-    cd Classical-MD-Modules
-    git remote add upstream https://git@gitlab.e-cam2020.eu/e-cam/Classical-MD-Modules.git
+    cd E-CAM-Library
+    git remote add upstream https://git@gitlab.e-cam2020.eu/e-cam/E-CAM-Library.git
     git pull upstream master
 
 Keep your master branch up-to-date
@@ -138,7 +138,7 @@ Push your branch to *your* copy of the repository on GitLab
 
     git push origin <BRANCH_NAME>
 
-Issue a *Merge Request* for your branch into the main repository. To do this go to https://gitlab.e-cam2020.eu/Your_GitLab_Username/Classical-MD-Modules/merge_requests and select the *New Merge Request* button.
+Issue a *Merge Request* for your branch into the main repository. To do this go to https://gitlab.e-cam2020.eu/Your_GitLab_Username/E-CAM-Library/merge_requests and select the *New Merge Request* button.
 
 Make sure the branch you just pushed is selected (not master!) issue a merge request for your branch to the master branch of the main repository.
 
