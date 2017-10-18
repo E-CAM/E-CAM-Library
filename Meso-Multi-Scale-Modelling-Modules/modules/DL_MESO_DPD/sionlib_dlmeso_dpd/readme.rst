@@ -31,7 +31,7 @@ This module proposes to use the SIONlib_ library to write/read the trajectory (H
 files in DL_MESO_DPD, the Dissipative Particle Dynamics (DPD) code from the
 DL_MESO_ package. In the last release (2.6, dating November 2015),
 the MPI version of DL_MESO_DPD generates *multiple* trajectory files, one for each
-process. The use of SIONlib_ allows to minally modify the writing so that just *one*
+process. The use of SIONlib_ allows to minimally modify the writing so that just *one*
 physical file is produced.
 
 An analogous modification has to be implemented in the post-processing
