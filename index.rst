@@ -64,7 +64,7 @@ E-CAM Activities
 ================
 
 The software stored in E-CAM_ repositories is developed via two main activities: the work of post-docs in the context of
-pilot projects with industrial partners; and the work of the participants at Extended Software Development Workshops
+*pilot projects* with industrial partners; and the work of the participants at *Extended Software Development Workshops*
 (ESDWs).
 
 Pilot Projects
@@ -101,8 +101,8 @@ Below is a list of the current pilot projects within E-CAM_:
   * `The GC-AdResS scheme <https://www.e-cam2020.eu/pilot-project-gc-adress/>`_
 
 
-Extended Software Development Workshops (ESDWs)
------------------------------------------------
+Extended Software Development Workshops
+---------------------------------------
 
 E-CAM_ carries out 2 week software development workshops. These workshops train scientists in the development of modular
 codes for high performance machines. Documentation and testing are key components of the workshops and the associated
