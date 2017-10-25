@@ -51,10 +51,9 @@ _______
 
 Source Code
 ___________
-..
-   .. literalinclude:: ./gen_dipoleaf.f90
-      :language: fortran
-      :linenos:
+.. literalinclude:: ./check_config.f90
+   :language: fortran
+   :linenos:
 
 .. Here are the URL references used
 .. _DL_MESO: http://www.ccp5.ac.uk/DL_MESO
