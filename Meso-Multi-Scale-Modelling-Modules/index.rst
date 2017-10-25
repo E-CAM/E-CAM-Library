@@ -5,9 +5,9 @@
 
 .. _readme_meso_multi:
 
-**********************************************
-The E-CAM Meso- and Multi-scale Module Library
-**********************************************
+*****************************
+Meso- and Multi-scale Modules
+*****************************
 
 Introduction
 ============

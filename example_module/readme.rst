@@ -33,6 +33,9 @@
   Relevant Training Material
     Add a link to any relevant training material. If there currently is none then say 'Not currently available.'
 
+  Software Module Developed by
+    Add the name of the person who developed the software for this module here
+
 
 ..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
     reference, in this case, as ":ref:`example`"). You *MUST* change the reference below from "example" to something

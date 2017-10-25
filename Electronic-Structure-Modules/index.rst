@@ -5,9 +5,9 @@
 
 .. _readme_electronic_structure:
 
-*********************************************
-The E-CAM Electronic Structure Module Library
-*********************************************
+****************************
+Electronic Structure Modules
+****************************
 
 Introduction
 ============

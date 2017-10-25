@@ -22,8 +22,8 @@ The E-CAM Module Library
 
     * :ref:`search`
 
-This is a collection of the modules that have been created by E-CAM community 
-within the four initial target areas of E-CAM:
+This is a collection of the modules that have been created by E-CAM_ (http://www.e-cam2020.eu) community
+within the four initial target areas of E-CAM_:
 
 .. toctree::
     :maxdepth: 1
@@ -35,45 +35,59 @@ within the four initial target areas of E-CAM:
  
 
 This documentation is created using ReStructured Text and the git repository for the documentation source files can be
-found at https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are open to contributions from anyone in the E-CAM
+found at https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are open to contributions from anyone in the E-CAM_
 community.
 
 What is a module?
 =================
 
-In the context of E-CAM, the definition of a software module is any piece of software that could be of use to the E-CAM
-community and that encapsulates some additional functionality, enhanced performance or improved usability for people
-performing computational simulations in the domain areas of interest to us.
+In the context of E-CAM_, the definition of a software module is any piece of software that could be of use to the
+E-CAM_ community and that encapsulates some additional functionality, enhanced performance or improved usability for
+people performing computational simulations in the domain areas of interest to us.
 
 This definition is deliberately broader than the traditional concept of a module as defined in the semantics of most
 high-level programming languages and is intended to capture inter alia workflow scripts, analysis tools and test suites
-as well as traditional subroutines and functions. Because such E-CAM modules will form a heterogeneous collection we
-prefer to refer to this as an E-CAM software repository rather than a library (since the word library carries a
+as well as traditional subroutines and functions. Because such E-CAM_ modules will form a heterogeneous collection we
+prefer to refer to this as an E-CAM_ software repository rather than a library (since the word library carries a
 particular meaning in the programming world). The modules do however share with the traditional computer science
 definition the concept of hiding the internal workings of a module behind simple and well-defined interfaces. It is
 probable that in many cases the modules will result from the abstraction and refactoring of useful ideas from existing
 codes rather than being written entirely de novo.
 
-Perhaps more important than exactly what a module is, is how it is written and used. A final E-CAM module adheres to
+Perhaps more important than exactly what a module is, is how it is written and used. A final E-CAM_ module adheres to
 current best-practice programming style conventions, is well documented and comes with either regression or unit tests
-(and any necessary associated data). E-CAM modules should be written in such a way that they can potentially take
-advantage of anticipated hardware developments in the near future (and this is one of the training objectives of E-CAM).
+(and any necessary associated data). E-CAM_ modules should be written in such a way that they can potentially take
+advantage of anticipated hardware developments in the near future (and this is one of the training objectives of
+E-CAM_).
 
 E-CAM Activities
 ================
 
+The software stored in E-CAM_ repositories is developed via two main activities: the work of post-docs in the context of
+pilot projects with industrial partners; and the work of the participants at Extended Software Development Workshops
+(ESDWs).
+
 Pilot Projects
 --------------
 
-One of primary activity of E-CAM is to engage with pilot projects with industrial partners. These projects are conceived
+One of primary activity of E-CAM_ is to engage with pilot projects with industrial partners. These projects are conceived
 together with the partner and typically are to facilitate or improve the scope of computational simulation within the
 partner. The related code development for the pilot projects are open source (where the licence of the underlying
 software allows this) and are described in the modules associated with the pilot projects.
 
-Extended Software Development Workshops
----------------------------------------
+Below is a list of the current pilot projects within E-CAM_:
 
-E-CAM carries out 2 week software development workshops.
+*  _`Pilot project 2 (link to website)`
+*  _`Pilot project 2 (link to website)`
+
+Extended Software Development Workshops (ESDWs)
+-----------------------------------------------
+
+E-CAM_ carries out 2 week software development workshops. These workshops train scientists in the development of modular
+codes for high performance machines. Documentation and testing are key components of the workshops and the associated
+on-line manuals and test cases are made available through the E-CAM_ module library. ESDWs are open to postdocs, senior
+graduate students and early career researchers in industry and academia. E-CAM_ carries out 4 ESDWs per year on each of
+the four scientific areas, with a maximum 2 weeks duration. For more information see http://www.e-cam2020.eu/events/
 
 Contributing to this documentation
 ==================================

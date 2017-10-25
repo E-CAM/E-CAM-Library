@@ -5,9 +5,9 @@
 
 .. _readme_classical_md:
 
-*************************************
-The E-CAM Classical MD Module Library
-*************************************
+********************
+Classical MD Modules
+********************
 
 Introduction
 ============

@@ -5,9 +5,9 @@
 
 .. _readme_quantum_dynamics:
 
-*****************************************
-The E-CAM Quantum Dynamics Module Library
-*****************************************
+************************
+Quantum Dynamics Modules
+************************
 
 Introduction
 ============
