@@ -86,7 +86,7 @@ Below is a list of the current pilot projects within E-CAM_:
 
   * `Calculations for Applications in Photovoltaic Devices <https://www.e-cam2020.eu/pilot-project-merck/>`_
   * `Quantum Mechanical Parameterisation of Metal Ions in Proteins <https://www.e-cam2020.eu/pilot-project-biki-2/>`_
-  * `Wannier90 <>`_
+  * Wannier90
 
 
 * :ref:`readme_quantum_dynamics`
