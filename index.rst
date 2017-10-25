@@ -77,8 +77,29 @@ software allows this) and are described in the modules associated with the pilot
 
 Below is a list of the current pilot projects within E-CAM_:
 
-*  _`Pilot project 2 (link to website)`
-*  _`Pilot project 2 (link to website)`
+* :ref:`readme_classical_md`
+
+  * `Binding kinetics <https://www.e-cam2020.eu/pilot-project-biki/>`_
+  * `Food Proteins <https://www.e-cam2020.eu/pilot-project-food-proteins/>`_
+
+* :ref:`readme_electronic_structure`
+
+  * `Calculations for Applications in Photovoltaic Devices <https://www.e-cam2020.eu/pilot-project-merck/>`_
+  * `Quantum Mechanical Parameterisation of Metal Ions in Proteins <https://www.e-cam2020.eu/pilot-project-biki-2/>`_
+  * `Wannier90 <>`_
+
+
+* :ref:`readme_quantum_dynamics`
+
+  * `Quantum Computing <https://www.e-cam2020.eu/pilot-project-ibm/>`_
+
+
+* :ref:`readme_meso_multi`
+
+  * `Polarizable Mesoscale Models <https://www.e-cam2020.eu/pilot-project-unilever/>`_
+  * `Rheological Properties of New Composite Materials <https://www.e-cam2020.eu/pilot-project-michelin/>`_
+  * `The GC-AdResS scheme <https://www.e-cam2020.eu/pilot-project-gc-adress/>`_
+
 
 Extended Software Development Workshops (ESDWs)
 -----------------------------------------------
