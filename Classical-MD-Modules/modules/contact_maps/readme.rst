@@ -1,4 +1,4 @@
-.. _example:
+.. _contact-maps:
 
 ###########
 Contact Map
@@ -7,7 +7,7 @@ Contact Map
 .. sidebar:: Software Technical Information
 
   Language
-    Python
+    Python (2.7, 3.4, 3.5, 3.6)
 
   Licence
     LGPL 2.1 or later
@@ -19,7 +19,7 @@ Contact Map
     http://contact-map.readthedocs.io/
 
   Relevant Training Material
-    Add a link to any relevant training material.
+    http://contact-map.readthedocs.io/en/latest/examples.html
 
 .. contents:: :local:
 
