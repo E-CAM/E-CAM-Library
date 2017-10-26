@@ -59,10 +59,8 @@ This module is a modification of the already existing class `espressopp.integrat
 
 2. A variable relaxation of the energy per step :math:`\gamma` is implemented.
    In this case, the position of particles is updated following the equation:
-
    .. math::
-      p_{i+1} = p_i + (d_{max}/f_{max}) F_i
-
+   p_{i+1} = p_i + (d_{max}/f_{max}) F_i
    where :math:`d_{max}` is the maximum update of particle coordinates
    in a single steepest-descent step and :math:`\gamma`
    is adjusted via :math:`\gamma=d_{max}/f_{max}` where :math:`f_{max}` is
