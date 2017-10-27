@@ -113,12 +113,13 @@ version of code, and may not be identical to what was included in the
 module. The original examples are included in the source code, below.
 
 * Options for ``PathHistogram`` 
-  [`GitHub <https://github.com/openpathsampling/openpathsampling/blob/master/examples/misc/tutorial_path_histogram.ipynb>`_ 
-  | `Docs <http://openpathsampling.org/latest/examples/miscellaneous/tutorial_path_histogram.html>`_]
+  [`PathHistogram on GitHub <https://github.com/openpathsampling/openpathsampling/blob/master/examples/misc/tutorial_path_histogram.ipynb>`_ 
+  | `PathHistogram Docs <http://openpathsampling.org/latest/examples/miscellaneous/tutorial_path_histogram.html>`_]
 * Use of ``PathDensityHistogram`` within analysis of alanine dipeptide TPS:
-  [`Github
+  [`PathDensityHistogram on Github
   <https://github.com/openpathsampling/openpathsampling/blob/master/examples/alanine_dipeptide_tps/AD_tps_3a_analysis_flex.ipynb>`_
-  | `Docs <http://openpathsampling.org/latest/examples/AD_tps.html>`_]
+  | `PathDensityHistogram Docs <http://openpathsampling.org/latest/examples/AD_tps.html>`_]
+
 
 Source Code
 ___________

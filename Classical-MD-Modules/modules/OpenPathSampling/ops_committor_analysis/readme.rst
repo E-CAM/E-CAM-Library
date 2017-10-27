@@ -109,12 +109,12 @@ the command ``nosetests`` from the root directory of the repository.
 Examples
 ________
 
-* OPS docs committor example [`GitHub
-  <https://github.com/openpathsampling/openpathsampling/blob/master/examples/misc/committors.ipynb>`_ | `Docs
-  <http://openpathsampling.org/latest/examples/miscellaneous/committors.html>`_]
-* Alanine dipeptide committor example [`GitHub
+* OPS docs committor example [`Committor GitHub
+  <https://github.com/openpathsampling/openpathsampling/blob/master/examples/misc/committors.ipynb>`_ | `Committor
+  Docs  <http://openpathsampling.org/latest/examples/miscellaneous/committors.html>`_]
+* Alanine dipeptide committor example [`Alanine dipeptide committor GitHub
   <https://github.com/openpathsampling/openpathsampling/tree/master/examples/misc/alanine_dipeptide_committor>`_ 
-  | `Docs
+  | `Alanine dipeptide committor Docs
   <http://openpathsampling.org/latest/examples/miscellaneous/committors_alanine_dipeptide.html>`_]
 
 Source Code
