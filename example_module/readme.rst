@@ -199,8 +199,16 @@ syntax required to get this):
 ..  Below I am telling Sphinx that the included file is C code, if possible it will then do syntax highlighting. I can
     even emphasise partiuclar lines (here 2 and 9-11)
 
+.. .. literalinclude:: ./simple.patch
+      :language: c
+      :emphasize-lines: 2,9-11
+      :linenos:
+
+
+..  I can't highlight the langauge syntax of a patch though so I have to exclude
+    :language: c
+
 .. literalinclude:: ./simple.patch
-   :language: c
    :emphasize-lines: 2,9-11
    :linenos:
 
