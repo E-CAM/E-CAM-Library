@@ -45,6 +45,19 @@ easily run very long trajectories to get very accurate results, and would
 rather re-run than save the full trajectory.
 A separate module calculates the rate and flux from an existing trajectory.
 
+Calculating the flux out of a state and through an innermost interface is
+one of the steps required in transition interface sampling (TIS). This
+module enables that. Although there are other ways to calculate the flux 
+(for example, replica exchange TIS can calculate the flux as a byproduct of
+the "minus move"), frequently a direct calculation gives the best
+statistics. In addition, an approximate flux should be calculated before
+running the simulation in order to ensure that the state and innermost
+interface definitions have been chosen well.
+
+In principle, this module also makes it possible to calculate rates directly
+by running long molecular dynamics simulations. That won't be useful for
+very rare events, but it can be useful for validation.
+
 The primary object implemented in this module is the ``DirectSimulation``
 subclass of ``PathSimulator``, which performs on-the-fly analysis of flux
 and rate.

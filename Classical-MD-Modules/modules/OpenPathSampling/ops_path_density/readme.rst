@@ -52,6 +52,10 @@ energy in several important respects:
   over. This is because it is assumed that the input must actually be
   continuous.
 
+These differences can prevent metastable regions from overwhelming the
+transition regions in the plot. When looking at mechanisms, the path density
+is a more useful tool than the raw configurational probability.
+
 The implementation in this module includes:
 
 * A ``SparseHistogram`` class for histogramming in arbitrary dimensions
@@ -109,12 +113,12 @@ version of code, and may not be identical to what was included in the
 module. The original examples are included in the source code, below.
 
 * Options for ``PathHistogram`` 
-  [`PathHistogram on GitHub <https://github.com/openpathsampling/openpathsampling/blob/master/examples/misc/tutorial_path_histogram.ipynb>`_ 
-  | `PathHistogram Docs <http://openpathsampling.org/latest/examples/miscellaneous/tutorial_path_histogram.html>`_]
+  [`GitHub <https://github.com/openpathsampling/openpathsampling/blob/master/examples/misc/tutorial_path_histogram.ipynb>`_ 
+  | `Docs <http://openpathsampling.org/latest/examples/miscellaneous/tutorial_path_histogram.html>`_]
 * Use of ``PathDensityHistogram`` within analysis of alanine dipeptide TPS:
-  [`PathDensityHistogram on Github
+  [`Github
   <https://github.com/openpathsampling/openpathsampling/blob/master/examples/alanine_dipeptide_tps/AD_tps_3a_analysis_flex.ipynb>`_
-  | `PathDensityHistogram Docs <http://openpathsampling.org/latest/examples/AD_tps.html>`_]
+  | `Docs <http://openpathsampling.org/latest/examples/AD_tps.html>`_]
 
 Source Code
 ___________
