@@ -1,10 +1,8 @@
-image: plaindocs/docker-sphinx
+image: umbrellium/sphinx-doc
 
 pages:
   script:
   - sudo apt-get -y install dvipng
-  - sudo apt-get -y install python-pip
-  - sudo pip install --upgrade sphinx
   - make html
   - mv _build/html/ public/
   artifacts:
