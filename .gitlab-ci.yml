@@ -2,7 +2,7 @@ image: umbrellium/sphinx-doc
 
 pages:
   script:
-  - sudo apt-get -y install dvipng
+  - apt-get -y install dvipng
   - make html
   - mv _build/html/ public/
   artifacts:
