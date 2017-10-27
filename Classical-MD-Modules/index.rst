@@ -170,8 +170,8 @@ separate projects. The modules that were incorporated into the core are:
     ./modules/OpenPathSampling/ops_two_way_shooting/readme
     ./modules/OpenPathSampling/ops_committor_analysis/readme
     ./modules/OpenPathSampling/ops_channel_analysis/readme
-    ./modules/OpenPathSampling/ops_new_tis_analysis/readme.rst
-    ./modules/OpenPathSampling/ops_resampling_statistics/readme.rst
+    ./modules/OpenPathSampling/ops_new_tis_analysis/readme
+    ./modules/OpenPathSampling/ops_resampling_statistics/readme
 
 The modules that are based on OPS, but remain separate, are:
 
@@ -210,7 +210,7 @@ The following modules have been produced:
     ./modules/OpenPathSampling/ops_tse/readme
     ./modules/OpenPathSampling/ops_reactive_flux/readme
     ./modules/OpenPathSampling/ops_maxlikelihood/readme
-    ./modules/OpenPathSampling/ops_interface_optimization/readme.rst
+    ./modules/OpenPathSampling/ops_interface_optimization/readme
 
 The second ESDW for the Classical MD workpackage was held in Leiden, Holland, in 
 August 2017. The following modules have been produced:
