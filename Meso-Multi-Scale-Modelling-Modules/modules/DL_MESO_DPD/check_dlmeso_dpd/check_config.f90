@@ -115,37 +115,45 @@ PROGRAM check_config
   
   CALL read_control 
 
+  IF (lvol .AND. (ABS(nfold-1)>1.e-10_dp)) THEN
+     WRITE (*,*) "error (warning?): incompatible choices in CONTROL files (vol and nfold /=1)"
+     STOP
+  END IF
+     
   IF (lvol) voltype = voltype + 1  
 
   CALL scan_config
 
   IF (imcon>0) voltype = voltype + 2      
-
+  
   SELECT CASE (voltype)
   CASE (0)
      WRITE (*,*) "error: system volume not defined in input files"
      STOP
   CASE (1)
+     dimx = dimxcell 
+     dimy = dimycell 
+     dimz = dimzcell 
      volm = dimx * dimy * dimz
   CASE (2) 
-     volm = dimxcell * dimycell * dimzcell * nfold
+     dimx = dimxcell * nfoldx
+     dimy = dimycell * nfoldy
+     dimz = dimzcell * nfoldz    
+     volm = dimx * dimy * dimz
   CASE (3)
-     IF (ABS(dimx - (dimxcell * nfoldx)) > 1.e-10_dp  .OR. &
-          ABS(dimy - (dimycell * nfoldy)) > 1.e-10_dp  .OR. &
-          ABS(dimz - (dimzcell * nfoldz)) > 1.e-10_dp) THEN
-        WRITE (*,*) "error: system sizes from CONTROL and CONFIG do not match - they are"
-        WRITE (*,*) "system =", dimx, dimy, dimz 
-        WRITE (*,*) "replicated unit cell=", dimxcell*nfoldx, dimycell*nfoldy, dimzcell*nfoldz 
-        STOP
-     ELSE
-        WRITE (*,*) "volumes match: OK"
-     END IF
-     volm = dimx * dimy * dimz     
+     WRITE (*,*) "error: volume defined in both CONFIG and CONTROL files"
+     STOP
   END SELECT
 
   IF (volm < 1.e-10_dp) THEN
      WRITE (*,*) "error: system volume is zero"
      STOP
+  ELSE
+!     IF (ABS(nfold-1)>1.e-10_dp) THEN
+        WRITE (*,*) "unit cell sizes: ", dimxcell, dimycell, dimzcell      
+        WRITE (*,*) "nfoldx, nfoldy, nfoldz =", nfoldx, nfoldy, nfoldz
+!     END IF
+     WRITE (*,*) "system sizes: ", dimx, dimy, dimz 
   ENDIF
   
   WRITE (*,*) "imcon =", imcon !may be removed...
@@ -276,7 +284,7 @@ CONTAINS
 !     input: CONTROL
 !     output: may alter from default the values of these global variables
 !     lnfold, nfold, nfoldx, nfoldy, nfoldz
-!     lvol, dimx, dimy, dimz
+!     lvol, dimxcell, dimycell, dimzcell
 !     ligindex    
 !***********************************************************************    
 !  USE parse_utils
@@ -370,21 +378,20 @@ CONTAINS
           
        ELSE IF (key1 (1:3) =="vol") THEN
           lvol = .true.
-          dimx = getdble (record, 2)!     dimxcell = getdble (record, 2)
-          dimy = getdble (record, 3)      !     dimycell = getdble (record, 3)
-          dimz = getdble (record, 4)      !     dimzcell = getdble (record, 4)
-          volume = dimx * dimy * dimz  
+          dimxcell = getdble (record, 2)  ! dimx = getdble (record, 2)
+          dimycell = getdble (record, 3)  ! dimy = getdble (record, 3)           
+          dimzcell = getdble (record, 4)  ! dimz = getdble (record, 4)      
+          volume = dimxcell * dimycell * dimzcell  
           IF (volume <1.0e-10_dp) THEN
-             cubeside = dimx ** (1.0_dp/3.0_dp) !dimxcell ** (1.0_dp/3.0_dp)
-             dimx = cubeside  !       dimxcell = cubeside
-             dimy = cubeside  !       dimycell = cubeside
-             dimz = cubeside  !       dimzcell = cubeside            
+             cubeside = dimxcell ** (1.0_dp/3.0_dp) !dimx ** (1.0_dp/3.0_dp) !
+             dimxcell = cubeside ! dimx = cubeside  !       
+             dimycell = cubeside ! dimy = cubeside  !       
+             dimzcell = cubeside !dimz = cubeside  !       
           END IF
           !     lnfold = .false. !Why??? I remove this
           !     nfoldx = 1
           !     nfoldy = 1
           !     nfoldz = 1
-          
        END IF
        
     END DO
