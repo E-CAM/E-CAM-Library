@@ -58,7 +58,12 @@ PROGRAM check_config
 ! switch to determine whether to ignore global bead numbers in CONFIG file
   LOGICAL :: ligindex
 ! switch for bonds
-  LOGICAL :: lbond
+  LOGICAL :: lbond 
+! switch for coordinate system in CONFIG file
+  LOGICAL :: lconfzero
+! positions
+  REAL(KIND=dp), ALLOCATABLE, TARGET :: xxyyzz (:,:)
+  REAL(KIND=dp), POINTER :: xxx (:), yyy (:), zzz (:)
 ! global number, particle type, molecule type
   INTEGER, ALLOCATABLE, SAVE :: lab (:), ltp (:), ltm (:)
 ! varibales needed for the checks
@@ -110,12 +115,13 @@ PROGRAM check_config
   voltype = 0
 
   ligindex = .false.
-  
+  lconfzero = .false.
+    
 ! scan and read all the input files
   
   CALL read_control 
 
-  IF (lvol .AND. (ABS(nfold-1)>1.e-10_dp)) THEN
+  IF (lvol .AND. (nfold>1)) THEN
      WRITE (*,*) "error (warning?): incompatible choices in CONTROL files (vol and nfold /=1)"
      STOP
   END IF
@@ -149,7 +155,7 @@ PROGRAM check_config
      WRITE (*,*) "error: system volume is zero"
      STOP
   ELSE
-!     IF (ABS(nfold-1)>1.e-10_dp) THEN
+!     IF (nfold >1) THEN
         WRITE (*,*) "unit cell sizes: ", dimxcell, dimycell, dimzcell      
         WRITE (*,*) "nfoldx, nfoldy, nfoldz =", nfoldx, nfoldy, nfoldz
 !     END IF
@@ -158,6 +164,7 @@ PROGRAM check_config
   
   WRITE (*,*) "imcon =", imcon !may be removed...
   WRITE (*,*) "levcfg =", levcfg !may be removed...
+  WRITE (*,*) "lconfzero =", lconfzero ! may be removed...
   
   CALL scan_field
 
@@ -182,8 +189,14 @@ PROGRAM check_config
   maxdim => nsyst
 
   CALL define_molstart
-  
+
+  ALLOCATE (xxyyzz (4, maxdim))!, STAT=fail(1))  ! I have used 4 instead of csize
   ALLOCATE (lab (maxdim), ltp (maxdim), ltm (maxdim))
+
+! assign pointers                                                                                                                                                          
+  xxx => xxyyzz (1,:)
+  yyy => xxyyzz (2,:)
+  zzz => xxyyzz (3,:)
 
   CALL read_config
 
@@ -257,6 +270,7 @@ PROGRAM check_config
   
   fail = 0
 
+  DEALLOCATE (xxyyzz, STAT=fail(2))
   DEALLOCATE (namspe, nspec, nspecmol, lfrzn, nammol, STAT=fail(4))
   DEALLOCATE (mlstrtspe, nmol, nbdmol, STAT=fail(5))
   DEALLOCATE (lab, ltp, ltm, STAT=fail(10))
@@ -285,13 +299,13 @@ CONTAINS
 !     output: may alter from default the values of these global variables
 !     lnfold, nfold, nfoldx, nfoldy, nfoldz
 !     lvol, dimxcell, dimycell, dimzcell
-!     ligindex    
+!     ligindex, lconfzero    
 !***********************************************************************    
 !  USE parse_utils
 
     IMPLICIT none
   
-    CHARACTER(LEN=mxword) :: key1, key2!, word1, word2, word3, word4
+    CHARACTER(LEN=mxword) :: key1, key2, word1!, word2, word3, word4
     CHARACTER(LEN=200) :: record
     INTEGER :: ioerror
     LOGICAL :: safe  
@@ -323,8 +337,14 @@ CONTAINS
        CALL lowercase (key2)
        
        IF (key1 (1:6) =="finish") EXIT
-       
-       IF (key1 (1:5) =="nfold") THEN
+
+       IF (key1 (1:4) =="conf") THEN
+
+          word1 = getword (record, 3)
+          CALL lowercase (word1)
+          IF (key2 (1:4)=="zero" .OR. word1 (1:4)=="zero") lconfzero = .true.
+          
+       ELSE IF (key1 (1:5) =="nfold") THEN
           
           lnfold = .true.
           nfoldx = INT (getint (record, 2), KIND=si)
@@ -844,6 +864,7 @@ SUBROUTINE scan_config
       IMPLICIT none
 
       ! REAL(KIND=dp) :: x, y, z, xf, yf, zf, xs, ys, zs, vx, vy, vz, fx, fy, fz, halfx, halfy, halfz
+      REAL(KIND=dp) :: x, y, z, xf, yf, zf, xs, ys, zs, halfx, halfy, halfz
       ! REAL(KIND=dp) :: disx, disy, disz, xdispl, ydispl, zdispl, shfx, shfy, shfz
       !INTEGER :: ioerror, species, gb, global, numpart, i, imol, imoltyp, inod, j, k
       INTEGER :: ioerror, species, gb, global, numpart, i, imol, imoltyp!, inod, j, k
@@ -856,7 +877,7 @@ SUBROUTINE scan_config
       CHARACTER(LEN=8) :: specname
       LOGICAL :: safe, numsafe, linside, molbead (nsyst-nusyst)
       
-      ! REAL(KIND=dp), ALLOCATABLE :: mlxxx (:), mlyyy (:), mlzzz (:), mlvelx (:), mlvely (:), mlvelz (:)
+      REAL(KIND=dp), ALLOCATABLE :: mlxxx (:), mlyyy (:), mlzzz (:)!, mlvelx (:), mlvely (:), mlvelz (:)
       ! REAL(KIND=dp), ALLOCATABLE :: mlfrcx (:), mlfrcy (:), mlfrcz (:)
       INTEGER, ALLOCATABLE :: mlspe (:)
 
@@ -873,7 +894,7 @@ SUBROUTINE scan_config
 !     allocate arrays for bonded particle positions, species, velocity and force
 
       fail = 0
-!      ALLOCATE (mlxxx (nsystcell-nusystcell), mlyyy (nsystcell-nusystcell), mlzzz (nsystcell-nusystcell), STAT=fail(1))
+      ALLOCATE (mlxxx (nsystcell-nusystcell), mlyyy (nsystcell-nusystcell), mlzzz (nsystcell-nusystcell), STAT=fail(1))
       ALLOCATE (mlspe (nsystcell-nusystcell), STAT=fail(2))
 !      ALLOCATE (mlvelx (nsystcell-nusystcell), mlvely (nsystcell-nusystcell), mlvelz (nsystcell-nusystcell), STAT=fail(3))
 !      ALLOCATE (mlfrcx (nsystcell-nusystcell), mlfrcy (nsystcell-nusystcell), mlfrcz (nsystcell-nusystcell), STAT=fail(4))
@@ -881,6 +902,18 @@ SUBROUTINE scan_config
          WRITE (*,*) "error: allocation failure in subroutine read_config"
          STOP
       END IF
+
+!     determine adjustment for positions
+
+      IF (lconfzero) THEN
+        halfx = 0.0_dp
+        halfy = 0.0_dp
+        halfz = 0.0_dp
+      ELSE
+        halfx = 0.5_dp * dimxcell
+        halfy = 0.5_dp * dimycell
+        halfz = 0.5_dp * dimzcell
+     END IF
 
 !     open config channel
   
@@ -949,15 +982,32 @@ SUBROUTINE scan_config
         
         WRITE (*,*) global, species ! added by SC - for testing
                 
-!    skip position of particle (not needed for the check)
+!    read position of particle
 
-        READ (nread, '(a80)') record ! add a STAT to check?
-
+        READ (nread, '(a80)') record
+        x = getdble (record, 1) + halfx
+        y = getdble (record, 2) + halfy
+        z = getdble (record, 3) + halfz
+        
 !     if included, skip velocity and force of particle (not needed for the check)
 
         IF (levcfg>0) READ (nread, '(a80)') record
 
         IF (levcfg>1) READ (nread, '(a80)') record
+
+!     give a warning if any coordinate is out of the unit cell (added by SC)
+        IF (x>dimxcell .OR. x<0) &
+             WRITE (*,"('warning: x coord. for bead ',i10,2x, 'in CONFIG file out of unit cell (will be wrapped)')") global
+        IF (y>dimycell .OR. y<0) &
+             WRITE (*,"('warning: y coord. for bead ',i10,2x, 'in CONFIG file out of unit cell (will be wrapped)')") global
+        IF (z>dimzcell .OR. z<0) &
+             WRITE (*,"('warning: z coord. for bead ',i10,2x, 'in CONFIG file out of unit cell (will be wrapped)')") global
+        
+!     ensure particle is inside unit cell
+
+        x = x - dimxcell * FLOOR (x/dimxcell)
+        y = y - dimycell * FLOOR (y/dimycell)
+        z = z - dimzcell * FLOOR (z/dimzcell)        
         
 !     if particle is unbonded, add to each copy of unit cell (adjusting for frozen bead
 !     walls if used)
@@ -970,6 +1020,10 @@ SUBROUTINE scan_config
 
                 gb = global + (ifx + nfoldx * (ify + nfoldy * ifz)) * nusystcell + numwlbd
 
+                xf = x + REAL(ifx, KIND=dp) * dimxcell !+ frzwxwid ! commented for simplicity ONLY, to be added later!
+                yf = y + REAL(ify, KIND=dp) * dimycell !+ frzwywid
+                zf = z + REAL(ifz, KIND=dp) * dimzcell !+ frzwzwid
+                
                 linside = .true. ! temporary solution, to be removed later
                 
                 IF (linside) THEN
@@ -981,6 +1035,10 @@ SUBROUTINE scan_config
                     ltp (nbeads) = species
                     ltm (nbeads) = 0
 
+                    xxx (nbeads) = xf !- delx ! in this test, domain=system (delx=dely=delz=0). Keep and define?
+                    yyy (nbeads) = yf !- dely
+                    zzz (nbeads) = zf !- delz
+
                     IF (lfrzn (species)>0) nfbeads = nfbeads + 1
                   END IF
                 END IF
@@ -988,11 +1046,13 @@ SUBROUTINE scan_config
               END DO
             END DO
           END DO
-
-        ELSE IF (lbond .AND. global<=nsystcell) THEN
-
+          
+       ELSE IF (global<=nsystcell) THEN !        ELSE IF (lbond .AND. global<=nsystcell) THEN ! corrected
+          
 !     if particle is bonded, add species to arrays so these can be added later !needed to keep like this?
-
+          mlxxx (global-nusystcell) = x
+          mlyyy (global-nusystcell) = y
+          mlzzz (global-nusystcell) = z
           mlspe (global-nusystcell) = species
 
        END IF
@@ -1013,6 +1073,50 @@ SUBROUTINE scan_config
          END IF
       END IF
 
+!     rearrange bonded bead positions to give numbering across unit cell boundaries
+            
+      IF (lbond) THEN
+
+        imol = 0
+        ntop = 0
+
+        DO i = 1, nummolcell
+
+          DO WHILE (i>ntop)
+            imol = imol + 1
+            ntop = ntop + nmol (imol)
+          END DO
+
+          k = molstart (i) - nusystcell
+
+          xs = mlxxx (k+1)
+          ys = mlyyy (k+1)
+          zs = mlzzz (k+1)
+
+          finmol = nbdmol (imol)
+
+          DO j = 2, finmol
+
+            x = mlxxx (k+j) - xs
+            y = mlyyy (k+j) - ys
+            z = mlzzz (k+j) - zs
+
+            x = x - dimxcell * ANINT (x/dimxcell)
+            y = y - dimycell * ANINT (y/dimycell)
+            z = z - dimzcell * ANINT (z/dimzcell)
+
+            xs = xs + x
+            ys = ys + y
+            zs = zs + z
+
+            mlxxx (k+j) = xs
+            mlyyy (k+j) = ys
+            mlzzz (k+j) = zs
+
+          END DO
+           
+        END DO
+        
 !     add bonded particles to each copy of unit cell
 
         imol = 0
@@ -1029,6 +1133,9 @@ SUBROUTINE scan_config
             ntop = ntop + nmol (imoltyp)
           END DO
 
+          x = mlxxx (i-nusystcell)
+          y = mlyyy (i-nusystcell)
+          z = mlzzz (i-nusystcell)          
           species = mlspe (i-nusystcell)
 
           DO ifz = 0, nfoldz-1
@@ -1038,6 +1145,14 @@ SUBROUTINE scan_config
                 gb = nusyst + (i - molstart (imol)) + nfold * (molstart (imol) - nusystcell) + &
                     &(ifx + nfoldx * (ify + nfoldy * ifz)) * (molstart(imol+1) - molstart(imol))
 
+                xf = x + REAL(ifx, KIND=dp) * dimxcell !+ frzwxwid ! commented for simplicity ONLY, to be added later!
+                yf = y + REAL(ify, KIND=dp) * dimycell !+ frzwywid
+                zf = z + REAL(ifz, KIND=dp) * dimzcell !+ frzwzwid
+
+                xf = xf - dimx * FLOOR (xf/dimx)
+                yf = yf - dimy * FLOOR (yf/dimy)
+                zf = zf - dimz * FLOOR (zf/dimz)
+                
                 linside = .true. ! added to minimize the changes
                 
                 IF (linside) THEN
@@ -1048,7 +1163,9 @@ SUBROUTINE scan_config
                     lab (nbeads) = gb
                     ltp (nbeads) = species
                     ltm (nbeads) = imoltyp
-
+                    xxx (nbeads) = xf !- delx ! in this test, domain=system (delx=dely=delz=0). Keep and define?
+                    yyy (nbeads) = yf !- dely
+                    zzz (nbeads) = zf !- delz                   
                     molbead (gb-nusyst) = .true.
                     IF (lfrzn (species)>0) nfbeads = nfbeads + 1
                   END IF
@@ -1060,6 +1177,8 @@ SUBROUTINE scan_config
 
         END DO
 
+        END IF ! over "lbond"
+        
 !     check that the total number of beads is not larger than nsyst?      
 !      IF (.NOT. numsafe) then ...
         
@@ -1250,11 +1369,10 @@ SUBROUTINE scan_config
       CLOSE (nread)
 
       fail = 0
-!      DEALLOCATE (mlxxx, mlyyy, mlzzz, mlspe, STAT=fail(1))
+      DEALLOCATE (mlxxx, mlyyy, mlzzz, mlspe, STAT=fail(1))
 !      DEALLOCATE (mlvelx, mlvely, mlvelz, STAT=fail(2))
 !      DEALLOCATE (mlfrcx, mlfrcy, mlfrcz, STAT=fail(3))
 !      DEALLOCATE (molstart) !move from here to end of code?
-      DEALLOCATE (mlspe, STAT=fail(1))
       IF (ANY (fail/=0)) THEN
         WRITE (*,*) "error: deallocation failure in subruotine read_config"
         STOP
@@ -1269,10 +1387,13 @@ SUBROUTINE scan_config
         DO i = 1, nsyst 
            IF (lab (i) == j) THEN
               WRITE (*,*) lab (i), ltp (i), ltm (i)
+              WRITE (1,*) namspe (ltp (i)), lab (i) 
+              WRITE (1,'(3F16.10)') xxx (i), yyy (i), zzz (i)
               EXIT
            END IF
         END DO
      END DO
+
      ! end of added
      
       END SUBROUTINE read_config
