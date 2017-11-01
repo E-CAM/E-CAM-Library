@@ -22,7 +22,7 @@ PROGRAM check_config
   INTEGER :: nfold, nfoldx, nfoldy, nfoldz
   INTEGER :: levcfg, imcon
 !  REAL(dp) :: aux1!, aux2
-  INTEGER :: mxmolsize
+  INTEGER :: mxmolsize, mxbonds
 ! total system volume and dimensions
   REAL(KIND=dp) :: volm, dimx, dimy, dimz
 ! unit cell dimensions
@@ -40,6 +40,10 @@ PROGRAM check_config
   INTEGER :: nummol
 ! total number of molecules in unit cell
   INTEGER :: nummolcell
+! total number of bonds in system
+  INTEGER :: numbond
+! total number of bonds in unit cell
+  INTEGER :: numbondcell
 ! species names
   CHARACTER(LEN=8), ALLOCATABLE, SAVE :: namspe (:)
 ! frozen bead indicator
@@ -50,9 +54,13 @@ PROGRAM check_config
   INTEGER, ALLOCATABLE :: nmol (:), nbdmol (:)
 ! molecule names (0:mxmoldef)
   CHARACTER(LEN=8), ALLOCATABLE, SAVE :: nammol (:)
-! molecule insertion (only species) 
-  INTEGER, ALLOCATABLE, SAVE :: mlstrtspe (:,:)
+! molecule insertion (only species and bonds) 
+  INTEGER, ALLOCATABLE, SAVE :: mlstrtspe (:,:), nbond (:)
+  INTEGER, ALLOCATABLE, SAVE :: bdinp1 (:,:), bdinp2 (:,:)
   INTEGER, ALLOCATABLE, SAVE :: molstart (:)
+!     bond look-up tables
+  INTEGER, ALLOCATABLE, SAVE :: bndtbl (:,:)
+  INTEGER :: nbonds
 ! maximum value for numbers of beads
   INTEGER, POINTER :: maxdim  !remove later?
 ! switch to determine whether to ignore global bead numbers in CONFIG file
@@ -61,6 +69,8 @@ PROGRAM check_config
   LOGICAL :: lbond 
 ! switch for coordinate system in CONFIG file
   LOGICAL :: lconfzero
+! switch to determine whether to calculate bonds globally
+  LOGICAL :: lgbnd
 ! positions
   REAL(KIND=dp), ALLOCATABLE, TARGET :: xxyyzz (:,:)
   REAL(KIND=dp), POINTER :: xxx (:), yyy (:), zzz (:)
@@ -72,6 +82,7 @@ PROGRAM check_config
   INTEGER :: fail (13)
 
   lbond = .true. ! I keep it to minimize changes. remove later??? Ask user? Use FIELD?
+  lgbnd = .true. ! same
   
 ! check that the three files are all present  
 
@@ -171,6 +182,7 @@ PROGRAM check_config
   WRITE (*,*) "nspe = ", nspe
   WRITE (*,*) "nmoldef = ", nmoldef 
   WRITE (*,*) "mxmolsize = ", mxmolsize
+  WRITE (*,*) "mxbonds = ", mxbonds
 
   IF (nspe == 0) THEN
      WRITE (*,*) "error: no particle species defined in FIELD file"
@@ -181,10 +193,11 @@ PROGRAM check_config
 
   WRITE (*,*) "nspec = ", nspec
   WRITE (*,*) "nspecmol = ", nspecmol
+  WRITE (*,*) "numbond = ", numbond
   DO i = 1, nmoldef
      WRITE (*,*) "mlstrtspe (i,:)=", mlstrtspe (i,:)
   ENDDO
-
+  
 ! temporarily keep maxdim (to minimize the changes to the code)
   maxdim => nsyst
 
@@ -192,7 +205,8 @@ PROGRAM check_config
 
   ALLOCATE (xxyyzz (4, maxdim))!, STAT=fail(1))  ! I have used 4 instead of csize
   ALLOCATE (lab (maxdim), ltp (maxdim), ltm (maxdim))
-
+  ALLOCATE (bndtbl (numbond,2))!, STAT=fail (1)) ! NB: I disregard the bond type (smaller dimension for the array)
+  
 ! assign pointers                                                                                                                                                          
   xxx => xxyyzz (1,:)
   yyy => xxyyzz (2,:)
@@ -263,7 +277,16 @@ PROGRAM check_config
      WRITE (*,"(/,1x,'OK: CONFIG file is consistent with FIELD file')")     
      WRITE (*,"(1x,'(composition and bead content of molecules)')")
   END IF
-     
+
+
+  ! Write to std output bndtbl                                                                                                                                          
+  IF (numbond > 0) THEN
+     WRITE (*,*) "# List of stretching bonds ends: bndbtl(i,1), bndbtl(i,2)"
+     DO i = 1, numbond
+        WRITE (*,*) bndtbl (i,1), bndtbl (i,2)
+     END DO
+  END IF
+
   !  DEALLOCATE (lab, ltp, ltm)
   DEALLOCATE (nspec0, nspecmol0)
 ! de-allocate arrays, as in free_memory
@@ -272,9 +295,10 @@ PROGRAM check_config
 
   DEALLOCATE (xxyyzz, STAT=fail(2))
   DEALLOCATE (namspe, nspec, nspecmol, lfrzn, nammol, STAT=fail(4))
-  DEALLOCATE (mlstrtspe, nmol, nbdmol, STAT=fail(5))
+  DEALLOCATE (mlstrtspe, nmol, nbdmol, nbond, STAT=fail(5))
+  DEALLOCATE (bdinp1, bdinp2, STAT=fail(6))
   DEALLOCATE (lab, ltp, ltm, STAT=fail(10))
-  DEALLOCATE (molstart, STAT=fail(13))
+  DEALLOCATE (bndtbl, molstart, STAT=fail(13))
   
   IF (ANY (fail/=0)) THEN
      WRITE (*,*) "error: deallocation failure"
@@ -499,7 +523,7 @@ SUBROUTINE scan_config
 !     input: FIELD
 !     output:
 !     defines the values of these global variables:
-!     nspe, nmoldef, mxmolsize
+!     nspe, nmoldef, mxmolsize, mxbonds
 !----------------------------------------------------------------------
         
 !      USE parse_utils
@@ -507,7 +531,7 @@ SUBROUTINE scan_config
       LOGICAL :: finish, safe!lexist, 
       CHARACTER(LEN=mxword) :: key, word
       CHARACTER(LEN=200) :: record, record1
-      INTEGER :: i, ioerror, imol!, ibond, iangle, idihed, ipot, j
+      INTEGER :: i, ioerror, imol, ibond!, iangle, idihed, ipot, j
 
 !     open FIELD channel for first pass: determine numbers of species and 
 !     molecule types, and maximum numbers of beads.
@@ -523,7 +547,8 @@ SUBROUTINE scan_config
       nspe = 0 ! added by SC
       nmoldef = 0 ! added by SC
       mxmolsize = 0
-
+      mxbonds = 0
+      
       READ (nread, '(a80)') record
 
       finish = .false.
@@ -559,8 +584,13 @@ SUBROUTINE scan_config
                 imol = INT (getint (record1, 2), KIND=si)
                 mxmolsize = MAX (mxmolsize, imol)
 
-              ELSE IF (word (1:6) =="finish") THEN
+             ELSE IF (word (1:4) =="bond") THEN
 
+                ibond = INT (getint (record1, 2), KIND=si)
+                mxbonds = MAX (mxbonds, ibond)
+                
+             ELSE IF (word (1:6) =="finish") THEN
+                
                 EXIT
 
               END IF
@@ -596,8 +626,8 @@ SUBROUTINE scan_config
 !     output: ALLOCATES and defines the values of these global variables
 !     namspe, nspec, nspecmol, lfrzn, nammol, mlstrtspe, nmol, nbdmol
 !     defines these global variables:
-!     nsystcell, nusystcell, nfsystcell, nummolcell
-!     nsyst, nusyst, nfsyst, nummol
+!     nsystcell, nusystcell, nfsystcell, nummolcell, numbondcell
+!     nsyst, nusyst, nfsyst, nummol, numbond
 !------------------------------------------------------------------------
         
 !      USE parse_utils
@@ -633,7 +663,9 @@ SUBROUTINE scan_config
       ALLOCATE (nspec (nspe), nspecmol (nspe), lfrzn (nspe), STAT=fail(3))
       ALLOCATE (nammol (0:nmoldef), STAT=fail(4))
       ALLOCATE (mlstrtspe (nmoldef, mxmolsize), nmol (nmoldef), nbdmol (nmoldef), STAT=fail(6))
-
+      ALLOCATE (nbond (nmoldef), STAT=fail(7))
+      ALLOCATE (bdinp1 (nmoldef, mxbonds), bdinp2 (nmoldef, mxbonds), STAT=fail(8))
+      
       IF (ANY (fail/=0)) THEN
          WRITE (*,*) "allocation failure in subroutine read_field" 
          STOP
@@ -645,7 +677,9 @@ SUBROUTINE scan_config
       nfsystcell = 0
       nspec = 0
       nspecmol = 0
-
+      nbond = 0
+      numbond = 0
+      numbondcell = 0
       nummol = 0 !added here by SC
       nummolcell = 0 !added here by SC
 
@@ -736,6 +770,35 @@ SUBROUTINE scan_config
 
                  END DO
 
+              ELSE IF (word (1:4) =="bond") THEN
+
+                 finmol = INT (getint (record1, 2), KIND=si)
+                 nbond (i) = finmol
+                 
+                 DO j = 1, finmol
+
+                    READ (nread, '(a200)', IOSTAT = ioerror) record1
+                    word1 = getword (record1, 1)
+                    CALL lowercase (word1)
+                    safe = ((word1 (1:4) =="harm") .OR. (word1 (1:4) =="fene") .OR. (word1 (1:3) =="wlc") &
+                         .OR. (word1 (1:4) =="mors"))
+                    IF (.NOT. safe) THEN 
+                       WRITE (*, "(/,1x,'error: unrecognised bond type defined in FIELD file')")
+                       WRITE (*,"(1x,'hint: check molecule',2x,A8,2x,'bond number',2x,I3)") nammol (i), j
+                       STOP
+                    END IF
+                       
+                    bdinp1 (i, j) = INT (getint (record1, 2), KIND=si)
+                    bdinp2 (i, j) = INT (getint (record1, 3), KIND=si)
+                    IF (bdinp1 (i, j) == bdinp2 (i, j)) THEN !added by SC
+                       WRITE (*, "(/,1x,'error: bond a bead with itself in FIELD file')")                       
+                       WRITE (*,"(1x,'hint: check molecule',2x,A8,2x,'bond number',2x,I3)") nammol (i), j
+                       STOP
+                    END IF
+                 END DO
+
+                 numbondcell = numbondcell + nbond (i) * nmol (i)
+                 
               ELSE IF (word (1:6) =="finish") THEN
 
                  EXIT
@@ -820,6 +883,7 @@ SUBROUTINE scan_config
        nsyst = nsystcell * nfold
        nusyst = nusystcell * nfold
        nfsyst = nfsystcell * nfold
+       numbond = numbondcell * nfold
        nspec = nspec * nfold
        nspecmol = nspecmol * nfold
        nummol = nummolcell * nfold
@@ -869,7 +933,7 @@ SUBROUTINE scan_config
       !INTEGER :: ioerror, species, gb, global, numpart, i, imol, imoltyp, inod, j, k
       INTEGER :: ioerror, species, gb, global, numpart, i, imol, imoltyp!, inod, j, k
 !      INTEGER :: bondsize, msyst, ntop, ifx, ify, ifz, finmol, numwlbd, isx, isy, isz, mtbead
-      INTEGER :: ntop, ifx, ify, ifz, finmol, numwlbd
+      INTEGER :: bondsize, ntop, ifx, ify, ifz, finmol, numwlbd
       ! number of beads, frozen beads in domain cell (keep them temporarily)
       INTEGER :: nbeads, nfbeads 
       CHARACTER(LEN=200) :: record
@@ -1351,7 +1415,47 @@ SUBROUTINE scan_config
 ! !     re-order local beads to give frozen beads first !Needed??? 
 
 !       CALL sort_beads  
- 
+      
+!     add bonds to system
+
+      nbonds = 0
+      
+      IF (lbond) THEN
+         
+         imol = 0
+         ntop = 0
+         
+         DO j = 1, nummolcell
+            
+            DO WHILE (j>ntop)
+               imol = imol + 1
+               ntop = ntop + nmol (imol)
+            END DO
+            
+!     add bonds to table
+            
+            bondsize = nbond (imol)
+            
+            DO i = 0, nfold-1
+               
+               gb = nusyst + nfold * (molstart (j) - nusystcell) + i * (molstart (j+1) - molstart (j))
+               
+               DO k = 1, bondsize
+                  
+                  IF (lgbnd .OR. molbead (gb + bdinp1 (imol, k) - nusyst)) THEN
+                     nbonds = nbonds + 1
+                     bndtbl (nbonds, 1) = bdinp1 (imol, k) + gb
+                     bndtbl (nbonds, 2) = bdinp2 (imol, k) + gb
+                  END IF
+                  
+               END DO
+               
+            END DO
+
+         END DO
+            
+      END IF
+            
 ! !     assign particle/molecule names and masses ! Needed?
 
 !       DO i = 1, nbeads
