@@ -58,9 +58,14 @@ PROGRAM check_config
   INTEGER, ALLOCATABLE, SAVE :: mlstrtspe (:,:), nbond (:)
   INTEGER, ALLOCATABLE, SAVE :: bdinp1 (:,:), bdinp2 (:,:)
   INTEGER, ALLOCATABLE, SAVE :: molstart (:)
-!     bond look-up tables
+! bond look-up tables
   INTEGER, ALLOCATABLE, SAVE :: bndtbl (:,:)
   INTEGER :: nbonds
+! wall/surface parameters
+! surface type
+  INTEGER :: srftype
+! surface dimensions
+  INTEGER :: srfx, srfy, srfz
 ! maximum value for numbers of beads
   INTEGER, POINTER :: maxdim  !remove later?
 ! switch to determine whether to ignore global bead numbers in CONFIG file
@@ -80,7 +85,8 @@ PROGRAM check_config
   INTEGER, ALLOCATABLE :: nspec0 (:), nspecmol0 (:)
   INTEGER :: tp, tm, tp0, ibd, j, k, l
   INTEGER :: fail (13)
-
+  INTEGER :: bead1, bead2
+  
   lbond = .true. ! I keep it to minimize changes. remove later??? Ask user? Use FIELD?
   lgbnd = .true. ! same
   
@@ -125,6 +131,9 @@ PROGRAM check_config
 
   voltype = 0
 
+  srftype = 0
+  srfx = 0; srfy = 0; srfz = 0
+  
   ligindex = .false.
   lconfzero = .false.
     
@@ -133,10 +142,15 @@ PROGRAM check_config
   CALL read_control 
 
   IF (lvol .AND. (nfold>1)) THEN
-     WRITE (*,*) "error (warning?): incompatible choices in CONTROL files (vol and nfold /=1)"
+     WRITE (*,*) "error (warning?): incompatible choices in CONTROL file (vol and nfold /=1)"
      STOP
   END IF
-     
+
+  IF (srftype==1 .AND. (srfx==0 .AND. srfy==0 .AND. srfz==0)) THEN
+     WRITE (*,*) "error: missing choice of plane for hard walls in CONTROL file"     
+     STOP
+  END IF
+  
   IF (lvol) voltype = voltype + 1  
 
   CALL scan_config
@@ -176,6 +190,8 @@ PROGRAM check_config
   WRITE (*,*) "imcon =", imcon !may be removed...
   WRITE (*,*) "levcfg =", levcfg !may be removed...
   WRITE (*,*) "lconfzero =", lconfzero ! may be removed...
+  WRITE (*,*) "srftype =", srftype
+  IF (srftype/=0)   WRITE (*,*) "srfx, srfy, srfz =", srfx, srfy, srfz
   
   CALL scan_field
 
@@ -287,6 +303,39 @@ PROGRAM check_config
      END DO
   END IF
 
+! Check that no stretching bond crosses a hard wall
+  IF (srftype==1) THEN
+     safe = .true.
+     DO i = 1, numbond
+        bead1 = bndtbl (i,1)
+        bead2 = bndtbl (i,2)        
+        IF (srfx==1) THEN
+           IF (ABS(xxx (bead1) - xxx (bead2)) > dimx/2) THEN
+              WRITE (*,"('error: bond between beads',2x,i7,2x,'and',2x,i7,2x,'crosses hard wall perp. to x')")bead1, bead2 
+              safe = .false.
+           END IF
+        END IF
+        IF (srfy==1) THEN
+           IF (ABS(yyy (bead1) - yyy (bead2)) > dimy/2) THEN
+              WRITE (*,"('error: bond between beads',2x,i7,2x,'and',2x,i7,2x,'crosses hard wall perp. to y')")bead1, bead2 
+              safe = .false.
+           END IF
+        END IF
+        IF (srfz==1) THEN
+           IF (ABS(zzz (bead1) - zzz (bead2)) > dimz/2) THEN
+              WRITE (*,"('error: bond between beads',2x,i7,2x,'and',2x,i7,2x,'crosses hard wall perp. to z')")bead1, bead2 
+              safe = .false.
+           END IF
+        END IF
+     END DO
+     
+     IF (.NOT. safe) THEN
+        WRITE (*,"(/'error: at least one streching bond is crossing a hard wall, please correct the CONFIG file')")
+        IF (nfold>1) WRITE (*,"('(hint: the bonds needing corrections are easier to indetify if nfold=1)')")        
+     END IF
+
+  END IF
+
   !  DEALLOCATE (lab, ltp, ltm)
   DEALLOCATE (nspec0, nspecmol0)
 ! de-allocate arrays, as in free_memory
@@ -329,7 +378,7 @@ CONTAINS
 
     IMPLICIT none
   
-    CHARACTER(LEN=mxword) :: key1, key2, word1!, word2, word3, word4
+    CHARACTER(LEN=mxword) :: key1, key2, word1, word2, word3!, word4
     CHARACTER(LEN=200) :: record
     INTEGER :: ioerror
     LOGICAL :: safe  
@@ -384,21 +433,21 @@ CONTAINS
           END IF
           
           !   ELSE IF (key1 (1:7) =="restart") THEN
-          !   ELSE IF (key1 (1:4) =="surf") THEN
+       ELSE IF (key1 (1:4) =="surf") THEN
           
           !     IF (key2 (1:3) =="cut") srfzcut = getdble (record, 3)
           
-          !     IF (key2 (1:4) =="hard") THEN
-          !       srftype = 1
-          !       word1 = getword (record, 3)
-          !       word2 = getword (record, 4)
-          !       word3 = getword (record, 5)
-          !       CALL lowercase (word1)
-          !       CALL lowercase (word2)
-          !       CALL lowercase (word3)
-          !       IF (word1(1:1)=="x" .OR. word2(1:1)=="x".OR. word3(1:1)=="x") srfx = 1
-          !       IF (word1(1:1)=="y" .OR. word2(1:1)=="y".OR. word3(1:1)=="y") srfy = 1
-          !       IF (word1(1:1)=="z" .OR. word2(1:1)=="z".OR. word3(1:1)=="z") srfz = 1
+          IF (key2 (1:4) =="hard") THEN
+             srftype = 1
+             word1 = getword (record, 3)
+             word2 = getword (record, 4)
+             word3 = getword (record, 5)
+             CALL lowercase (word1)
+             CALL lowercase (word2)
+             CALL lowercase (word3)
+             IF (word1(1:1)=="x" .OR. word2(1:1)=="x".OR. word3(1:1)=="x") srfx = 1
+             IF (word1(1:1)=="y" .OR. word2(1:1)=="y".OR. word3(1:1)=="y") srfy = 1
+             IF (word1(1:1)=="z" .OR. word2(1:1)=="z".OR. word3(1:1)=="z") srfz = 1
           !     ELSE IF (key2 (1:4) =="froz") THEN
           !       srftype = 2
           !       word1 = getword (record, 3)
@@ -418,7 +467,7 @@ CONTAINS
           !       IF (word1(1:1)=="y") srfy = 1
           !       IF (word1(1:1)=="z") srfz = 1
           !       IF (srfx==0 .AND. srfy==0 .AND. srfz==0) srftype = 0
-          !     END IF
+          END IF
           
        ELSE IF (key1 (1:3) =="vol") THEN
           lvol = .true.
