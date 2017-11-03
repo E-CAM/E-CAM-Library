@@ -16,6 +16,7 @@ Introduction
 
     .. contents:: :depth: 2
 
+    * :ref:`contributing`
     * :ref:`search`
 
 .. image:: ./images/AltLogo.png
