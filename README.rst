@@ -4,7 +4,7 @@
 The E-CAM Library
 =================
 
-.. image:: http://e-cam.readthedocs.io/en/latest/?badge=latest
+.. image:: http://readthedocs.org/projects/e-cam/badge/?version=latest
 
 This is our the repository of our library of software development modules. There is no software here, just
 documentation of software development efforts that satisfied the E-CAM acceptance criteria. The lines of code relevant
