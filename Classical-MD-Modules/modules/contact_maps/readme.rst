@@ -1,4 +1,4 @@
-.. _contact-maps:
+.. _contact-map:
 
 ###########
 Contact Map
@@ -62,6 +62,10 @@ This is an independent module, but it builds on tools developed in `MDTraj
 Testing
 _______
 
+This module can be installed with conda, using ``conda install -c
+conda-forge contact_map``. To intall the specific version associated with
+this module, use ``conda install -c conda-forge contact_map==0.2.0``
+
 Tests for this module can be run with pytest. Install pytest with ``pip
 install pytest`` and then run the command ``py.test`` from within the
 directory with the source code, or ``py.test --pyargs contact_map`` from
@@ -72,4 +76,4 @@ ___________
 
 The source code for this module, and modules that build on it, is hosted at
 https://github.com/dwhswenson/contact_map. This module specifically includes
-everything up to and including `release 0.2 <>`_.
+everything up to and including `release 0.2 <https://github.com/dwhswenson/contact_map/releases/tag/v0.2.0>`_.
