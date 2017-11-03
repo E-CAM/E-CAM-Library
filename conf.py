@@ -55,8 +55,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'E-CAM'
-copyright = '2016, Alan O\'Cais'
+project = 'E-CAM Software Module Library'
+copyright = '2017, E-CAM Centre of Excellence'
 author = 'Alan O\'Cais'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -98,7 +98,7 @@ exclude_patterns = ['_build', 'README.rst', 'Classical-MD-Modules/modules/OpenPa
 
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
-#show_authors = False
+show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -118,11 +118,8 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-# Let's default this to on since GitLab supports building the docs
-on_rtd= True
 
 if on_rtd:
-    sys.path.insert(0, os.path.abspath('./'))
     import sphinx_bootstrap_theme
 
     html_theme = 'bootstrap'
