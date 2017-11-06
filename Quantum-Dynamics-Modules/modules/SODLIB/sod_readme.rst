@@ -18,7 +18,7 @@ Second-Order Differencing Scheme (SOD)
   Application Documentation
     Useful documentation can be found here_
     
-    .. _here: http://stchem.bham.ac.uk/~quantics/doc/ 
+    .. _here: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/index.html 
 
   Relevant Training Material
     Training material is available through the test examples
