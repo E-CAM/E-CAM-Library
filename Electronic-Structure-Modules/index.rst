@@ -84,4 +84,13 @@ together with the partner and typically are to facilitate or improve the scope o
 partner. The related code development for the pilot projects are open source (where the licence of the underlying
 software allows this) and are described in the modules associated with the pilot projects.
 
+Below is a list of the modules developed directly within the context of the pilot projects within E-CAM:
+  
+  .. toctree::
+      :glob:
+      :maxdepth: 1
+                                                                                      
+      ./modules/Geomoltools/readme   
+
+
 .. _E-CAM: https://www.e-cam2020.eu/
