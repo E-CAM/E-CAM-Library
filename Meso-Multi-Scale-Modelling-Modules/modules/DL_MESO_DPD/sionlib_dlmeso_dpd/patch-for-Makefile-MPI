@@ -1,0 +1,11 @@
+SCFLAGS = `/home/silvia/sionlib/bin/sionconfig --cflags --f77 --mpi --threadsafe --64`
+SLFLAGS = `/home/silvia/sionlib/bin/sionconfig --libs --f77 --mpi --threadsafe --64`
+
+EXE=     ./dpd-MPI-sion.exe
+
+.f90.o:
+	$(FC) $(FFLAGS) -c $< $(SCFLAGS)
+
+$(EXE):	$(OBJ)
+	$(FC) $(LFLAGS) -o $@ $(OBJ) $(SLFLAGS)
+
