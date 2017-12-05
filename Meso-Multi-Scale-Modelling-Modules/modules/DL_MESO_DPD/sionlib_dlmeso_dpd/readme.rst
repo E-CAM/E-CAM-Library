@@ -38,6 +38,17 @@ An analogous modification has to be implemented in the post-processing
 utilities that read the HISTORY files. As an example, here the modifications
 are implemented for one specific utility, ``format_history.f90``.
 
+Notice that the next released version of DL_MESO_DPD (in development)
+will tackle the writing of files differently, producing a single trajectory
+file from the start.
+
+The implementation presented here is meant to show the feasibility of the
+interfacing, not to tackle all the possible cases.
+We therefore restrict in this module to the relevant case in which i) the simulation is run in
+parallel using MPI, ii) a single SIONlib physical file is produced, and iii) the
+post-processing is done by a single process.
+
+
 
  .. Possible uses ... (see :ref:`moldip_af`).
 
