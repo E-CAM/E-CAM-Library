@@ -33,7 +33,6 @@ DL_MESO_ package. In the last release (2.6, dating November 2015),
 the MPI version of DL_MESO_DPD generates *multiple* trajectory files, one for each
 process. The use of SIONlib_ allows to minimally modify the writing so that just *one*
 physical file is produced.
-
 An analogous modification has to be implemented in the post-processing
 utilities that read the HISTORY files. As an example, here the modifications
 are implemented for one specific utility, ``format_history.f90``.
@@ -48,9 +47,10 @@ We therefore restrict in this module to the relevant case in which i) the simula
 parallel using MPI, ii) a single SIONlib physical file is produced, and iii) the
 post-processing is done by a single process.
 
+The modifications of DL_MESO_DPD (see below) concern the subroutines dealing with the opening, writing
+and closing of the trajectory files. 
 
-
- .. Possible uses ... (see :ref:`moldip_af`).
+.. Possible uses ... (see :ref:`moldip_af`).
 
 Background Information
 ______________________
@@ -71,6 +71,20 @@ _______
 
 Source Code
 ___________
+
+A few DL_MESO_DPD modules have to be modified to use SIONlib_ when
+writing the trajectories, namely: ``variables.f90``, ``constants.f90``,
+``start_module.f90``, ``dlmesodpd.f90``, and the
+``Makefile-MPI``. As an example of the post-processing of a SIONlib
+trajectory, we propose ``format_history_sion.f90``, a formatting utility
+analogous to ``format_history.f90`` (see :ref:`history_format_DPD`):
+it reads the SIONlib trajectory file and produces multiple formatted
+trajectory files. Beside showing how to adapt the reading, this allows a robust check
+of the implementation, since the output is human readable, contains the full
+trajectories, and can be readily
+compared with that obtained using ``format_history.f90``
+with the standard version of DL_MESO_DPD.
+
 ..
    .. literalinclude:: ./gen_dipoleaf.f90
       :language: fortran
