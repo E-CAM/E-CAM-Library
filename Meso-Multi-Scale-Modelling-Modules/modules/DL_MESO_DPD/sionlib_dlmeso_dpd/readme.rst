@@ -51,6 +51,8 @@ This open source code is available from STFC under both academic (free) and
 commercial (paid) licenses. The module is to be used with DL_MESO
 in its last released version, version 2.6 (dating November 2015).
 
+The present module requires the SIONlib_ library to be installed.
+Its last released version is number 1.7.1 (dating November 2016).
 
 Testing
 _______
