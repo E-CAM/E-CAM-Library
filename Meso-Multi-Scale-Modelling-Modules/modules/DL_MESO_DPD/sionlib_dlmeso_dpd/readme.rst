@@ -117,8 +117,18 @@ The patch for ``dlmesodpd.f90`` is
 
 The patch for ``start_module.f90`` is ...
 	 
+.. literalinclude:: ./patch-for-start.f90
+      :emphasize-lines:
+	 1,9-11,19-23,31-41,51-57,60-66,70-76,78-84,92-110,113-131,139-145,
+	 151-156, 164-170, 178-184
+      :linenos:
 
+These changes only affect one subroutine (``start``) within the ``start_module.f90``.
+The user can either implement the changes shown above, or replace the
+second part of the subroutine ``start`` with the file provided
+(:download:`downloadable version of subroutine start <part-of-start.f90>`).
 
+	 
 ..
    .. literalinclude:: ./gen_dipoleaf.f90
       :language: fortran
