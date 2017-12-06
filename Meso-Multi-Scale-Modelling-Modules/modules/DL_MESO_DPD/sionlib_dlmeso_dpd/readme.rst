@@ -139,6 +139,12 @@ The user can either implement the changes shown above, or replace the
 subroutine ``histout`` with the file provided
 (:download:`downloadable version of the subroutine histout <histout.f90>`).
 
+Finally, the formatting utility ``format_history_sion.f90`` is
+
+.. literalinclude:: ./format_history_sion.f90
+      :language: fortran
+      :linenos:
+
 
 
 ..
