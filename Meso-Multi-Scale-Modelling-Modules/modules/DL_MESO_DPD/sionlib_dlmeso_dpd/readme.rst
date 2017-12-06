@@ -68,6 +68,20 @@ Its last released version is number 1.7.1 (dating November 2016).
 Testing
 _______
 
+The version of DL_MESO_DPD including SIONlib is compiled using the
+corresponding makefile (``Makefile-MPI``).
+
+The utility ``format_history_sion.f90`` is compiled with the available
+Fortran90+MPI compiler, and using appropriate flags for the SIONlib library, e.g:
+
+::
+   
+  mpifort -c format_history.f90 `/home/user/sionlib/bin/sionconfig --cflags --f77 --mpi --threadsafe --64`
+  mpifort -o format_history-sion.exe format_history.o `/home/user/sionlib/bin/sionconfig --libs --f77 --mpi --threadsafe --64`
+
+It is assumed that SIONlib has been installed in the `/home/user/sionlib/`
+directory, where of course the `user` name has to be adapted. 
+
 
 Source Code
 ___________
