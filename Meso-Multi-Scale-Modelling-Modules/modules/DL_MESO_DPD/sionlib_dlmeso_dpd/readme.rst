@@ -85,9 +85,38 @@ trajectories, and can be readily
 compared with that obtained using ``format_history.f90``
 with the standard version of DL_MESO_DPD.
 
+In the following we give the needed changes in the form of patches: in the
+`git diff`, `a` is the branch with the standard version, `b` the SIONlib one.
+
+The patch for ``Makefile-MPI`` is
+
+
 .. literalinclude:: ./patch-for-Makefile-MPI
-      :emphasize-lines: 8-10,16,25,31
+      :emphasize-lines: 1,8-10,16,25,31
       :linenos:
+
+The patch for ``variables.f90`` is
+
+.. literalinclude:: ./patch-for-variables.f90
+      :emphasize-lines: 1,9-22
+      :linenos:
+	 
+The patch for  ``constants.f90`` is
+	 
+.. literalinclude:: ./patch-for-constants.f90
+      :emphasize-lines: 1,10-12
+      :linenos:
+
+The patch for ``dlmesodpd.f90`` is 
+
+.. recall to remove the check line write (nprint,*) ...
+
+.. literalinclude:: ./patch-for-dlmesodpd.f90
+      :emphasize-lines: 1,9-12
+      :linenos:
+
+The patch for ``start_module.f90`` is ...
+	 
 
 
 ..
