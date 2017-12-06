@@ -115,7 +115,7 @@ The patch for ``dlmesodpd.f90`` is
       :emphasize-lines: 1,9-12
       :linenos:
 
-The patch for ``start_module.f90`` is ...
+The patch for ``start_module.f90`` is 
 	 
 .. literalinclude:: ./patch-for-start.f90
       :emphasize-lines:
@@ -126,7 +126,7 @@ The patch for ``start_module.f90`` is ...
 These changes only affect one subroutine (``start``) within the ``start_module.f90``.
 The user can either implement the changes shown above, or replace the
 second part of the subroutine ``start`` with the file provided
-(:download:`downloadable version of subroutine start <part-of-start.f90>`).
+(:download:`downloadable version of the second part of subroutine start <part-of-start.f90>`).
 
 	 
 ..
