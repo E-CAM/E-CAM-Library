@@ -128,7 +128,19 @@ The user can either implement the changes shown above, or replace the
 second part of the subroutine ``start`` with the file provided
 (:download:`downloadable version of the second part of subroutine start <part-of-start.f90>`).
 
-	 
+The patch for ``statistics_module.f90`` is 
+
+.. literalinclude:: ./patch-for-statistics.f90
+      :emphasize-lines: 1,9-15,22-28,35-42,50-57,63-70
+      :linenos:
+
+Also here the changes only affect one subroutine (``histout``) within the ``statistics_module.f90``.
+The user can either implement the changes shown above, or replace the
+subroutine ``histout`` with the file provided
+(:download:`downloadable version of the subroutine histout <histout.f90>`).
+
+
+
 ..
    .. literalinclude:: ./gen_dipoleaf.f90
       :language: fortran
