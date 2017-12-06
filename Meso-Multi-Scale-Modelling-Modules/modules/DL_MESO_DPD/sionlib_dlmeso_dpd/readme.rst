@@ -85,6 +85,11 @@ trajectories, and can be readily
 compared with that obtained using ``format_history.f90``
 with the standard version of DL_MESO_DPD.
 
+.. literalinclude:: ./patch-for-Makefile-MPI
+      :emphasize-lines: 8-10,16,25,31
+      :linenos:
+
+
 ..
    .. literalinclude:: ./gen_dipoleaf.f90
       :language: fortran
