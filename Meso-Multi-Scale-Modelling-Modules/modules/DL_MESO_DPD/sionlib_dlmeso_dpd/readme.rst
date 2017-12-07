@@ -86,9 +86,9 @@ directory, where of course the `user` name has to be adapted.
 Source Code
 ___________
 
-A few DL_MESO_DPD modules have to be modified to use SIONlib_ when
+A number of DL_MESO_DPD modules have to be slightly modified to use SIONlib_ when
 writing the trajectories, namely: ``variables.f90``, ``constants.f90``,
-``start_module.f90``, ``dlmesodpd.f90``, and the
+``start_module.f90``, ``dlmesodpd.f90``, ``error_module.f90`` and the
 ``Makefile-MPI``. As an example of the post-processing of a SIONlib
 trajectory, we propose ``format_history_sion.f90``, a formatting utility
 analogous to ``format_history.f90`` (see :ref:`history_format_DPD`):
@@ -129,6 +129,12 @@ The patch for ``dlmesodpd.f90`` is
       :emphasize-lines: 1,9-12
       :linenos:
 
+The patch for ``error_module.f90`` is 
+
+.. literalinclude:: ./patch-for-error.f90
+      :emphasize-lines: 1, 9-11
+      :linenos:
+	 
 The patch for ``start_module.f90`` is 
 	 
 .. literalinclude:: ./patch-for-start.f90
