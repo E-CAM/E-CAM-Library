@@ -76,6 +76,14 @@ To foster this development, we have initiated five parallel activities:
 Pilot Projects
 ==============
 
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/LocConQubit/readme
+
+**LocConQubit** is a code for the construction of controlled pulses on isolated qubit systems using the Local Control Theory.
+
 One of primary activity of E-CAM is to engage with pilot projects with industrial partners. These projects are conceived
 together with the partner and typically are to facilitate or improve the scope of computational simulation within the
 partner. The related code development for the pilot projects are open source (where the licence of the underlying
