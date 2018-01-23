@@ -44,7 +44,7 @@ E-CAM example module
 This module adds the ability to parallelize the calculation of contact
 frequencies (see the contact-map_ module). It includes improvements to the
 core of the ``contact_map`` package to facilitate parallelization, as well
-as integration of several frameworks for parallelization.
+as integration with a framework for practical parallelization.
 
 Purpose of Module
 _________________
@@ -65,19 +65,27 @@ a trajectory) was done sequentially. However, each frame is completely
 independent, and can be processed on a separate node. This module implements
 that parallelization.
 
-This module interfaces with several parallelization frameworks. This was
-done for several reasons. First, it provides options to the user, so that
-the user may be able to select an already-installed framework. Second, by
-separating the tasks to be parallelized from the framework being used, it
-enables future addition of other parallelization frameworks. Finally, it
-provides the opportunity to benchmark different frameworks on the same
-problem.
+This module interfaces with the ``dask.distributed`` package for task-based
+parallelization. The trajectory is separated into segments, with the
+``dask`` network calculating the contact frequency of each segment in
+parallel (reading from a common file source).  Then the partial contact
+frequencies are combined into one ``ContactFrequency`` object. This also
+includes methods, such as serialization into JSON strings, that would be
+useful for parallelization by other tools.
 
-The frameworks used are:
+.. This module interfaces with several parallelization frameworks. This was
+.. done for several reasons. First, it provides options to the user, so that
+.. the user may be able to select an already-installed framework. Second, by
+.. separating the tasks to be parallelized from the framework being used, it
+.. enables future addition of other parallelization frameworks. Finally, it
+.. provides the opportunity to benchmark different frameworks on the same
+.. problem.
 
-* **Dask.distributed**:
-* **PyCOMPs**:
-* **MDStudio**:
+.. The frameworks used are:
+
+.. * **Dask.distributed**:
+.. * **PyCOMPs**:
+.. * **MDStudio**:
 
 Background Information
 ______________________
@@ -85,38 +93,37 @@ ______________________
 This is part of the `contact map <http://contact-map.readthedocs.io/>`_
 package, which in turn builds on tools in `MDTraj <http://mdtraj.org>`_.
 
+The parallelization is based on |dask.distributed|_. See its docs for
+details on setting up a dask scheduler/worker network.
+
+.. |dask.distributed| replace:: ``dask.distributed``
+.. _dask.distributed: https://distributed.readthedocs.io/
+
 Building and Testing
 ____________________
 
 The ``contact_map`` package can be installed with conda, using ``conda
 install -c conda-forge contact_map``. This module is included in version
-``0.??.0``, which can be specifically installed with ``conda install -c
-conda-forge contact_map==0.??.0``.
+``0.3.0``, which can be specifically installed with ``conda install -c
+conda-forge contact_map==0.3.0``.
 
-The parallelization frameworks do not come with the standard ``contact_map``
-installation, and need to be installed separately. 
-
-* **Installing dask**: ``conda install -c conda-forge dask distributed``, or
-  see ??? for more
-* **Installing MDStudio**: See https://github.com/MD-Studio/MDStudio
-* **Installing PyCOMPSs**:
+``dask.distibuted`` must be installed separately, which can be done with
+``conda install -c conda-forge dask distributed``.
 
 Tests for this module can be run with pytest. Install pytest with ``pip
 install pytest`` and then run the command ``py.test`` from within the
 directory with the source code, or ``py.test --pyargs contact_map`` from
-anywhere after installation. Tests specific to integration with each
-parallelization framework will be marked as "skipped" if that framework is
+anywhere after installation. Tests specific to integration with
+``dask.distributed`` will be marked as "skipped" if that framework is
 not installed.
 
 Source Code
 ___________
 
-This module is composed of the following pull requests on the
+This module is composed of the following pull requests in the
 ``contact_map`` repository:
 
 * https://github.com/dwhswenson/contact_map/pull/3
 * https://github.com/dwhswenson/contact_map/pull/29
-* Dask-specific PR
-* PyCOMPSs-specific PR
-* MDStudio-specific PR
+* https://github.com/dwhswenson/contact_map/pull/30
 
