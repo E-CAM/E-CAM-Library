@@ -76,6 +76,18 @@ The ESDW in San Sebastian in September 2016 was the starting point for the modul
     ./modules/Use_WS_Distance/readme
     ./modules/Test-Suite-Travis-CI-Integration/readme
 
+
+Other Modules
+-------------
+
+Modules not coming from ESDWs
+
+.. toctree::
+     :glob:
+     :maxdepth: 1
+
+     ./modules/SCDM_in_pw2wannier90/readme
+
 Pilot Projects
 ==============
 

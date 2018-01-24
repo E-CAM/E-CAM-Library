@@ -1,34 +1,23 @@
-..  In ReStructured Text (ReST) indentation and spacing are very important (it is how ReST knows what to do with your
-    document). For ReST to understand what you intend and to render it correctly please to keep the structure of this
-    template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded
-    and followed by white space (if you see warnings when this file is built they this is a common origin for problems).
-
-
-..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
-    progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
+########
+SCDM_WFs
+########
 
 ..  sidebar:: Software Technical Information
 
   Name
-    Name of the relevant software.
+    Selected columns of density matrix Wannier functions
 
   Language
-    Please indicate the primary language(s) used by the module. Please also state if interfaces for other languages are
-    available.
+    Fortran
 
   Licence
-    Specify the licence under which the software is released. Provide a link to the full online description of the
-    licence. You'll find descriptions of the most common licences at https://opensource.org/licenses .
-    An example here would be: `GPL <https://opensource.org/licenses/gpl-license>`_ or (the more permissive)
-    `MIT <https://opensource.org/licenses/mit-license>`_
+    `GPL <https://opensource.org/licenses/gpl-license>`_ 
 
   Documentation Tool
-    All source code created for this module should be documented so please indicate what tool has been used for
-    documentation. Doxygen covers  most languages but for Fortran you might want to use
-    `Ford <http://fortranwiki.org/fortran/show/FORD>`_, for Python ReST_, etc.
+    `Ford <http://fortranwiki.org/fortran/show/FORD>`_
 
   Application Documentation
-    Provide a link to any documentation for the application.
+    `User guide pdf <http://www.wannier.org/doc/user_guide.pdf>`_
 
   Relevant Training Material
     Add a link to any relevant training material. If there currently is none then say 'Not currently available.'
