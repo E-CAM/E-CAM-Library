@@ -42,27 +42,21 @@ SCDM_WFs
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-Wannier90 is a post-processing tool for the computation of the Maximally Localised Wannier Functions (MLWFs), which have been increasingly adopted by the electronic structure comunity for different purposes.  The reasons are manifold: MLWFs provide an insightful chemical analysis of the nature of bonding,
-and its evolution during, say, a chemical reaction. They play for solids a role similar to localized orbitals in molecular systems. In the condensed matter community, they are used  in the construction of model Hamiltonians for, e.g., correlated-electron and magnetic systems.
-Also, they are pivotal in first-principles tight-binding Hamiltonians, where chemically-accurate
-Hamiltonians are constructed directly on the Wannier basis, rather than fitted or inferred from macroscopic
-considerations, and many other applications, e.g. dielectric response and polarization in
-materials, ballistic transport, analysis of phonons, photonic crystals, cold atom
-lattices, and the local dielectric responses of insulators.
-This module is a first step towards automation of MLWFs. In the original Wannier90 framework, automation of MLWFs is hindered by the difficult step of choosing a set of initial localized functions with the correct symmetries and centers to use as initial guess for the optimization. As a result, high throughput calculations and big data analysis with MLWFs are difficult to perform. 
-
 Purpose of Module
 _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 .. Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
-it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
-non-expert in the domain area of the software module.
 
-This section should also include the following (where appropriate):
+Wannier90 [1]_ is a post-processing tool for the computation of the Maximally Localised Wannier Functions (**MLWFs**) [2]_ [3]_ [4]_, which have been increasingly adopted by the electronic structure comunity for different purposes.  The reasons are manifold: **MLWFs** provide an insightful chemical analysis of the nature of bonding,
+and its evolution during, say, a chemical reaction. They play for solids a role similar to localized orbitals in molecular systems. In the condensed matter community, they are used  in the construction of model Hamiltonians for, e.g., correlated-electron and magnetic systems.
+Also, they are pivotal in first-principles tight-binding Hamiltonians, where chemically-accurate Hamiltonians are constructed directly on the Wannier basis, rather than fitted or inferred from macroscopic considerations, and many other applications, e.g. dielectric response and polarization in materials, ballistic transport, analysis of phonons, photonic crystals, cold atom lattices, and the local dielectric responses of insulators, for reference see [2]_.
+This module is a first step towards automation of **MLWFs**. In the original Wannier90 framework, automation of **MLWFs** is hindered by the difficult step of choosing a set of initial localized functions with the correct symmetries and centers to use as initial guess for the optimization. As a result, high throughput calculations (**HTC**) and big data analysis with **MLWFs** are difficult to perform. 
 
-* Who will use the module? in what area(s) and in what context?
+The SCDM-k method [5]_ removes the need for an initial guess altogether
+
+This module is therefore intended for all the scientists 
 
 * What kind of problems can be solved by the code?
 
@@ -93,10 +87,14 @@ If needed you can include latex mathematics like
 :math:`\frac{ \sum_{t=0}^{N}f(t,k) }{N}`
 which won't show up on GitLab/GitHub but will in final online documentation.
 
-If you want to add a citation, such as [CIT2009]_, please check the source code to see how this is done. Note that
+If you want to add a citation, such as, please check the source code to see how this is done. Note that
 citations may get rearranged, e.g., to the bottom of the "page".
 
-.. [CIT2009] This is a citation (as often used in journals).
+.. [1] Com. Phys. Comm. **178**, 685-699 (2008)
+.. [2] Rev. Mod. Phys. **84**, 1419 (2012)
+.. [3] Phys. Rev. B **56**, 12847 (1997)
+.. [4] Phys. Rev. B **65**, 035109 (2001)
+.. [5] J. Comp. Phys. **334**, 1-15 (2017)
 
 Background Information
 ______________________

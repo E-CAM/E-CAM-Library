@@ -86,7 +86,7 @@ Modules not coming from ESDWs
      :glob:
      :maxdepth: 1
 
-     ./modules/SCDM_in_pw2wannier90/readme
+     ./modules/SCDM_WFs/readme
 
 Pilot Projects
 ==============
