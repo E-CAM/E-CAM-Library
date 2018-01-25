@@ -68,7 +68,7 @@ The ESDW in San Sebastian in September 2016 was the starting point for the modul
 
     ./modules/Symmetry-Adapted-Wannier-Functions/readme
     ./modules/Wannier90-TB-Interface/readme
-    ./modules/Non-Collinear-Sping/readme
+    ./modules/Non-Collinear-Spin/readme
     ./modules/Adaptively-Refined-Mesh/readme
     ./modules/FORD-Documentation-Tool-Integration/readme
     ./modules/Improvement-Wannier90-Z2pack-Interface/readme
