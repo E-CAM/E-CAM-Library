@@ -8,22 +8,22 @@ SCDM_WFs
     Selected columns of density matrix Wannier functions
 
   Language
-    Fortran
+    Fortran95
 
   Licence
     `GPL <https://opensource.org/licenses/gpl-license>`_ 
 
   Documentation Tool
-    `Ford <http://fortranwiki.org/fortran/show/FORD>`_
+    `Ford <http://fortranwiki.org/fortran/show/FORD>`_ online link to different Wannier90 source files `<http://www.wannier.org/ford/>`_
 
   Application Documentation
-    `User guide pdf <http://www.wannier.org/doc/user_guide.pdf>`_
+    Wannier90 `User guide pdf <http://www.wannier.org/doc/user_guide.pdf>`_ and Quantum-ESPRESSO `documentation <http://www.quantum-espresso.org/wp-content/uploads/Doc/user_guide/>`_
 
   Relevant Training Material
-    Add a link to any relevant training material. If there currently is none then say 'Not currently available.'
+    'Not currently available.'
 
   Software Module Developed by
-    Add the name of the person who developed the software for this module here
+    Valerio Vitale
 
 
 ..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
@@ -31,11 +31,7 @@ SCDM_WFs
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
     reference to work (so don't insert a comment between).
 
-.. _example:
-
-####################
-E-CAM example module
-####################
+.. _SCDM_in_Wannier90:
 
 ..  Let's add a local table of contents to help people navigate the page
 
@@ -46,36 +42,21 @@ E-CAM example module
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-The E-CAM library is purely a set of documentation that describes software development efforts related to the project. A
-*module* for E-CAM is the documentation of the single development of effort associated to the project.In that sense, a
-module does not directly contain source code but instead contains links to source code, typically stored elsewhere. Each
-module references the source code changes to which it direcctly applies (usually via a URL), and provides detailed
-information on the relevant *application* for the changes as well as how to build and test the associated software.
-
-The original source of this page (:download:`readme.rst`) contains lots of additional comments to help you create your
-documentation *module* so please use this as a starting point. We use Sphinx_ (which in turn uses ReST_) to create this
-documentation. You are free to add any level of complexity you wish (within the bounds of what Sphinx_ and ReST_ can
-do). More general instructions for making your contribution can be found in ":ref:`contributing`".
-
-Remember that for a module to be accepted into the E-CAM repository, your source code changes in the target application
-must pass a number of acceptance criteria:
-
-* Style *(use meaningful variable names, no global variables,...)*
-
-* Source code documentation *(each function should be documented with each argument explained)*
-
-* Tests *(everything you add should have either unit or regression tests)*
-
-* Performance *(If what you introduce has a significant computational load you should make some performance optimisation
-  effort using an appropriate tool. You should be able to verify that your changes have not introduced unexpected
-  performance penalties, are threadsafe if needed,...)*
+Wannier90 is a post-processing tool for the computation of the Maximally Localised Wannier Functions (MLWFs), which have been increasingly adopted by the electronic structure comunity for different purposes.  The reasons are manifold: MLWFs provide an insightful chemical analysis of the nature of bonding,
+and its evolution during, say, a chemical reaction. They play for solids a role similar to localized orbitals in molecular systems. In the condensed matter community, they are used  in the construction of model Hamiltonians for, e.g., correlated-electron and magnetic systems.
+Also, they are pivotal in first-principles tight-binding Hamiltonians, where chemically-accurate
+Hamiltonians are constructed directly on the Wannier basis, rather than fitted or inferred from macroscopic
+considerations, and many other applications, e.g. dielectric response and polarization in
+materials, ballistic transport, analysis of phonons, photonic crystals, cold atom
+lattices, and the local dielectric responses of insulators.
+This module is a first step towards automation of MLWFs. In the original Wannier90 framework, automation of MLWFs is hindered by the difficult step of choosing a set of initial localized functions with the correct symmetries and centers to use as initial guess for the optimization. As a result, high throughput calculations and big data analysis with MLWFs are difficult to perform. 
 
 Purpose of Module
 _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
+.. Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
 it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
 non-expert in the domain area of the software module.
 
