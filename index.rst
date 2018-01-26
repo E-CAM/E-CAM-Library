@@ -5,9 +5,9 @@
 
 .. _readme:
 
-************************
-The E-CAM Module Library
-************************
+**************************
+The E-CAM Software Library
+**************************
 
 .. sidebar:: Scientific Areas
 
@@ -22,7 +22,7 @@ The E-CAM Module Library
 
     * :ref:`search`
 
-This is a collection of the modules that have been created by E-CAM_ (http://www.e-cam2020.eu) community
+This is a collection of the software modules that have been documented by E-CAM_ (http://www.e-cam2020.eu) community
 within the four initial target areas of E-CAM_:
 
 .. toctree::
