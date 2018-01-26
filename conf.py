@@ -128,7 +128,7 @@ if on_rtd:
     # documentation.
     html_theme_options = {
         # Navigation bar title. (Default: ``project`` value)
-        'navbar_title': "E-CAM Software Library",
+        'navbar_title': "Software Library",
 
         # Tab name for entire site. (Default: "Site")
         'navbar_site_name': "Site",
