@@ -22,6 +22,10 @@ The E-CAM Software Library
 
     * :ref:`search`
 
+.. figure:: ./Electronic-Structure-Modules/images/wake_nova-rgb.png 
+   :figwidth: 25 % 
+   :align: left
+
 This is a collection of the software modules that have been documented by E-CAM_ (http://www.e-cam2020.eu) community
 within the four initial target areas of E-CAM_:
 
