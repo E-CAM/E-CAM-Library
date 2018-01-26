@@ -76,6 +76,21 @@ To foster this development, we have initiated five parallel activities:
 Pilot Projects
 ==============
 
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/LocConQubit/readme
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/OpenQubit/readme
+
+**OpenQubit** is an extension to the LocConQubit code for the construction of controlled pulses in a more realistic environment with 
+disipating effects.
+
 One of primary activity of E-CAM is to engage with pilot projects with industrial partners. These projects are conceived
 together with the partner and typically are to facilitate or improve the scope of computational simulation within the
 partner. The related code development for the pilot projects are open source (where the licence of the underlying
