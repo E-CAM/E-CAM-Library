@@ -34,8 +34,8 @@ _________________
 OpenQubit is a patch to the *LocConQubit* module which extends the capabilities of the latter module 
 with functionalities to generate control pulses in a more realistic systems with dissipating effects. 
 The module incorporates the Lindblad master equation into the system propagator upon which the Local 
-Control Theory generates a control pulse. For more information on LocConQubit and Local Control Theory 
-see here_ .
+Control Theory generates a control pulse. For more information on LocConQubit module and Local Control 
+Theory see here_ .
 
 
 
@@ -51,26 +51,39 @@ Application of the OpenQubit module can be found here_ .
 Installation
 ____________
 
-Before applying the patch LocConQubit code has to be installed. 
+Before applying the patch LocConQubit code has to be installed  and tested. 
+For the installation and testing of LocConQubit code see the corresponding documentation_ . 
 git_ has to be also installed. 
-For the installation of LocConQubit see the corresponding LocConQubit documentation_ .
-In the LocConQubit directory the installation of the OpenQubit is performed by applying the OpenQubit 
-patch to the LocConQubit code following these instructions:
+The OpenQubit patch should be downloaded from the repository_ and made available to insert it into the 
+directory containing the LocConQubit module. 
+In the directory containing the branch with the LocConQubit module the installation of the OpenQubit is 
+performed by applying the OpenQubit patch. 
+It is advise to make a new branch from the master branch first. 
+The installation should be made by following these instructions: 
 
 
 ::
+
+        (Check that you are on the QC master branch,
+         e.g. command 'git status' should display master in output)
+
+        git checkout -b OpenQubit
+
+        (Download the OpenQubit.patch file here directly or 
+         copy it from a directory containing the previous download:)
+         cp [Directory containing the OpenQubit.patch file]/OpenQubit.patch .
 
         git apply OpenQubit.patch
 
 
 Special care should be taken when patching the *test_5.pkl* binary file. 
-If the operation fails due to problems with patching a binary file, the file can be separately downloaded from the 
-patch source code webpage_ and inserted into the *reference_data* subdirectory. 
+If the above operation fails due to problems with patching a binary file, the file can be separately 
+downloaded from the patch source code webpage_ and inserted into the *reference_data* subdirectory. 
 
 .. _documentation: ../LocConQubit/readme.html
 .. _git: https://git-scm.com/
+.. _repository: webpage_
 .. _webpage: https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/QC/tree/OpenQubit
-
 
 
 Testing
