@@ -104,7 +104,7 @@ directory containing all LocConQubit module files
 
 ::
 
-	python test_LocConQubit.py
+	python test_LCT.py
 
 where `python` is an alias for a Python 3.5 version interpreter or higher. Five unit tests are executed sequentially and all must pass 
 successfully in order to use the LocConQubit module.
