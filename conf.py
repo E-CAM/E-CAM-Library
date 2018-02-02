@@ -55,7 +55,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'E-CAM Software Module Library'
+project = 'E-CAM Software Library'
 copyright = '2017, E-CAM Centre of Excellence'
 author = 'Alan O\'Cais'
 
@@ -128,7 +128,7 @@ if on_rtd:
     # documentation.
     html_theme_options = {
         # Navigation bar title. (Default: ``project`` value)
-        'navbar_title': "E-CAM Module Library",
+        'navbar_title': "Software Library",
 
         # Tab name for entire site. (Default: "Site")
         'navbar_site_name': "Site",
