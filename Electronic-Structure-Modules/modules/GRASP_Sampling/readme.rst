@@ -41,7 +41,7 @@ The input file, "candidates.txt", must have the form of an array :math:`N_{Sampl
 Source Code
 ___________
 
-The source code of the algorithm is included in the "grasp.c" file. To compile the code execute the Makefile. The GNU Scientific Library is necessary.
+The source code of the algorithm is included in the "grasp.c" file, avaliable from the `E-CAM Gitlab repository`__. To compile the code execute the Makefile. The GNU Scientific Library is necessary.
 
 
 Testing
@@ -56,7 +56,9 @@ provided that the "candidates.txt" and "input.gra" files are in the same directo
 .. image:: ./img/grasp_sampling_2D.png
    :scale: 50 % 
 
+.. __: https://gitlab.e-cam2020.eu/fracchia/GRASP_Sampling
 
+  
  
 
 
