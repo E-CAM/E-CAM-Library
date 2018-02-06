@@ -10,7 +10,7 @@ LocConQubit
     Python 3.5
 
   License
-    TBD
+    MIT
 
   Documentation Tool
     doxygen
