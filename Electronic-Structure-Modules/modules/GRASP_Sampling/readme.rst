@@ -19,7 +19,7 @@ _____________________
 This module performs a stratified sampling of the configurations, described by vectors, of a system to build a representative training set in a fitting procedure. Given a list of candidate configurations, and selected the size (N) of the training set required, the module executes the combinatorial optimization that maximizes the following dissimilarity score (DS) among the elements of the training set: 
 
 .. image:: ./img/dissimilarity_score.png 
-   :scale: 10 %  
+   :scale: 40 %  
 
 In this formula, the j-th configuration in the sum is the j-th nearest one to the l-th configuration and :math:`d_{lj}` is the Euclidean distance between the l-th and j-th configurations. M is the number of the nearest configurations considered in the score. The exponential weight makes the score near independent from the particular value of M, if it is larger than 4-6.
 
@@ -54,7 +54,7 @@ In the example of the "candidates.txt" file are collected 10000 two-dimensional 
 provided that the "candidates.txt" and "input.gra" files are in the same directory of the executable file. Examples of "candidates.txt" and "input.gra" files are provided in the ./test directory. The name of "input.gra" file cannot be changed, while the name of file where the candidate configurations are defined must be indicated in the first line of the "input.gra" file. 
 
 .. image:: ./img/grasp_sampling_2D.png
-   :scale: 30 % 
+   :scale: 50 % 
 
 
  
