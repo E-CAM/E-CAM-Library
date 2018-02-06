@@ -10,7 +10,7 @@ OpenQubit
     Python 3.5
 
   License
-    MIT
+    MIT license (MIT)
 
   Documentation Tool
     doxygen
