@@ -10,7 +10,7 @@ OpenQubit
     Python 3.5
 
   License
-    TBD
+    MIT
 
   Documentation Tool
     doxygen
@@ -67,7 +67,7 @@ The installation should be made by following these instructions:
         (Check that you are on the QC master branch,
          e.g. command 'git status' should display master in output)
 
-        git checkout -b OpenQubit
+        git checkout -b OpenLCTCode
 
         (Download the OpenQubit.patch file here directly or 
          copy it from a directory containing the previous download:)
