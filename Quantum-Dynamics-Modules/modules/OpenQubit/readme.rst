@@ -13,7 +13,7 @@ OpenQubit
     MIT license (MIT)
 
   Documentation Tool
-    doxygen
+    sphinx
 
 .. contents:: :local:
 
@@ -116,13 +116,15 @@ This same link contains the *test_5.pkl* binary file for download.
 Source Code Documentation
 _________________________
 
-The source code documentation is given at https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/QC/doc
-The documentation files (html and latex format) are obtained by executing the following command in the doc directory
+The source code is accompanied with `sphinx <http://www.sphinx-doc.org/en/stable/>`_ documentation located in sub-directory *doc*. 
+Instractions for sphinx installation can be found `here <http://www.sphinx-doc.org/en/stable/>`_.
+The html documentation files can be obtained by executing the following command in the *doc* sub-directory
 
 ::
 
         cd ./doc
 
-        doxygen LocConQubit_doxygen_settings
+        make html
 
+The generated documentation is located in the *./doc/_build/html/index.html*
 
