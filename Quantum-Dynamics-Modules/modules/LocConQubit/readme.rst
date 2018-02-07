@@ -13,7 +13,7 @@ LocConQubit
     MIT license (MIT)
 
   Documentation Tool
-    doxygen
+    sphinx
 
 .. contents:: :local:
 
@@ -74,9 +74,7 @@ The schematic below illustrates the LCT procedure.
 Applications of the Module
 __________________________
 
-Application of the LCT module can be found here_ .
-
-.. _here: https://www.e-cam2020.eu/pilot-project-ibm/
+Application of the LCT module can be found `here <https://www.e-cam2020.eu/pilot-project-ibm/>`_ .
 
 
 Installation
@@ -119,22 +117,27 @@ The LocConQubit module source code is located at: https://gitlab.e-cam2020.eu:10
 Source Code Documentation
 _________________________
 
-The source code documentation is given at https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/QC/doc
-The documentation files (html and latex format) are obtained by executing the following command in the doc directory
+The source code is accompanied with `sphinx <http://www.sphinx-doc.org/en/stable/>`_ documentation located in sub-directory *doc*. 
+Instractions for sphinx installation can be found `here <http://www.sphinx-doc.org/en/stable/>`_.
+The html documentation files can be obtained by executing the following command in the *doc* sub-directory
 
 ::
 
         cd ./doc
 
-        doxygen LocConQubit_doxygen_settings
+        make html
+
+The generated documentation is located in the *./doc/_build/html/index.html*
 
 
 References
 __________
 
-.. [LCT1] B. F. E. Curchod, T. J. Penfold, U. Rothlisberger, I. Tavernelli *Phys. Rev. A* **84** (2012) 042507, doi1_
-.. [LCT2] B. F. E. Curchod, T. J. Penfold, U. Rothlisberger, I. Tavernelli *Chem. Phys. Chem.* **16** (2015) 2127, doi2_
+.. [LCT1] B. F. E. Curchod, T. J. Penfold, U. Rothlisberger, I. Tavernelli *Phys. Rev. A* 
+          **84** (2012) 042507 `DOI: 10.1103/PhysRevA.84.042507 
+          <https://journals.aps.org/pra/abstract/10.1103/PhysRevA.84.042507>`_
 
-.. _doi1: https://journals.aps.org/pra/abstract/10.1103/PhysRevA.84.042507
-.. _doi2: http://onlinelibrary.wiley.com/doi/10.1002/cphc.201500190/abstract
+.. [LCT2] B. F. E. Curchod, T. J. Penfold, U. Rothlisberger, I. Tavernelli *Chem. Phys. 
+          Chem.* **16** (2015) 2127 `DOI: 10.1002/cphc.201500190
+          <http://onlinelibrary.wiley.com/doi/10.1002/cphc.201500190/abstract>`_
 
