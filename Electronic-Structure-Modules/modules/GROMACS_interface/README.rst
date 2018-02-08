@@ -49,6 +49,8 @@ _______
 
 To test the module a set of 100 configurations is provided in the ./GROMACS_Configurations directory
 
+.. __: https://gitlab.e-cam2020.eu/fracchia/GROMACS_interface/
+
 
 
  
