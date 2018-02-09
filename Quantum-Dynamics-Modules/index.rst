@@ -250,7 +250,10 @@ It also contains a library of adapted MPI subroutines for easier programming of 
     :glob:
     :maxdepth: 1
 
-    ./modules/PIM_qcf/readme
+    ./modules/Openmpbeads/readme
+
+**Openmpbeads** is a patch to the PaPIM code which enables parallelization of the sampling of the  
+polyer chains within the PIM algorithm.
 
 
 References

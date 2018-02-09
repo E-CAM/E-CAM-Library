@@ -35,17 +35,13 @@ OpenQubit is a patch to the *LocConQubit* module which extends the capabilities 
 with functionalities to generate control pulses in a more realistic systems with dissipating effects. 
 The module incorporates the Lindblad master equation into the system propagator upon which the Local 
 Control Theory generates a control pulse. For more information on LocConQubit module and Local Control 
-Theory see here_ .
-
+Theory see :doc:`here<../LocConQubit/readme.rst>`.
 
 
 Applications of the Module
 __________________________
 
-Application of the OpenQubit module can be found here_ .
-
-.. _here: https://www.e-cam2020.eu/pilot-project-ibm/
-
+Application of the OpenQubit module can be found `here<https://www.e-cam2020.eu/pilot-project-ibm/>`_ .
 
 
 Installation
