@@ -74,7 +74,7 @@ The schematic below illustrates the LCT procedure.
 Applications of the Module
 __________________________
 
-Application of the LCT module can be found `here <https://www.e-cam2020.eu/pilot-project-ibm/>`_ .
+Application of the LCT module can be found at the `pilot project web page <https://www.e-cam2020.eu/pilot-project-ibm/>`_ .
 
 
 Installation
