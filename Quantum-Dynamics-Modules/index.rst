@@ -80,6 +80,14 @@ Pilot Projects
     :glob:
     :maxdepth: 1
 
+    ./modules/LocConQubit/readme
+
+**LocConQubit** is a code for the construction of controlled pulses on isolated qubit systems using the Local Control Theory.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
     ./modules/OpenQubit/readme
 
 **OpenQubit** is an extension to the LocConQubit code for the construction of controlled pulses in a more realistic environment with 
