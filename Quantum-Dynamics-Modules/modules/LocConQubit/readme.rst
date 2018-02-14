@@ -74,7 +74,7 @@ The schematic below illustrates the LCT procedure.
 Applications of the Module
 __________________________
 
-Application of the LCT module can be found `here <https://www.e-cam2020.eu/pilot-project-ibm/>`_ .
+Application of the LCT module can be found at the `pilot project web page <https://www.e-cam2020.eu/pilot-project-ibm/>`_ .
 
 
 Installation
@@ -118,7 +118,11 @@ Source Code Documentation
 _________________________
 
 The source code is accompanied with `sphinx <http://www.sphinx-doc.org/en/stable/>`_ documentation located in sub-directory *doc*. 
+<<<<<<< HEAD
 Instractions for sphinx installation can be found `here <http://www.sphinx-doc.org/en/stable/>`_.
+=======
+Instractions for sphinx installation can be found `here <http://www.sphinx-doc.org/en/stable/tutorial.html#install-sphinx>`_.
+>>>>>>> mmalis/E-CAM-Library-OpenQubit
 The html documentation files can be obtained by executing the following command in the *doc* sub-directory
 
 ::
