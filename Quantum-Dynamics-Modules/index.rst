@@ -76,6 +76,23 @@ To foster this development, we have initiated five parallel activities:
 Pilot Projects
 ==============
 
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/LocConQubit/readme
+
+**LocConQubit** is a code for the construction of controlled pulses on isolated qubit systems using the Local Control Theory.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/OpenQubit/readme
+
+**OpenQubit** is an extension to the LocConQubit code for the construction of controlled pulses in a more realistic environment with 
+disipating effects.
+
 One of primary activity of E-CAM is to engage with pilot projects with industrial partners. These projects are conceived
 together with the partner and typically are to facilitate or improve the scope of computational simulation within the
 partner. The related code development for the pilot projects are open source (where the licence of the underlying
@@ -233,7 +250,10 @@ It also contains a library of adapted MPI subroutines for easier programming of 
     :glob:
     :maxdepth: 1
 
-    ./modules/PIM_qcf/readme
+    ./modules/Openmpbeads/readme
+
+**Openmpbeads** is a patch to the PaPIM code which enables parallelization of the sampling of the  
+polyer chains within the PIM algorithm.
 
 
 References
