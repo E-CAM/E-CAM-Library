@@ -5,9 +5,9 @@
 
 .. _readme_electronic_structure:
 
-*********************************************
-The E-CAM Electronic Structure Module Library
-*********************************************
+****************************
+Electronic Structure Modules
+****************************
 
 Introduction
 ============
@@ -16,6 +16,7 @@ Introduction
 
     .. contents:: :depth: 2
 
+    * :ref:`contributing`
     * :ref:`search`
 
 .. figure:: ./images/wake_nova-rgb.png 
@@ -82,5 +83,15 @@ One of primary activity of E-CAM is to engage with pilot projects with industria
 together with the partner and typically are to facilitate or improve the scope of computational simulation within the
 partner. The related code development for the pilot projects are open source (where the licence of the underlying
 software allows this) and are described in the modules associated with the pilot projects.
+
+Below is a list of the modules developed directly within the context of the pilot projects within E-CAM:
+  
+.. toctree::
+    :glob:
+    :maxdepth: 1
+                                                                                    
+    ./modules/Geomoltools/readme   
+    ./modules/GRASP_Sampling/readme   
+
 
 .. _E-CAM: https://www.e-cam2020.eu/

@@ -50,7 +50,11 @@ as excellent tools for sampling. However, since OpenPathSampling is a new
 software package, users may already have simulations that they have run with
 other packages. The purpose of this module is to provide tools that allow
 the user to easily convert legacy script output into a format that can be
-analyzed by OpenPathSampling.
+analyzed by OpenPathSampling. It is a library of tools that can be used with
+data from any existing path sampling simulation output, and specifically
+includes tools to simplify the use of flexible-length TPS with one-way
+shooting and uniform shooting point selection. Extending to the library to
+work with other simulation types will be part of future work.
 
 The OPSPiggybacker essentially fakes a simulation, based on data from
 another source. In this module, it has the ability to read in data from

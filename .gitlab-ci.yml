@@ -1,9 +1,10 @@
-image: plaindocs/docker-sphinx
+image: umbrellium/sphinx-doc
 
 pages:
   script:
-  - sudo apt-get -y install dvipng
-  - make html
+  - apt-get update
+  - apt-get -y install dvipng
+  - READTHEDOCS=True sphinx-build -nWT -b html . _build/html
   - mv _build/html/ public/
   artifacts:
     paths:

@@ -42,14 +42,13 @@ _________________
 
 When dealing with biomolecular systems, one of the common challenges is to
 define the (meta)stable states. The existence of metastable states is easily
-determined by visually inspecting the trajectory. However, characterising
-the states based on geometric criteria remains difficult.
+determined by visually inspecting the trajectory. However, identifying
+geometric criteria to characterize the states remains difficult.
 
-The purpose of this module is to assist that process by providing a way to
-annotate a trajectory with the visually identified states, and then compare
-proposed geometric state definitions with those annotations. It also
-includes tools to visualize where the proposed state definition matches the
-annotations.
+This module provides a data structure that allows the user to easily
+annotate a trajectory with the visually identified states, and to compare
+those annotations to proposed state definitions. It also includes tools to
+visualize where the proposed state definition matches the annotations.
 
 This implementation includes:
 

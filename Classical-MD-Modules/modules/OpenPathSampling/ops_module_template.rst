@@ -49,6 +49,7 @@ Purpose of Module
 _________________
 
 .. Give a brief overview of why the module is/was being created.
+Interface optimization is an important issue in TIS simulations. In general TIS procedure developed to perform TPS calculations on a separate ensembles, each is represented by its interface. With TIS algorithm it is possible obtain larger crossing probabilities and then collect the results. For more accurate results it is better to use a lot of interface, but for better performance the interfaces has to be optimized.
 
 
 Background Information

@@ -35,7 +35,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
-    'sphinx.ext.pngmath',
+    'sphinx.ext.imgmath',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
 ]
@@ -55,8 +55,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'E-CAM'
-copyright = '2016, Alan O\'Cais'
+project = 'E-CAM Software Library'
+copyright = '2017, E-CAM Centre of Excellence'
 author = 'Alan O\'Cais'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -98,7 +98,7 @@ exclude_patterns = ['_build', 'README.rst', 'Classical-MD-Modules/modules/OpenPa
 
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
-#show_authors = False
+show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -118,11 +118,8 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-# Let's default this to on since GitLab supports building the docs
-on_rtd= True
 
 if on_rtd:
-    sys.path.insert(0, os.path.abspath('./'))
     import sphinx_bootstrap_theme
 
     html_theme = 'bootstrap'
@@ -131,7 +128,7 @@ if on_rtd:
     # documentation.
     html_theme_options = {
         # Navigation bar title. (Default: ``project`` value)
-        'navbar_title': "E-CAM Module Library",
+        'navbar_title': "Software Library",
 
         # Tab name for entire site. (Default: "Site")
         'navbar_site_name': "Site",
@@ -210,17 +207,17 @@ else:
 
 # (Optional) Logo. Should be small enough to fit the navbar (ideally 24x24).
 # Path should be relative to the ``_static`` files directory.
-html_logo = 'images/ecam_logo.png'
+html_logo = '_static/images/ecam_logo.png'
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-html_favicon = 'images/ecam_logo.ico'
+html_favicon = '_static/images/ecam_logo.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-#html_static_path = ["_static"]
+html_static_path = ["_static"]
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
