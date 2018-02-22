@@ -187,9 +187,9 @@ PROGRAM check_config
      WRITE (*,'(" system sizes           =",3(1x,F16.10))') dimx, dimy, dimz 
   ENDIF
   
-  WRITE (*,'(" imcon     =",1x,I8)') imcon !may be removed...
-  WRITE (*,'(" levcfg    =",1x,I8)') levcfg !may be removed...
-  WRITE (*,'(" lconfzero =",1x,L8)') lconfzero ! may be removed...
+  WRITE (*,'(" imcon     =",1x,I8)') imcon
+  WRITE (*,'(" levcfg    =",1x,I8)') levcfg
+  WRITE (*,'(" lconfzero =",1x,L8)') lconfzero
   WRITE (*,'(" srftype   =",1x,I8)') srftype
   IF (srftype/=0)   WRITE (*,*) "srfx, srfy, srfz =", srfx, srfy, srfz
   
@@ -939,7 +939,7 @@ SUBROUTINE scan_config
        nspecmol = nspecmol * nfold
        nummol = nummolcell * nfold
        
-       CLOSE (nread) !added by SC
+       CLOSE (nread) 
        
       RETURN
       END SUBROUTINE read_field
