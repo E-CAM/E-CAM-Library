@@ -4,15 +4,17 @@ PROGRAM check_config
 ! It is checked that the provided CONFIG file (optional input) 
 ! is consistent with the CONTROL and FIELD files (necessary input).
 !
-! authors: m. a. seaton and s. chiacchiera, October 2017 (WIP)
+! authors: m. a. seaton and s. chiacchiera, February 2018 
 !***********************************************************************
+!NB: frozen wall or shearing surface not included yet
+
   IMPLICIT none
 
   LOGICAL l_exist, safe 
 
-  INTEGER, PARAMETER :: nread = 15 ! change?
+  INTEGER, PARAMETER :: nread = 15 
 
-!  CHARACTER(LEN=80) :: text ! needed?
+!  CHARACTER(LEN=80) :: text 
   INTEGER, PARAMETER :: dp = SELECTED_REAL_KIND (15, 307)
   INTEGER, PARAMETER :: si = SELECTED_INT_KIND (8)
   INTEGER, PARAMETER :: li = SELECTED_INT_KIND (12)
@@ -21,7 +23,6 @@ PROGRAM check_config
   LOGICAL :: lnfold, lvol
   INTEGER :: nfold, nfoldx, nfoldy, nfoldz
   INTEGER :: levcfg, imcon
-!  REAL(dp) :: aux1!, aux2
   INTEGER :: mxmolsize, mxbonds
 ! total system volume and dimensions
   REAL(KIND=dp) :: volm, dimx, dimy, dimz
@@ -67,7 +68,7 @@ PROGRAM check_config
 ! surface dimensions
   INTEGER :: srfx, srfy, srfz
 ! maximum value for numbers of beads
-  INTEGER, POINTER :: maxdim  !remove later?
+  INTEGER, POINTER :: maxdim 
 ! switch to determine whether to ignore global bead numbers in CONFIG file
   LOGICAL :: ligindex
 ! switch for bonds
@@ -87,8 +88,8 @@ PROGRAM check_config
   INTEGER :: fail (13)
   INTEGER :: bead1, bead2
   
-  lbond = .true. ! I keep it to minimize changes. remove later??? Ask user? Use FIELD?
-  lgbnd = .true. ! same
+  lbond = .false. 
+  lgbnd = .true.  ! kept to minimize changes to the code
   
 ! check that the three files are all present  
 
@@ -113,7 +114,7 @@ PROGRAM check_config
   IF (.NOT. safe) STOP
 
 ! assign default values 
-  lnfold = .false. ! needed?
+  lnfold = .false. 
   nfoldx = 1
   nfoldy = 1
   nfoldz = 1
@@ -129,7 +130,7 @@ PROGRAM check_config
   dimycell = 0._dp
   dimzcell = 0._dp
 
-  voltype = 0
+  voltype = 0 
 
   srftype = 0
   srfx = 0; srfy = 0; srfz = 0
@@ -142,7 +143,7 @@ PROGRAM check_config
   CALL read_control 
 
   IF (lvol .AND. (nfold>1)) THEN
-     WRITE (*,*) "error (warning?): incompatible choices in CONTROL file (vol and nfold /=1)"
+     WRITE (*,*) "error: incompatible choices in CONTROL file (vol and nfold /=1)"
      STOP
   END IF
 
@@ -173,6 +174,7 @@ PROGRAM check_config
      volm = dimx * dimy * dimz
   CASE (3)
      WRITE (*,*) "error: volume defined in both CONFIG and CONTROL files"
+     WRITE (*,*) "solution: please remove one of the two definitions"
      STOP
   END SELECT
 
@@ -180,10 +182,8 @@ PROGRAM check_config
      WRITE (*,*) "error: system volume is zero"
      STOP
   ELSE
-!     IF (nfold >1) THEN
-        WRITE (*,*) "unit cell sizes: ", dimxcell, dimycell, dimzcell      
-        WRITE (*,*) "nfoldx, nfoldy, nfoldz =", nfoldx, nfoldy, nfoldz
-!     END IF
+     WRITE (*,*) "unit cell sizes: ", dimxcell, dimycell, dimzcell      
+     WRITE (*,*) "nfoldx, nfoldy, nfoldz =", nfoldx, nfoldy, nfoldz
      WRITE (*,*) "system sizes: ", dimx, dimy, dimz 
   ENDIF
   
@@ -213,15 +213,19 @@ PROGRAM check_config
   DO i = 1, nmoldef
      WRITE (*,*) "mlstrtspe (i,:)=", mlstrtspe (i,:)
   ENDDO
+
+  IF (numbond > 0) lbond = .true. !slightly adapted (uses numbond instead of nbonddef)
   
-! temporarily keep maxdim (to minimize the changes to the code)
+! keep maxdim (to minimize the changes to the code)
   maxdim => nsyst
 
   CALL define_molstart
 
-  ALLOCATE (xxyyzz (4, maxdim))!, STAT=fail(1))  ! I have used 4 instead of csize
-  ALLOCATE (lab (maxdim), ltp (maxdim), ltm (maxdim))
-  ALLOCATE (bndtbl (numbond,2))!, STAT=fail (1)) ! NB: I disregard the bond type (smaller dimension for the array)
+  fail = 0
+
+  ALLOCATE (xxyyzz (4, maxdim), STAT=fail(1))  ! I have used 4 instead of csize
+  ALLOCATE (lab (maxdim), ltp (maxdim), ltm (maxdim), STAT=fail(2))
+  ALLOCATE (bndtbl (numbond,2), STAT=fail(3)) ! NB: I disregard the bond type (smaller dimension for the array)
   
 ! assign pointers                                                                                                                                                          
   xxx => xxyyzz (1,:)
@@ -233,8 +237,13 @@ PROGRAM check_config
 ! checks (when needed to avoid confusion, the expected values are named *0)
 ! use ltp and ltm to derive nspec, nspecmol and molecules obtained using CONFIG file 
   
-  ALLOCATE (nspec0 (nmoldef), nspecmol0 (nmoldef))
+  ALLOCATE (nspec0 (nspe), nspecmol0 (nspe), STAT=fail(4))
 
+  IF (ANY (fail/=0)) THEN
+     WRITE (*,*) "error: allocation failure"
+     STOP
+  END IF
+  
   nspec0 = nspec
   nspecmol0 = nspecmol
   nmol = nfold * nmol ! to rescale from unit cell to system
@@ -253,7 +262,7 @@ PROGRAM check_config
   END DO
   
   safe = .true.
-  DO i = 1, nmoldef
+  DO i = 1, nspe
      IF (nspec (i) /= nspec0 (i)) THEN
         WRITE (*,*) "ERROR: problem with unbonded beads of species ", namspe (i), ":", nspec (i), &
              " instead of ", nspec0 (i)
@@ -271,7 +280,7 @@ PROGRAM check_config
      DO j = 1, nmol (i)
         DO k = 1, nbdmol (i)
            ibd = ibd + 1
-           l = 1 ! should it start from nusyst? 
+           l = 1 
            DO WHILE (lab (l) /= ibd)
               l = l + 1
            END DO
@@ -292,15 +301,6 @@ PROGRAM check_config
   ELSE
      WRITE (*,"(/,1x,'OK: CONFIG file is consistent with FIELD file')")     
      WRITE (*,"(1x,'(composition and bead content of molecules)')")
-  END IF
-
-
-  ! Write to std output bndtbl                                                                                                                                          
-  IF (numbond > 0) THEN
-     WRITE (*,*) "# List of stretching bonds ends: bndbtl(i,1), bndbtl(i,2)"
-     DO i = 1, numbond
-        WRITE (*,*) bndtbl (i,1), bndtbl (i,2)
-     END DO
   END IF
 
 ! Check that no stretching bond crosses a hard wall
@@ -332,16 +332,18 @@ PROGRAM check_config
      IF (.NOT. safe) THEN
         WRITE (*,"(/'error: at least one streching bond is crossing a hard wall, please correct the CONFIG file')")
         IF (nfold>1) WRITE (*,"('(hint: the bonds needing corrections are easier to indetify if nfold=1)')")        
+     ELSE
+        WRITE (*,"(/,1x,'OK: none of the stretching bonds is crossing a hard wall')")             
      END IF
 
   END IF
 
-  !  DEALLOCATE (lab, ltp, ltm)
-  DEALLOCATE (nspec0, nspecmol0)
-! de-allocate arrays, as in free_memory
+
+! de-allocate arrays, (from second line on) as in free_memory
   
   fail = 0
 
+  DEALLOCATE (nspec0, nspecmol0, STAT=fail(1))
   DEALLOCATE (xxyyzz, STAT=fail(2))
   DEALLOCATE (namspe, nspec, nspecmol, lfrzn, nammol, STAT=fail(4))
   DEALLOCATE (mlstrtspe, nmol, nbdmol, nbond, STAT=fail(5))
@@ -366,16 +368,15 @@ CONTAINS
 !     authors - w. smith & m. a. seaton july 2015
 !
 !***********************************************************************
-!     This is a simplified version, adapted by s. chiacchiera 2017
+!     This is a stripped down version, adapted by s. chiacchiera 2017
 !     Details on its behaviour:
 !     input: CONTROL
 !     output: may alter from default the values of these global variables
 !     lnfold, nfold, nfoldx, nfoldy, nfoldz
 !     lvol, dimxcell, dimycell, dimzcell
-!     ligindex, lconfzero    
+!     ligindex, lconfzero
+!     srftype, srfx, srfy, srfz    
 !***********************************************************************    
-!  USE parse_utils
-
     IMPLICIT none
   
     CHARACTER(LEN=mxword) :: key1, key2, word1, word2, word3!, word4
@@ -471,17 +472,17 @@ CONTAINS
           
        ELSE IF (key1 (1:3) =="vol") THEN
           lvol = .true.
-          dimxcell = getdble (record, 2)  ! dimx = getdble (record, 2)
-          dimycell = getdble (record, 3)  ! dimy = getdble (record, 3)           
-          dimzcell = getdble (record, 4)  ! dimz = getdble (record, 4)      
+          dimxcell = getdble (record, 2)
+          dimycell = getdble (record, 3)
+          dimzcell = getdble (record, 4)
           volume = dimxcell * dimycell * dimzcell  
           IF (volume <1.0e-10_dp) THEN
-             cubeside = dimxcell ** (1.0_dp/3.0_dp) !dimx ** (1.0_dp/3.0_dp) !
-             dimxcell = cubeside ! dimx = cubeside  !       
-             dimycell = cubeside ! dimy = cubeside  !       
-             dimzcell = cubeside !dimz = cubeside  !       
+             cubeside = dimxcell ** (1.0_dp/3.0_dp) 
+             dimxcell = cubeside 
+             dimycell = cubeside 
+             dimzcell = cubeside 
           END IF
-          !     lnfold = .false. !Why??? I remove this
+          !     lnfold = .false. NB: I remove this for clarity
           !     nfoldx = 1
           !     nfoldy = 1
           !     nfoldz = 1
@@ -514,8 +515,7 @@ SUBROUTINE scan_config
 !     dimxcell, dimycell, dimzcell
 !***********************************************************************    
 
-!      USE parse_utils
-        IMPLICIT none ! added by SC
+  IMPLICIT none 
         
       LOGICAL :: safe
       INTEGER :: ioerror
@@ -554,6 +554,7 @@ SUBROUTINE scan_config
 
       CLOSE (nread)
 
+      RETURN
       END SUBROUTINE scan_config
 
 
@@ -567,16 +568,14 @@ SUBROUTINE scan_config
 !     author - m. a. seaton july 2014
 !
 !***********************************************************************
-!     This is a simplified version, adapted by s. chiacchiera 2017
+!     This is a stripped down version, adapted by s. chiacchiera 2017
 !     Details on its behaviour:
 !     input: FIELD
 !     output:
 !     defines the values of these global variables:
 !     nspe, nmoldef, mxmolsize, mxbonds
 !----------------------------------------------------------------------
-        
-!      USE parse_utils
-        IMPLICIT none ! added by SC        
+      IMPLICIT none 
       LOGICAL :: finish, safe!lexist, 
       CHARACTER(LEN=mxword) :: key, word
       CHARACTER(LEN=200) :: record, record1
@@ -669,28 +668,26 @@ SUBROUTINE scan_config
 !     author - m. a. seaton august 2015
 !
 !***********************************************************************
-!     This is a simplified version, adapted by s. chiacchiera 2017
+!     This is a stripped down version, adapted by s. chiacchiera 2017
 !     Details on its behaviour:
 !     input: FIELD
 !     output: ALLOCATES and defines the values of these global variables
-!     namspe, nspec, nspecmol, lfrzn, nammol, mlstrtspe, nmol, nbdmol
+!     namspe, nspec, nspecmol, lfrzn, nammol, mlstrtspe, nmol, nbdmol,
+!     nbond, bdinp1, bdinp2             
 !     defines these global variables:
 !     nsystcell, nusystcell, nfsystcell, nummolcell, numbondcell
 !     nsyst, nusyst, nfsyst, nummol, numbond
 !------------------------------------------------------------------------
-        
-!      USE parse_utils
-
-      IMPLICIT none ! added by SC        
+      IMPLICIT none 
       
       CHARACTER(LEN=8) :: spenam
       CHARACTER(LEN=mxword) :: key, word, word1
       CHARACTER(LEN=200) :: record, record1
-      INTEGER :: i, ibond, iang, idhd, ioerror, ispe, j, jspe, k, finmol, typ
-      REAL(KIND=dp) :: aa, bb, cc, dd, ee, ff, gg, x0, y0, z0, maxside
-      REAL(KIND=dp) :: el2, fac, pl2, frzwid, eunit
+      INTEGER :: i, ioerror, ispe, j, k, finmol !ibond, iang, idhd, jspe, typ
+!      REAL(KIND=dp) :: aa, bb, cc, dd, ee, ff, gg, x0, y0, z0, maxside
+!      REAL(KIND=dp) :: el2, fac, pl2, frzwid, eunit
       LOGICAL :: safe
-      LOGICAL, ALLOCATABLE :: interact (:,:)
+!      LOGICAL, ALLOCATABLE :: interact (:,:)
 
       INTEGER :: fail (13)
 
@@ -729,6 +726,8 @@ SUBROUTINE scan_config
       nbond = 0
       numbond = 0
       numbondcell = 0
+      nmol = 0 
+      nbdmol = 0 
       nummol = 0 !added here by SC
       nummolcell = 0 !added here by SC
 
@@ -840,7 +839,7 @@ SUBROUTINE scan_config
                     bdinp1 (i, j) = INT (getint (record1, 2), KIND=si)
                     bdinp2 (i, j) = INT (getint (record1, 3), KIND=si)
                     IF (bdinp1 (i, j) == bdinp2 (i, j)) THEN !added by SC
-                       WRITE (*, "(/,1x,'error: bond a bead with itself in FIELD file')")                       
+                       WRITE (*, "(/,1x,'error: bond of a bead with itself in FIELD file')")                       
                        WRITE (*,"(1x,'hint: check molecule',2x,A8,2x,'bond number',2x,I3)") nammol (i), j
                        STOP
                     END IF
@@ -936,18 +935,7 @@ SUBROUTINE scan_config
        nspec = nspec * nfold
        nspecmol = nspecmol * nfold
        nummol = nummolcell * nfold
-! !
-! !      WRITE (*,*) "nspecmol=",nspecmol
-! !      WRITE (*,*) "nspec=",nspec
-! !      STOP
-! !     
-
-!       ! PRINT *, "from READ_FIELD"
-!       ! PRINT *, "mlstrtspe is"
-!       ! DO i = 1, nmoldef
-!       !    PRINT *, nammol (i), mlstrtspe (i,:)
-!       ! END DO
-
+       
        CLOSE (nread) !added by SC
        
       RETURN
@@ -963,38 +951,32 @@ SUBROUTINE scan_config
 !     authors - w. smith & m. a. seaton july 2015
 !
 !***********************************************************************
-!     This is a simplified version, adapted by s. chiacchiera 2017
+!     This is a stripped down version, adapted by s. chiacchiera 2017
 !     Details on its behaviour:
 !     input: CONFIG
 !     output: 
-!     defines these global variables: lab, ltp, ltm (for all the system beads)        
+!     defines these global variables (for all the system beads):
+!     lab, ltp, ltm 
+!     xxx, yyy, zzz, bndtbl 
 !***********************************************************************    
-
         
-!      USE comms_module !ok like this?
-!      USE parse_utils 
-!      USE domain_module !ok like this?
       IMPLICIT none
 
-      ! REAL(KIND=dp) :: x, y, z, xf, yf, zf, xs, ys, zs, vx, vy, vz, fx, fy, fz, halfx, halfy, halfz
       REAL(KIND=dp) :: x, y, z, xf, yf, zf, xs, ys, zs, halfx, halfy, halfz
       ! REAL(KIND=dp) :: disx, disy, disz, xdispl, ydispl, zdispl, shfx, shfy, shfz
-      !INTEGER :: ioerror, species, gb, global, numpart, i, imol, imoltyp, inod, j, k
-      INTEGER :: ioerror, species, gb, global, numpart, i, imol, imoltyp!, inod, j, k
+      INTEGER :: ioerror, species, gb, global, numpart, i, imol, imoltyp, j, k
 !      INTEGER :: bondsize, msyst, ntop, ifx, ify, ifz, finmol, numwlbd, isx, isy, isz, mtbead
       INTEGER :: bondsize, ntop, ifx, ify, ifz, finmol, numwlbd
-      ! number of beads, frozen beads in domain cell (keep them temporarily)
+      ! number of beads, frozen beads in domain cell (keep them to minimize changes)
       INTEGER :: nbeads, nfbeads 
       CHARACTER(LEN=200) :: record
       CHARACTER(LEN=mxword) :: word
       CHARACTER(LEN=8) :: specname
       LOGICAL :: safe, numsafe, linside, molbead (nsyst-nusyst)
       
-      REAL(KIND=dp), ALLOCATABLE :: mlxxx (:), mlyyy (:), mlzzz (:)!, mlvelx (:), mlvely (:), mlvelz (:)
-      ! REAL(KIND=dp), ALLOCATABLE :: mlfrcx (:), mlfrcy (:), mlfrcz (:)
+      REAL(KIND=dp), ALLOCATABLE :: mlxxx (:), mlyyy (:), mlzzz (:)
       INTEGER, ALLOCATABLE :: mlspe (:)
 
-      ! INTEGER :: fail (4), tbead (6)
       INTEGER :: fail (4)
       INTEGER :: aux1
       
@@ -1002,15 +984,13 @@ SUBROUTINE scan_config
 
 !       numwlbd = npxfwx*npxfwy*npxfwz + npyfwx*npyfwy*npyfwz + npzfwx*npzfwy*npzfwz
 
-      numwlbd = 0 ! for simplicity ONLY, to be changed later
+      numwlbd = 0 ! to be changed if frozen bead wall is present
       
 !     allocate arrays for bonded particle positions, species, velocity and force
 
       fail = 0
       ALLOCATE (mlxxx (nsystcell-nusystcell), mlyyy (nsystcell-nusystcell), mlzzz (nsystcell-nusystcell), STAT=fail(1))
       ALLOCATE (mlspe (nsystcell-nusystcell), STAT=fail(2))
-!      ALLOCATE (mlvelx (nsystcell-nusystcell), mlvely (nsystcell-nusystcell), mlvelz (nsystcell-nusystcell), STAT=fail(3))
-!      ALLOCATE (mlfrcx (nsystcell-nusystcell), mlfrcy (nsystcell-nusystcell), mlfrcz (nsystcell-nusystcell), STAT=fail(4))
       IF (ANY (fail/=0)) THEN
          WRITE (*,*) "error: allocation failure in subroutine read_config"
          STOP
@@ -1056,11 +1036,11 @@ SUBROUTINE scan_config
 
 !     read in data for each particle
 
-      nbeads = 0   !keep for the moment, rename later? 
-      nfbeads = 0  !keep for the moment, rename later? 
-      numpart = 0
+      nbeads = 0   ! in a serial run (as it is here) must coincide with nsyst
+      nfbeads = 0  ! in a serial run (as it is here) must coincide with nfsyst
+      numpart = 0  ! must coincide with nsystcell
       molbead = .false.
-      numsafe = .true. !needed? Not really, remove at the end
+      numsafe = .true. 
 
       DO WHILE (.true.)
 
@@ -1093,8 +1073,6 @@ SUBROUTINE scan_config
           global = numpart
         END IF
         
-        WRITE (*,*) global, species ! added by SC - for testing
-                
 !    read position of particle
 
         READ (nread, '(a80)') record
@@ -1122,8 +1100,8 @@ SUBROUTINE scan_config
         y = y - dimycell * FLOOR (y/dimycell)
         z = z - dimzcell * FLOOR (z/dimzcell)        
         
-!     if particle is unbonded, add to each copy of unit cell (adjusting for frozen bead
-!     walls if used)
+!     if particle is unbonded, add to each copy of unit cell (adjustment for frozen bead
+!     walls NOT active -> recover if needed)
 
         IF (global<=nusystcell) THEN
 
@@ -1133,11 +1111,11 @@ SUBROUTINE scan_config
 
                 gb = global + (ifx + nfoldx * (ify + nfoldy * ifz)) * nusystcell + numwlbd
 
-                xf = x + REAL(ifx, KIND=dp) * dimxcell !+ frzwxwid ! commented for simplicity ONLY, to be added later!
+                xf = x + REAL(ifx, KIND=dp) * dimxcell !+ frzwxwid ! to be changed if frozen bead wall is present
                 yf = y + REAL(ify, KIND=dp) * dimycell !+ frzwywid
                 zf = z + REAL(ifz, KIND=dp) * dimzcell !+ frzwzwid
                 
-                linside = .true. ! temporary solution, to be removed later
+                linside = .true. ! kept to minimize code changes (serial run here)
                 
                 IF (linside) THEN
                   nbeads = nbeads + 1
@@ -1148,7 +1126,7 @@ SUBROUTINE scan_config
                     ltp (nbeads) = species
                     ltm (nbeads) = 0
 
-                    xxx (nbeads) = xf !- delx ! in this test, domain=system (delx=dely=delz=0). Keep and define?
+                    xxx (nbeads) = xf !- delx ! serial run is assumed, then domain=system (delx=dely=delz=0)
                     yyy (nbeads) = yf !- dely
                     zzz (nbeads) = zf !- delz
 
@@ -1162,7 +1140,7 @@ SUBROUTINE scan_config
           
        ELSE IF (global<=nsystcell) THEN !        ELSE IF (lbond .AND. global<=nsystcell) THEN ! corrected
           
-!     if particle is bonded, add species to arrays so these can be added later !needed to keep like this?
+!     if particle is bonded, add species to arrays so these can be added later 
           mlxxx (global-nusystcell) = x
           mlyyy (global-nusystcell) = y
           mlzzz (global-nusystcell) = z
@@ -1172,26 +1150,29 @@ SUBROUTINE scan_config
 
     END DO ! end of the loop over the CONFIG file
 
-!     check that the total number of beads is not larger than nsyst?      
-!      IF (.NOT. numsafe) then ...
-      
-!     check total number of beads corresponds with FIELD file
+!     check that the total number of beads is not larger than maxdim (= nsyst here)
+    IF (.NOT. numsafe) THEN
+       WRITE (*,"(/,1x,'error: too many beads defined in the (possibly folded) CONFIG file')")
+       STOP
+    END IF
+    
+!     check total number of beads corresponds with FIELD file ! this check partially overlaps with the previous one, kept to minimize changes
 
       IF (numpart/=nsystcell) THEN
          aux1 = numpart - nsystcell
          IF (aux1>0) THEN
-            WRITE (*,"(/,1x,'error: discrepency in total number of beads in CONFIG  - ',i10,' too many')") aux1
+            WRITE (*,"(/,1x,'error: discrepancy in total number of beads in CONFIG  - ',i10,' too many')") aux1
          ELSE
-            WRITE (*,"(/,1x,'error: discrepency in total number of beads in CONFIG - ',i10,' too few')") ABS(aux1)
+            WRITE (*,"(/,1x,'error: discrepancy in total number of beads in CONFIG - ',i10,' too few')") ABS(aux1)
          END IF
       END IF
 
 !     rearrange bonded bead positions to give numbering across unit cell boundaries
             
-      IF (lbond) THEN
+      IF (nmoldef>0) THEN      !IF (lbond) THEN ! changed by SC
 
-        imol = 0
-        ntop = 0
+        imol = 0 ! molecule type
+        ntop = 0 ! molecule upper limit counter   
 
         DO i = 1, nummolcell
 
@@ -1232,9 +1213,9 @@ SUBROUTINE scan_config
         
 !     add bonded particles to each copy of unit cell
 
-        imol = 0
-        imoltyp = 0
-        ntop = 0
+        imol = 0 ! molecule counter 
+        imoltyp = 0 ! molecule type
+        ntop = 0 ! molecule upper limit counter 
         DO i = nusystcell+1, nsystcell
 
           DO WHILE (i>molstart (imol+1))
@@ -1258,7 +1239,7 @@ SUBROUTINE scan_config
                 gb = nusyst + (i - molstart (imol)) + nfold * (molstart (imol) - nusystcell) + &
                     &(ifx + nfoldx * (ify + nfoldy * ifz)) * (molstart(imol+1) - molstart(imol))
 
-                xf = x + REAL(ifx, KIND=dp) * dimxcell !+ frzwxwid ! commented for simplicity ONLY, to be added later!
+                xf = x + REAL(ifx, KIND=dp) * dimxcell !+ frzwxwid ! to be changed if frozen bead wall is present
                 yf = y + REAL(ify, KIND=dp) * dimycell !+ frzwywid
                 zf = z + REAL(ifz, KIND=dp) * dimzcell !+ frzwzwid
 
@@ -1266,7 +1247,7 @@ SUBROUTINE scan_config
                 yf = yf - dimy * FLOOR (yf/dimy)
                 zf = zf - dimz * FLOOR (zf/dimz)
                 
-                linside = .true. ! added to minimize the changes
+                linside = .true. ! kept to minimize code changes (serial run here)
                 
                 IF (linside) THEN
                   nbeads = nbeads + 1
@@ -1276,7 +1257,7 @@ SUBROUTINE scan_config
                     lab (nbeads) = gb
                     ltp (nbeads) = species
                     ltm (nbeads) = imoltyp
-                    xxx (nbeads) = xf !- delx ! in this test, domain=system (delx=dely=delz=0). Keep and define?
+                    xxx (nbeads) = xf !- delx ! serial run is assumed, then domain=system (delx=dely=delz=0)
                     yyy (nbeads) = yf !- dely
                     zzz (nbeads) = zf !- delz                   
                     molbead (gb-nusyst) = .true.
@@ -1290,178 +1271,31 @@ SUBROUTINE scan_config
 
         END DO
 
-        END IF ! over "lbond"
+        END IF ! over "nmoldef>0"
         
-!     check that the total number of beads is not larger than nsyst?      
-!      IF (.NOT. numsafe) then ...
-        
-! FINO A QUI. 
+!     check that the total number of beads is not larger than maxdim (= nsyst here)
+        IF (.NOT. numsafe) THEN
+           WRITE (*,"(/,1x,'error: too many beads defined in the (possibly folded) CONFIG file')")
+           STOP
+        END IF
 
-! !     insert frozen walls as simple cubic lattices
-
+! !     insert frozen walls as simple cubic lattices (not active: recover missing part if needed)
 !       IF (srftype==2) THEN
+!        ... cut ...
+!       END IF ! end of the case srftype = 2
 
-!         IF (srfx>0) THEN
-!           disx = 2.0_dp * frzwxwid / REAL (npxfwx-1, KIND=dp)
-!           disy = dimy / REAL (npxfwy, KIND=dp)
-!           disz = dimz / REAL (npxfwz, KIND=dp)
-!           xdispl = dimx - frzwxwid
-!           ydispl = 0.5_dp * disy
-!           zdispl = 0.5_dp * disz
-
-!           shfz = zdispl
-!           DO k = 1, npxfwz
-!             shfy = ydispl
-!             DO j = 1, npxfwy
-!               shfx = xdispl
-!               DO i = 1, npxfwx
-!                 isx = i - 1
-!                 isy = j - 1
-!                 isz = k - 1
-!                 gb = 1 + isx + npxfwx * (isy + npxfwy * isz)
-!                 inod = INT (shfx/sidex) + npx * (INT (shfy/sidey) + npy * INT (shfz/sidez))
-!                 IF (idnode==inod) THEN
-!                   nbeads = nbeads + 1
-!                   nfbeads = nfbeads + 1
-!                   IF (nbeads>maxdim) THEN
-!                     numsafe = .false.
-!                   ELSE
-!                     xxx (nbeads) = shfx - delx
-!                     yyy (nbeads) = shfy - dely
-!                     zzz (nbeads) = shfz - delz
-!                     lab (nbeads) = gb
-!                     ltp (nbeads) = frzwspe
-!                     ltm (nbeads) = 0
-!                     vxx (nbeads) = 0.0_dp
-!                     vyy (nbeads) = 0.0_dp
-!                     vzz (nbeads) = 0.0_dp
-!                     fxx (nbeads) = 0.0_dp
-!                     fyy (nbeads) = 0.0_dp
-!                     fzz (nbeads) = 0.0_dp
-!                   END IF
-!                 END IF
-!                 shfx = shfx + disx
-!                 IF (shfx>=dimx) shfx = shfx - dimx
-!               END DO
-!               shfy = shfy + disy
-!             END DO
-!             shfz = shfz + disz
-!           END DO
-!         END IF
-
-!         IF (srfy>0) THEN
-!           disx = (dimx - 2.0_dp * frzwxwid) / REAL (npyfwx, KIND=dp)
-!           disy = 2.0_dp * frzwywid / REAL (npyfwy-1, KIND=dp)
-!           disz = dimz / REAL (npyfwz, KIND=dp)
-!           xdispl = frzwxwid + 0.5_dp * disx
-!           ydispl = dimy - frzwywid 
-!           zdispl = 0.5_dp * disz
-
-!           shfz = zdispl
-!           DO k = 1, npyfwz
-!             shfy = ydispl
-!             DO j = 1, npyfwy
-!               shfx = xdispl
-!               DO i = 1, npyfwx
-!                 isx = i - 1
-!                 isy = j - 1
-!                 isz = k - 1
-!                 gb = npxfwx*npxfwy*npxfwz + 1 + isx + npyfwx * (isy + npyfwy * isz)
-!                 inod = INT (shfx/sidex) + npx * (INT (shfy/sidey) + npy * INT (shfz/sidez))
-!                 IF (idnode==inod) THEN
-!                   nbeads = nbeads + 1
-!                   nfbeads = nfbeads + 1
-!                   IF (nbeads>maxdim) THEN
-!                     numsafe = .false.
-!                   ELSE
-!                     xxx (nbeads) = shfx - delx
-!                     yyy (nbeads) = shfy - dely
-!                     zzz (nbeads) = shfz - delz
-!                     lab (nbeads) = gb
-!                     ltp (nbeads) = frzwspe
-!                     ltm (nbeads) = 0
-!                     vxx (nbeads) = 0.0_dp
-!                     vyy (nbeads) = 0.0_dp
-!                     vzz (nbeads) = 0.0_dp
-!                     fxx (nbeads) = 0.0_dp
-!                     fyy (nbeads) = 0.0_dp
-!                     fzz (nbeads) = 0.0_dp
-!                   END IF
-!                 END IF
-!                 shfx = shfx + disx
-!               END DO
-!               shfy = shfy + disy
-!               IF (shfy>=dimy) shfy = shfy - dimy
-!             END DO
-!             shfz = shfz + disz
-!           END DO
-!         END IF
-
-!         IF (srfz>0) THEN
-!           disx = (dimx - 2.0_dp * frzwxwid) / REAL (npzfwx, KIND=dp)
-!           disy = (dimy - 2.0_dp * frzwywid) / REAL (npzfwy, KIND=dp)
-!           disz = 2.0_dp * frzwzwid / REAL (npzfwz-1, KIND=dp)
-!           xdispl = frzwxwid + 0.5_dp * disx
-!           ydispl = frzwywid + 0.5_dp * disy
-!           zdispl = dimz - frzwzwid
-
-!           shfz = zdispl
-!           DO k = 1, npzfwz
-!             shfy = ydispl
-!             DO j = 1, npzfwy
-!               shfx = xdispl
-!               DO i = 1, npzfwx
-!                 isx = i - 1
-!                 isy = j - 1
-!                 isz = k - 1
-!                 gb = npxfwx*npxfwy*npxfwz + npyfwx*npyfwy*npyfwz + 1 + isx + npzfwx * (isy + npzfwy * isz)
-!                 inod = INT (shfx/sidex) + npx * (INT (shfy/sidey) + npy * INT (shfz/sidez))
-!                 IF (idnode==inod) THEN
-!                   nbeads = nbeads + 1
-!                   nfbeads = nfbeads + 1
-!                   IF (nbeads>maxdim) THEN
-!                     numsafe = .false.
-!                   ELSE
-!                     xxx (nbeads) = shfx - delx
-!                     yyy (nbeads) = shfy - dely
-!                     zzz (nbeads) = shfz - delz
-!                     lab (nbeads) = gb
-!                     ltp (nbeads) = frzwspe
-!                     ltm (nbeads) = 0
-!                     vxx (nbeads) = 0.0_dp
-!                     vyy (nbeads) = 0.0_dp
-!                     vzz (nbeads) = 0.0_dp
-!                     fxx (nbeads) = 0.0_dp
-!                     fyy (nbeads) = 0.0_dp
-!                     fzz (nbeads) = 0.0_dp
-!                   END IF
-!                 END IF
-!                 shfx = shfx + disx
-!               END DO
-!               shfy = shfy + disy
-!             END DO
-!             shfz = shfz + disz
-!             IF (shfz>=dimz) shfz = shfz - dimz
-!           END DO
-!         END IF
-
-! !        CALL global_sca_and (numsafe, 0, idnode)
-!         IF (.NOT. numsafe) CALL error (idnode, 53, 0)
-
-!      END IF ! end of the case srftype = 2
-
-!     check total number of beads ! is this check necessary? Or not?
+!     check total number of beads ! this check partially overlaps with the previous one, kept to minimize changes
 
       IF (nbeads/=nsyst) THEN
          aux1 = nbeads - nsyst
          IF (aux1>0) THEN
-            WRITE (*,"(/,1x,'error: discrepency in total number of beads in CONFIG  - ',i10,' too many')") aux1
+            WRITE (*,"(/,1x,'error: discrepancy in total number of beads in CONFIG  - ',i10,' too many')") aux1
          ELSE
-            WRITE (*,"(/,1x,'error: discrepency in total number of beads in CONFIG - ',i10,' too few')") ABS(aux1)
+            WRITE (*,"(/,1x,'error: discrepancy in total number of beads in CONFIG - ',i10,' too few')") ABS(aux1)
          END IF
       END IF      
       
-! !     re-order local beads to give frozen beads first !Needed??? 
+! !     re-order local beads to give frozen beads first ! -> commented since not needed here
 
 !       CALL sort_beads  
       
@@ -1471,8 +1305,8 @@ SUBROUTINE scan_config
       
       IF (lbond) THEN
          
-         imol = 0
-         ntop = 0
+         imol = 0 ! molecule type
+         ntop = 0 ! molecule upper limit counter   
          
          DO j = 1, nummolcell
             
@@ -1505,61 +1339,52 @@ SUBROUTINE scan_config
             
       END IF
             
-! !     assign particle/molecule names and masses ! Needed?
-
-!       DO i = 1, nbeads
-
-!         weight (i) = amass (ltp (i))
-!         atmnam (i) = namspe (ltp (i))
-!         molnam (i) = nammol (ltm (i))
-
-!       END DO
-
-! !     assign particle velocities to give required system temperature
-
-!       IF (levcfg==0) CALL initialvelocity
-
       CLOSE (nread)
 
       fail = 0
       DEALLOCATE (mlxxx, mlyyy, mlzzz, mlspe, STAT=fail(1))
-!      DEALLOCATE (mlvelx, mlvely, mlvelz, STAT=fail(2))
-!      DEALLOCATE (mlfrcx, mlfrcy, mlfrcz, STAT=fail(3))
-!      DEALLOCATE (molstart) !move from here to end of code?
       IF (ANY (fail/=0)) THEN
-        WRITE (*,*) "error: deallocation failure in subruotine read_config"
+        WRITE (*,*) "error: deallocation failure in subroutine read_config"
         STOP
      END IF
-     ! added by SC - for testing
-     WRITE (*,*) "within READ_CONFIG"
-     DO i = 1, nsyst
-        WRITE (*,*) lab (i), ltp (i), ltm (i)
-     END DO
-     WRITE (*,*) "within READ_CONFIG, Re-ordered"
-     DO j = 1, nsyst
-        DO i = 1, nsyst 
-           IF (lab (i) == j) THEN
-              WRITE (*,*) lab (i), ltp (i), ltm (i)
-              WRITE (1,*) namspe (ltp (i)), lab (i) 
-              WRITE (1,'(3F16.10)') xxx (i), yyy (i), zzz (i)
-              EXIT
-           END IF
-        END DO
-     END DO
+     ! ! added by SC - for testing
+     ! WRITE (*,*) "within READ_CONFIG"
+     ! DO i = 1, nsyst
+     !    WRITE (*,*) lab (i), ltp (i), ltm (i)
+     ! END DO
+     ! WRITE (*,*) "within READ_CONFIG, Re-ordered"
+     ! DO j = 1, nsyst
+     !    DO i = 1, nsyst 
+     !       IF (lab (i) == j) THEN
+     !          WRITE (*,*) lab (i), ltp (i), ltm (i)
+     !          WRITE (1,*) namspe (ltp (i)), lab (i) 
+     !          WRITE (1,'(3F16.10)') xxx (i), yyy (i), zzz (i)
+     !          EXIT
+     !       END IF
+     !    END DO
+     ! END DO
 
-     ! end of added
+     ! ! end of added
      
       END SUBROUTINE read_config
 
       SUBROUTINE define_molstart
+!***********************************************************************    
+!       Extracted from the "subroutine start", 
+!       authored by w. smith & m. a. seaton, july 2015
+!       Adapted by s. chiacchiera, 2017
+!        
+!       molstart (i) = global id of the last particle in the (i-1)th 
+!       molecule
+!***********************************************************************    
         IMPLICIT none
-        INTEGER :: fail (4), j, imol, ntop
+        INTEGER :: fail, j, imol, ntop
         fail = 0
         ! set up array for global bead numbers of molecules (for unit cell)
 
-        ALLOCATE (molstart (nummolcell+1), STAT=fail(4))
-        IF (ANY (fail/=0)) THEN
-           WRITE (*,*) "error: allocation failure"
+        ALLOCATE (molstart (nummolcell+1), STAT=fail)
+        IF (fail/=0) THEN
+           WRITE (*,*) "error: allocation failure in define_molstart"
            STOP         
         END IF
         
@@ -1567,8 +1392,8 @@ SUBROUTINE scan_config
         
         IF (nmoldef>0) THEN
            
-           imol = 0
-           ntop = 0
+           imol = 0 ! molecule type
+           ntop = 0 ! molecule counter
            
            DO j=1, nummolcell
               
@@ -1584,6 +1409,7 @@ SUBROUTINE scan_config
            molstart (nummolcell+1) = nsystcell
 
         END IF
+        RETURN
       END SUBROUTINE define_molstart
       
 ! MODULE parse_utils
@@ -2062,332 +1888,3 @@ SUBROUTINE scan_config
       
     END PROGRAM check_config
 
-! MODULE variables
-
-!       USE constants
-!       IMPLICIT none
-
-! !     node properties
-!       INTEGER :: idnode, nodes
-! !     filename for restart files
-!       CHARACTER(LEN=12) :: exportname
-
-! !     system parameters
-! !     switches for temperature rescaling, CONFIG file, origin of CONFIG file, CORREL file, HISTORY file, bonds, angles, dihedrals
-!       LOGICAL :: ltemp, lconfig, lconfzero, lcorr, ltraj, lbond, langle, ldihed
-! !     switch to determine whether to calculate bonds globally
-!       LOGICAL :: lgbnd
-! !     switch to determine whether variable forces are required
-!       LOGICAL :: lvarfc
-! !     isotropy of system pressure
-!       LOGICAL :: lisoprs
-! !     switch to determine whether to ignore global bead numbers in CONFIG file
-!       LOGICAL :: ligindex
-! !     switch to determine if many-body DPD interactions are included
-!       LOGICAL :: lmb
-! !     number of duplicates to be included from CONFIG file
-!       INTEGER :: nfoldx, nfoldy, nfoldz, nfold
-! !     CONFIG file parameters
-!       INTEGER :: levcfg, imcon
-! !     printout selection for OUTPUT file
-!       INTEGER :: outsel
-! !     HISTORY file parameter for trajectory output
-!       INTEGER :: keytrj
-! !     energy unit
-!       INTEGER :: engunit
-! !     random number generator seed
-!       INTEGER :: rndseed
-
-! !     maximum values for numbers of beads, bonds, angles, potentials, etc.
-!       INTEGER :: maxdim, maxpair, maxbfbd, maxbuf, mxmolsize, mxbonds, mxangles, mxdiheds, mxprm
-! !     density variation for non-even system densities
-!       REAL(KIND=dp) :: dvar
-
-! !     name of dl_meso_dpd calculation
-!       CHARACTER(LEN=80) :: text
-
-! !     total number of time steps
-!       INTEGER :: nrun
-! !     frequency of outputs to OUTPUT, CORREL, HISTORY, export
-!       INTEGER :: nsbpo, iscorr, ntraj, straj, ndump
-! !     temperature scaling interval
-!       INTEGER :: nsbts
-! !     number of equilibration time steps
-!       INTEGER :: nseql
-! !     calculation restart parameter
-!       INTEGER :: kres
-! !     number of species and potential types
-!       INTEGER :: nspe, npot
-! !     number of molecule types
-!       INTEGER :: nmoldef
-! !     numbers of defined bond, angle, dihedral types
-!       INTEGER :: nbonddef, nangdef, ndhddef
-! !     size of statistical rolling average stack
-!       INTEGER :: nstk
-! !     total number of beads (overall, unbonded, frozen) in system
-!       INTEGER :: nsyst, nusyst, nfsyst
-! !     number of beads (overall, unbonded, frozen) in unit cell
-!       INTEGER :: nsystcell, nusystcell, nfsystcell
-! !     total number of molecules in system
-!       INTEGER :: nummol
-! !     total number of molecules in unit cell
-!       INTEGER :: nummolcell
-! !     total number of bonds, angles, dihedrals in system
-!       INTEGER :: numbond, numang, numdhd
-! !     total number of bonds, angles, dihedrals in unit cell
-!       INTEGER :: numbondcell, numangcell, numdhdcell
-! !     current time step number
-!       INTEGER :: nstep
-
-! !     force calculation time accumulator
-!       REAL(KIND=dp) :: timfrc
-! !     step time accumulator
-!       REAL(KIND=dp) :: timstp
-! !     specified system temperature
-!       REAL(KIND=dp) :: temp
-! !     size of time step
-!       REAL(KIND=dp) :: tstep, rtstep
-! !     boundary halo sizes (user-defined and derived for each dimension)
-!       REAL(KIND=dp) :: rhalo, rhalox, rhaloy, rhaloz
-! !     maximum cutoff radius, square and square reciprocal
-!       REAL(KIND=dp) :: rcut, rct2, rrct2
-! !     thermostat cutoff radius, reciprocal and square
-!       REAL(KIND=dp) :: rtcut, rrtcut, rtct2
-! !     many-body interaction cutoff radius, square and reciprocal
-!       REAL(KIND=dp) :: rmbcut, rmbct2, rrmbcut
-! !     short-range electrostatic interaction length, square of interaction length
-!       REAL(KIND=dp) :: relec, rel2
-! !     surface interaction length and square
-!       REAL(KIND=dp) :: srfzcut, srfzct2
-! !     maximum time available for calculation
-!       REAL(KIND=dp) :: timjob
-! !     time required to close calculation
-!       REAL(KIND=dp) :: tclose
-
-! !     total system volume and dimensions
-!       REAL(KIND=dp) :: volm, dimx, dimy, dimz
-! !     unit cell dimensions
-!       REAL(KIND=dp) :: dimxcell, dimycell, dimzcell
-
-! !     domain decomposition
-! !     numbers of domain cells
-!       INTEGER :: npx, npy, npz
-! !     list of neighbouring processes
-!       INTEGER :: map(6)
-! !     position of domain cell
-!       INTEGER :: idx, idy, idz
-! !     position of domain cell within system volume
-!       REAL(KIND=dp) :: delx, dely, delz
-! !     size of domain cell
-!       REAL(KIND=dp) :: sidex, sidey, sidez
-! !     number of beads, frozen beads in domain cell
-!       INTEGER :: nbeads, nfbeads
-
-! !     link cells
-! !     number of link cells within domain cell
-!       INTEGER :: nlx, nly, nlz
-! !     number of link cells in both domain cell and boundary halo
-!       INTEGER :: nlx2, nly2, nlz2
-! !     maximum number of particles per link cell
-!       INTEGER :: mxpcell
-! !     size of link cell
-!       REAL(KIND=dp) :: wdthx, wdthy, wdthz
-! !     link cell population, link cell number, list of cell ids, list of cell neighbours (local for each processor)
-!       INTEGER, ALLOCATABLE :: lct (:), link (:), lcell (:), lcell_neighbour (:)
-! !     thermostat switch for link cell neighbours
-!       INTEGER, ALLOCATABLE :: lcell_therm (:)
-
-! !     number of link cells for electrostatic interactions within domain cell
-!       INTEGER :: nlewx, nlewy, nlewz
-! !     number of link cells for electrostatic interactions in both domain cell and boundary halo
-!       INTEGER :: nlewx2, nlewy2, nlewz2
-! !     size of electrostatic interaction link cell
-!       REAL(KIND=dp) :: wdthewx, wdthewy, wdthewz
-! !     link cell population, link cell number, list of cell ids, list of cell neighbours for electostatic interactions
-!       INTEGER, ALLOCATABLE :: lctew (:), linkew (:), lcellew (:), lcellew_neighbour (:)
-
-! !     number of link cells for many-body interactions within domain cell
-!       INTEGER :: nlmbx, nlmby, nlmbz
-! !     number of link cells for many-body interactions in both domain cell and boundary halo
-!       INTEGER :: nlmbx2, nlmby2, nlmbz2
-! !     size of many-body interaction link cell
-!       REAL(KIND=dp) :: wdthmbx, wdthmby, wdthmbz
-! !     link cell population, link cell number, list of cell ids, list of cell neighbours for many-body calculations
-!       INTEGER, ALLOCATABLE :: lctmb (:), linkmb (:), lcellmb (:), lcellmb_neighbour (:)
-
-! !     species names
-!       CHARACTER(LEN=8), ALLOCATABLE, SAVE :: namspe (:)
-
-! !     interaction type
-!       INTEGER, ALLOCATABLE :: ktype (:)
-! !     species masses, charges and interaction parameters
-!       REAL(KIND=dp), ALLOCATABLE :: amass (:), chge (:), vvv (:,:)
-! !     frozen bead indicator
-!       INTEGER, ALLOCATABLE :: lfrzn (:)
-! !     long-range potential energy and virial corrections (only for lennard-jones potentials)
-!       REAL(KIND=dp) :: clr (2)
-! !     corrections for electrostatic forces, potential energy, stresses and virial between frozen beads
-!       REAL(KIND=dp), ALLOCATABLE, TARGET :: cfxfyfz (:,:)
-!       REAL(KIND=dp), POINTER :: fcfx (:), fcfy (:), fcfz (:)
-!       REAL(KIND=dp) :: strcfz (9), vrlcfz (3)
-!       REAL(KIND=dp) :: potcfz
-
-! !     integrator type
-!       INTEGER :: itype
-! !     dissipative and random parameters (dpd, lowe-andersen, peters, stoyanov/groot)
-!       REAL(KIND=dp), ALLOCATABLE :: gamma (:), sigma (:)
-! !     stoyanov/groot thermostat coupling parameter
-!       REAL(KIND=dp) :: alphasg
-
-! !     pair lists for velocity correction-based thermostats
-!       REAL(KIND=dp), ALLOCATABLE, SAVE :: pldxyz (:)
-!       INTEGER, ALLOCATABLE, SAVE :: plparti (:), plpartj (:), plproci (:), plprocj (:), plbound (:), plintij (:)
-!       INTEGER :: npair
-
-! !     barostat type
-!       INTEGER :: btype
-! !     barostat target pressure and parameters
-!       REAL(KIND=dp) :: prszero, abaro, bbaro, cbaro, dbaro
-
-! !     barostat variables
-! !     piston velocities
-!       REAL(KIND=dp) :: upx, upy, upz, up1x, up1y, up1z
-! !     piston mass and force
-!       REAL(KIND=dp) :: psmass, rpsmass, fpx, fpy, fpz
-! !     instantaneous virial
-!       REAL(KIND=dp) :: ivrl (3)
-! !     langevin random force parameter
-!       REAL(KIND=dp) :: sigmalang
-
-! !     electrostatic model
-!       INTEGER :: etype
-! !     electrostatic coupling constant and bjerrum length
-!       REAL(KIND=dp) :: gammaelec, bjerelec
-! !     total charge of system
-!       REAL(KIND=dp) :: qchg
-
-! !     electrostatic variables
-! !     ewald sum parameters (including reciprocal)
-!       REAL(KIND=dp) :: alphaew, ralphaew
-! !     reciprocal vector dimensions
-!       INTEGER :: kmax1, kmax2, kmax3
-! !     ewald self-interaction correction
-!       REAL(KIND=dp) :: engsic
-! !     charged system correction
-!       REAL(KIND=dp) :: qfixv
-! !     slater-type smearing parameter
-!       REAL(KIND=dp) :: betaew
-! !     lists of reciprocal space vectors
-!       REAL(KIND=dp), ALLOCATABLE :: rkxyz (:,:)
-!       INTEGER, ALLOCATABLE :: kxyz (:,:)
-!       INTEGER :: nlistew
-
-! !     bond parameters
-!       REAL(KIND=dp), ALLOCATABLE :: aabond (:), bbbond (:), ccbond (:), ddbond (:)
-! !     angle parameters
-!       REAL(KIND=dp), ALLOCATABLE :: aaang (:), bbang (:), ccang (:), ddang (:)
-! !     dihedral parameters
-!       REAL(KIND=dp), ALLOCATABLE :: aadhd (:), bbdhd (:), ccdhd (:), dddhd (:)
-! !     bond, angle and dihedral types
-!       INTEGER, ALLOCATABLE :: bdtype (:), angtype (:), dhdtype (:)
-! !     molecule isomers
-!       LOGICAL, ALLOCATABLE :: moliso (:)
-
-! !     populations of species (single particles and within molecules)
-!       INTEGER, ALLOCATABLE :: nspec (:), nspecmol (:)
-! !     molecule populations and number of beads per molecule
-!       INTEGER, ALLOCATABLE :: nmol (:), nbdmol (:)
-
-! !     molecule names (0:mxmoldef)
-!       CHARACTER(LEN=8), ALLOCATABLE, SAVE :: nammol (:)
-
-! !     molecule insertion (including bonds, angles, dihedrals)
-!       INTEGER, ALLOCATABLE, SAVE :: mlstrtspe (:,:), nbond (:), nangle (:), ndihed (:)
-!       INTEGER, ALLOCATABLE, SAVE :: bdinp1 (:,:), bdinp2 (:,:), bdinp3 (:,:)
-!       INTEGER, ALLOCATABLE, SAVE :: anginp1 (:,:), anginp2 (:,:), anginp3 (:,:), anginp4 (:,:)
-!       INTEGER, ALLOCATABLE, SAVE :: dhdinp1 (:,:), dhdinp2 (:,:), dhdinp3 (:,:), dhdinp4 (:,:), dhdinp5 (:,:)
-!       INTEGER, ALLOCATABLE, SAVE :: molstart (:)
-!       REAL(KIND=dp), ALLOCATABLE, SAVE :: cbsize (:), mlstrtxxx (:,:), mlstrtyyy (:,:), mlstrtzzz (:,:)
-
-! !     bond, angle, dihedral look-up tables
-!       INTEGER, ALLOCATABLE, SAVE :: bndtbl (:,:), angtbl (:,:), dhdtbl (:,:)
-!       INTEGER :: nbonds, nangles, ndiheds
-
-! !     global/local bead number list
-!       INTEGER, ALLOCATABLE, SAVE :: lblclst (:,:)
-!       INTEGER :: nlist
-
-! !     localized densities for many-body dpd
-!       REAL(KIND=dp), ALLOCATABLE :: rhomb (:, :)
-
-! !     wall/surface parameters
-! !     surface type
-!       INTEGER :: srftype
-! !     surface dimensions
-!       INTEGER :: srfx, srfy, srfz
-! !     switches to determine existence of surface in current node
-!       LOGICAL :: srflgc(6)
-! !     wall repulsion parameters
-!       REAL(KIND=dp), ALLOCATABLE :: aasrf (:)
-! !     frozen particle wall species, numbers of particles in each direction per wall
-!       INTEGER :: frzwspe, npxfwx, npxfwy, npxfwz, npyfwx, npyfwy, npyfwz, npzfwx, npzfwy, npzfwz
-! !     frozen particle wall density, wall widths
-!       REAL(KIND=dp) :: frzwdens, frzwxwid, frzwywid, frzwzwid
-! !     shearing velocity and distance
-!       REAL(KIND=dp) :: shrvx, shrvy, shrvz, shrdx, shrdy, shrdz
-
-! !     external body accelerations
-!       REAL(KIND=dp) :: bdfrcx, bdfrcy, bdfrcz
-! !     electric field
-!       REAL(KIND=dp) :: elecx, elecy, elecz
-
-! !     particle properties
-! !     forces
-!       REAL(KIND=dp), ALLOCATABLE, TARGET :: fxfyfz (:,:)
-!       REAL(KIND=dp), POINTER :: fxx (:), fyy (:), fzz (:)
-! !     variable forces
-!       REAL(KIND=dp), ALLOCATABLE, TARGET :: vfxfyfz (:,:)
-!       REAL(KIND=dp), POINTER :: fvx (:), fvy (:), fvz (:)
-! !     velocities
-!       REAL(KIND=dp), ALLOCATABLE, TARGET :: vxvyvz (:,:)
-!       REAL(KIND=dp), POINTER :: vxx (:), vyy (:), vzz (:)
-! !     positions
-!       REAL(KIND=dp), ALLOCATABLE, TARGET :: xxyyzz (:,:)
-!       REAL(KIND=dp), POINTER :: xxx (:), yyy (:), zzz (:)
-! !     global number, particle type, molecule type, processor identifier, local particle number for domain
-!       INTEGER, ALLOCATABLE, SAVE :: lab (:), ltp (:), ltm (:), lmp (:), loc (:)
-! !     particle names, molecule names, masses
-!       CHARACTER(LEN=8), ALLOCATABLE, SAVE :: atmnam (:), molnam (:)
-!       REAL(KIND=dp), ALLOCATABLE, SAVE :: weight (:)
-
-
-! !     statistical properties (pe = potential energy, vir = virial, tke = kinetic energy, te = total energy, 
-! !                             be = bond energy, ae = angle energy, de = dihedral energy, ee = electrostatic energy,
-! !                             bdl/bdlng = bond length, ang/bdang = bond angle, dhd/bddhd = bond dihedral,
-! !                             prs = pressure, vlm = volume, ttp = temperature, tpx/tpy/tpz = temperature in x/y/z dimension)
-! !     accumulators
-!       REAL(KIND=dp) :: pe, vir, be, ae, de, ee, bdlng, bdlmin, bdlmax, bdang, bddhd
-!       REAL(KIND=dp) :: tke (3), stress (9)
-! !     mean properties at current timestep
-!       REAL(KIND=dp) :: stppe, stpvir, stptke, stpte, stpprs, stpvlm, stpttp, stptpx, stptpy, stptpz
-!       REAL(KIND=dp) :: stpbe, stpae, stpde, stpee
-! !     mean, maximum and minimum bond lengths, angles and dihedrals
-!       REAL(KIND=dp) :: stpbdl, stpbdmx, stpbdmn, stpang, stpdhd
-! !     rolling averages over stack length
-!       REAL(KIND=dp) :: ravpe, ravvir, ravtke, ravte, ravprs, ravvlm, ravttp, ravtpx, ravtpy, ravtpz, ravbe, ravae, ravde, ravee
-! !     averages over all time steps
-!       REAL(KIND=dp) :: avepe, avevir, avetke, avete, aveprs, avevlm, avettp, avetpx, avetpy, avetpz, avebe, aveae, avede, aveee
-! !     property fluctuations
-!       REAL(KIND=dp) :: flcpe, flcvir, flctke, flcte, flcprs, flcvlm, flcttp, flctpx, flctpy, flctpz, flcbe, flcae, flcde, flcee
-! !     data stacks
-!       REAL(KIND=dp), ALLOCATABLE :: stkpe (:), stktke (:), stktkex (:), stktkey (:), stktkez (:)
-!       REAL(KIND=dp), ALLOCATABLE :: stkbe (:), stkae (:), stkde (:), stkee (:), stkvir (:), stkvlm (:)
-!       INTEGER :: nav
-! !     accumulated values
-!       REAL(KIND=dp) :: zumpe, zumtke, zumtkex, zumtkey, zumtkez, zumbe, zumae, zumde, zumee, zumvir, zumvlm
-
-! !     MJ: Preallocated communication buffers
-! !         Allocated in config_module.f90          
-!       REAL(KIND=dp), ALLOCATABLE, SAVE, TARGET :: commsinbuf(:,:), commsoutbuf(:,:)
-
-! END MODULE
