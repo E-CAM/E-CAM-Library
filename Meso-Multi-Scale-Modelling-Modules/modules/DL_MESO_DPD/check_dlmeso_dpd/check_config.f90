@@ -182,23 +182,23 @@ PROGRAM check_config
      WRITE (*,*) "error: system volume is zero"
      STOP
   ELSE
-     WRITE (*,*) "unit cell sizes: ", dimxcell, dimycell, dimzcell      
-     WRITE (*,*) "nfoldx, nfoldy, nfoldz =", nfoldx, nfoldy, nfoldz
-     WRITE (*,*) "system sizes: ", dimx, dimy, dimz 
+     WRITE (*,'(" unit cell sizes        =",3(1x,F16.10))') dimxcell, dimycell, dimzcell      
+     WRITE (*,'(" nfoldx, nfoldy, nfoldz =",3(1x,I8))') nfoldx, nfoldy, nfoldz
+     WRITE (*,'(" system sizes           =",3(1x,F16.10))') dimx, dimy, dimz 
   ENDIF
   
-  WRITE (*,*) "imcon =", imcon !may be removed...
-  WRITE (*,*) "levcfg =", levcfg !may be removed...
-  WRITE (*,*) "lconfzero =", lconfzero ! may be removed...
-  WRITE (*,*) "srftype =", srftype
+  WRITE (*,'(" imcon     =",1x,I8)') imcon !may be removed...
+  WRITE (*,'(" levcfg    =",1x,I8)') levcfg !may be removed...
+  WRITE (*,'(" lconfzero =",1x,L8)') lconfzero ! may be removed...
+  WRITE (*,'(" srftype   =",1x,I8)') srftype
   IF (srftype/=0)   WRITE (*,*) "srfx, srfy, srfz =", srfx, srfy, srfz
   
   CALL scan_field
 
-  WRITE (*,*) "nspe = ", nspe
-  WRITE (*,*) "nmoldef = ", nmoldef 
-  WRITE (*,*) "mxmolsize = ", mxmolsize
-  WRITE (*,*) "mxbonds = ", mxbonds
+  WRITE (*,'(" nspe      =",1x,I8)') nspe
+  WRITE (*,'(" nmoldef   =",1x,I8)') nmoldef 
+  WRITE (*,'(" mxmolsize =",1x,I8)') mxmolsize
+  WRITE (*,'(" mxbonds   =",1x,I8)') mxbonds
 
   IF (nspe == 0) THEN
      WRITE (*,*) "error: no particle species defined in FIELD file"
@@ -207,11 +207,13 @@ PROGRAM check_config
 
   CALL read_field
 
-  WRITE (*,*) "nspec = ", nspec
-  WRITE (*,*) "nspecmol = ", nspecmol
-  WRITE (*,*) "numbond = ", numbond
+  WRITE (*,'(" nspec     =",10(1x,I8))') nspec
+  WRITE (*,'(" nspecmol  =",10(1x,I8))') nspecmol
+  WRITE (*,'(" numbond   =",1x,I8)') numbond
   DO i = 1, nmoldef
-     WRITE (*,*) "mlstrtspe (i,:)=", mlstrtspe (i,:)
+     WRITE (*,'(" for molecule ", A8," :")') nammol(i)
+     WRITE (*,'(" mlstrtspe =", 10(1x,I8))') mlstrtspe (i,:)
+     !WRITE (*,*) "mlstrtspe (i,:)=", mlstrtspe (i,:)
   ENDDO
 
   IF (numbond > 0) lbond = .true. !slightly adapted (uses numbond instead of nbonddef)
@@ -264,12 +266,12 @@ PROGRAM check_config
   safe = .true.
   DO i = 1, nspe
      IF (nspec (i) /= nspec0 (i)) THEN
-        WRITE (*,*) "ERROR: problem with unbonded beads of species ", namspe (i), ":", nspec (i), &
+        WRITE (*,*) "error: problem with unbonded beads of species ", namspe (i), ":", nspec (i), &
              " instead of ", nspec0 (i)
         safe = .false.
      END IF
      IF (nspecmol (i) /= nspecmol0 (i) ) THEN
-        WRITE (*,*) "ERROR: problem with molecular beads of species ", namspe (i), ":", nspecmol (i), & 
+        WRITE (*,*) "error: problem with molecular beads of species ", namspe (i), ":", nspecmol (i), & 
              " instead of ", nspecmol0 (i)
         safe = .false.
      END IF
@@ -288,7 +290,7 @@ PROGRAM check_config
            tp = ltp (l) ! not ltp (ibd)!!!
            tp0 = mlstrtspe (i, k)
            IF (tp /= tp0) THEN
-              WRITE (*,*) "ERROR: problem with the molecular content of  ", nammol (i), ": ",k, "-th bead is ", & 
+              WRITE (*,*) "error: problem with the molecular content of  ", nammol (i), ": ",k, "-th bead is ", & 
                    namspe (tp), " instead of ", namspe (tp0), "(bead label =", ibd, ")"              
               safe = .false.
            END IF
@@ -333,6 +335,7 @@ PROGRAM check_config
         WRITE (*,"(/'error: at least one streching bond is crossing a hard wall, please correct the CONFIG file')")
         IF (nfold>1) WRITE (*,"('(hint: the bonds needing corrections are easier to indetify if nfold=1)')")        
      ELSE
+        WRITE (*,*)
         WRITE (*,"(/,1x,'OK: none of the stretching bonds is crossing a hard wall')")             
      END IF
 
