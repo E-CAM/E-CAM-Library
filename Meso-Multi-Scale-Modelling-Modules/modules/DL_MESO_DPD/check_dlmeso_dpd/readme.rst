@@ -16,7 +16,7 @@
     RST and LaTex-generated .pdf file
 
   Application Documentation
-..    :download:`Click to download the manual <manaf.pdf>` with more details
+    :download:`Click to download the manual <manchk.pdf>` with more details
 
   Relevant Training Material
     See the Testing section
