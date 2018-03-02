@@ -56,7 +56,7 @@ systems time dependent observables. [Mon1]_ [Mon2]_ [Beu]_
 PIM employs an algorithm in which the exact sampling of the quantum thermal Wigner density is combined 
 with a linearized approximation of the quantum time propagators represented in the path integral formalism 
 that reduces the evolution to classical dynamics. The quantities of interest can then be computed by combining 
-classical molecular dynamics algorithms with an original generalized Monte Carlo scheme for sampling the 
+classical molecular dynamics algorithms with a generalized Monte Carlo sampling scheme for sampling of the 
 initial conditions and averaging them over all sampled points in phase space. 
 
 .. image:: ./PaPIM.png
@@ -94,10 +94,8 @@ Upon adapting the ``Makefile``, the code compilation is executed by command ``ma
 An executable ``PaPIM.exe`` is created upon successful compilation.
 For PaPIM test purposes the ``numdiff`` package should be made available before running the tests. 
 In case the numdiff is not available on the system the ``diff`` command will be automatically used instead. 
-The user is advise to download and install numdiff from here_ .
-The PaPIM documentation is obtained by executing the ``make`` command in the ./doc sub-directory.
-
-.. _here: http://www.nongnu.org/numdiff/
+The user is advise to download and install numdiff from `here <http://www.nongnu.org/numdiff/>`_.
+The PaPIM documentation can be obtained by executing the ``make`` command in the ./doc sub-directory.
 
 
 Testing
@@ -133,13 +131,13 @@ reference values in case the tests fail.
 Source Code
 ___________
 
-The PaPIM module source code is located at: https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/PIM/tree/master/source.
+The PaPIM module source code can be obtained from: https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/PIM/tree/master/source.
 
 
 Source Code Documentation
 _________________________
 
-The source code documentation is given at https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/PIM/tree/master/doc.
+The source code documentation is given at this `link <https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/PIM/tree/master/doc>`_.
 The documentation files (html and latex format) are obtained by executing the ``make`` command in the ./doc directory:
 
 ::
@@ -152,9 +150,13 @@ The documentation files (html and latex format) are obtained by executing the ``
 References
 __________
 
-.. _Linearized symmetrized quantum time correlation functions calculation via phase pre-averaging: http://dx.doi.org/10.1080/00268976.2011.619506
-.. _Quantum dynamical structure factor of liquid neon via a quasiclassical symmetrized method: http://dx.doi.org/10.1063/1.4789760
-.. _Gas phase infrared spectra via the phase integration quasi-classical method: http://dx.doi.org/10.1080/08927022.2013.843776
-.. _An ab Initio Based Global Potential Energy Surface Describing :math:`\text{CH}_{5}^{+} \rightarrow \text{CH}_{3}^{+} + \text{H}_{2}`: pubs.acs.org/doi/abs/10.1021/jp053848o
+.. [Mon1] M. Monteferrante, S. Bonella, G. Ciccotti *Mol. Phys.* **109** (2011) 3015 `DOI: 10.1080/00268976.2011.619506
+          <http://dx.doi.org/10.1080/00268976.2011.619506>`_
+.. [Mon2] M. Monteferrante, S. Bonella, G. Ciccotti *J. Chem. Phys.* **138** (2013) 054118 `DOI: 10.1063/1.4789760
+          <http://dx.doi.org/10.1063/1.4789760>`_
+.. [Beu] J. Beutier, M. Monteferrante, S. Bonella, R. Vuilleumier, G. Ciccotti *Mol. Sim.* **40** (2014) 196 `DOI: 
+         10.1080/08927022.2013.843776 <http://dx.doi.org/10.1080/08927022.2013.843776>`_
+.. [Jin] Z. Jin, B. Braams, J. Bowman *J. Phys. Chem. A* **110** (2006) 1569 `DOI: 10.1021/jp053848o 
+         <pubs.acs.org/doi/abs/10.1021/jp053848o>`_
 
 
