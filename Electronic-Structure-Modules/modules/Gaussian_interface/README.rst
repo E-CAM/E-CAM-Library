@@ -48,7 +48,7 @@ _______
 
 To test the module an example of the "input.txt" file and a set of 24 configurations is provided in the ./test directory.
 
-.. __: https://gitlab.e-cam2020.eu/fracchia/GROMACS_interface/
+.. __: https://gitlab.e-cam2020.eu/fracchia/Gaussian_interface/
 
  
 
