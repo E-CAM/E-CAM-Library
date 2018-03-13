@@ -29,8 +29,7 @@ Quantics OpenMP Improvements Module
 Purpose of Module
 _________________
 
-This module is related to code developed for the  2 Openmp-Improved SVN revision: v855 and v878 of Quantics here_
-   .. _here:  https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam17
+This module is related to code developed for the  2 Openmp-Improved SVN revision: v855 and v878 of Quantics `here <https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam17>`_.
 
 31 source files are changed in v855 compared to v854, such as the openmpmod.f90, quantics.F90, mmomplib.f90 and so on... While in the v878, OpenMP in database reading/interpolation (dd_db.f90) improved.
 Here are the  file1_ and file2_ showing the changes made by the OpenMP Improvements.
@@ -40,8 +39,7 @@ Here are the  file1_ and file2_ showing the changes made by the OpenMP Improveme
 Background Information
 ______________________
 
-Currently the code developed related to this module within the Quantics software package is available through CCPForge_
-  .. _CCPFORGE: https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam17
+Currently the code developed related to this module within the Quantics software package is available through `CCPForge <https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam17>`_.
 
 
 Install
