@@ -53,7 +53,7 @@ _______
 Testing
 _______
 
-Several test example are provided for this module and can be found at ``inputs/test90.inp``. For example the ``p24+.inp``. This test works for Quantics's ECAM branch  Revision v974 . The Quantics README file will help you to install the Quantics code.  After creatin a folder named ``p24+`` and put  ``p24+.inp`` in this folder  then change its name to ``input``.  The test can be done through the following command::
+Several test example are provided for this module and can be found at ``inputs/``. For example the ``p24+.inp``. This test works for Quantics's ECAM branch  Revision v974 . The Quantics README file will help you to install the Quantics code.  After creatin a folder named ``p24+`` and put  ``p24+.inp`` in this folder  then change its name to ``input``.  The test can be done through the following command::
 
   $ quantics.omp -omp np  -w -I p24+.inp  
 
