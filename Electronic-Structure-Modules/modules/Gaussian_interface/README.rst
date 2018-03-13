@@ -14,7 +14,7 @@ Gaussian_interface
     Doxygen
 
 Purpose of the Module
-_________________
+_____________________
 
 This module generates the Gaussian input files of clusters built by cutting of the configurations stored in .gro files.  The clusters are used as model systems to perform fitting of force fields. The user must specify an atom of the configuration and a cut off distance (in nm). The module saturates the residues and prepares the input file for the calculation of the energy and the forces of the cluster generated in the Gaussian format.       
 
