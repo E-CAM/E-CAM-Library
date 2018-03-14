@@ -43,8 +43,30 @@ In OpenPathSampling, certain quantities can be accessed directly from each
 snapshot. The standard examples of such "features" are things like
 coordinates and velocities, which are stored for each snapshot. However,
 additional features can also be added, which may not require per-snapshot
-storage. This module makes several of those features available for snapshots
-from the OpenMM engine and from the toy engine.
+storage. This approach makes them accessible from the snapshot as
+``snapshot.feature``, just like a stored quantity, even if they are not
+stored. For example, the ``snapshot.masses`` can actually be a pointer to a
+single array of masses for all snapshots from a given engine, and
+``snapshot.instantaneous_temperature`` can actually be a quantity that is
+computed on demand, rather than stored. This module makes several new
+features available for snapshots from the OpenMM engine and from the toy
+engine.
+
+By adding a standard interface for snapshots to provide similar information,
+this provides several advantages:
+
+* Many analysis tools require the masses. This module makes it easier to
+  apply analysis tools for one MD engine to the results from another MD
+  engine.
+* Other modules will require a standardized interface. In particular, the
+  two-way shooting module will require both the masses and the number of
+  degrees of freedom, and future modules for collective variables are also
+  likely to need to masses.
+* This provides examples of how to implement snapshot "features," which are
+  necessary for the implementation of new engine modules.
+* The instantaneous temperature, in particular, is an important check that a
+  simulation has been well-behaved. Drift of the instantaneous temperature
+  is a sign of a problem in the simulation.
 
 Included in this implementation are:
 
@@ -52,7 +74,7 @@ Included in this implementation are:
   OpenMM. Only stored once (in the ``engine``), but accessible from any
   snapshot.
 * ``n_degrees_of_freedom``: added for both OpenMM and toy engines.
-  Calculated on the fly.
+  Calculates the number of degrees of freedom the fly.
 * ``instantaneous_temperature``: added for both OpenMM and toy engines.
   Calculated on the fly (requires calculation of ``n_degrees_of_freedom``
   and of kinetic energy).

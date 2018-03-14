@@ -5,9 +5,9 @@
 
 .. _readme_meso_multi:
 
-**********************************************
-The E-CAM Meso- and Multi-scale Module Library
-**********************************************
+*****************************
+Meso- and Multi-scale Modules
+*****************************
 
 Introduction
 ============
@@ -16,6 +16,7 @@ Introduction
 
     .. contents:: :depth: 2
 
+    * :ref:`contributing`
     * :ref:`search`
 
 .. image:: ./images/DPD1.jpg
@@ -49,7 +50,7 @@ Extended Software Development Workshops
 DL_MESO_DPD
 -----------
 
-The following modules connected to the DL_MESO_DPD code have been produce so far:
+The following modules connected to the DL_MESO_DPD code have been produced so far:
 
 .. toctree::
     :glob:
@@ -64,7 +65,7 @@ The following modules connected to the DL_MESO_DPD code have been produce so far
 ESPRESSO++
 ----------
 
-The following modules connected to the ESPRESSO++ code have been produce so far:
+The following modules connected to the ESPRESSO++ code have been produced so far:
 
 .. toctree::
     :glob:
@@ -73,6 +74,7 @@ The following modules connected to the ESPRESSO++ code have been produce so far:
     ./modules/hierarchical-strategy/components/fixed-local-tuple/readme
     ./modules/hierarchical-strategy/components/md-softblob/readme
     ./modules/hierarchical-strategy/components/minimize-energy/readme
+    ./modules/hierarchical-strategy/components/constrain-com/readme
 
 ESDW Barcelona 2017
 -------------------

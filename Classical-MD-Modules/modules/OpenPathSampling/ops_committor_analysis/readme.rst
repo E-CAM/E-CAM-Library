@@ -37,17 +37,27 @@ _________________
 
 .. Give a brief overview of why the module is/was being created.
 
-Frequently, we try to launch several trajectories from a point that
-is not in any state, to see which state they land in. In a transition
-A->B, the fraction that land in B is called the "committor" at that
-point. Configurations which lead to a committor of approximately 50%
-are said to make up the "transition state ensemble." This code
-provides a straightforward way of calculating the committor for a
-given set of initial conditions.
+The committor for a given configuration (in the context of some transition
+:math:`A\to B`) is defined as :math:`p_B(x)`, the probability that a
+trajectory beginning at configuration :math:`x` will reach state :math:`B`
+before state :math:`A`.  The isosurfaces of the committor are a good
+definition of the reaction coordinate (the probability of ending in the
+product state is certainly a measure of the progress of the reaction). The
+transition state will have an equal chance of going to either state, so
+configurations with a committor of approximately 50% are said to make up the
+"transition state ensemble." As a result, a committor simulation is
+essential both for the definition of the reaction coordinate and for the
+identification of a proposed transition state.  This module provides a
+straightforward way of calculating the committor for a given set of initial
+conditions.
 
-While this direct approach is not necessarily the best way to
-calculate the committor, it is still a very useful tool for
-obtaining initial trajectories for path sampling simulations.
+In addition to calculating the committor, this module can be used to
+generate more physical transition trajetories from unphysical ones. A
+trajectory that connects the two states and has the same initial
+configuration could be a good candidate for an initial path sampling
+trajectory. The only unphysical aspect of such a trajectory is the sudden
+kink in velocities, which usually be removed after a short equilibration
+with path sampling.
 
 The implementation in this module includes:
 

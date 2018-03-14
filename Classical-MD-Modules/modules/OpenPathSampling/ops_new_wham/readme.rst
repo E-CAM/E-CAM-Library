@@ -38,12 +38,23 @@ _________________
 
 .. Give a brief overview of why the module is/was being created.
 
-The weighted histogram analysis method (WHAM) is one of the ways that the
-results from the multiple ensembles in TIS can be combined to provide a
-total result. The existing WHAM code in OPS was poorly documented,
-untested, and required certain assumptions that are not guaranteed for many
-kinds of path sampling, in particular that all ensembles had the same
-number of samples. This module fixed all of that.
+Methods like transition interface sampling (TIS) sample multiple ensembles,
+and then combine the results from the individual restricted ensembles to
+obtain results for the unrestricted (natural) ensemble, such as the rates of
+a reaction or projections of the free energy surface. One approach to
+combining these ensembles is the weighted histogram analysis method (WHAM).
+This module provides an implementation of WHAM that is specialized for
+path sampling.  Details about the WHAM method (as used for calculating free
+energies) can be found in `Frenkel and Smit
+<https://www.elsevier.com/books/understanding-molecular-simulation/frenkel/978-0-12-267351-1>`_,
+section 7.3.
+
+The module is a rewrite of previous code in OPS. The previous code had
+several limitations, most notably the assumption that all ensembles had the
+same number of sampling. Practical cases required that the number of samples
+in each ensemble be allowed to vary. In addition, the previous code was
+poorly documented and untested. This module fixes all of that, and includes
+detailed comments connecting the code to the equations in Frenkel and Smit.
 
 Background Information
 ______________________
