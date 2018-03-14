@@ -13,11 +13,11 @@
     BSD
 
   Documentation Tool
-    RST and LaTex-generated .pdf file
+    RST
 
   Application Documentation
-..    :download:`Click to download the manual <manaf.pdf>` with more details
-
+    See the 
+  
   Relevant Training Material
     See the Testing section
 
@@ -42,7 +42,7 @@ will tackle the writing of files differently, producing a single trajectory
 file from the start.
 
 The implementation presented here is meant to show the feasibility of the
-interfacing, not to tackle all the possible cases.
+interfacing, not to deal with all the possible cases.
 We therefore restrict in this module to the relevant case in which i) the simulation is run in
 parallel using MPI, ii) a single SIONlib physical file is produced, and iii) the
 post-processing is done by a single process.
@@ -76,12 +76,30 @@ Fortran90+MPI compiler, and using appropriate flags for the SIONlib library, e.g
 
 ::
    
-  mpifort -c format_history.f90 `/home/user/sionlib/bin/sionconfig --cflags --f77 --mpi --threadsafe --64`
+  mpifort -c -cpp format_history.f90 `/home/user/sionlib/bin/sionconfig --cflags --f77 --mpi --threadsafe --64`
   mpifort -o format_history-sion.exe format_history.o `/home/user/sionlib/bin/sionconfig --libs --f77 --mpi --threadsafe --64`
 
+and the executable must be in the same directory of the history.sion file. 
 It is assumed that SIONlib has been installed in the `/home/user/sionlib/`
-directory, where of course the `user` name has to be adapted. 
+directory, where of course the `user` name has to be adapted.
+If the pre-processing flag ``-D DEBUG`` is used when compiling, the result of each read
+statement is printed to the standard output and an eventual mismatch in the
+number of read elements is signaled.
 
+To test the writing/reading of the trajectories, the user can choose any
+simulation run using DL_MESO_DPD, then analyze the trajectories with both
+``format_history.f90`` (which reads standard binary HISTORY* files) and ``format_history_sion.f90``
+(which reads the SIONlib format history.sion file):
+the formatted files so obtained, HISTORY*-F and sion*-F, respectively, should coincide.
+
+However, for completeness, we provide the input files for a possible test: 
+the CONTROL file
+
+.. literalinclude:: ./CONTROL
+
+and the FIELD file		    
+
+.. literalinclude:: ./FIELD
 
 Source Code
 ___________
