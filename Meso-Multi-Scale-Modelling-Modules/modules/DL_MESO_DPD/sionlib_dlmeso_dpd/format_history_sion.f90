@@ -4,7 +4,7 @@ PROGRAM format_history_sion
 ! module to format dl_meso HISTORY files written using SIONlib library
 !
 ! authors - m. a. seaton & s. chiacchiera, february 2017
-! adapted to use SIONlib: november 2017
+! adapted to use SIONlib: march 2018
 !**********************************************************************************
   
 IMPLICIT none
@@ -13,10 +13,9 @@ INCLUDE "mpif.h"
       INTEGER, PARAMETER :: dp = SELECTED_REAL_KIND (15, 307)
       INTEGER, PARAMETER :: ntraj=10,nuser=5
 
-      CHARACTER(80) :: text, a2
+      CHARACTER(80) :: text
       CHARACTER(8), ALLOCATABLE :: namspe (:), nammol (:)
       CHARACTER(6) :: chan
-      CHARACTER(8) :: a1
       
       INTEGER, ALLOCATABLE :: ltp (:), ltm (:), mole (:),  beads (:), bonds (:), bndtbl (:,:)
       INTEGER, ALLOCATABLE :: nbdmol (:), nbomol (:)
@@ -24,21 +23,20 @@ INCLUDE "mpif.h"
       INTEGER :: nspe, nbeads, nusyst, nsyst, nbonds, global, species, molecule, numnodes, numbond
       INTEGER :: nummol, lfrzn, rnmol, keytrj, srfx, srfy, srfz
       INTEGER :: bead1, bead2
-      INTEGER :: n1, n2, n3, n4
       INTEGER :: nform
       
       REAL(KIND=dp), ALLOCATABLE :: nmol (:)
       REAL(KIND=dp) :: volm, dimx, dimy, dimz, shrdx, shrdy, shrdz
       REAL(KIND=dp) :: amass, rcii
       REAL(KIND=dp) :: time, mbeads, mglobal, x, y, z, vx, vy, vz, fx, fy, fz
-      REAL(KIND=dp) :: r1, r2, r3, r4
       
       LOGICAL :: eof, lcomm, lmcheck
-!!!     for SIONlib
+!     for SIONlib
       CHARACTER*(*) :: fname, file_mode
       INTEGER :: numfiles, ntasks, fsblksize, sid
       INTEGER, ALLOCATABLE :: globalranks (:)
       INTEGER*8, ALLOCATABLE :: chunksizes (:)
+      INTEGER*8 :: chunksize_input
       INTEGER*8 :: sierr
       INTEGER :: nformsion
       INTEGER*8 :: size, nelem
@@ -47,44 +45,67 @@ INCLUDE "mpif.h"
       CHARACTER(LEN=8) :: buffer_c
       INTEGER :: rank, chunknum
       INTEGER*8 :: posinchunk
-      INTEGER*8, ALLOCATABLE :: pos (:)
-      LOGICAL :: finish
+      INTEGER*8, ALLOCATABLE :: pos_d (:)
+      INTEGER, ALLOCATABLE :: chun_d (:)
       INTEGER :: seof
-      PARAMETER (fname = 'test_sionfile.sion')
+      PARAMETER (fname = 'history.sion')
       PARAMETER (file_mode= 'br')
       
       ! Switches for commenting and checking molecules
       
       lcomm =   .TRUE.
       lmcheck = .TRUE.
-
+      
       ! Get number of nodes 
 
       WRITE (*,*) "Number of nodes used in calculations ?"
       READ (*,*) numnodes
+
+      ! Get chunksize used to write
+      WRITE (*,*) "Chunksize used to write history.sion?"
+      READ (*,*) chunksize_input
       
       ALLOCATE (beads (numnodes), bonds (numnodes))
-      ALLOCATE (pos (numnodes))
+
+! SIONlib: Determine if history.sion file exists
+      INQUIRE (file = fname, EXIST = eof)
+      IF (.NOT. eof) THEN
+         WRITE (*,*) "ERROR: cannot find history.sion file"
+         STOP
+      END IF
+
+! SIONlib: serial open
+      numfiles = 1
+      fsblksize = -1
+      ALLOCATE (chunksizes (numnodes), globalranks (numnodes)) 
+      chunksizes (:) = -1
+      globalranks (:) = -1
+      call FSION_OPEN (fname, file_mode, ntasks, numfiles, &
+           chunksizes, fsblksize, globalranks, sid)
+      IF(ntasks.ne.numnodes) THEN
+         WRITE (6,*) "Number of tasks used to write is different from given! -", ntasks   
+         STOP
+      END IF
+!      WRITE(6,*) "chunksizes=", chunksizes !not read as it should. Why?
+      WRITE(6,*) "fsblksize=", fsblksize
+!      WRITE(6,*) "globalranks=",globalranks !not read as it should. Why?
+      WRITE(6,*) "sid=", sid
+      ! Set *by hand* the values of chunksizes and globalranks
+      DO j = 1, ntasks
+         globalranks (j) = j-1
+         chunksizes (j) = 0
+         DO WHILE (chunksizes (j) < chunksize_input) 
+            chunksizes (j) = chunksizes (j) + fsblksize
+         END DO
+      END DO
+      WRITE(6,*) "(set by hand) chunksizes=", chunksizes
+      WRITE(6,*) "(set by hand) globalranks=", globalranks
+
+!     variables to track positions within the .sion file      
+      ALLOCATE (pos_d (numnodes), chun_d (numnodes))      
       
       ! Open the output files
       nform = ntraj + numnodes
-      
-!  SIONlib: serial open
-      ntasks = numnodes 
-      numfiles = 1
-      fsblksize = -1
-      ALLOCATE (chunksizes (ntasks), globalranks (ntasks)) 
-      chunksizes (:) = -1 
-      DO j = 1, ntasks
-         globalranks (j) = j-1 
-      END DO
-      call FSION_OPEN (fname, file_mode, ntasks, numfiles, &
-           chunksizes, fsblksize, globalranks, sid)
-      WRITE(6,*) "chunksizes=", chunksizes
-      WRITE(6,*) "fsblksize=", fsblksize
-      WRITE(6,*) "globalranks=",globalranks
-      WRITE(6,*) "sid=", sid
-      
       nformsion = nform + numnodes       
       DO j = 1, numnodes
          IF (numnodes>1)THEN
@@ -94,25 +115,26 @@ INCLUDE "mpif.h"
             OPEN (nformsion+j-1, file = 'sion-F', status = 'replace')
          END IF
       END DO
-         
-! SIONlib read the header 
+      
+! SIONlib:  reading the header of history.sion
+      ! Here the number of beads, molecules and bonds are determined
+      ! Arrays are filled with names of particles and molecules
+
       numbond = 0
 
       DO j = 1, numnodes
-         IF (j > 1) THEN 
-            WRITE (6,*) "must be adapted to numnodes>1!"
-         END IF
-         finish = .false.
          seof = 0
          call fsion_feof (sid, seof)
          IF (seof /= 0) THEN
-!            WRITE (6,*) "End of file !!!!!!!!!!!!!!!!!!!!!!!!!!"
+#ifdef DEBUG
+            WRITE (6,*) "rank ", j-1, ": End of file !"
+#endif
             CYCLE
          END IF
          
-         rank = j - 1  
-         chunknum = 0 
-         posinchunk = 0 
+         rank = j - 1
+         chunknum = 0
+         posinchunk = 0
          CALL FSION_SEEK (sid, rank, chunknum, posinchunk, sierr)
          
 !     lines a and b
@@ -120,11 +142,17 @@ INCLUDE "mpif.h"
          size=4
          buffer_i (1:6) = 0
          CALL FSION_READ(buffer_i,size,nelem,sid,sierr)
-!         WRITE (6,*) "in sion file, rank ", rank, ": buffer_i=",buffer_i
-         nspe = buffer_i (1)
-         nmoldef = buffer_i (2)
-         nusyst = buffer_i (3)
-         nsyst = buffer_i (4)
+#ifdef DEBUG
+         WRITE (6,*) "(a/b) in sion file, rank ", rank, ": buffer_i=",buffer_i
+         CALL READ_CHECK (sierr, nelem)
+#endif
+         CALL DETERMINE_POS (rank, nelem*size, chunknum, posinchunk)
+         IF (j==1) THEN
+            nspe = buffer_i (1)
+            nmoldef = buffer_i (2)
+            nusyst = buffer_i (3)
+            nsyst = buffer_i (4)
+         END IF
          nbeads = buffer_i (5)
          nbonds = buffer_i (6)
          !     line c
@@ -132,22 +160,33 @@ INCLUDE "mpif.h"
          size=8
          buffer_r (1:4) = 0
          CALL FSION_READ(buffer_r,size,nelem,sid,sierr)
-!         WRITE (6,*) "in sion file, rank ", rank, ": buffer_r(1:4)=",buffer_r(1:4)
-         dimx = buffer_r (1)
-         dimy = buffer_r (2)
-         dimz = buffer_r (3)
-         volm = buffer_r (4)
+#ifdef DEBUG
+         WRITE (6,*) "(c) in sion file, rank ", rank, ": buffer_r(1:4)=",buffer_r(1:4)
+         CALL READ_CHECK (sierr, nelem)
+#endif
+         CALL DETERMINE_POS (rank, nelem*size, chunknum, posinchunk)
+         IF (j==1) THEN
+            dimx = buffer_r (1)
+            dimy = buffer_r (2)
+            dimz = buffer_r (3)
+            volm = buffer_r (4)
+         END IF
          !     line d
          nelem=4
          size=4
          buffer_i (1:4) = 0
          CALL FSION_READ(buffer_i,size,nelem,sid,sierr)
-!         WRITE (6,*) "in sion file, rank ", rank, ": buffer_i(1:4)=",buffer_i(1:4)
-         keytrj = buffer_i (1)
-         srfx = buffer_i (2)
-         srfy = buffer_i (3)
-         srfz = buffer_i (4)
-         
+#ifdef DEBUG
+         WRITE (6,*) "(d) in sion file, rank ", rank, ": buffer_i(1:4)=",buffer_i(1:4)
+         CALL READ_CHECK (sierr, nelem)
+#endif
+         CALL DETERMINE_POS (rank, nelem*size, chunknum, posinchunk) 
+         IF (j==1) THEN
+            keytrj = buffer_i (1)
+            srfx = buffer_i (2)
+            srfy = buffer_i (3)
+            srfz = buffer_i (4)
+         END IF
          beads (j) = nbeads
          bonds (j) = nbonds
          numbond = numbond + nbonds
@@ -158,6 +197,9 @@ INCLUDE "mpif.h"
          WRITE (nformsion+j-1,97) dimx, dimy, dimz, volm
          IF (lcomm) WRITE (nformsion+j-1,*) "# keytrj, srfx, srfy, srfz"
          WRITE (nformsion+j-1,*) keytrj, srfx, srfy, srfz
+
+         chun_d (j) = chunknum
+         pos_d (j) = posinchunk
       END DO ! end of loop over nodes
 !!!
       ALLOCATE (namspe (nspe), nammol (nmoldef))
@@ -168,54 +210,52 @@ INCLUDE "mpif.h"
       ENDIF
       
       DO j = 1, numnodes
-         rank = j - 1 
-
-         chunknum = 0 
-         posinchunk = 6*4 + 4*8 + 4*4 
+         rank = j - 1
+         chunknum = chun_d (j)
+         posinchunk = pos_d (j)
          CALL FSION_SEEK (sid, rank, chunknum, posinchunk, sierr)
-         pos (j) = posinchunk
-
+!!! 
          IF (lcomm) WRITE (nformsion+j-1,*) "# SPECIES:"
          IF (lcomm) WRITE (nformsion+j-1,*) "# namspe, amass, rcii, lfrzn"
          
          DO i = 1, nspe
-            IF (j == 1) THEN 
-               nelem = 1
-               size = 8
-               buffer_c = '        '
-               CALL FSION_READ(buffer_c,size,nelem,sid,sierr)
-!               WRITE (6,*) "in sion file, rank ", rank, ": buffer_c=",buffer_c
+            !     line e
+            nelem = 1
+            size = 8
+            buffer_c = '        '
+            CALL FSION_READ(buffer_c,size,nelem,sid,sierr)
+#ifdef DEBUG
+            WRITE (6,*) "(e1) in sion file, rank ", rank, ": buffer_c=",buffer_c
+            CALL READ_CHECK (sierr, nelem)
+#endif               
+            CALL DETERMINE_POS (rank, nelem*size, chunknum, posinchunk) 
+            IF (j==1) THEN
                namspe (i) = buffer_c
-
-               nelem=2
-               size=8
-               buffer_r (1:2) = 0
-               CALL FSION_READ(buffer_r,size,nelem,sid,sierr)
-!               WRITE (6,*) "in sion file, rank ", rank, ": buffer_r (1:2)=",buffer_r (1:2)
-               amass = buffer_r (1)
-               rcii = buffer_r (2)
+            END IF
                
-               nelem=1
-               size=4
-               buffer_i (1) = 0
-               CALL FSION_READ(buffer_i,size,nelem,sid,sierr)
-!               WRITE (6,*) "in sion file, rank ", rank, ": buffer_i (1)=",buffer_i (1)
-               lfrzn = buffer_i (1)
-                             
-               !ADapt the other case, j \= 1
-            ELSE
-               nelem = 1
-               size = 8
-               CALL FSION_READ(buffer_c,size,nelem,sid,sierr)
-               nelem=2
-               size=8
-               CALL FSION_READ(buffer_r,size,nelem,sid,sierr)                              
-               nelem=1
-               size=4
-               CALL FSION_READ(buffer_i,size,nelem,sid,sierr)           
-            ENDIF
+            nelem=2
+            size=8
+            buffer_r (1:2) = 0
+            CALL FSION_READ(buffer_r,size,nelem,sid,sierr)
+#ifdef DEBUG
+            WRITE (6,*) "(e2) in sion file, rank ", rank, ": buffer_r (1:2)=",buffer_r (1:2)
+            CALL READ_CHECK (sierr, nelem)
+#endif
+            CALL DETERMINE_POS (rank, nelem*size, chunknum, posinchunk) 
+            amass = buffer_r (1)
+            rcii = buffer_r (2)
+            
+            nelem=1
+            size=4
+            buffer_i (1) = 0
+            CALL FSION_READ(buffer_i,size,nelem,sid,sierr)
+#ifdef DEBUG
+            WRITE (6,*) "(e3) in sion file, rank ", rank, ": buffer_i (1)=",buffer_i (1)
+            CALL READ_CHECK (sierr, nelem)
+#endif
+            CALL DETERMINE_POS (rank, nelem*size, chunknum, posinchunk) 
+            lfrzn = buffer_i (1)
             WRITE (nformsion+j-1,96) namspe (i), amass, rcii, lfrzn
-            pos (j) = pos (j) + 1*8 + 2*8 + 1*4
          END DO
          
          IF (nmoldef>0) THEN
@@ -223,37 +263,34 @@ INCLUDE "mpif.h"
             IF (lcomm) WRITE (nformsion+j-1,*) "# nammol"
 
             DO i = 1, nmoldef
+               !     line g
+               nelem=1
+               size=8
+               buffer_c = '        '
+               CALL FSION_READ(buffer_c,size,nelem,sid,sierr)
                IF (j==1) THEN
-                  nelem=1
-                  size=8
-                  buffer_c = '       '
-                  CALL FSION_READ(buffer_c,size,nelem,sid,sierr)
-!                  WRITE (6,*) "in sion file, rank ", rank, ": buffer_c=",buffer_c
                   nammol (i) = buffer_c
-                  !ADAPT for numnodes>1 !!!
-               ELSE
-                  nelem=1
-                  size=8 
-                  CALL FSION_READ(buffer_c,size,nelem,sid,sierr)
                END IF
+#ifdef DEBUG
+               WRITE (6,*) "(g) in sion file, rank ", rank, ": buffer_c=",buffer_c
+               CALL READ_CHECK (sierr, nelem)
+#endif
+               CALL DETERMINE_POS (rank, nelem*size, chunknum, posinchunk) 
                WRITE (nformsion+j-1,*) nammol (i)
-               pos (j) = pos (j) + 1*8 
             END DO
          END IF
 
-         IF (j == 1) THEN
-            nelem=1
-            size=80 
-            text = '                                                                                '
-            CALL FSION_READ(text,size,nelem,sid,sierr)
-!            WRITE (6,*) "in sion file, rank ", rank, ": text=", text
-            !ADAPT for numnodes>1!!!!            
-         ELSE
-            nelem=1
-            size=80
-            CALL FSION_READ(text,size,nelem,sid,sierr) 
-         ENDIF
-         pos (j) = pos (j) + 1*80
+         !     line h
+         nelem=1
+         size=80
+         text = '                                                                                '
+         CALL FSION_READ(text,size,nelem,sid,sierr)
+#ifdef DEBUG
+         WRITE (6,*) "(h) in sion file, rank ", rank, ": text=", text
+         CALL READ_CHECK (sierr, nelem)
+#endif
+         CALL DETERMINE_POS (rank, nelem*size, chunknum, posinchunk) 
+         
          IF (lcomm) WRITE (nformsion+j-1,*) "# Simulation name:"
          WRITE (nformsion+j-1,*) text
 
@@ -261,10 +298,12 @@ INCLUDE "mpif.h"
             nummol = 0 !counter for number of molecules      
             ibond = 0  !counter for bonds
          END IF
-            
+
+         ! Here one could close and open again the loop over nodes, as in the std 
+         ! version of the utility: in case, pos_d and chunk_d must be updated too
+         
       !     fill in arrays for beads and bonds
-         !      DO j = 1, numnodes
-         rank = j - 1 
+         rank = j - 1
 
          IF (lcomm) WRITE (nformsion+j-1,*) "# BEADS:"
          IF (lcomm) WRITE (nformsion+j-1,*) "# global, species, molecule, chain"
@@ -272,11 +311,17 @@ INCLUDE "mpif.h"
          IF (lmcheck) THEN
             !Build ltp, ltm, mole
             DO i = 1, beads (j)
+               !     line i
                nelem = 4
                size=4
                buffer_i (1:4) = 0
                CALL FSION_READ(buffer_i,size,nelem,sid,sierr)
-!               WRITE (6,*) "in sion file, rank ", rank, ": buffer_i(1:4)=",buffer_i(1:4)
+#ifdef DEBUG
+               WRITE (6,*) "(i) in sion file, rank ", rank, ": buffer_i(1:4)=",buffer_i(1:4)
+               CALL READ_CHECK (sierr, nelem)
+#endif 
+               CALL DETERMINE_POS (rank, nelem*size, chunknum, posinchunk) 
+
                global = buffer_i (1)
                species = buffer_i (2)
                molecule = buffer_i (3)
@@ -290,11 +335,16 @@ INCLUDE "mpif.h"
             END DO
          ELSE
             DO i = 1, beads (j)
+               !     line i
                nelem = 4
                size=4
                buffer_i (1:4) = 0
                CALL FSION_READ(buffer_i,size,nelem,sid,sierr)
-!               WRITE (6,*) "in sion file, rank ", rank, ": buffer_i(1:4)=",buffer_i(1:4)
+#ifdef DEBUG
+               WRITE (6,*) "(i) in sion file, rank ", rank, ": buffer_i(1:4)=",buffer_i(1:4)
+               CALL READ_CHECK (sierr, nelem)
+#endif
+               CALL DETERMINE_POS (rank, nelem*size, chunknum, posinchunk) 
                global = buffer_i (1)
                species = buffer_i (2)
                molecule = buffer_i (3)
@@ -302,7 +352,6 @@ INCLUDE "mpif.h"
                WRITE (nformsion+j-1,*) global, species, molecule, chain 
             END DO
          ENDIF
-         pos (j) = pos (j) + 4*4*beads(j)
          
          IF (bonds (j)>0) THEN
             IF (lcomm) WRITE (nformsion+j-1,*) "# BONDS:"
@@ -312,11 +361,16 @@ INCLUDE "mpif.h"
                ! Build bndtbl
                DO i = 1, bonds (j)
                   ibond = ibond + 1
+                  !     line j
                   nelem=2
                   size=4
                   buffer_i (1:2) = 0 
                   CALL FSION_READ(buffer_i,size,nelem,sid,sierr)
-!                  WRITE (6,*) "in sion file, rank ", rank, ": buffer_i(1:2)=",buffer_i(1:2)
+#ifdef DEBUG
+                  WRITE (6,*) "(j) in sion file, rank ", rank, ": buffer_i(1:2)=",buffer_i(1:2)
+                  CALL READ_CHECK (sierr, nelem)
+#endif
+                  CALL DETERMINE_POS (rank, nelem*size, chunknum, posinchunk) 
                   bead1 = buffer_i (1)
                   bead2 = buffer_i (2)
                   bndtbl (ibond, 1) = bead1
@@ -325,18 +379,24 @@ INCLUDE "mpif.h"
                END DO
             ELSE
                DO i = 1, bonds (j)
+                  !     line j
                   nelem=2
                   size=4
                   buffer_i (1:2) = 0 
                   CALL FSION_READ(buffer_i,size,nelem,sid,sierr)
-!                  WRITE (6,*) "in sion file, rank ", rank, ": buffer_i(1:2)=",buffer_i(1:2)
+#ifdef DEBUG
+                  WRITE (6,*) "(j) in sion file, rank ", rank, ": buffer_i(1:2)=",buffer_i(1:2)
+                  CALL READ_CHECK (sierr, nelem)
+#endif
+                  CALL DETERMINE_POS (rank, nelem*size, chunknum, posinchunk) 
                   bead1 = buffer_i (1)
                   bead2 = buffer_i (2)
-                  WRITE (nformsion+j-1,*) bead1, bead2 
+                  WRITE (nformsion+j-1,*) bead1, bead2
                END DO
             END IF
          END IF
-         pos (j) = pos (j) + 2*4*bonds(j)
+         chun_d (j) = chunknum
+         pos_d (j) = posinchunk
          
       END DO ! over nodes
 
@@ -394,8 +454,6 @@ INCLUDE "mpif.h"
          END IF
       END IF
 
-      print*,pos
-      
       !reading trajectories 
       DO j = 1, numnodes
 
@@ -413,16 +471,21 @@ INCLUDE "mpif.h"
          END SELECT
          
          rank = j - 1
-         chunknum = 0
-         posinchunk = pos (j)
-
+         chunknum = chun_d (j)
+         posinchunk = pos_d (j)         
          CALL FSION_SEEK (sid, rank, chunknum, posinchunk, sierr)
 !!!         
          DO WHILE (.true.)
 
             call fsion_feof (sid, seof)
             IF (seof /= 0) THEN
-!               WRITE (6,*) "End of file !!!!!!!!!!!!!!!!!!!!!!!!!!"
+#ifdef DEBUG
+               WRITE (6,*) "rank ", rank, ": End of file !"
+#endif
+               IF (k==0) THEN
+                  PRINT *, 'ERROR: cannot find trajectory data in history.sion file'
+                  STOP
+               END IF
                EXIT
             END IF
             
@@ -431,7 +494,10 @@ INCLUDE "mpif.h"
             size=8
             buffer_r (1:8) = 0
             CALL FSION_READ(buffer_r,size,nelem,sid,sierr)
-!            WRITE (6,*) "in sion file, rank ", rank, ": buffer_r(1:4)=",buffer_r(1:8)
+#ifdef DEBUG
+            WRITE (6,*) "(k) in sion file, rank ", rank, ": buffer_r(1:8)=",buffer_r(1:8)
+            CALL READ_CHECK (sierr, nelem)
+#endif
             time = buffer_r (1)
             mbeads = buffer_r (2)
             dimx = buffer_r (3)
@@ -458,7 +524,10 @@ INCLUDE "mpif.h"
                   size=8
                   buffer_r (1:4) = 0
                   CALL FSION_READ(buffer_r,size,nelem,sid,sierr)
-!                  WRITE (6,*) "in sion file, rank ", rank, ": buffer_r(1:4)=",buffer_r(1:4)
+#ifdef DEBUG
+                  WRITE (6,*) "(l) in sion file, rank ", rank, ": buffer_r(1:4)=",buffer_r(1:4)
+                  CALL READ_CHECK (sierr, nelem)
+#endif
                   mglobal = buffer_r (1)
                   x = buffer_r (2)
                   y = buffer_r (3)
@@ -473,7 +542,10 @@ INCLUDE "mpif.h"
                   size=8
                   buffer_r (1:7) = 0
                   CALL FSION_READ(buffer_r,size,nelem,sid,sierr)
-!                  WRITE (6,*) "in sion file, rank ", rank, ": buffer_r(1:7)=",buffer_r(1:7)
+#ifdef DEBUG
+                  WRITE (6,*) "(m) in sion file, rank ", rank, ": buffer_r(1:7)=",buffer_r(1:7)
+                  CALL READ_CHECK (sierr, nelem)
+#endif
                   mglobal = buffer_r (1)
                   x = buffer_r (2)
                   y = buffer_r (3)
@@ -491,7 +563,10 @@ INCLUDE "mpif.h"
                   size=8
                   buffer_r (1:10) = 0
                   CALL FSION_READ(buffer_r,size,nelem,sid,sierr)
-!                  WRITE (6,*) "in sion file, rank ", rank, ": buffer_r(1:7)=",buffer_r(1:10)
+#ifdef DEBUG
+                  WRITE (6,*) "(l) in sion file, rank ", rank, ": buffer_r(1:10)=",buffer_r(1:10)
+                  CALL READ_CHECK (sierr, nelem)
+#endif
                   mglobal = buffer_r (1)
                   x = buffer_r (2)
                   y = buffer_r (3)
@@ -510,20 +585,74 @@ INCLUDE "mpif.h"
          END DO
       END DO
       
+      ! close the output files
+      DO j = 1, numnodes
+         CLOSE (nformsion+j-1)
+      END DO
+
 ! SIONlib serial close
       call FSION_CLOSE (sid, sierr)
       CLOSE (nformsion)
+
+#ifdef DEBUG
+      WRITE (*,*) "The final chunknumbers and positions within chunks are:"
+      WRITE (*,*) "chun_d=", chun_d
+      WRITE (*,*) "pos_d=", pos_d
+#endif
       
       DEALLOCATE (beads, bonds)
-      DEALLOCATE (pos)
       DEALLOCATE (namspe, nammol)
       IF (lmcheck) DEALLOCATE (ltp, ltm, mole, nmol, nbdmol, bndtbl, nbomol)
-
-      DEALLOCATE (chunksizes, globalranks) 
+! SIONlib related quantities
+      DEALLOCATE (chunksizes, globalranks, pos_d, chun_d)
 
 99    FORMAT(f10.1,2x,1p,9(e13.6,3x))
 98    FORMAT(8(f10.3,3x))
 97    FORMAT(4(f10.3,3x))
 96    FORMAT(A9,3x,2(f10.3,3x),I2)
-      
+
+    CONTAINS
+
+      SUBROUTINE DETERMINE_POS (rank, nbytes, chunk, pos)
+!***********************************************************************************
+! routine to determine the position in the .sion file at each write statement 
+!
+! author - s. chiacchiera, march 2018
+!***********************************************************************************
+! It is assumed that each rank has its chunks numbered as 0, 1, etc
+        IMPLICIT none
+        INTEGER, INTENT (OUT) :: rank
+        INTEGER, INTENT (INOUT) :: chunk
+        INTEGER*8, INTENT (INOUT) :: pos
+        INTEGER*8, INTENT(IN) :: nbytes
+        INTEGER*8 :: pos_try
+        IF (nbytes > chunksizes (rank + 1)) THEN
+           WRITE (*,*) "error: too large record (hint: increase chunksize)"
+           STOP
+        END IF
+        pos_try = pos + nbytes
+        IF (pos_try <= chunksizes (rank + 1)) THEN 
+           pos = pos_try
+        ELSE
+           chunk = chunk + 1
+           pos = nbytes
+        END IF
+        RETURN
+      END SUBROUTINE DETERMINE_POS
+
+      SUBROUTINE READ_CHECK (sierr, nelem)
+!***********************************************************************************
+! routine to signal eventual mismatch when reading the .sion file
+!
+! author - s. chiacchiera, march 2018
+!***********************************************************************************
+
+        IMPLICIT none
+        INTEGER*8, INTENT (IN) :: sierr, nelem
+        IF (sierr.ne.nelem) THEN
+           WRITE (6,*) "error: number of elements read differs from expected! mismatch is ", sierr-nelem
+           STOP
+        END IF
+      END SUBROUTINE READ_CHECK
+     
 END PROGRAM format_history_sion
