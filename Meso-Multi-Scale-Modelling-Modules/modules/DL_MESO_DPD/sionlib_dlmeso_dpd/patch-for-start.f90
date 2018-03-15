@@ -1,5 +1,5 @@
 diff --git a/start_module.f90 b/start_module.f90
-index a7f0233..affd0c9 100644
+index a7f0233..81c3b24 100644
 --- a/start_module.f90
 +++ b/start_module.f90
 @@ -95,6 +95,9 @@ CONTAINS
@@ -7,180 +7,249 @@ index a7f0233..affd0c9 100644
        INTEGER, ALLOCATABLE :: localmolmap(:)
  
 +!     SIONlib 0: set sionlib filename
-+      filename = 'test_sionfile.sion'
++      filename = 'history.sion'
 +
  !     set restart filename
  
        WRITE (chan, '(i6.6)') idnode
-@@ -296,6 +299,11 @@ CONTAINS
+@@ -296,6 +299,10 @@ CONTAINS
  
          IF (nstep>0) THEN
- 
+            
 +!!! SIONlib 1a: give error for resart
-+           WRITE (*,*) "Error: this version (using sionlib) does not support restart"
-+           STOP
++           CALL error (idnode, 1500, 1)
 +!!!
-+           
-           IF (nodes>1) THEN
-             OPEN (nhist, file='HISTORY'//chan, access = 'sequential', form = 'unformatted', status = 'unknown',&
-                        & position = 'append')
-@@ -306,21 +314,59 @@ CONTAINS
- 
++#ifdef STDTRAJ           
+            IF (nodes>1) THEN
+               OPEN (nhist, file='HISTORY'//chan, access = 'sequential', form = 'unformatted', status = 'unknown',&
+                    & position = 'append')
+@@ -303,45 +310,184 @@ CONTAINS
+               OPEN (nhist, file='HISTORY', access = 'sequential', form = 'unformatted', status = 'unknown',&
+                    & position = 'append')
+            END IF
+-
++#endif          
          ELSE
  
 +!!! SIONlib 1b: define and open
-+           gcomm=MPI_COMM_WORLD
-+           lcomm=MPI_COMM_WORLD !added by SC
-+           fsblksize=-1
-+           chunksize=1 !2000000! too small?
-+           nfiles=1
++           gcomm = MPI_COMM_WORLD
++           lcomm = MPI_COMM_WORLD 
++           fsblksize = -1
++           chunksize = 100
++           nfiles = 1
 +           call fsion_paropen_mpi(trim(filename),'bw',nfiles, gComm,lComm, &
 +                chunksize,fsblksize,idnode,newfname,sid)
-+!           WRITE (6,*) "opened sionfile on node=",idnode ,"; sid=",sid
++#ifdef DEBUG
++           WRITE (6,*) "opened sionfile on node=",idnode ,"; sid=",sid
++           WRITE (6,*) "input chunksize (if needed, will be internally corrected)=", chunksize, "; fsblksize=", fsblksize
++#endif
 +!!!
-+           
++#ifdef STDTRAJ           
            IF (nodes>1) THEN
              OPEN (nhist, file='HISTORY'//chan, access = 'sequential', form = 'unformatted', status = 'unknown')
            ELSE
              OPEN (nhist, file='HISTORY', access = 'sequential', form = 'unformatted', status = 'unknown')
            END IF
- 
 -
+-
++#endif          
            IF (lgbnd .AND. idnode>0) THEN
-             WRITE (nhist) nspe, nmoldef, nusyst, nsyst, nbeads, 0
++#ifdef STDTRAJ
+              WRITE (nhist) nspe, nmoldef, nusyst, nsyst, nbeads, 0
++#endif
 +!!! SIONlib 2a: write into SION file
 +            nelem=6
 +            size=4
 +            buffer_i (1:6) = (/ nspe, nmoldef, nusyst, nsyst, nbeads, 0 /)
 +            call fsion_write(buffer_i,size,nelem,sid,sierr)
-+!            WRITE (6,*) "a written in sionfile on node=",idnode ,"; # elements",sierr
++#ifdef DEBUG
++            IF (sierr.ne.nelem) CALL error (idnode, 1501, INT (sierr - nelem))
++            WRITE (6,*) "a written in sionfile on node=",idnode ,"; # elements",sierr
++#endif
 +!!!            
            ELSE
-             WRITE (nhist) nspe, nmoldef, nusyst, nsyst, nbeads, nbonds
++#ifdef STDTRAJ
+              WRITE (nhist) nspe, nmoldef, nusyst, nsyst, nbeads, nbonds
+-          END IF
+-
++#endif
 +!!! SIONlib 2b: write into SION file
 +            nelem=6
 +            size=4
 +            buffer_i (1:6) = (/ nspe, nmoldef, nusyst, nsyst, nbeads, nbonds /)
 +            call fsion_write(buffer_i,size,nelem,sid,sierr)
-+!            WRITE (6,*) "b written in sionfile on node=",idnode ,"; # elements",sierr
++#ifdef DEBUG
++            IF (sierr.ne.nelem) CALL error (idnode, 1501, INT (sierr - nelem))
++            WRITE (6,*) "b written in sionfile on node=",idnode ,"; # elements",sierr
++#endif
 +!!!            
-          END IF
- 
++         END IF
++#ifdef STDTRAJ
           WRITE (nhist) dimx, dimy, dimz, volm
++#endif
 +!!! SIONlib 2c: write into SION file
 +         nelem=4
 +         size=8
 +         buffer_r (1:4) = (/ dimx, dimy, dimz, volm /)
 +         call fsion_write(buffer_r,size,nelem,sid,sierr)
-+!         WRITE (6,*) "c written in sionfile on node=",idnode ,"; # elements",sierr
-+!!!            
++#ifdef DEBUG
++         IF (sierr.ne.nelem) CALL error (idnode, 1501, INT (sierr - nelem))
++         WRITE (6,*) "c written in sionfile on node=",idnode ,"; # elements",sierr
++#endif
++!!!
++#ifdef STDTRAJ
           WRITE (nhist) keytrj, srftype*srfx, srftype*srfy, srftype*srfz
++#endif
 +!!! SIONlib 2d: write into SION file
 +         nelem=4
 +         size=4
 +         buffer_i (1:4) = (/ keytrj, srftype*srfx, srftype*srfy, srftype*srfz /)
 +         call fsion_write(buffer_i,size,nelem,sid,sierr)
-+!         WRITE (6,*) "d written in sionfile on node=",idnode ,"; # elements",sierr
++#ifdef DEBUG
++         IF (sierr.ne.nelem)  CALL error (idnode, 1501, INT (sierr - nelem))
++         WRITE (6,*) "d written in sionfile on node=",idnode ,"; # elements",sierr
++#endif
 +!!!
         
  !      write species information
            DO i = 1, nspe
-@@ -328,8 +374,46 @@ CONTAINS
+             k = (i * (i + 1)) / 2
              SELECT CASE (ktype (k))
              CASE (0:2)
-               WRITE (nhist) namspe (i), amass (i), vvv (2, k), lfrzn (i)
++#ifdef STDTRAJ
+                WRITE (nhist) namspe (i), amass (i), vvv (2, k), lfrzn (i)
++#endif
 +!!! SIONlib 2e: write into SION file
 +              nelem=1
 +              size=8
-+              buffer_c = namspe (i) !could skip this line and use namspe into write
++              buffer_c = namspe (i)
 +              call fsion_write(buffer_c,size,nelem,sid,sierr)
-+!              WRITE (6,*) "e1 written in sionfile on node=",idnode ,"; # elements",sierr
-+              
++#ifdef DEBUG
++              IF (sierr.ne.nelem) CALL error (idnode, 1501, INT (sierr - nelem))
++              WRITE (6,*) "e1 written in sionfile on node=",idnode ,"; # elements",sierr
++#endif
 +              nelem=2
 +              size=8
 +              buffer_r (1:2) = (/ amass (i), vvv (2, k) /)              
 +              call fsion_write(buffer_r,size,nelem,sid,sierr)              
-+!              WRITE (6,*) "e2 written in sionfile on node=",idnode ,"; # elements",sierr
-+              
++#ifdef DEBUG
++              IF (sierr.ne.nelem) CALL error (idnode, 1501, INT (sierr - nelem))
++              WRITE (6,*) "e2 written in sionfile on node=",idnode ,"; # elements",sierr
++#endif              
 +              nelem=1
 +              size=4
 +              buffer_i (1) = lfrzn (i)
 +              call fsion_write(buffer_i,size,nelem,sid,sierr)
-+!              WRITE (6,*) "e3 written in sionfile on node=",idnode ,"; # elements",sierr
++#ifdef DEBUG
++              IF (sierr.ne.nelem) CALL error (idnode, 1501, INT (sierr - nelem))
++              WRITE (6,*) "e3 written in sionfile on node=",idnode ,"; # elements",sierr
++#endif
 +!!!                        
             CASE (3)
++#ifdef STDTRAJ
                WRITE (nhist) namspe (i), amass (i), vvv (6, k), lfrzn (i)
++#endif
 +!!! SIONlib 2f: write into SION file
 +              nelem=1
 +              size=8
-+              buffer_c = namspe (i) !could skip this line and use namspe into write
++              buffer_c = namspe (i)
 +              call fsion_write(buffer_c,size,nelem,sid,sierr)
-+!              WRITE (6,*) "f1 written in sionfile on node=",idnode ,"; # elements",sierr
-+              
++#ifdef DEBUG
++              IF (sierr.ne.nelem) CALL error (idnode, 1501, INT (sierr - nelem))
++              WRITE (6,*) "f1 written in sionfile on node=",idnode ,"; # elements",sierr
++#endif              
 +              nelem=2
 +              size=8
 +              buffer_r (1:2) = (/ amass (i), vvv (6, k) /)              
 +              call fsion_write(buffer_r,size,nelem,sid,sierr)              
-+!              WRITE (6,*) "f2 written in sionfile on node=",idnode ,"; # elements",sierr
-+              
++#ifdef DEBUG
++              IF (sierr.ne.nelem) CALL error (idnode, 1501, INT (sierr - nelem))
++              WRITE (6,*) "f2 written in sionfile on node=",idnode ,"; # elements",sierr
++#endif              
 +              nelem=1
 +              size=4
 +              buffer_i (1) = lfrzn (i)
 +              call fsion_write(buffer_i,size,nelem,sid,sierr)
-+!              WRITE (6,*) "f3 written in sionfile on node=",idnode ,"; # elements",sierr
++#ifdef DEBUG
++              IF (sierr.ne.nelem) CALL error (idnode, 1501, INT (sierr - nelem))
++              WRITE (6,*) "f3 written in sionfile on node=",idnode ,"; # elements",sierr
++#endif
 +!!!                        
             END SELECT
            END DO
  
-@@ -337,11 +421,24 @@ CONTAINS
+ !      write molecule names
            IF (nmoldef>0) THEN
              DO i = 1, nmoldef
-               WRITE (nhist) nammol (i)
++#ifdef STDTRAJ
+                WRITE (nhist) nammol (i)
++#endif
 +!!! SIONlib 2g: write into SION file
 +              nelem=1
 +              size=8
-+              buffer_c = nammol (i) !could skip this line and use namspe into write
++              buffer_c = nammol (i)
 +              call fsion_write(buffer_c,size,nelem,sid,sierr)
-+!              WRITE (6,*) "g written in sionfile on node=",idnode ,"; # elements",sierr
++#ifdef DEBUG
++              IF (sierr.ne.nelem) CALL error (idnode, 1501, INT (sierr - nelem))
++              WRITE (6,*) "g written in sionfile on node=",idnode ,"; # elements",sierr
++#endif
 +!!!
             END DO
            END IF
  
  !      write name of calculation
++#ifdef STDTRAJ
            WRITE (nhist) text
++#endif
 +!!! SIONlib 2h: write into SION file
 +              nelem=1
 +              size=80
 +              call fsion_write(text,size,nelem,sid,sierr)
-+!              WRITE (6,*) "h written in sionfile on node=",idnode ,"; # elements",sierr
++#ifdef DEBUG
++              IF (sierr.ne.nelem) CALL error (idnode, 1501, INT (sierr - nelem))
++              WRITE (6,*) "h written in sionfile on node=",idnode ,"; # elements",sierr
++#endif              
 +!!!
            
  !      create map of local bead numbers to molecule numbers
            ALLOCATE (localmolmap (nbeads), STAT=fail(1))
-@@ -352,6 +449,13 @@ CONTAINS
+@@ -351,7 +497,19 @@ CONTAINS
+ !      write bead information (including molecule numbers)
            DO i = 1, nbeads
              imol = localmolmap(i)
++#ifdef STDTRAJ
              WRITE (nhist) lab (i), ltp (i), ltm (i), imol
++#endif
 +!!! SIONlib 2i: write into SION file
 +            nelem=4
 +            size=4
 +            buffer_i (1:4) = (/ lab (i), ltp (i), ltm (i), imol /)
 +            call fsion_write(buffer_i,size,nelem,sid,sierr)
-+!            WRITE (6,*) "i written in sionfile on node=",idnode ,"; # elements",sierr
++#ifdef DEBUG
++            IF (sierr.ne.nelem) CALL error (idnode, 1501, INT (sierr - nelem))
++            WRITE (6,*) "i written in sionfile on node=",idnode ,"; # elements",sierr
++#endif
 +!!!            
           END DO
  
            DEALLOCATE (localmolmap, STAT=fail(1))
-@@ -361,6 +465,13 @@ CONTAINS
+@@ -360,7 +518,19 @@ CONTAINS
+ !      write bonds between beads
            IF (nbonds>0 .AND. ((.NOT. lgbnd) .OR. idnode==0)) THEN
              DO j = 1, nbonds
-               WRITE (nhist) bndtbl (j, 1), bndtbl (j, 2)
++#ifdef STDTRAJ
+                WRITE (nhist) bndtbl (j, 1), bndtbl (j, 2)
++#endif
 +!!! SIONlib 2j: write into SION file
 +            nelem=2
 +            size=4
 +            buffer_i (1:2) = (/ bndtbl (j, 1), bndtbl (j, 2) /)
 +            call fsion_write(buffer_i,size,nelem,sid,sierr)
-+!            WRITE (6,*) "j written in sionfile on node=",idnode ,"; # elements",sierr
++#ifdef DEBUG
++            IF (sierr.ne.nelem) CALL error (idnode, 1501, INT (sierr - nelem))
++            WRITE (6,*) "j written in sionfile on node=",idnode ,"; # elements",sierr
++#endif
 +!!!            
             END DO
            END IF
+ 

@@ -32,13 +32,12 @@ files in DL_MESO_DPD, the Dissipative Particle Dynamics (DPD) code from the
 DL_MESO_ package. In the last release (2.6, dating November 2015),
 the MPI version of DL_MESO_DPD generates *multiple* trajectory files, one for each
 process. The use of SIONlib_ allows to minimally modify the writing so that just *one*
-physical file is produced.
+physical file (history.sion) is produced.
 An analogous modification has to be implemented in the post-processing
 utilities that read the HISTORY files. As an example, here the modifications
-are implemented for one specific utility, ``format_history_sion.f90``, a formatting utility
-analogous to ``format_history.f90`` (see :ref:`history_format_DPD`):
-it reads the SIONlib trajectory file and produces multiple formatted
-trajectory files. Beside showing how to adapt the reading, this allows a robust check
+are implemented for one specific utility, ``format_history_sion.f90``, a
+formatting tool analogous to ``format_history.f90`` (see :ref:`history_format_DPD`).
+Beside showing how to adapt the reading, this allows a robust check
 of the implementation, since the output is human readable, contains the full
 trajectories, and can be readily compared with that obtained using ``format_history.f90``
 with the standard version of DL_MESO_DPD.
@@ -53,10 +52,9 @@ We therefore restrict in this module to the relevant case in which i) the simula
 parallel using MPI, ii) a single SIONlib physical file is produced, and iii) the
 post-processing is done by a single process.
 
-The modifications of DL_MESO_DPD (see below) concern the subroutines dealing with the opening, writing
-and closing of the trajectory files. 
-
-.. Possible uses ... (see :ref:`moldip_af`).
+Finally, we would like to underline that, while SIONlib is optimized for a large number of processes, the reduction from
+several output files to just one is in any case a benefit, for example when it
+comes to the maintenance of the simulation output.
 
 Background Information
 ______________________
@@ -74,8 +72,11 @@ Its last released version is number 1.7.1 (dating November 2016).
 Testing
 _______
 
-The version of DL_MESO_DPD including SIONlib is compiled using the
+The version of DL_MESO_DPD including SIONlib (see below) is compiled using the
 corresponding makefile (``Makefile-MPI``).
+Two pre-processing flags can be used when compiling:
+``-D DEBUG``, to print information for any SIONlib-related action, and
+``-D STDTRAJ``, to recover the standard printing of trajectories as HISTORY* files.
 
 The utility ``format_history_sion.f90`` is compiled with the available
 Fortran90+MPI compiler, and using appropriate flags for the SIONlib library, e.g:
@@ -115,7 +116,9 @@ writing the trajectories, namely: ``variables.f90``, ``constants.f90``,
 ``start_module.f90``, ``dlmesodpd.f90``, ``error_module.f90`` and the
 ``Makefile-MPI``. As an example of the post-processing of a SIONlib
 trajectory, we provide the formatting utility ``format_history_sion.f90``,
-analogous to ``format_history.f90`` (see :ref:`history_format_DPD`).
+analogous to ``format_history.f90`` (see :ref:`history_format_DPD`):
+it reads the SIONlib trajectory file (history.sion) and produces multiple formatted
+trajectory files (sion*-F).
 
 In the following we give the needed changes in the form of patches: in the
 `git diff`, `a` is the branch with the standard version, `b` the SIONlib one.
@@ -124,7 +127,7 @@ The patch for ``Makefile-MPI`` is
 
 
 .. literalinclude:: ./patch-for-Makefile-MPI
-      :emphasize-lines: 1,8-10,16,25,31
+      :emphasize-lines: 1,8-10,13,17,26,32
       :linenos:
 
 The patch for ``variables.f90`` is
@@ -141,24 +144,21 @@ The patch for  ``constants.f90`` is
 
 The patch for ``dlmesodpd.f90`` is 
 
-.. recall to remove the check line write (nprint,*) ...
-
 .. literalinclude:: ./patch-for-dlmesodpd.f90
-      :emphasize-lines: 1,9-12
+      :emphasize-lines: 1,10,12-18
       :linenos:
 
 The patch for ``error_module.f90`` is 
 
 .. literalinclude:: ./patch-for-error.f90
-      :emphasize-lines: 1, 9-11
+      :emphasize-lines: 1, 9-13,21,23-26
       :linenos:
 	 
 The patch for ``start_module.f90`` is 
 	 
 .. literalinclude:: ./patch-for-start.f90
-      :emphasize-lines:
-	 1,9-11,19-23,31-41,51-57,60-66,70-76,78-84,92-110,113-131,139-145,
-	 151-156, 164-170, 178-184
+      :emphasize-lines: 1,9-11,19-22,31,34-47,55,57,59-69,71,75-87,89-100,102-112,119,
+			121-147,149,151-177,184,186-196,201,203-212,220,222-232,240,242-252
       :linenos:
 
 These changes only affect one subroutine (``start``) within the ``start_module.f90``.
@@ -169,7 +169,7 @@ second part of the subroutine ``start`` with the file provided
 The patch for ``statistics_module.f90`` is 
 
 .. literalinclude:: ./patch-for-statistics.f90
-      :emphasize-lines: 1,9-15,22-28,35-42,50-57,63-70
+      :emphasize-lines: 1,9,18,20-30,36,38-48,53,56-67,73,76-87,91,94-105,112,116
       :linenos:
 
 Also here the changes only affect one subroutine (``histout``) within the ``statistics_module.f90``.
@@ -186,8 +186,10 @@ Finally, the formatting utility ``format_history_sion.f90`` is
 
 **Additional information** 
 
-Using the modifications proposed above, the trajectories will be written by
-DL_MESO_DPD *both* as standard HISTORY* files and in the SIONlib format (history.sion file).
+Using the modifications proposed above, the trajectories will be written
+by DL_MESO_DPD in the SIONlib format (history.sion file). For comparison
+purposes, the standard HISTORY* files can be also written at the same time,
+using the ``-D STDTRAJ`` flag for compilation in ``Makefile-MPI``.
 
 To be able to use SIONlib, the writing statements for which the records are formed
 by inhomogeneous items (e.g., two 8-byte strings and a 4-byte integer)
@@ -205,7 +207,7 @@ Important SIONlib variables:
 
 - ``chunksize``: size in bytes of the data written by a task in a single write
   call. It is internally increased by SIONlib to the next multiple of the
-  filesystem blocksize. (For DL_MESO_DPD, the largest record has size 80 bytes, hence we choose
+  filesystem block size. (For DL_MESO_DPD, the largest record has size 80 bytes, hence we choose
   chunksize = 100, which, typically, will be internally increased to 4096.)
 
 - ``nfiles``: number of physical files produced by SIONlib (set to 1 here).
@@ -218,3 +220,6 @@ the Fortran version of SIONlib.
 .. Here are the URL references used
 .. _DL_MESO: http://www.ccp5.ac.uk/DL_MESO
 .. _SIONlib: http://www.fz-juelich.de/ias/jsc/EN/Expertise/Support/Software/SIONlib/_node.html
+
+
+.. the subroutines dealing with the opening, writing and closing of the trajectory files. 
