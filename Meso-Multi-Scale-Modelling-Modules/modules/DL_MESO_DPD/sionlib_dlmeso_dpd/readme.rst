@@ -10,7 +10,7 @@
     FORTRAN 90
 
   Licence
-    BSD / DL_MESO Licence for the base code
+    BSD / DL_MESO_ Licence for the base code
 
   Documentation Tool
     RST
@@ -49,10 +49,10 @@ file from the start.
 The implementation presented here is meant to show the feasibility of the
 interfacing, not to deal with all the possible cases.
 We therefore restrict in this module to the relevant case in which i) the simulation is run in
-parallel using MPI, ii) a single SIONlib physical file is produced, and iii) the
+parallel using MPI, ii) a single SIONlib-type physical file is produced, and iii) the
 post-processing is done by a single process.
 
-Finally, we would like to underline that, while SIONlib is optimized for a large number of processes, the reduction from
+Finally, we would like to underline that, while SIONlib_ is optimized for a large number of processes, the reduction from
 several output files to just one is in any case a benefit, for example when it
 comes to the maintenance of the simulation output.
 
@@ -63,7 +63,7 @@ The base code for this module is DL_MESO_DPD, the Dissipative Particle
 Dynamics code from the mesoscopic simulation package DL_MESO_,
 developed by M. Seaton at Daresbury Laboratory.
 This open source code is available from STFC under both academic (free) and
-commercial (paid) licenses. The module is to be used with DL_MESO
+commercial (paid) licenses. The module is to be used with DL_MESO_
 in its last released version, version 2.6 (dating November 2015).
 
 The present module requires the SIONlib_ library to be installed.
@@ -72,14 +72,14 @@ Its last released version is number 1.7.1 (dating November 2016).
 Testing
 _______
 
-The version of DL_MESO_DPD including SIONlib (see below) is compiled using the
+The version of DL_MESO_DPD including SIONlib_ (see below) is compiled using the
 corresponding makefile (``Makefile-MPI``).
 Two pre-processing flags can be used when compiling:
 ``-D DEBUG``, to print information for any SIONlib-related action, and
 ``-D STDTRAJ``, to recover the standard printing of trajectories as HISTORY* files.
 
 The utility ``format_history_sion.f90`` is compiled with the available
-Fortran90+MPI compiler, and using appropriate flags for the SIONlib library, e.g:
+Fortran90+MPI compiler, and using appropriate flags for the SIONlib_ library, e.g:
 
 ::
    
@@ -87,7 +87,7 @@ Fortran90+MPI compiler, and using appropriate flags for the SIONlib library, e.g
   mpifort -o format_history-sion.exe format_history.o `/home/user/sionlib/bin/sionconfig --libs --f77 --mpi --threadsafe --64`
 
 and the executable must be in the same directory of the history.sion file. 
-It is assumed that SIONlib has been installed in the `/home/user/sionlib/`
+It is assumed that SIONlib_ has been installed in the `/home/user/sionlib/`
 directory, where of course the `user` name has to be adapted.
 If the pre-processing flag ``-D DEBUG`` is used when compiling, the result of each read
 statement is printed to the standard output and an eventual mismatch in the
@@ -114,7 +114,7 @@ ___________
 A number of DL_MESO_DPD modules have to be slightly modified to use SIONlib_ when
 writing the trajectories, namely: ``variables.f90``, ``constants.f90``,
 ``start_module.f90``, ``dlmesodpd.f90``, ``error_module.f90`` and the
-``Makefile-MPI``. As an example of the post-processing of a SIONlib
+``Makefile-MPI``. As an example of the post-processing of a SIONlib-type
 trajectory, we provide the formatting utility ``format_history_sion.f90``,
 analogous to ``format_history.f90`` (see :ref:`history_format_DPD`):
 it reads the SIONlib trajectory file (history.sion) and produces multiple formatted
@@ -215,7 +215,7 @@ Important SIONlib variables:
 **Acknowledgements** 
 
 We are very grateful to Dr. Wolfgang Frings for kind support concerning the usage of
-the Fortran version of SIONlib.
+the Fortran version of SIONlib_.
 
 .. Here are the URL references used
 .. _DL_MESO: http://www.ccp5.ac.uk/DL_MESO
