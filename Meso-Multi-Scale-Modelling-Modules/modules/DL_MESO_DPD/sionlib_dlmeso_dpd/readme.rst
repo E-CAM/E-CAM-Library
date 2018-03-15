@@ -10,13 +10,13 @@
     FORTRAN 90
 
   Licence
-    BSD
+    BSD / DL_MESO Licence for the base code
 
   Documentation Tool
     RST
 
   Application Documentation
-    See the 
+    See the Source Code section
   
   Relevant Training Material
     See the Testing section
@@ -35,7 +35,13 @@ process. The use of SIONlib_ allows to minimally modify the writing so that just
 physical file is produced.
 An analogous modification has to be implemented in the post-processing
 utilities that read the HISTORY files. As an example, here the modifications
-are implemented for one specific utility, ``format_history.f90``.
+are implemented for one specific utility, ``format_history_sion.f90``, a formatting utility
+analogous to ``format_history.f90`` (see :ref:`history_format_DPD`):
+it reads the SIONlib trajectory file and produces multiple formatted
+trajectory files. Beside showing how to adapt the reading, this allows a robust check
+of the implementation, since the output is human readable, contains the full
+trajectories, and can be readily compared with that obtained using ``format_history.f90``
+with the standard version of DL_MESO_DPD.
 
 Notice that the next released version of DL_MESO_DPD (in development)
 will tackle the writing of files differently, producing a single trajectory
@@ -88,8 +94,8 @@ number of read elements is signaled.
 
 To test the writing/reading of the trajectories, the user can choose any
 simulation run using DL_MESO_DPD, then analyze the trajectories with both
-``format_history.f90`` (which reads standard binary HISTORY* files) and ``format_history_sion.f90``
-(which reads the SIONlib format history.sion file):
+``format_history.f90`` (which reads standard DL_MESO_DPD binary HISTORY*
+files) and ``format_history_sion.f90`` (which reads the SIONlib-type history.sion file):
 the formatted files so obtained, HISTORY*-F and sion*-F, respectively, should coincide.
 
 However, for completeness, we provide the input files for a possible test: 
@@ -108,14 +114,8 @@ A number of DL_MESO_DPD modules have to be slightly modified to use SIONlib_ whe
 writing the trajectories, namely: ``variables.f90``, ``constants.f90``,
 ``start_module.f90``, ``dlmesodpd.f90``, ``error_module.f90`` and the
 ``Makefile-MPI``. As an example of the post-processing of a SIONlib
-trajectory, we propose ``format_history_sion.f90``, a formatting utility
-analogous to ``format_history.f90`` (see :ref:`history_format_DPD`):
-it reads the SIONlib trajectory file and produces multiple formatted
-trajectory files. Beside showing how to adapt the reading, this allows a robust check
-of the implementation, since the output is human readable, contains the full
-trajectories, and can be readily
-compared with that obtained using ``format_history.f90``
-with the standard version of DL_MESO_DPD.
+trajectory, we provide the formatting utility ``format_history_sion.f90``,
+analogous to ``format_history.f90`` (see :ref:`history_format_DPD`).
 
 In the following we give the needed changes in the form of patches: in the
 `git diff`, `a` is the branch with the standard version, `b` the SIONlib one.
@@ -184,23 +184,37 @@ Finally, the formatting utility ``format_history_sion.f90`` is
       :linenos:
 
 
+**Additional information** 
 
-..
-   .. literalinclude:: ./gen_dipoleaf.f90
-      :language: fortran
-      :linenos:
+Using the modifications proposed above, the trajectories will be written by
+DL_MESO_DPD *both* as standard HISTORY* files and in the SIONlib format (history.sion file).
+
+To be able to use SIONlib, the writing statements for which the records are formed
+by inhomogeneous items (e.g., two 8-byte strings and a 4-byte integer)
+have to be split into different records, hence the increased number of write/read statements.
+To help the reader, comments have been added to label all
+the SIONlib-related commands, namely: "SIONlib 0, 1a, 1b, 2a, 2b, ..., 2p, 3".
+The writing statements are labelled "2a, 2b, etc", and each one
+corresponds to the writing of single record in the standard version of
+DL_MESO_DPD. The SIONlib file definition, opening and closing statements have been labelled 0, 1 and 3 in the comments.
+
+Important SIONlib variables:
+
+- ``fsblksize``: file system block size in bytes. If set to -1, it is read by
+  SIONlib. (Typically, this value is 4096.)
+
+- ``chunksize``: size in bytes of the data written by a task in a single write
+  call. It is internally increased by SIONlib to the next multiple of the
+  filesystem blocksize. (For DL_MESO_DPD, the largest record has size 80 bytes, hence we choose
+  chunksize = 100, which, typically, will be internally increased to 4096.)
+
+- ``nfiles``: number of physical files produced by SIONlib (set to 1 here).
+
+**Acknowledgements** 
+
+We are very grateful to Dr. Wolfgang Frings for kind support concerning the usage of
+the Fortran version of SIONlib.
 
 .. Here are the URL references used
 .. _DL_MESO: http://www.ccp5.ac.uk/DL_MESO
 .. _SIONlib: http://www.fz-juelich.de/ias/jsc/EN/Expertise/Support/Software/SIONlib/_node.html
-.. _ReST: http://docutils.sourceforge.net/docs/user/rst/quickref.html
-..
-   .. _FFTW: http://www.fftw.org/
-   .. [1] Disambiguation on the concept of molecule. In DL\_MESO a *defined molecule*
-	    is a set of beads, which can be bonded or not.
-	    For the purpose of this module it is *required* that each molecule is a
-	    connected cluster (via stretching bonds).
-	    In fact, this, together with the reasonable assumption that each stretching
-	    bond cannot be stretched to more than half the system linear size, allows
-	    to univocally define the charge dipole moment of each molecule.
-   .. [2] M. P. Allen and D. J. Tildesley, "Computer simulation of liquids", Oxford University Press, Oxford (1987).
