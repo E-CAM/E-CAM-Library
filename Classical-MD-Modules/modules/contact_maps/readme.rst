@@ -23,7 +23,7 @@ Contact Map
 
 .. contents:: :local:
 
-Frequently, we characterize states (especially in biomolecular system) in
+Frequently, we characterize states (especially in biomolecular systems) in
 terms of the contacts between specific residues or atoms. When trying to
 identify the specific contacts of interest, it can be useful to look at all
 the contacts. This module provides tools for mapping and identifying
