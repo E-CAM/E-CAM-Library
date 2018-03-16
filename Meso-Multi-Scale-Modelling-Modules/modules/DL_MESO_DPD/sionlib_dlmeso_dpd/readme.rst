@@ -30,8 +30,8 @@ _________________
 This module proposes to use the SIONlib_ library to write/read the trajectory (HISTORY)
 files in DL_MESO_DPD, the Dissipative Particle Dynamics (DPD) code from the
 DL_MESO_ package. In the last release (2.6, dating November 2015),
-the MPI version of DL_MESO_DPD generates *multiple* trajectory files, one for each
-process. The use of SIONlib_ allows to minimally modify the writing so that just *one*
+the MPI version of DL_MESO_DPD generates *multiple* trajectory files, one for
+each MPI task. The use of SIONlib_ allows to minimally modify the writing so that just *one*
 physical file (history.sion) is produced.
 An analogous modification has to be implemented in the post-processing
 utilities that read the HISTORY files. As an example, here the modifications
@@ -48,11 +48,12 @@ file from the start.
 
 The implementation presented here is meant to show the feasibility of the
 interfacing, not to deal with all the possible cases.
-We therefore restrict in this module to the relevant case in which i) the simulation is run in
+We therefore restrict in this module to the relevant case in which: i) the simulation is run in
 parallel using MPI, ii) a single SIONlib-type physical file is produced, and iii) the
 post-processing is done by a single process.
 
-Finally, we would like to underline that, while SIONlib_ is optimized for a large number of processes, the reduction from
+Finally, we would like to underline that, while SIONlib_ is optimized for a
+large number of MPI tasks, the reduction from
 several output files to just one is in any case a benefit, for example when it
 comes to the maintenance of the simulation output.
 
