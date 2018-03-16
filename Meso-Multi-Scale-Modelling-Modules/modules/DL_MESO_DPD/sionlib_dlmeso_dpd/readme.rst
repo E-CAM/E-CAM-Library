@@ -1,8 +1,8 @@
 .. _dlmeso_sionlib:
 
-#####################################################################################
-[WIP] Using SIONlib (parallel I/O library) to write/read HISTORY files in DL_MESO_DPD
-#####################################################################################
+###############################################################################
+Using SIONlib (parallel I/O library) to write/read HISTORY files in DL_MESO_DPD
+###############################################################################
 
 .. sidebar:: Software Technical Information
 
