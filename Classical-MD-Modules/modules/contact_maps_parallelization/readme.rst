@@ -33,17 +33,17 @@
 
 .. _contact-map-parallelization:
 
-####################
-E-CAM example module
-####################
+###########################
+Contact Map Parallelization
+###########################
 
 ..  Let's add a local table of contents to help people navigate the page
 
 .. contents:: :local:
 
 This module adds the ability to parallelize the calculation of contact
-frequencies (see the contact-map_ module). It includes improvements to the
-core of the ``contact_map`` package to facilitate parallelization, as well
+frequencies (see the ``contact map`` module). It includes improvements to the
+core of the contact_map package to facilitate parallelization, as well
 as integration with a framework for practical parallelization.
 
 Purpose of Module
