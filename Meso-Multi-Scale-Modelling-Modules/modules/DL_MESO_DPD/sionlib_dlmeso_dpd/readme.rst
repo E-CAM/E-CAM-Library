@@ -44,7 +44,9 @@ with the standard version of DL_MESO_DPD.
 
 Notice that the next released version of DL_MESO_DPD (in development)
 will tackle the writing of files differently, producing a single trajectory
-file from the start.
+file from the start. However, the interface proposed here provides this feature
+to the users of version 2.6, and represents an alternative solution for the
+handling of the trajectories.
 
 The implementation presented here is meant to show the feasibility of the
 interfacing, not to deal with all the possible cases.
@@ -122,7 +124,8 @@ it reads the SIONlib trajectory file (history.sion) and produces multiple format
 trajectory files (sion*-F).
 
 In the following we give the needed changes in the form of patches: in the
-`git diff`, `a` is the branch with the standard version, `b` the SIONlib one.
+`git diff`, `a` is the branch with the standard version (version 2.6, revision
+15), `b` the SIONlib one.
 
 The patch for ``Makefile-MPI`` is
 
