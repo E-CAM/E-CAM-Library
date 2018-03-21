@@ -86,8 +86,8 @@ Fortran90+MPI compiler, and using appropriate flags for the SIONlib_ library, e.
 
 ::
    
-  mpifort -c -cpp format_history.f90 `/home/user/sionlib/bin/sionconfig --cflags --f77 --mpi --threadsafe --64`
-  mpifort -o format_history-sion.exe format_history.o `/home/user/sionlib/bin/sionconfig --libs --f77 --mpi --threadsafe --64`
+  mpifort -c -cpp format_history_sion.f90 `/home/user/sionlib/bin/sionconfig --cflags --f77 --mpi --threadsafe --64`
+  mpifort -o format_history_sion.exe format_history_sion.o `/home/user/sionlib/bin/sionconfig --libs --f77 --mpi --threadsafe --64`
 
 and the executable must be in the same directory of the history.sion file. 
 It is assumed that SIONlib_ has been installed in the `/home/user/sionlib/`
