@@ -1,5 +1,5 @@
 diff --git a/Makefile-MPI b/Makefile-MPI
-index b862d31..f69d950 100644
+index 462de59..0078f94 100644
 --- a/Makefile-MPI
 +++ b/Makefile-MPI
 @@ -1,10 +1,13 @@
@@ -13,8 +13,8 @@ index b862d31..f69d950 100644
 +FFLAGS=  -O3 -cpp
  LFLAGS=  $(FFLAGS)
  
--EXE=     ./dpd.exe
-+EXE=     ./dpd-MPI-sion.exe
+-EXE=     dpd.exe
++EXE=     dpd-MPI-sion.exe
  
  VPATH=   ../DPD/
  
