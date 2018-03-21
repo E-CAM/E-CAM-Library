@@ -1,8 +1,8 @@
 diff --git a/error_module.f90 b/error_module.f90
-index 8da34eb..b342a56 100644
+index cb19b28..f8c3c3b 100644
 --- a/error_module.f90
 +++ b/error_module.f90
-@@ -591,6 +591,11 @@ CONTAINS
+@@ -589,6 +589,11 @@ CONTAINS
          CASE (1198)
            WRITE (nprint,"(/,1x,'error: deallocation failure in field_module -> plcfor_stoyanov')")
  
@@ -14,7 +14,7 @@ index 8da34eb..b342a56 100644
            
          CASE DEFAULT
            WRITE (nprint,"(/,1x,'error: undefined error code found')") 
-@@ -607,7 +612,12 @@ CONTAINS
+@@ -605,7 +610,12 @@ CONTAINS
  !     close all i/o channels
  
          IF (idnode==0) CLOSE (nprint)
