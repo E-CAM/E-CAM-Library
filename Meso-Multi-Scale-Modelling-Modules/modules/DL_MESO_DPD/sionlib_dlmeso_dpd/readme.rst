@@ -123,9 +123,9 @@ analogous to ``format_history.f90`` (see :ref:`history_format_DPD`):
 it reads the SIONlib trajectory file (history.sion) and produces multiple formatted
 trajectory files (sion*-F).
 
-In the following we give the needed changes in the form of patches: in the
+In the following we give the needed changes in the form of patches [1]_: in the
 `git diff`, `a` is the branch with the standard version (version 2.6, revision
-15 [1]_), `b` the SIONlib one.
+15 [2]_), `b` the SIONlib one.
 
 The patch for ``Makefile-MPI`` is
 
@@ -224,7 +224,9 @@ the Fortran version of SIONlib_.
 .. Here are the URL references used
 .. _DL_MESO: http://www.ccp5.ac.uk/DL_MESO
 .. _SIONlib: http://www.fz-juelich.de/ias/jsc/EN/Expertise/Support/Software/SIONlib/_node.html
-.. [1] On CCPForge_, a software development framework where, in particular,
+.. [1] If patching is done with GNU `patch` command, the `-l` option (ignoring
+       whitespaces) has to be active.
+.. [2] On CCPForge_, a software development framework where, in particular,
        the different versions of DL_MESO_DPD are stored,
        version 2.6 in its revision 15 corresponds to the commit number
        48e9a42a51f4cb450eb9c39dcbf6eb4a38c7cd32.
