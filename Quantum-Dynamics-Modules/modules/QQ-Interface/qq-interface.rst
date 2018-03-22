@@ -25,11 +25,12 @@
   Application Documentation
     Useful documentation can be found here_
     
-.. _here: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/ 
+    .. _here: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/ 
 
   Relevant Training Material
     Useful training can be found here_
 
+    .. _here: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/ 
 
 .. _qq-interface:
 
