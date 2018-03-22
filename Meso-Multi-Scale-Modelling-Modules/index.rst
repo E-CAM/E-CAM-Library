@@ -61,7 +61,6 @@ The following modules connected to the DL_MESO_DPD code have been produced so fa
     ./modules/DL_MESO_DPD/dipole_af_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD/moldip_af_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD_onGPU/add_gpu_version/readme
-    ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme
 
 ESPRESSO++
 ----------
@@ -80,6 +79,10 @@ The following modules connected to the ESPRESSO++ code have been produced so far
 ESDW Barcelona 2017
 -------------------
 
-The first Meso- and Multi-scale ESDW in Barcelona in 2017 will be the starting point for the modules to be included here.
+The first Meso- and Multi-scale ESDW was held in Barcelona, Spain, in July 2017. The following modules have been produced:
 
-.. _E-CAM: https://www.e-cam2020.eu/
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme
