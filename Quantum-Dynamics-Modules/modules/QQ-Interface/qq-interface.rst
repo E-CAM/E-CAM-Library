@@ -57,24 +57,10 @@ QQ-Interface (Quantics-QChem-Interface)
 Purpose of Module
 _________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 The Quantics-Qchem-Interface module connects the full quantum nonadiabatic wavefunction propagation code Quantics to the time dependent density functional (TDDFT) module of the electronic structure program QChem. QChem provides analytic gradients, hessians and derivative couplings at TDDFT level. With this module it is possible to use the QChem TDDFT module for excited state direct dynamics calculations. Quantics will start QChem calculations whenever needed, prepares the input file from a template and will read the output of QChem. The QChem results are stored in the Quantics database and can be used in dynamics simulations. Due to the modular design of Quantics the TDDFT module of QChem can be used for all dynamics simulations, e.g. dd-vMCG or surface hopping simulations.
 
 
-.. Background Information
-.. ______________________
-
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
-
-.. If the modifications are to an existing code base (which is typical) then this would be the place to name that
-.. application. List any relevant urls and explain how to get access to that code. There needs to be enough information
-.. here so that the person reading knows where to get the source code for the application, what version this information is
-.. relevant for, whether this requires any additional patches/plugins, etc.
-
-.. Overall, this module is supposed to be self-contained, but linking to specific URLs with more detailed information is
-.. encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
-.. the links they need should be already in this module.
 
 Building and Testing
 ____________________
@@ -83,12 +69,12 @@ ____________________
 
 To use the module, get the latest version of Quantics from the repository and build it as usual. Moreover you have to have a running version of QChem installed on your system. An example calculation, simulating the photodissociation of water using 4 coupled states is added to the Quantics repository, the documentation of the example can be found here_. In principle you can run the module with::
 
-  .. _here: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/howtos/run_dd.html
-
  quantics water-dd
 
 
 In the specific example, Quantics will search for a script called 'run_qchem' (specified in the input file) to start a QChem calculation. The file 'run_qchem' script is of course dependent on your system configuration. For more information please refer to the Quantics documentation.
+
+    .. _here: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/howtos/run_dd.html
 
 Source Code
 ___________
