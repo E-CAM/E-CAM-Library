@@ -143,7 +143,7 @@ The patch for ``variables.f90`` is
 The patch for  ``constants.f90`` is
 	 
 .. literalinclude:: ./patch-for-constants.f90
-      :emphasize-lines: 1,10-12
+      :emphasize-lines: 1,9-10
       :linenos:
 
 The patch for ``dlmesodpd.f90`` is 
