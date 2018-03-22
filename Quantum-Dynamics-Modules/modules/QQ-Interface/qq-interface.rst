@@ -32,10 +32,6 @@
 
     .. _here: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/
 
-..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
-    reference, in this case, as ":ref:`example`"). You *MUST* change the reference below from "example" to something
-    unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
-    reference to work (so don't insert a comment between).
 
 .. _qq-interface:
 
@@ -46,11 +42,6 @@ QQ-Interface (Quantics-QChem-Interface)
 ..  Let's add a local table of contents to help people navigate the page
 
 ..  contents:: :local:
-
-..  Add an abstract for a *general* audience here. Write a few lines that explains the "helicopter view" of why you are
-    creating this module. For example, you might say that "This module is a stepping stone to incorporating XXXX effects
-    into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
-    produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
 
 
@@ -65,15 +56,15 @@ The Quantics-Qchem-Interface module connects the full quantum nonadiabatic wavef
 Building and Testing
 ____________________
 
-    .. _here: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/howtos/run_dd.html
+ .. _here: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/howtos/run_dd.html
 
 
-To use the module, get the latest version of Quantics from the repository and build it as usual. Moreover you have to have a running version of QChem installed on your system. An example calculation, simulating the photodissociation of water using 4 coupled states is added to the Quantics repository, the documentation of the example can be found here_. In principle you can run the module with::
+ To use the module, get the latest version of Quantics from the repository and build it as usual. Moreover you have to have a running version of QChem installed on your system. An example calculation, simulating the photodissociation of water using 4 coupled states is added to the Quantics repository, the documentation of the example can be found here_. In principle you can run the module with::
 
- quantics water-dd
+   quantics water-dd
 
 
-In the specific example, Quantics will search for a script called 'run_qchem' (specified in the input file) to start a QChem calculation. The file 'run_qchem' script is of course dependent on your system configuration. For more information please refer to the Quantics documentation.
+ In the specific example, Quantics will search for a script called 'run_qchem' (specified in the input file) to start a QChem calculation. The file 'run_qchem' script is of course dependent on your system configuration. For more information please refer to the Quantics documentation.
 
 
 
