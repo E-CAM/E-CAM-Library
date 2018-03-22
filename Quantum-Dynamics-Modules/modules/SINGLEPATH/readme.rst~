@@ -10,10 +10,11 @@
 ..  sidebar:: Software Technical Information
 
   Name
-.. Trotter Based Quantum Classocal Surface Hopping Propagator  Single Path
+    Name of the relevant software.
 
   Language
-    C++ (GNU 2011 or higher)
+    Please indicate the primary language(s) used by the module. Please also state if interfaces for other languages are
+    available.
 
   Licence
     Specify the licence under which the software is released. Provide a link to the full online description of the
@@ -22,7 +23,8 @@
     `MIT <https://opensource.org/licenses/mit-license>`_
 
   Documentation Tool
-    Doxygen
+    All source code created for this module should be documented so please indicate what tool has been used for
+    documentation. Doxygen covers  most languages but for Fortran you might want to use
     `Ford <http://fortranwiki.org/fortran/show/FORD>`_, for Python ReST_, etc.
 
   Application Documentation
