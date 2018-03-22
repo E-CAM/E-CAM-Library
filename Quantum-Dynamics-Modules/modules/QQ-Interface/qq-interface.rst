@@ -56,15 +56,14 @@ The Quantics-Qchem-Interface module connects the full quantum nonadiabatic wavef
 Building and Testing
 ____________________
 
- .. _here: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/howtos/run_dd.html
 
 
- To use the module, get the latest version of Quantics from the repository and build it as usual. Moreover you have to have a running version of QChem installed on your system. An example calculation, simulating the photodissociation of water using 4 coupled states is added to the Quantics repository, the documentation of the example can be found here_. In principle you can run the module with::
+To use the module, get the latest version of Quantics from the repository and build it as usual. Moreover you have to have a running version of QChem installed on your system. An example calculation, simulating the photodissociation of water using 4 coupled states is added to the Quantics repository, the documentation of the example can be found here_. In principle you can run the module with::
 
    quantics water-dd
 
 
- In the specific example, Quantics will search for a script called 'run_qchem' (specified in the input file) to start a QChem calculation. The file 'run_qchem' script is of course dependent on your system configuration. For more information please refer to the Quantics documentation.
+In the specific example, Quantics will search for a script called 'run_qchem' (specified in the input file) to start a QChem calculation. The file 'run_qchem' script is of course dependent on your system configuration. For more information please refer to the Quantics documentation.
 
 
 
