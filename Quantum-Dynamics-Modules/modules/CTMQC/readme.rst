@@ -10,7 +10,7 @@
 ..  sidebar:: Software Technical Information
 
   Name
-    Name of the relevant software.
+    CTMQC
 
   Language
     Please indicate the primary language(s) used by the module. Please also state if interfaces for other languages are
