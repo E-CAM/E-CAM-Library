@@ -114,5 +114,5 @@ The source code for the chebyshev propagator can be found within the Quantics so
 .. _CCPFORGE: https://ccpforge.cse.rl.ac.uk/gf/project/quantics/
 
 
-Within the Quantics program, explicit code for the Chebyshev routine is located through ~/quantics/source/lib/ode/cheblib.f90
+Within the Quantics program, explicit code for the QQ-Interface routine is located in the file ~/quantics/source/opfuncs/funcqchemmod.f90
 
