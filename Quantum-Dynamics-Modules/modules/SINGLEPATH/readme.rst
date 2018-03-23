@@ -23,8 +23,8 @@
 
   Documentation Tool
     Doxygen
-    `Ford <http://fortranwiki.org/fortran/show/FORD>`_, for Python ReST_, etc.
-
+    `Ford < FORD>`_, for Python ReST_, etc.
+     `Donkey < https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hoping-Multi-Path/blob/master/doc/html/index.html>
   Application Documentation
     Provide a link to any documentation for the application.
 
@@ -89,19 +89,12 @@ _________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 
-An understanding of the dynamical properties of condensed phase
-quantum systems underlies the description of a variety of quantum
-phenomena in chemical and biological systems. These phenomena
-include, among others, nonadiabatic chemical rate processes
-involving electronic, vibrational or other degrees of freedom,
-decoherence in open quantum systems and quantum transport
-processes. Quantum effects underlie the study of ultra-fast rate
+An understanding of the dynamical properties of condensed phase quantum systems underlies the description of a variety of quantum
+phenomena in chemical and biological systems. These phenomena include, among others, nonadiabatic chemical rate processes involving electronic, vibrational or other degrees of freedom,
+decoherence in open quantum systems and quantum transport processes. Quantum effects underlie the study of ultra-fast rate
 processes in solution.
-The development of schemes for the efficient and
-accurate simulation of the quantum dynamics of such systems is an
-active area of research in chemical
-physics
-and is essential if problems of chemical interest involving
+The development of schemes for the efficient and accurate simulation of the quantum dynamics of such systems is an
+active area of research in chemical physics and is essential if problems of chemical interest involving
 complex molecular species in the condensed phase are considered.
 This article is concerned with the development of such a
 simulation method.
