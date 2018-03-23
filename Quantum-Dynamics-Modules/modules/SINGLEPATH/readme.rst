@@ -62,7 +62,7 @@ cal Dyson equation and variants thereof, or the Trotter decomposition of the qua
 Nothwithstanding the precision of such algorithms for a vareity of systems, they all suffer major difficulties
 in simulating systems for long times due to increasingly osillatory integrands, a numerical manifestation of
 quantum interference between paths known as the sign problem, which emerges when individual paths are
-sampled through Monte Carlo sampling schemes. The present module is a refactored version of a surface hoppimg code and algorithm based on a  paper by Dónal Mac Kernan, Giovanni Ciccotti, and Raymond Kapral, "Trotter-Based Simulation of Quantum-Classical Dynamics", J. Chem. Phys.  J. Phys. Chem. B 2008, 112, 424-432. The original code was written by Donal MacKernan essenentially in C  and was purely a serial code. Ths   requires a gnu  C++ 2014 or higher, and was written by Sean  There are two versions of the for parallel platforms - one written for openmp, and another for mpi. Each codes scale prefectly with increasimg computing core, after initialization overhead. The authors of the current code are:  Sean Kelly, Shrinath Kumar, Athina Lange. Philip McGrath, and Donal MacKernan. 
+sampled through Monte Carlo sampling schemes. The present module is a refactored version of a surface hoppimg code and algorithm based on a  paper by Dónal Mac Kernan, Giovanni Ciccotti, and Raymond Kapral, "Trotter-Based Simulation of Quantum-Classical Dynamics", J. Chem. Phys.  J. Phys. Chem. B 2008, 112, 424-432. The original code was written by Donal MacKernan essenentially in C  and was purely a serial code. Ths   requires a gnu  C++ 2014 or higher. There are two versions of the for parallel platforms - one written for openmp, and another for mpi. Each codes scale prefectly with increasimg computing core, after initialization overhead. The authors of the current code are:  Sean Kelly, Shrinath Kumar, Athina Lange. Philip McGrath, and Donal MacKernan. 
     
 
 The original source of this page (:download:`readme.rst`) contains lots of additional comments to help you create your
@@ -87,6 +87,35 @@ Purpose of Module
 _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
+
+An understanding of the dynamical properties of condensed phase
+quantum systems underlies the description of a variety of quantum
+phenomena in chemical and biological systems. These phenomena
+include, among others, nonadiabatic chemical rate processes
+involving electronic, vibrational or other degrees of freedom,
+decoherence in open quantum systems and quantum transport
+processes. Quantum effects underlie the study of ultra-fast rate
+processes in solution.
+The development of schemes for the efficient and
+accurate simulation of the quantum dynamics of such systems is an
+active area of research in chemical
+physics
+and is essential if problems of chemical interest involving
+complex molecular species in the condensed phase are considered.
+This article is concerned with the development of such a
+simulation method.
+
+In investigations of the dynamical properties of quantum
+statistical mechanical systems, one is often interested in the
+average value of some operator when the system evolves from a
+given initially prepared distribution described by the density
+matrix $\hat{\rho}(0)$. In such cases the quantum mechanical
+average value of an operator $\hat{B}$ is given by
+\begin{equation}
+\overline{B(t)}= {\rm Tr} \hat{B} \hat{\rho}(t)= {\rm Tr}
+\hat{B}(t) \hat{\rho}(0)\;.
+\end{equation}
+
 
 Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
 it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
