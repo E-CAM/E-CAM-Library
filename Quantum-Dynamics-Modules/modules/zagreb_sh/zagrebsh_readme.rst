@@ -29,7 +29,7 @@ Zagreb surface hopping code
 Purpose of Module
 _________________
 
-This module implements the Tully's fewest switch surface hopping algorithm written and mantained by the group of Nadja Doslic in Zagreb. The module has been added and tested within the Quantics quantum dynamics package which is available on CCP Forge. The purpose of the module is to consider the hop within two or more coupled electronic states in a typical quasiclassical trajectory propagation.   
+This module implements an interface between the Tully's fewest switch surface hopping code, written and mantained by the group of Nadja Doslic in Zagreb, and QUANTICS code. The module has been added and tested within the Quantics quantum dynamics package which is available on CCP Forge. The purpose of the module is to add the solution of Hamilton classical equation using the surface hopping approach into QUANTICS code, at the same time as Zagreb code benefits from all functionalities implemented in QUANTICS as input definitions, Hamiltonian operator description, direct dynamics calculations and parallel running.    
 
 
 Background Information
@@ -40,12 +40,12 @@ Currently, the Zagreb surface hopping quasiclassical trajectory code resides wit
 
 .. _CCPFORGE: https://ccpforge.cse.rl.ac.uk/gf/project/quantics/
 
-The module consist of a set of subroutines to perfom quasiclassical trajectories using the surface hopping approach. There is an interface between the surface hopping program and the electronic time dependent Schrodinger equation solution, and all the subroutines to solve the Hamilton's classical equations. The module is fully integrated into QUANTICS code so that initial conditions, wavefunction definition, analysis programs, etc... can be used in the usual way. Further documentation related to QUANTICS commands, keywords and input/output files can be obtained in the application documentation. Although the module is implemented and run under QUANTICS, the module is a standalone program which has its own input manual. The input manual is in a separate pdf file which can be obtained from the QUANTICS documentation under the Zagreb surface hopping program. 
+The module consists of an interface between QUANTICS package and Zagreb surface hopping code. The module is fully integrated into QUANTICS code so that initial conditions, wavefunction definition, analysis programs, direct dynamics etc... can be used in the usual way described in QUANTICS documentation. The interface creates the required input files to run separate trajectories using the Zagreb surface hopping code. Although the module is implemented and run under QUANTICS, the Zagreb code requires some directives that must be given in the input file under the SH_ZAGREB_SECTION. This directives are described in the Zagreb code input manual which can be found in a separate pdf file in the QUANTICS documentation under the Zagreb surface hopping program. 
 
 Testing
 _______
 
-A test example is provided for the excitation of an initial wavepacket into an excited state that is coupled with another excited state, the input file can be found at ~/quantics/inputs/ferretti_tsh.inp and the hamiltonian operator at ~/quantics/operators/ferretti.op. The test example is a simple analytical model provided by Ferreti et al. (JCP, 104,5517 (1996)). The documentation under the Zagreb surface hopping code will help you to install the Zagreb code. The test can be done through the following command::
+A test example is provided for the excitation of an initial wavepacket into an excited state that is coupled with another excited state. The input and operator files can be found at ~/quantics/inputs/ferretti_tsh.inp and ~/quantics/operators/ferretti.op. The test example is a simple analytical model provided by Ferreti et al. (JCP, 104,5517 (1996)). The documentation under the Zagreb surface hopping code will help you to install the Zagreb code. The test can be done through the following command::
 
   $ quantics ferretti_tsh.op
 
