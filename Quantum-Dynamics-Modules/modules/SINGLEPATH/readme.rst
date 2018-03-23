@@ -43,7 +43,7 @@
 .. _example:
 
 ####################
-E-CAM example module
+Trotter Based Quantum Classocal Surface Hopping Propagator  Single Path
 ####################
 
 ..  Let's add a local table of contents to help people navigate the page
