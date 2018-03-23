@@ -42,9 +42,9 @@
 
 .. _example:
 
-####################
+#######################################################################
 Trotter Based Quantum Classical Surface Hopping Propagator  Single Path
-####################
+#######################################################################
 
 ..  Let's add a local table of contents to help people navigate the page
 
@@ -105,13 +105,17 @@ average value of some operator when the system evolves from a
 given initially prepared distribution described by the density
 matrix :math:`\hat{\rho}(0)`. In such cases the quantum mechanical
 average value of an operator :math:`\hat{B}` is given by
-\begin{equation}
-\overline{B(t)}= {\rm Tr} \hat{B} \hat{\rho}(t)= {\rm Tr}
-\hat{B}(t) \hat{\rho}(0)\;.
-\end{equation}
+
+.. math::
+    :nowrap:
+    
+    \begin{equation*}
+    \overline{B(t)}= {\rm Tr} \hat{B} \hat{\rho}(t)= {\rm Tr}
+    \hat{B}(t) \hat{\rho}(0)\;.
+    \end{equation*}
 
 
-Give a brief overview of why the module is/was| \psi \rangl being created, explaining a little of the scientific background and how
+Give a brief overview of why the module is being created, explaining a little of the scientific background and how
 it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
 non-expert in the domain area of the software module.
 
