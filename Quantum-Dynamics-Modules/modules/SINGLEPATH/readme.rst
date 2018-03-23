@@ -62,7 +62,7 @@ cal Dyson equation and variants thereof, or the Trotter decomposition of the qua
 Nothwithstanding the precision of such algorithms for a vareity of systems, they all suffer major difficulties
 in simulating systems for long times due to increasingly osillatory integrands, a numerical manifestation of
 quantum interference between paths known as the sign problem, which emerges when individual paths are
-sampled through Monte Carlo sampling schemes. The present module is a refactored version of a surface hoppimg code and algorithm based on a  paper by Dónal Mac Kernan, Giovanni Ciccotti, and Raymond Kapral, "Trotter-Based Simulation of Quantum-Classical Dynamics", J. Chem. Phys.  J. Phys. Chem. B 2008, 112, 424-432. The original code was written by Donal MacKernan essenentially in C  and was purely a serial code. Ths   requires a gnu  C++ 2014 or higher. There are two versions of the for parallel platforms - one written for openmp, and another for mpi. Each codes scale prefectly with increasimg computing core, after initialization overhead. The authors of the current code are:  Sean Kelly, Shrinath Kumar, Athina Lange. Philip McGrath, and Donal MacKernan. 
+sampled through Monte Carlo sampling schemes. The present module is a refactored version of a surface hoppimg code and algorithm based on a  paper by Donal Mac Kernan, Giovanni Ciccotti, and Raymond Kapral, "Trotter-Based Simulation of Quantum-Classical Dynamics", J. Chem. Phys.  J. Phys. Chem. B 2008, 112, 424-432. The original code was written by Donal MacKernan essenentially in C  and was purely a serial code. Ths   requires a gnu  C++ 2014 or higher. There are two versions of the for parallel platforms - one written for openmp, and another for mpi. Each codes scale prefectly with increasimg computing core, after initialization overhead. The authors of the current code are:  Sean Kelly, Shrinath Kumar, Athina Lange. Philip McGrath, and Donal MacKernan. 
     
 
 The original source of this page (:download:`readme.rst`) contains lots of additional comments to help you create your
@@ -137,7 +137,7 @@ This section should also include the following (where appropriate):
   If the module is an ingredient for a more general workflow (e.g. the module was the necessary foundation for later
   code; the module is part of a group of modules that will be used to calculate certain property or have certain
   application, etc.) mention this, and point to the place where you specify the applications of the more general
-  workflow (that could be in another module, in another section of this repository, an application’s website, etc.).
+  workflow (that could be in another module, in another section of this repository, an application's website, etc.).
 
 .. note::
 
