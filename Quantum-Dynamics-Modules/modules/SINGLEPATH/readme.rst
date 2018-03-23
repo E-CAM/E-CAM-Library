@@ -107,7 +107,7 @@ This article is concerned with the development of such a
 simulation method.
 
 In investigations of the dynamical properties of quantum
-:math:`| \psi \rangle`
+..math::| \psi \rangle
 statistical mechanical systems, one is often interested in the
 average value of some operator when the system evolves from a
 given initially prepared distribution described by the density
