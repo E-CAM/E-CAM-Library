@@ -110,7 +110,7 @@ In investigations of the dynamical properties of quantum
 statistical mechanical systems, one is often interested in the
 average value of some operator when the system evolves from a
 given initially prepared distribution described by the density
-matrix :math: '\hat{\rho}(0)'. In such cases the quantum mechanical
+matrix :math: `\hat{\rho}(0)`. In such cases the quantum mechanical
 average value of an operator $\hat{B}$ is given by
 \begin{equation}
 \overline{B(t)}= {\rm Tr} \hat{B} \hat{\rho}(t)= {\rm Tr}
