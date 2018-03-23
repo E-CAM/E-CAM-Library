@@ -43,7 +43,7 @@
 .. _example:
 
 ####################
-Trotter Based Quantum Classocal Surface Hopping Propagator  Single Path
+Trotter Based Quantum Classical Surface Hopping Propagator  Single Path
 ####################
 
 ..  Let's add a local table of contents to help people navigate the page
@@ -55,7 +55,9 @@ Trotter Based Quantum Classocal Surface Hopping Propagator  Single Path
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-The E-CAM library is purely a set of documentation that describes software development efforts related to the project. A
+This Module is a refactored version of a surface hoppimg code and algorithm based on a  paper by Dónal Mac Kernan, Giovanni Ciccotti, and Raymond Kapral,
+"Trotter-Based Simulation of Quantum-Classical Dynamics", J. Chem. Phys.  J. Phys. Chem. B 2008, 112, 424-432. The original code was written by Donal MacKernan essenentially in C  and was purely a serial code. The present refactored version and requires a gnu  C++ 2014 or higher, and was written by Sean  There are two versions of the for parallel platforms - one written for openmp, and another for mpi. Each codes scale prefectly with increasimg computing core, after initialization overhead. The authors of the current code are:  Sean Kelly, Shrinath Kumar, Athina Lange. Philip McGrath, and Donal MacKernan. 
+    The E-CAM library is purely a set of documentation that describes software development efforts related to the project. A
 *module* for E-CAM is the documentation of the single development of effort associated to the project.In that sense, a
 module does not directly contain source code but instead contains links to source code, typically stored elsewhere. Each
 module references the source code changes to which it direcctly applies (usually via a URL), and provides detailed
