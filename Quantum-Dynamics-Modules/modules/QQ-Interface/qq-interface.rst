@@ -1,3 +1,8 @@
+..  Four lines for Sara: 
+    The Quantics-Qchem-Interface module connects the Quantics code to the time-dependent density functional (TDDFT) module of the electronic structure program QChem. With this module it is possible to use the QChem TDDFT module for excited state direct dynamics calculations. Quantics will start QChem calculations whenever needed, prepares the input file from a template and will read the output of QChem. The QChem results are stored in the Quantics database and can be used in dynamics simulations.
+    At the moment it is not possible to use the ADC(2) method for direct dynamics calculations, as in the official release of QChem no nonadiabatic couplings at ADC(2) level are available. They are available in a developer version of QChem and it is planned to extend the interface so that ADC(2) can be used for direct dynamics calculations.
+
+
 ..  In ReStructured Text (ReST) indentation and spacing are very important (it is how ReST knows what to do with your
     document). For ReST to understand what you intend and to render it correctly please to keep the structure of this
     template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded
