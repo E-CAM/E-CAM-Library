@@ -55,13 +55,15 @@ Trotter Based Quantum Classical Surface Hopping Propagator  Single Path
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-This Module is a refactored version of a surface hoppimg code and algorithm based on a  paper by Dónal Mac Kernan, Giovanni Ciccotti, and Raymond Kapral,
-"Trotter-Based Simulation of Quantum-Classical Dynamics", J. Chem. Phys.  J. Phys. Chem. B 2008, 112, 424-432. The original code was written by Donal MacKernan essenentially in C  and was purely a serial code. The present refactored version and requires a gnu  C++ 2014 or higher, and was written by Sean  There are two versions of the for parallel platforms - one written for openmp, and another for mpi. Each codes scale prefectly with increasimg computing core, after initialization overhead. The authors of the current code are:  Sean Kelly, Shrinath Kumar, Athina Lange. Philip McGrath, and Donal MacKernan. 
-    The E-CAM library is purely a set of documentation that describes software development efforts related to the project. A
-*module* for E-CAM is the documentation of the single development of effort associated to the project.In that sense, a
-module does not directly contain source code but instead contains links to source code, typically stored elsewhere. Each
-module references the source code changes to which it direcctly applies (usually via a URL), and provides detailed
-information on the relevant *application* for the changes as well as how to build and test the associated software.
+Quantum rate processes in condensed phase systems are often computed by combining quantum and
+classical descriptions of the dynamics including non-adiabatic coupling, using propagators which amount to
+quantum path integrals in a partial Wigner phase space respresentation, such as the mixed quantum classi-
+cal Dyson equation and variants thereof, or the Trotter decomposition of the quantum-classical propagator.
+Nothwithstanding the precision of such algorithms for a vareity of systems, they all suffer major difficulties
+in simulating systems for long times due to increasingly osillatory integrands, a numerical manifestation of
+quantum interference between paths known as the sign problem, which emerges when individual paths are
+sampled through Monte Carlo sampling schemes. The present module is a refactored version of a surface hoppimg code and algorithm based on a  paper by Dónal Mac Kernan, Giovanni Ciccotti, and Raymond Kapral, "Trotter-Based Simulation of Quantum-Classical Dynamics", J. Chem. Phys.  J. Phys. Chem. B 2008, 112, 424-432. The original code was written by Donal MacKernan essenentially in C  and was purely a serial code. Ths   requires a gnu  C++ 2014 or higher, and was written by Sean  There are two versions of the for parallel platforms - one written for openmp, and another for mpi. Each codes scale prefectly with increasimg computing core, after initialization overhead. The authors of the current code are:  Sean Kelly, Shrinath Kumar, Athina Lange. Philip McGrath, and Donal MacKernan. 
+    
 
 The original source of this page (:download:`readme.rst`) contains lots of additional comments to help you create your
 documentation *module* so please use this as a starting point. We use Sphinx_ (which in turn uses ReST_) to create this
