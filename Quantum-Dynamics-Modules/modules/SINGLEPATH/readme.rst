@@ -104,7 +104,7 @@ statistical mechanical systems, one is often interested in the
 average value of some operator when the system evolves from a
 given initially prepared distribution described by the density
 matrix :math:`\hat{\rho}(0)`. In such cases the quantum mechanical
-average value of an operator \:math:`\hat{B}` is given by
+average value of an operator :math:`\hat{B}` is given by
 \begin{equation}
 \overline{B(t)}= {\rm Tr} \hat{B} \hat{\rho}(t)= {\rm Tr}
 \hat{B}(t) \hat{\rho}(0)\;.
