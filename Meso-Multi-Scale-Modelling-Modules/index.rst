@@ -75,6 +75,12 @@ The following modules connected to the ESPRESSO++ code have been produced so far
     ./modules/hierarchical-strategy/components/md-softblob/readme
     ./modules/hierarchical-strategy/components/minimize-energy/readme
     ./modules/hierarchical-strategy/components/constrain-com/readme
+    ./modules/hierarchical-strategy/components/constrain-rg/readme
+    ./modules/hierarchical-strategy/simple_one-component_melts/fbloop/readme
+    ./modules/hierarchical-strategy/simple_one-component_melts/reinsertion/readme
+    ./modules/hierarchical-strategy/simple_one-component_melts/fine-graining/readme
+    ./modules/hierarchical-strategy/simple_one-component_melts/coarse-graining/readme
+
 
 ESDW Barcelona 2017
 -------------------
