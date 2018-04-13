@@ -42,31 +42,36 @@ on.
 
 .. toctree::
     :glob:
-    :maxdepth: 2
+    :maxdepth: 3
 
     ./general/general_programming_guidelines
 
 Programming for an HPC Environment
 ==================================
 
-.. Incorporate the output of D7.3 to generate this section
+Due to the nature of the HPC environment (novel hardware, latest techniques, remote resources,...). There are many
+specific things that need to be considered that impact the software development process.
 
-.. note:: This section of the site is under development but will cover the following topics
+.. toctree::
+    :glob:
+    :maxdepth: 3
 
-* Software
-    * Programming Paradigms
-    * Languages
-    * Applications and Libraries
-    * Portability and Optimisation
-    * Scalability
-    * Reproducability
-* Hardware
-    * General Architecture
-    * Where is the compute power on modern HPC machines?
-    * Memory
-    * I/O
-* Workflow
-    * Acquiring resources (getting compute time)
-    * Accessing resources (ssh, gui's,...)
-    * Resource management (slurm, UNICORE, ...)
-    * Moving data
+    ./hpc/hpc_programming_guidelines
+
+.. * Software
+..    * Programming Paradigms
+..    * Languages
+..    * Applications and Libraries
+..    * Portability and Optimisation
+..    * Scalability
+..    * Reproducability
+.. * Hardware
+..    * General Architecture
+..    * Where is the compute power on modern HPC machines?
+..    * Memory
+..    * I/O
+.. * Workflow
+..    * Acquiring resources (getting compute time)
+..    * Accessing resources (ssh, gui's,...)
+..    * Resource management (slurm, UNICORE, ...)
+..    * Moving data
