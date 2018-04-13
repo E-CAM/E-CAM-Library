@@ -134,7 +134,7 @@ Contributing to this documentation
 This documentation is created using ReStructured Text and the git repository for the documentation source files can be
 found at https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are open to contributions from anyone in the E-CAM_
 community. If you would like to contribute to this effort then please follow the contribution guidelines that are
-linked here to allow us to include your contribution.
+linked to below.
 
 .. toctree::
     :glob:

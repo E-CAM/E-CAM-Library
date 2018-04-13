@@ -7,7 +7,7 @@ Scientific Software Best Practices Guidelines
 This document is not meant to be a set of rules, but a set of guidelines that have been formed on the basis of
 hard-earned experience. We welcome contributions from anyone, anywhere on any of the topics discussed here. The
 rendered version of this documentation can be found at
-http://scientific-software-best-practices.readthedocs.io/en/latest/index.html.
+http://e-cam.readthedocs.io/en/latest/best-practices/index.html .
 
 It began as a starting point for guidelines for contributions to the Extended Software Development Workshops (ESDWs)
 of E-CAM but can be considered as a collection of best practice advice for scientific software development.
