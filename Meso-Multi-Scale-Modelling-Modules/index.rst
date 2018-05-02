@@ -27,7 +27,7 @@ This is a collection of the modules that have been created by E-CAM community
 within the area of Meso- and Multi-scale Modelling. This documentation is 
 created using ReStructured Text and the git repository for the documentation 
 source files can be found at 
-https://gitlab.e-cam2020.eu/e-cam/Meso-Multi-Scale-Modelling-Modules which are
+https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are
 public and open to contributions.
 
 In the context of E-CAM, the definition of a software module is any piece of software that could be of use to the E-CAM community and that encapsulates some additional functionality, enhanced performance or improved usability for people performing computational simulations in the domain areas of interest to us. 
