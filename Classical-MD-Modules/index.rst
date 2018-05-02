@@ -26,7 +26,7 @@ Introduction
 This is a collection of the modules that have been created by E-CAM_ community
 within the area of Classical MD. This documentation is created using
 ReStructured Text and the git repository for the documentation source files can
-be found at https://gitlab.e-cam2020.eu/e-cam/Classical-MD-Modules which are
+be found at https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are
 open to contributions from E-CAM members.
 
 In the context of E-CAM, the definition of a software module is any piece of
