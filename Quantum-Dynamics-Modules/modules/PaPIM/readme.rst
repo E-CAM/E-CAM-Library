@@ -43,7 +43,7 @@ and/or correlation functions subroutines.
 Example external subroutines are provided for the :math:`\text{OH}` and :math:`\text{CH}_{4}` systems, respectively, whose corresponding 
 potential energies are described by the harmonic potential, 
 while the electric dipole moments by point charge approximation. An external subroutines for calculation of 
-:math:`\text{CH}_{5}^{+}` system potential energy and electric dipole moment, based on fitted values,[Jin]_ is also given. 
+:math:`\text{CH}_{5}^{+}` system potential energy and electric dipole moment, based on fitted values, [Jin]_ is also given. 
 The electric dipole moment operator is currently implemented into the code for calculation of the 
 electric dipole moment autocorrelation functions from which system IR spectra can be directly obtained. 
 
@@ -138,7 +138,9 @@ found at this :doc:`link<performance>`.
 Source Code
 ___________
 
-The PaPIM module source code can be obtained from: https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/PIM/tree/master/source.
+.. The PaPIM module source code can be obtained from: https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/PIM/tree/master/source.
+
+The PaPIM module source code can be obtained from: https://gitlab.e-cam2020.eu/Quantum-Dynamics/PIM/tree/PaPIM.
 
 
 Source Code Documentation

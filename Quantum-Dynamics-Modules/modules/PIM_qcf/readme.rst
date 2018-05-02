@@ -17,16 +17,6 @@ PIM_qcf
 
 .. contents:: :local:
 
-.. This is an example of what a *module* for E-CAM looks like. Please add to this template any additional items that are
-.. straightforward to fill out in the general case. You are free add any level of complexity you wish (within the bounds of
-.. what ReST_ can do).
-
-.. To add your module, fork this GitLab repository to your account on GitLab. Clone your repository, make a feature branch
-.. and add a directory that will contain your module information. Copy this :download:`readme.rst` file there. Push your
-.. changes back to GitLab and immediately open a merge request from your feature branch against our repository. We can
-.. discuss your module in the merge request and help you get it accepted.
-
-.. Add technical info as a sidebar and allow text below to wrap around it
 
 Purpose of Module
 _________________
@@ -52,10 +42,8 @@ A Fortran 90/95 compiler with MPI wraper is required for successfully compilatio
 Although the correlation function subroutines are serial, the remaining code is parallelized so MPI wrapers have to be used. 
 Quantum correlation subroutines within PIM_qcf modules are compiled by executing the command ``make`` in the ``./source`` directory. 
 The same make command generates a ``RunPIMqcf.exe`` executable for testing of the correlation functions. 
-The user is advise to download and install ``numdiff`` from here_ prior to code testing. 
+The user is advise to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_ prior to code testing. 
 All test are executed on one processor core.
-
-.. _here: http://www.nongnu.org/numdiff/
 
 
 Testing
@@ -92,8 +80,8 @@ The PIM_qcf module source code is located at: https://gitlab.e-cam2020.eu:10443/
 Source Code Documentation
 _________________________
 
-The source code documentation can be generated automatically in ./doc sub-directory, 
-html and latex format, by executing the ``doxygen PIMqcf_doxygen_settings`` command in the ./doc directory:
+The source code documentation can be generated automatically in ``./doc`` sub-directory, 
+html and latex format, by executing the ``doxygen PIMqcf_doxygen_settings`` command in the ``./doc`` directory:
 
 ::
 

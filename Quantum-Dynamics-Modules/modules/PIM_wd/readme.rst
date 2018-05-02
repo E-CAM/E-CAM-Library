@@ -42,13 +42,10 @@ computed via a statistical average acted by uncertainty.
 Through the action of certain operators on the sampled phase space corresponding system properties can be obtained, 
 or the sampled points used as initial conditions in subsequent dynamics from which certain time dependent properties 
 can be obtained. 
-The latter is the basis of calculation of time-dependent correlation function with the PIM algorithm via  
-the module PaPIM_. 
+The latter is the basis of calculation of time-dependent correlation function with the PIM algorithm via 
+the module :ref:`PaPIM`. 
 The user is required to provide the potential energy of the system by incorporating an external potential energy 
-subroutine into the PotMod_ potential energy library. 
-
-.. _PaPIM: ./modules/PaPIM/readme
-.. _PotMod: ./modules/PotMod/readme
+subroutine into the :ref:`PotMod` potential energy library. 
 
 
 Applications of the Module
@@ -77,10 +74,8 @@ Upon adapting the ``Makefile``, the code compilation is executed by command ``ma
 An executable ``PaPIM.exe`` is created upon successful compilation.
 For PaPIM test purposes the ``numdiff`` package should be made available before running the tests. 
 In case the numdiff is not available on the system the ``diff`` command will be automatically used instead. 
-The user is advise to download and install numdiff from here_ .
-The PaPIM documentation is obtained by executing the ``make`` command in the ./doc sub-directory.
-
-.. _here: http://www.nongnu.org/numdiff/
+The user is advise to download and install numdiff from `here <http://www.nongnu.org/numdiff/>`_.
+The PaPIM documentation is obtained by executing the ``make`` command in the ``./doc`` sub-directory.
 
 
 Testing
@@ -116,13 +111,13 @@ reference values in case the tests fail.
 Source Code
 ___________
 
-The PIM_qcf module source code is located at: https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/PIM/tree/PIMwd.
+The PIM_qcf module source code is located at: https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/PIM/tree/PIM_wd.
 
 
 Source Code Documentation
 _________________________
 
-The source code documentation can be generated automatically in ./doc sub-directory, 
+The source code documentation can be generated automatically in ``./doc`` sub-directory, 
 html and latex format, by executing the ``doxygen PIMwd_doxygen_settings`` command in the ./doc directory:
 
 ::

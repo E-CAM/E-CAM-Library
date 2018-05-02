@@ -17,16 +17,6 @@ Openmpbeads
 
 .. contents:: :local:
 
-.. This is an example of what a *module* for E-CAM looks like. Please add to this template any additional items that are
-.. straightforward to fill out in the general case. You are free add any level of complexity you wish (within the bounds of
-.. what ReST_ can do).
-
-.. To add your module, fork this GitLab repository to your account on GitLab. Clone your repository, make a feature branch
-.. and add a directory that will contain your module information. Copy this :download:`readme.rst` file there. Push your
-.. changes back to GitLab and immediately open a merge request from your feature branch against our repository. We can
-.. discuss your module in the merge request and help you get it accepted.
-
-.. Add technical info as a sidebar and allow text below to wrap around it
 
 Purpose of Module
 _________________
@@ -60,7 +50,7 @@ bead being executed on a independent core (:math:`N_{\text{beads}} / N_{\text{Op
 Compiling
 _________
 
-The PaPIM_ program source code should be available (for PaPIM download see here_). 
+The :ref:`PaPIM` program source code should be available (for PaPIM download see :ref:`here <PaPIM>`). 
 `git` should be also availabe. 
 The downloaded Openmpbeads patch should be placed in the PaPIM main directory, 
 and is applied to the PaPIM source code by executing the following commnad:
@@ -71,10 +61,7 @@ and is applied to the PaPIM source code by executing the following commnad:
 
 
 After the patch has been successfully applied, the OpenMP parallelized PaPIM code can be re-compiled as described 
-in the PaPIM documentation_ .
-
-.. _PaPIM: here_
-.. _documentation: here_
+in the PaPIM :ref:`documentation <PaPIM>`.
 
 
 Testing
@@ -86,9 +73,9 @@ The code's tests are located in the directory ``./tests``.
 The same set of tests as for the verification of the PaPIM code is executed, but now 
 with the addition of utilizing OpenMP parallelization. Thus a number of processor cores available for the test
 should be at least two. 
-For details of the PaPIM code standard tests see here_ . 
+For details of the PaPIM code standard tests see :ref:`here <PaPIM>`. 
 Before running the tests the code has to be properly compiled by running the ``make`` command in the 
-``./source`` sub-directory (see compilation of PaPIM code here_ ). 
+``./source`` sub-directory (see compilation of PaPIM code :ref:`here <PaPIM>`). 
 The numdiff package is used for automatic comparison purposes and should be made available before running the tests, 
 otherwise the diff command will be used automatically instead but the user is warned that the test might fail 
 due to numerical differences. 
@@ -112,15 +99,13 @@ reference values in case the tests fail.
 Source Code
 ___________
 
-The Openmpbeads module patch is located at: https://gitlab.e-cam2020.eu/Quantum-Dynamics/PIM/tree/openmpbeads
+The Openmpbeads module patch is located at: https://gitlab.e-cam2020.eu/Quantum-Dynamics/PIM/tree/openmpbeads.
 
 
 Source Code Documentation
 _________________________
 
 The Openmpbeads patch adds description to the PaPIM code's documentation. 
-Details how to access and generate PaPIM documentation are given here_ .
+Details how to access and generate PaPIM documentation are given :ref:`here <PaPIM>`.
 
-
-.. _here: ../PaPIM/readme.html
 

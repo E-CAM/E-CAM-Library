@@ -51,8 +51,9 @@ Objectives of E-CAM WP3 Quantum Dynamics
 
 Software development in quantum dynamics has so far been less systematic than in other fields of modelling, 
 such as classical molecular dynamics or electronic structure. Although some packages have been developed to 
-implement specific methods, e.g. Quantics_ for dynamics with MCTDH, or subroutines added to electronic structure 
-packages, e.g. Surface Hopping and Ehrenfest in CPMD_, these efforts are not the standard. 
+implement specific methods, e.g. `Quantics <http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/index.html>`_ 
+for dynamics with MCTDH, or subroutines added to electronic structure 
+packages, e.g. Surface Hopping and Ehrenfest in `CPMD <http://www.cpmd.org/>`_, these efforts are not the standard. 
 
 One of the goals of E-CAM's WP3 is then to provide an environment to stimulate the transition from in-house
 codes, often developed and used by single groups, to the development of modular, well documented community-based
@@ -70,8 +71,6 @@ To foster this development, we have initiated five parallel activities:
 
 *  Training young code developers.
 
-.. _Quantics: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/index.html
-.. _CPMD: http://www.cpmd.org/
 
 Pilot Projects
 ==============
@@ -122,7 +121,7 @@ centered on presentations made by the students and the senior participants. The 
 development, including the Git repository, and tools for the documentation (Doxygen) and performance analysis 
 were presented by E-CAM staff members and participants were instructed on their use via tutorials. 
 The program was further enriched by the interactions with experts on software and hardware development working 
-at La Maison de la Simulation who gave talks on topics such as architectures and programming paradigms and the 
+at Maison de la Simulation who gave talks on topics such as architectures and programming paradigms and the 
 use of advanced visualization tools such as the Image wall hosted by the Maison de la Simulation.
 
 .. _Maison de la Simulation: http://www.maisondelasimulation.fr/en/index.php?a
@@ -231,7 +230,9 @@ Results obtained from classical sampling can be used to assess the relevance of 
 **PotMod** is a library of potential energy functions and interfaces for external potential energy calculation codes.
 Currently available in the library are the harmonic and Morse potentials (different molecular systems can be simulated depending on parameters
 provided by the user);  empirical potential of the ground state of :math:`\text{CH}_{5}^{+}` based on high level
-electronic structure calculations [Jin]_, and interface to the ab initio CP2K_ code.
+electronic structure calculations [Jin]_.
+
+.. , and interface to the ab initio `CP2K code <https://www.cp2k.org/>`_.
 
 .. _CP2K: https://www.cp2k.org/
 
@@ -259,14 +260,12 @@ polyer chains within the PIM algorithm.
 References
 ==========
 
-.. [Mon1] M. Monteferrante, S. Bonella, G. Ciccotti `Linearized symmetrized quantum time correlation functions calculation via phase pre-averaging`_ *Mol. Phys.* **109** (2011) 3015
-.. [Mon2] M. Monteferrante, S. Bonella, G. Ciccotti `Quantum dynamical structure factor of liquid neon via a quasiclassical symmetrized method`_ *J. Chem. Phys.* **138** (2013) 054118
-.. [Beu] J. Beutier, M. Monteferrante, S. Bonella, R. Vuilleumier, G. Ciccotti `Gas phase infrared spectra via the phase integration quasi-classical method`_ *Mol. Sim.* **40** (2014) 196
-.. [Jin] Jin, Braams, Bowman `An ab Initio Based Global Potential Energy Surface Describing :math:'\text{CH}_{5}^{+} \rightarrow \text{CH}_{3}^{+} + \text{H}_{2}'`_ *J. Phys. Chem. A* **110** (2006) 1569
+.. [Mon1] M. Monteferrante, S. Bonella, G. Ciccotti *Mol. Phys.* **109** (2011) 3015 `DOI: 10.1080/00268976.2011.619506
+          <http://dx.doi.org/10.1080/00268976.2011.619506>`_
+.. [Mon2] M. Monteferrante, S. Bonella, G. Ciccotti *J. Chem. Phys.* **138** (2013) 054118 `DOI: 10.1063/1.4789760
+          <http://dx.doi.org/10.1063/1.4789760>`_
+.. [Beu] J. Beutier, M. Monteferrante, S. Bonella, R. Vuilleumier, G. Ciccotti *Mol. Sim.* **40** (2014) 196 `DOI:
+         10.1080/08927022.2013.843776 <http://dx.doi.org/10.1080/08927022.2013.843776>`_
+.. [Jin] Z. Jin, B. Braams, J. Bowman *J. Phys. Chem. A* **110** (2006) 1569 `DOI: 10.1021/jp053848o
+         <pubs.acs.org/doi/abs/10.1021/jp053848o>`_
 
-.. _Linearized symmetrized quantum time correlation functions calculation via phase pre-averaging: http://dx.doi.org/10.1080/00268976.2011.619506
-.. _Quantum dynamical structure factor of liquid neon via a quasiclassical symmetrized method: http://dx.doi.org/10.1063/1.4789760
-.. _Gas phase infrared spectra via the phase integration quasi-classical method: http://dx.doi.org/10.1080/08927022.2013.843776
-.. _An ab Initio Based Global Potential Energy Surface Describing :math:'\text{CH}_{5}^{+} \rightarrow \text{CH}_{3}^{+} + \text{H}_{2}': pubs.acs.org/doi/abs/10.1021/jp053848o
-.. Jin, Braams, Bowman `An ab Initio Based Global Potential Energy Surface Describing :math:'\text{CH}_{5}^{+} \rightarrow \text{CH}_{3}^{+} + \text{H}_{2}'`_ *J. Phys. Chem. A* **110** (2006) 15
-.. _E-CAM: https://www.e-cam2020.eu/

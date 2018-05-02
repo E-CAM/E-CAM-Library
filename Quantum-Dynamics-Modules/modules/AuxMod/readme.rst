@@ -56,10 +56,8 @@ Execute command ``make`` in the ``./source`` sub-directory to generate the ``Aux
 
 For AuxMod test purposes the ``numdiff`` package should be made available before running the tests. 
 In case numdiff is not available on the system the ``diff`` command will be automatically used instead. 
-The user is advised to download and install numdiff from here_ to ensure that numerical 
+The user is advised to download and install numdiff from `here <http://www.nongnu.org/numdiff/>`_ to ensure that numerical 
 differences are ignored in the module tests.
-
-.. _here: http://www.nongnu.org/numdiff/
 
 
 Testing
@@ -83,7 +81,7 @@ The user is also advised to test the code manually by changing the values in the
 Source Code
 ___________
 
-The source code is given at https://gitlab.e-cam2020.eu/Quantum-Dynamics/PIM/tree/AuxMod/source. 
+The source code is given at https://gitlab.e-cam2020.eu/Quantum-Dynamics/PIM/tree/AuxMod. 
 The file ``parser.F90`` contains all the subroutines for the within-one-line data type recognition, 
 while the ``auxmod.F90`` contains the direct subroutines for input file reading, 
 and can be considered as a template for further modification. 
@@ -93,8 +91,8 @@ The ``prl.F90`` contains the adapted MPI commands.
 Source Code Documentation
 _________________________
 
-The source code documentation is given at https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/PIM/tree/AuxMod/doc .
-The documentation files (html and latex format) are obtained by executing the ``make`` command in the ./doc sub-directory:
+The source code documentation is given at https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/PIM/tree/AuxMod/doc.
+The documentation files (html and latex format) are obtained by executing the ``make`` command in the ``./doc`` sub-directory:
 
 ::
 

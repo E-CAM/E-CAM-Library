@@ -38,26 +38,21 @@ Currently, two subroutines are implemented within this module.
 A subroutine for the calculation of harmonic and Morse potential energies which requires a set of input parameters 
 provided as an external file, and a subroutine containing the analytic ground state electronic energy for the 
 :math:`\text{CH}_{5}^{+}` system. [Jin]_
-The PotMod module also contains the interface to the external CP2K_ code for ab-initio energy and gradient 
-calculations. 
-The user is required to prepare his/her own corresponding input files for the CP2K code. 
 
-.. _CP2K: https://www.cp2k.org/
+.. The PotMod module also contains the interface to the external `CP2K <https://www.cp2k.org/>`_ code for ab-initio energy and gradient calculations. 
+.. The user is required to prepare his/her own corresponding input files for the CP2K code. 
 
 
 Applications of the Module
 __________________________
 
-This module is extensively used by the PaPIM_ code and PIM_wd_ and ClassMC_ modules for providing the necessary 
+This module is extensively used by the :ref:`PaPIM` code and :ref:`PIM_wd` and :ref:`ClassMC` modules for providing the necessary 
 potentials and gradients of studied systems. 
 Recently, apart from the aforementioned subroutines, a potential energy subroutine for small water molecule 
 clusters has been implemented into the module necessary for the calculation of corresponding infrared spectrum. 
 [Wang1]_ [Wang2]_
-In addition the interface to the CP2K code has been used for the studies on protonated water dimers. (Reference required!)
 
-.. _PaPIM: ./modules/PaPIM/readme.rst
-.. _PIM_wd: ./modules/PIM_wd/readme.rst
-.. _ClassMC: ./modules/ClassMC/readme.rst
+.. In addition the interface to the CP2K code has been used for the studies on protonated water dimers. (Reference required!)
 
 
 Compiling
@@ -75,9 +70,7 @@ Execute command 'make' in the ``./source`` sub-directory to generate the ``PotMo
 
 For PotMod test purposes the ``numdiff`` package should be made available before running the tests. 
 In case the numdiff is not available on the system the ``diff`` command will be automatically used instead. 
-The user is advise to download and install numdiff from here_.
-
-.. _here: http://www.nongnu.org/numdiff
+The user is advise to download and install numdiff from `here <http://www.nongnu.org/numdiff>`_.
 
 
 Testing
@@ -105,7 +98,7 @@ and comparing the output with the reference values in file ``REFERENCE_VALUE/tes
 Source Code
 ___________
 
-The source code is given at https://gitlab.e-cam2020.eu/Quantum-Dynamics/PIM/tree/PotMod/source. 
+The source code is given at https://gitlab.e-cam2020.eu/Quantum-Dynamics/PIM/tree/PotMod. 
 File ``harmonic_potential.f90`` contains the subroutines for harmonic and Morse potential energy calculations, while 
 file ``ch5_pes.f90`` contains the subroutines for calculation of CH\ :sub:`5`:sup:`+` \ potential energy. 
 File ``PotMod.f90`` controls and calls the included subroutines (``harmonic_potential.f90`` and ``ch5_pes.f90``). 

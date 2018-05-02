@@ -47,7 +47,7 @@ A test example is provided for the SOD integration scheme and can be found at ~/
 
   $ quantics test90.inp  
 
-A more detailed test documentation for Quantics code developers can be found `in this link <http://stchem.bham.ac.uk/~quantics/doc/mctdh/elk.html>`_
+A more detailed test documentation for Quantics code developers can be found `in this link <http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/quantics/elk.html>`_
  
 
 Source Code

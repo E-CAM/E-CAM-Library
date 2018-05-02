@@ -16,8 +16,7 @@ The Chebyshev Scheme (CH)
     Documentation provided as in-line comments within the source code
 
   Application Documentation
-    Useful documentation can be found `here <http://stchem.bham.ac.uk/~quantics/doc/>`_ 
-
+    Useful documentation can be found `here <http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/index.html>`_ 
 
   Relevant Training Material
     Training material is available through the test examples
@@ -49,7 +48,7 @@ A test example is provided for the Chebyshev integration scheme and can be found
 
   $ quantics test89.inp  
 
-A more detailed test documentation for Quantics code developers can be found `in this link <http://stchem.bham.ac.uk/~quantics/doc/mctdh/elk.html>`_
+A more detailed test documentation for Quantics code developers can be found `in this link <http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/quantics/elk.html>`_
  
 Source Code
 ___________

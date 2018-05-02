@@ -17,16 +17,6 @@ ClassMC
 
 .. contents:: :local:
 
-.. This is an example of what a *module* for E-CAM looks like. Please add to this template any additional items that are
-.. straightforward to fill out in the general case. You are free add any level of complexity you wish (within the bounds of
-.. what ReST_ can do).
-
-.. To add your module, fork this GitLab repository to your account on GitLab. Clone your repository, make a feature branch
-.. and add a directory that will contain your module information. Copy this :download:`readme.rst` file there. Push your
-.. changes back to GitLab and immediately open a merge request from your feature branch against our repository. We can
-.. discuss your module in the merge request and help you get it accepted.
-
-.. Add technical info as a sidebar and allow text below to wrap around it
 
 Purpose of Module
 _________________
@@ -75,10 +65,8 @@ Upon adapting the ``Makefile``, the code compilation is executed by command ``ma
 An executable ``ClassMCRun.exe`` is created upon successful compilation. 
 For ClassMC test purposes the ``numdiff`` package should be made available before running the tests. 
 In case the numdiff is not available on the system the ``diff`` command will be automatically used instead. 
-The user is advise to download and install numdiff from here_. 
+The user is advise to download and install numdiff from `here <http://www.nongnu.org/numdiff/>`_. 
 The ClassMC documentation is obtained by executing the ``make`` command in the ./doc directory. 
-
-.. _here: http://www.nongnu.org/numdiff/
 
 
 Testing
@@ -112,14 +100,14 @@ reference values in case the tests fail.
 Source Code
 ___________
 
-The ClassMC module source code is located at: https://gitlab.e-cam2020.eu/Quantum-Dynamics/PIM/tree/ClassMC/source.
+The ClassMC module source code is located at: https://gitlab.e-cam2020.eu/Quantum-Dynamics/PIM/tree/ClassMC.
 
 
 Source Code Documentation
 _________________________
 
 The source code documentation is given at https://gitlab.e-cam2020.eu/Quantum-Dynamics/PIM/tree/ClassMC/doc.
-The documentation files (html and latex format) are obtained by executing the ``make`` command in the ./doc directory:
+The documentation files (html and latex format) are obtained by executing the ``make`` command in the ``./doc`` directory:
 
 ::
 

@@ -18,7 +18,9 @@ system and performed
 on the `JURECA <http://www.fz-juelich.de/ias/jsc/EN/Expertise/Supercomputers/
 JURECA/Configuration/Configuration_node.html>`_ 
 cluster at the JSC. 
-Figure 1 displays the results of the performed tests. 
+:ref:`Figure 1 <fig1>` displays the results of the performed tests. 
+
+.. _fig1:
 
 .. figure:: ./PaPIM_CH5+_analysis.png
    :width: 50 %
@@ -30,7 +32,9 @@ Figure 1 displays the results of the performed tests.
 A parallel efficiency test was made on the `JUQUEEN <http://www.fz-juelich.de/
 ias/jsc/EN/Expertise/Supercomputers/JUQUEEN/Configuration/Configuration_node.html>`_ 
 cluster at JSC also using the :math:`\text{CH}_{5}^{+}` system. 
-Results are displayed in Figure 2.
+Results are displayed in :ref:`Figure 2 <fig2>`.
+
+.. _fig2:
 
 .. figure:: ./PaPIM_parallel_efficiency.png
    :width: 50 %
@@ -38,6 +42,7 @@ Results are displayed in Figure 2.
    :alt: PaPIM parallel efficiency test.
 
    Figure 2: PaPIM parallel efficiency test.
+
 
 PaPIM scaling performance increases by increasing the number of sampling points. 
 
