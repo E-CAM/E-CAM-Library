@@ -10,7 +10,7 @@
 ..  sidebar:: Software Technical Information
 
   Name
-    ParaDIS_Precipitate_HPC
+    ParaDiS_Precipitate_HPC
 
 
   Language
@@ -20,12 +20,13 @@
     This is patch based on the ParaDIS version 2.5.1. The additions are GPL.
 
   Documentation Tool
-    
+    Sphinx
+     
   Application Documentation
     http://paradis.stanford.edu/
 
   Relevant Training Material
-    'Not currently available.'
+    https://version.aalto.fi/gitlab/csm_open/paradis_version_diffs/tree/master/test_run
 
 
 ..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
@@ -36,7 +37,7 @@
 .. _paradis_precipitate:
 
 ####################
-E-CAM example module
+ParaDiS with precipitates optimized to HPC environment
 ####################
 
 ..  Let's add a local table of contents to help people navigate the page
@@ -115,64 +116,7 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
-Here link the source code *that was created for the module*. If you are using Github or GitLab and the `Gitflow Workflow
-<https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature branch.
-Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits. In this example I'm
-using a patch file to highlight my source code changes, for that reason I need to explain what code (including exact
-version information), the source code is for.
-
-You can create a similar patch file by (for example if you are using git for your version control) making your changes
-for the module in a feature branch and then doing something like the following:
-
-..  Don't forget the white space around the "literal block" (a literal block keeps all spacing and is a good way to
-    include terminal output, file contents, etc.)
-
-::
-
-  [adam@mbp2600 example (master)]$ git checkout -b tmpsquash
-  Switched to a new branch "tmpsquash"
-
-  [adam@mbp2600 example (tmpsquash)]$ git merge --squash newlines
-  Updating 4d2de39..b6768b2
-  Fast forward
-  Squash commit -- not updating HEAD
-   test.txt |    2 ++
-   1 files changed, 2 insertions(+), 0 deletions(-)
-
-  [adam@mbp2600 example (tmpsquash)]$ git commit -a -m "My squashed commits"
-  [tmpsquash]: created 75b0a89: "My squashed commits"
-   1 files changed, 2 insertions(+), 0 deletions(-)
-
-  [adam@mbp2600 example (tmpsquash)]$ git format-patch master
-  0001-My-squashed-commits.patch
 
 
-To include a patch file do something like the following (take a look at the source code of this document to see the
-syntax required to get this):
-
-..  Below I am telling Sphinx that the included file is C code, if possible it will then do syntax highlighting. I can
-    even emphasise partiuclar lines (here 2 and 9-11)
-
-.. literalinclude:: ./simple.patch
-   :language: c
-   :emphasize-lines: 2,9-11
-   :linenos:
-
-If the patch is very long you will probably want to add it as a subpage which can be done as follows
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   patch
-
-..  Remember to change the reference "patch" for something unique in your patch file subpage or you will have
-    cross-referencing problems
-
-you can reference it with :ref:`patch`
-
-.. Here are the URL references used (which is alternative method to the one described above)
-
-.. _ReST: http://docutils.sourceforge.net/docs/user/rst/quickref.html
-
+Due to licensing reasons, only the difference between ParaDiS version 2.5.1 files and modified files are submitted, and these files can be found in `<https://version.aalto.fi/gitlab/csm_open/paradis_version_diffs.git>`_. 
 
