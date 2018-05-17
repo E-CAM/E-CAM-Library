@@ -21,7 +21,7 @@ LocConQubit
 Purpose of Module
 _________________
 
-LocConQubit is a code for constructing controlled pulses on isolated qubit systems that can either drive the population 
+**LocConQubit** is a code for constructing controlled pulses on isolated qubit systems that can either drive the population 
 between specific qubit states or work as a logical gates between qubits. 
 LocConQubit implements the Local Control Theory (LCT) which generates the required pulses on-the-fly. 
 The generated pulses can be further post-processed with a variety of tools accompanying the LocConQubit module in order 
@@ -32,7 +32,7 @@ Local Control Theory (LCT)
 ______________________________
 
 In general Local Control Theory is an on-the-fly procedure for updating the time-dependent Hamiltonian (:math:`\hat{H}(t)`) to achieve 
-a population transfer from some initial quantum state to a designated quantum target state (:math:`| \psi \rangle`). [LCT1]_ [LCT2]_ 
+population transfer from some initial quantum state to a designated quantum target state (:math:`| \psi \rangle`). [LCT1]_ [LCT2]_ 
 LCT achieves its full capacity if the time-dependent component of the full system Hamiltonian :math:`\hat{H}(t)` can be decomposed as an external perturbation 
 (:math:`V^{\prime}(t) \times \hat{H}^{\prime}`) acting on a system with a time-independent Hamiltonian (:math:`\hat{H}_{0}`),
 
@@ -48,7 +48,7 @@ LCT in this case constructs a time-dependent perturbation :math:`V^{\prime}(t)` 
 
 which will achieve the required population transfer from any initial state to the :math:`| \psi \rangle` target state. 
 The new time-dependent potential component :math:`V^{\prime}(t)` updates the time-dependent component of the full Hamiltonian 
-describing the evolution of the system with the time-dependent Schrödinger equation
+describing the evolution of the system via the time-dependent Schrödinger equation
 
 :math:`i \frac{\partial}{\partial t} |\Psi(t)\rangle = \hat{H}(t) |\Psi(t) \rangle`.
 

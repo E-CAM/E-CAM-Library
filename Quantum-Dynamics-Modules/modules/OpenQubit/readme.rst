@@ -21,7 +21,7 @@ OpenQubit
 Purpose of Module
 _________________
 
-OpenQubit is a patch to the *LocConQubit* module which extends the capabilities of the latter module 
+**OpenQubit** is a patch to the :ref:`LocConQubit` module which extends the capabilities of the latter module 
 with functionalities to generate control pulses in a more realistic systems with dissipating effects. 
 The module incorporates the Lindblad master equation into the system propagator upon which the Local 
 Control Theory generates a control pulse. For more information on LocConQubit module and Local Control 
@@ -39,12 +39,12 @@ ____________
 
 Before applying the patch LocConQubit code has to be installed  and tested. 
 For the installation and testing of LocConQubit code see the corresponding :ref:`documentation <LocConQubit>`. 
-`git <https://git-scm.com/>`_ has to be also installed. 
+`Git <https://git-scm.com/>`_ has to be also installed. 
 The OpenQubit patch should be downloaded from the repository_ and made available to insert it into the 
 directory containing the LocConQubit module. 
 In the directory containing the branch with the LocConQubit module the installation of the OpenQubit is 
 performed by applying the OpenQubit patch. 
-It is advise to make a new branch from the master branch first. 
+It is advised to make a new branch from the master branch first. 
 The installation should be made by following these instructions: 
 
 
@@ -75,7 +75,7 @@ Testing
 _______
 
 The application of the OpenQubit patch should be verified by executing the 
-LocConQubit module standard test, which is performed by executing the below command in the
+LocConQubit module standard test, which is performed by executing the command below in the
 same directory containing all of the OpenQubit module files
 
 
@@ -102,7 +102,7 @@ Source Code Documentation
 _________________________
 
 The source code is accompanied with `sphinx <http://www.sphinx-doc.org/en/stable/>`_ documentation located in sub-directory ``./doc``. 
-Instractions for sphinx installation can be found `here <http://www.sphinx-doc.org/en/stable/tutorial.html#install-sphinx>`_.
+Instruction for sphinx installation can be found `here <http://www.sphinx-doc.org/en/stable/tutorial.html#install-sphinx>`_.
 The html documentation files can be obtained by executing the following command in the ``./doc`` sub-directory
 
 ::

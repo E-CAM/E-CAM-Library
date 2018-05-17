@@ -21,11 +21,11 @@ PIM_qcf
 Purpose of Module
 _________________
 
-Module PIM_qcf is a library of quantum cross- and auto-correlation functions used for computation of quantum time-dependent correlation functions 
+Module **PIM_qcf** is a library of quantum cross- and auto-correlation functions used for computation of quantum time-dependent correlation functions 
 within the Phase Integration Method (PIM). 
 Two auto-correlation functions are currently implemented, the quantum position-position point charge dipole moment correlation function, and 
 the velocity-velocity point charge dipole moment correlation function, all in the Kubo representation of the correlation functions. 
-The user can  follow the two examples in constructing his/her own quantum correlation function.
+The user can follow the two examples to construct his/her own quantum correlation function.
 
 
 Applications of the module
@@ -38,11 +38,11 @@ computation of infrared spectrum of small water molecule clusters and protonated
 Compiling
 _________
 
-A Fortran 90/95 compiler with MPI wraper is required for successfully compilation of the code. 
-Although the correlation function subroutines are serial, the remaining code is parallelized so MPI wrapers have to be used. 
+A Fortran 90/95 compiler with MPI wrapper is required for successful compilation of the code. 
+Although the correlation function subroutines are serial, the remaining code is parallelized so MPI wrappers have to be used. 
 Quantum correlation subroutines within PIM_qcf modules are compiled by executing the command ``make`` in the ``./source`` directory. 
 The same make command generates a ``RunPIMqcf.exe`` executable for testing of the correlation functions. 
-The user is advise to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_ prior to code testing. 
+The user is advised to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_ prior to code testing. 
 All test are executed on one processor core.
 
 

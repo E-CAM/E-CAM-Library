@@ -1,7 +1,7 @@
 .. _auxmod:
 
 ####################
-AuxMod module
+AuxMod 
 ####################
 
 .. sidebar:: Software Technical Information
@@ -22,13 +22,13 @@ Purpose of Module
 _________________
 
 Module **AuxMod** contains a set of subroutines which can be used for an easier construction of any program 
-input file reader subroutines potentially encountered when building a new Fortran code, 
+input file reader, 
 and a library of common MPI commands adapted for easier implementation when programming a Fortran MPI parallel code. 
-The module consists of an input parser design to read any formatted file 
+The module consists of an input parser designed to read any formatted file 
 with the possibility to find a specific set of user pre-defined keywords 
-and examine whether the read in variable types are consistent with the required before passing them further. 
+and examine whether the read in variable types are consistent with the code requirments. 
 The library of parallel subroutines contains a number of MPI commands for communicating information between all or 
-a pair of processor cores, and are adapted in a way for easier user implementation into his/her own code. 
+a pair of processor cores, and are adapted for easier user implementation into his/her own code. 
 The provided subroutines/libraries can also be considered as a Fortran template which the user can adapt or 
 update depending on his/her specific requirements. 
 
@@ -36,8 +36,9 @@ update depending on his/her specific requirements.
 Applications of the Module
 __________________________
 
-The AuxMod module was used to construct the input parser for the PaPIM code, while its modified MPI commands to 
-parallelize the PaPIM code and the ClassMC module. Following these example, the AuxMod provides a pre-constructed 
+The AuxMod module was used to construct the input parser for the PaPIM code, while its modified MPI commands enable to 
+parallelize the PaPIM code and the ClassMC module. 
+Based on these example, the AuxMod provides a pre-constructed 
 input reader and adapted MPI library for any future Fortran code development.
 
 
@@ -55,8 +56,8 @@ Execute command ``make`` in the ``./source`` sub-directory to generate the ``Aux
 	make
 
 For AuxMod test purposes the ``numdiff`` package should be made available before running the tests. 
-In case numdiff is not available on the system the ``diff`` command will be automatically used instead. 
-The user is advised to download and install numdiff from `here <http://www.nongnu.org/numdiff/>`_ to ensure that numerical 
+In case ``numdiff`` is not available on the system the ``diff`` command will be automatically used instead. 
+The user is advised to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_ to ensure that numerical 
 differences are ignored in the module tests.
 
 
@@ -72,7 +73,7 @@ together with the reference output in sub-directory ``REFERENCE_OUTPUT``:
 
 	../source/AuxModRun.exe < TESTINPUT
 
-Before running the test the numdiff package used for comparison purposes should be made available, 
+Before running the test the ``numdiff`` package used for comparison purposes should be made available, 
 otherwise the diff command will be used instead but the user is warned that the test might fail 
 due to numerical differences. 
 The user is also advised to test the code manually by changing the values in the ``TESTINPUT`` input file. 

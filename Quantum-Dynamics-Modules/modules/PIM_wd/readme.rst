@@ -17,32 +17,17 @@ PIM_wd
 
 .. contents:: :local:
 
-.. This is an example of what a *module* for E-CAM looks like. Please add to this template any additional items that are
-.. straightforward to fill out in the general case. You are free add any level of complexity you wish (within the bounds of
-.. what ReST_ can do).
-
-.. To add your module, fork this GitLab repository to your account on GitLab. Clone your repository, make a feature branch
-.. and add a directory that will contain your module information. Copy this :download:`readme.rst` file there. Push your
-.. changes back to GitLab and immediately open a merge request from your feature branch against our repository. We can
-.. discuss your module in the merge request and help you get it accepted.
-
-.. Add technical info as a sidebar and allow text below to wrap around it
-
 
 Purpose of Module
 _________________
 
-Module PIM_wd implements the Phase Integration Method (PIM) [Mon1]_ [Mon2]_ for the exact sampling of the quantum Wigner 
+Module **PIM_wd** implements the Phase Integration Method (PIM) [Mon1]_ [Mon2]_ for the exact sampling of the quantum Wigner 
 distribution in phase space representation. 
-The PIM samples the thermal Wigner density through the use of a generalised Monte Carlo scheme for sampling of 
-phase space points, which combines the Penalty [Pen]_ and Kennedy [Ken]_ algorithms in order to sample the noisy 
-probability densities. 
+The PIM samples the thermal Wigner density using a generalized Monte Carlo scheme for sampling phase space points. 
+The scheme combines the Penalty [Pen]_ and Kennedy [Ken]_ algorithms to sample noisy probability densities. 
 This is necessary because the estimator of the quantum thermal density is not known analytically but must be 
-computed via a statistical average acted by uncertainty. 
-Through the action of certain operators on the sampled phase space corresponding system properties can be obtained, 
-or the sampled points used as initial conditions in subsequent dynamics from which certain time dependent properties 
-can be obtained. 
-The latter is the basis of calculation of time-dependent correlation function with the PIM algorithm via 
+computed via a statistical average affected by uncertainty. 
+The sampled points are the basis for the calculation of time-dependent correlation function with the PIM algorithm via 
 the module :ref:`PaPIM`. 
 The user is required to provide the potential energy of the system by incorporating an external potential energy 
 subroutine into the :ref:`PotMod` potential energy library. 
@@ -59,8 +44,8 @@ computation of infrared spectrum of small water molecule clusters and protonated
 Compiling
 _________
 
-Fortran compiler with a MPI wrapper together with lapack libraries have to be available to successfully compile the code. 
-The user is advise to examine the Makefile in the ``./source``` sub-directory prior to code compilation in order to
+Fortran compiler with a MPI wrapper together with ``lapack`` libraries have to be available to successfully compile the code. 
+The user is advise to examine the ``Makefile`` in the ``./source``` sub-directory prior to code compilation in order to
 select an appropriate compiler and to check or adapt the compiler options to his local environment, or to generally
 modify the compiler options to his requirements.
 
@@ -73,8 +58,8 @@ modify the compiler options to his requirements.
 Upon adapting the ``Makefile``, the code compilation is executed by command ``make`` in the ``./source`` sub-directory.
 An executable ``PaPIM.exe`` is created upon successful compilation.
 For PaPIM test purposes the ``numdiff`` package should be made available before running the tests. 
-In case the numdiff is not available on the system the ``diff`` command will be automatically used instead. 
-The user is advise to download and install numdiff from `here <http://www.nongnu.org/numdiff/>`_.
+In case the ``numdiff`` is not available on the system the ``diff`` command will be automatically used instead. 
+The user is advised to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_.
 The PaPIM documentation is obtained by executing the ``make`` command in the ``./doc`` sub-directory.
 
 
@@ -88,7 +73,7 @@ where each sub-directory contains corresponding classical and quantum input file
 sub-directories, respectively. 
 Before running the tests the code has to be properly compiled by running the ``make`` command in the 
 ``./source`` sub-directory. 
-The numdiff package is used for automatic comparison purposes and should be made available before running the tests, 
+The ``numdiff`` package is used for automatic comparison purposes and should be made available before running the tests, 
 otherwise the diff command will be used automatically instead but the user is warned that the test might fail 
 due to numerical differences. 
 The tests are performed automatically by executing the command ``./test.sh`` in the ``./tests`` sub-directory 
@@ -128,12 +113,9 @@ html and latex format, by executing the ``doxygen PIMwd_doxygen_settings`` comma
 References
 __________
 
-.. [Pen] Ceperley, Dewing `The penalty method for random walks with uncertain energies`_ *J. Chem. Phys.* **110** (1999) 9812
-.. [Ken] Kennedy, Kuti `Noise without Noise - A New Monte Carlo Method`_ *Phys. Rev. Lett.* **54** (1985) 2473
-
-.. _Linearized symmetrized quantum time correlation functions calculation via phase pre-averaging: http://dx.doi.org/10.1080/00268976.2011.619506
-.. _Quantum dynamical structure factor of liquid neon via a quasiclassical symmetrized method: http://dx.doi.org/10.1063/1.4789760
-.. _The penalty method for random walks with uncertain energies: http://dx.doi.org/10.1063/1.478034
-.. _Noise without Noise - A New Monte Carlo Method: https://doi.org/10.1103/PhysRevLett.54.2473
+.. [Pen] D. M. Ceperley, M. Dewing *J. Chem. Phys.* **110** (1999) 9812 
+         `DOI: http://dx.doi.org/10.1063/1.478034 <https://aip.scitation.org/doi/10.1063/1.478034>`_
+.. [Ken] A. D. Kennedy, J. Kuti *Phys. Rev. Lett.* **54** (1985) 2473 
+         `DOI: https://doi.org/10.1103/PhysRevLett.54.2473 <https://doi.org/10.1103/PhysRevLett.54.2473>`_
 
 

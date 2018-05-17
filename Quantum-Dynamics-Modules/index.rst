@@ -24,17 +24,17 @@ Introduction
    :width: 30 %
    :align: left
 
-This is a collection of the modules that have been created by E-CAM community 
-within the area of Quantum Dynamics. This documentation is created using ReStructured Text and the git repository for the documentation 
-source files can be found at 
+This is a collection of the modules that have been created by the E-CAM community 
+within the area of Quantum Dynamics. This documentation is created using ReStructured Text and the git repository for the documentation. 
+Source files can be found at 
 https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are open to contributions from E-CAM members.
 
 In the context of E-CAM, the definition of a software module is any piece of software that could be of use to the E-CAM
 community and that encapsulates some additional functionality, enhanced performance or improved usability for people
-performing computational simulations in the domain areas of interest to us.
+performing computational simulations in the domain areas of interest to the project.
 
 This definition is deliberately broader than the traditional concept of a module as defined in the semantics of most
-high-level programming languages and is intended to capture inter alia workflow scripts, analysis tools and test suites
+high-level programming languages and is intended to capture internal workflow scripts, analysis tools and test suites
 as well as traditional subroutines and functions. Because such E-CAM modules will form a heterogeneous collection we
 prefer to refer to this as an E-CAM software repository rather than a library (since the word library carries a
 particular meaning in the programming world). The modules do however share with the traditional computer science
@@ -45,7 +45,7 @@ codes rather than being written entirely de novo.
 Perhaps more important than exactly what a module is, is how it is written and used. A final E-CAM module adheres to
 current best-practice programming style conventions, is well documented and comes with either regression or unit tests
 (and any necessary associated data). E-CAM modules should be written in such a way that they can potentially take
-advantage of anticipated hardware developments in the near future (and this is one of the training objectives of E-CAM).
+advantage of anticipated hardware developments in the near future (this is one of the training objectives of E-CAM).
 
 
 Objectives of E-CAM WP3 Quantum Dynamics
@@ -54,12 +54,12 @@ Objectives of E-CAM WP3 Quantum Dynamics
 Software development in quantum dynamics has so far been less systematic than in other fields of modelling, 
 such as classical molecular dynamics or electronic structure. Although some packages have been developed to 
 implement specific methods, e.g. `Quantics <http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/index.html>`_ 
-for dynamics with MCTDH, or subroutines added to electronic structure 
+for wave packet dynamics, or subroutines added to electronic structure 
 packages, e.g. Surface Hopping and Ehrenfest in CPMD_, these efforts are not the standard. 
 
 One of the goals of E-CAM's WP3 is then to provide an environment to stimulate the transition from in-house
 codes, often developed and used by single groups, to the development of modular, well documented community-based
-software packages capable of multiple functionalities and adopting the common set of standards and benchmarks.
+software packages capable of multiple functionalities and adopting a common set of standards and benchmarks.
 
 To foster this development, we have initiated five parallel activities: 
 
@@ -79,6 +79,18 @@ To foster this development, we have initiated five parallel activities:
 Pilot Projects
 ==============
 
+One of primary activity of E-CAM is to engage with pilot projects with industrial partners. These projects are conceived
+together with the partner and typically are to facilitate or improve the scope of computational simulation within the
+partner. The related code development for the pilot projects are open source (where the licence of the underlying
+software allows this) and are described in the modules associated with the pilot projects.
+
+The `pilot project <https://www.e-cam2020.eu/pilot-project-ibm/>`_ of the WP3 in collaboration with IBM_ is 
+related to quantum computing and improvements of the quantum computer technology.
+Our main topic was development of software for construction of control pulses necessary for operating quantum logical gates 
+between qubits in a universal quantum computer using the Local Control Theory. 
+More information can be found on the `pilot project <https://www.e-cam2020.eu/pilot-project-ibm/>`_ web site. 
+These are the pilot project modules created so far:
+
 .. toctree::
     :glob:
     :maxdepth: 1
@@ -94,12 +106,7 @@ Pilot Projects
     ./modules/OpenQubit/readme
 
 **OpenQubit** is an extension to the LocConQubit code for the construction of controlled pulses in a more realistic environment with 
-disipating effects.
-
-One of primary activity of E-CAM is to engage with pilot projects with industrial partners. These projects are conceived
-together with the partner and typically are to facilitate or improve the scope of computational simulation within the
-partner. The related code development for the pilot projects are open source (where the licence of the underlying
-software allows this) and are described in the modules associated with the pilot projects.
+dissipating effects.
 
 
 Extended Software Development Workshops
@@ -139,7 +146,7 @@ The second Quantum Dynamics ESDW was held in July 2017 (first part) and March 20
 current industrial partner IBM_, worked to develop and upload on the E-CAM repositories software 
 modules in the following areas:
 
-- Calculation of approximate quantum time correlation functions via the PaPim code;
+- Calculation of approximate quantum time correlation functions via the PaPIM code;
 
 - Mixed quantum-classical algorithms, with specific reference to Surface Hopping and Wigner-Liouville methods;
 
@@ -175,7 +182,7 @@ List of available Modules
     ./modules/SODLIB/sod_readme
 
 The **SodLib** module provides exact wavefunction propagation using the second-order differencing (SOD) integrator
-scheme to solve the time-dependent Schroedinger equation. This routine has been implemented and tested as an added
+scheme to solve the time-dependent Schrödinger equation. This routine has been implemented and tested as an added
 functionality within the Quantics_ quantum dynamics package.
 
 .. toctree::
@@ -200,15 +207,16 @@ PaPIM
 -----
 
 PaPIM is a code for calculation of equilibrated system properties (observables). Some properties can be directly obtained from
-the sampled system distribution function, while properties that depends on the exact dynamics of the system, such as the structure
-factor, [Mon2]_ infrared spectrum [Beu]_ or reaction rates, can be easily obtained from corresponding correlation functions.
-PaPIM code samples either the quantum (Wigner) or classical (Boltzmann) density functions and calculates the corresponding correlation
-functions. The code is highly parallelized which makes it suitable for use on large HPC machines.
-The code's modular structure enables an easy update/change of any of its modules as well as that the coded functionalities
-can be used independently of each other.
+the distribution function of the system, while properties that depends on the exact dynamics of the system, such as the structure
+factor, [Mon2]_ infrared spectrum [Beu]_ or reaction rates, can be obtained from the evolution of appropriate time correlation functions.
+PaPIM samples either the quantum (Wigner) or classical (Boltzmann) density functions and computes approximate quantum and 
+classical correlation functions. 
+The code is highly parallelized and suitable for use on large HPC machines.
+The code's modular structure enables an easy update/change of any of its modules.
+Furthermore the coded functionalities can be used independently of each other.
 The code is specifically design with simplicity and readability in mind to enable any user to easily implement its own functionalities.
 The code has been extensively used for the calculation of the infrared spectrum of the :math:`\text{CH}_{5}^{+}` cation in gas phase,
-while recently new calculations on water dimer, and protonated water dimer systems were started.
+while recently new calculations on the water dimer, and protonated water dimer systems were started.
 
 
 .. toctree::
@@ -217,11 +225,13 @@ while recently new calculations on water dimer, and protonated water dimer syste
 
     ./modules/PaPIM/readme
 
-**PaPIM** is the current version of the code with all included functionalities.
+**PaPIM** is the current version of the code, including all available functionalities.
 
-The following modules make up the PaPIM code and can be used as stand-alone software libraries for e.g. sampling of the Wigner distribution,
-sampling of the classical Boltzmann distribution, or building MPI parallelized Fortran codes. Such libraries are rarely available to the community in a Fortran program format.
-Some of the functionalities coded within the code are specifically design for computation of infrared spectra, and serve as a template
+The following modules make up the PaPIM code and can be used as stand-alone software libraries for e.g. 
+sampling of the Wigner distribution, sampling of the classical Boltzmann distribution, or building MPI 
+parallelized Fortran codes. 
+Such libraries are rarely available to the community in a Fortran program format.
+Some of the functionalities within the code are specifically designed for computation of infrared spectra, and serve as a template
 for the user to implement its own functionalities.
 
 
@@ -231,8 +241,8 @@ for the user to implement its own functionalities.
 
     ./modules/PIM_wd/readme
 
-**PIM_wd** samples, via the Phase Integration Method, [Mon1]_ the system's quantum Wigner density distribution function. The distribution is
-given in the phase-space representation and is the basis for any further calculation of system's quantum observables.
+**PIM_wd** samples, via the Phase Integration Method, [Mon1]_ the system's quantum Wigner density function. 
+The function is given in the phase-space representation and is the basis for any further calculation of system's quantum observables.
 
 
 .. toctree::
@@ -288,7 +298,8 @@ It also contains a library of adapted MPI subroutines for easier programming of 
     ./modules/Openmpbeads/readme
 
 **Openmpbeads** is a patch to the PaPIM code which enables parallelization of the sampling of the  
-polyer chains within the PIM algorithm.
+polymer chains within the PIM algorithm, improving efficiency in sampling of the Wigner density.
+
 
 
 References
@@ -301,5 +312,5 @@ References
 .. [Beu] J. Beutier, M. Monteferrante, S. Bonella, R. Vuilleumier, G. Ciccotti *Mol. Sim.* **40** (2014) 196 `DOI:
          10.1080/08927022.2013.843776 <http://dx.doi.org/10.1080/08927022.2013.843776>`_
 .. [Jin] Z. Jin, B. Braams, J. Bowman *J. Phys. Chem. A* **110** (2006) 1569 `DOI: 10.1021/jp053848o
-         <pubs.acs.org/doi/abs/10.1021/jp053848o>`_
+         <https://pubs.acs.org/doi/abs/10.1021/jp053848o>`_
 
