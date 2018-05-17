@@ -9,6 +9,7 @@
 Quantum Dynamics Modules
 ************************
 
+
 Introduction
 ============
 
@@ -46,6 +47,7 @@ current best-practice programming style conventions, is well documented and come
 (and any necessary associated data). E-CAM modules should be written in such a way that they can potentially take
 advantage of anticipated hardware developments in the near future (and this is one of the training objectives of E-CAM).
 
+
 Objectives of E-CAM WP3 Quantum Dynamics
 ========================================
 
@@ -53,7 +55,7 @@ Software development in quantum dynamics has so far been less systematic than in
 such as classical molecular dynamics or electronic structure. Although some packages have been developed to 
 implement specific methods, e.g. `Quantics <http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/index.html>`_ 
 for dynamics with MCTDH, or subroutines added to electronic structure 
-packages, e.g. Surface Hopping and Ehrenfest in `CPMD <http://www.cpmd.org/>`_, these efforts are not the standard. 
+packages, e.g. Surface Hopping and Ehrenfest in CPMD_, these efforts are not the standard. 
 
 One of the goals of E-CAM's WP3 is then to provide an environment to stimulate the transition from in-house
 codes, often developed and used by single groups, to the development of modular, well documented community-based
@@ -70,6 +72,8 @@ To foster this development, we have initiated five parallel activities:
 *  Interact with industrial partners to enrich our repository with software targeted at their needs.
 
 *  Training young code developers.
+
+.. _CPMD: http://www.cpmd.org/
 
 
 Pilot Projects
@@ -97,6 +101,7 @@ together with the partner and typically are to facilitate or improve the scope o
 partner. The related code development for the pilot projects are open source (where the licence of the underlying
 software allows this) and are described in the modules associated with the pilot projects.
 
+
 Extended Software Development Workshops
 =======================================
 
@@ -104,7 +109,7 @@ ESDW Maison de la Simulation (Paris 2016)
 -----------------------------------------
 
 The first Quantum Dynamics ESDW was held in June-July 2016 at the `Maison de la Simulation`_ near Paris. 10 students
-and 6 tutors, including Dr. Ivano Tavernelli representing the industrial partner of the WP3, IBM, worked to develop
+and 6 tutors, including Dr. Ivano Tavernelli representing the industrial partner of the WP3, IBM_, worked to develop
 software modules in the following areas:
 
 - Exact quantum propagation methods for low dimensional systems to be used to provide benchmarks for approximate schemes
@@ -129,7 +134,36 @@ use of advanced visualization tools such as the Image wall hosted by the Maison 
 ESDW University College Dublin (2017)
 -------------------------------------
 
-The second Quantum Dynamics ESDW was held in July 2017 at the University College Dublin.
+The second Quantum Dynamics ESDW was held in July 2017 (first part) and March 2018 (wrap up meeting) at 
+`University College Dublin <http://www.ucd.ie/>`_. 21 participants, including the representative of WP3’s 
+current industrial partner IBM_, worked to develop and upload on the E-CAM repositories software 
+modules in the following areas:
+
+- Calculation of approximate quantum time correlation functions via the PaPim code;
+
+- Mixed quantum-classical algorithms, with specific reference to Surface Hopping and Wigner-Liouville methods;
+
+- Implementation of the factorization scheme for quantum dynamics in CPMD_;
+
+- Interfacing of quantum codes with electronic structure codes;
+
+- Grid based exact propagation schemes;
+
+- Design and optimization of qubit control pulses.
+
+Teams of coders assisted by senior tutors, E-CAM’s Software Manager, Dr. Alan O’Cais, and WP3 Software 
+Developer, Dr. Liang Liang, performed the work. 
+Specific discussions on optimal parallelization strategies for the E-CAM’s quantum dynamical codes 
+(PaPIM and Quantics) were also initiated and implemented.
+The coding work was accompanied by scientific presentations on the themes of the workshops and by 
+the instruction from E-CAM personnel on the CoE’s tools for software production, testing, documentation 
+and maintaining. 
+The participants benefitted also from the proximity of software and hardware experts from the 
+`ICHEC <https://www.ichec.ie/>`_ supercomputing center that offered, in particular, a set of 
+lectures and tutorials on OpenMP parallelization.
+
+.. _IBM: https://www.zurich.ibm.com/
+
 
 List of available Modules
 =========================

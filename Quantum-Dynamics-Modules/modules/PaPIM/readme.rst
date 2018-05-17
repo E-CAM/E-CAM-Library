@@ -132,7 +132,7 @@ Performance and benchmarking
 ----------------------------
 
 PaPIM is designed as a highly scalable code. Its performance was extensively testes. More information can be 
-found at this :doc:`link<performance>`.
+found at this :ref:`link<performance>`.
 
 
 Source Code
@@ -147,11 +147,11 @@ Source Code Documentation
 _________________________
 
 The source code documentation is given at this `link <https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/PIM/tree/master/doc>`_.
-The documentation files (html and latex format) are obtained by executing the ``make`` command in the ./doc directory:
+The documentation files (html and latex format) are obtained by executing the ``make`` command in the ``./doc`` directory:
 
 ::
 
-	cd ./doc
+	cd doc
 
 	make
 
