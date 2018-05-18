@@ -34,7 +34,7 @@ Example external subroutines are provided for the :math:`\text{OH}` and :math:`\
 with potential energies described by the harmonic potential, 
 and the electric dipole moments by point charge approximation. 
 An external subroutine for calculation of 
-:math:`\text{CH}_{5}^{+}` system potential energy and electric dipole moment, based on fitted values, [Jin]_ is also given. 
+:math:`\text{CH}_{5}^{+}` system potential energy and electric dipole moment, based on fitted values, [PJin]_ is also given. 
 The electric dipole moment operator is currently implemented into the code for calculation of the 
 electric dipole moment autocorrelation function from which system IR spectra can be directly obtained.
 
@@ -43,7 +43,7 @@ Phase Integration Method (PIM)
 ______________________________
 
 The Phase Integration Method (PIM) is a novel approximate quantum dynamical technique developed for computing 
-systems time dependent observables. [PMon1]_ [PMon2]_ [Beu]_ 
+systems time dependent observables. [PMon1]_ [PMon2]_ [PBeu]_ 
 PIM employs an algorithm in which the exact sampling of the quantum thermal Wigner density is combined 
 with a linearized approximation of the quantum time propagators represented in the path integral formalism 
 that reduces the evolution to classical dynamics. 
@@ -155,9 +155,9 @@ __________
           <http://dx.doi.org/10.1080/00268976.2011.619506>`_
 .. [PMon2] M. Monteferrante, S. Bonella, G. Ciccotti *J. Chem. Phys.* **138** (2013) 054118 `DOI: 10.1063/1.4789760
           <http://dx.doi.org/10.1063/1.4789760>`_
-.. [Beu] J. Beutier, M. Monteferrante, S. Bonella, R. Vuilleumier, G. Ciccotti *Mol. Sim.* **40** (2014) 196 `DOI: 
+.. [PBeu] J. Beutier, M. Monteferrante, S. Bonella, R. Vuilleumier, G. Ciccotti *Mol. Sim.* **40** (2014) 196 `DOI: 
          10.1080/08927022.2013.843776 <http://dx.doi.org/10.1080/08927022.2013.843776>`_
-.. [Jin] Z. Jin, B. Braams, J. Bowman *J. Phys. Chem. A* **110** (2006) 1569 `DOI: 10.1021/jp053848o 
+.. [PJin] Z. Jin, B. Braams, J. Bowman *J. Phys. Chem. A* **110** (2006) 1569 `DOI: 10.1021/jp053848o 
          <https://pubs.acs.org/doi/abs/10.1021/jp053848o>`_
 
 
