@@ -87,7 +87,7 @@ software allows this) and are described in the modules associated with the pilot
 The `pilot project <https://www.e-cam2020.eu/pilot-project-ibm/>`_ of the WP3 in collaboration with IBM_ is 
 related to quantum computing and improvements of the quantum computer technology.
 One of our main topic was development of software for construction of control pulses necessary for operating quantum logical gates 
-between qubits in a universal quantum computer using the Local Control Theory. [LCT]_
+between qubits in a universal quantum computer using the Local Control Theory. [PLCT]_
 More information can be found on the `pilot project <https://www.e-cam2020.eu/pilot-project-ibm/>`_ web site. 
 Below are listed the pilot project modules created so far:
 
@@ -305,7 +305,7 @@ polymer chains within the PIM algorithm, improving efficiency in sampling of the
 References
 ==========
 
-.. [LCT] B. F. E. Curchod, T. J. Penfold, U. Rothlisberger, I. Tavernelli *Phys. Rev. A* 
+.. [PLCT] B. F. E. Curchod, T. J. Penfold, U. Rothlisberger, I. Tavernelli *Phys. Rev. A* 
           **84** (2012) 042507 `DOI: 10.1103/PhysRevA.84.042507 
           <https://journals.aps.org/pra/abstract/10.1103/PhysRevA.84.042507>`_
 .. [Mon1] M. Monteferrante, S. Bonella, G. Ciccotti *Mol. Phys.* **109** (2011) 3015 `DOI: 10.1080/00268976.2011.619506
