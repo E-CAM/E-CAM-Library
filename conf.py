@@ -83,7 +83,7 @@ language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', 'README.rst', 'Classical-MD-Modules/modules/OpenPathSampling/ops_module_template.rst']
+exclude_patterns = ['_build', 'README.rst', 'best-practices/README.rst', 'Classical-MD-Modules/modules/OpenPathSampling/ops_module_template.rst']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
