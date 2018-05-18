@@ -68,7 +68,7 @@ For details of the PaPIM code standard tests see :ref:`here <PaPIM>`.
 Before running the tests the code has to be properly compiled by running the ``make`` command in the 
 ``./source`` sub-directory (see compilation of PaPIM code :ref:`here <PaPIM>`). 
 The ``numdiff`` package is used for automatic comparison purposes and should be made available before running the tests, 
-otherwise the diff command will be used automatically instead but the user is warned that the test might fail 
+otherwise the ``diff`` command will be used automatically instead but the user is warned that the test might fail 
 due to small numerical differences. 
 The tests are performed automatically by executing the command ``./test.sh`` in the ``./tests`` sub-directory 
 for all three systems:

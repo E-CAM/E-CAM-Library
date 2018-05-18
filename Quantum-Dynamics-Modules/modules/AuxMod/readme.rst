@@ -55,15 +55,14 @@ Execute command ``make`` in the ``./source`` sub-directory to generate the ``Aux
 
 	make
 
-For AuxMod test purposes the ``numdiff`` package should be made available before running the tests. 
-In case ``numdiff`` is not available on the system the ``diff`` command will be automatically used instead. 
-The user is advised to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_ to ensure that numerical 
-differences are ignored in the module tests.
-
 
 Testing
 _______
 
+For AuxMod test purposes the ``numdiff`` package is used for automatic comparison purposes and should be made
+available before running the tests, otherwise the ``diff`` command will be used automatically instead but the user
+is warned that the test might fail due to numerical differences.
+The user is advised to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_.
 The module is accompanied with an example input file ``TESTINPUT`` located in the ``tests`` sub-directory 
 together with the reference output in sub-directory ``REFERENCE_OUTPUT``:
 
@@ -73,9 +72,6 @@ together with the reference output in sub-directory ``REFERENCE_OUTPUT``:
 
 	../source/AuxModRun.exe < TESTINPUT
 
-Before running the test the ``numdiff`` package used for comparison purposes should be made available, 
-otherwise the diff command will be used instead but the user is warned that the test might fail 
-due to numerical differences. 
 The user is also advised to test the code manually by changing the values in the ``TESTINPUT`` input file. 
 
 

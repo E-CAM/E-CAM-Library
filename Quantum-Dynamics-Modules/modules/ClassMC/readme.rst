@@ -63,22 +63,19 @@ Upon adapting the ``Makefile``, the code compilation is executed by command ``ma
 	make
 
 An executable ``ClassMCRun.exe`` is created upon successful compilation. 
-For ClassMC test purposes the ``numdiff`` package should be made available before running the tests. 
-In case the ``numdiff`` is not available on the system the ``diff`` command will be automatically used instead. 
-The user is advise to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_. 
-The ClassMC documentation is obtained by executing the ``make`` command in the ./doc directory. 
 
 
 Testing
 _______
 
+For PaPIM test purposes the ``numdiff`` package is used for automatic comparison purposes and should be made
+available before running the tests, otherwise the ``diff`` command will be used automatically instead but the user
+is warned that the test might fail due to numerical differences.
+The user is advised to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_.
 Tests and corresponding reference values are located in sub-directories ``./tests/xxx/CLASSICAL``, where ``xxx`` stands 
 for ``oh``, ``ch4``, and ``ch5`` systems. 
 Before running the tests the module ClassMC has to be properly compiled by running the ``make`` command in the 
 ``./source`` sub-directory. 
-The ``numdiff`` package is used for comparison purposes and should be made available before running the tests, 
-otherwise the diff command will be used automatically instead but the user is warned that the test might fail 
-due to small numerical differences. 
 Tests can be executed automatically by running the command ``./test.sh`` in the ``./tests`` sub-directory 
 for all three systems, or separately for each system by running the command ``./test.sh`` within the corresponding 
 system ``CLASSICAL`` sub-directory:
@@ -92,9 +89,10 @@ system ``CLASSICAL`` sub-directory:
 Tests are by default executed on two processor cores. 
 This can be changed by setting the value of required 
 cores as an integer number after the command ``./test.sh`` (example ``./test.sh 20``, for the use of 20 processor 
-cores in the test). The number of processor cores should not exceed 50. 
+cores in the test). 
+The number of processor cores should not exceed 50. 
 Due to small numerical discrepancies between generated outputs and reference values which can cause the tests to fail, 
-the user is advise to manually examine the numerical differences between generated output and the corresponding 
+the user is advised to manually examine the numerical differences between generated output and the corresponding 
 reference values in case the tests fail. 
 
 

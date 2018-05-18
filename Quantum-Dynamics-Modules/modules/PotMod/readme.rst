@@ -59,19 +59,16 @@ Execute command 'make' in the ``./source`` sub-directory to generate the ``PotMo
 
 	make
 
-For PotMod testing purposes the ``numdiff`` package should be made available before running the tests. 
-In case the ``numdiff`` is not available on the system the ``diff`` command will be automatically used instead. 
-The user is advised to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff>`_.
-
 
 Testing
 _______
 
+For PotMod test purposes the ``numdiff`` package is used for automatic comparison purposes and should be made
+available before running the tests, otherwise the ``diff`` command will be used automatically instead but the user
+is warned that the test might fail due to numerical differences.
+The user is advised to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_.
 The module is accompanied by a corresponding Fortran 90 test subroutine and a reference output. 
 The reference output is located in sub-directory ``./tests/REFERENCE_VALUE``. 
-Before running the test the ``numdiff`` package used for comparison purposes should be made available, 
-otherwise the diff command will be used instead but the user is warned that the test might fail 
-due to small numerical differences. 
 The test can be executed automatically by running the script ``./test.sh``:
 
 ::

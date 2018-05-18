@@ -42,13 +42,15 @@ A Fortran 90/95 compiler with MPI wrapper is required for successful compilation
 Although the correlation function subroutines are serial, the remaining code is parallelized so MPI wrappers have to be used. 
 Quantum correlation subroutines within PIM_qcf modules are compiled by executing the command ``make`` in the ``./source`` directory. 
 The same make command generates a ``RunPIMqcf.exe`` executable for testing of the correlation functions. 
-The user is advised to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_ prior to code testing. 
-All test are executed on one processor core.
 
 
 Testing
 _______
 
+For PIM_qcf test purposes the ``numdiff`` package is used for automatic comparison purposes and should be made
+available before running the tests, otherwise the ``diff`` command will be used automatically instead but the user
+is warned that the test might fail due to numerical differences.
+The user is advised to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_.
 Tests and corresponding reference values are located in sub-directories ``./tests/xxx``, where ``xxx`` stands 
 for ``oh``, ``ch4``, and ``ch5`` systems. 
 Before running the tests the code has to be properly compiled by running the ``make`` command in the 
@@ -60,14 +62,12 @@ Before running the tests the code has to be properly compiled by running the ``m
 
 	./test.sh
 
-The ``numdiff`` package is used for comparison purposes and should be made available before running the tests, 
-otherwise the ``diff`` command will be used automatically instead but the user is warned that the test might fail 
-due to numerical differences. 
 Tests can be executed automatically by running the command ``./test.sh`` in the ``./tests`` sub-directory 
 for all three systems, or separately for each system by running the command ``./test.sh`` within the corresponding 
 sub-directory. 
+All test are executed on one processor core.
 Due to small numerical discrepancies between generated outputs and reference values which can cause the tests to fail, 
-the user is advise to manually examine the numerical differences between generated output and the corresponding 
+the user is advised to manually examine the numerical differences between generated output and the corresponding 
 reference values in case the tests fail. 
 
 
@@ -81,7 +81,7 @@ Source Code Documentation
 _________________________
 
 The source code documentation can be generated automatically in ``./doc`` sub-directory, 
-html and latex format, by executing the ``doxygen PIMqcf_doxygen_settings`` command in the ``./doc`` directory:
+html and latex format, by executing the following command in the ``./doc`` directory:
 
 ::
 

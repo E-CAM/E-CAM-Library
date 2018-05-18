@@ -45,7 +45,7 @@ Compiling
 _________
 
 Fortran compiler with a MPI wrapper together with ``lapack`` libraries have to be available to successfully compile the code. 
-The user is advise to examine the ``Makefile`` in the ``./source``` sub-directory prior to code compilation in order to
+The user is advised to examine the ``Makefile`` in the ``./source``` sub-directory prior to code compilation in order to
 select an appropriate compiler and to check or adapt the compiler options to his local environment, or to generally
 modify the compiler options to his requirements.
 
@@ -57,15 +57,15 @@ modify the compiler options to his requirements.
 
 Upon adapting the ``Makefile``, the code compilation is executed by command ``make`` in the ``./source`` sub-directory.
 An executable ``PaPIM.exe`` is created upon successful compilation.
-For PaPIM test purposes the ``numdiff`` package should be made available before running the tests. 
-In case the ``numdiff`` is not available on the system the ``diff`` command will be automatically used instead. 
-The user is advised to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_.
-The PaPIM documentation is obtained by executing the ``make`` command in the ``./doc`` sub-directory.
 
 
 Testing
 _______
 
+For PIM_wd test purposes the ``numdiff`` package is used for automatic comparison purposes and should be made 
+available before running the tests, otherwise the ``diff`` command will be used automatically instead but the user
+is warned that the test might fail due to numerical differences.
+The user is advised to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_.
 Tests and corresponding reference values are located in sub-directories ``./tests/``. The tests are performed over 
 three systems, the :math:`\text{OH}`, :math:`\text{CH}_{4}` and :math:`\text{CH}_{5}^{+}`. They are located in their corresponding 
 ``oh``, ``ch4`` and ``ch5``, 
@@ -73,9 +73,6 @@ where each sub-directory contains corresponding classical and quantum input file
 sub-directories, respectively. 
 Before running the tests the code has to be properly compiled by running the ``make`` command in the 
 ``./source`` sub-directory. 
-The ``numdiff`` package is used for automatic comparison purposes and should be made available before running the tests, 
-otherwise the diff command will be used automatically instead but the user is warned that the test might fail 
-due to numerical differences. 
 The tests are performed automatically by executing the command ``./test.sh`` in the ``./tests`` sub-directory 
 for all three systems:
 
@@ -87,9 +84,10 @@ for all three systems:
 
 Tests are by default performed using two processor cores, which can be changed by setting the value of required 
 cores as an integer number after the command ``./test.sh`` (example ``./test.sh 20``, for the use of 20 processor 
-cores in the test). The number of processor cores should not exceed 20. 
+cores in the test). 
+The number of processor cores should not exceed 20. 
 Due to small numerical discrepancies between generated outputs and reference values which can cause the tests to fail, 
-the user is advise to manually examine the numerical differences between generated output and the corresponding 
+the user is advised to manually examine the numerical differences between generated output and the corresponding 
 reference values in case the tests fail. 
 
 
@@ -103,7 +101,7 @@ Source Code Documentation
 _________________________
 
 The source code documentation can be generated automatically in ``./doc`` sub-directory, 
-html and latex format, by executing the ``doxygen PIMwd_doxygen_settings`` command in the ./doc directory:
+html and latex format, by executing the following command in the ``./doc`` directory:
 
 ::
 
