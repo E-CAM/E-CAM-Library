@@ -1,8 +1,8 @@
 .. _auxmod:
 
-####################
+######
 AuxMod 
-####################
+######
 
 .. sidebar:: Software Technical Information
 
