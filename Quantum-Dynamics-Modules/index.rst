@@ -274,7 +274,7 @@ Results obtained from classical sampling can be used to assess the relevance of 
 **PotMod** is a library of potential energy functions and interfaces for external potential energy calculation codes.
 Currently available in the library are the harmonic and Morse potentials (different molecular systems can be simulated depending on parameters
 provided by the user);  empirical potential of the ground state of :math:`\text{CH}_{5}^{+}` based on high level
-electronic structure calculations [Jin]_.
+electronic structure calculations [RJin]_.
 
 .. , and interface to the ab initio `CP2K code <https://www.cp2k.org/>`_.
 
@@ -314,6 +314,6 @@ References
           <http://dx.doi.org/10.1063/1.4789760>`_
 .. [Beu] J. Beutier, M. Monteferrante, S. Bonella, R. Vuilleumier, G. Ciccotti *Mol. Sim.* **40** (2014) 196 `DOI:
          10.1080/08927022.2013.843776 <http://dx.doi.org/10.1080/08927022.2013.843776>`_
-.. [Jin] Z. Jin, B. Braams, J. Bowman *J. Phys. Chem. A* **110** (2006) 1569 `DOI: 10.1021/jp053848o
+.. [RJin] Z. Jin, B. Braams, J. Bowman *J. Phys. Chem. A* **110** (2006) 1569 `DOI: 10.1021/jp053848o
          <https://pubs.acs.org/doi/abs/10.1021/jp053848o>`_
 
