@@ -8,8 +8,7 @@ Two independent performance analyses of the PaPIM code are reported below.
 They were conducted by Dr. Liang Liang 
 (`Maison de la Simulation <http://www.maisondelasimulation.fr/en/index.php?a>`_
 and `IDRIS <http://www.idris.fr>`_), and by Dr. Alan O'Cais  
-(`Jülich Supercomputing Center <http://www.fz-juelich.de/ias/jsc/EN/Home/home
-\_node.html>`_), respectively. 
+(`Juelich Supercomputing Center <http://www.fz-juelich.de/ias/jsc/EN/Home/home_node.html>`_), respectively. 
 
 A strong scaling analysis of the PaPIM code using the 
 `Scalasca <http://www.scalasca.org>`_ analysis tools, and the internal 
