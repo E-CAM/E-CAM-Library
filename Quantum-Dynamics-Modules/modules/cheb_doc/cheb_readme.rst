@@ -30,7 +30,7 @@ _________________
 This module implements the Chebyshev integration scheme for exact wavefunction propagation on the grid. 
 This routine has been implemented and tested within the Quantics_ quantum dynamics package which is available on CCPForge_. 
 The purpose of the module is to be used in quantum dynamical propagation problems as described by 
-Leforestier et al. [Lef]_ 
+Leforestier et al. [1Lef]_ 
 
 
 Background Information
@@ -42,7 +42,7 @@ Currently, the Chebyshev integration scheme resides within the Quantics_ softwar
 The module consists of a main routine, ``chebstep``, which uses a separate routine ``bessjn`` to generate the 
 real Bessel coefficients of integer order. 
 Both are referenced and documented within the *cheblib* routine, and for further information on the Chebyshev integration 
-scheme see Tal-Ezer et al. [Tal]_
+scheme see Tal-Ezer et al. [1Tal]_
 
 
 Testing
@@ -85,9 +85,9 @@ Within the Quantics_ program, explicit code for the Chebyshev routine is located
 References
 __________
 
-.. [Lef] C. Leforestier, R. H. Bisseling, C. Cerjan, M. D. Feit, R. Friesner, A. Guldberg, A. Hammerich, G. Jolicard, 
+.. [1Lef] C. Leforestier, R. H. Bisseling, C. Cerjan, M. D. Feit, R. Friesner, A. Guldberg, A. Hammerich, G. Jolicard, 
          W. Karrlein, H.-D. Meyer, N. Lipkin, O. Roncero, R. Kosloff *J. Comp. Phys.* **94** (1991) 59 
          `DOI: https://doi.org/10.1016/0021-9991(91)90137-A <http://www.sciencedirect.com/science/article/pii/002199919190137A>`_
-.. [Tal] H. Tal‐Ezer, R. Kosloff *J. Chem. Phys.* **81** (1984) 3967 `DOI: 10.1063/1.448136 <https://doi.org/10.1063/1.448136>`_
+.. [1Tal] H. Tal‐Ezer, R. Kosloff *J. Chem. Phys.* **81** (1984) 3967 `DOI: 10.1063/1.448136 <https://doi.org/10.1063/1.448136>`_
 
 
