@@ -124,7 +124,12 @@ Performance and benchmarking
 ----------------------------
 
 PaPIM is designed as a highly scalable code. Its performance was extensively tested. 
-More information can be found at this :ref:`link<performance>`.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./performance
 
 
 Source Code
