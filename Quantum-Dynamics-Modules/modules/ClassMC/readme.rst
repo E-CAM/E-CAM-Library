@@ -68,7 +68,7 @@ An executable ``ClassMCRun.exe`` is created upon successful compilation.
 Testing
 _______
 
-For PaPIM test purposes the ``numdiff`` package is used for automatic comparison purposes and should be made
+For ClassMC test purposes the ``numdiff`` package is used for automatic comparison purposes and should be made
 available before running the tests, otherwise the ``diff`` command will be used automatically instead but the user
 is warned that the test might fail due to numerical differences.
 The user is advised to download and install ``numdiff`` from `here <http://www.nongnu.org/numdiff/>`_.
