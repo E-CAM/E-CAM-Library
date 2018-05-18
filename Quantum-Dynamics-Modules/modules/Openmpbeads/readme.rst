@@ -70,8 +70,7 @@ Before running the tests the code has to be properly compiled by running the ``m
 The ``numdiff`` package is used for automatic comparison purposes and should be made available before running the tests, 
 otherwise the ``diff`` command will be used automatically instead but the user is warned that the test might fail 
 due to small numerical differences. 
-The tests are performed automatically by executing the command ``./test.sh`` in the ``./tests`` sub-directory 
-for all three systems:
+The tests are performed automatically by executing the following command in the ``./tests`` sub-directory:
 
 ::
 
