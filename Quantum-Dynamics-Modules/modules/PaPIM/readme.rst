@@ -24,7 +24,7 @@ _________________
 **PaPIM** is a code for computing time-dependent correlation functions and sampling of the phase space. 
 It samples the phase space either classically or quantum mechanically. 
 For the classical sampling of the phase space a Monte Carlo algorithm samples the Boltzmann distribution function, 
-while for the quantum sampling a Phase Integration Method (PIM) [Mon1]_ [Mon2]_ is utilized for an exact sampling of the quantum 
+while for the quantum sampling a Phase Integration Method (PIM) [PMon1]_ [PMon2]_ is utilized for an exact sampling of the quantum 
 Wigner density distribution. 
 From the sampled phase space points trajectories are propagated in time using classical molecular dynamics 
 in order to obtain the appropriate time-dependent correlation functions. 
@@ -43,7 +43,7 @@ Phase Integration Method (PIM)
 ______________________________
 
 The Phase Integration Method (PIM) is a novel approximate quantum dynamical technique developed for computing 
-systems time dependent observables. [Mon1]_ [Mon2]_ [Beu]_ 
+systems time dependent observables. [PMon1]_ [PMon2]_ [Beu]_ 
 PIM employs an algorithm in which the exact sampling of the quantum thermal Wigner density is combined 
 with a linearized approximation of the quantum time propagators represented in the path integral formalism 
 that reduces the evolution to classical dynamics. 
@@ -151,9 +151,9 @@ The documentation files (html and latex format) are obtained by executing the ``
 References
 __________
 
-.. [Mon1] M. Monteferrante, S. Bonella, G. Ciccotti *Mol. Phys.* **109** (2011) 3015 `DOI: 10.1080/00268976.2011.619506
+.. [PMon1] M. Monteferrante, S. Bonella, G. Ciccotti *Mol. Phys.* **109** (2011) 3015 `DOI: 10.1080/00268976.2011.619506
           <http://dx.doi.org/10.1080/00268976.2011.619506>`_
-.. [Mon2] M. Monteferrante, S. Bonella, G. Ciccotti *J. Chem. Phys.* **138** (2013) 054118 `DOI: 10.1063/1.4789760
+.. [PMon2] M. Monteferrante, S. Bonella, G. Ciccotti *J. Chem. Phys.* **138** (2013) 054118 `DOI: 10.1063/1.4789760
           <http://dx.doi.org/10.1063/1.4789760>`_
 .. [Beu] J. Beutier, M. Monteferrante, S. Bonella, R. Vuilleumier, G. Ciccotti *Mol. Sim.* **40** (2014) 196 `DOI: 
          10.1080/08927022.2013.843776 <http://dx.doi.org/10.1080/08927022.2013.843776>`_
