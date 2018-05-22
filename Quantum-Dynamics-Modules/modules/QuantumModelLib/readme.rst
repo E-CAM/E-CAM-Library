@@ -76,4 +76,4 @@ The script tests two aspects:
 Source Code
 ___________
 
-The source code can be downloaded from the `E-CAM gitlab <https://gitlab.e-cam2020.eu/lauvergn/????>`_.
+The source code can be downloaded from the `E-CAM gitlab <https://gitlab.e-cam2020.eu/lauvergn/QuantumModelLib>`_.
