@@ -12,6 +12,8 @@
   Name
 .. Trotter Based Quantum Classocal Surface Hopping Propagator  Single Path
 
+  Authors  
+
   Language
     C++ (GNU 2011 or higher)
 
@@ -46,58 +48,33 @@
 Trotter Based Quantum Classical Surface Hopping Propagator  Single Path
 #######################################################################
 
-..  Let's add a local table of contents to help people navigate the page
-
-..  contents:: :local:
-
-..  Add an abstract for a *general* audience here. Write a few lines that explains the "helicopter view" of why you are
-    creating this module. For example, you might say that "This module is a stepping stone to incorporating XXXX effects
-    into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
-    produce compound AAAA while avoiding expensive process BBBB and CCCC."
-
-Quantum rate processes in condensed phase systems are often computed by combining quantum and
-classical descriptions of the dynamics including non-adiabatic coupling, using propagators which amount to
-quantum path integrals in a partial Wigner phase space respresentation, such as the mixed quantum classi-
-cal Dyson equation and variants thereof, or the Trotter decomposition of the quantum-classical propagator.
-Nothwithstanding the precision of such algorithms for a vareity of systems, they all suffer major difficulties
-in simulating systems for long times due to increasingly osillatory integrands, a numerical manifestation of
-quantum interference between paths known as the sign problem, which emerges when individual paths are
-sampled through Monte Carlo sampling schemes. The present module is a refactored version of a surface hoppimg code and algorithm based on a  paper by Donal Mac Kernan, Giovanni Ciccotti, and Raymond Kapral, "Trotter-Based Simulation of Quantum-Classical Dynamics", J. Chem. Phys.  J. Phys. Chem. B 2008, 112, 424-432. The original code was written by Donal MacKernan essenentially in C  and was purely a serial code. Ths   requires a gnu  C++ 2014 or higher. There are two versions of the for parallel platforms - one written for openmp, and another for mpi. Each codes scale prefectly with increasimg computing core, after initialization overhead. The authors of the current code are:  Sean Kelly, Shrinath Kumar, Athina Lange. Philip McGrath, and Donal MacKernan. 
-    
-
-The original source of this page (:download:`readme.rst`) contains lots of additional comments to help you create your
-documentation *module* so please use this as a starting point. We use Sphinx_ (which in turn uses ReST_) to create this
-documentation. You are free to add any level of complexity you wish (within the bounds of what Sphinx_ and ReST_ can
-do). More general instructions for making your contribution can be found in ":ref:`contributing`".
-
-Remember that for a module to be accepted into the E-CAM repository, your source code changes in the target application
-must pass a number of acceptance criteria:
-
-* Style *(use meaningful variable names, no global variables,...)*
-
-* Source code documentation *(each function should be documented with each argument explained)*
-
-* Tests *(everything you add should have either unit or regression tests)*
-
-* Performance *(If what you introduce has a significant computational load you should make some performance optimisation
-  effort using an appropriate tool. You should be able to verify that your changes have not introduced unexpected
-  performance penalties, are threadsafe if needed,...)*
+Abstract
+________
+The present module is a highly refactored version of a code based on a highly cited algorithm published by D. Mackernan, G.Ciccotti and R. Kapral "Trotter-Based Simulation of Quantum-Classical Dynamics", J. Chem. Phys  J. Phys. Chem. B 2008, 112, 424-432. The module software has been entirely refactored in modern C++ (version 2014 or later) so as to: (a) run with high efficiency on massively parallel platforms under openmp or mpi; and (b) be at the core of additional software modules  aimed at addressing important issues such as improving the speed of convergence of estimates using correlated sampling, and much more realistic treatment of the classical bath, and connecting to other problems such as constant pH simulation through an effective Hamiltonian.
 
 Purpose of Module
 _________________
+Quantum rate processes in condensed phase systems are
+often computed by combining quantum and classical descriptions of
+the dynamics including non-adiabatic coupling, using propagators which
+amount to quantum path integrals in a partial Wigner phase space representation, such as
+the mixed quantum-classical Dyson equation and variants thereof, or the Trotter decomposition of the quantum-classical propagator.  
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-
-An understanding of the dynamical properties of condensed phase quantum systems underlies the description of a variety of quantum
-phenomena in chemical and biological systems. These phenomena include, among others, nonadiabatic chemical rate processes involving electronic, vibrational or other degrees of freedom,
-decoherence in open quantum systems and quantum transport processes. Quantum effects underlie the study of ultra-fast rate
-processes in solution.
-The development of schemes for the efficient and accurate simulation of the quantum dynamics of such systems is an
-active area of research in chemical physics and is essential if problems of chemical interest involving
+Background Information
+_____________________
+An understanding of the dynamical properties of condensed phase
+quantum systems underlie the description of a variety of quantum
+phenomena in chemical and biological systems. These phenomena
+include, among others, nonadiabatic chemical rate processes
+involving electronic, vibrational or other degrees of freedom,
+decoherence in open quantum systems and quantum transport
+processes. Quantum effects underlie the study of ultra-fast rate
+processes in solution. The development of schemes for the efficient and
+accurate simulation of the quantum dynamics of such systems is an
+an active area of research in chemical
+physics, and is essential if problems of chemical interest involving
 complex molecular species in the condensed phase are considered.
-This article is concerned with the development of such a
-simulation method.
 
 In investigations of the dynamical properties of quantum
 statistical mechanical systems, one is often interested in the
@@ -105,102 +82,51 @@ average value of some operator when the system evolves from a
 given initially prepared distribution described by the density
 matrix :math:`\hat{\rho}(0)`. In such cases the quantum mechanical
 average value of an operator :math:`\hat{B}` is given by
+:math:`\overline{B(t)}= Tr \hat{B} \hat{\rho}(t)=  Tr\hat{B}(t) \hat{\rho}(0)`. Here,
+:math:`\hat{B}(t)` evolves in time through the Heisenberg equation of motion.
+In many applications, it is useful to partition the system into a subsystem and
+a bath. A phase space description of the bath can be obtained by
+taking a partial Wigner transform over the bath coordinate :math:`\{Q\}` representation
+of the full quantum system. In this partial Wigner representation the expectation value of math:`\hat{B}(t)` takes the
 
 .. math::
-    :nowrap:
-    
-    \begin{equation*}
-    \overline{B(t)}= {\rm Tr} \hat{B} \hat{\rho}(t)= {\rm Tr}
-    \hat{B}(t) \hat{\rho}(0)\;.
-    \end{equation*}
+   \overline{B(t)}=  Tr' \int dR dP\;  {B}_W(R,P,t) {\rho}_W(R,P)
+
+where the prime on the trace indicates a trace over the subsystem
+degrees of freedom. 
+
+The software module developed here is based on a  Trotter-based scheme for simulating
+quantum-classical Liouville dynamics in terms of an ensemble of surface-hopping trajectories. The method can be used to compute the dynamics for longer times with fewer trajectories than the
+sequential short-time propagation (SSTP) algorithm, which is also based on surface-hopping trajectories. The full derivation of the algorithm is given in the J.Chem Paper cited above. Here the software focus is to refactor the original code which until now was a purely serial so that it can be used efficiently on massively parallel machines. For mathematical details, we refer the reader to eq.30-35 of the paper.
+
+Algorithms and Software Implementation
+______________________________________
+Sean, can you summarise the changes to the code compared with the original version
 
 
-Give a brief overview of why the module is being created, explaining a little of the scientific background and how
-it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
-non-expert in the domain area of the software module.
+Checking for accuracy
+__________________________________________
+The output of this software module, was compared with the original serial code. These comparisons were made both in an openmp and mpi version of the module. All results are the statistically the same 
+(i.e. within error bars). 
 
-This section should also include the following (where appropriate):
 
-* Who will use the module? in what area(s) and in what context?
+Testing, Performance and Scaling
+_______________________
+The code scales  perfectly with increasing number of computing core in the context if openmp uintil the limit of node is reached, and  in the context of mpi no change in perfeect scalimg was observed to
+the limit tested.
 
-* What kind of problems can be solved by the code?
-
-* Are there any real-world applications for it?
-
-* Has the module been interfaced with other packages?
-
-* Was it used in a thesis, a scientific collaboration, or was it cited in a publication?
-
-* If there are published results obtained using this code, describe them briefly in terms readable for non-expert users.
-  If you have few pictures/graphs illustrating the power or utility of the module, please include them with
-  corresponding explanatory captions.
-
-.. note::
-
-  If the module is an ingredient for a more general workflow (e.g. the module was the necessary foundation for later
-  code; the module is part of a group of modules that will be used to calculate certain property or have certain
-  application, etc.) mention this, and point to the place where you specify the applications of the more general
-  workflow (that could be in another module, in another section of this repository, an application's website, etc.).
-
-.. note::
-
-  If you are a post-docs who works in E-CAM, an obvious application for the module (or for the group of modules that
-  this one is part of) is your pilot project. In this case, you could point for the pilot project page on the main
-  website (and you must ensure that this module is linked there).
-
-If needed you can include latex mathematics like
-:math:`\frac{ \sum_{t=0}^{N}f(t,k) }{N}`
-which won't show up on GitLab/GitHub but will in final online documentation.
-
-If you want to add a citation, such as [CIT2009]_, please check the source code to see how this is done. Note that
-citations may get rearranged, e.g., to the bottom of the "page".
-
-.. [CIT2009] This is a citation (as often used in journals).
-
-Background Information
-______________________
-
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
-
-If the modifications are to an existing code base (which is typical) then this would be the place to name that
-application. List any relevant urls and explain how to get access to that code. There needs to be enough information
-here so that the person reading knows where to get the source code for the application, what version this information is
-relevant for, whether this requires any additional patches/plugins, etc.
-
-Overall, this module is supposed to be self-contained, but linking to specific URLs with more detailed information is
-encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
-the links they need should be already in this module.
-
-Building and Testing
-____________________
-
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
-
-Provide the build information for the module here and explain how tests are run. This needs to be adequately detailed,
-explaining if necessary any deviations from the normal build procedure of the application (and links to information
-about the normal build process needs to be provided).
+Provide the build information for the module here an explain how tests are run.
 
 Source Code
 ___________
 
-.. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
+The source codes are at 
 
-Here link the source code *that was created for the module*. If you are using Github or GitLab and the `Gitflow Workflow
-<https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature branch.
-Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits.
+Here link the source code that was created for the module. In this example I'm using a patch file for that reason I need
+to explain what code (including exact version information), the source code is for.
 
-* `Link to a merge request containing my source code changes
-  <https://github.com/easybuilders/easybuild-easyblocks/pull/1106>`_
-
-There may be a situation where you cannot do such linking. In this case, I'll go through an example that uses a patch
-file to highlight my source code changes, for that reason I would need to explain what code (including exact version
-information), the source code is for.
-
-You can create a similar patch file by (for example if you are using git for your version control) making your changes
-for the module in a feature branch and then doing something like the following:
-
-..  Don't forget the white space around the "literal block" (a literal block keeps all spacing and is a good way to
-    include terminal output, file contents, etc.)
+You can create the patch file by (for example if you are using git for your version control) making your changes for the
+module in a feature branch and then doing something like the following:
 
 ::
 
@@ -221,27 +147,14 @@ for the module in a feature branch and then doing something like the following:
   [adam@mbp2600 example (tmpsquash)]$ git format-patch master
   0001-My-squashed-commits.patch
 
-
-To include a patch file do something like the following (take a look at the source code of this document to see the
-syntax required to get this):
-
-..  Below I am telling Sphinx that the included file is C code, if possible it will then do syntax highlighting. I can
-    even emphasise partiuclar lines (here 2 and 9-11)
-
-.. .. literalinclude:: ./simple.patch
-      :language: c
-      :emphasize-lines: 2,9-11
-      :linenos:
-
-
-..  I can't highlight the langauge syntax of a patch though so I have to exclude
-    :language: c
+To include a patch file do something like the following:
 
 .. literalinclude:: ./simple.patch
+   :language: c
    :emphasize-lines: 2,9-11
    :linenos:
 
-If the patch is very long you will probably want to add it as a subpage which can be done as follows
+If the patch is very long you will probably want to add it as a subpage so let's do that now
 
 .. toctree::
    :glob:
@@ -249,13 +162,6 @@ If the patch is very long you will probably want to add it as a subpage which ca
 
    patch
 
-..  Remember to change the reference "patch" for something unique in your patch file subpage or you will have
-    cross-referencing problems
-
-you can reference it with :ref:`patch`
-
-.. Here are the URL references used (which is alternative method to the one described above)
-
-.. _ReST: http://www.sphinx-doc.org/en/stable/rest.html
-.. _Sphinx: http://www.sphinx-doc.org/en/stable/markup/index.html
+.. Here are the URL references used
+.. _ReST: http://docutils.sourceforge.net/docs/user/rst/quickref.html
 
