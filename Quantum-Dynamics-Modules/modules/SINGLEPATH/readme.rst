@@ -93,6 +93,47 @@ an Input file, so the code no longer needs to be recompiled to adjust these para
 a significant reduction in runtime.
 
 
+Compiling
+_________
+
+OpenMP version:
+
+With the GNU compiler:
+
+::
+
+	Compile command;
+	g++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -fopenmp
+
+	Run command:
+	./run Input
+
+
+With the Intel compiler:
+
+::
+
+	Compile command;
+	icpc -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -qopenmp
+
+	Run command:
+	./run Input
+
+-----------------------------------
+
+MPI version:
+
+::
+
+	Compile command;
+	mpic++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm
+
+	Run command:
+	mpirun -n 10 ./run Input
+	(Note: Put the number of processors you want to use after '-n')
+
+
+
 Checking for accuracy
 __________________________________________
 The original serial code was run 1000 times to generate an expected output and variance. These can be found in the ./Regression_testing sub-directory. 
