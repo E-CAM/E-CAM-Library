@@ -106,6 +106,13 @@ Provide the build information for the module here an explain how tests are run.
 Source Code
 ___________
 
-The source codes for the OpenMP and MPI versions of the code are here: 
+The source codes for the OpenMP and MPI versions of the code are: 
 `OpenMP <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/tree/master/Code_Parallel_Omp>`_, 
 `MPI <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/tree/master/Code_Parallel_MPI>`_.
+
+
+Source Code Documentation
+_________________________
+
+The source code documentation is given at https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/tree/master/Doc.
+These documentation files can be updated by executing the ``make`` command in the ``./Doc`` sub-directory.
