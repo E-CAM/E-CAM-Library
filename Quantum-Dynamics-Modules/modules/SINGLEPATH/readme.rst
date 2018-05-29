@@ -1,18 +1,10 @@
-..  In ReStructured Text (ReST) indentation and spacing are very important (it is how ReST knows what to do with your
-    document). For ReST to understand what you intend and to render it correctly please to keep the structure of this
-    template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded
-    and followed by white space (if you see warnings when this file is built they this is a common origin for problems).
+.. _SinglePath:
 
-
-..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
-    progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
+#######################################################################
+Trotter Based Quantum Classical Surface Hopping Propagator - Single Path
+#######################################################################
 
 ..  sidebar:: Software Technical Information
-
-  Name
-.. Trotter Based Quantum Classocal Surface Hopping Propagator  Single Path
-
-  Authors  
 
   Language
     C++ (GNU 2011 or higher)
@@ -34,24 +26,8 @@
     Add a link to any relevant training material. If there currently is none then say 'Not currently available.'
 
   Software Module Developed by
-    Add the name of the person who developed the software for this module here
+    Sean Kelly, Athina Lange, Philip McGrath, Shrinath Kumar and Donal MacKernan
 
-
-..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
-    reference, in this case, as ":ref:`example`"). You *MUST* change the reference below from "example" to something
-    unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
-    reference to work (so don't insert a comment between).
-
-.. _example:
-
-#######################################################################
-Trotter Based Quantum Classical Surface Hopping Propagator  Single Path
-#######################################################################
-
-Authors
-_______
-
-Sean Kelly, Athina Lange, Philip McGrath,  Shrinath Kumar and Donal MacKernan
 
 Abstract
 ________
