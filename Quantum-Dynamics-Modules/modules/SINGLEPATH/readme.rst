@@ -32,7 +32,7 @@ Trotter Based Quantum Classical Surface Hopping Propagator - Single Path
 Abstract
 ________
 The present module is a highly refactored version of a code based on a highly cited algorithm published by 
-D. Mackernan, G.Ciccotti and R. Kapral "Trotter-Based Simulation of Quantum-Classical Dynamics", J. Chem. Phys  J. Phys. Chem. B 2008, 112, 424-432 [Mackernan]_.  
+D. Mackernan, G.Ciccotti and R. Kapral [Mackernan]_.  
 The module software has been entirely refactored in modern C++ (GNU 2011 or higher) so as to: (a) run with high efficiency on massively parallel platforms 
 under openmp or mpi; and (b) be at the core of additional software modules  aimed at addressing important issues such as improving the speed of convergence of 
 estimates using correlated sampling, and much more realistic treatment of the classical bath, and connecting to other problems such as constant pH simulation 
