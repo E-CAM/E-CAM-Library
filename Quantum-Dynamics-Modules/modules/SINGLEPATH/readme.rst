@@ -162,7 +162,7 @@ Source Code Documentation
 _________________________
 
 The source code documentation is given at https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/tree/master/Doc.
-These documentation files can be updated by executing the ``make`` command in the ``./Doc`` sub-directory.
+These documentation files can be updated by executing the ``make`` command in the ``Doc`` directory.
 
 
 References
