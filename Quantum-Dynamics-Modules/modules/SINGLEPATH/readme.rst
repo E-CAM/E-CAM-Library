@@ -84,8 +84,8 @@ Algorithms and Software Implementation
 ______________________________________
 The current Single Path code has three main advantages over the original version. First it is separated into files based on function for better readability.
 For example the 'transition_matrix.cpp' file is where the transition matrix and associated functions are defined, etc. Secondly input parameters are read from
-an Input file, so the code no longer needs to be recompiled to adjust these parameters. And finally the code has be altered to run in parallel which allows for a 
-significant reduction in runtime.
+an Input file, so the code no longer needs to be recompiled to adjust these parameters. And finally the code has been altered to run in parallel which allows for 
+a significant reduction in runtime.
 
 
 Checking for accuracy
