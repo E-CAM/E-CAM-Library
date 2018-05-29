@@ -26,17 +26,27 @@ Purpose of Module
 _________________
 
 The flook library is a simplifiled API for communicating between fortran code and
-the `Lua <https://www.lua.org>` scripting language. A basic method is to
+the `Lua <https://www.lua.org>`_ scripting language. A basic method is to
 use flook as an interactive interpreter to pass variables back and forth between a
 parent fortran program. It does not only serve as a simple input engine but also
 allows calling specific fortran functions from within Lua. Thus by exposing
 fortran module procedures one can control the flow of programs as well as parameters
 in programs.
 
+Application
+-----------
+
+The library is currently enabled in `Siesta <https://launchpad.net/siesta>`_ and
+`ESL-demo <https://esl.cecam.org/Esl-demo>`_ where it can be used to change convergence
+parameters *on the fly* and/or being used as an MD back-end.
+Since it allows exchange of data between Lua and fortran basically every variable in fortran
+can be exposed to the user via a Lua script.
+
+
 Background Information
 ______________________
 
-The flook library is built on two libraries; 1) Lua and 2) `AOTUS <https://bitbucket.org/haraldkl/aotus>`.
+The flook library is built on two libraries; 1) Lua and 2) `AOTUS <https://bitbucket.org/haraldkl/aotus>`_.
 Both are shipped together with the software and are required when building.
 Lua is required to be able to run the Lua interpreter in-memory while the AOTUS library is
 required for the low-level communication layer. 
@@ -67,6 +77,8 @@ The source code of the `flook` module is hosted on Github and can be obtained
 using ``git`` or via the release page of `flook`::
 
   git clone https://github.com/ElectronicStructureLibrary/flook
+  cd flook
+  git submodule update --init --recursive
 
 The source code of the `flook` module itself is contained in the `src` subdirectory.
 
