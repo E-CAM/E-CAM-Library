@@ -87,8 +87,11 @@ Sean, can you summarise the changes to the code compared with the original versi
 
 Checking for accuracy
 __________________________________________
-The output of this software module, was compared with the original serial code. These comparisons were made both in an openmp and mpi version of the module. All results are the statistically the same 
-(i.e. within error bars). 
+The original serial code was run 1000 times to generate an expected output and variance. These can be found in the 'Regression_testing' folder
+of the source files. A regression test is built into both the OpenMP and MPI versions which checks if their output is within five standard deviations
+of the expected output (given a specific set of input parameters). If any part of the output goes outside that limit the regression test fails, otherwise it
+succeeds. (Note: To run a test 'Regression_test=1' must be set in the Input file along with a standard
+set of parameters. All of this is specified in the Input file).
 
 
 Testing, Performance and Scaling
