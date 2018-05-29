@@ -106,48 +106,6 @@ Provide the build information for the module here an explain how tests are run.
 Source Code
 ___________
 
-The source codes are at 
-
-Here link the source code that was created for the module. In this example I'm using a patch file for that reason I need
-to explain what code (including exact version information), the source code is for.
-
-You can create the patch file by (for example if you are using git for your version control) making your changes for the
-module in a feature branch and then doing something like the following:
-
-::
-
-  [adam@mbp2600 example (master)]$ git checkout -b tmpsquash
-  Switched to a new branch "tmpsquash"
-
-  [adam@mbp2600 example (tmpsquash)]$ git merge --squash newlines
-  Updating 4d2de39..b6768b2
-  Fast forward
-  Squash commit -- not updating HEAD
-   test.txt |    2 ++
-   1 files changed, 2 insertions(+), 0 deletions(-)
-
-  [adam@mbp2600 example (tmpsquash)]$ git commit -a -m "My squashed commits"
-  [tmpsquash]: created 75b0a89: "My squashed commits"
-   1 files changed, 2 insertions(+), 0 deletions(-)
-
-  [adam@mbp2600 example (tmpsquash)]$ git format-patch master
-  0001-My-squashed-commits.patch
-
-To include a patch file do something like the following:
-
-.. literalinclude:: ./simple.patch
-   :language: c
-   :emphasize-lines: 2,9-11
-   :linenos:
-
-If the patch is very long you will probably want to add it as a subpage so let's do that now
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   patch
-
-.. Here are the URL references used
-.. _ReST: http://docutils.sourceforge.net/docs/user/rst/quickref.html
-
+The source codes for the OpenMP and MPI versions of the code are here: 
+`OpenMP <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/tree/master/Code_Parallel_Omp>`_, 
+`MPI <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/tree/master/Code_Parallel_MPI>`_.
