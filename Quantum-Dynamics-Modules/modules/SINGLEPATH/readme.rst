@@ -17,17 +17,17 @@ Trotter Based Quantum Classical Surface Hopping Propagator - Single Path
 
   Documentation Tool
     Doxygen
-    `Ford < FORD>`_, for Python ReST_, etc.
-     `Donkey < https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hoping-Multi-Path/blob/master/doc/html/index.html>
+    
   Application Documentation
-    Provide a link to any documentation for the application.
+    `Documentation <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/blob/master/Doc/html/index.html>`_
 
   Relevant Training Material
-    Add a link to any relevant training material. If there currently is none then say 'Not currently available.'
+    Add a link to any relevant training material. If there currently is none then say 'Not currently available.'    
 
   Software Module Developed by
     Sean Kelly, Athina Lange, Philip McGrath, Shrinath Kumar and Donal MacKernan
 
+..  contents:: :local:
 
 Abstract
 ________
