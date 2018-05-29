@@ -98,10 +98,11 @@ of the expected output (given a specific set of input parameters). If any part o
 
 Testing, Performance and Scaling
 _______________________
-The code scales  perfectly with increasing number of computing core in the context if openmp uintil the limit of node is reached, and  in the context of mpi no change in perfeect scalimg was observed to
-the limit tested.
+Testing was performed on the Fionn supercomputer from ICHEC. Fionn consistes of a large amount of 'nodes' each of which contains 24 processing cores. The OpenMP 
+version was tested on up to 24 cores (1 node) and demonstrated perfect scaling with the number of cores. The MPI version was tested on up to 96 cores (4 nodes).
+It again demonstrated perfect scaling up to 24 cores and good scaling up to 96 (reducing in efficiency as the number of nodes increased). 
 
-Provide the build information for the module here an explain how tests are run.
+These tests were performed by simply comparing the runtimes between codes using 1, 4, 8, ... 24 cores.
 
 Source Code
 ___________
