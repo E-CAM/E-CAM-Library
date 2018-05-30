@@ -58,6 +58,38 @@ The scalar potential, or time-dependent potential energy surface :math:`\epsilon
 
 respectively, where :math:`\langle\,\cdot\,\rangle_{\mathbf r}` stands for an integration over the electronic coordinates. In the nuclear time-dependent Schrödinger equation, the time-dependent potentials fully account for electronic nonadiabatic effects, i.e., excited-state effects, on nuclear motion.
 
+Approximating the nuclear time-dependent Schrödinger equation classically, the force generating the trajectory along which the :math:`\nu`th nucleus evolve is determined
+
+:math:`\mathbf F_\nu = \mathbf F_\nu^{\textrm{Eh.}}+ \mathbf F_\nu^{\textrm{qm}}`.
+
+In this expression the classical force is decomposed in a -- more standard -- Ehrenfest-like contribution
+
+:math:`\mathbf F_\nu^{\textrm{Eh.}}= -\sum_k\left|C_k(t)\right|^2\nabla_\nu\epsilon_{BO}^{(k)}-\sum_{k, l} C_l^*(t)C_k(t)\left(\epsilon_{BO}^{(k)}-\epsilon_{BO}^{(l)}\right)\mathbf d_{lk,\nu}`
+
+and a new *coupled-trajectory* contribution, depending on the quantum momentum, whose expression is
+
+:math:`\mathbf F_\nu^{\textrm{qm}}\sum_{k}\left|C_k(t)\right|^2\left(\sum_{\nu'=1}^{N_n} \frac{2\mathbf Q_{\nu'}}{\hbar M_{\nu'}}\cdot\mathbf f_{l,\nu'}\right)\Bigg[\mathbf f_{k,\nu}-\sum_{l}\left|C_l(t)\right|^2\mathbf f_{l,\nu}\Bigg]`.
+
+Several new symbols have been introduced in these expressions: :math:`C_k(t)` represents the :math:`k`th coefficient of the expansion of the electronic wavefunction on the adiabatic basis, thus the index :math:`k` runs over the :math:`n` states that are included in the expansion; :math:`\epsilon_{BO}^{(k)}` is the energy eigenvalue of the Hamiltonian :math:`\hat H_{BO}` on the :math:`k`th eigenstate; :math:`\mathbf d_{lk,\nu}` stands for the nonadiabatic coupling vector between the electronic adiabatic states :math:`l` and :math:`k` and calculated from the displacement of the nucleus :math:`\nu`; :math:`\mathbf f_{k,\nu}(t) = \int^t[-\nabla_\nu \epsilon_{BO}^{(k)}(\mathbf R^{cl}(t'))] dt'` is the adiabatic force integrated over time along the trajectory (indicated here as the multi-dimensional vector :math:`\mathbf R^{cl}(t)`); :math:`\mathbf Q_{\nu}(t)` is the *quantum momentum*, whose expression will be given below. It is worth underlying at this point that all quantities depending on nuclear positions, such as the adiabatic energies or the nonadiabatic coupling vectors, become, in the quantum-classical picture, function of the trajectory.
+ 
+Expressing the electronic evolution equation in the adiabatic basis (formed by the set of eigenstates of the Born-Oppenheimer Hamiltonian :math:`\hat H_{BO}`), one gets a set of :math:`n` coupled evolution equations for the coefficients :math:`C_k(t)` of such expansion, namely
+
+:math:`\dot C_k(t) = \dot C_k^{\textrm{Eh.}}(t) + \dot C_k^{\textrm{qm}}(t)`
+
+where, once again, the first term is a standard Ehrenfest-like contribution
+
+:math:`\dot C_k^{\textrm{Eh.}}(t)= -\frac{i}{\hbar}\epsilon_{BO}^{(k)}C_k(t) - \sum_{\nu=1}^{N_n}\dot{\mathbf R}_\nu^{cl}(t)\cdot\sum_{l}\mathbf d_{kl,\nu}C_l(t)`,
+
+whereas the second term is a *coupled-trajectory* contribution, depending on the quantum momentum, 
+
+:math:`\dot C_k^{\textrm{qm}}(t)=\sum_{\nu=1}^{N_n} \frac{\mathbf Q_\nu}{\hbar M_\nu}\cdot\Bigg[\mathbf f_{k,\nu}-\sum_{l}\left|C_l(t)\right|^2\mathbf f_{l,\nu}\Bigg]C_k(t)`.
+
+The quantum momentum is a function of nuclear positions, thus as consequence of the classical treatment of the nuclei, it becomes a function of the trajectory, namely
+
+:math:`\mathbf Q_\nu(\mathbf R^{cl}(t),t) = -\frac{\hbar}{2} \frac{\nabla_\nu|\chi(\mathbf R^{cl}(t),t)|^2}{|\chi(\mathbf R^{cl}(t),t)|^2}.`
+
+Notice that the quantum momentum tracks the spatial variation of the nuclear density, as it contains its spatial derivative. At each time step, the nuclear density has to be reconstructed, for instance by computing a histogram from the distribution of classical trajectories. Such calculation requires that at the end of each step of dynamics, the trajectories *communicate* -- all at the same time -- information about their positions, in order to compute the quantum momentum. Once :math:`\mathbf Q_\nu(\mathbf R^{cl}(t),t)` is known, the trajectories can perform a new step of dynamics. On-the-fly calculation of the quantum momentum is possible only if the trajectories are propagated all at the same time, that is why the underlying algorithm has been dubbed ``coupled-trajectory''-MQC.
+
 
 Applications of the Module
 __________________________
