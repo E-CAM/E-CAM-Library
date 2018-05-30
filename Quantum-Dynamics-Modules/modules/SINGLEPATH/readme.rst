@@ -123,7 +123,7 @@ MPI version:
 ::
 
 	Compile command;
-	mpic++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm
+	mpic++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -std=c++11
 
 	Run command:
 	mpirun -n [number of MPI processors] ./run Input
