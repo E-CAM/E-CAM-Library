@@ -47,7 +47,14 @@ For instance, the phenol potential [1] (2 coordinates, 3 electronic surfaces) is
 
   CALL sub_model1_V(V,Q,ndim,nsurf,pot_name,option)
 
-with pot_name='phenol' and  where V is a 3x3 matrix representing the adiabatic potential, Q a vector with 2 components (ndim=2) associated to the 2 coordinates.
+or
+
+::
+
+  CALL sub_model1_V(V,Q,2,3,'phenol',option)
+
+
+with pot_name='phenol' and  where V is a 3x3 matrix representing the adiabatic potential (nsurf=3), Q a vector with 2 components (ndim=2) associated to the 2 coordinates.
 
 The diabatic potential can be obtained by calling the "sub_model1_DiaV" subroutine with the same arguments.
 
