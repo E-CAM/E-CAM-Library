@@ -103,7 +103,7 @@ With the GNU compiler:
 	g++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -fopenmp
 
 	Run command:
-	./run Input
+	export OMP_NUM_THREADS=[number of OpenMP threads]; ./run Input
 
 
 With the Intel compiler:
@@ -114,7 +114,7 @@ With the Intel compiler:
 	icpc -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -qopenmp
 
 	Run command:
-	./run Input
+	export OMP_NUM_THREADS=[number of OpenMP threads]; ./run Input
 
 -----------------------------------
 
