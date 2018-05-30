@@ -21,11 +21,21 @@ CTMQC
 Purpose of Module
 _________________
 
-**CTMQC** is a code for excited-state nonadiabatic simulations.
+**CTMQC** is a module for excited-state nonadiabatic dynamics, therefore it is used to simulate the coupled dynamics of electrons and nuclei (ideally in gas phase molecular systems) in response to, for instance, an initial electronic excitation.
+
+The purpose of the module is to familiarize the user with a new simulation technique, i.e., the CTMQC method, for treating problems where electronic excited states are populated during the molecular dynamics. Photo-activated ultrafast processes are typical situations in which an approach like CTMQC can be used to predict molecular properties, like structures, quantum yields, or quantum coherence.
+
+
+As clarified below, the CTMQC module is based on the coupled-trajectory mixed quantum classical algorithm [CTMQC1]_ [CTMQC2]_ that has been derived starting from the evolution equations in the framework the exact factorization of the electron-nuclear wavefunction [EF1]_ [EF2]_. The CTMQC algorithm belongs to the family of quantum-classical methods, as the time evolution of the nuclear degrees of freedom is treated within the classical approximation, whereas electronic dynamics is treated fully quantum mechanically. Basically, the nuclei evolve as point particles, following classical trajectories, while the electrons *generate* the potential inducing such time evolution.
+
+In its current implementation, the module cannot deal with arbitrary nuclear dimensions, but it is restricted to treat 3-dimensional problems, which gives the possibility to compare quantum-classical results easily and directly with quantum wavepacket dynamics. CTMQC has been analyzed and benchmarked against exact propagation results on typical low-dimensional model systems [CTMQC3]_, and applied for the simulation of the photo-initiated ring-opening process of Oxirane [CTMQC4]_. For this study, CTMQC has been implemented in a developer version of the CPMD electronic structure package based on time-dependent density functional theory. Concerning electronic input properties, the CTMQC module requires a grid representation of the adiabatic potential energy surfaces and of the nonadiabatic coupling vectors, since the electronic dynamics is represented and solved in the adiabatic basis. This feature allows the algorithm to be easily adaptable, in the current form, to any quantum chemistry electronic structure package. The number of electronic states to be included is not limited, and can be specified as input.
 
 
 Coupled-Trajectory Mixed Quantum-Classical Dynamics
 ___________________________________________________
+
+The *exact factorization of the electron-nuclear wavefunction* [EF1]_ provides a prescription for decomposing the time-dependent Schrödinger equation for a system of interacting electrons and nuclei into the coupled dynamics of the subsystems, i.e., the electronic and the nuclear. The time-dependent molecular wavefunction, :math:`\Psi(\mathbf r, \mathbf R,t)`
+
 
 
 Applications of the Module
@@ -85,3 +95,31 @@ Source Code
 ___________
 
 The CTMQC source code and test files can be found at `CTMQC <https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/CT-MQC>`_.
+
+
+References
+__________
+
+.. [CTMQC1] S. K. Min, F. Agostini, E. K. U. Gross, *Phys. Rev. Lett.* 
+          **115** (2015) 073001 `DOI: 10.1103/PhysRevLett.115.073001 
+          <https://doi.org/10.1103/PhysRevLett.115.073001>`_
+
+.. [CTMQC2] F. Agostini, S. K. Min, A. Abedi, E. K. U. Gross, *J. Chem. Theory Comput* 
+          **5** (2016) 2127 `DOI: 10.1021/acs.jctc.5b01180
+          <https://doi.org/10.1021/acs.jctc.5b01180>`_
+
+.. [CTMQC3] Graeme H. Gossel, Federica Agostini, Neepa T. Maitra, (2018) `arXiv: 1805.03534 [physics.chem-ph]
+          <https://arxiv.org/abs/1805.03534>`_
+
+.. [CTMQC4] S. K. Min, Federica Agostini, I. Tavernelli, E. K. U. Gross, *J. Phys. Chem. Lett.* 
+          **8** (2017) 3048 `DOI: 10.1021/acs.jpclett.7b01249
+          <https://doi.org/110.1021/acs.jpclett.7b01249>`_
+
+.. [EF1] A. Abedi, N. T. Maitra, E. K. U. Gross, *Phys. Rev. Lett.* 
+          **105** (2010) 123002 `DOI: 10.1103/PhysRevLett.105.123002 
+          <https://doi.org/10.1103/PhysRevLett.105.123002>`_
+
+.. [EF2] F. Agostini, B. F. E. Curchod, R. Vuilleumier, I. Tavernelli, E. K. U. Gross, 
+           *TDDFT and Quantum-Classical Dynamics: a Universal Tool Describing the Dynamics of Matter*
+           in 'Handbook of Materials Modeling. Volume 1 Methods: Theory and Modeling'', edited by 
+           Wanda Andreoni and Sidney Yip, Springer (in production).
