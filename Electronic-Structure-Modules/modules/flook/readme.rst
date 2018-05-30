@@ -81,6 +81,8 @@ using ``git`` or via the release page of `flook`::
   git submodule update --init --recursive
 
 The source code of the `flook` module itself is contained in the `src` subdirectory.
+Lua depends on the readline library (with headers) to be installed. Please install this
+library first.
 
 .. note::
  The information contained in the *Downloading and installation* section are
