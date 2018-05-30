@@ -94,14 +94,14 @@ Notice that the quantum momentum tracks the spatial variation of the nuclear den
 Applications of the Module
 __________________________
 
+The module is designed to apply the CTMQC procedure to one-, two-, and three-dimensional model systems where an arbitrary number of electronic states are coupled via the nuclear dynamics. Tully model systems [Tully]_ are within the class of problems that can be treated by the module, as well as a wide class of multidimensional problems involving, for instance, ultrafast radiationless relaxation of photo-excited molecules [CI]_ through conical intersections.
 
 
 
 Installation
 ____________
 
-The CTMQC is a fortran90 based code.
-Compilation of the code requires the gfortran compiler, and Lapack and Blas libraries.
+The CTMQC is a fortran90 based code. Compilation of the code requires the gfortran compiler, and Lapack libraries. Tests have been performed with GCC 4.x 5.x and 6.x, and confirmed that consistent results are obtained with these three versions of the gfortran compiler; for the moment, GCC 7.x should be avoided as the benchmark results provided with the module cannot be reproduced.
 
 Once the main directory has been downloaded, go to the directory and
 
@@ -161,12 +161,12 @@ __________
           **5** (2016) 2127 `DOI: 10.1021/acs.jctc.5b01180
           <https://doi.org/10.1021/acs.jctc.5b01180>`_
 
-.. [CTMQC3] Graeme H. Gossel, Federica Agostini, Neepa T. Maitra, (2018) `arXiv: 1805.03534 [physics.chem-ph]
+.. [CTMQC3] Graeme H. Gossel, F. Agostini, Neepa T. Maitra, (2018) `arXiv: 1805.03534 [physics.chem-ph]
           <https://arxiv.org/abs/1805.03534>`_
 
 .. [CTMQC4] S. K. Min, Federica Agostini, I. Tavernelli, E. K. U. Gross, *J. Phys. Chem. Lett.* 
           **8** (2017) 3048 `DOI: 10.1021/acs.jpclett.7b01249
-          <https://doi.org/110.1021/acs.jpclett.7b01249>`_
+          <https://doi.org/10.1021/acs.jpclett.7b01249>`_
 
 .. [EF1] A. Abedi, N. T. Maitra, E. K. U. Gross, *Phys. Rev. Lett.* 
           **105** (2010) 123002 `DOI: 10.1103/PhysRevLett.105.123002 
@@ -180,3 +180,12 @@ __________
            *TDDFT and Quantum-Classical Dynamics: a Universal Tool Describing the Dynamics of Matter*
            in 'Handbook of Materials Modeling. Volume 1 Methods: Theory and Modeling'', edited by 
            Wanda Andreoni and Sidney Yip, Springer (in production).
+
+.. [Tully] J. C. Tully, *J. Chem. Phys.* 
+          **93** (1990) 1061 `DOI: 10.1063/1.459170
+          <https://doi.org/10.1063/1.459170>`_
+
+.. [CI] B. F. E. Curchod, F. Agostini, *J. Phys. Chem. Lett.* 
+          **8** (2017) 831 `DOI: 10.1021/acs.jpclett.7b00043
+          <https://doi.org/10.1021/acs.jpclett.7b000439>`_
+
