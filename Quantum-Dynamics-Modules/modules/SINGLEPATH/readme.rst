@@ -10,10 +10,7 @@ Trotter Based Quantum Classical Surface Hopping Propagator - Single Path
     C++ (GNU 2011 or higher)
 
   Licence
-    Specify the licence under which the software is released. Provide a link to the full online description of the
-    licence. You'll find descriptions of the most common licences at https://opensource.org/licenses .
-    An example here would be: `GPL <https://opensource.org/licenses/gpl-license>`_ or (the more permissive)
-    `MIT <https://opensource.org/licenses/mit-license>`_
+    MIT licence (MIT)
 
   Documentation Tool
     Doxygen
@@ -22,7 +19,7 @@ Trotter Based Quantum Classical Surface Hopping Propagator - Single Path
     `Documentation <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/blob/master/Doc/html/index.html>`_
 
   Relevant Training Material
-    Add a link to any relevant training material. If there currently is none then say 'Not currently available.'    
+    Not currently available   
 
   Software Module Developed by
     Sean Kelly, Athina Lange, Philip McGrath, Shrinath Kumar and Donal MacKernan
