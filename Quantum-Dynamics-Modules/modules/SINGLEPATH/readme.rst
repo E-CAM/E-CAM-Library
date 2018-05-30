@@ -126,8 +126,7 @@ MPI version:
 	mpic++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm
 
 	Run command:
-	mpirun -n 10 ./run Input
-	(Note: Put the number of processors you want to use after '-n')
+	mpirun -n [number of MPI processors] ./run Input
 
 
 
