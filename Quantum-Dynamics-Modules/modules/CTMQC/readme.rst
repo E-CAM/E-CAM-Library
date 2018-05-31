@@ -183,7 +183,7 @@ The directory tests contains input files and input data, i.e. potential energy s
         
 Analytical expressions of these models can be found in [Tully]_ [CTMQC2]_ [CTMQC3]_, and they are shown in the figure below.
 
-.. image:: ./Tully_models.pdf
+.. image:: ./Tully_models.png
    :width: 40 %
    :align: center
 
