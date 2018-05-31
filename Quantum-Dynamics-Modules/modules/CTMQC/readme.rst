@@ -100,44 +100,61 @@ The module is designed to apply the CTMQC procedure to one-, two-, and three-dim
 Installation
 ____________
 
-The CTMQC is a fortran90 based code. Compilation of the code requires the gfortran compiler, and Lapack libraries. Tests have been performed with GCC 4.x 5.x and 6.x, and confirmed that consistent results are obtained with these three versions of the gfortran compiler; for the moment, GCC 7.x should be avoided as the benchmark results provided with the module cannot be reproduced.
+The CTMQC is a fortran90 based code. Compilation of the code requires the gfortran compiler, and Lapack libraries. Tests have been performed with GCC 4.x 5.x and 6.x, and confirmed that consistent results are obtained with these three versions of the gfortran compiler; for the moment, GCC 7.x should be avoided for compilation as the benchmark results provided with the module cannot be reproduced.
 
-Once the main directory has been downloaded, go to the directory and
+Once the main directory CTMQC has been downloaded, go to the directory and
 
 ::
-
         cd ./src 
 
         make
 
-Running the command make will compile the source code and generate the executable main.x.
-Go back to the main directory with the command
+Running the command *make* will compile the source code and generate the executable *main.x*.
+Go back to the CTMQC directory with the command
 
 ::
-
         cd ../
 
-and run the command
+and run the script
 
 ::
-
         ./create_dirs.sh
 
-that creates the directory output where all output files will be generated. The directory output contains subdirectories: coeff (for one-dimensional calculations only) contain..., ... etc.
-
-The directory tests contains one-dimensional model systems (potentials and nonadiabatic coupling vectors)
-
-**Tully #1**: 
-        
+that creates the directory output where all output files will be generated. Notice that you should run this script in each new directory where you run the executable. The program generates a series of output files that are saved in different directories. Therefore, in order not to obtain errors during the execution of the program, the directories have to be created.
 
 
 Testing
 _______
 
-To run the executable from the main directory, write the command
+**CREATE THE OUTPUT DIRECTORY**
+
+The directory output contains several subdirectories. After successful execution of the program, those subdirectories will contain :math:`N_{\textrm{files}} = N_{\textrm{steps}}/N_{\textrm{dump}}` files, with :math:`N_{\textrm{steps}}` the number of total time steps and and :math:`N_{\textrm{dump}}` the number of time steps after which the output is written. In each subdirectory, the files are labelled with an index increasing with time, from 0 to :math:`N_{\textrm{files}}`. In the current version of the code, up to 999 files can be created.
+
+The following subdirectories of the directory *output* will be created, each containing:
 
 ::
+        coeff: [only for one-dimensional calculations] each file (named *coeff.xxx.dat*) in this directory contains the coefficients of the expansion of the electronic wavefunction in the adiabatic basis as a function of the position of the corresponding trajectory. Each file is in the form: *first column* the position of the trajectory; following *n x n* columns the real part of :math:`C_k^*C_l` with :math:`k,l=1,n`; following *n x n* columns the imaginary part of :math:`C_k^*C_l` with :math:`k,l=1,n`.
+        density:  [only for one-dimensional calculations] each file (named *density.xxx.dat*) in this directory contains the nuclear density reconstructed as the sum of :math:`N_{traj}` normlized Gaussian functions centered at the position of the trajectories, with :math:`N_{traj}` the total number of trajectories. The data listed in the file have the form: *first column* the grid in nuclear space, that is read as input from the files containing the potential energy surfaces and nonadiabatic coupling vectors (see section INFORMATION ABOUT THE INPUT FILES below); *second column* the nuclear density. Similarly to this set of files containing the density, additional files are created (named *smooth_density.xxx.dat*) where the density is smoothed by convoluting the density with a Gaussian function of fixed variance.
 
+
+**INFORMATION ABOUT THE INPUT FILES**
+
+The directory tests contains one-dimensional model systems (potentials and nonadiabatic coupling vectors)
+
+**Tully #1**: 
+
+**Tully #2**: 
+
+**Tully #3**: 
+
+**Tully #4**: 
+        
+
+**EXECUTING THE PROGRAM**
+
+To run the executable from the chosen directory (after having run the script *create_directories.sh*), write the command
+
+::
         ./src/main.x < path_to_input
 
 where path_to_input is the path to the input file. Examples of input files are provided in the tests directory, e.g. ./tully_1/k0_10au/input.in .
