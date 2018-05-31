@@ -200,7 +200,7 @@ To run the executable from the chosen directory (after having run the script *cr
 
         ./src/main.x < path_to_input
 
-where path_to_input is the path to the input file. As discussed above, examples of input files are provided in the tests directory, e.g., *tully_1/k0_10au/input.in*.
+where *path_to_input* is the path to the input file. As discussed above, examples of input files are provided in the tests directory, e.g., *tully_1/k0_10au/input.in*.
 
 
 Source Code
