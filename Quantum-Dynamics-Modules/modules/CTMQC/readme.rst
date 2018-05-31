@@ -173,13 +173,13 @@ respectively, with :math:`k=1,\ldots,n`.
 
 The directory tests contains input files and input data, i.e. potential energy surfaces and nonadiabatic coupling vectors on a grid, for the one-dimensional model systems known as Tully's models. They are
 
-**Tully #1**: single avoided crossing
+**Tully #1**: single avoided crossing [panel (a) of the figure below]
 
-**Tully #2**: dual avoided crossing
+**Tully #2**: dual avoided crossing [panel (b) of the figure below]
 
-**Tully #3**: extended coupling with reflection
+**Tully #3**: extended coupling with reflection [panel (c) of the figure below]
 
-**Tully #4**: double arch
+**Tully #4**: double arch [panel (d) of the figure below]
         
 Analytical expressions of these models can be found in [Tully]_ [CTMQC2]_ [CTMQC3]_, and they are shown in the figure below.
 
