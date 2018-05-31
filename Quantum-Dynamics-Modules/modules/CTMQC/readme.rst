@@ -185,7 +185,7 @@ Analytical expressions of these models can be found in [Tully]_ [CTMQC2]_ [CTMQC
 
 
 .. image:: ./Tully_models.pdf
-   :width: 60 %
+   :width: 40 %
    :align: center
 
 
