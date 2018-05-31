@@ -197,9 +197,10 @@ The directories *tully_1*, *tully_2*, *tully_3*, and *tully_4* contain as well i
 To run the executable from the chosen directory (after having run the script *create_directories.sh*), write the command
 
 ::
+
         ./src/main.x < path_to_input
 
-where path_to_input is the path to the input file. Examples of input files are provided in the tests directory, e.g. ./tully_1/k0_10au/input.in .
+where path_to_input is the path to the input file. As discussed above, examples of input files are provided in the tests directory, e.g., ./tully_1/k0_10au/input.in .
 
 
 Source Code
