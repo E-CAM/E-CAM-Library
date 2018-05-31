@@ -1,8 +1,8 @@
-.. _example:
+.. _QuantumModelLib:
 
-###############################
-E-CAM Model Libra	ry module
-###############################
+############################
+Quantum Model Library module
+############################
 
 .. sidebar:: Software Technical Information
 
@@ -77,7 +77,7 @@ __________
 
 ::
 
-      make Driver
+      make driver
 
 => it creates a "Driver.x" executable file.
 
