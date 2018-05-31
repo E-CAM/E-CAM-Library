@@ -34,7 +34,7 @@ In its current implementation, the module cannot deal with arbitrary nuclear dim
 Coupled-Trajectory Mixed Quantum-Classical Dynamics
 ___________________________________________________
 
-The *exact factorization of the electron-nuclear wavefunction* [EF1]_ provides a prescription for decomposing the time-dependent Schrödinger equation for a system of interacting electrons and nuclei into the coupled dynamics of the subsystems, i.e., the electronic and the nuclear. The time-dependent molecular wavefunction, :math:`\Psi(\mathbf r, \mathbf R,t)`, is the solution of the TDSE :math:`\hat H\Psi = i\partial_t\Psi`, with Hamiltonian `\hat H(\mathbf r,\mathbf R) = \hat T_n(\mathbf R) + \hat H_{BO}(\mathbf r,\mathbf R)`, containing the nuclear kinetic energy, :math:`\hat T_n`, and the electronic Born-Oppenheimer Hamiltonian, :math:`\hat H_{BO}`, defined as the sum of the electronic kinetic energy and of the interaction potentials. Here, the symbols :math: `\mathbf r,\mathbf R` indicate all electronic and nuclear coordinates, respectively. The full wavefunction can be exactly written as the product
+The *exact factorization of the electron-nuclear wavefunction* [EF1]_ provides a prescription for decomposing the time-dependent Schrödinger equation for a system of interacting electrons and nuclei into the coupled dynamics of the subsystems, i.e., the electronic and the nuclear. The time-dependent molecular wavefunction, :math:`\Psi(\mathbf r, \mathbf R,t)`, is the solution of the time-dependent Schrödinger equation :math:`\hat H\Psi = i\partial_t\Psi`, with Hamiltonian :math:`\hat H(\mathbf r,\mathbf R) = \hat T_n(\mathbf R) + \hat H_{BO}(\mathbf r,\mathbf R)`, containing the nuclear kinetic energy, :math:`\hat T_n`, and the electronic Born-Oppenheimer Hamiltonian, :math:`\hat H_{BO}`, defined as the sum of the electronic kinetic energy and of the interaction potentials. Here, the symbols :math:`\mathbf r,\mathbf R` indicate all electronic and nuclear coordinates, respectively. The full wavefunction can be exactly written as the product
 
 :math:`\Psi(\mathbf r,\mathbf R,t) = \chi(\mathbf R,t)\Phi_{\mathbf R}(\mathbf r,t)`,
 
@@ -46,7 +46,7 @@ Inserting the exact-factorization form of the full wavefunction into the time-de
 
 :math:`\Bigg[\sum_{\nu=1}^{N_n}\frac{[-i\hbar\nabla_\nu+\mathbf A_\nu]^2}{2M_\nu}+\epsilon\Bigg]\chi(\mathbf R,t) = i\hbar\partial_t\chi(\mathbf R,t)`
 
-where the new quantities introduced will be discussed below. The derivation of these equations can be found in [EF2]_. Nuclear masses are indicated by the symbol :math:`M_\nu$`, with the index :math:`\nu` running over the :math:`N_n` nuclei. In the electronic equation, the operator :math:`\hat U_{en}^{coup}[\Phi_{\mathbf R},\chi]` couples the electronic evolution to the nuclear dynamics as it depends on the nuclear wavefunction,
+where the new quantities introduced will be discussed below. The derivation of these equations can be found in [EF2]_. Nuclear masses are indicated by the symbol :math:`M_\nu`, with the index :math:`\nu` running over the :math:`N_n` nuclei. In the electronic equation, the operator :math:`\hat U_{en}^{coup}[\Phi_{\mathbf R},\chi]` couples the electronic evolution to the nuclear dynamics as it depends on the nuclear wavefunction,
 
 :math:`\hat U_{en}^{coup} [\Phi_{\mathbf R},\chi]= \sum_{\nu=1}^{N_n} \frac{1}{M_\nu}\Bigg[\frac{[-i\hbar \nabla_\nu-\mathbf A_\nu]^2}{2}+\left(\frac{-i\hbar\nabla_\nu\chi}{\chi}+\mathbf A_\nu\right)\cdot\left(-i\hbar\nabla_\nu-\mathbf A_\nu\right)\Bigg].`
 
@@ -58,7 +58,7 @@ The scalar potential, or time-dependent potential energy surface :math:`\epsilon
 
 respectively, where :math:`\langle\,\cdot\,\rangle_{\mathbf r}` stands for an integration over the electronic coordinates. In the nuclear time-dependent Schrödinger equation, the time-dependent potentials fully account for electronic nonadiabatic effects, i.e., excited-state effects, on nuclear motion.
 
-Approximating the nuclear time-dependent Schrödinger equation classically, the force generating the trajectory along which the :math:`\nu`th nucleus evolve is determined
+Approximating the nuclear time-dependent Schrödinger equation classically, the force generating the trajectory along which the :math:`\nu`-th nucleus evolve is determined
 
 :math:`\mathbf F_\nu = \mathbf F_\nu^{\textrm{Eh.}}+ \mathbf F_\nu^{\textrm{qm}}`.
 
