@@ -139,7 +139,7 @@ The following subdirectories of the directory *output* will be created, each con
 
         coeff: [only for one-dimensional calculations] 
 
-Each file (named *coeff.xxx.dat*) in this directory contains the coefficients of the expansion of the electronic wavefunction in the adiabatic basis as a function of the position of the corresponding trajectory. Each file is in the form: *first column* the position of the trajectory; following *n x n* columns the real part of :math:`C_k^*C_l` with :math:`k,l=1,n`; following *n x n* columns the imaginary part of :math:`C_k^*C_l` with :math:`k,l=1,n`.
+Each file (named *coeff.xxx.dat*) in this directory contains the coefficients of the expansion of the electronic wavefunction in the adiabatic basis as a function of the position of the corresponding trajectory. Each file is in the form: *first column* the position of the trajectory; *following* *n x n* *columns* the real part of :math:`C_k^*C_l` with :math:`k,l=1,n`; following *n x n* columns the imaginary part of :math:`C_k^*C_l` with :math:`k,l=1,n`.
 
 ::
 
@@ -147,6 +147,27 @@ Each file (named *coeff.xxx.dat*) in this directory contains the coefficients of
 
 Each file (named *density.xxx.dat*) in this directory contains the nuclear density reconstructed as the sum of :math:`N_{traj}` normlized Gaussian functions centered at the position of the trajectories, with :math:`N_{traj}` the total number of trajectories. The data listed in the file have the form: *first column* the grid in nuclear space, that is read as input from the files containing the potential energy surfaces and nonadiabatic coupling vectors (see section INFORMATION ABOUT THE INPUT FILES below); *second column* the nuclear density. Similarly to this set of files containing the density, additional files are created (named *smooth_density.xxx.dat*) where the density is smoothed by convoluting the density with a Gaussian function of fixed variance.
 
+::
+
+        histo:  [only for one-dimensional calculations]
+
+Each file (named *histo.xxx.dat*) in this directory contains the nuclear density approximated as a histogram that is constructed from the distribution of classical trajectories. The data listed in the file have the form: *first column* the position along the nuclear coordinated (coarser that the original grid, but defined in the same domain); *second column* the normalized histogram.
+
+::
+
+        trajectories
+
+Each file (named *RPE.xxx.dat*) in this directory contains the values of the phase-space variables and the value of the gauge-invariant part of the time-dependent potential energy surface :math:`\epsilon(\mathbf R,t)`, that is the first two terms of its expression (see for instance [EF3]_). The data listed in the file have the form: *first* :mathbf:`n_{\textrm{d.o.f.}}` *columns* the positions of the trajectories, with :mathbf:`n_{\textrm{d.o.f.}}` the number of nuclear degrees of freedom, therefore ranging from 1 to 3; *following* :mathbf:`n_{\textrm{d.o.f.}}` *columns* the momenta of the trajectories; *last column* the gauge-invariant part of the time-dependent potential energy surface.
+
+Additionally, the files *BO_population.dat* and *BO_coherences.dat* are created, containing the population of the adiabatic states and the indicator of coherence as function of time (the first columns is the time). They are defined as
+
+:math:`\rho_k(t) = \frac{1}{N_{traj}}\sum_{I=1}^{N_{traj}} \left|C_k^{(I)}(t)\right|^2`
+
+and
+
+:math:`\eta_{kl}(t) = \frac{1}{N_{traj}}\sum_{I=1}^{N_{traj}} \left|C_k^{(I)}(t)C_l^{(I)}(t)\right|^2`
+
+respectively, with :math:`k=1,\ldots,n`.
 
 **INFORMATION ABOUT THE INPUT FILES**
 
@@ -203,7 +224,11 @@ __________
           **137** (2012) 22A530 `DOI: 10.1063/1.4745836 
           <https://doi.org/10.1063/1.4745836>`_
 
-.. [EF3] F. Agostini, B. F. E. Curchod, R. Vuilleumier, I. Tavernelli, E. K. U. Gross, 
+.. [EF3] A. Abedi, F. Agostini, Y. Suzuki, E. K. U. Gross, *Phys. Rev. Lett.* 
+          **110** (2013) 263001 `DOI: 10.1103/PhysRevLett.110.263001 
+          <https://doi.org/10.1103/PhysRevLett.110.263001>`_
+
+.. [EF4] F. Agostini, B. F. E. Curchod, R. Vuilleumier, I. Tavernelli, E. K. U. Gross, 
            *TDDFT and Quantum-Classical Dynamics: a Universal Tool Describing the Dynamics of Matter*
            in 'Handbook of Materials Modeling. Volume 1 Methods: Theory and Modeling'', edited by 
            Wanda Andreoni and Sidney Yip, Springer (in production).
