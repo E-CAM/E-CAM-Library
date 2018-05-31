@@ -105,6 +105,7 @@ The CTMQC is a fortran90 based code. Compilation of the code requires the gfortr
 Once the main directory CTMQC has been downloaded, go to the directory and
 
 ::
+
         cd ./src 
 
         make
@@ -113,11 +114,13 @@ Running the command *make* will compile the source code and generate the executa
 Go back to the CTMQC directory with the command
 
 ::
+
         cd ../
 
 and run the script
 
 ::
+
         ./create_dirs.sh
 
 that creates the directory output where all output files will be generated. Notice that you should run this script in each new directory where you run the executable. The program generates a series of output files that are saved in different directories. Therefore, in order not to obtain errors during the execution of the program, the directories have to be created.
@@ -133,7 +136,11 @@ The directory output contains several subdirectories. After successful execution
 The following subdirectories of the directory *output* will be created, each containing:
 
 ::
+
         coeff: [only for one-dimensional calculations] each file (named *coeff.xxx.dat*) in this directory contains the coefficients of the expansion of the electronic wavefunction in the adiabatic basis as a function of the position of the corresponding trajectory. Each file is in the form: *first column* the position of the trajectory; following *n x n* columns the real part of :math:`C_k^*C_l` with :math:`k,l=1,n`; following *n x n* columns the imaginary part of :math:`C_k^*C_l` with :math:`k,l=1,n`.
+
+::
+
         density:  [only for one-dimensional calculations] each file (named *density.xxx.dat*) in this directory contains the nuclear density reconstructed as the sum of :math:`N_{traj}` normlized Gaussian functions centered at the position of the trajectories, with :math:`N_{traj}` the total number of trajectories. The data listed in the file have the form: *first column* the grid in nuclear space, that is read as input from the files containing the potential energy surfaces and nonadiabatic coupling vectors (see section INFORMATION ABOUT THE INPUT FILES below); *second column* the nuclear density. Similarly to this set of files containing the density, additional files are created (named *smooth_density.xxx.dat*) where the density is smoothed by convoluting the density with a Gaussian function of fixed variance.
 
 
