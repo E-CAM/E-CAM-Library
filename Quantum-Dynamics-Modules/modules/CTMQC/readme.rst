@@ -184,7 +184,7 @@ The directory tests contains input files and input data, i.e. potential energy s
 Analytical expressions of these models can be found in [Tully]_ [CTMQC2]_ [CTMQC3]_, and they are shown in the figure below.
 
 .. image:: ./Tully_models.png
-   :width: 1 %
+   :width: 1%
    :align: center
 
 
@@ -200,7 +200,7 @@ To run the executable from the chosen directory (after having run the script *cr
 
         ./src/main.x < path_to_input
 
-where path_to_input is the path to the input file. As discussed above, examples of input files are provided in the tests directory, e.g., ./tully_1/k0_10au/input.in .
+where path_to_input is the path to the input file. As discussed above, examples of input files are provided in the tests directory, e.g., *tully_1/k0_10au/input.in*.
 
 
 Source Code
