@@ -203,6 +203,14 @@ routine  has been implemented and tested as an added functionality within the Qu
 
 The **PhysConst** enables the use of physical constants and the correct isotopic masses.
 
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/QuantumModelLib/readme
+
+The **QuantumModelLib** use potential energy surfaces extracted from the literature and can be linked to quantum dynamics codes.
+
 PaPIM
 -----
 
