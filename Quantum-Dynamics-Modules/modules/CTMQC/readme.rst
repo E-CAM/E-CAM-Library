@@ -183,10 +183,10 @@ The directory tests contains input files and input data, i.e. potential energy s
         
 Analytical expressions of these models can be found in [Tully]_ [CTMQC2]_ [CTMQC3]_, and they are shown in the figure below.
 
-
 .. image:: ./Tully_models.pdf
    :width: 40 %
    :align: center
+
 
 In the directory *tests*, the subdirectories are *tully_1* (containing subdirectories *k0_10au* and *k0_25au*), *tully_2* (containing subdirectories *k0_16au* and *k0_30au*), *tully_3* (containing subdirectories *k0_10au* and *k0_30au*), and *tully_4* (containing subdirectories *k0_20au* and *k0_40au*). For the model **Tully #1** examples are provided for initial momenta of :math:`k_0=10, 25~a.u.` as clearly indicated by the name of the subdirectories; for the model **Tully #2** examples are provided for initial momenta of :math:`k_0=16, 30~a.u.`; for the model **Tully #3** examples are provided for initial momenta of :math:`k_0=10, 30~a.u.`; for the model **Tully #4** examples are provided for initial momenta of :math:`k_0=20, 40~a.u.`. The benchmark data provided here are the output files *BO_population.dat* and *BO_coherences.dat*; each subdirectory contains examples of input files.
 
