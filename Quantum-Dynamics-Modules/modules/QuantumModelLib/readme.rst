@@ -6,8 +6,6 @@ Quantum Model Library module
 
 .. sidebar:: Software Technical Information
 
-  This list is a work in progress, please help us improve it. We use *definition lists* of ReST_ to make this readable
-
   Language
     Fortran 2003
 
