@@ -145,7 +145,7 @@ Each file (named *coeff.xxx.dat*) in this directory contains the coefficients of
 
         density:  [only for one-dimensional calculations] 
 
-Each file (named *density.xxx.dat*) in this directory contains the nuclear density reconstructed as the sum of :math:`N_{traj}` normlized Gaussian functions centered at the position of the trajectories, with :math:`N_{traj}` the total number of trajectories. The data listed in the file have the form: *first column* the grid in nuclear space, that is read as input from the files containing the potential energy surfaces and nonadiabatic coupling vectors (see section INFORMATION ABOUT THE INPUT FILES below); *second column* the nuclear density. Similarly to this set of files containing the density, additional files are created (named *smooth_density.xxx.dat*) where the density is smoothed by convoluting the density with a Gaussian function of fixed variance.
+Each file (named *density.xxx.dat*) in this directory contains the nuclear density reconstructed as the sum of :math:`N_{traj}` normalized Gaussian functions centered at the position of the trajectories, with :math:`N_{traj}` the total number of trajectories. The data listed in the file have the form: *first column* the grid in nuclear space, that is read as input from the files containing the potential energy surfaces and nonadiabatic coupling vectors (see section INFORMATION ABOUT THE INPUT FILES below); *second column* the nuclear density. Similarly to this set of files containing the density, additional files are created (named *smooth_density.xxx.dat*) where the density is smoothed by convoluting the density with a Gaussian function of fixed variance.
 
 ::
 
@@ -157,7 +157,7 @@ Each file (named *histo.xxx.dat*) in this directory contains the nuclear density
 
         trajectories
 
-Each file (named *RPE.xxx.dat*) in this directory contains the values of the phase-space variables and the value of the gauge-invariant part of the time-dependent potential energy surface :math:`\epsilon(\mathbf R,t)`, that is the first two terms of its expression (see for instance [EF3]_). The data listed in the file have the form: *first* :mathbf:`n_{\textrm{d.o.f.}}` *columns* the positions of the trajectories, with :mathbf:`n_{\textrm{d.o.f.}}` the number of nuclear degrees of freedom, therefore ranging from 1 to 3; *following* :mathbf:`n_{\textrm{d.o.f.}}` *columns* the momenta of the trajectories; *last column* the gauge-invariant part of the time-dependent potential energy surface.
+Each file (named *RPE.xxx.dat*) in this directory contains the values of the phase-space variables and the value of the gauge-invariant part of the time-dependent potential energy surface :math:`\epsilon(\mathbf R,t)`, that is the first two terms of its expression (see for instance [EF3]_). The data listed in the file have the form: *first* :math:`n_{\textrm{d.o.f.}}` *columns* the positions of the trajectories, with :math:`n_{\textrm{d.o.f.}}` the number of nuclear degrees of freedom, therefore ranging from 1 to 3; *following* :math:`n_{\textrm{d.o.f.}}` *columns* the momenta of the trajectories; *last column* the gauge-invariant part of the time-dependent potential energy surface.
 
 Additionally, the files *BO_population.dat* and *BO_coherences.dat* are created, containing the population of the adiabatic states and the indicator of coherence as function of time (the first columns is the time). They are defined as
 
