@@ -10,7 +10,7 @@ CTMQC
     Fortran 90
 
   License
-    don't know yet
+    GNU Lesser General Public License (LGPL)
 
   Documentation Tool
     doxygen
