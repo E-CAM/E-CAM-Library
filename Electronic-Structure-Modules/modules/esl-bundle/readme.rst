@@ -1,232 +1,143 @@
-..  In ReStructured Text (ReST) indentation and spacing are very important (it is how ReST knows what to do with your
-    document). For ReST to understand what you intend and to render it correctly please to keep the structure of this
-    template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded
-    and followed by white space (if you see warnings when this file is built they this is a common origin for problems).
+.. _esl-bundle:
 
-
-..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
-    progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
+##########
+ESL Bundle
+##########
 
 ..  sidebar:: Software Technical Information
 
-  Name
-    Name of the relevant software.
-
   Language
-    Please indicate the primary language(s) used by the module. Please also state if interfaces for other languages are
-    available.
+    The building framework is written in Python. For the languages used in the different modules included in the Bundle,
+    please check the corresponding documentation.
 
   Licence
-    Specify the licence under which the software is released. Provide a link to the full online description of the
-    licence. You'll find descriptions of the most common licences at https://opensource.org/licenses .
-    An example here would be: `GPL <https://opensource.org/licenses/gpl-license>`_ or (the more permissive)
-    `MIT <https://opensource.org/licenses/mit-license>`_
+    The building framework is distributed under the `GPL <https://opensource.org/licenses/gpl-license>`_. 
+    For the licenses used in the different modules included in the Bundle, please check the corresponding documentation.
 
   Documentation Tool
-    All source code created for this module should be documented so please indicate what tool has been used for
-    documentation. Doxygen covers  most languages but for Fortran you might want to use
-    `Ford <http://fortranwiki.org/fortran/show/FORD>`_, for Python ReST_, etc.
+    ReStructuredText
 
   Application Documentation
-    Provide a link to any documentation for the application.
+    `README <https://gitlab.e-cam2020.eu/esl/esl-bundle/blob/master/README.rst>`_
 
   Relevant Training Material
-    Add a link to any relevant training material. If there currently is none then say 'Not currently available.'
+    Not currently available.
 
   Software Module Developed by
-    Add the name of the person who developed the software for this module here
-
-
-..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
-    reference, in this case, as ":ref:`example`"). You *MUST* change the reference below from "example" to something
-    unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
-    reference to work (so don't insert a comment between).
-
-.. _example:
-
-####################
-E-CAM example module
-####################
-
-..  Let's add a local table of contents to help people navigate the page
+    The ESL Bundle was created by Damien Caliste, Alin Marin Elena, Micael Oliveira, and Yann Pouillon. The building
+    framework is based on a modified version of JHBuild_, which was written by James Henstridge.
 
 ..  contents:: :local:
 
-..  Add an abstract for a *general* audience here. Write a few lines that explains the "helicopter view" of why you are
-    creating this module. For example, you might say that "This module is a stepping stone to incorporating XXXX effects
-    into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
-    produce compound AAAA while avoiding expensive process BBBB and CCCC."
+The ESL Bundle aims at incorporating all the `CECAM Electronic
+Structure Library <http://esl.cecam.org>`_ modules into a single
+package and using a unified framework for compilation and
+installation.
 
-The E-CAM library is purely a set of documentation that describes software development efforts related to the project. A
-*module* for E-CAM is the documentation of the single development of effort associated to the project.In that sense, a
-module does not directly contain source code but instead contains links to source code, typically stored elsewhere. Each
-module references the source code changes to which it direcctly applies (usually via a URL), and provides detailed
-information on the relevant *application* for the changes as well as how to build and test the associated software.
-
-The original source of this page (:download:`readme.rst`) contains lots of additional comments to help you create your
-documentation *module* so please use this as a starting point. We use Sphinx_ (which in turn uses ReST_) to create this
-documentation. You are free to add any level of complexity you wish (within the bounds of what Sphinx_ and ReST_ can
-do). More general instructions for making your contribution can be found in ":ref:`contributing`".
-
-Remember that for a module to be accepted into the E-CAM repository, your source code changes in the target application
-must pass a number of acceptance criteria:
-
-* Style *(use meaningful variable names, no global variables,...)*
-
-* Source code documentation *(each function should be documented with each argument explained)*
-
-* Tests *(everything you add should have either unit or regression tests)*
-
-* Performance *(If what you introduce has a significant computational load you should make some performance optimisation
-  effort using an appropriate tool. You should be able to verify that your changes have not introduced unexpected
-  performance penalties, are threadsafe if needed,...)*
 
 Purpose of Module
 _________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
+The ``ESL Bundle`` is a collection of libraries and utilities broadly
+used in electronic structure calculations, put together to make their
+use easier by researchers and scientific software developers. It
+includes a building framework helping users, developers and packagers
+in obtaining a working installation of complex combinations of
+software packages without having to track the dependencies themselves.
 
-Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
-it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
-non-expert in the domain area of the software module.
 
-This section should also include the following (where appropriate):
+Installation
+____________
 
-* Who will use the module? in what area(s) and in what context?
+The ESL Bundle comes with a version of JHBuild_ which has been tuned to fit
+the context of the ESL. JHBuild_ supports a wide variety of build systems,
+although it is not a build system itself. It is rather a tool designed to ease
+the build of collections of related source packages, that it calls "modules". It
+was originally written for the `Gnome Project`_, but its use has then been
+extended to other situations.
 
-* What kind of problems can be solved by the code?
+Most of the operations are performed by executing the ``jhbuild.py`` script with
+appropriate parameters. The command line syntax is the following:
 
-* Are there any real-world applications for it?
+  jhbuild.py [global-options] command [command-arguments]
 
-* Has the module been interfaced with other packages?
 
-* Was it used in a thesis, a scientific collaboration, or was it cited in a publication?
+The following global options are available:
+  
+-f, --file config  Use an alternative configuration file instead of the default
+                   ~/.config/jhbuildrc.
 
-* If there are published results obtained using this code, describe them briefly in terms readable for non-expert users.
-  If you have few pictures/graphs illustrating the power or utility of the module, please include them with
-  corresponding explanatory captions.
+-m, --moduleset moduleset  Use a module set other than the module set listed in
+                           the configuration file. This option can be a
+                           relative path if the module set is located in the
+                           JHBuild moduleset folder, or an absolute path if
+                           located elsewhere.
+
+--no-interact   Do not prompt the user for any input. This option is useful if
+                leaving a build unattended, in order to ensure the build is not
+                interrupted.
+
+  
+In the ESL Bundle, the default module set is ``esl``. This module set provides
+a meta-module called ``esl-bundle``, which builds and installs all the packages
+included in the bundle. A second meta-module called ``esl-bundle-mpi`` is
+provided, that builds the packages with MPI support. Note that not all packages
+can be compiled with MPI support. In that case they will be built without it.
+
+The ``jhbuild.py`` script does not need to be invoked from the directory where
+it is located.
 
 .. note::
 
-  If the module is an ingredient for a more general workflow (e.g. the module was the necessary foundation for later
-  code; the module is part of a group of modules that will be used to calculate certain property or have certain
-  application, etc.) mention this, and point to the place where you specify the applications of the more general
-  workflow (that could be in another module, in another section of this repository, an application’s website, etc.).
+   To keep the source directory clean, we highly recommended the use of a build
+   directory.
 
-.. note::
+Therefore, a typical way of installing the collection of ESL libraries is the
+following::
+    mkdir my_build_dir
+    cd my_build_dir
+    ../jhbuild.py build
 
-  If you are a post-doc who works in E-CAM, an obvious application for the module (or for the group of modules that
-  this one is part of) is your pilot project. In this case, you could point to the pilot project page on the main
-  website (and you must ensure that this module is linked there).
+By default, the ``build`` command will compile all the modules from the
+``esl-bundle`` meta-module and install them in the current directory. This, and a
+few other options, can be changed in the configuration file. Several sample
+configuration files are provided in the ``rcfiles`` directory. These files should
+be suitable to build the bundle in a variety of systems, but they can also be
+used as a starting point to write configuration files more suited to your needs.
 
-If needed you can include latex mathematics like
-:math:`\frac{ \sum_{t=0}^{N}f(t,k) }{N}`
-which won't show up on GitLab/GitHub but will in final online documentation.
+The configuration files use Python syntax. Here is a list of some important
+options:
 
-If you want to add a citation, such as [CIT2009]_, please check the source code to see how this is done. Note that
-citations may get rearranged, e.g., to the bottom of the "page".
+- ``modules``: dictionary of modules to build.
+- ``prefix``: directory where the modules should be installed.
+- ``checkoutroot``: where to unpack the module's sources.
 
-.. [CIT2009] This is a citation (as often used in journals).
+Configuration options to be passed to the modules build systems can also be
+specified in the configuration file. Here is an example of how to do this::
+   # Set the FC variable when invoking the configure script for all modules
+   autogenargs="FC=gfortran"
 
-Background Information
-______________________
+   # Run make in parallel with two threads
+   makeargs="-j2"
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
+   # Here the futile module requires an extra configuration option.
+   # Note that this will overwrite the global options set by autogenargs, so we
+   # have to add it here explicitly.
+   module_autogenargs['futile'] = "--with-ext-linalg='-lopenblas' " + autogenargs
 
-If the modifications are to an existing code base (which is typical) then this would be the place to name that
-application. List any relevant urls and explain how to get access to that code. There needs to be enough information
-here so that the person reading knows where to get the source code for the application, what version this information is
-relevant for, whether this requires any additional patches/plugins, etc.
-
-Overall, this module is supposed to be self-contained, but linking to specific URLs with more detailed information is
-encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
-the links they need should be already in this module.
-
-Building and Testing
-____________________
-
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
-
-Provide the build information for the module here and explain how tests are run. This needs to be adequately detailed,
-explaining if necessary any deviations from the normal build procedure of the application (and links to information
-about the normal build process needs to be provided).
 
 Source Code
 ___________
 
-.. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
+The source code is available from the `E-CAM Gitlab`__ under the `esl-bundle`__
+project. The ESL Bundle directory can be found `here`__.
 
-Here link the source code *that was created for the module*. If you are using Github or GitLab and the `Gitflow Workflow
-<https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature branch.
-Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits.
+.. __: https://gitlab.e-cam2020.eu/
+.. __: https://gitlab.e-cam2020.eu/esl/esl-bundle/
+.. __: https://gitlab.e-cam2020.eu/esl/esl-bundle/tree/master/
 
-* `Link to a merge request containing my source code changes
-  <https://github.com/easybuilders/easybuild-easyblocks/pull/1106>`_
-
-There may be a situation where you cannot do such linking. In this case, I'll go through an example that uses a patch
-file to highlight my source code changes, for that reason I would need to explain what code (including exact version
-information), the source code is for.
-
-You can create a similar patch file by (for example if you are using git for your version control) making your changes
-for the module in a feature branch and then doing something like the following:
-
-..  Don't forget the white space around the "literal block" (a literal block keeps all spacing and is a good way to
-    include terminal output, file contents, etc.)
-
-::
-
-  [adam@mbp2600 example (master)]$ git checkout -b tmpsquash
-  Switched to a new branch "tmpsquash"
-
-  [adam@mbp2600 example (tmpsquash)]$ git merge --squash newlines
-  Updating 4d2de39..b6768b2
-  Fast forward
-  Squash commit -- not updating HEAD
-   test.txt |    2 ++
-   1 files changed, 2 insertions(+), 0 deletions(-)
-
-  [adam@mbp2600 example (tmpsquash)]$ git commit -a -m "My squashed commits"
-  [tmpsquash]: created 75b0a89: "My squashed commits"
-   1 files changed, 2 insertions(+), 0 deletions(-)
-
-  [adam@mbp2600 example (tmpsquash)]$ git format-patch master
-  0001-My-squashed-commits.patch
-
-
-To include a patch file do something like the following (take a look at the source code of this document to see the
-syntax required to get this):
-
-..  Below I am telling Sphinx that the included file is C code, if possible it will then do syntax highlighting. I can
-    even emphasise partiuclar lines (here 2 and 9-11)
-
-.. .. literalinclude:: ./simple.patch
-      :language: c
-      :emphasize-lines: 2,9-11
-      :linenos:
-
-
-..  I can't highlight the langauge syntax of a patch though so I have to exclude
-    :language: c
-
-.. literalinclude:: ./simple.patch
-   :emphasize-lines: 2,9-11
-   :linenos:
-
-If the patch is very long you will probably want to add it as a subpage which can be done as follows
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   patch
-
-..  Remember to change the reference "patch" for something unique in your patch file subpage or you will have
-    cross-referencing problems
-
-you can reference it with :ref:`patch`
 
 .. Here are the URL references used (which is alternative method to the one described above)
 
-.. _ReST: http://www.sphinx-doc.org/en/stable/rest.html
-.. _Sphinx: http://www.sphinx-doc.org/en/stable/markup/index.html
-
+.. _`Gnome Project`: https://www.gnome.org/
+.. _JHBuild: https://developer.gnome.org/jhbuild/stable/
