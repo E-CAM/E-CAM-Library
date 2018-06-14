@@ -38,7 +38,7 @@ installation.
 Purpose of Module
 _________________
 
-The ``ESL Bundle`` is a collection of libraries and utilities broadly
+The ESL Bundle is a collection of libraries and utilities broadly
 used in electronic structure calculations, put together to make their
 use easier by researchers and scientific software developers. It
 includes a building framework helping users, developers and packagers
