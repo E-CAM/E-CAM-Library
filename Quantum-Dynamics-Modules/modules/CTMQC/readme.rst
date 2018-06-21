@@ -1,8 +1,8 @@
-.. _CTMQC:
+.. _CTMQC2018:
 
-####################
+#####
 CTMQC
-####################
+#####
 
 .. sidebar:: Software Technical Information
 
@@ -26,7 +26,7 @@ _________________
 The purpose of the module is to familiarize the user with a new simulation technique, i.e., the CTMQC method, for treating problems where electronic excited states are populated during the molecular dynamics. Photo-activated ultrafast processes are typical situations in which an approach like CTMQC can be used to predict molecular properties, like structures, quantum yields, or quantum coherence.
 
 
-As clarified below, the CTMQC module is based on the coupled-trajectory mixed quantum classical algorithm [CTMQC1]_ [CTMQC2]_ that has been derived starting from the evolution equations in the framework the exact factorization of the electron-nuclear wavefunction [EF1]_ [EF3]_. The CTMQC algorithm belongs to the family of quantum-classical methods, as the time evolution of the nuclear degrees of freedom is treated within the classical approximation, whereas electronic dynamics is treated fully quantum mechanically. Basically, the nuclei evolve as point particles, following classical trajectories, while the electrons *generate* the potential inducing such time evolution.
+As clarified below, the CTMQC module is based on the coupled-trajectory mixed quantum classical algorithm [CTMQC1]_ [CTMQC2]_ that has been derived starting from the evolution equations in the framework the exact factorization of the electron-nuclear wavefunction [EF1]_ [EF3]_ [EF4]_. The CTMQC algorithm belongs to the family of quantum-classical methods, as the time evolution of the nuclear degrees of freedom is treated within the classical approximation, whereas electronic dynamics is treated fully quantum mechanically. Basically, the nuclei evolve as point particles, following classical trajectories, while the electrons *generate* the potential inducing such time evolution.
 
 In its current implementation, the module cannot deal with arbitrary nuclear dimensions, but it is restricted to treat 3-dimensional problems, which gives the possibility to compare quantum-classical results easily and directly with quantum wavepacket dynamics. CTMQC has been analyzed and benchmarked against exact propagation results on typical low-dimensional model systems [CTMQC3]_, and applied for the simulation of the photo-initiated ring-opening process of Oxirane [CTMQC4]_. For this study, CTMQC has been implemented in a developer version of the CPMD electronic structure package based on time-dependent density functional theory. Concerning electronic input properties, the CTMQC module requires a grid representation of the adiabatic potential energy surfaces and of the nonadiabatic coupling vectors, since the electronic dynamics is represented and solved in the adiabatic basis. This feature allows the algorithm to be easily adaptable, in the current form, to any quantum chemistry electronic structure package. The number of electronic states to be included is not limited, and can be specified as input.
 
@@ -88,7 +88,7 @@ The quantum momentum is a function of nuclear positions, thus as consequence of 
 
 :math:`\mathbf Q_\nu(\mathbf R^{cl}(t),t) = -\frac{\hbar}{2} \frac{\nabla_\nu|\chi(\mathbf R^{cl}(t),t)|^2}{|\chi(\mathbf R^{cl}(t),t)|^2}.`
 
-Notice that the quantum momentum tracks the spatial variation of the nuclear density, as it contains its spatial derivative. At each time step, the nuclear density has to be reconstructed, for instance by computing a histogram from the distribution of classical trajectories. Such calculation requires that at the end of each step of dynamics, the trajectories *communicate* -- all at the same time -- information about their positions, in order to compute the quantum momentum. Once :math:`\mathbf Q_\nu(\mathbf R^{cl}(t),t)` is known, the trajectories can perform a new step of dynamics. On-the-fly calculation of the quantum momentum is possible only if the trajectories are propagated all at the same time, that is why the underlying algorithm has been dubbed ``coupled-trajectory''-MQC.
+Notice that the quantum momentum tracks the spatial variation of the nuclear density, as it contains its spatial derivative. At each time step, the nuclear density has to be reconstructed, for instance by computing a histogram from the distribution of classical trajectories. Such calculation requires that at the end of each step of dynamics, the trajectories *communicate* -- all at the same time -- information about their positions, in order to compute the quantum momentum. Once :math:`\mathbf Q_\nu(\mathbf R^{cl}(t),t)` is known, the trajectories can perform a new step of dynamics. On-the-fly calculation of the quantum momentum is possible only if the trajectories are propagated all at the same time, that is why the underlying algorithm has been dubbed ''coupled-trajectory''-MQC.
 
 
 Applications of the Module
@@ -184,7 +184,7 @@ The directory tests contains input files and input data, i.e. potential energy s
 Analytical expressions of these models can be found in [Tully]_ [CTMQC2]_ [CTMQC3]_, and they are shown in the figure below.
 
 .. image:: ./Tully_models.png
-   :width: 1%
+   :width: 50%
    :align: center
 
 
@@ -241,7 +241,7 @@ __________
 
 .. [EF4] F. Agostini, B. F. E. Curchod, R. Vuilleumier, I. Tavernelli, E. K. U. Gross, 
            *TDDFT and Quantum-Classical Dynamics: a Universal Tool Describing the Dynamics of Matter*
-           in 'Handbook of Materials Modeling. Volume 1 Methods: Theory and Modeling'', edited by 
+           in 'Handbook of Materials Modeling. Volume 1 Methods: Theory and Modeling', edited by 
            Wanda Andreoni and Sidney Yip, Springer (in production).
 
 .. [Tully] J. C. Tully, *J. Chem. Phys.* 
