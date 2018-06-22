@@ -163,6 +163,15 @@ routine  has been implemented and tested as an added functionality within the Qu
 
 The **PhysConst** enables the use of physical constants and the correct isotopic masses.
 
+.. toctree:: 
+    :glob: 
+    :maxdepth: 1
+
+    ./modules/zagreb_sh/zagrebsh_readme.rst
+    
+    The Zagreb surface-hopping module provides an interface between the use Tully's fewest switch surface hopping and QUANTICS code. 
+
+
 PaPIM
 -----
 
