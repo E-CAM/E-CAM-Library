@@ -202,6 +202,14 @@ To run the executable from the chosen directory (after having run the script *cr
 
 where *path_to_input* is the path to the input file. As discussed above, examples of input files are provided in the tests directory, e.g., *tully_1/k0_10au/input.in*.
 
+After the run is completed, and from the main directory, you can run the script
+
+::
+
+        ./comparison.sh
+
+and follow the indications shown in the terminal, to automatically plot the adiabatic populations and the indicator of decoherence that you have generated, and to compare them with the reference results provided.
+
 
 Source Code
 ___________
