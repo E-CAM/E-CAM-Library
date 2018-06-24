@@ -82,6 +82,11 @@ The software module developed here is based on a  Trotter-based scheme for simul
 quantum-classical Liouville dynamics in terms of an ensemble of surface-hopping trajectories. The method can be used to compute the dynamics for longer times with fewer trajectories than the
 sequential short-time propagation (SSTP) algorithm, which is also based on surface-hopping trajectories. The full derivation of the algorithm is given in the J.Chem Paper cited above. Here the software focus is to refactor the original code which until now was a purely serial so that it can be used efficiently on massively parallel machines. For mathematical details, we refer the reader to eq.30-35 of the paper.
 
+Applications
+____________
+*** Description of Applications here ***
+
+
 Algorithms and Software Implementation
 ______________________________________
 The current Single Path code has three main advantages over the original version. First it is separated into files based on function for better readability.
