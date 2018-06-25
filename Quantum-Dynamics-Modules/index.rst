@@ -256,6 +256,14 @@ It also contains a library of adapted MPI subroutines for easier programming of 
 polyer chains within the PIM algorithm.
 
 
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/QQ-Interface/qq-interface.rst
+
+**Quantics-QChem-Interface** is an interface between Quantics and QChem. The DFT algorithm implemented in QChem can be used to provide electronic structure information for direct dynamics simulations using the Quantics program package.
+
 References
 ==========
 
