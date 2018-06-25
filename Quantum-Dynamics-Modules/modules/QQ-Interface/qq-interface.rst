@@ -41,9 +41,9 @@
 
 .. _qq-interface:
 
-####################
+#######################################
 QQ-Interface (Quantics-QChem-Interface)
-####################
+#######################################
 
 ..  Let's add a local table of contents to help people navigate the page
 
@@ -64,13 +64,20 @@ ____________________
 
 
 
-To use the module, get the latest version of Quantics from the repository and build it as usual. Moreover you have to have a running version of QChem installed on your system. An example calculation, simulating the photodissociation of water using 4 coupled states is added to the Quantics repository, the documentation of the example can be found `here <http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/howtos/run_dd.html>`_. In principle you can run the module with::
+To use the module, get the latest version of Quantics from the repository and build it as usual. Moreover you have to have a running version of `QChem <http://www.q-chem.com>` installed on your system. An example calculation, simulating the photodissociation of water using 4 coupled states is added to the Quantics repository, the documentation of the example can be found `here <http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/howtos/run_dd.html>`_. After you have copied the 'water-dd.inp' and the 'run_qchem' files to your directory, you have specified the template for the electronic structure calculations and you performed the preparatory calculations, you can start the simulation with::
 
    quantics water-dd
 
 
-In the specific example, Quantics will search for a script called 'run_qchem' (specified in the input file) to start a QChem calculation. The file 'run_qchem' script is of course dependent on your system configuration. For more information please refer to the Quantics documentation.
+In the specific example, Quantics will search for a script called 'run_qchem' (specified in the input file) to start a QChem calculation. The file 'run_qchem' script is of course dependent on your system configuration and has to be adapted. For more information how to run the test simulation please refer to the Quantics documentation.
 
+
+
+Applications
+____________
+
+
+The module will be used to examine the nonadiabatic excited state dynamics of small to medium sized molecules. The TDDFT module of QChem allows to treat systems that are too large for efficient CASSCF calculations. Until today photoinduced dynamics simulations of such molecules were only possible using trajectory based algorithms. With Quantics a full quantum-mechanical description of the nuclear motion is possible.
 
 
 Source Code
