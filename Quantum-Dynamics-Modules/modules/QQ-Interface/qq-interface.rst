@@ -86,7 +86,7 @@ ___________
 
 The source code for the QQ-Interface can be found within the Quantics software which can be downloaded via CCPForge_.  You firstly need to make an account (at CCPForge). The quantics project has a private repository so you also need to be a member of the project to checkout. then type into terminal::
 
- svn checkout --username your-user-name https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam17/  
+ svn checkout --username your-user-name https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/trunk/  
 
 .. _CCPFORGE: https://ccpforge.cse.rl.ac.uk/gf/project/quantics/
 
