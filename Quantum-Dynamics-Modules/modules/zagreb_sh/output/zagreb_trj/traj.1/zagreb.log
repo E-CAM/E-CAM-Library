@@ -1,0 +1,4037 @@
+ -------------------------------------------------------------------------------
+                                Name, version                                   
+ Program compiled Jun 22 2018 at 16:40:31.
+ -------------------------------------------------------------------------------
+
+ Reading dynamics input file dynamics.in.
+   Reading $method section of the dynamics input file.
+     "/home/cris/quantics/bin/shzagreb_inter" will be used for QM calculations.
+
+ Reading geometry file geom.
+ Reading velocity file veloc.
+
+ Starting calculation for a system with 2 atoms.
+   QM system consists of 2.
+   MM system consists of 0.
+
+   Initial geometry of the QM system: 
+     x   0.2000000000E+01  0.0000000000E+00  0.0000000000E+00
+     y   0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+   Initial velocity of the QM system: 
+     x   0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+     y   0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
+
+Random number generator started with seed: 717675092
+
+ -------------------------------------------------------------------------------
+                           STARTING MAIN PROGRAM LOOP                           
+
+ Starting step: 0
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 2
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 3
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 4
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 5
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 6
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 7
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 8
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 9
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 10
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 11
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 12
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 13
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 14
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 15
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 16
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 17
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 18
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 19
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 20
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 21
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 22
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 23
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 24
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 25
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 26
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 27
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 28
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 29
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 30
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 31
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 32
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 33
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 34
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 35
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 36
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 37
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 38
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 39
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 40
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 41
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 42
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 43
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 44
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 45
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 46
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 47
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 48
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 49
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 50
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 51
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 52
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 53
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 54
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 55
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 56
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 57
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 58
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 59
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 60
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 61
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 62
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 63
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 64
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 65
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 66
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 67
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 68
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 69
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 70
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 71
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 72
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 73
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 74
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 75
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 76
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 77
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 78
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 79
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 80
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 81
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 82
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 83
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 84
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 85
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 86
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 87
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 88
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 89
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 90
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 91
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 92
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 93
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 94
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 95
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 96
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 97
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 98
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 99
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 100
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 101
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 102
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 103
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 104
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 105
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 106
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 107
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 108
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 109
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 110
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 111
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 112
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 113
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 114
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 115
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 116
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 117
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 118
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 119
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 120
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 121
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 122
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 123
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 124
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 125
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 126
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 127
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 128
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 129
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 130
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 131
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 132
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 133
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 134
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 135
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 136
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 137
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 138
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 139
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 140
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 141
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 142
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 143
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 144
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 145
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 146
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 147
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 148
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 149
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 150
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 151
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 152
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 153
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 154
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 155
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 156
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 157
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 158
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 159
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 160
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 161
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 162
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 163
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 164
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 165
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 166
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 167
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 168
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 169
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 170
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 171
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 172
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 173
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 174
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 175
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 176
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 177
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 178
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 179
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 180
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 181
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 182
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 183
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 184
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 185
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 186
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 187
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 188
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 189
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 190
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 191
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 192
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 193
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 194
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 195
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 196
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 197
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 198
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 199
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 200
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 201
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 202
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 203
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 204
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 205
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 206
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 207
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 208
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 209
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 210
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 211
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 212
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 213
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 214
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 215
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 216
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 217
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 218
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 219
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 220
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 221
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 222
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 223
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 224
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 225
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 226
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 227
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 228
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 229
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 230
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 231
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 232
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 233
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 234
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 235
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 236
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 237
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 238
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 239
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 240
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 241
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 242
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 243
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 244
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 245
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 246
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 247
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 248
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 249
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 250
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 251
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 252
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 253
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 254
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 255
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 256
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 257
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 258
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 259
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 260
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 261
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 262
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 263
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 264
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 265
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 266
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 267
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 268
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 269
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 270
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 271
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 272
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 273
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 274
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 275
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 276
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 277
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 278
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 279
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 280
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 281
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 282
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 283
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 284
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 285
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 286
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 287
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 288
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 289
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 290
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 291
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 292
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 293
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 294
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 295
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 296
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 297
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 298
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 299
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 300
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 301
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 302
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 303
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 304
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 305
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 306
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 307
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 308
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 309
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 310
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 311
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 312
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 313
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 314
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 315
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 316
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 317
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 318
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 319
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 320
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 321
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 322
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 323
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 324
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 325
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 326
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 327
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 328
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 329
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 330
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 331
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 332
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 333
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 334
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 335
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 336
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 337
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 338
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 339
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 340
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 341
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 342
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 343
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 344
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 345
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 346
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 347
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 348
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 349
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 350
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 351
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 352
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 353
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 354
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 355
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 356
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 357
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 358
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 359
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 360
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 361
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 362
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 363
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 364
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 365
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 366
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 367
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 368
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 369
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 370
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 371
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 372
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 373
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 374
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 375
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 376
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 377
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 378
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 379
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 380
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 381
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 382
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 383
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 384
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 385
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 386
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 387
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 388
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 389
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 390
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 391
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 392
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 393
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 394
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 395
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 396
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 397
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 398
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 399
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 400
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 401
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 402
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 403
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 404
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 405
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 406
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 407
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 408
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 409
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 410
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 411
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 412
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 413
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 414
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 415
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 416
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 417
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 418
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 419
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 420
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 421
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 422
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 423
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 424
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 425
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 426
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 427
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 428
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 429
+   Step run time: 0 days, 0 hours, 0 minutes,  0.66 seconds.
+ Starting step: 430
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 431
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 432
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 433
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 434
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 435
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 436
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 437
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 438
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 439
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 440
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 441
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 442
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 443
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 444
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 445
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 446
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 447
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 448
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 449
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 450
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 451
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 452
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 453
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 454
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 455
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 456
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 457
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 458
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 459
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 460
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 461
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 462
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 463
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 464
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 465
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 466
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 467
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 468
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 469
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 470
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 471
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 472
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 473
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 474
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 475
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 476
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 477
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 478
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 479
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 480
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 481
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 482
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 483
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 484
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 485
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 486
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 487
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 488
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 489
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 490
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 491
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 492
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 493
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 494
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 495
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 496
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 497
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 498
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 499
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 500
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 501
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 502
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 503
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 504
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 505
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 506
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 507
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 508
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 509
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 510
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 511
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 512
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 513
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 514
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 515
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 516
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 517
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 518
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 519
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 520
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 521
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 522
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 523
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 524
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 525
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 526
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 527
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 528
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 529
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 530
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 531
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 532
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 533
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 534
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 535
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 536
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 537
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 538
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 539
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 540
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 541
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 542
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 543
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 544
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 545
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 546
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 547
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 548
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 549
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 550
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 551
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 552
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 553
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 554
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 555
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 556
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 557
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 558
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 559
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 560
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 561
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 562
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 563
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 564
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 565
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 566
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 567
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 568
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 569
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 570
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 571
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 572
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 573
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 574
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 575
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 576
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 577
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 578
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 579
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 580
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 581
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 582
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 583
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 584
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 585
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 586
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 587
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 588
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 589
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 590
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 591
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 592
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 593
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 594
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 595
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 596
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 597
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 598
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 599
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 600
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 601
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 602
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 603
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 604
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 605
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 606
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 607
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 608
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 609
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 610
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 611
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 612
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 613
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 614
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 615
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 616
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 617
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 618
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 619
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 620
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 621
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 622
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 623
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 624
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 625
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 626
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 627
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 628
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 629
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 630
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 631
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 632
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 633
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 634
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 635
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 636
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 637
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 638
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 639
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 640
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 641
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 642
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 643
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 644
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 645
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 646
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 647
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 648
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 649
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 650
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 651
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 652
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 653
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 654
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 655
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 656
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 657
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 658
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 659
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 660
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 661
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 662
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 663
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 664
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 665
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 666
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 667
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 668
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 669
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 670
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 671
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 672
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 673
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 674
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 675
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 676
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 677
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 678
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 679
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 680
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 681
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 682
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 683
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 684
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 685
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 686
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 687
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 688
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 689
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 690
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 691
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 692
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 693
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 694
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 695
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 696
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 697
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 698
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 699
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 700
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 701
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 702
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 703
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 704
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 705
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 706
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 707
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 708
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 709
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 710
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 711
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 712
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 713
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 714
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 715
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 716
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 717
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 718
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 719
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 720
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 721
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 722
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 723
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 724
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 725
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 726
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 727
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 728
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 729
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 730
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 731
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 732
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 733
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 734
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 735
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 736
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 737
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 738
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 739
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 740
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 741
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 742
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 743
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 744
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 745
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 746
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 747
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 748
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 749
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 750
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 751
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 752
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 753
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 754
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 755
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 756
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 757
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 758
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 759
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 760
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 761
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 762
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 763
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 764
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 765
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 766
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 767
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 768
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 769
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 770
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 771
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 772
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 773
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 774
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 775
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 776
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 777
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 778
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 779
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 780
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 781
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 782
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 783
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 784
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 785
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 786
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 787
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 788
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 789
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 790
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 791
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 792
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 793
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 794
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 795
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 796
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 797
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 798
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 799
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 800
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 801
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 802
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 803
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 804
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 805
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 806
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 807
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 808
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 809
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 810
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 811
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 812
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 813
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 814
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 815
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 816
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 817
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 818
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 819
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 820
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 821
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 822
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 823
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 824
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 825
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 826
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 827
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 828
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 829
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 830
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 831
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 832
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 833
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 834
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 835
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 836
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 837
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 838
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 839
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 840
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 841
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 842
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 843
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 844
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 845
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 846
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 847
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 848
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 849
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 850
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 851
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 852
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 853
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 854
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 855
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 856
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 857
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 858
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 859
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 860
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 861
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 862
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 863
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 864
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 865
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 866
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 867
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 868
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 869
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 870
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 871
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 872
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 873
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 874
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 875
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 876
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 877
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 878
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 879
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 880
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 881
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 882
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 883
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 884
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 885
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 886
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 887
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 888
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 889
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 890
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 891
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 892
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 893
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 894
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 895
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 896
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 897
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 898
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 899
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 900
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 901
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 902
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 903
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 904
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 905
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 906
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 907
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 908
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 909
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 910
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 911
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 912
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 913
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 914
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 915
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 916
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 917
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 918
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 919
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 920
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 921
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 922
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 923
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 924
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 925
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 926
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 927
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 928
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 929
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 930
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 931
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 932
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 933
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 934
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 935
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 936
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 937
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 938
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 939
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 940
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 941
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 942
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 943
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 944
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 945
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 946
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 947
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 948
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 949
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 950
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 951
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 952
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 953
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 954
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 955
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 956
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 957
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 958
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 959
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 960
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 961
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 962
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 963
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 964
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 965
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 966
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 967
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 968
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 969
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 970
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 971
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 972
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 973
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 974
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 975
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 976
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 977
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 978
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 979
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 980
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 981
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 982
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 983
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 984
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 985
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 986
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 987
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 988
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 989
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 990
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 991
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 992
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 993
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 994
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 995
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 996
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 997
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 998
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 999
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1000
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1001
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1002
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1003
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1004
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1005
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1006
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1007
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1008
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1009
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1010
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1011
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1012
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1013
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1014
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1015
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1016
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1017
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1018
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1019
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1020
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1021
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1022
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1023
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1024
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1025
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1026
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1027
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1028
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1029
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1030
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1031
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1032
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1033
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1034
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1035
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1036
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1037
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1038
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1039
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1040
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1041
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1042
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1043
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1044
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1045
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1046
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1047
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1048
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1049
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1050
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1051
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1052
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1053
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1054
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1055
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1056
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1057
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1058
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1059
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1060
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1061
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1062
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1063
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1064
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1065
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1066
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1067
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1068
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1069
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1070
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1071
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1072
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1073
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1074
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1075
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1076
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1077
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1078
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1079
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1080
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1081
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1082
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1083
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1084
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1085
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1086
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1087
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1088
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1089
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1090
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1091
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1092
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1093
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1094
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1095
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1096
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1097
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1098
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1099
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1100
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1101
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1102
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1103
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1104
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1105
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1106
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1107
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1108
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1109
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1110
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1111
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1112
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1113
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1114
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1115
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1116
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1117
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1118
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1119
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1120
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1121
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1122
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1123
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1124
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1125
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1126
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1127
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1128
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1129
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1130
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1131
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1132
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1133
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1134
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1135
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1136
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1137
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1138
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1139
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1140
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1141
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1142
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1143
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1144
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1145
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1146
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1147
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1148
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1149
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1150
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1151
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1152
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1153
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1154
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1155
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1156
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1157
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1158
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1159
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1160
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1161
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1162
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1163
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1164
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1165
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1166
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1167
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1168
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1169
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1170
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1171
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1172
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1173
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1174
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1175
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1176
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1177
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1178
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1179
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1180
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1181
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1182
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1183
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1184
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1185
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1186
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1187
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1188
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1189
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1190
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1191
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1192
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1193
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1194
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1195
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1196
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1197
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1198
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1199
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1200
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1201
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1202
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1203
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1204
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1205
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1206
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1207
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1208
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1209
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1210
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1211
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1212
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1213
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1214
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1215
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1216
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1217
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1218
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1219
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1220
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1221
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1222
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1223
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1224
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1225
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1226
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1227
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1228
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1229
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1230
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1231
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1232
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1233
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1234
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1235
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1236
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1237
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1238
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1239
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1240
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1241
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1242
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1243
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1244
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1245
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1246
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1247
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1248
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1249
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1250
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1251
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1252
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1253
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1254
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1255
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1256
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1257
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1258
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1259
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1260
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1261
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1262
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1263
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1264
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1265
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1266
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1267
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1268
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1269
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1270
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1271
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1272
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1273
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1274
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1275
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1276
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1277
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1278
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1279
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1280
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1281
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1282
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1283
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1284
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1285
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1286
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1287
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1288
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1289
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1290
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1291
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1292
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1293
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1294
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1295
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1296
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1297
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1298
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1299
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1300
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1301
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1302
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1303
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1304
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1305
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1306
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1307
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1308
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1309
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1310
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1311
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1312
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1313
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1314
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1315
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1316
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1317
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1318
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1319
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1320
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1321
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1322
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1323
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1324
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1325
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1326
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1327
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1328
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1329
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1330
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1331
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1332
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1333
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1334
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1335
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1336
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1337
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1338
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1339
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1340
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1341
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1342
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1343
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1344
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1345
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1346
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1347
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1348
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1349
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1350
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1351
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1352
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1353
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1354
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1355
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1356
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1357
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1358
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1359
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1360
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1361
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1362
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1363
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1364
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1365
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1366
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1367
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1368
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1369
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1370
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1371
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1372
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1373
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1374
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1375
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1376
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1377
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1378
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1379
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1380
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1381
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1382
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1383
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1384
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1385
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1386
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1387
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1388
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1389
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1390
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1391
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1392
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1393
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1394
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1395
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1396
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1397
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1398
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1399
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1400
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1401
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1402
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1403
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1404
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1405
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1406
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1407
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1408
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1409
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1410
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1411
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1412
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1413
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1414
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1415
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1416
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1417
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1418
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1419
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1420
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1421
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1422
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1423
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1424
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1425
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1426
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1427
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1428
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1429
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1430
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1431
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1432
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1433
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1434
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1435
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1436
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1437
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1438
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1439
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1440
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1441
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1442
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1443
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1444
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1445
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1446
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1447
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1448
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1449
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1450
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1451
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1452
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1453
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1454
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1455
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1456
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1457
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1458
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1459
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1460
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1461
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1462
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1463
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1464
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1465
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1466
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1467
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1468
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1469
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1470
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1471
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1472
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1473
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1474
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1475
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1476
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1477
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1478
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1479
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1480
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1481
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1482
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1483
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1484
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1485
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1486
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1487
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1488
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1489
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1490
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1491
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1492
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1493
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1494
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1495
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1496
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1497
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1498
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1499
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1500
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1501
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1502
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1503
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1504
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1505
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1506
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1507
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1508
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1509
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1510
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1511
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1512
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1513
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1514
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1515
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1516
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1517
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1518
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1519
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1520
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1521
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1522
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1523
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1524
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1525
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1526
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1527
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1528
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1529
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1530
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1531
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1532
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1533
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1534
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1535
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1536
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1537
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1538
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1539
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1540
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1541
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1542
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1543
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1544
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1545
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1546
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1547
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1548
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1549
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1550
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1551
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1552
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1553
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1554
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1555
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1556
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1557
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1558
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1559
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1560
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1561
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1562
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1563
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1564
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1565
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1566
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1567
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1568
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1569
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1570
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1571
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1572
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1573
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1574
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1575
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1576
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1577
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1578
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1579
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1580
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1581
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1582
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1583
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1584
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1585
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1586
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1587
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1588
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1589
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1590
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1591
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1592
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1593
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1594
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1595
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1596
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1597
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1598
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1599
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1600
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1601
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1602
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1603
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1604
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1605
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1606
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1607
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1608
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1609
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1610
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1611
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1612
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1613
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1614
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1615
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1616
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1617
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1618
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1619
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1620
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1621
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1622
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1623
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1624
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1625
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1626
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1627
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1628
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1629
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1630
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1631
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1632
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1633
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1634
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1635
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1636
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1637
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1638
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1639
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1640
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1641
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1642
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1643
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1644
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1645
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1646
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1647
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1648
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1649
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1650
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1651
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1652
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1653
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1654
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1655
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1656
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1657
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1658
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1659
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1660
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1661
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1662
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1663
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1664
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1665
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1666
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1667
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1668
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1669
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1670
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1671
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1672
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1673
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1674
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1675
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1676
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1677
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1678
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1679
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1680
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1681
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1682
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1683
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1684
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1685
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1686
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1687
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1688
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1689
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1690
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1691
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1692
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1693
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1694
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1695
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1696
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1697
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1698
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1699
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1700
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1701
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1702
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1703
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1704
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1705
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1706
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1707
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1708
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1709
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1710
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1711
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1712
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1713
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1714
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1715
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1716
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1717
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1718
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1719
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1720
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1721
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1722
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1723
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1724
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1725
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1726
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1727
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1728
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1729
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1730
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1731
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1732
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1733
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1734
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1735
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1736
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1737
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1738
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1739
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1740
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1741
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1742
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1743
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1744
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1745
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1746
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1747
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
+ Starting step: 1748
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1749
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1750
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1751
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1752
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1753
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1754
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1755
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1756
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1757
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1758
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1759
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1760
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1761
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1762
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1763
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1764
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1765
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1766
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1767
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1768
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1769
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1770
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1771
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1772
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1773
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1774
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1775
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1776
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1777
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1778
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1779
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1780
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1781
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1782
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1783
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1784
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1785
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1786
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1787
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1788
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1789
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1790
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1791
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1792
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1793
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1794
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1795
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1796
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1797
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1798
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1799
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1800
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1801
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1802
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1803
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1804
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1805
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1806
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1807
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1808
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1809
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1810
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1811
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1812
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1813
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1814
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1815
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1816
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1817
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1818
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1819
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1820
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1821
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1822
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1823
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1824
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1825
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1826
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1827
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1828
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1829
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1830
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1831
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1832
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1833
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1834
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1835
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1836
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1837
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1838
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1839
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1840
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1841
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1842
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1843
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1844
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1845
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1846
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1847
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1848
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1849
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1850
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1851
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1852
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1853
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1854
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1855
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1856
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1857
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1858
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1859
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1860
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1861
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1862
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1863
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1864
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1865
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1866
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1867
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1868
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1869
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1870
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1871
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1872
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1873
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1874
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1875
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1876
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1877
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1878
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1879
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1880
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1881
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1882
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1883
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1884
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1885
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1886
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1887
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1888
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1889
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1890
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1891
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1892
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1893
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1894
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1895
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1896
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1897
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1898
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1899
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1900
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1901
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1902
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1903
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1904
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1905
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1906
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1907
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1908
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1909
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1910
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1911
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1912
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1913
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1914
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1915
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1916
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1917
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1918
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1919
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1920
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1921
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1922
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1923
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1924
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1925
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1926
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1927
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1928
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1929
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1930
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1931
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1932
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1933
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1934
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1935
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1936
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1937
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1938
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1939
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1940
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1941
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1942
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1943
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1944
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1945
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1946
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1947
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1948
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1949
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1950
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1951
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1952
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1953
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1954
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1955
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1956
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1957
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1958
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1959
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1960
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1961
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1962
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1963
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1964
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1965
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1966
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1967
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1968
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1969
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1970
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1971
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1972
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1973
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1974
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1975
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1976
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1977
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1978
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1979
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1980
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1981
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1982
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1983
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1984
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1985
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1986
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1987
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1988
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1989
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1990
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1991
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1992
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+ Starting step: 1993
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1994
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1995
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1996
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1997
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1998
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1999
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 2000
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 2001
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+
+                          FINISHING MAIN PROGRAM LOOP                           
+ -------------------------------------------------------------------------------
+
+ Total run time: 0 days, 0 hours, 0 minutes, 54.25 seconds.
