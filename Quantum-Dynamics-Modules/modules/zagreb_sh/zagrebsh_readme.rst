@@ -51,6 +51,8 @@ A test example is provided for the excitation of an initial wavepacket into an e
 
 A more detailed test documentation for Zagreb code developers can be found in '~/quantics/doc/sh_zagreb/sh_zagreb.html' 
  
+An output directory is provided for testing and comparison. The output directory includes the output file (quantics common output file) and the zagreb_trj directory. This directory only includes the first trajectory directory (traj.1 directory), for space saving reasons.  
+
 Source Code
 ___________
 
