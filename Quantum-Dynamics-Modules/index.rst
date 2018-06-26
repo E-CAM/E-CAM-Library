@@ -163,6 +163,15 @@ routine  has been implemented and tested as an added functionality within the Qu
 
 The **PhysConst** enables the use of physical constants and the correct isotopic masses.
 
+.. toctree:: 
+        :glob: 
+        :maxdepth: 1
+
+        ./modules/zagreb_sh/zagrebsh_readme.rst
+
+The **Zagreb_sh** module is an interface between between QUANTICS package and the Tully's surface hoping code provided by the group of Nadja Doslic in Zagreb.
+
+
 PaPIM
 -----
 
