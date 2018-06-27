@@ -21,25 +21,25 @@
      x   0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
      y   0.0000000000E+00  0.0000000000E+00  0.0000000000E+00
 
-Random number generator started with seed: 717675092
+Random number generator started with seed: 43
 
  -------------------------------------------------------------------------------
                            STARTING MAIN PROGRAM LOOP                           
 
  Starting step: 0
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 2
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 3
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 4
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 5
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 6
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 7
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 8
@@ -85,7 +85,7 @@ Random number generator started with seed: 717675092
  Starting step: 28
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 29
-   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 30
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 31
@@ -139,7 +139,7 @@ Random number generator started with seed: 717675092
  Starting step: 55
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 56
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 57
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 58
@@ -151,7 +151,7 @@ Random number generator started with seed: 717675092
  Starting step: 61
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 62
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 63
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 64
@@ -159,7 +159,7 @@ Random number generator started with seed: 717675092
  Starting step: 65
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 66
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 67
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 68
@@ -171,13 +171,13 @@ Random number generator started with seed: 717675092
  Starting step: 71
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 72
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 73
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 74
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 75
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 76
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 77
@@ -193,7 +193,7 @@ Random number generator started with seed: 717675092
  Starting step: 82
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 83
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 84
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 85
@@ -201,7 +201,7 @@ Random number generator started with seed: 717675092
  Starting step: 86
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 87
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 88
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 89
@@ -215,11 +215,11 @@ Random number generator started with seed: 717675092
  Starting step: 93
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 94
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 95
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 96
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 97
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 98
@@ -243,9 +243,9 @@ Random number generator started with seed: 717675092
  Starting step: 107
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 108
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 109
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 109
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 110
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 111
@@ -263,7 +263,7 @@ Random number generator started with seed: 717675092
  Starting step: 117
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 118
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 119
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 120
@@ -287,13 +287,13 @@ Random number generator started with seed: 717675092
  Starting step: 129
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 130
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 131
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 132
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 133
+ Starting step: 132
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 133
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 134
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 135
@@ -313,13 +313,13 @@ Random number generator started with seed: 717675092
  Starting step: 142
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 143
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 144
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 145
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 146
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 146
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 147
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 148
@@ -343,9 +343,9 @@ Random number generator started with seed: 717675092
  Starting step: 157
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 158
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 159
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 160
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 161
@@ -375,9 +375,9 @@ Random number generator started with seed: 717675092
  Starting step: 173
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 174
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 175
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 175
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 176
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 177
@@ -409,13 +409,13 @@ Random number generator started with seed: 717675092
  Starting step: 190
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 191
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 192
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 193
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 194
+ Starting step: 193
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 194
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 195
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 196
@@ -457,11 +457,11 @@ Random number generator started with seed: 717675092
  Starting step: 214
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 215
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 216
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 217
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 218
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 219
@@ -503,25 +503,25 @@ Random number generator started with seed: 717675092
  Starting step: 237
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 238
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 239
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 240
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 241
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 241
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 242
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 243
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 244
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 245
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 246
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 247
+ Starting step: 246
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 247
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 248
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 249
@@ -631,7 +631,7 @@ Random number generator started with seed: 717675092
  Starting step: 301
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 302
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 303
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 304
@@ -667,13 +667,13 @@ Random number generator started with seed: 717675092
  Starting step: 319
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 320
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 321
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 322
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 323
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 324
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 325
@@ -697,17 +697,17 @@ Random number generator started with seed: 717675092
  Starting step: 334
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 335
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 336
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 337
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 338
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 339
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 340
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 341
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 342
@@ -725,9 +725,9 @@ Random number generator started with seed: 717675092
  Starting step: 348
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 349
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 350
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 350
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 351
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 352
@@ -755,9 +755,9 @@ Random number generator started with seed: 717675092
  Starting step: 363
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 364
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 365
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 365
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 366
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 367
@@ -765,7 +765,7 @@ Random number generator started with seed: 717675092
  Starting step: 368
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 369
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 370
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 371
@@ -805,13 +805,13 @@ Random number generator started with seed: 717675092
  Starting step: 388
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 389
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 390
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 390
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 391
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 392
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 393
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 394
@@ -853,7 +853,7 @@ Random number generator started with seed: 717675092
  Starting step: 412
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 413
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 414
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 415
@@ -877,17 +877,17 @@ Random number generator started with seed: 717675092
  Starting step: 424
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 425
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 426
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 427
+ Starting step: 426
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 427
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 428
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 429
-   Step run time: 0 days, 0 hours, 0 minutes,  0.66 seconds.
- Starting step: 430
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 430
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 431
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 432
@@ -907,11 +907,11 @@ Random number generator started with seed: 717675092
  Starting step: 439
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 440
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 441
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 442
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 443
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 444
@@ -939,7 +939,7 @@ Random number generator started with seed: 717675092
  Starting step: 455
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 456
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 457
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 458
@@ -947,7 +947,7 @@ Random number generator started with seed: 717675092
  Starting step: 459
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 460
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 461
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 462
@@ -965,17 +965,17 @@ Random number generator started with seed: 717675092
  Starting step: 468
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 469
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 470
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 470
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 471
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 472
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 473
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 474
+ Starting step: 473
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 474
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 475
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 476
@@ -1001,7 +1001,7 @@ Random number generator started with seed: 717675092
  Starting step: 486
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 487
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 488
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 489
@@ -1015,17 +1015,17 @@ Random number generator started with seed: 717675092
  Starting step: 493
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 494
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 495
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 496
+ Starting step: 495
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 496
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 497
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 498
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 499
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 499
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 500
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 501
@@ -1039,17 +1039,17 @@ Random number generator started with seed: 717675092
  Starting step: 505
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 506
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 507
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 508
+ Starting step: 507
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 508
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 509
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 510
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 511
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 511
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 512
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 513
@@ -1127,7 +1127,7 @@ Random number generator started with seed: 717675092
  Starting step: 549
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 550
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 551
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 552
@@ -1137,7 +1137,7 @@ Random number generator started with seed: 717675092
  Starting step: 554
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 555
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 556
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 557
@@ -1147,7 +1147,7 @@ Random number generator started with seed: 717675092
  Starting step: 559
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 560
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 561
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 562
@@ -1185,7 +1185,7 @@ Random number generator started with seed: 717675092
  Starting step: 578
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 579
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 580
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 581
@@ -1205,7 +1205,7 @@ Random number generator started with seed: 717675092
  Starting step: 588
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 589
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 590
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 591
@@ -1221,7 +1221,7 @@ Random number generator started with seed: 717675092
  Starting step: 596
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 597
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
  Starting step: 598
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 599
@@ -1337,7 +1337,7 @@ Random number generator started with seed: 717675092
  Starting step: 654
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 655
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 656
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 657
@@ -1397,7 +1397,7 @@ Random number generator started with seed: 717675092
  Starting step: 684
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 685
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 686
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 687
@@ -1429,7 +1429,7 @@ Random number generator started with seed: 717675092
  Starting step: 700
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 701
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 702
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 703
@@ -1437,9 +1437,9 @@ Random number generator started with seed: 717675092
  Starting step: 704
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 705
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 706
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 706
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 707
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 708
@@ -1447,9 +1447,9 @@ Random number generator started with seed: 717675092
  Starting step: 709
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 710
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 711
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 711
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 712
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 713
@@ -1481,7 +1481,7 @@ Random number generator started with seed: 717675092
  Starting step: 726
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 727
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 728
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 729
@@ -1509,7 +1509,7 @@ Random number generator started with seed: 717675092
  Starting step: 740
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 741
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 742
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 743
@@ -1547,11 +1547,11 @@ Random number generator started with seed: 717675092
  Starting step: 759
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 760
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 761
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 762
+ Starting step: 761
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 762
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 763
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 764
@@ -1567,21 +1567,21 @@ Random number generator started with seed: 717675092
  Starting step: 769
    Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
  Starting step: 770
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  1.43 seconds.
  Starting step: 771
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
  Starting step: 772
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 773
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 774
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 775
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 776
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 777
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 775
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 776
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 777
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 778
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 779
@@ -1597,13 +1597,13 @@ Random number generator started with seed: 717675092
  Starting step: 784
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 785
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 786
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 786
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 787
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 788
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 789
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 790
@@ -1623,9 +1623,9 @@ Random number generator started with seed: 717675092
  Starting step: 797
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 798
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 799
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 799
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 800
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 801
@@ -1653,11 +1653,11 @@ Random number generator started with seed: 717675092
  Starting step: 812
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 813
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 814
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 815
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 816
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 817
@@ -1681,7 +1681,7 @@ Random number generator started with seed: 717675092
  Starting step: 826
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 827
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 828
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 829
@@ -1689,9 +1689,9 @@ Random number generator started with seed: 717675092
  Starting step: 830
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 831
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 832
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 832
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 833
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 834
@@ -1713,19 +1713,19 @@ Random number generator started with seed: 717675092
  Starting step: 842
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 843
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 844
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 845
+ Starting step: 844
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 845
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 846
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 847
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 848
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 849
+ Starting step: 848
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 849
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 850
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 851
@@ -1747,21 +1747,21 @@ Random number generator started with seed: 717675092
  Starting step: 859
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 860
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 861
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 862
+ Starting step: 861
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 862
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 863
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 864
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 865
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 866
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 867
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 868
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 869
@@ -1785,13 +1785,13 @@ Random number generator started with seed: 717675092
  Starting step: 878
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 879
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 880
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 881
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 882
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 882
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 883
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 884
@@ -1803,7 +1803,7 @@ Random number generator started with seed: 717675092
  Starting step: 887
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 888
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 889
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 890
@@ -1827,13 +1827,13 @@ Random number generator started with seed: 717675092
  Starting step: 899
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 900
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 901
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 902
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 903
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 904
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 905
@@ -1849,7 +1849,7 @@ Random number generator started with seed: 717675092
  Starting step: 910
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 911
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 912
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 913
@@ -1881,7 +1881,7 @@ Random number generator started with seed: 717675092
  Starting step: 926
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 927
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 928
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 929
@@ -1909,9 +1909,9 @@ Random number generator started with seed: 717675092
  Starting step: 940
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 941
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 942
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 942
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 943
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 944
@@ -1933,7 +1933,7 @@ Random number generator started with seed: 717675092
  Starting step: 952
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 953
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 954
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 955
@@ -1981,9 +1981,9 @@ Random number generator started with seed: 717675092
  Starting step: 976
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 977
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 978
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 979
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 980
@@ -1995,7 +1995,7 @@ Random number generator started with seed: 717675092
  Starting step: 983
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 984
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 985
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 986
@@ -2089,21 +2089,21 @@ Random number generator started with seed: 717675092
  Starting step: 1030
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1031
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1032
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1033
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1034
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1035
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1036
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1037
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1038
+ Starting step: 1037
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1038
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1039
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1040
@@ -2141,7 +2141,7 @@ Random number generator started with seed: 717675092
  Starting step: 1056
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1057
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1058
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1059
@@ -2207,7 +2207,7 @@ Random number generator started with seed: 717675092
  Starting step: 1089
    Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
  Starting step: 1090
-   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1091
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1092
@@ -2219,13 +2219,13 @@ Random number generator started with seed: 717675092
  Starting step: 1095
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1096
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1097
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1098
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1099
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1099
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1100
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1101
@@ -2251,9 +2251,9 @@ Random number generator started with seed: 717675092
  Starting step: 1111
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1112
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1113
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1113
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1114
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1115
@@ -2279,11 +2279,11 @@ Random number generator started with seed: 717675092
  Starting step: 1125
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1126
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1127
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1128
+ Starting step: 1127
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1128
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1129
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1130
@@ -2311,7 +2311,7 @@ Random number generator started with seed: 717675092
  Starting step: 1141
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1142
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1143
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1144
@@ -2333,7 +2333,7 @@ Random number generator started with seed: 717675092
  Starting step: 1152
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1153
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1154
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1155
@@ -2355,7 +2355,7 @@ Random number generator started with seed: 717675092
  Starting step: 1163
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1164
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1165
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1166
@@ -2373,15 +2373,15 @@ Random number generator started with seed: 717675092
  Starting step: 1172
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1173
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1174
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1175
+ Starting step: 1174
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1175
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1176
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1177
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1178
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1179
@@ -2395,9 +2395,9 @@ Random number generator started with seed: 717675092
  Starting step: 1183
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1184
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1185
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1185
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1186
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1187
@@ -2415,9 +2415,9 @@ Random number generator started with seed: 717675092
  Starting step: 1193
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1194
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1195
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1195
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1196
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1197
@@ -2425,7 +2425,7 @@ Random number generator started with seed: 717675092
  Starting step: 1198
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1199
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1200
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1201
@@ -2437,7 +2437,7 @@ Random number generator started with seed: 717675092
  Starting step: 1204
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1205
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1206
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1207
@@ -2509,9 +2509,9 @@ Random number generator started with seed: 717675092
  Starting step: 1240
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1241
-   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1242
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1243
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1244
@@ -2649,7 +2649,7 @@ Random number generator started with seed: 717675092
  Starting step: 1310
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1311
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1312
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1313
@@ -2657,7 +2657,7 @@ Random number generator started with seed: 717675092
  Starting step: 1314
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1315
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1316
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1317
@@ -2687,7 +2687,7 @@ Random number generator started with seed: 717675092
  Starting step: 1329
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1330
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1331
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1332
@@ -2697,7 +2697,7 @@ Random number generator started with seed: 717675092
  Starting step: 1334
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1335
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1336
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1337
@@ -2709,15 +2709,15 @@ Random number generator started with seed: 717675092
  Starting step: 1340
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1341
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1342
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1342
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1343
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1344
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1345
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1346
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1347
@@ -2731,7 +2731,7 @@ Random number generator started with seed: 717675092
  Starting step: 1351
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1352
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1353
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1354
@@ -2757,11 +2757,11 @@ Random number generator started with seed: 717675092
  Starting step: 1364
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1365
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1366
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1367
+ Starting step: 1366
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1367
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1368
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1369
@@ -2777,9 +2777,9 @@ Random number generator started with seed: 717675092
  Starting step: 1374
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1375
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1376
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1376
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1377
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1378
@@ -2801,13 +2801,13 @@ Random number generator started with seed: 717675092
  Starting step: 1386
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1387
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1388
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1389
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1390
+ Starting step: 1388
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1389
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1390
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1391
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1392
@@ -2815,7 +2815,7 @@ Random number generator started with seed: 717675092
  Starting step: 1393
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1394
-   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
  Starting step: 1395
    Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
  Starting step: 1396
@@ -2841,7 +2841,7 @@ Random number generator started with seed: 717675092
  Starting step: 1406
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1407
-   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
  Starting step: 1408
    Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
  Starting step: 1409
@@ -2871,7 +2871,7 @@ Random number generator started with seed: 717675092
  Starting step: 1421
    Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
  Starting step: 1422
-   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
  Starting step: 1423
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1424
@@ -2887,9 +2887,9 @@ Random number generator started with seed: 717675092
  Starting step: 1429
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1430
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1431
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1431
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1432
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1433
@@ -2915,13 +2915,13 @@ Random number generator started with seed: 717675092
  Starting step: 1443
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1444
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1445
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1445
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1446
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1447
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1448
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1449
@@ -2995,9 +2995,9 @@ Random number generator started with seed: 717675092
  Starting step: 1483
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1484
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1485
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1485
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1486
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1487
@@ -3007,7 +3007,7 @@ Random number generator started with seed: 717675092
  Starting step: 1489
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1490
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1491
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1492
@@ -3061,9 +3061,9 @@ Random number generator started with seed: 717675092
  Starting step: 1516
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1517
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1518
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1518
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1519
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1520
@@ -3099,7 +3099,7 @@ Random number generator started with seed: 717675092
  Starting step: 1535
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1536
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1537
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1538
@@ -3155,11 +3155,11 @@ Random number generator started with seed: 717675092
  Starting step: 1563
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1564
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1565
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1566
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1567
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1568
@@ -3177,9 +3177,9 @@ Random number generator started with seed: 717675092
  Starting step: 1574
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1575
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1576
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1576
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1577
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1578
@@ -3243,7 +3243,7 @@ Random number generator started with seed: 717675092
  Starting step: 1607
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1608
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1609
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1610
@@ -3267,11 +3267,11 @@ Random number generator started with seed: 717675092
  Starting step: 1619
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1620
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1621
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1622
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1623
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1624
@@ -3295,11 +3295,11 @@ Random number generator started with seed: 717675092
  Starting step: 1633
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1634
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1635
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1636
+ Starting step: 1635
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1636
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1637
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1638
@@ -3341,19 +3341,19 @@ Random number generator started with seed: 717675092
  Starting step: 1656
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1657
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1658
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1658
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1659
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1660
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1661
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1662
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1663
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1664
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1665
@@ -3363,7 +3363,7 @@ Random number generator started with seed: 717675092
  Starting step: 1667
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1668
-   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1669
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1670
@@ -3381,7 +3381,7 @@ Random number generator started with seed: 717675092
  Starting step: 1676
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1677
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1678
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1679
@@ -3391,21 +3391,21 @@ Random number generator started with seed: 717675092
  Starting step: 1681
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1682
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1683
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1683
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1684
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1685
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
  Starting step: 1686
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1687
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
  Starting step: 1688
-   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
  Starting step: 1689
-   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.05 seconds.
  Starting step: 1690
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1691
@@ -3425,9 +3425,9 @@ Random number generator started with seed: 717675092
  Starting step: 1698
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1699
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1700
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1700
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1701
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1702
@@ -3449,11 +3449,11 @@ Random number generator started with seed: 717675092
  Starting step: 1710
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1711
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1712
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1713
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1714
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1715
@@ -3483,7 +3483,7 @@ Random number generator started with seed: 717675092
  Starting step: 1727
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1728
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1729
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1730
@@ -3503,7 +3503,7 @@ Random number generator started with seed: 717675092
  Starting step: 1737
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1738
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1739
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1740
@@ -3511,7 +3511,7 @@ Random number generator started with seed: 717675092
  Starting step: 1741
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1742
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1743
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1744
@@ -3529,13 +3529,13 @@ Random number generator started with seed: 717675092
  Starting step: 1750
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1751
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1752
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1752
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1753
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1754
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1755
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1756
@@ -3555,9 +3555,9 @@ Random number generator started with seed: 717675092
  Starting step: 1763
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1764
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1765
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1765
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1766
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1767
@@ -3577,17 +3577,17 @@ Random number generator started with seed: 717675092
  Starting step: 1774
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1775
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1776
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1777
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1778
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1779
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1780
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1781
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1782
@@ -3601,7 +3601,7 @@ Random number generator started with seed: 717675092
  Starting step: 1786
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1787
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1788
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1789
@@ -3621,17 +3621,17 @@ Random number generator started with seed: 717675092
  Starting step: 1796
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1797
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1798
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1799
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1800
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1801
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1802
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1803
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1804
@@ -3643,7 +3643,7 @@ Random number generator started with seed: 717675092
  Starting step: 1807
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1808
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1809
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1810
@@ -3657,7 +3657,7 @@ Random number generator started with seed: 717675092
  Starting step: 1814
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1815
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
  Starting step: 1816
    Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
  Starting step: 1817
@@ -3665,7 +3665,7 @@ Random number generator started with seed: 717675092
  Starting step: 1818
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1819
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1820
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1821
@@ -3683,7 +3683,7 @@ Random number generator started with seed: 717675092
  Starting step: 1827
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1828
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1829
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1830
@@ -3739,9 +3739,9 @@ Random number generator started with seed: 717675092
  Starting step: 1855
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1856
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
  Starting step: 1857
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1858
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1859
@@ -3761,7 +3761,7 @@ Random number generator started with seed: 717675092
  Starting step: 1866
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1867
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1868
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1869
@@ -3775,7 +3775,7 @@ Random number generator started with seed: 717675092
  Starting step: 1873
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1874
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1875
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1876
@@ -3893,7 +3893,7 @@ Random number generator started with seed: 717675092
  Starting step: 1932
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1933
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1934
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1935
@@ -3953,7 +3953,7 @@ Random number generator started with seed: 717675092
  Starting step: 1962
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1963
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1964
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1965
@@ -3965,7 +3965,7 @@ Random number generator started with seed: 717675092
  Starting step: 1968
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1969
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1970
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1971
@@ -3973,9 +3973,9 @@ Random number generator started with seed: 717675092
  Starting step: 1972
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1973
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
- Starting step: 1974
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
+ Starting step: 1974
+   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1975
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1976
@@ -3991,7 +3991,7 @@ Random number generator started with seed: 717675092
  Starting step: 1981
    Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
  Starting step: 1982
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.04 seconds.
  Starting step: 1983
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1984
@@ -4003,7 +4003,7 @@ Random number generator started with seed: 717675092
  Starting step: 1987
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1988
-   Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1989
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 1990
@@ -4023,9 +4023,9 @@ Random number generator started with seed: 717675092
  Starting step: 1997
    Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 1998
-   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
- Starting step: 1999
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
+ Starting step: 1999
+   Step run time: 0 days, 0 hours, 0 minutes,  0.02 seconds.
  Starting step: 2000
    Step run time: 0 days, 0 hours, 0 minutes,  0.03 seconds.
  Starting step: 2001
@@ -4034,4 +4034,4 @@ Random number generator started with seed: 717675092
                           FINISHING MAIN PROGRAM LOOP                           
  -------------------------------------------------------------------------------
 
- Total run time: 0 days, 0 hours, 0 minutes, 54.25 seconds.
+ Total run time: 0 days, 0 hours, 0 minutes, 55.21 seconds.
