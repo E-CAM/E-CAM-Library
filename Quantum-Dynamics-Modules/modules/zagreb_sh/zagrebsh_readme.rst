@@ -42,6 +42,13 @@ Currently, the Zagreb surface hopping quasiclassical trajectory code resides wit
 
 The module consists of an interface between QUANTICS package and Zagreb surface hopping code. The module is fully integrated into QUANTICS code so that initial conditions, wavefunction definition, analysis programs, direct dynamics etc... can be used in the usual way described in QUANTICS documentation. The interface creates the required input files to run separate trajectories using the Zagreb surface hopping code. Although the module is implemented and run under QUANTICS, the Zagreb code requires some directives that must be given in the input file under the SH_ZAGREB_SECTION. This directives are described in the Zagreb code input manual which can be found in a separate pdf file in the QUANTICS documentation under the Zagreb surface hopping program. 
 
+Application
+______________________
+
+The Tully's surface hopping technique has been widely used in molecular dynamics simulations to incorporate the non-adiabatic effects.
+The module can be apply to all classical propagations in multistate systems, specially in thoses systems where the dynamics cannot be explained using only one electronic state.
+
+
 Testing
 _______
 
