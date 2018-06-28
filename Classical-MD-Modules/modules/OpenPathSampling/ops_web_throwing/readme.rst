@@ -36,16 +36,16 @@ _________________
 
 .. Give a brief overview of why the module is/was being created.
 Web throwing is a Monte Carlo move in path space designed to improve the
-efficiency of transition interface sampling (TIS). It consists in a smart selection of 
-shooting points and shooting moves in respect with the super detailed balance. 
-Thanks to web throwing, the new path generated, even if more computationally
-expensive in respect with standard shooting, has a much lower correlation with
-the source paths. The strategy thus can significantly reduce the computational
-time required to study transition events and to quantify their rates. 
-The web throwing algorithm is described by Riccardi, Dahlen, and van Erp
-(http://dx.doi.org/10.1021/acs.jpclett.7b01617)
+efficiency of transition interface sampling (TIS). It consists in a smart 
+selection of shooting points and shooting moves in respect to super detailed 
+balance. Thanks to web throwing, the new path generated, even if more 
+computationally expensive in respect with standard shooting, has a much lower 
+correlation with the source paths. The strategy thus can significantly reduce 
+the computational time required to study transition events and to quantify 
+their rates. The web throwing algorithm is described by Riccardi, Dahlen, and 
+van Erp (http://dx.doi.org/10.1021/acs.jpclett.7b01617)
 
-In summary, the web throwing method is an shooting method for transition
+In summary, the web throwing method is an shooting method for transition 
 interface sampling, that decorrelates the trajectory between an interface
 :math:`\lambda` and an associated surface of unlikely return 
 :math:`\lambda_{\text{SOUR}}`. It does this by doing ``n_cycles`` of
@@ -53,11 +53,12 @@ Transition Path Sampling (TPS) from :math:`\lambda_{\text{SOUR}}` to :math:`\lam
 The first frame in this volume is selected for a forwards shot and the last
 frame in this volume is selected for a backwards shot. After the ``n_cycles`` 
 the new sub-trajectory is extended in both ways to satisfy the TIS ensemble.
-The sampling efficiency is increased significantly if :math:`\lambda_{\text{SOUR}}`
-and :math:`\lambda` are positioned before and after the barrier in the potential,
-respectively.
+The sampling efficiency is increased significantly if 
+:math:`\lambda_{\text{SOUR}}` and :math:`\lambda` are positioned before and 
+after the barrier in the potential, respectively.
 
 The implementation introduces the following new classes:
+
 * ``SecondFrameSelector`` inherits from ``ShootingPointSelector`` and selects
   the second frame (``index = 1``) from a trajectory.
 
@@ -86,8 +87,8 @@ The implementation introduces the following new classes:
 * ``WebThrowingMover`` inherits from ``SubPathMover`` and is the canonical mover
   for the web throwing algorithm. From a TIS ``ensemble`` it first selects a
   random sub-trajectory in the ``web_ensemble``. Then it calls the
-  ``WebCycleMover`` with ``n_cycles``. Finally it calls the ``WebExtendMover`` to
-  extend the sub-trajectory back into the TIS ``ensemble``. 
+  ``WebCycleMover`` with ``n_cycles``. Finally it calls the ``WebExtendMover`` 
+  to extend the sub-trajectory back into the TIS ``ensemble``. 
 
 * ``WebThrowingStrategy`` inherits from ``MoveStrategy`` and it builds the
   ``WebThrowingMover`` for every ``{interface: lambda_sour}`` in the ``sours``
@@ -139,7 +140,7 @@ running ``jupyter notebook file_of_interest.ipynb`` in this directory, replacing
 ``file_of_interest.ipynb`` by the file you want to open. (see
 ``Jupyter notebook`` documentation at http://jupyter.org/ for more details)
 
-The examples are
+The examples are:
 
 * An example on how to set up a multiple interface set TIS (MISTIS) simulation
   with only web throwing and the analysis of the web throwing moves can be found
