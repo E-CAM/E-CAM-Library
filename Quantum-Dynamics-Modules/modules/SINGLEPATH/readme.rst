@@ -105,10 +105,10 @@ With the GNU compiler:
 ::
 
 	Compile command;
-	g++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp -lgsl -lgslcblas -lm -fopenmp -std=c++11
+	g++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -fopenmp -std=c++11
 
 	Run command:
-	export OMP_NUM_THREADS=[number of OpenMP threads]; ./run
+	export OMP_NUM_THREADS=[number of OpenMP threads]; ./run Input
 
 
 With the Intel compiler:
@@ -116,10 +116,10 @@ With the Intel compiler:
 ::
 
 	Compile command;
-	icpc -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp -lgsl -lgslcblas -lm -qopenmp -std=c++11
+	icpc -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -qopenmp -std=c++11
 
 	Run command:
-	export OMP_NUM_THREADS=[number of OpenMP threads]; ./run
+	export OMP_NUM_THREADS=[number of OpenMP threads]; ./run Input
 
 -----------------------------------
 
@@ -128,10 +128,10 @@ MPI version:
 ::
 
 	Compile command;
-	mpic++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp -lgsl -lgslcblas -lm -std=c++11
+	mpic++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -std=c++11
 
 	Run command:
-	mpirun -n [number of MPI processors] ./run
+	mpirun -n [number of MPI processors] ./run Input
 
 
 
