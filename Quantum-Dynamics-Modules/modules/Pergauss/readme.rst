@@ -29,10 +29,8 @@ Periodic Boundary Conditions in a gaussian basis (Pergauss)
 Purpose of Module
 _________________
 
-This module provides exact wavefunction propagation using the second-order differencing (SOD) integrator scheme 
-to solve the time-dependent Schrödinger equation as described by Leforestier et al. [Lef]_ 
-Within this scheme the time interval is determined through dividing :math:`\hbar` by the eigenvalue of the Hamiltonian 
-operator with the largest absolute value. 
+This module provides periodic boundary conditions for periodic normal modes while running a G-MCTDH or vMCG
+calculation using the Quantics_ software package. 
 
 Background Information
 ______________________
@@ -43,7 +41,7 @@ Currently the SOD integration scheme resides within the Quantics_ software packa
 Testing
 _______
 
-A test example (``test90.inp``) is provided for the SOD integration scheme and can be found in the directory 
+A test example (``pergauss.inp``) is provided for the SOD integration scheme and can be found in the directory 
 ``~/quantics/elk_inputs``. 
 This test works for Quantics_ Revision 787. 
 The Quantics_ README file will help you to install the Quantics_ code. 
@@ -51,7 +49,7 @@ The test can be done through the following command
 
 ::
 
-        $ quantics test90.inp  
+        $ quantics -mnd pergauss.inp  
 
 A more detailed test documentation for Quantics_ code developers can be found `in this link 
 <http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/quantics/elk.html>`_
@@ -68,9 +66,9 @@ Then type into terminal
 
 ::
 
-        $ svn checkout --username your-user-name https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/trunk/  
+        $ svn checkout --username your-user-name https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam18 quantics.eca/  
 
-Within the Quantics_ program, explicit code for the SOD routine is located in file ``~/quantics/source/lib/ode/sodlib.f90``.
+Within the Quantics_ program, the explicit code is located in files ``~/quantics/source/blabla.f90``, ``~/quantics/source/blabla.f90``, ``~/quantics/source/blabla.f90`` and ``~/quantics/source/blabla.f90``. Every modified line will be preceded by a comment saying !pergauss to help people finding the modifications.
 
 .. _Quantics: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics
 .. _CCPFORGE: https://ccpforge.cse.rl.ac.uk/gf/project/quantics/
