@@ -55,6 +55,7 @@ The first Electronic Structure ESDW in Zaragoza in June 2016 was the starting po
     ./modules/sqare-grids-doc/readme
     ./modules/sqare-ode-doc/readme
     ./modules/sqare-states-doc/readme
+    ./modules/esl-demo/readme
 
 
 ESDW San Sebastian 2016
