@@ -33,7 +33,8 @@ This module interfaces OpenPathSampling (OPS) with PLUMED, an open source
 library with a rich catalogue of Collective Variables (CVs).
 
 * G.A. Tribello, M. Bonomi, D. Branduardi, C. Camilloni, G. Bussi,
-  PLUMED2: New feathers for an old bird, Comp. Phys. Comm. 185, 604 (2014)
+  PLUMED2: New feathers for an old bird, Comp. Phys. Comm. 185, 604 (2014);
+  https://doi.org/10.1016/j.cpc.2013.09.018
 
 Purpose of Module
 _________________
@@ -51,7 +52,7 @@ The class ``PLUMEDInterface`` is a subclass of the cython wrapper class
 ``PLUMEDInterface`` requires an ``MDTrajTopology`` and accepts additional
 PLUMED keywords. The initialized ``PLUMEDInterface`` can be subsequently
 used to make functions that calculate CVs for a given ``Trajectory``. This
-is done via the `PLUMEDCV`` class, a subclass of ``CoordinateFunctionCV``.
+is done via the ``PLUMEDCV`` class, a subclass of ``CoordinateFunctionCV``.
 
 In PLUMED, the syntax for all commands is: ``label: keywords``. The class
 ``PLUMEDCV`` takes ``name`` and ``definition`` as arguments, which are
@@ -71,16 +72,16 @@ This module supports (as listed in PLUMED documentation):
 * CV Documentation: all CVs are created by calling ``PLUMEDCV(name,
   PLUMEDInterface, definition)``. The returned function can be appied to a
   ``Trajectory``. CVs with components should specify the ``components=["c1",
-  "c2", "c3"]`` keyword and the corresponding PLUMED keyword in the
+  "c2", "c3"]`` keyword and the corresponding PLUMED keywords in the
   ``definition``.
 
 * Distances from reference configurations: are also created by calling
-``PLUMEDCV(name, PLUMEDInterface, definition)``. Most of them require
+  ``PLUMEDCV(name, PLUMEDInterface, definition)``. Most of them require
   external files with the reference configurations.
 
 * Functions: are also created by calling ``PLUMEDCV(name, PLUMEDInterface,
   definition)``. They should be created using the same ``PLUMEDInterface``
-  that contains the previously defined CVs that are to be part of the
+  that contains the previously defined CVs that are part of the
   function.
 
 * Multicolvar and Exploiting contact matrices are not tested.
@@ -123,8 +124,7 @@ ________
 
 * Examples on how create and calculate PLUMED CVs can be found in
   ``plumed_wrapper_example.ipynb`` in the ``examples`` directory
-  (https://gitlab.e-cam2020.eu/apdealbao/plumed_wrapper/tree/
-  master/plumed_wrapper/examples).
+  (https://gitlab.e-cam2020.eu/apdealbao/plumed_wrapper/tree/master/plumed_wrapper/examples).
   Open it using ``jupyter notebook plumed_wrapper_example.ipynb``
   (see http://jupyter.org/ for more details).
 
@@ -148,9 +148,9 @@ https://gitlab.e-cam2020.eu/apdealbao/plumed_wrapper/tree/master
 It can be installed by running ``pip install -e .`` from the root directory
 of the package.
 
-It requires to have the PLUMED development version with the cython wrapper
+It requires to have the PLUMED development version (with the cython wrapper)
 installed from: https://github.com/plumed/plumed2; and to source the file
-'/path/to/plumed2/sourceme.sh'
+``/path/to/plumed2/sourceme.sh``
 
 For more details on PLUMED, see:
 http://plumed.github.io/doc-master/user-doc/html/_installation.html
