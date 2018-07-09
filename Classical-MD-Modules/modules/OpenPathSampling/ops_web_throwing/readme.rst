@@ -133,7 +133,7 @@ Tests in OpenPathSampling use the `nose`_ package.
 .. IF YOUR MODULE IS IN A SEPARATE REPOSITORY
 
 The tests for this module can be run by downloading its source code (see the
-``Source Code`` section below), installing its requirements and installing it
+``Source Code`` section below), installing OpenPathSampling and installing it
 by running ``python setup.py install`` from the root directory of the package.
 Test this module by running the command ``nosetests`` from the root directory of
 the repository.
