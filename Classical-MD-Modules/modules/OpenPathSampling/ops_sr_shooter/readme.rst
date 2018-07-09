@@ -33,7 +33,7 @@ This module implements the "shooting from the top" algorithm as detailed in `the
 Purpose of Module
 _________________
 
-The purpose of this algorithm is to increase the number of generated transitions in a transition path sampling simulation by exclusively shooting from the transition state ensemble(TSE)/ the top of the barrier (hence the name). Naturally this only works if the approximate location of the TSE is already known and can be given as a function of one or more collective variables. In this module any `openpathsampling.Volume`_ object can be used by the user to define the shooting range volume.
+The purpose of this algorithm is to increase the number of generated transitions in a transition path sampling simulation by exclusively shooting from the transition state ensemble (TSE)/the top of the barrier (hence the name). Naturally this only works if the approximate location of the TSE is already known and can be given as a function of one or more collective variables. In this module any `openpathsampling.Volume`_ object can be used by the user to define the shooting range volume. See also the `TSE module`_ for finding the TSE.
 
 The implementation in this module includes:
 
@@ -59,22 +59,23 @@ Tests in OpenPathSampling use the `nose`_ package.
 
 .. IF YOUR MODULE IS IN A SEPARATE REPOSITORY
 
-The tests for this module can be run by downloading its source code, 
-installing its requirements, and running the command ``nosetests`` from the
-root directory of the repository.
+To test this module you need to download the source files package (see the ``Source Code`` section below) and install it using
+``python setup.py install`` or ``pip install -e .`` from the root directory of the package. 
+In the root folder then type ``nosetests`` to test the module using the `nose`_ package.
+
 
 Examples
 ________
 
 
 | There are two `example`_ jupyter notebooks in the example directory of the repository:
-| `One <https://gitlab.e-cam2020.eu:10443/hejung/sr_shooter/blob/master/examples/toy_example.ipynb>`_ shows the general setup of a two way shooting transition path sampling with a shooting range on a toy system.
-| The `other <https://gitlab.e-cam2020.eu:10443/hejung/sr_shooter/blob/master/examples/OneWayShooting_vs_TwoWayShooting.ipynb>`_ is a comparisson between one way shooting and two way shooting from the shooting range and shows that path space is explored faster with two way shooting when using a (well placed) shooting range. The reason beeing that the shots initiated at the barrier top have a high probability of success and two way shooting decorrelates faster (if using randomized velocities even faster).
+| One shows the `general setup of a two way shooting transition path sampling with a shooting range on a toy system <https://gitlab.e-cam2020.eu:10443/hejung/sr_shooter/blob/master/examples/toy_example.ipynb>`_.
+| The other is a `comparison between one way shooting and two way shooting from the shooting range <https://gitlab.e-cam2020.eu:10443/hejung/sr_shooter/blob/master/examples/OneWayShooting_vs_TwoWayShooting.ipynb>`_ and shows that path space is explored faster with two way shooting when using a (well placed) shooting range. The reason beeing that the shots initiated at the barrier top have a high probability of success and two way shooting decorrelates faster (if using randomized velocities even faster).
 
 Source Code
 ___________
 
-The source code for this module can be found in the `ecam gitlab repository`_.
+The source code for this module can be found in https://gitlab.e-cam2020.eu/hejung/sr_shooter.
 
 .. CLOSING MATERIAL -------------------------------------------------------
 
@@ -83,4 +84,4 @@ The source code for this module can be found in the `ecam gitlab repository`_.
 .. _nose: http://nose.readthedocs.io/en/latest/
 .. _openpathsampling.Volume: http://openpathsampling.org/latest/volume.html
 .. _example: https://gitlab.e-cam2020.eu:10443/hejung/sr_shooter/tree/master/examples
-.. _ecam gitlab repository: https://gitlab.e-cam2020.eu:10443/hejung/sr_shooter
+.. _TSE module: ../ops_tse/readme
