@@ -68,9 +68,9 @@ Examples
 ________
 
 
-| There are two `example`_ jupyter notebooks in the example directory of the repository:
-| One shows the `general setup of a two way shooting transition path sampling with a shooting range on a toy system <https://gitlab.e-cam2020.eu:10443/hejung/sr_shooter/blob/master/examples/toy_example.ipynb>`_.
-| The other is a `comparison between one way shooting and two way shooting from the shooting range <https://gitlab.e-cam2020.eu:10443/hejung/sr_shooter/blob/master/examples/OneWayShooting_vs_TwoWayShooting.ipynb>`_ and shows that path space is explored faster with two way shooting when using a (well placed) shooting range. The reason beeing that the shots initiated at the barrier top have a high probability of success and two way shooting decorrelates faster (if using randomized velocities even faster).
+| There are two `example jupyter notebooks <https://gitlab.e-cam2020.eu/hejung/sr_shooter/tree/master/examples>`_ in the example directory of the repository:
+| One shows the `general setup of a two way shooting transition path sampling with a shooting range on a toy system <https://gitlab.e-cam2020.eu/hejung/sr_shooter/blob/master/examples/toy_example.ipynb>`_.
+| The other is a `comparison between one way shooting and two way shooting from the shooting range <https://gitlab.e-cam2020.eu/hejung/sr_shooter/blob/master/examples/OneWayShooting_vs_TwoWayShooting.ipynb>`_ and shows that path space is explored faster with two way shooting when using a (well placed) shooting range. The reason beeing that the shots initiated at the barrier top have a high probability of success and two way shooting decorrelates faster (if using randomized velocities even faster).
 
 Source Code
 ___________
@@ -83,5 +83,5 @@ The source code for this module can be found in https://gitlab.e-cam2020.eu/heju
 
 .. _nose: http://nose.readthedocs.io/en/latest/
 .. _openpathsampling.Volume: http://openpathsampling.org/latest/volume.html
-.. _example: https://gitlab.e-cam2020.eu:10443/hejung/sr_shooter/tree/master/examples
+.. _example: 
 .. _TSE module: ../ops_tse/readme
