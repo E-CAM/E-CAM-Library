@@ -37,17 +37,17 @@ _________________
 .. Give a brief overview of why the module is/was being created.
 
 Web throwing is a Monte Carlo move in path space designed to improve the
-efficiency of transition interface sampling (TIS). It consists in a smart 
-selection of shooting points and shooting moves in respect to super detailed 
-balance. Thanks to web throwing, the new path generated, even if more 
-computationally expensive in respect with standard shooting, has a much lower 
-correlation with the source paths. The strategy thus can significantly reduce 
+efficiency of transition interface sampling (TIS). It consists of a smart 
+selection of shooting points and shooting moves that respects super detailed 
+balance. The web throwing algorithm generates paths that have a much lower
+correlation with their original paths, even if it is more computational 
+expensive than standard shooting. The strategy thus can significantly reduce 
 the computational time required to study transition events and to quantify 
 their rates. The web throwing algorithm is described by Riccardi, Dahlen, and 
 van Erp (http://dx.doi.org/10.1021/acs.jpclett.7b01617)
 
-In summary, the web throwing method is an shooting method for transition 
-interface sampling, that decorrelates the trajectory between an interface
+The web throwing method is an shooting method for transition 
+interface sampling that decorrelates the trajectory between an interface
 :math:`\lambda` and an associated surface of unlikely return 
 :math:`\lambda_{\text{SOUR}}`. It does this by doing ``n_cycles`` of
 Transition Path Sampling (TPS) from :math:`\lambda_{\text{SOUR}}` to 
@@ -72,7 +72,7 @@ The implementation introduces the following new classes:
   sampling ensemble between the ``Volume`` :math:`\lambda_{\text{SOUR}}` and 
   the ``Volume``  :math:`\lambda` in which the web throwing occurs.
 
-* ``WebBackwardExtendEnsemble`` inherits from ``SequencialEnsemble`` and
+* ``WebBackwardExtendEnsemble`` inherits from ``SequentialEnsemble`` and
   implements the ensemble the partial path has to fit in after the backwards
   extend. This ensemble consists of one frame in the initial state followed by 
   frames outside of any states. This should only be used in backward moves, as
@@ -153,10 +153,10 @@ The examples are:
 
 * An example on how to set up a multiple interface set TIS (MISTIS) simulation
   with only web throwing and the analysis of the web throwing moves can be found
-  in ``mistis_using_only_webthrowing.ipynb``.
+  in `mistis_using_only_webthrowing.ipynb`_.
 
 * An example on how to add the web throwing to a default MISTIS simulation can 
-  be found in ``adding_webthrowing_to_mistis.ipynb``. This example also shows 
+  be found in `adding_webthrowing_to_mistis.ipynb`_. This example also shows 
   how to change the selection weight of this move and some analysis.
 
 Source Code
@@ -181,4 +181,5 @@ https://gitlab.e-cam2020.eu/sroet/web_throwing/tree/master.
 .. Here are the URL references used
 
 .. _nose: http://nose.readthedocs.io/en/latest/
-
+.. _mistis_using_only_webthrowing.ipynb: https://gitlab.e-cam2020.eu:10443/sroet/web_throwing/blob/master/examples/mistis_using_only_webthrowing.ipynb
+.. _adding_webthrowing_to_mistis.ipynb: https://gitlab.e-cam2020.eu:10443/sroet/web_throwing/blob/master/examples/adding_webthrowing_to_mistis.ipynb
