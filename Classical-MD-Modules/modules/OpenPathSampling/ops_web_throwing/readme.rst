@@ -132,9 +132,10 @@ Tests in OpenPathSampling use the `nose`_ package.
 
 .. IF YOUR MODULE IS IN A SEPARATE REPOSITORY
 
-The tests for this module can be run by downloading its source code (see the
-``Source Code`` section below), installing OpenPathSampling and installing it
-by running ``python setup.py install`` from the root directory of the package.
+The tests for this module can be run by installing `OpenPathSampling`_, 
+downloading source code for the module (see the ``Source Code`` 
+section below), and installing it by running by running 
+``python setup.py install`` from the root directory of the package.
 Test this module by running the command ``nosetests`` from the root directory of
 the repository.
 
@@ -181,5 +182,6 @@ https://gitlab.e-cam2020.eu/sroet/web_throwing/tree/master.
 .. Here are the URL references used
 
 .. _nose: http://nose.readthedocs.io/en/latest/
+.. _OpenPathSampling: http://openpathsampling.org
 .. _mistis_using_only_webthrowing.ipynb: https://gitlab.e-cam2020.eu:10443/sroet/web_throwing/blob/master/examples/mistis_using_only_webthrowing.ipynb
 .. _adding_webthrowing_to_mistis.ipynb: https://gitlab.e-cam2020.eu:10443/sroet/web_throwing/blob/master/examples/adding_webthrowing_to_mistis.ipynb
