@@ -35,6 +35,7 @@ Purpose of Module
 _________________
 
 .. Give a brief overview of why the module is/was being created.
+
 Web throwing is a Monte Carlo move in path space designed to improve the
 efficiency of transition interface sampling (TIS). It consists in a smart 
 selection of shooting points and shooting moves in respect to super detailed 
@@ -49,7 +50,8 @@ In summary, the web throwing method is an shooting method for transition
 interface sampling, that decorrelates the trajectory between an interface
 :math:`\lambda` and an associated surface of unlikely return 
 :math:`\lambda_{\text{SOUR}}`. It does this by doing ``n_cycles`` of
-Transition Path Sampling (TPS) from :math:`\lambda_{\text{SOUR}}` to :math:`\lambda`.
+Transition Path Sampling (TPS) from :math:`\lambda_{\text{SOUR}}` to 
+:math:`\lambda`.
 The first frame in this volume is selected for a forwards shot and the last
 frame in this volume is selected for a backwards shot. After the ``n_cycles`` 
 the new sub-trajectory is extended in both ways to satisfy the TIS ensemble.
@@ -70,6 +72,12 @@ The implementation introduces the following new classes:
   sampling ensemble between the ``Volume`` :math:`\lambda_{\text{SOUR}}` and 
   the ``Volume``  :math:`\lambda` in which the web throwing occurs.
 
+* ``WebBackwardExtendEnsemble`` inherits from ``SequencialEnsemble`` and
+  implements the ensemble the partial path has to fit in after the backwards
+  extend. This ensemble consists of one frame in the initial state followed by 
+  frames outside of any states. This should only be used in backward moves, as
+  this only has an acceptable stop in this direction.
+
 * ``WebShootingMover`` inherits from ``RandomChoiceMover`` and implements the
   TPS shooting algorithm in the ``WebEnsemble`` using the
   ``SecondFrameSelector`` for the ``ForwardShootMover`` and the 
@@ -80,9 +88,9 @@ The implementation introduces the following new classes:
 
 * ``WebExtendMover`` inherits from ``ConditionalSequentialMover`` and extend the
   sub trajectory after web throwing. It first simulates backwards to reach the
-  initial TIS state. If this reaches the interface, the whole move is rejected.
-  If this indeed finds the correct state the sub trajectory is extended in the
-  forward direction to complete the TIS ensemble.
+  initial TIS state. If this reaches any other state, the whole move is
+  rejected. If this indeed finds the correct state the sub trajectory is
+  extended in the forward direction to complete the TIS ensemble.
 
 * ``WebThrowingMover`` inherits from ``SubPathMover`` and is the canonical mover
   for the web throwing algorithm. From a TIS ``ensemble`` it first selects a
@@ -123,6 +131,7 @@ Tests in OpenPathSampling use the `nose`_ package.
 .. the command ``nosetests`` from the root directory of the repository.
 
 .. IF YOUR MODULE IS IN A SEPARATE REPOSITORY
+
 The tests for this module can be run by downloading its source code (see the
 ``Source Code`` section below), installing its requirements and installing it
 by running ``python setup.py install`` from the root directory of the package.
