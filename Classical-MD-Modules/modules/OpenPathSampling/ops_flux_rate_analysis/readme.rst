@@ -37,23 +37,45 @@ _________________
 
 .. Give a brief overview of why the module is/was being created.
 
-After defining volumes with OpenPathSampling, we can use those definitions
-to analyze existing trajectories. In particular, we can calculate the flux
-out of a given volume and through a dividing surface, or we can calculate
-the rate.
+Calculating the flux out of a state and through a given interface is an
+important step in transition interface sampling (TIS). It is required for
+the rate calculation, and can be used to determine the best location for the
+innermost interface before performing the main TIS sampling.
 
-The flux calculation is used as part of obtaining the rate in transition
-interface sampling (TIS). While some variants of TIS calculate the flux as
-part of their primary sampling, others need an auxiliary calculation. In
-addition, the flux calculation is always useful for confirming a good
-definition of the innermost interface in TIS.
+In many cases, the main TIS sampling is only performed after a significant
+amount of direct MD has been performed. For example, MD trajectories may
+have already been used to identify and test the stability of stable states.
+This module calculates the flux (as well as the rate, a related quantity)
+from existing trajectories. These can be trajectories generated with OPS or
+loaded into OPS from other simulation packages, such as Gromacs.
 
-The rate calculation will probably not be used very much, because it
-requires long trajectories.  Both flux and rate are included as a single
-"module" because the code is very closely related.
+The flux calculation is used as part of obtaining the rate in TIS. While
+some variants of TIS calculate the flux as part of their primary sampling,
+others need an auxiliary calculation. In addition, the flux calculation is
+always useful for confirming a good definition of the innermost interface in
+TIS, and using an existing trajectory to select the location of the
+innermost interface does not require re-running the dynamics.
+
+The rate calculation will probably not be used very much, because rates
+require extremely long trajectories.  Both flux and rate are included as a
+single "module" because the code is very closely related.
 
 This module analyses previously existing trajectories. Another module will
 calculate these things on-the-fly with an OPS engine.
+
+The primary new objects in this module are:
+
+* ``TrajectoryTransitionAnalysis``: Contains all the methods to perform the
+  analysis. The overall approach is based on identifying subtrajectory
+  segments that correspond to various conditions, e.g., time in one volume
+  before entering another volume (lifetimes, which are then related to the
+  rate). By keeping these subtrajectories, this module also enables
+  visualization on time traces of the trajectory.
+* ``TrajectorySegmentContainer``: Container class for a list of trajectory
+  segments, created as results of the ``TrajectoryTransitionAnalysis``
+  object. Also includes conveniences for reporting by either number of
+  frames or time: each is reported as a numpy array, so that numpy's built
+  in statistics can be used for, e.g., mean or standard deviation.
 
 Background Information
 ______________________

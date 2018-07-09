@@ -11,7 +11,7 @@ Spring Shooting in OpenPathSampling
   sections.
 
   Language
-    Python (2.7)
+    Python (2.7, 3.5, 3.6)
 
   Documentation Tool
     Sphinx, numpydoc format (ReST)

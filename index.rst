@@ -5,9 +5,9 @@
 
 .. _readme:
 
-************************
-The E-CAM Module Library
-************************
+**************************
+The E-CAM Software Library
+**************************
 
 .. sidebar:: Scientific Areas
 
@@ -16,13 +16,21 @@ The E-CAM Module Library
     * :ref:`readme_quantum_dynamics`
     * :ref:`readme_meso_multi`   
 
+    **Best Practices**
+
+    * :ref:`best_practices`
+
     **Quicklinks**
 
     .. contents:: :local:
 
     * :ref:`search`
 
-This is a collection of the modules that have been created by E-CAM_ (http://www.e-cam2020.eu) community
+.. figure:: ./Electronic-Structure-Modules/images/wake_nova-rgb.png 
+   :figwidth: 25 % 
+   :align: left
+
+This is a collection of the software modules that have been documented by E-CAM_ (http://www.e-cam2020.eu) community
 within the four initial target areas of E-CAM_:
 
 .. toctree::
@@ -33,10 +41,6 @@ within the four initial target areas of E-CAM_:
     ./Quantum-Dynamics-Modules/index
     ./Meso-Multi-Scale-Modelling-Modules/index
  
-
-This documentation is created using ReStructured Text and the git repository for the documentation source files can be
-found at https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are open to contributions from anyone in the E-CAM_
-community.
 
 What is a module?
 =================
@@ -59,6 +63,20 @@ current best-practice programming style conventions, is well documented and come
 (and any necessary associated data). E-CAM_ modules should be written in such a way that they can potentially take
 advantage of anticipated hardware developments in the near future (and this is one of the training objectives of
 E-CAM_).
+
+Scientific Software Development Best Practices
+----------------------------------------------
+
+We have attempted to gather a set of best practice guidelines for scientific software development in order to assist
+people to develop high quality modules. These guidelines are not specific to E-CAM and gather together best practices
+from a number of different sources that can help increase the quality and reusability of the software developed by
+scientists.
+
+.. toctree::
+    :maxdepth: 1
+
+    ./best-practices/index
+
 
 E-CAM Activities
 ================
@@ -113,8 +131,10 @@ the four scientific areas, with a maximum 2 weeks duration. For more information
 Contributing to this documentation
 ==================================
 
-This documentation is completely open and we welcome both internal and external contributions. If you would like to
-contribute to this effort then please follow the steps below to allow us to include your contribution.
+This documentation is created using ReStructured Text and the git repository for the documentation source files can be
+found at https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are open to contributions from anyone in the E-CAM_
+community. If you would like to contribute to this effort then please follow the contribution guidelines that are
+linked to below.
 
 .. toctree::
     :glob:

@@ -36,23 +36,26 @@ _________________
 
 .. Give a brief overview of why the module is/was being created.
 
-The first version of transition path sampling involved taking an initial
-(deterministic) trajectory, selecting a frame as the "shooting point",
-modifying the velocities at the shooting point, and integrating the
-equations of motion forward and backward to generate a new path. This
-algorithm is known as "two-way shooting", and is implemented in this module.
-OpenPathSampling already had support for "one-way shooting", which replaces
-the modification of velocities at the shooting point with a stochastic
-integrator, ensuring that the new trajectory will be different, and which
-only integrates one direction at a time. One-way shooting is more suitable
-for chaotic and diffusive systems; two-way shooting is more suitable if the
-motion is ballistic.
+Different types of dynamics are better suited for different kinds of Monte
+Carlo moves in path sampling. "One-way shooting," which was already
+implemented in OpenPathSampling, is an efficient approach for sampling paths
+when the dynamics are chaotic or diffusive. However, it requires stochastic
+dynamics, and therefore isn't appropriate for deterministic dynamics, as
+should be used with ballistic processes. For ballistic processes and
+deterministic dynamics, the "two-way shooting" move, which is implemented in
+this module, should be used. These moves differ in that one-way shooting
+selects a frame as a shooting point and evolves the trajectory *either*
+forward or backward, keeping part of the original trajectory, whereas
+two-way shooting selects a shooting point, modified it (usually by changing
+the velocities) and evolves *both* forward and backward. In one-way
+shooting, the stochastic dynamics obviates the need to modify the shooting
+point.
 
 The shooting point selection methods used by one-way shooting can be re-used
 for two-way shooting. However, two-way shooting requires a
 ``SnapshotModifier``, which one-way shooting does not. The basics of the
 ``SnapshotModifier``, as well as an implementation which completely
-randomizes the velocities according to the Boltzmann distribution, was
+randomizes the velocities according to the Boltzmann distribution, were
 included in a module to do committor simulations.
 
 This module implements the movers and move strategies necessary to support

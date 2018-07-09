@@ -16,6 +16,7 @@ Introduction
 
     .. contents:: :depth: 2
 
+    * :ref:`contributing`
     * :ref:`search`
 
 .. image:: ./images/lipid.jpg
@@ -25,7 +26,7 @@ Introduction
 This is a collection of the modules that have been created by E-CAM_ community
 within the area of Classical MD. This documentation is created using
 ReStructured Text and the git repository for the documentation source files can
-be found at https://gitlab.e-cam2020.eu/e-cam/Classical-MD-Modules which are
+be found at https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are
 open to contributions from E-CAM members.
 
 In the context of E-CAM, the definition of a software module is any piece of
@@ -169,7 +170,10 @@ separate projects. The modules that were incorporated into the core are:
     ./modules/OpenPathSampling/ops_snapshot_features_1/readme
     ./modules/OpenPathSampling/ops_two_way_shooting/readme
     ./modules/OpenPathSampling/ops_committor_analysis/readme
-
+    ./modules/OpenPathSampling/ops_channel_analysis/readme
+    ./modules/OpenPathSampling/ops_new_tis_analysis/readme
+    ./modules/OpenPathSampling/ops_resampling_statistics/readme
+ 
 The modules that are based on OPS, but remain separate, are:
 
 .. toctree::
@@ -178,7 +182,8 @@ The modules that are based on OPS, but remain separate, are:
    
     ./modules/annotated_trajectories/readme
     ./modules/ops_piggybacker/readme
-
+    ./modules/contact_maps/readme
+    ./modules/contact_maps_parallelization/readme
 
 Nine of these modules were part of 
 `E-CAM Deliverable 1.2 <https://www.e-cam2020.eu/deliverables/>`_. Those modules
@@ -207,6 +212,7 @@ The following modules have been produced:
     ./modules/OpenPathSampling/ops_tse/readme
     ./modules/OpenPathSampling/ops_reactive_flux/readme
     ./modules/OpenPathSampling/ops_maxlikelihood/readme
+    ./modules/OpenPathSampling/ops_interface_optimization/readme
 
 The second ESDW for the Classical MD workpackage was held in Leiden, Holland, in 
 August 2017. The following modules have been produced:
