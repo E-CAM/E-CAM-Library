@@ -32,6 +32,9 @@ Authors: Alberto Pérez de Alba Ortíz
 This module interfaces OpenPathSampling (OPS) with PLUMED, an open source
 library with a rich catalogue of Collective Variables (CVs).
 
+Special thanks to Gareth A. Tribello for facilitating the use of the
+PLUMED cython wrapper.
+
 * G.A. Tribello, M. Bonomi, D. Branduardi, C. Camilloni, G. Bussi,
   PLUMED2: New feathers for an old bird, Comp. Phys. Comm. 185, 604 (2014);
   https://doi.org/10.1016/j.cpc.2013.09.018
@@ -42,42 +45,68 @@ _________________
 .. Give a brief overview of why the module is/was being created.
 
 Transition path sampling simulations and analysis rely on accurate state
-definitions. Such states are typically defined as volumes in a CV-space. OPS
-already supports a number of CVs, including the ones defined in the MDTraj
-python library. PLUMED offers a wide variety of extra CVs, which are enabled
-in OPS by this module.
+definitions. Such states are typically defined as volumes in a CV-space.
+OPS already supports a number of CVs, including the ones defined in the
+MDTraj python library. PLUMED, a C++ open source library, offers a wide
+variety of extra CVs, which are enabled in OPS by this module.
 
-The class ``PLUMEDInterface`` is a subclass of the cython wrapper class
-``Plumed`` contained in the PLUMED installation. For initialization,
-``PLUMEDInterface`` requires an ``MDTrajTopology`` and accepts additional
-PLUMED keywords. The initialized ``PLUMEDInterface`` can be subsequently
-used to make functions that calculate CVs for a given ``Trajectory``. This
-is done via the ``PLUMEDCV`` class, a subclass of ``CoordinateFunctionCV``.
+Many of PLUMED's dozens of CVs have a biomolecular focus, but they are
+also general enough for other applications. PLUMED's popularity (over
+500 citations in 4 years after the release of PLUMED2) is greatly based
+on the fact that it works with many MD codes. OPS is now added to that
+list. The PLUMED code is well-maintained and documented for both users
+and developers. Several tutorials and a mailing list are available to
+address FAQs. For more information about the PLUMED code, visit:
+http://www.plumed.org/home
 
-In PLUMED, the syntax for all commands is: ``label: keywords``. The class
-``PLUMEDCV`` takes ``name`` and ``definition`` as arguments, which are
-respectively equivalent to ``label`` and ``keywords``. The ``PLUMEDCV``
-class also takes the ``PLUMEDInterface`` as argument. This allows for a
-single ``PLUMEDInterface`` to contain the ``MDTrajTopology``, additional
-PLUMED keywords and previously defined CVs that can be reused for the same
-system. Both ``PLUMEDInterface`` and ``PLUMEDCV`` are storable.
+In this module, the class ``PLUMEDInterface`` is a subclass of the
+cython wrapper class ``Plumed`` contained in the PLUMED installation.
+For initialization, ``PLUMEDInterface`` requires an ``MDTrajTopology``
+and accepts additional PLUMED settings:
+
+* ``pathtoplumed=""`` is the path to the PLUMED installation, where the
+  ``sourceme.sh`` script is run to set all relevant flags. By default,
+  the string is empty and the currently sourced PLUMED is used.
+* ``timestep=1.`` is the time step size in PLUMED units (ps).
+* ``kbt=1.`` is :math:`$k_BT$` in PLUMED units (kJ/mol).
+* ``molinfo=""`` is a file to be used as ``STRUCTURE`` for the
+  ``MOLINFO`` PLUMED command. It allows to provide extra information
+  about the molecules. Consult:
+  https://plumed.github.io/doc-v2.4/user-doc/html/_m_o_l_i_n_f_o.html
+* ``logfile=plumed.log`` is the name of the log file written by the
+  ``PLUMEDInterface``.
+
+The initialized ``PLUMEDInterface`` can be subsequently used to make
+functions that calculate CVs for a given ``Trajectory``. This is done
+via the ``PLUMEDCV`` class, a subclass of ``CoordinateFunctionCV``.
+
+In PLUMED input files, a common syntax is: ``label: keywords``. The
+class ``PLUMEDCV`` takes ``name`` and ``definition`` as arguments,
+which are respectively equivalent to PLUMED's ``label`` and
+``keywords``. The ``PLUMEDCV`` class also takes the ``PLUMEDInterface``
+as argument. This allows for a single ``PLUMEDInterface`` to contain
+the ``MDTrajTopology``, additional PLUMED ``keywords`` and previously
+defined CVs that can be reused for the same system. Both
+``PLUMEDInterface`` and ``PLUMEDCV`` are storable.
 
 This module supports (as listed in PLUMED documentation):
 
-* Groups and Virtual Atoms: are directly set in the ``PLUMEDInterface`` via
-  the ``PLUMEDInterface.set(name, definition)`` function. The
-  ``PLUMEDInterface.get()`` function allows to consult the commands that
-  have been already set.
+* Groups and Virtual Atoms: are directly set in the ``PLUMEDInterface``
+  via the ``PLUMEDInterface.set(name, definition)`` function. The
+  ``PLUMEDInterface.get()`` function allows to consult the commands
+  that have been already set. Some commands do not need a ``name``,
+  while some others must be run before any other command (e.g.
+  ``UNITS``).
 
 * CV Documentation: all CVs are created by calling ``PLUMEDCV(name,
-  PLUMEDInterface, definition)``. The returned function can be appied to a
-  ``Trajectory``. CVs with components should specify the ``components=["c1",
-  "c2", "c3"]`` keyword and the corresponding PLUMED keywords in the
-  ``definition``.
+  PLUMEDInterface, definition)``. The returned function can be appied
+  to a ``Trajectory``. CVs with components should specify the
+  ``components=["c1","c2", "c3",...]`` keyword and the corresponding
+  PLUMED keywords in the ``definition``.
 
 * Distances from reference configurations: are also created by calling
   ``PLUMEDCV(name, PLUMEDInterface, definition)``. Most of them require
-  external files with the reference configurations.
+  external files with reference configurations.
 
 * Functions: are also created by calling ``PLUMEDCV(name, PLUMEDInterface,
   definition)``. They should be created using the same ``PLUMEDInterface``
@@ -88,7 +117,7 @@ This module supports (as listed in PLUMED documentation):
 
 For examples see the ``Examples`` section below.
 
-For further PLUMED details see:
+For further PLUMED usage details see:
 http://plumed.github.io/doc-master/user-doc/html/index.html
 
 Background Information
@@ -152,7 +181,7 @@ It requires to have the PLUMED development version (with the cython wrapper)
 installed from: https://github.com/plumed/plumed2; and to source the file
 ``/path/to/plumed2/sourceme.sh``
 
-For more details on PLUMED, see:
+For more details on PLUMED installation, see:
 http://plumed.github.io/doc-master/user-doc/html/_installation.html
 
 .. CLOSING MATERIAL -------------------------------------------------------
