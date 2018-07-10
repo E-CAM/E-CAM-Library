@@ -33,7 +33,7 @@ This module implements the "shooting from the top" algorithm as detailed in `the
 Purpose of Module
 _________________
 
-The purpose of this algorithm is to increase the number of generated transitions in a transition path sampling simulation by exclusively shooting from the transition state ensemble (TSE)/the top of the barrier (hence the name). Naturally this only works if the approximate location of the TSE is already known and can be given as a function of one or more collective variables. In this module any `openpathsampling.Volume`_ object can be used by the user to define the shooting range volume. See also the `TSE module`_ for finding the TSE.
+The purpose of this algorithm is to increase the number of generated transitions in a transition path sampling simulation by exclusively shooting from the transition state ensemble (TSE)/the top of the barrier (hence the name). Naturally this only works if the approximate location of the TSE is already known and can be given as a function of the atomic coordinates. In this module any `openpathsampling.Volume`_ object can be used by the user to define the shooting range volume. This enables the user to define the shooting range for example as a function of one or more collective variables. See also the :ref:`tse_module` for finding the TSE.
 
 The implementation in this module includes:
 
@@ -54,13 +54,13 @@ reading:
 Testing
 _______
 
-Tests in OpenPathSampling use the `nose`_ package.
+Tests in OpenPathSampling and sr_shooter use the `nose`_ package.
 
 
 .. IF YOUR MODULE IS IN A SEPARATE REPOSITORY
 
-To test this module you need to download the source files package (see the ``Source Code`` section below) and install it using
-``python setup.py install`` or ``pip install -e .`` from the root directory of the package. 
+To test this module you need to first install OpenPathSampling, then download the source files for this package (see the ``Source Code`` section below) and install it using
+``python setup.py install`` or ``pip install -e .`` from the root directory of the package.
 In the root folder then type ``nosetests`` to test the module using the `nose`_ package.
 
 
@@ -83,5 +83,3 @@ The source code for this module can be found in https://gitlab.e-cam2020.eu/heju
 
 .. _nose: http://nose.readthedocs.io/en/latest/
 .. _openpathsampling.Volume: http://openpathsampling.org/latest/volume.html
-.. _example: 
-.. _TSE module: ../ops_tse/readme
