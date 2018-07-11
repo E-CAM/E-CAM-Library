@@ -222,5 +222,6 @@ August 2017. The following modules have been produced:
     :maxdepth: 1
 
     ./modules/OpenPathSampling/ops_spring_shooting/readme
+    ./modules/OpenPathSampling/ops_sr_shooter/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/
