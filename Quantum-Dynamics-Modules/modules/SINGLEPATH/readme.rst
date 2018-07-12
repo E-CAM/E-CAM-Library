@@ -48,15 +48,11 @@ Background Information
 _____________________
 An understanding of the dynamical properties of condensed phase
 quantum systems underlie the description of a variety of quantum
-phenomena in chemical and biological systems. These phenomena
-include, among others, nonadiabatic chemical rate processes
-involving electronic, vibrational or other degrees of freedom,
-decoherence in open quantum systems and quantum transport
-processes. Quantum effects underlie the study of ultra-fast rate
-processes in solution. The development of schemes for the efficient and
+phenomena in chemical and biological systems. 
+The development of schemes for the efficient and
 accurate simulation of the quantum dynamics of such systems is an
-an active area of research in chemical
-physics, and is essential if problems of chemical interest involving
+an active area of research in chemical physics, and is essential 
+if problems of chemical interest involving
 complex molecular species in the condensed phase are considered.
 
 In investigations of the dynamical properties of quantum
@@ -84,7 +80,11 @@ sequential short-time propagation (SSTP) algorithm, which is also based on surfa
 
 Applications
 ____________
-*** Description of Applications here ***
+The applications of quantum surface hopping include, among others, nonadiabatic chemical rate processes
+involving electronic, vibrational or other degrees of freedom, decoherence in open quantum systems and quantum transport
+processes.  Decoherence due to coupling with the environment is a fundamental difficulty in the development of quantum computing. The ability
+to predicit, control and reduce decoherence requires a adaquate description of the associated non-adiabatic processes taking place.
+Quantum effects and  frequently non-adiabaticity also underlie the study of ultra-fast rate processes in solution.
 
 
 Algorithms and Software Implementation
