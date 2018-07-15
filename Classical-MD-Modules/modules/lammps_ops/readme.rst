@@ -85,17 +85,18 @@ The table shows the performance of LAMMPS with OPS for the Lennar-Jones (32K ato
 
 Results have been obtained using the JURECA (http://www.fz-juelich.de/ias/jsc/EN/Expertise/Supercomputers/JURECA/JURECA_node.html) supercomputer.
 
-==================== ===== ================== ===============
-Steps between frames  Nodes Md Engine Time [s] Total time [s]
-==================== ===== ================== ===============
-100                  1     106.25             108.48 
-100                  2     61.40              62.31
-100                  4     36.46              37.28
-==================== ===== ================== ===============
-1000                 1     100.93             102.48
-1000                 2     53.56              54.45
-1000                 4     29.71              30.67
-==================== ===== ================== ===============
+==================== ====== ================== ==============
+Steps between frames Nodes  Md Engine Time [s] Total time [s]
+==================== ====== ================== ==============
+100                  1      106.25             108.48 
+100                  2      61.40              62.31
+100                  4      36.46              37.28
+
+1000                 1      100.93             102.48
+1000                 2      53.56              54.45
+1000                 4      29.71              30.67
+==================== ====== ================== ==============
+
 Using 100 or 1000 time steps per frame, the overhead due to the OPS is within a maximum of 3%. However, one should note that when increasing the number of time steps per frame to 1000, the time spent in the MD engine decreases due to less overhead from stopping and starting the engine. A suggested improvement to OPS has been to allow the engine to continue the trajectory while the frame is being evaluated by OPS, which should help eliminate this overhead. The OPS overhead remains relatively static and there is little discernible difference between the overheads for the two measurements. Given that OPS is effectively a serialisation point for the calculation, more intensive trajectories should also, therefore, lead to improved scalability results since they will reduce this ratio of serial to parallel workload. 
 
 
