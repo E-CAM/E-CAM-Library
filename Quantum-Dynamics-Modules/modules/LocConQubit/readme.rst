@@ -1,8 +1,8 @@
 .. _LocConQubit:
 
-####################
+###########
 LocConQubit
-####################
+###########
 
 .. sidebar:: Software Technical Information
 
@@ -14,6 +14,9 @@ LocConQubit
 
   Documentation Tool
     sphinx
+
+  Software Module Developed by
+    Momir Mališ
 
 .. contents:: :local:
 

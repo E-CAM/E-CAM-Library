@@ -1,8 +1,8 @@
 .. _PaPIM:
 
-####################
+#####
 PaPIM
-####################
+#####
 
 .. sidebar:: Software Technical Information
 
@@ -14,6 +14,9 @@ PaPIM
 
   Documentation Tool
     Doxygen
+
+  Software Module Developed by
+    Momir Mališ, Ari P. Seitsonen
 
 .. contents:: :local:
 
