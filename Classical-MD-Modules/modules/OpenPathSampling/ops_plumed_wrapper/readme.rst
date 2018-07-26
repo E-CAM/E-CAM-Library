@@ -29,11 +29,11 @@ PLUMED Wrapper for OpenPathSampling
 
 Authors: Alberto Pérez de Alba Ortíz
 
-This module interfaces OpenPathSampling (OPS) with PLUMED, an open source
+This module interfaces OpenPathSampling (OPS) with PLUMED, an open-source
 library with a rich catalogue of Collective Variables (CVs).
 
 Special thanks to Gareth A. Tribello for facilitating the use of the
-PLUMED cython wrapper.
+PLUMED Cython wrapper.
 
 * G.A. Tribello, M. Bonomi, D. Branduardi, C. Camilloni, G. Bussi,
   PLUMED2: New feathers for an old bird, Comp. Phys. Comm. 185, 604 (2014);
@@ -47,7 +47,7 @@ _________________
 Transition path sampling simulations and analysis rely on accurate state
 definitions. Such states are typically defined as volumes in a CV-space.
 OPS already supports a number of CVs, including the ones defined in the
-MDTraj python library. PLUMED, a C++ open source library, offers a wide
+MDTraj Python library. PLUMED, an open-source C++ library, offers a wide
 variety of extra CVs, which are enabled in OPS by this module.
 
 Many of PLUMED's dozens of CVs have a biomolecular focus, but they are
@@ -60,7 +60,7 @@ address FAQs. For more information about the PLUMED code, visit:
 http://www.plumed.org/home
 
 In this module, the class ``PLUMEDInterface`` is a subclass of the
-cython wrapper class ``Plumed`` contained in the PLUMED installation.
+Cython wrapper class ``Plumed`` contained in the PLUMED installation.
 For initialization, ``PLUMEDInterface`` requires an ``MDTrajTopology``
 and accepts additional PLUMED settings:
 
@@ -101,14 +101,14 @@ This module supports (as listed in PLUMED documentation):
 * CV Documentation: all CVs are created by calling ``PLUMEDCV(name,
   PLUMEDInterface, definition)``. The returned function can be appied
   to a ``Trajectory``. CVs with components should specify the
-  ``components=["c1","c2", "c3",...]`` keyword and the corresponding
+  ``components=["c1", "c2", "c3", ...]`` keyword and the corresponding
   PLUMED keywords in the ``definition``.
 
-* Distances from reference configurations: are also created by calling
+* Distances from reference configurations: also created by calling
   ``PLUMEDCV(name, PLUMEDInterface, definition)``. Most of them require
   external files with reference configurations.
 
-* Functions: are also created by calling ``PLUMEDCV(name, PLUMEDInterface,
+* Functions: also created by calling ``PLUMEDCV(name, PLUMEDInterface,
   definition)``. They should be created using the same ``PLUMEDInterface``
   that contains the previously defined CVs that are part of the
   function.
@@ -177,7 +177,7 @@ https://gitlab.e-cam2020.eu/apdealbao/plumed_wrapper/tree/master
 It can be installed by running ``pip install -e .`` from the root directory
 of the package.
 
-It requires to have the PLUMED development version (with the cython wrapper)
+It requires to have the PLUMED development version (with the Cython wrapper)
 installed from: https://github.com/plumed/plumed2; and to source the file
 ``/path/to/plumed2/sourceme.sh``
 
