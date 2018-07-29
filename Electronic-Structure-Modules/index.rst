@@ -94,6 +94,7 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/GRASP_Sampling/readme   
     ./modules/GROMACS_interface/README   
     ./modules/Gaussian_interface/README   
+    ./modules/FFTXlib/readme
 
 
 .. _E-CAM: https://www.e-cam2020.eu/
