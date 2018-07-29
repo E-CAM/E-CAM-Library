@@ -44,8 +44,8 @@ In these codes, the expansion of wavefunction in planewave basis is
 truncated at a cut-off wave-vector :math:`\mathbf G_{max}`.
 Since density is the norm-square of the wavefunction, the expansion that is consistent with
 the one of wavefunctions requires a cut-off wavevector twice that of wavefunctions: :math:`2 \mathbf G_{max}`.
-Meanwhile, the real space FFT domain and the arrays sizes of both density and 
-wavefunction in their real space representation are the same.
+Meanwhile, the real space FFT domain is often only defined by one uniform grid of the unit cell, 
+so the array sizes of both :math:`\rho` and :math:`\psi` in their real space representation are the same.
 
 Therefore, to boost optimization and to reduce numerical noise, the library implements two possible options while performing FFT: 
 in one ( 'Wave') the wavevectors beyond :math:`\mathbf G_{max}` are ignored, 
@@ -54,10 +54,10 @@ in the other ( 'Rho' ) no such assumption is made.
 Another crucial feature of FFTXlib is that some approximations in the electronic structure calculations 
 (such as usage of non-normconserving pseudopotentials) require that density is not just 
 norm-square of wavefunctions, but has spatially localized extra components. In that case, 
-these localized contributions may require higher G-vector components than the ones needed for density, 
-:math:`2 \mathbf G_{max}`. 
+these localized contributions may require higher G-vector components than the ones needed for density 
+(:math:`> 2 \mathbf G_{max}`). 
 Hence, in such systems, the density array in reciprocal space has more elements 
-than the norm-conserving case (or in other words, a finer resolution, a denser grid is needed in real space)
+than the norm-conserving case (in other words a finer resolution or a denser grid is needed in real space)
 while the resolution needed to represent wavefunctions are left unchanged. 
 
 To accommodate for these different requirements of grid size, and to be able to make Fourier transforms back and forth between them, 
@@ -72,12 +72,12 @@ A final important feature of FFTXlib is the index mapping. In the simple case of
 as a choice, the reciprocal space arrays are ordered in increasing order of :math:`|G|^2` 
 while the real space arrays are sorted in column major order.
 Therefore for FFT to be performed, a map between these two orders must be known. 
-This index map is created and preserved by the library. 
+This index map is created and preserved by the FFTXlib. 
 
 
 In summary, FFTXlib allows the user to perform complex 3D fast Fourier transform (FFT) in the context of 
 plane wave based electronic structure software. It containes routines to initialize the array structures, 
-to calculate the desired grid shapes and impose underlying size assumptions, and provide 
+to calculate the desired grid shapes. It imposes underlying size assumptions and provides 
 correspondence maps for indices between the two transform domains.
 
 Once this data structure is constructed, forward or inverse in-place FFT can be performed. 
