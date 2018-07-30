@@ -181,8 +181,13 @@ It requires to have the PLUMED development version (with the Cython wrapper)
 installed from: https://github.com/plumed/plumed2; and to source the file
 ``/path/to/plumed2/sourceme.sh``
 
-For more details on PLUMED installation, see:
+For details on PLUMED installation, see:
 http://plumed.github.io/doc-master/user-doc/html/_installation.html
+
+**Before using this module, please test the Cython PLUMED wrapper by attempting
+to** ``import plumed`` **in Python.** If this is not successful, please refer to PLUMED
+installation documentation (above), or to the mailing list:
+https://groups.google.com/forum/#!forum/plumed-users
 
 .. CLOSING MATERIAL -------------------------------------------------------
 
