@@ -1,8 +1,8 @@
 .. _PIM_wd:
 
-####################
+######
 PIM_wd
-####################
+######
 
 .. sidebar:: Software Technical Information
 
@@ -14,6 +14,9 @@ PIM_wd
 
   Documentation Tool
     Doxygen
+
+  Software Module Developed by
+    Momir Mališ
 
 .. contents:: :local:
 

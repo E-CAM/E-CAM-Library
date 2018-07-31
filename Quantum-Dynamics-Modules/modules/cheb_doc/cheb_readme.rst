@@ -21,6 +21,9 @@ The Chebyshev Scheme (CH)
   Relevant Training Material
     Training material is available through the test examples
 
+  Software Module Developed by
+    Graham Worth, Ceridwen Ash
+
 .. contents:: :local:
 
 

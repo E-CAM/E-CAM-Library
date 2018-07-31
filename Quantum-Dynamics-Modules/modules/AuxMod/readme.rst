@@ -15,6 +15,9 @@ AuxMod
   Documentation Tool
     Doxygen
 
+  Software Module Developed by
+    Ari P. Seitsonen, Momir Mališ
+
 .. contents:: :local:
 
 

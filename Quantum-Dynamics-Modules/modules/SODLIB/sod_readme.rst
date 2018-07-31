@@ -23,6 +23,9 @@ Second-Order Differencing Scheme (SOD)
   Relevant Training Material
     Training material is available through the test examples
 
+  Software Module Developed by
+    Graham Worth, Kaite Spinlove, Marcus Taylor
+
 .. contents:: :local:
 
 
