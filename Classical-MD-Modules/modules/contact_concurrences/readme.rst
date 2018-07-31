@@ -10,8 +10,7 @@
 
 .. sidebar:: Software Technical Information
 
-  This module includes contributions to two code packages, binding_md and
-  contact_maps. 
+  This module extends the contact_maps project.
 
   Name
     contact_maps
@@ -60,14 +59,42 @@ a metastable state in a trajectory.
 Purpose of Module
 _________________
 
-TODO: Add background. Main contributions in this module:
+Contact frequencies, as developed in the module :ref:`contact-map`, are a
+useful tool for studying proteins. However, they suffer from one problem
+when 
 
-* methods for the user designate different parts of the ligand (analogous to
-  residues in a biomolecule; frequently a the contacts with specific parts
-  of small molecule/potential will be important.)
-* tools for identifying which contacts exist at the same times (are
-  correlated) within a trajectory
+For example, a particular contact pair might have a frequency of 0.1 during
+a 100ns trajectory. But this could be achieved in several ways. If the
+contact is randomly distributed through time, this contact probably isn't
+characteristic of a metastable state. On the other hand, if is it constantly
+present during the last 10 ns (and not otherwise present), it might
+represent a metastable state. More important, there might be multiple
+contacts that are *all* present during those last 10 ns. This module helps
+identify and analyze those concurrent contacts by providing a tool to
+visualize such concurrences.
 
+.. TODO: example of that visualization
+
+This is an important tool for identifying stable states based on long-lived
+groups of contacts, and is being used as part of the `E-CAM pilot project on
+binding kinetics <https://www.e-cam2020.eu/pilot-project-biki/>`_. It has
+also been used a part of a bachelor's thesis project to develop an automated
+approach to identifying metastable intermediates during binding/unbinding
+processes.
+
+Classes implemented in this module include:
+
+* ``Concurrence``: Superclass for contact concurrence objects, enabling
+  future custom concurrence types.
+* ``AtomContactConcurrence``: Contact concurrences for atom-atom contacts.
+* ``ResidueContactConcurrence``: Contact concurrences for residue-residue
+  contacts (based on minimum distance between constituent atoms).
+* ``ConcurrencePlotter`` and ``plot_concurrences``: Class and convenience
+  function (respectively) for making plots of contact concurrence.
+* ``ContactsDict``: Dict-like object giving access to atom or residue
+  contacts based on string keys. Also added ``ContactObject.contacts``
+  property, which returns a ``ContactsDict`` object for the
+  ``ContactObject``.
 
 .. * Who will use the module? in what area(s) and in what context?
 
@@ -85,28 +112,13 @@ TODO: Add background. Main contributions in this module:
      pictures/graphs illustrating the power or utility of the module, please
      include them with corresponding explanatory captions.
 
-.. note::
-
-  If the module is an ingredient for a more general workflow (e.g. the
-  module was the necessary foundation for later code; the module is part of
-  a group of modules that will be used to calculate certain property or have
-  certain application, etc.) mention this, and point to the place where you
-  specify the applications of the more general workflow (that could be in
-  another module, in another section of this repository, an application’s
-  website, etc.).
-
-.. note::
-
-  If you are a post-docs who works in E-CAM, an obvious application for the
-  module (or for the group of modules that this one is part of) is your
-  pilot project. In this case, you could point for the pilot project page on
-  the main website (and you must ensure that this module is linked there).
-
 
 Background Information
 ______________________
 
-
+This module is part of the `contact_map
+<http://contact-map.readthedocs.io>`_ project, which builds on tools from
+`MDTraj <http://mdtraj.org>`_.
 
 Building and Testing
 ____________________
@@ -116,7 +128,8 @@ ____________________
 This module will be included in the 0.4 release of ``contact_map``. After
 that release, it can be easily installed with ``conda``, using ``conda
 install -c conda-forge contact_map``, or ``conda install -c conda-forge
-contact_map==0.4.0`` for the first version that includes this module.
+contact_map==0.4.0`` for the first version that includes this module. To see
+the current release, go to https://pypi.org/project/contact-map/#history.
 
 Until the release, this module can only be installed through a developer
 install of ``contact_map``. This involves downloading the ``contact_map``
