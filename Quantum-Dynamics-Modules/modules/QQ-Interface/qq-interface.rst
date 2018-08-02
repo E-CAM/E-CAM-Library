@@ -37,6 +37,10 @@
 
 
 
+  Software Developed by
+    Johannes Ehrmaier, Graham Worth
+
+
 .. only test 
 
 .. _qq-interface:
