@@ -51,27 +51,31 @@ Contact Concurrences
     ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-This module deals with the analysis of contacts between protein residues
-based on "contact concurrences," i.e., what contacts occur simultaneously
-during a trajectory.  This is useful when using contacts as a definition of
-a metastable state in a trajectory.
+This module deals with the analysis of contacts between parts of
+biomolecules based on "contact concurrences," i.e., what contacts occur
+simultaneously during a trajectory.  This is useful when using contacts as a
+definition of a metastable state in a trajectory.
 
 Purpose of Module
 _________________
 
 Contact frequencies, as developed in the module :ref:`contact-map`, are a
-useful tool for studying proteins. However, they suffer from one problem
-when 
+useful tool for studying biomolecular systems, such as binding/unbinding of
+a ligand from a protein. However, they suffer from one problem when trying
+to use them to define metastable states: since they are averaged over time,
+they don't show time-dependent behavior. To identify a stable state,
+time-dependent behavior must be considered.
 
 For example, a particular contact pair might have a frequency of 0.1 during
 a 100ns trajectory. But this could be achieved in several ways. If the
-contact is randomly distributed through time, this contact probably isn't
-characteristic of a metastable state. On the other hand, if is it constantly
-present during the last 10 ns (and not otherwise present), it might
-represent a metastable state. More important, there might be multiple
-contacts that are *all* present during those last 10 ns. This module helps
-identify and analyze those concurrent contacts by providing a tool to
-visualize such concurrences.
+contact events are randomly distributed through time, this contact probably
+isn't characteristic of a metastable state. On the other hand, if the
+contact is constantly present during the last 10 ns (and not otherwise
+present), it might represent a metastable state. More importantly, there
+might be multiple contacts that are *all* present during those last 10 ns.
+Those concurrent contacts could be used to define a metastable state.  This
+module helps identify and analyze those concurrent contacts by providing a
+tool to visualize them.
 
 .. TODO: example of that visualization
 
