@@ -98,5 +98,8 @@ ___________
 * `Link to a merge request containing my source code changes
   <https://github.com/wannier-developers/wannier90/pull/167>`_
 
+* `Link to the pull request for the documentation and examples
+  <https://github.com/wannier-developers/wannier90/pull/194>`_
+
 * `Link to my feature branch
   <https://github.com/VVitale/wannier90/tree/SCDM_WFs>`_
