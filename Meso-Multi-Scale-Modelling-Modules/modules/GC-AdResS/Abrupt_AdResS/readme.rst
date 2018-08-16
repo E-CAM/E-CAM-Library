@@ -132,5 +132,3 @@ The patch for Abrupt_AdResS:
     cross-referencing problems
 
 For the patch see reference :ref:`abrupt_adress`
-
-
