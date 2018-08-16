@@ -27,7 +27,7 @@ This is a collection of the modules that have been created by E-CAM community
 within the area of Meso- and Multi-scale Modelling. This documentation is 
 created using ReStructured Text and the git repository for the documentation 
 source files can be found at 
-https://gitlab.e-cam2020.eu/e-cam/Meso-Multi-Scale-Modelling-Modules which are
+https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are
 public and open to contributions.
 
 In the context of E-CAM, the definition of a software module is any piece of software that could be of use to the E-CAM community and that encapsulates some additional functionality, enhanced performance or improved usability for people performing computational simulations in the domain areas of interest to us. 
@@ -75,10 +75,20 @@ The following modules connected to the ESPRESSO++ code have been produced so far
     ./modules/hierarchical-strategy/components/md-softblob/readme
     ./modules/hierarchical-strategy/components/minimize-energy/readme
     ./modules/hierarchical-strategy/components/constrain-com/readme
+    ./modules/hierarchical-strategy/components/constrain-rg/readme
+    ./modules/hierarchical-strategy/simple_one-component_melts/fbloop/readme
+    ./modules/hierarchical-strategy/simple_one-component_melts/reinsertion/readme
+    ./modules/hierarchical-strategy/simple_one-component_melts/fine-graining/readme
+    ./modules/hierarchical-strategy/simple_one-component_melts/coarse-graining/readme
+
 
 ESDW Barcelona 2017
 -------------------
 
-The first Meso- and Multi-scale ESDW in Barcelona in 2017 will be the starting point for the modules to be included here.
+The first Meso- and Multi-scale ESDW was held in Barcelona, Spain, in July 2017. The following modules have been produced:
 
-.. _E-CAM: https://www.e-cam2020.eu/
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme

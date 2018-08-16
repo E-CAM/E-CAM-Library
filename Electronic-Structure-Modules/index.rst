@@ -25,7 +25,7 @@ Introduction
 
 This is a collection of the modules that have been created by E-CAM community within the area of Electronic Structure. This documentation is created using ReStructured Text and the git repository for the documentation 
 source files can be found at 
-https://gitlab.e-cam2020.eu/e-cam/Electronic-Structure-Modules which are
+https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are
 public and open to contributions.
 
 In the context of E-CAM, the definition of a software module is any piece of software that could be of use to the E-CAM community and that encapsulates some additional functionality, enhanced performance or improved usability for people performing computational simulations in the domain areas of interest to us. 
@@ -92,6 +92,8 @@ Below is a list of the modules developed directly within the context of the pilo
                                                                                     
     ./modules/Geomoltools/readme   
     ./modules/GRASP_Sampling/readme   
+    ./modules/GROMACS_interface/README   
+    ./modules/Gaussian_interface/README   
 
 
 .. _E-CAM: https://www.e-cam2020.eu/
