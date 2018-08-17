@@ -163,6 +163,17 @@ routine  has been implemented and tested as an added functionality within the Qu
 
 The **PhysConst** enables the use of physical constants and the correct isotopic masses.
 
+
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/QQ-Interface/qq-interface.rst
+
+The **Quantics-QChem-Interface** is an interface between Quantics and QChem. The DFT algorithm implemented in QChem can be used to provide electronic structure information for direct dynamics simulations using the Quantics program package.
+
+
 PaPIM
 -----
 
