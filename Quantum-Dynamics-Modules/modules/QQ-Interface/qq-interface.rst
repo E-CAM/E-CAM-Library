@@ -74,7 +74,7 @@ ____________________
 
 
 
-To use the module, get the latest version of Quantics from the repository and build it as usual. Moreover you have to have a running version of `QChem <http://www.q-chem.com>_` installed on your system. An example calculation, simulating the photodissociation of water using 4 coupled states is added to the Quantics repository, the documentation of the example can be found `here <http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/howtos/run_dd.html>_` After you have copied the 'water.inp' and the 'run_qchem' files to your directory, you have specified the template for the electronic structure calculations and you performed the preparatory calculations, you can start the simulation with::
+To use the module, get the latest version of Quantics from the repository and build it as usual. Moreover you have to have a running version of `QChem <http://www.q-chem.com>`_ installed on your system. An example calculation, simulating the photodissociation of water using 4 coupled states is added to the Quantics repository, the documentation of the example can be found `here <http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/howtos/run_dd.html>`_ After you have copied the 'water.inp' and the 'run_qchem' files to your directory, you have specified the template for the electronic structure calculations and you performed the preparatory calculations, you can start the simulation with::
 
    quantics -mnd water.inp
 
@@ -88,7 +88,7 @@ Source Code
 ___________
 
 
-The source code for the QQ-Interface can be found within the Quantics software which can be downloaded via `CCPForge https://ccpforge.cse.rl.ac.uk/gf/project/quantics/_`.  You firstly need to make an account (at CCPForge). The Quantics project has a private repository so you also need to be a member of the project to checkout. then type into terminal::
+The source code for the QQ-Interface can be found within the Quantics software which can be downloaded via `CCPForge https://ccpforge.cse.rl.ac.uk/gf/project/quantics/`_.  You firstly need to make an account (at CCPForge). The Quantics project has a private repository so you also need to be a member of the project to checkout. then type into terminal::
 
  svn checkout --username your-user-name https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/trunk/  
 
