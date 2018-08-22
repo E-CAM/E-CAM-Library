@@ -26,7 +26,7 @@ Introduction
 This is a collection of the modules that have been created by E-CAM_ community
 within the area of Classical MD. This documentation is created using
 ReStructured Text and the git repository for the documentation source files can
-be found at https://gitlab.e-cam2020.eu/e-cam/Classical-MD-Modules which are
+be found at https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are
 open to contributions from E-CAM members.
 
 In the context of E-CAM, the definition of a software module is any piece of
@@ -222,5 +222,8 @@ August 2017. The following modules have been produced:
     :maxdepth: 1
 
     ./modules/OpenPathSampling/ops_spring_shooting/readme
+    ./modules/OpenPathSampling/ops_sr_shooter/readme
+    ./modules/OpenPathSampling/ops_web_throwing/readme
+    ./modules/OpenPathSampling/ops_plumed_wrapper/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/
