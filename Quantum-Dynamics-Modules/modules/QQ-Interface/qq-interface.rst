@@ -88,7 +88,7 @@ Source Code
 ___________
 
 
-The source code for the QQ-Interface can be found within the Quantics software which can be downloaded via `CCPForge https://ccpforge.cse.rl.ac.uk/gf/project/quantics/`_.  You firstly need to make an account (at CCPForge). The Quantics project has a private repository so you also need to be a member of the project to checkout. then type into terminal::
+The source code for the QQ-Interface can be found within the Quantics software which can be downloaded via `CCPForge <https://ccpforge.cse.rl.ac.uk/gf/project/quantics/>`_.  You firstly need to make an account (at CCPForge). The Quantics project has a private repository so you also need to be a member of the project to checkout. then type into terminal::
 
  svn checkout --username your-user-name https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/trunk/  
 

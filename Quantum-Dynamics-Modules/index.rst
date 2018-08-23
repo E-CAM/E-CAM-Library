@@ -206,7 +206,7 @@ The **PhysConst** enables the use of physical constants and the correct isotopic
 
 .. toctree::
     :glob:
-    :maxdepth:1
+    :maxdepth: 1
 
     ./modules/QuantumModelLib/readme
 
