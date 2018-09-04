@@ -28,17 +28,17 @@ Weigthed Linear Ridge Regression
 ..  contents:: :local:
 
 Purpose of the Module
-_________________
+_____________________
 
-This module solves the weighted linear ridge regression problem calculating the linear parameters of a model selected by the user that minimize the deviations of the predictions from the references of the data set. Therefore, it is a supervised learning tool that optimizes the linear parameters of a analytical expression in order to fit a data set. Each element of the data set can be weighted according to the relative importance or reliability attributed by the user. The regularization provides a protection from the overfitting, this inconvinient can occur if the flexibility of the model is too high in relation to the available data. Moreover, the module calculates the leave-one-out cross-validation error for the employed data set. 
-The WLRR module is a component of the LRR-DE software tool, developed to parametrize force fields of metal ions. In the LRR-DE software tool, the WLRR module is combined with the metaheuristic optimization algorithm differential evolution in order to tune the hyperparameters of the model (the regularization parameter and the non-linear parameters of the model).
+This module solves the weighted linear ridge regression problem calculating the linear parameters of a model selected by the user that minimize the deviations of the predictions from the references of the data set. Therefore, it is a supervised learning tool that optimizes the linear parameters of an analytical expression in order to fit a data set. Each element of the data set can be weighted according to the relative importance or reliability attributed by the user. The regularization provides a protection from the over-fitting, this inconvenient can occur if the flexibility of the model is too high in relation to the available data. Moreover, the module calculates the leave-one-out cross-validation error for the employed data set. 
+The WLRR module is a component of the LRR-DE software tool, developed to parametrize force fields of metal ions. In the LRR-DE software tool, the WLRR module is combined with the metaheuristic optimization algorithm differential evolution in order to tune the hyper-parameters of the model (the regularization parameter and the non-linear parameters of the model).
 
 The LRR-DE module has been developed to parametrize force fields of metal ions, however the method can be applied to optimize the parameters of a general functional form with respect to reference data.
 
 Background Information
 ______________________
 
-The theoretical background of the LRR-DE procedure is illustrated in the paper [FF2018]_. This module uses the GNU Scientific Library.
+The theoretical background of the LRR-DE procedure is illustrated in the paper [FF2018]_. The LRR-DE procedure is a supervised learning methodology that combines the weighted linear ridge regression algorithm, to obtain the linear patameters of the model, with the differential evolution optimizer, to obtain the non-linear parameters of the model, using the leave-one-out cross-validation error as objective function. This module uses the GNU Scientific Library.
 
 
 Building and Testing
