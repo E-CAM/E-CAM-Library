@@ -44,7 +44,7 @@ The theoretical background of the LRR-DE procedure is illustrated in the paper [
 Building and Testing
 ______________________
 
-To compile the code execute the Makefile (including the demo.c file provided in the ./test directory). In ./test directory a multi-objective data set is provided. The demo.c file includes an example for the definition of a model. The example is the parametrization of a force field with three components (Coulomb, Lennard-Jones 12-6) of the zinc ion in water with respect the solvatation energy and the forces on the ion for a set of clusters. The linear parameters calculated by the module should be 2.40203305, 0.00001364, and -0.10986800.
+To compile the code execute the Makefile (including the demo.c file provided in the `./test`__ directory). In ./test directory a multi-objective data set is provided. The demo.c file includes an example for the definition of a model. The example is the parametrization of a force field with three components (Coulomb, Lennard-Jones 12-6) of the zinc ion in water with respect the solvatation energy and the forces on the ion for a set of clusters. The linear parameters calculated by the module should be 2.40203305, 0.00001364, and -0.10986800.
 
 
 Source Code
@@ -54,7 +54,9 @@ The source code of the algorithm is available on the following link `E-CAM Gitla
 
 .. [FF2018] Fracchia F., Del Frate G., Mancini G., Rocchia W., Barone V., Force Field Parametrization of Metal Ions from Statistical Learning Techniques. J. Chem. Theory Comput., 2018, 14(1), pp 255-273
 
+.. __: https://gitlab.e-cam2020.eu/fracchia/Weighted_Linear_Ridge_Regression/tree/master/test
 .. __: https://gitlab.e-cam2020.eu/fracchia/Weighted_Linear_Ridge_Regression
+
 
 
 
