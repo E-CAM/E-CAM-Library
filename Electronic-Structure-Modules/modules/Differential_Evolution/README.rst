@@ -14,7 +14,7 @@ Differential Evolution (SHADE)
     Doxygen
 
 Purpose of the Module
-_________________
+_____________________
 
 This module performs a single-objective global optimization in a continuous domain using the metaheuristic algorithm Success-History based Adaptive Differential Evolution (SHADE). SHADE is a recent adaptive version of the differential evolution algorithm, a stochastic population-based derivative-free optimizer. The module is a component of the software tool LRR-DE, developed to parametrize force fields of metal ions. In particular, the role of the SHADE algorithm in LRR-DE is the optimization of the hyperparameters of the model. However the module has general applicability to the black-box minimization of a cost function.
 
@@ -45,6 +45,8 @@ where NAMEFUNCTION can assume the values "sphere", "ellips" or "michel". The dim
 Further functions can be added in the demo.c file defining the functional form and the domain of the search space.
 
 .. [Storn1997] Storn, Rainer, and Kenneth Price. "Differential evolution–a simple and efficient heuristic for global optimization over continuous spaces." Journal of global optimization 11.4 (1997): 341-359.
+
+.. __: https://gitlab.e-cam2020.eu:10443/fracchia/Differential_Evolution
 
 
 
