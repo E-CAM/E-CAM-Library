@@ -97,6 +97,7 @@ a significant reduction in runtime.
 
 Compiling
 _________
+All current versions of this code use the GNU scientific library version ?? for random number generation.
 
 OpenMP version:
 
