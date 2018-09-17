@@ -58,8 +58,10 @@ may be done in a multiscale manner by computing the dislocation-precipitate inte
 results for the stress-strain curves on the mesoscopic scale to more macroscopic Finite Element Method (the material model therein).
 
 This module provides 
-an extension of the ParaDIS DDD code (LLNL, http://paradis.stanford.edu/) where dislocation/precipitate interactions are included. The extension is for an HPC environment, in which the original code has been optimized for the Cray XC40 cluster at CSC in Finland in mind. Vectorizing better some subroutines and using threads better by a combination of MPI and Open MP allows for large-scale jobs speed-ups of a factor of 1.5 and allows to use more computational nodes than what is reasonable with the original version, so that the production time is speeded up by a factor of two.
+an extension of the ParaDIS DDD code (LLNL, http://paradis.stanford.edu/) where dislocation/precipitate interactions are included. The extension is for an HPC environment, in which the original code has been optimized for the Cray XC40 cluster at CSC in Finland in mind. Vectorizing better some subroutines and using threads better by a combination of MPI and Open MP allows for large-scale jobs speed-ups of a factor of 1.5 and allows to use more computational nodes than what is reasonable with the original version, so that the production time is speeded up by a factor of two. This is visualized in the figure below, where the normalized time is plotted versus the number of nodes for both the original and the HPC optimized codes. 
 
+.. image:: paradis-scalability.png
+   :width: 500
 
 Purpose of Module
 _________________
