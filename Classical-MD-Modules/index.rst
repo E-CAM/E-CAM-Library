@@ -182,8 +182,6 @@ The modules that are based on OPS, but remain separate, are:
    
     ./modules/annotated_trajectories/readme
     ./modules/ops_piggybacker/readme
-    ./modules/contact_maps/readme
-    ./modules/contact_maps_parallelization/readme
 
 Nine of these modules were part of 
 `E-CAM Deliverable 1.2 <https://www.e-cam2020.eu/deliverables/>`_. Those modules
@@ -197,6 +195,20 @@ One of primary activity of E-CAM is to engage with pilot projects with industria
 together with the partner and typically are to facilitate or improve the scope of computational simulation within the
 partner. The related code development for the pilot projects are open source (where the licence of the underlying
 software allows this) and are described in the modules associated with the pilot projects.
+
+More information on Classical MD pilot projects can be found on the main E-CAM website:
+
+* `Project on binding kinetics <https://www.e-cam2020.eu/pilot-project-biki/>`_
+* `Project on food and pharmaceutical proteins <https://www.e-cam2020.eu/pilot-project-food-proteins/>`_
+
+The following modules were developed specifically for the Classical MD pilot projects.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/contact_maps/readme
+    ./modules/contact_maps_parallelization/readme
 
 Extended Software Development Workshops (ESDWs)
 ===============================================
@@ -222,5 +234,8 @@ August 2017. The following modules have been produced:
     :maxdepth: 1
 
     ./modules/OpenPathSampling/ops_spring_shooting/readme
+    ./modules/OpenPathSampling/ops_sr_shooter/readme
+    ./modules/OpenPathSampling/ops_web_throwing/readme
+    ./modules/OpenPathSampling/ops_plumed_wrapper/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/
