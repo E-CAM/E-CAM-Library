@@ -133,17 +133,17 @@ ___________
 The source codes comprise the following 8 files. They are in the directory (short URL) https://goo.gl/iyJxbT
 
 
-   (1) A python code `chebychev-lambda-input.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/bf6d646de33532e331407c89e1d78b1064e154f6/modules/PI/CORE/LJ/CLEAN-CODE/chebychev-lambda-input.py>`_ that generates the lambda values to be input into LAMMPS according to the users' choices of  number of  interpolation points and the 
+   (1) A python code `chebychev-lambda-input.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/chebychev-lambda-input.py>`_ that generates the lambda values to be input into LAMMPS according to the users' choices of  number of  interpolation points and the 
    minimum value of lambda to be used as the domain of integration 
    (2,3) Two LAMMPS script codes `templatev5.in <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/templatev5.in>`_
    and  `templatev5_nokspace.in  <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/CORE/LJ/CLEAN-CODE/templatev5_nokspace.in>`_
    that generate the data required for estimating the changes in free energy due to the insertion or deletion of particles using Particle Mesh Ewald long range estimate of dispersion and standard cut-off respectively.
-   (4,5) Two examples of coordinate input files for LAMMPS:  `example_lj400b.lammps <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/bf6d646de33532e331407c89e1d78b1064e154f6/modules/PI/CORE/LJ/CLEAN-CODE/example_lj400b.lammps>`_
+   (4,5) Two examples of coordinate input files for LAMMPS:  `example_lj400b.lammps <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/example_lj400b.lammps>`_
    
-   and  `example_lj3200b.lammps <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/bf6d646de33532e331407c89e1d78b1064e154f6/modules/PI/CORE/LJ/CLEAN-CODE/example_lj3200b.lammps>`_
-   (6) A python script `data-new8-thdy.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/bf6d646de33532e331407c89e1d78b1064e154f6/modules/PI/CORE/LJ/CLEAN-CODE/data-new8-thdy.py>`_ that takes as input the thermodynamic integration output data from LAMMPS and uses it to compute the corresponding free energy change using thermodynamic integration.
-   (7) A python script `data-new8-mbar.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/bf6d646de33532e331407c89e1d78b1064e154f6/modules/PI/CORE/LJ/CLEAN-CODE/data-new8-mbar.py>`_ that takes as input the MBAR  output data from LAMMPS and uses it to compute the corresponding free energy change using MBAR
-   (8) A c code `ljeos1.c <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/bf6d646de33532e331407c89e1d78b1064e154f6/modules/PI/CORE/LJ/CLEAN-CODE/ljeos1.c>`_ that uses published results of `K. Johnson et al <https://doi.org/10.1080/00268979300100411>`_ to estimate the chemical potential for a Lennard Jones Fluid. This allows direct comparison of our predictions as a test with a wide variety of densities and temperatures of a Lennard-Jones fluid.
+   and  `example_lj3200b.lammps <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/example_lj3200b.lammps>`_
+   (6) A python script `data-new8-thdy.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/data-new8-thdy.py>`_ that takes as input the thermodynamic integration output data from LAMMPS and uses it to compute the corresponding free energy change using thermodynamic integration.
+   (7) A python script `data-new8-mbar.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/data-new8-mbar.py>`_ that takes as input the MBAR  output data from LAMMPS and uses it to compute the corresponding free energy change using MBAR
+   (8) A c code `ljeos1.c <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/ljeos1.c>`_ that uses published results of `K. Johnson et al <https://doi.org/10.1080/00268979300100411>`_ to estimate the chemical potential for a Lennard Jones Fluid. This allows direct comparison of our predictions as a test with a wide variety of densities and temperatures of a Lennard-Jones fluid.
 
 
 
@@ -175,12 +175,12 @@ _____________
 Particle Integration Core of codes consists of 6 codes in the directory (short URL) https://goo.gl/iyJxbT  
 
 
-`chebychev-lambda-input.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/bf6d646de33532e331407c89e1d78b1064e154f6/modules/PI/CORE/LJ/CLEAN-CODE/chebychev-lambda-input.py>`_ 
+`chebychev-lambda-input.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/chebychev-lambda-input.py>`_ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This is a python code that generates the lambda values to be input into LAMMPS according to the users' choices of number of interpolation points and the minimum value of lambda to be used as the domain of integration. The set of lambda values  and 0  correspond to the LAMMPS script public values "LAMBDAS and LLAMBDAS" listed below, arranged in increasing order, and the the number of values equals the public variable "NUMBER_of_lambas"  
 
 
-`templatev5.in <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/bf6d646de33532e331407c89e1d78b1064e154f6/modules/PI/CORE/LJ/CLEAN-CODE/templatev5.in>`_   and  `templatev5_nokspace.in  <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/bf6d646de33532e331407c89e1d78b1064e154f6/modules/PI/CORE/LJ/CLEAN-CODE/templatev5_nokspace.in>`_
+`templatev5.in <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/templatev5.in>`_   and  `templatev5_nokspace.in  <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/templatev5_nokspace.in>`_
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 These two LAMMPS based script codes generate the data required for estimating the changes in free energy due to the insertion of deletion of particles using Particle Mesh Ewald long-range estimate of dispersion and standard cut-off respectively. The codes are essentially identical apart from their different treatment of long-range dispersion. They each have 18 public variables which the user can set to suit the specific problem they have. All but the last two public variables (LAMBDAS and LLAMBDAS) can be changed at a LAMMPS command level at startup using the commands -var variable_name1 value1 -var variable_name2 value2 ...etc. 
 The latter two can only be changed by direct editing of the input scripts. All public variables have names including a mixed upper and lower case letters. All non-public or internal variables names have letters written lower case format.  The codes have several internal loops. The  code has a large number of explanatory comments within the script.
@@ -224,19 +224,19 @@ The examples 1. and 2.  use the initial coordinates consisting of 3200 atoms def
 whereas   the examples 3. and 4. use the default coordinates of 400 atoms.  The  RUNTIME and RELAXATION_time are very short 
 for testing purposes. For  production runs they should be atleast ten times longer. 
 
-`data-new8-thdy.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/bf6d646de33532e331407c89e1d78b1064e154f6/modules/PI/CORE/LJ/CLEAN-CODE/data-new8-thdy.py>`_ 
+`data-new8-thdy.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/data-new8-thdy.py>`_ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This python code takes as input the thermodynamic integration output data from LAMMPS and uses it to compute the corresponding free energy change using thermodynamic integration. The user should call it from the directory where the output data from LAMMPS is held. It expects output data fo have the format header-name.tdy.number.dat where number equals the number of lambda values excluding zero. Here it is assumed that one particle is inserted. It will print the estimates of the free energy of insertion or deletion and also creates a director called TDY
 and subdirectories where the results of the analysis are stored.
 
 
-`data-new8-mbar.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/bf6d646de33532e331407c89e1d78b1064e154f6/modules/PI/CORE/LJ/CLEAN-CODE/data-new8-mbar.py>`_
+`data-new8-mbar.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/data-new8-mbar.py>`_
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This python code takes as input the multiple Bennet Acceptance Ratio (MBAR)  output data from LAMMPS and uses it to compute the corresponding free energy change using the  pymbar code from the Chodera lab. The user should call it from the directory where the output data is held. It expects output data fo have the format header-name.mbar.number.dat where number equals the number of lambda values including zero. Here it is assumed that one particle is inserted. It will print the estimates of the free energy of insertion or deletion and also creates a director called MBAR and subdirectories where the results of the analysis are stored. 
 
 
-`ljeos1.c <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/bf6d646de33532e331407c89e1d78b1064e154f6/modules/PI/CORE/LJ/CLEAN-CODE/ljeos1.c>`_ 
+`ljeos1.c <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/ljeos1.c>`_ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This simple C code uses published results of `K. Johnson et al <https://doi.org/10.1080/00268979300100411>`_ to estimate the chemical potential for a Lennard Jones Fluid. This allows direct comparison of our predictions as a test with a wide variety of densities and temperatures of a Lennard-Jones fluid. The user needs to input the target density and temperature. 
 
