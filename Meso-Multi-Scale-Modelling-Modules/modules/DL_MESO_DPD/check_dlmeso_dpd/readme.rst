@@ -49,12 +49,14 @@ in its last released version, version 2.6 (dating November 2015).
 Testing
 _______
 
-The present module, ``check_config.f90``, is compiled with the available Fortran90 compiler, e.g.:
+The present module, ``check_config.f90``, is compiled with the available
+Fortran90 compiler [1]_, e.g.:
 
 ``gfortran -o check_config.exe check_config.f90``
 
 and the executable must be in the same directory of the three files to be
 analyzed (i.e., CONTROL, FIELD and CONFIG).
+
 
 When running ``check_config.f90``, the outcome of the different checks is
 sent to the standard output. The most important messages are: warnings,
@@ -131,3 +133,4 @@ ___________
 .. Here are the URL references used
 .. _DL_MESO: http://www.ccp5.ac.uk/DL_MESO
 .. _ReST: http://docutils.sourceforge.net/docs/user/rst/quickref.html
+.. [1] Compilation has been tested with the GNU compiler GCC, version 8.1.1.
