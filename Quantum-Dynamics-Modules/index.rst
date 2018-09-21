@@ -203,6 +203,7 @@ routine  has been implemented and tested as an added functionality within the Qu
 
 The **PhysConst** enables the use of physical constants and the correct isotopic masses.
 
+
 .. toctree::
     :glob:
     :maxdepth: 1
@@ -210,6 +211,16 @@ The **PhysConst** enables the use of physical constants and the correct isotopic
     ./modules/QuantumModelLib/readme
 
 The **QuantumModelLib** use potential energy surfaces extracted from the literature and can be linked to quantum dynamics codes.
+
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/QQ-Interface/qq-interface.rst
+
+The **Quantics-QChem-Interface** is an interface between Quantics and QChem. The DFT algorithm implemented in QChem can be used to provide electronic structure information for direct dynamics simulations using the Quantics program package.
+
 
 PaPIM
 -----
@@ -307,6 +318,7 @@ It also contains a library of adapted MPI subroutines for easier programming of 
 
 **Openmpbeads** is a patch to the PaPIM code which enables parallelization of the sampling of the  
 polymer chains within the PIM algorithm, improving efficiency in sampling of the Wigner density.
+
 
 
 
