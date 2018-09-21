@@ -209,6 +209,7 @@ The following modules were developed specifically for the Classical MD pilot pro
 
     ./modules/contact_maps/readme
     ./modules/contact_maps_parallelization/readme
+    ./modules/PIcore/readme
 
 Extended Software Development Workshops (ESDWs)
 ===============================================
