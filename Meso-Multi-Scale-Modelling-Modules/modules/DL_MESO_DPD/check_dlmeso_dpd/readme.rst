@@ -72,15 +72,15 @@ of the module.
 
 **Test 1**
 
-Use for the CONTROL file
+Use for the :download:`CONTROL <CONTROL>` file
 
 .. literalinclude:: ./CONTROL
 
-for the FIELD file
+for the :download:`FIELD <FIELD>` file
 
 .. literalinclude:: ./FIELD
 
-and for the CONFIG file this (correct labeling) one, where
+and for the :download:`CONFIG <CONFIG>` file this (correct labeling) one, where
 the beads are randomly located in the cubic box
 
 .. literalinclude:: ./CONFIG
