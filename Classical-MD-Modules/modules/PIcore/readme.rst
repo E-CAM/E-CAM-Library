@@ -125,7 +125,7 @@ The third code written in python takes the output data from LAMMPS, prepares it 
 selected ensemble can be computed using MBAR provided by the pymbar suite of python codes of the Chodera group. 
 
 The fourth code, also written in python take the LAMMPS output and performs the thermodynamic integration.
-.. image:: https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/5a601b7dc60e140b99d8e516d27d8676b32b439d/modules/PI/CORE/LJ/CLEAN-CODE/flowchart1.png
+.. image:: https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/CORE/LJ/CLEAN-CODE/flowchart1.png
 
 Source Code
 ___________
@@ -136,7 +136,7 @@ The source codes comprise the following 8 files. They are in the directory (shor
    (1) A python code `chebychev-lambda-input.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/chebychev-lambda-input.py>`_ that generates the lambda values to be input into LAMMPS according to the users' choices of  number of  interpolation points and the 
    minimum value of lambda to be used as the domain of integration 
    (2,3) Two LAMMPS script codes `templatev5.in <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/templatev5.in>`_
-   and  `templatev5_nokspace.in  <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/CORE/LJ/CLEAN-CODE/templatev5_nokspace.in>`_
+   and  `templatev5_nokspace.in  <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/templatev5_nokspace.in>`_
    that generate the data required for estimating the changes in free energy due to the insertion or deletion of particles using Particle Mesh Ewald long range estimate of dispersion and standard cut-off respectively.
    (4,5) Two examples of coordinate input files for LAMMPS:  `example_lj400b.lammps <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/example_lj400b.lammps>`_
    
