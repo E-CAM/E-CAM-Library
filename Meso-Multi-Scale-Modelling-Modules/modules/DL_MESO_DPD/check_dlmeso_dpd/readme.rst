@@ -126,9 +126,13 @@ Running the utility, one obtains
 
 Source Code
 ___________
-.. literalinclude:: ./check_config.f90
-   :language: fortran
-   :linenos:
+
+To download the source code for ``check_config.f90``, :download:`click here<check_config.f90>`.
+
+..
+   .. literalinclude:: ./check_config.f90
+      :language: fortran
+      :linenos:
 
 .. Here are the URL references used
 .. _DL_MESO: http://www.ccp5.ac.uk/DL_MESO
