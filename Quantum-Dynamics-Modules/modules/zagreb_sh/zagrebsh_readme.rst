@@ -52,25 +52,24 @@ The module can be apply to all classical propagations in multistate systems, spe
 Testing
 _______
 
-A test example is provided for the excitation of an initial wavepacket into an excited state that is coupled with another excited state. The input and operator files can be found at ~/quantics/inputs/ferretti_tsh.inp and ~/quantics/operators/ferretti.op. The test example is a simple analytical model provided by Ferreti et al. (JCP, 104,5517 (1996)). The documentation under the Zagreb surface hopping code will help you to install the Zagreb code. The test can be done through the following command::
+A test example is provided for the excitation of an initial wavepacket into an excited state that is coupled with another excited state. The relevant input file is 'ferrety_tsh.inp' (which can be found in the 'inputs' subdirectory of the sources) and corresponding operator file is 'ferreti.op' (found in the 'operators' subdirectory). The test example is a simple analytical model provided by Ferreti et al. (JCP, 104,5517 (1996)). The documentation under the Zagreb surface hopping code will help you to install the Zagreb code. The test can be done through the following command::
 
   $ quantics -mnd ferretti_tsh
 
-A more detailed test documentation for Zagreb code developers can be found in '~/quantics/doc/sh_zagreb/sh_zagreb.html' 
+A more detailed test documentation file 'sh_zagreb.html' can be found in the subdirectory 'sh_zagreb' of the documentation subdirectory 'doc' of the sources. The html file has been provided by the Zagreb code developers. 
  
-An output directory is provided for testing and comparison. The output directory includes the output file (quantics common output file) and the zagreb_trj directory. This directory only includes the first trajectory directory (traj.1 directory), for space saving reasons.  
+An output directory is provided for testing and comparison (it is available to download as a tarball, :download:'output.tgz'<./output.tgz>'.). The output directory includes the output file (quantics common output file) and the zagreb_trj directory. This directory only includes the first trajectory directory (traj.1 directory), for space saving reasons.  
 
 Source Code
 ___________
 
-The source code for the Zagreb surface hopping code can be found within the Quantics software which can be downloaded via CCPForge_.  You firstly need to make an account (at CCPForge). The quantics project has a private repository so you also need to be a member of the project to checkout. then type into terminal::
+The source code for the Zagreb surface hopping code can be found within the Quantics software which can be downloaded via CCPForge_.  You firstly need to make an account (at CCPForge). The quantics project has a private repository so you also need to be a member of the project to checkout. then type:
 
  svn checkout --username your-user-name https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/trunk/ quantics
 
 .. _CCPFORGE: https://ccpforge.cse.rl.ac.uk/gf/project/quantics/
 
 
-Within the Quantics program, explicit code for the Zagreb surface hopping code is located through ~/quantics/source/sh_zagreb/src/
-
+Within the Quantics program, explicit code for the Zagreb surface hopping code is located in the subdirectory 'sh_zagreb' into the subdirectory 'source' of the sources.
 
 
