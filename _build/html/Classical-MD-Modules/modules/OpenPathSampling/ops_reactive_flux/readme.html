@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Reactive flux in OpenPathSampling &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Maximum likelihood optimization of reaction coordinates" href="../ops_maxlikelihood/readme.html" />
+    <link rel="prev" title="Transition State Ensemble in OpenPathSampling" href="../ops_tse/readme.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../ops_maxlikelihood/readme.html" title="Maximum likelihood optimization of reaction coordinates"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../ops_tse/readme.html" title="Transition State Ensemble in OpenPathSampling"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Classical MD Modules</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="reactive-flux-in-openpathsampling">
+<span id="ops-rf"></span><h1>Reactive flux in OpenPathSampling<a class="headerlink" href="#reactive-flux-in-openpathsampling" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Software Technical Information</p>
+<p>The information in this section describes OpenPathSampling as a whole.
+Information specific to the additions in this module are in subsequent
+sections.</p>
+<dl class="last docutils">
+<dt>Language</dt>
+<dd>Python (2.7)</dd>
+<dt>Documentation Tool</dt>
+<dd>Sphinx, numpydoc format (ReST)</dd>
+<dt>Application Documentation</dt>
+<dd><a class="reference external" href="http://openpathsampling.org">http://openpathsampling.org</a></dd>
+<dt>Relevant Training Material</dt>
+<dd><a class="reference external" href="http://openpathsampling.org/latest/examples/">http://openpathsampling.org/latest/examples/</a></dd>
+<dt>Licence</dt>
+<dd>LGPL, v. 2.1 or later</dd>
+</dl>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#purpose-of-module" id="id1">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information" id="id2">Background Information</a></li>
+<li><a class="reference internal" href="#testing" id="id3">Testing</a></li>
+<li><a class="reference internal" href="#examples" id="id4">Examples</a></li>
+<li><a class="reference internal" href="#source-code" id="id5">Source Code</a></li>
+</ul>
+</div>
+<p>Authors: Andreas Singraber</p>
+<p>This module implements the reactive flux method in OpenPathSampling.</p>
+<div class="section" id="purpose-of-module">
+<h2><a class="toc-backref" href="#id1">Purpose of Module</a><a class="headerlink" href="#purpose-of-module" title="Permalink to this headline">¶</a></h2>
+<p>The reactive flux method in combination with a free energy calculation allows
+to derive the rate constant of a rare event. This is accomplished by a shooting
+algorithm similar to a committor analysis where fleeting trajectories starting
+from the dividing surface are generated and statistics about their state with
+respect to a collective variable is collected. There are many flavors of the
+reactive flux method, this module implements the effective positive flux method
+as described by van Erp and Bolhuis (see e.g.
+<a class="reference external" href="http://dx.doi.org/10.1016/j.jcp.2004.11.003">http://dx.doi.org/10.1016/j.jcp.2004.11.003</a>).</p>
+<p>The implementation introduces the following new classes:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ReactiveFluxSimulation</span></code> inherits from <code class="docutils literal"><span class="pre">ShootFromSnapshotsSimulation</span></code>
+and implements the shooting algorithm similar to <code class="docutils literal"><span class="pre">CommittorSimulation</span></code>.
+First, backward trajectories from the initial snapshots are started and
+followed until they either hit state A or recross the dividing surface. In
+the latter case the trajectory is rejected. If instead the trajectory reaches
+A, a forward shot is performed until the trajectory reaches either A
+(rejected) or B (accepted). The forward trajectory is allowed to recross the
+barrier any number of times but must end up in B without reaching A. To
+implement this behaviour of a forward shot depending on the final state of
+the backward trajectory a <code class="docutils literal"><span class="pre">NonCanonicalConditionalSequentialMover</span></code> and the
+<code class="docutils literal"><span class="pre">NonCanonicalConditionalSequentialMoveChange</span></code> were derived from existing
+classes available in OpenPathSampling. The stable states, the dividing
+surface and other regions are identified via a user-defined reaction
+coordinate and resulting trajectories are saved in a <code class="docutils literal"><span class="pre">Storage</span></code> object.</li>
+<li>The class <code class="docutils literal"><span class="pre">ReactiveFluxAnalysis</span></code> provides functionality to analyze
+previously generated and stored trajectories similar to its parent class
+<code class="docutils literal"><span class="pre">ShootingPointAnalysis</span></code>. In addition to trajectories the user needs to
+provide the gradient of the reaction coordinate at the dividing surface. With
+the stored velocities at the trajectory starting points it is possible to
+compute the time derivate of the reaction coordinate and therefore (together
+with results from a free energy calculation) derive the total flux and the
+flux for each initial snapshot. Methods to visualize e.g. per-snapshot
+results in 1D- and 2D-histograms are also provided.</li>
+</ul>
+</div>
+<div class="section" id="background-information">
+<h2><a class="toc-backref" href="#id2">Background Information</a><a class="headerlink" href="#background-information" title="Permalink to this headline">¶</a></h2>
+<p>This module builds on OpenPathSampling, a Python package for path sampling
+simulations. To learn more about OpenPathSampling, you might be interested in
+reading:</p>
+<ul class="simple">
+<li>OPS documentation: <a class="reference external" href="http://openpathsampling.org">http://openpathsampling.org</a></li>
+<li>OPS source code: <a class="reference external" href="http://github.com/openpathsampling/openpathsampling">http://github.com/openpathsampling/openpathsampling</a></li>
+</ul>
+</div>
+<div class="section" id="testing">
+<h2><a class="toc-backref" href="#id3">Testing</a><a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>To test this module you need to download the source files package (see the <code class="docutils literal"><span class="pre">Source</span> <span class="pre">Code</span></code> section below) and install it using
+<code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code> from the root directory of the package.
+In the <code class="docutils literal"><span class="pre">ops_rf/tests</span></code> folder type <code class="docutils literal"><span class="pre">nosetests</span> <span class="pre">testrfanalysis.py</span></code> to test the module using the <a class="reference external" href="http://nose.readthedocs.io/en/latest/">nose</a> package.</p>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id4">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>See the <code class="docutils literal"><span class="pre">rf-example.ipynb</span></code> IPython notebook in the source directory, here is the direct link: <a class="reference external" href="https://gitlab.e-cam2020.eu/Classical-MD_openpathsampling/RF/blob/master/ops_rf/rf-example.ipynb">https://gitlab.e-cam2020.eu/Classical-MD_openpathsampling/RF/blob/master/ops_rf/rf-example.ipynb</a>
+To run the example execute <code class="docutils literal"><span class="pre">jupyter</span> <span class="pre">notebook</span> <span class="pre">rf-example.ipynb</span></code> in your terminal.</p>
+</div>
+<div class="section" id="source-code">
+<h2><a class="toc-backref" href="#id5">Source Code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>The source code for this module can be found in: <a class="reference external" href="https://gitlab.e-cam2020.eu/Classical-MD_openpathsampling/RF/tree/master">https://gitlab.e-cam2020.eu/Classical-MD_openpathsampling/RF/tree/master</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../index.html">
+              <img class="logo" src="../../../../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Reactive flux in OpenPathSampling</a><ul>
+<li><a class="reference internal" href="#purpose-of-module">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information">Background Information</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#source-code">Source Code</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../ops_tse/readme.html"
+                        title="previous chapter">Transition State Ensemble in OpenPathSampling</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../ops_maxlikelihood/readme.html"
+                        title="next chapter">Maximum likelihood optimization of reaction coordinates</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/Classical-MD-Modules/modules/OpenPathSampling/ops_reactive_flux/readme.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../ops_maxlikelihood/readme.html" title="Maximum likelihood optimization of reaction coordinates"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../ops_tse/readme.html" title="Transition State Ensemble in OpenPathSampling"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Classical MD Modules</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

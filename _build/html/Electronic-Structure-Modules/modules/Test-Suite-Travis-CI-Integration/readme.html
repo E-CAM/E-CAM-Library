@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Test-Suite-Travis-CI-Integration module &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Geomoltools" href="../Geomoltools/readme.html" />
+    <link rel="prev" title="Use_WS_Distance module" href="../Use_WS_Distance/readme.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../Geomoltools/readme.html" title="Geomoltools"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Use_WS_Distance/readme.html" title="Use_WS_Distance module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Electronic Structure Modules</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="test-suite-travis-ci-integration-module">
+<span id="test-suite-travis-ci-integration"></span><h1>Test-Suite-Travis-CI-Integration module<a class="headerlink" href="#test-suite-travis-ci-integration-module" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Software Technical Information</p>
+<dl class="last docutils">
+<dt>Language</dt>
+<dd>FORTRAN</dd>
+<dt>Licence</dt>
+<dd>GPLv2</dd>
+<dt>Documentation Tool</dt>
+<dd>FORD for source code documentation, see <a class="reference external" href="http://www.wannier.org/ford/">Source code documentation</a>.</dd>
+<dt>Application Documentation</dt>
+<dd><a class="reference external" href="http://www.wannier.org/user_guide.html">http://www.wannier.org/user_guide.html</a></dd>
+<dt>Relevant Training Material</dt>
+<dd><a class="reference external" href="http://www.wannier.org/user_guide.html">http://www.wannier.org/user_guide.html</a></dd>
+</dl>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#purpose-of-module" id="id2">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information" id="id3">Background Information</a></li>
+<li><a class="reference internal" href="#installing" id="id4">Installing</a></li>
+<li><a class="reference internal" href="#testing" id="id5">Testing</a></li>
+<li><a class="reference internal" href="#source-code" id="id6">Source Code</a></li>
+</ul>
+</div>
+<div class="section" id="purpose-of-module">
+<h2><a class="toc-backref" href="#id2">Purpose of Module</a><a class="headerlink" href="#purpose-of-module" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">This module added a test-suite, and integrated with GitHub and Travis-CI for</div>
+<div class="line">continuous integration. A number of tests have been added</div>
+<div class="line">(contributed mainly by S. Ponce, Oxford). Also compilation on the</div>
+<div class="line">buildbot test farm at the Oxford Materials Modelling Laboratory has been activated</div>
+</div>
+</div>
+<div class="section" id="background-information">
+<h2><a class="toc-backref" href="#id3">Background Information</a><a class="headerlink" href="#background-information" title="Permalink to this headline">¶</a></h2>
+<p>This module is produced during the ECAM/Wannier90-developer workshop held in San Sebastian. This coincided with the move of the Wannier90 repository to GitHub to enable easier integration of community contributions. One of the first such contributions was the ability to compute symmetry-adapted Wannier Functions. (For more background information, see <a class="reference external" href="http://www.wannier.org/history.html">Wannier code history</a>)</p>
+</div>
+<div class="section" id="installing">
+<h2><a class="toc-backref" href="#id4">Installing</a><a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
+<p>Installation of wannier90 code is relatively simple. Detailed installing inforamtion is given by <a class="reference external" href="https://raw.githubusercontent.com/wannier-developers/wannier90/develop/README.install">this link</a>.</p>
+</div>
+<div class="section" id="testing">
+<h2><a class="toc-backref" href="#id5">Testing</a><a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>Test-Suite (<a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/5">Pull-Request 5</a>) and Travis-CI integration (<a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/6">Pull-Request 6</a>) are added to Wannier90 repository during this workshop.</p>
+<p>Thus, each Pull-Request within this ECAM module passed the Travis-CI continous integration test before being merged into the Wannier90 code.  Within the Travis-CI test, a set of tests in Test-Suite are checked. Manual testing can be done through the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ make run-tests
+</pre></div>
+</div>
+<p>If &#8216;run-custom-test-parallel&#8217;, it runs the specified test in parallel (4 process with MPI):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ make run-custom-test-parallel testdir=example01
+</pre></div>
+</div>
+<p>For more details, please see <a class="reference external" href="https://github.com/wannier-developers/wannier90/tree/develop/test-suite">HERE</a>.</p>
+</div>
+<div class="section" id="source-code">
+<h2><a class="toc-backref" href="#id6">Source Code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>The source code of this module can be found in the following Pull-Requests in Wannier90 repository under Github:</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/5">https://github.com/wannier-developers/wannier90/pull/5</a></div>
+<div class="line"><a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/6">https://github.com/wannier-developers/wannier90/pull/6</a></div>
+<div class="line"><a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/14">https://github.com/wannier-developers/wannier90/pull/14</a></div>
+<div class="line"><a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/17">https://github.com/wannier-developers/wannier90/pull/17</a></div>
+<div class="line"><a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/22">https://github.com/wannier-developers/wannier90/pull/22</a></div>
+<div class="line"><a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/23">https://github.com/wannier-developers/wannier90/pull/23</a></div>
+<div class="line"><a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/26">https://github.com/wannier-developers/wannier90/pull/26</a></div>
+<div class="line"><a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/49">https://github.com/wannier-developers/wannier90/pull/49</a></div>
+<div class="line"><a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/51">https://github.com/wannier-developers/wannier90/pull/51</a></div>
+<div class="line"><a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/59">https://github.com/wannier-developers/wannier90/pull/59</a></div>
+<div class="line"><a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/63">https://github.com/wannier-developers/wannier90/pull/63</a></div>
+<div class="line"><a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/79">https://github.com/wannier-developers/wannier90/pull/79</a></div>
+<div class="line"><a class="reference external" href="https://github.com/wannier-developers/wannier90/pull/84">https://github.com/wannier-developers/wannier90/pull/84</a></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Test-Suite-Travis-CI-Integration module</a><ul>
+<li><a class="reference internal" href="#purpose-of-module">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information">Background Information</a></li>
+<li><a class="reference internal" href="#installing">Installing</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#source-code">Source Code</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Use_WS_Distance/readme.html"
+                        title="previous chapter">Use_WS_Distance module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../Geomoltools/readme.html"
+                        title="next chapter">Geomoltools</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/Electronic-Structure-Modules/modules/Test-Suite-Travis-CI-Integration/readme.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../Geomoltools/readme.html" title="Geomoltools"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Use_WS_Distance/readme.html" title="Use_WS_Distance module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Electronic Structure Modules</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

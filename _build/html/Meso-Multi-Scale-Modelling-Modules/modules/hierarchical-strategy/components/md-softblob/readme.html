@@ -1,0 +1,640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Hierarchical Strategy for Simple One-Component Polymer Melts: md-softblob &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../../../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="Minimize Energy : A Component of the Hierarchical Equilibration Strategy for Polymer Melts" href="../minimize-energy/readme.html" />
+    <link rel="prev" title="Hierarchical Strategy for Simple One-Component Polymer Melts: fixed-local-tuple" href="../fixed-local-tuple/readme.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../minimize-energy/readme.html" title="Minimize Energy : A Component of the Hierarchical Equilibration Strategy for Polymer Melts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../fixed-local-tuple/readme.html" title="Hierarchical Strategy for Simple One-Component Polymer Melts: fixed-local-tuple"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../../index.html" accesskey="U">Meso- and Multi-scale Modules</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="hierarchical-strategy-for-simple-one-component-polymer-melts-md-softblob">
+<span id="component-md-sb"></span><h1>Hierarchical Strategy for Simple One-Component Polymer Melts: md-softblob<a class="headerlink" href="#hierarchical-strategy-for-simple-one-component-polymer-melts-md-softblob" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Software Technical Information</p>
+<p>The information in this section describes ESPResSo++ as a whole.
+Information specific to the additions in this module are in subsequent
+sections.</p>
+<dl class="last docutils">
+<dt>Languages:</dt>
+<dd>Python (2.7) and C++</dd>
+<dt>Documentation Tools:</dt>
+<dd>Sphinx and Doxygen</dd>
+<dt>Application Documentation:</dt>
+<dd><a class="reference external" href="http://espressopp.github.io/">http://espressopp.github.io/</a></dd>
+<dt>Relevant Training Material:</dt>
+<dd><a class="reference external" href="https://github.com/espressopp/espressopp/tree/master/examples">https://github.com/espressopp/espressopp/tree/master/examples</a></dd>
+<dt>Licence</dt>
+<dd>GNU General Public License</dd>
+</dl>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#purpose-of-module" id="id4">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information" id="id5">Background Information</a></li>
+<li><a class="reference internal" href="#testing" id="id6">Testing</a></li>
+<li><a class="reference internal" href="#source-code" id="id7">Source Code</a></li>
+<li><a class="reference internal" href="#references" id="id8">References</a></li>
+</ul>
+</div>
+<p>Reference <a class="footnote-reference" href="#id3" id="id1">[1]</a> describes the principles of a hierarchical strategy to
+equilibrate simple one-component polymer melts described in terms of
+atomistic or coarse-grained (bead-spring) models. The present module
+is the central part of our implementation of this method in
+ESPResSO++.</p>
+<div class="section" id="purpose-of-module">
+<h2><a class="toc-backref" href="#id4">Purpose of Module</a><a class="headerlink" href="#purpose-of-module" title="Permalink to this headline">¶</a></h2>
+<p>To study the properties of polymer melts by numerical simulations,
+equilibrated configurations must be prepared. However, the relaxation
+time for high molecular weight polymer melts is huge and increases,
+according to reptation theory, with the third power of the molecular
+weight. Hence, an effective method for decreasing the equilibration
+time is required. The hierarchical strategy pioneered in Ref. <a class="footnote-reference" href="#id3" id="id2">[1]</a> is
+a particularly suitable way to do this. The present module is the
+central part that controls a suite of programs which realize this
+method within the framework of the simulation package ESPResSO++.</p>
+<p>To decrease the relaxation time, microscopic monomers are
+coarse-grained (CG) by mapping each subchain with <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">N_{b}</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ monomers
+onto a soft blob. The CG system is then characterized by a much
+lower molecular weight and thus is equilibrated quickly. One thus
+obtains a configuration that is equilibrated on large scales
+but does not provide information about the structure on smaller
+(i.e. more fine-grained (FG)) scales.</p>
+<p>To obtain the latter, the resolution is step-by-step increased by
+recursively applying a fine-graining procedure to the previous (more
+coarse-grained) level. In such a fine-graining step, each CG polymer
+chain is replaced with a more fine-grained chain, by dividing a CG
+blob into several FG blobs. In the last step, microscopic monomers are
+reinserted into their CG blobs.</p>
+<p>The resulting set of FG blobs is set up in such a way that its
+conformation is consistent with the conformation at the more
+coarse-grained level. After this setup, the local FG conformation is
+relaxed into a local equilibrium, again consistent with the (fixed) CG
+blobs.</p>
+<p>The present module implements the actual coarse-graining step, which
+is therefore described in more detail:</p>
+<p>A polymer chain, originally consisting of <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">N</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+
+monomers, is replaced by a coarse-grained (CG) chain consisting of
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">N/N_{b}</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ soft blobs linked by a harmonic bond potential,
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">V_{bond}=3 k_{B}T d^{2}/2b_{CG}^2</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+, and an angular bond-bending
+potential <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">V_{bend}=k_{B}T k_{bend}(1 + \cos(\theta))/2</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+. Here
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">d</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ is the distance and <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">\theta</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ is the angle between
+consecutive bonds. The interactions between non-bonded soft blobs are
+taken into account by a repulsive pair potential <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">V_{nb}=k_{B}T
+\epsilon U_{G}(r_{ij})</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+. Here <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">r_{ij}</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ is the center-to-center
+distance between the two blobs, <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">U_{G}(r_{ij})</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ is a Gaussian
+function with variance <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">\overline{\sigma}^2 = \sigma_{i}^2 + \sigma_{j}^2</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ and
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">\sigma_{i}</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ is the gyration radius of blob number
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">i</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+. The gyration radius <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">\sigma</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ is in turn
+fluctuating. This fluctuation is controlled by the potential
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">V_{sphere}=k_{B}T \, (a_{1}N_{b}^3\sigma^{-6} +
+a_{2}N_{b}^{-1}\sigma^{2} + a_{3}\sigma^{-3})</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+.
+Equilibrated configurations of soft blobs are generated by
+Molecular Dynamics (MD) simulations based on the above model.</p>
+<p>Within the module, the following classes have been implemented or
+modified:</p>
+<ul class="simple">
+<li>A <code class="docutils literal"><span class="pre">VSpherePair</span></code> class for calculating
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">V_{nb}=k_{B}T \epsilon U_{G}(r_{ij})</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+</li>
+<li>A <code class="docutils literal"><span class="pre">VSphereSelf</span></code> class for calculating <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">V_{sphere}=k_{B}T \,
+(a_{1}N_{b}^3\sigma^{-6} + a_{2}N_{b}^{-1}\sigma^{2} +
+a_{3}\sigma^{-3})</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+</li>
+<li>A <code class="docutils literal"><span class="pre">Particle</span></code> class for comunicating the property &#8220;radius&#8221;
+between different cores</li>
+<li>A <code class="docutils literal"><span class="pre">LangevinThermostatOnRadius</span></code> class for simulating
+the fluctuations of the radii of the blobs</li>
+</ul>
+</div>
+<div class="section" id="background-information">
+<h2><a class="toc-backref" href="#id5">Background Information</a><a class="headerlink" href="#background-information" title="Permalink to this headline">¶</a></h2>
+<p>The implementation of this module is based on ESPResSO++. You can
+learn about ESPResSO++ from the following links:</p>
+<ul class="simple">
+<li>ESPResSO++ documentation: <a class="reference external" href="http://espressopp.github.io/ESPResSo++.pdf">http://espressopp.github.io/ESPResSo++.pdf</a></li>
+<li>ESPResSO++ source code: <a class="reference external" href="https://github.com/espressopp/espressopp">https://github.com/espressopp/espressopp</a></li>
+</ul>
+</div>
+<div class="section" id="testing">
+<h2><a class="toc-backref" href="#id6">Testing</a><a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>Explanation of installation:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/espressopp/espressopp">https://github.com/espressopp/espressopp</a></li>
+</ul>
+<p>After installing this module, it can be tested by a Python script
+found under the following link:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/espressopp/espressopp/tree/master/testsuite/langevin_thermostat_on_radius">https://github.com/espressopp/espressopp/tree/master/testsuite/langevin_thermostat_on_radius</a></li>
+</ul>
+</div>
+<div class="section" id="source-code">
+<h2><a class="toc-backref" href="#id7">Source Code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>This module has been merged into ESPResSo++:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/espressopp/espressopp/pull/168">https://github.com/espressopp/espressopp/pull/168</a></li>
+<li><a class="reference external" href="https://github.com/espressopp/espressopp/pull/169">https://github.com/espressopp/espressopp/pull/169</a></li>
+<li><a class="reference external" href="https://github.com/espressopp/espressopp/pull/170">https://github.com/espressopp/espressopp/pull/170</a></li>
+<li><a class="reference external" href="https://github.com/espressopp/espressopp/pull/176">https://github.com/espressopp/espressopp/pull/176</a></li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id8">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>)</em> : <a class="reference external" href="http://pubs.acs.org/doi/abs/10.1021/mz5000015">http://pubs.acs.org/doi/abs/10.1021/mz5000015</a>,
+preprint available via
+<a class="reference external" href="https://arxiv.org/abs/1610.07511">https://arxiv.org/abs/1610.07511</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../../index.html">
+              <img class="logo" src="../../../../../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Hierarchical Strategy for Simple One-Component Polymer Melts: md-softblob</a><ul>
+<li><a class="reference internal" href="#purpose-of-module">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information">Background Information</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#source-code">Source Code</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../fixed-local-tuple/readme.html"
+                        title="previous chapter">Hierarchical Strategy for Simple One-Component Polymer Melts: fixed-local-tuple</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../minimize-energy/readme.html"
+                        title="next chapter">Minimize Energy : A Component of the Hierarchical Equilibration Strategy for Polymer Melts</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/Meso-Multi-Scale-Modelling-Modules/modules/hierarchical-strategy/components/md-softblob/readme.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../minimize-energy/readme.html" title="Minimize Energy : A Component of the Hierarchical Equilibration Strategy for Polymer Melts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../fixed-local-tuple/readme.html" title="Hierarchical Strategy for Simple One-Component Polymer Melts: fixed-local-tuple"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../../index.html" >Meso- and Multi-scale Modules</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

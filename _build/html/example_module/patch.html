@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Patch file for module &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="E-CAM example module" href="readme.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="readme.html" title="E-CAM example module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../contributing.html" >How to contribute?</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="readme.html" accesskey="U">E-CAM example module</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="patch-file-for-module">
+<span id="patch"></span><h1>Patch file for module<a class="headerlink" href="#patch-file-for-module" title="Permalink to this headline">¶</a></h1>
+<p>To include a patch file do something like the following:</p>
+<div class="highlight-default"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Always</span> <span class="n">remember</span> <span class="n">that</span> <span class="n">a</span> <span class="n">good</span> <span class="n">patch</span> <span class="n">file</span> <span class="n">should</span> <span class="n">have</span> <span class="n">a</span> <span class="n">comment</span> <span class="n">inside</span> <span class="n">about</span> <span class="n">what</span> <span class="n">the</span> <span class="n">patch</span> <span class="ow">is</span> <span class="k">for</span><span class="o">....</span><span class="n">just</span> <span class="n">like</span> <span class="n">this</span>
+<span class="hll"><span class="o">---</span> <span class="n">hello</span><span class="o">.</span><span class="n">c</span>	<span class="mi">2014</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">07</span> <span class="mi">18</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mf">49.000000000</span> <span class="o">+</span><span class="mi">0530</span>
+</span><span class="o">+++</span> <span class="n">hello_new</span><span class="o">.</span><span class="n">c</span>	<span class="mi">2014</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">07</span> <span class="mi">18</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mf">54.000000000</span> <span class="o">+</span><span class="mi">0530</span>
+<span class="o">@@</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span> <span class="o">@@</span>
+ <span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="o">-</span><span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="o">+</span><span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+<span class="hll"> 	<span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Hello World</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+</span><span class="hll"><span class="o">+</span>	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="hll"> <span class="p">}</span>
+</span></pre></div>
+</td></tr></table></div>
+<p><a class="reference download internal" href="../_downloads/simple.patch" download=""><code class="xref download docutils literal"><span class="pre">Downloadable</span> <span class="pre">version</span> <span class="pre">of</span> <span class="pre">patch</span> <span class="pre">file</span></code></a></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="readme.html"
+                        title="previous chapter">E-CAM example module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/example_module/patch.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="readme.html" title="E-CAM example module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../contributing.html" >How to contribute?</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="readme.html" >E-CAM example module</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

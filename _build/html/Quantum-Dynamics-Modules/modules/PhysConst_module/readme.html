@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>E-CAM Physical Constant module &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Quantum Model Library module" href="../QuantumModelLib/readme.html" />
+    <link rel="prev" title="The Chebyshev Scheme (CH)" href="../cheb_doc/cheb_readme.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../QuantumModelLib/readme.html" title="Quantum Model Library module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../cheb_doc/cheb_readme.html" title="The Chebyshev Scheme (CH)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Quantum Dynamics Modules</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="e-cam-physical-constant-module">
+<span id="physconst"></span><h1>E-CAM Physical Constant module<a class="headerlink" href="#e-cam-physical-constant-module" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Software Technical Information</p>
+<dl class="last docutils">
+<dt>Language</dt>
+<dd>Fortran 95</dd>
+<dt>Compiler</dt>
+<dd>gfortran, ifort</dd>
+<dt>Licence</dt>
+<dd>GNU Lesser General Public License (LGPL)</dd>
+<dt>Documentation Tool</dt>
+<dd>Doxygen</dd>
+</dl>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#purpose-of-module" id="id1">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information" id="id2">Background Information</a></li>
+<li><a class="reference internal" href="#installing" id="id3">Installing</a></li>
+<li><a class="reference internal" href="#testing" id="id4">Testing</a></li>
+<li><a class="reference internal" href="#source-code" id="id5">Source Code</a></li>
+</ul>
+</div>
+<div class="section" id="purpose-of-module">
+<h2><a class="toc-backref" href="#id1">Purpose of Module</a><a class="headerlink" href="#purpose-of-module" title="Permalink to this headline">¶</a></h2>
+<p>This module enables to use fundamental physical constants (speed of light in vacuum, Planck constant ... and isotopic
+masses). Two versions can be selected:</p>
+<ul class="simple">
+<li>The CODATA 2006 ones, downloaded from <a class="reference external" href="http://physics.nist.gov/cuu/Constants/archive2006.html">NIST</a> and the NIST
+<a class="reference external" href="https://www.nist.gov/pml/atomic-weights-and-isotopic-compositions-relative-atomic-masses">masses</a> downloaded in
+2012 (default).</li>
+<li>Constants and masses from the 70th edition of the Handbook of Chemistry and Physics.</li>
+</ul>
+<p>From these fundamental constants, some conversion factors are calculated automatically and can be used easily.</p>
+<p>Remark: the actual mass values of the NIST web page differ slightly from the module ones.</p>
+</div>
+<div class="section" id="background-information">
+<h2><a class="toc-backref" href="#id2">Background Information</a><a class="headerlink" href="#background-information" title="Permalink to this headline">¶</a></h2>
+<p>This module has been extracted and modified from the ElVibRot-Tnum-Tnum code (ElVibRot_f90-v80.13-Tnum28.9-Tana5.1).
+This pre-E-CAM version can be downloaded
+<a class="reference external" href="http://pagesperso.lcp.u-psud.fr/lauvergnat/ElVibRot/preECAM-E.80.13.28.9.5.1.tar.gz">here</a>.</p>
+</div>
+<div class="section" id="installing">
+<h2><a class="toc-backref" href="#id3">Installing</a><a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
+<p>Dependencies: this module needs the fortran modules in the <code class="docutils literal"><span class="pre">Source_Lib/sub_system</span></code> directory.</p>
+<p>Build the module (with dependencies):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">PhysConst</span>
+</pre></div>
+</div>
+<p>Build the module documentation (with doxygen):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">doxy</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="testing">
+<h2><a class="toc-backref" href="#id4">Testing</a><a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>Two example data/script files:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Examples</span><span class="o">/</span><span class="n">exa_PhysicalConstants</span><span class="o">/</span><span class="n">dat_PhysConst</span>
+<span class="n">Examples</span><span class="o">/</span><span class="n">exa_PhysicalConstants</span><span class="o">/</span><span class="n">dat_PhysConst_HandBook70ed</span>
+</pre></div>
+</div>
+<p>To test the installation, you can run both test examples.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">Examples</span><span class="o">/</span><span class="n">exa_PhysicalConstants</span> <span class="p">;</span> <span class="o">./</span><span class="n">run_tests</span>
+</pre></div>
+</div>
+<p>The results will be compared to previous results in <code class="docutils literal"><span class="pre">Examples/exa_PhysicalConstants/output_17dec2016</span></code> file.</p>
+</div>
+<div class="section" id="source-code">
+<h2><a class="toc-backref" href="#id5">Source Code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>The source code can be downloaded from the <a class="reference external" href="https://gitlab.e-cam2020.eu/lauvergn/ElVibRot">E-CAM GitLab service</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">E-CAM Physical Constant module</a><ul>
+<li><a class="reference internal" href="#purpose-of-module">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information">Background Information</a></li>
+<li><a class="reference internal" href="#installing">Installing</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#source-code">Source Code</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../cheb_doc/cheb_readme.html"
+                        title="previous chapter">The Chebyshev Scheme (CH)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../QuantumModelLib/readme.html"
+                        title="next chapter">Quantum Model Library module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/Quantum-Dynamics-Modules/modules/PhysConst_module/readme.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../QuantumModelLib/readme.html" title="Quantum Model Library module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../cheb_doc/cheb_readme.html" title="The Chebyshev Scheme (CH)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Quantum Dynamics Modules</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

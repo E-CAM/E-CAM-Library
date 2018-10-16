@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Meso- and Multi-scale Modules &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Analysis of charge dipole moments in DL_MESO_DPD" href="modules/DL_MESO_DPD/dipole_dlmeso_dpd/readme.html" />
+    <link rel="prev" title="Openmpbeads" href="../Quantum-Dynamics-Modules/modules/Openmpbeads/readme.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modules/DL_MESO_DPD/dipole_dlmeso_dpd/readme.html" title="Analysis of charge dipole moments in DL_MESO_DPD"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Quantum-Dynamics-Modules/modules/Openmpbeads/readme.html" title="Openmpbeads"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="meso-and-multi-scale-modules">
+<span id="readme-meso-multi"></span><h1><a class="toc-backref" href="#id1">Meso- and Multi-scale Modules</a><a class="headerlink" href="#meso-and-multi-scale-modules" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id2">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">General Information</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#meso-and-multi-scale-modules" id="id1">Meso- and Multi-scale Modules</a><ul>
+<li><a class="reference internal" href="#introduction" id="id2">Introduction</a></li>
+<li><a class="reference internal" href="#pilot-projects" id="id3">Pilot Projects</a></li>
+<li><a class="reference internal" href="#extended-software-development-workshops" id="id4">Extended Software Development Workshops</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul class="last simple">
+<li><a class="reference internal" href="../contributing.html#contributing"><span class="std std-ref">How to contribute?</span></a></li>
+<li><a class="reference internal" href="../search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+<a class="reference internal image-reference" href="../_images/DPD1.jpg"><img alt="../_images/DPD1.jpg" class="align-left" src="../_images/DPD1.jpg" style="width: 10%;" /></a>
+<p>This is a collection of the modules that have been created by E-CAM community
+within the area of Meso- and Multi-scale Modelling. This documentation is
+created using ReStructured Text and the git repository for the documentation
+source files can be found at
+<a class="reference external" href="https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library">https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library</a> which are
+public and open to contributions.</p>
+<p>In the context of E-CAM, the definition of a software module is any piece of software that could be of use to the E-CAM community and that encapsulates some additional functionality, enhanced performance or improved usability for people performing computational simulations in the domain areas of interest to us.</p>
+<p>This definition is deliberately broader than the traditional concept of a module as defined in the semantics of most high-level programming languages and is intended to capture inter alia workflow scripts, analysis tools and test suites as well as traditional subroutines and functions. Because such E-CAM modules will form a heterogeneous collection we prefer to refer to this as an E-CAM software repository rather than a library (since the word library carries a particular meaning in the programming world). The modules do however share with the traditional computer science definition the concept of hiding the internal workings of a module behind simple and well-defined interfaces. It is probable that in many cases the modules will result from the abstraction and refactoring of useful ideas from existing codes rather than being written entirely de novo.</p>
+<p>Perhaps more important than exactly what a module is, is how it is written and used. A final E-CAM module adheres to current best-practice programming style conventions, is well documented and comes with either regression or unit tests (and any necessary associated data). E-CAM modules should be written in such a way that they can potentially take advantage of anticipated hardware developments in the near future (and this is one of the training objectives of E-CAM).</p>
+</div>
+<div class="section" id="pilot-projects">
+<h2><a class="toc-backref" href="#id3">Pilot Projects</a><a class="headerlink" href="#pilot-projects" title="Permalink to this headline">¶</a></h2>
+<p>One of primary activity of E-CAM is to engage with pilot projects with industrial partners. These projects are conceived
+together with the partner and typically are to facilitate or improve the scope of computational simulation within the
+partner. The related code development for the pilot projects are open source (where the licence of the underlying
+software allows this) and are described in the modules associated with the pilot projects.</p>
+</div>
+<div class="section" id="extended-software-development-workshops">
+<h2><a class="toc-backref" href="#id4">Extended Software Development Workshops</a><a class="headerlink" href="#extended-software-development-workshops" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dl-meso-dpd">
+<h3>DL_MESO_DPD<a class="headerlink" href="#dl-meso-dpd" title="Permalink to this headline">¶</a></h3>
+<p>The following modules connected to the DL_MESO_DPD code have been produced so far:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/DL_MESO_DPD/dipole_dlmeso_dpd/readme.html">Analysis of charge dipole moments in DL_MESO_DPD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/DL_MESO_DPD/format_dlmeso_dpd/readme.html">Formatting the HISTORY files of DL_MESO_DPD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/DL_MESO_DPD/dipole_af_dlmeso_dpd/readme.html">Autocorrelation functions of charge dipole moments in DL_MESO_DPD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/DL_MESO_DPD/moldip_af_dlmeso_dpd/readme.html">Autocorrelation functions of individual charge dipole moments in DL_MESO_DPD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/DL_MESO_DPD_onGPU/add_gpu_version/readme.html">First version of DL_MESO_DPD code for NVidia GPU</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="espresso">
+<h3>ESPRESSO++<a class="headerlink" href="#espresso" title="Permalink to this headline">¶</a></h3>
+<p>The following modules connected to the ESPRESSO++ code have been produced so far:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/hierarchical-strategy/components/fixed-local-tuple/readme.html">Hierarchical Strategy for Simple One-Component Polymer Melts: fixed-local-tuple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/hierarchical-strategy/components/md-softblob/readme.html">Hierarchical Strategy for Simple One-Component Polymer Melts: md-softblob</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/hierarchical-strategy/components/minimize-energy/readme.html">Minimize Energy : A Component of the Hierarchical Equilibration Strategy for Polymer Melts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/hierarchical-strategy/components/constrain-com/readme.html">Hierarchical Strategy for Simple One-Component Polymer Melts: constrain-com</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/hierarchical-strategy/components/constrain-rg/readme.html">Hierarchical Strategy for Simple One-Component Polymer Melts: constrain-rg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/hierarchical-strategy/simple_one-component_melts/fbloop/readme.html">Feedback control mechanism: A Component of the Hierarchical Equilibration Strategy for Polymer Melts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/hierarchical-strategy/simple_one-component_melts/reinsertion/readme.html">Reinsertion: A Component of the Hierarchical Equilibration Strategy for Polymer Melts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/hierarchical-strategy/simple_one-component_melts/fine-graining/readme.html">Fine-graining: A Component of the Hierarchical Equilibration Strategy for Polymer Melts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/hierarchical-strategy/simple_one-component_melts/coarse-graining/readme.html">Coarse-Graining: A Component of the Hierarchical Equilibration Strategy for Polymer Melts</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="esdw-barcelona-2017">
+<h3>ESDW Barcelona 2017<a class="headerlink" href="#esdw-barcelona-2017" title="Permalink to this headline">¶</a></h3>
+<p>The first Meso- and Multi-scale ESDW was held in Barcelona, Spain, in July 2017. The following modules have been produced:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme.html">Using SIONlib (parallel I/O library) to write/read HISTORY files in DL_MESO_DPD</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Meso- and Multi-scale Modules</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#pilot-projects">Pilot Projects</a></li>
+<li><a class="reference internal" href="#extended-software-development-workshops">Extended Software Development Workshops</a><ul>
+<li><a class="reference internal" href="#dl-meso-dpd">DL_MESO_DPD</a></li>
+<li><a class="reference internal" href="#espresso">ESPRESSO++</a></li>
+<li><a class="reference internal" href="#esdw-barcelona-2017">ESDW Barcelona 2017</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Quantum-Dynamics-Modules/modules/Openmpbeads/readme.html"
+                        title="previous chapter">Openmpbeads</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="modules/DL_MESO_DPD/dipole_dlmeso_dpd/readme.html"
+                        title="next chapter">Analysis of charge dipole moments in DL_MESO_DPD</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Meso-Multi-Scale-Modelling-Modules/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modules/DL_MESO_DPD/dipole_dlmeso_dpd/readme.html" title="Analysis of charge dipole moments in DL_MESO_DPD"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Quantum-Dynamics-Modules/modules/Openmpbeads/readme.html" title="Openmpbeads"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

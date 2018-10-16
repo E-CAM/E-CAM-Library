@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>OPS Piggybacker (legacy file converter) &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Contact Map" href="../contact_maps/readme.html" />
+    <link rel="prev" title="Annotated Trajectories" href="../annotated_trajectories/readme.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../contact_maps/readme.html" title="Contact Map"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../annotated_trajectories/readme.html" title="Annotated Trajectories"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Classical MD Modules</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ops-piggybacker-legacy-file-converter">
+<span id="ops-piggybacker"></span><h1>OPS Piggybacker (legacy file converter)<a class="headerlink" href="#ops-piggybacker-legacy-file-converter" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Software Technical Information</p>
+<p>This module is based on OpenPathSampling. This section includes
+information both for the specific module and for OpenPathSampling as a
+whole.</p>
+<dl class="last docutils">
+<dt>Language</dt>
+<dd>Python (2.7)</dd>
+<dt>Documentation Tool</dt>
+<dd>Sphinx, numpydoc format (ReST)</dd>
+<dt>Application Documentation</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://openpathsampling.org">http://openpathsampling.org</a></li>
+<li><a class="reference external" href="http://opspiggybacker.readthedocs.io">http://opspiggybacker.readthedocs.io</a> (in progress)</li>
+</ul>
+</dd>
+<dt>Installation instructions</dt>
+<dd><ul class="first last simple">
+<li>OpenPathSampling: <a class="reference external" href="http://openpathsampling.org/latest/install.html">http://openpathsampling.org/latest/install.html</a></li>
+<li>OPSPiggybacker: <a class="reference external" href="https://github.com/dwhswenson/OPSPiggybacker">https://github.com/dwhswenson/OPSPiggybacker</a></li>
+</ul>
+</dd>
+<dt>Relevant Training Material</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://openpathsampling.org/latest/examples/">http://openpathsampling.org/latest/examples/</a></li>
+<li><a class="reference external" href="https://github.com/dwhswenson/OPSPiggybacker/tree/master/examples">https://github.com/dwhswenson/OPSPiggybacker/tree/master/examples</a></li>
+</ul>
+</dd>
+<dt>Licence</dt>
+<dd>LGPL, v. 2.1 or later</dd>
+</dl>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#purpose-of-module" id="id1">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information" id="id2">Background Information</a></li>
+<li><a class="reference internal" href="#testing" id="id3">Testing</a></li>
+<li><a class="reference internal" href="#examples" id="id4">Examples</a></li>
+<li><a class="reference internal" href="#source-code" id="id5">Source Code</a></li>
+</ul>
+</div>
+<p>Authors: David W.H. Swenson</p>
+<p>This module provides a library for converting path sampling simulations from
+legacy codes into a format that can be analyzed by OpenPathSampling. The
+implementation in this module works with flexible-length transition path
+sampling (TPS) with one-way shooting and uniform shooting point selection.</p>
+<div class="section" id="purpose-of-module">
+<h2><a class="toc-backref" href="#id1">Purpose of Module</a><a class="headerlink" href="#purpose-of-module" title="Permalink to this headline">¶</a></h2>
+<p>OpenPathSampling contains excellent tools for analyzing simulations, as well
+as excellent tools for sampling. However, since OpenPathSampling is a new
+software package, users may already have simulations that they have run with
+other packages. The purpose of this module is to provide tools that allow
+the user to easily convert legacy script output into a format that can be
+analyzed by OpenPathSampling. It is a library of tools that can be used with
+data from any existing path sampling simulation output, and specifically
+includes tools to simplify the use of flexible-length TPS with one-way
+shooting and uniform shooting point selection. Extending to the library to
+work with other simulation types will be part of future work.</p>
+<p>The OPSPiggybacker essentially fakes a simulation, based on data from
+another source. In this module, it has the ability to read in data from
+one-way TPS. The user must create the appropriate OPS <code class="docutils literal"><span class="pre">TransitionNetwork</span></code>
+object (including defining the correct collective variables and state
+volumes). Then the code creates a <code class="docutils literal"><span class="pre">MoveScheme</span></code>, but instead of actually
+running the simulation, it reads in the results of an existing simulation
+and provides the same output that the <code class="docutils literal"><span class="pre">MoveScheme</span></code> <em>would</em> have provided.
+We call this a &#8220;pseudo-simulation.&#8221;</p>
+<p>Classes implemented in this module include:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ShootingPseudoSimulator</span></code>, subclass of
+<code class="docutils literal"><span class="pre">openpathsampling.PathSimulator</span></code>. This acts like the OPS simulator, and
+runs the pseudo-simulation. Instead of taking an integer saying how many
+steps to run, it takes a list of data that describes each shooting move.</li>
+<li><code class="docutils literal"><span class="pre">ShootingStub</span></code>, subclass of <code class="docutils literal"><span class="pre">openpathsampling.pathmovers.PathMover</span></code>.
+This acts like the <code class="docutils literal"><span class="pre">openpathsampling.OneWayShootingMover</span></code>. It reads in
+the data and creates the appropriate output that can be analyzed by OPS.</li>
+<li><code class="docutils literal"><span class="pre">OneWayTPSConverter</span></code>, subclass of <code class="docutils literal"><span class="pre">ShootingPseudoSimulator</span></code>. This
+pseudo-simulator is designed to read a specific type of input file, which
+can be prepared based on the output from legacy simulation tools.
+Depending on the nature of the input trajectory files, several options can
+be set to ensure that the resulting OPS trajectories are correct. This is
+an abstract superclass, subclasses must define how to read trajectory
+files of the appropriate format.</li>
+<li><code class="docutils literal"><span class="pre">GromacsOneWayTPSConverter</span></code>, subclass of <code class="docutils literal"><span class="pre">OneWayTPSConverter</span></code>.
+Specialized for reading in GROMACS files (using MDTraj).</li>
+</ul>
+</div>
+<div class="section" id="background-information">
+<h2><a class="toc-backref" href="#id2">Background Information</a><a class="headerlink" href="#background-information" title="Permalink to this headline">¶</a></h2>
+<p>This module builds on OpenPathSampling, a Python package for path sampling
+simulations. To learn more about OpenPathSampling, you might be interested in
+reading:</p>
+<ul class="simple">
+<li>OPS documentation: <a class="reference external" href="http://openpathsampling.org">http://openpathsampling.org</a></li>
+<li>OPS source code: <a class="reference external" href="http://github.com/openpathsampling/openpathsampling">http://github.com/openpathsampling/openpathsampling</a></li>
+</ul>
+</div>
+<div class="section" id="testing">
+<h2><a class="toc-backref" href="#id3">Testing</a><a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>Tests use the <a class="reference external" href="http://nose.readthedocs.io/en/latest/">nose</a> package.</p>
+<p>To test this module, first install its requirements (namely
+OpenPathSampling). Next, download OPSPiggybacker code, either by git or by
+downloading the <code class="docutils literal"><span class="pre">.tar</span></code> or <code class="docutils literal"><span class="pre">.zip</span></code> of this release and decompressing it.
+Change into the root directory of the OPSPiggybacker, and run <code class="docutils literal"><span class="pre">python</span>
+<span class="pre">ops_piggybacker/tests/common_test_data.py</span></code> to prepare some test data. After
+that, use the <code class="docutils literal"><span class="pre">nosetests</span></code> command to run the actual tests (this can be
+done from the same directory).</p>
+<p>Installation of this package can be performed with <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span>
+<span class="pre">install</span></code>. Installation can be done before or after testing.</p>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id4">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Several examples are in the <cite>examples/</cite> directory of the code:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/dwhswenson/OPSPiggybacker/blob/master/examples/example_one_way_shooting.ipynb">Using the <code class="docutils literal"><span class="pre">ShootingPseudoSimulator</span></code> with partial (one-way) trajectories</a></li>
+<li><a class="reference external" href="https://github.com/dwhswenson/OPSPiggybacker/blob/master/examples/example_prejoined.ipynb">Using the <code class="docutils literal"><span class="pre">ShootingPseudoSimulator</span></code> with full (pre-joined) trajectories</a></li>
+</ul>
+</div>
+<div class="section" id="source-code">
+<h2><a class="toc-backref" href="#id5">Source Code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>The module is for the 0.1 release of the OPSPiggybacker project. This
+includes all the work on that project through pull request #15 (merged on
+28 December, 2016).</p>
+<p>The source code for this module can be found in:
+<a class="reference external" href="https://github.com/dwhswenson/OPSPiggybacker/releases/tag/v0.1.0">https://github.com/dwhswenson/OPSPiggybacker/releases/tag/v0.1.0</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">OPS Piggybacker (legacy file converter)</a><ul>
+<li><a class="reference internal" href="#purpose-of-module">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information">Background Information</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#source-code">Source Code</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../annotated_trajectories/readme.html"
+                        title="previous chapter">Annotated Trajectories</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../contact_maps/readme.html"
+                        title="next chapter">Contact Map</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/Classical-MD-Modules/modules/ops_piggybacker/readme.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../contact_maps/readme.html" title="Contact Map"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../annotated_trajectories/readme.html" title="Annotated Trajectories"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Classical MD Modules</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

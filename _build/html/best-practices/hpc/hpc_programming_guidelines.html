@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>HPC Programming Guidelines &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Currently Available Hardware" href="hpc-hardware.html" />
+    <link rel="prev" title="Integrated Development Environment" href="../general/ide.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="hpc-hardware.html" title="Currently Available Hardware"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../general/ide.html" title="Integrated Development Environment"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Scientific Software Best Practices</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="hpc-programming-guidelines">
+<span id="hpc-guidelines"></span><h1>HPC Programming Guidelines<a class="headerlink" href="#hpc-programming-guidelines" title="Permalink to this headline">¶</a></h1>
+<p>Once we begin to discuss high performance computing (HPC), we necessarily must begin to discuss not only the latest
+hardware technologies, but also the latest software technologies that make exploiting the capabilities of that hardware
+easier.</p>
+<div class="section" id="hardware-developments">
+<h2>Hardware Developments<a class="headerlink" href="#hardware-developments" title="Permalink to this headline">¶</a></h2>
+<p>There are a number of different organisations and projects that are generating roadmaps about the current and future
+technologies that are (or may be in the future) available in the HPC space. <a class="reference external" href="https://www.eurolab4hpc.eu/">Eurolab-4-HPC</a> has summarised many of these in the <a class="reference external" href="https://www.eurolab4hpc.eu/static/deliverables/D2-2--final-vision.3718a25ff0dd.pdf">Eurolab-4-HPC Long-Term Vision on
+High-Performance Computing</a>. Here
+we focus on a small subset of the content of these roadmaps (primarily from <a class="reference external" href="https://www.eurolab4hpc.eu/">Eurolab-4-HPC</a> and <a class="reference external" href="http://www.etp4hpc.eu/">ETP4HPC</a>) that are most likely to impact the target
+community of E-CAM in the 3-5 year horizon.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hpc-hardware.html">Currently Available Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware/intel-many-core.html">Intel Many-core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware/nvidia.html">NVIDIA GPU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware/fpga.html">FPGA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hpc-hardware.html#impact-of-deep-learning">Impact of Deep Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="euro-hardware-roadmap.html">Future HPC Hardware in Europe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="euro-hardware-roadmap.html#emerging-hardware-architectures-relevant-to-exascale-computing">Emerging hardware architectures relevant to exascale computing</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="software-developments">
+<h2>Software Developments<a class="headerlink" href="#software-developments" title="Permalink to this headline">¶</a></h2>
+<p>It is clear that the hardware developments described above will greatly impact the software development practices of
+the E-CAM development community. For this reason, we highlight the the language standards, runtime environments,
+workflows and software tools that can help E-CAM developers to deliver high quality, resilient software for current
+and next generation machines.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="programming-hpc.html">Programming for HPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="programming-hpc.html#c-17">C++17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming-hpc.html#fortran-2015">Fortran 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming-hpc.html#the-potential-role-of-python">The (potential) role of Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming-hpc.html#open-standards">Open Standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming-hpc.html#runtime-system-approaches">Runtime System Approaches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming-hpc.html#feedback-for-software-developers">Feedback for software developers</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="accessing-resources">
+<h2>Accessing Resources<a class="headerlink" href="#accessing-resources" title="Permalink to this headline">¶</a></h2>
+<p>All of the above is academic unless you have access to resources to develop and test new software. There are many
+potential ways to access HPC resources, we simply highlight a limited set of the possibilities here.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hpc-resources.html">Accessing HPC Resources in Europe</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">HPC Programming Guidelines</a><ul>
+<li><a class="reference internal" href="#hardware-developments">Hardware Developments</a></li>
+<li><a class="reference internal" href="#software-developments">Software Developments</a></li>
+<li><a class="reference internal" href="#accessing-resources">Accessing Resources</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../general/ide.html"
+                        title="previous chapter">Integrated Development Environment</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="hpc-hardware.html"
+                        title="next chapter">Currently Available Hardware</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/best-practices/hpc/hpc_programming_guidelines.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="hpc-hardware.html" title="Currently Available Hardware"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../general/ide.html" title="Integrated Development Environment"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Scientific Software Best Practices</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

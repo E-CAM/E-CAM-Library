@@ -30,7 +30,7 @@ The SHADE algorithm has been proposed by R. Tanabe and A. Fukunaga in the paper 
 Source Code
 ___________
 
-The source code of the algorithm is avaliable from the `E-CAM Gitlab repository`__. To compile the code execute the Makefile (including the demo.c file provided in the ./test directory). The GNU Scientific Library is necessary. The de.c file contains the core of the code, in de.h the data types are defined. 
+The source code of the algorithm is avaliable from the `E-CAM Gitlab repository`__. To compile the code execute the Makefile (including the demo.c file provided in the ./test directory). The `GNU Scientific Library`__ is necessary (2.4 version tested). The de.c file contains the core of the code, in the de.h file the data types are defined. 
 
 
 Testing
@@ -47,6 +47,7 @@ Further functions can be added in the demo.c file defining the functional form a
 .. [Storn1997] Storn, Rainer, and Kenneth Price. "Differential evolution–a simple and efficient heuristic for global optimization over continuous spaces." Journal of global optimization 11.4 (1997): 341-359.
 
 .. __: https://gitlab.e-cam2020.eu:10443/fracchia/Differential_Evolution
+.. __: https://www.gnu.org/software/gsl/
 
 
 

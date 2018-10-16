@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NVIDIA GPU &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="FPGA" href="fpga.html" />
+    <link rel="prev" title="Intel Many-core" href="intel-many-core.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="fpga.html" title="FPGA"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intel-many-core.html" title="Intel Many-core"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Scientific Software Best Practices</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../hpc_programming_guidelines.html" >HPC Programming Guidelines</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="../hpc-hardware.html" accesskey="U">Currently Available Hardware</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="nvidia-gpu">
+<span id="gpu"></span><h1>NVIDIA GPU<a class="headerlink" href="#nvidia-gpu" title="Permalink to this headline">¶</a></h1>
+<p>The new NVIDIA <a class="reference external" href="https://www.nvidia.com/en-us/data-center/volta-gpu-architecture/">Tesla V100</a> accelerator
+incorporates the new Volta GV100 GPU. Equipped with 21 billion transistors, Volta delivers over 7.5 Teraflops per
+second of double precision performance, ∼1.5x increase compared to the its predecessor, the Pascal GP100 GPU. Moreover,
+architectural improvements include:</p>
+<ul class="simple">
+<li>A tensor core is unit that multiplies two 4×4 FP16 matrices, and then adds a third FP16 or FP32 matrix to the
+result by using fused multiply–add operations, and obtains an FP32 result that could be optionally demoted to
+an FP16 result. Tensor cores are intended to speed up the training of neural networks.</li>
+<li>Tesla V100 uses a faster and more efficient HBM2 implementation. HBM2 memory is composed of memory
+stacks located on the same physical package as the GPU, providing substantial power and area savings compared
+to traditional GDDR5 memory designs, thus permitting more GPUs to be installed in servers. In addition
+to the higher peak DRAM bandwidth on Tesla V100 compared to Tesla P100, the HBM2 efficiency on V100 GPUs
+has been significantly improved as well. The combination of both a new generation HBM2 memory from Samsung,
+and a new generation memory controller in Volta, provides 1.5x delivered memory bandwidth versus
+Pascal GP100, and greater than 95% memory bandwidth efficiency running many workloads.</li>
+<li>NVlink 2.0, which is a high-bandwidth bus between multiple GPUs, and between the CPU and GPU. Compared to NVLink
+on Pascal, NVLink 2.0 on V100 increases the signaling rate from 20 to 25 Gigabits/second. Each link now provides
+25 Gigabytes/second in each direction. The number of links supported has been increased from four to six pushing
+the supported GPU NVLink bandwidth to 300 Gigabytes/second. The links can be used exclusively for GPU-to-GPU
+communication as in the DGX-1 with V100 topology shown in Figure 2, or some combination of GPU-to-GPU and
+GPU-to-CPU communication as shown in Figure 3 (currently only available in combination with Power8/9 processors).</li>
+</ul>
+<p>The tensor core of the Volta was explicitly added for deep learning workloads. The <a class="reference external" href="https://developer.nvidia.com/deep-learning-software">NVIDIA Deep Learning SDK</a> provides
+powerful tools and libraries for designing and deploying GPU-accelerated deep learning applications. It includes
+libraries for deep learning primitives, inference, video analytics, linear algebra, sparse matrices, and multi-GPU
+communications.</p>
+<div class="section" id="feedback-for-software-developers">
+<h2>Feedback for software developers<a class="headerlink" href="#feedback-for-software-developers" title="Permalink to this headline">¶</a></h2>
+<p>Several approaches have been developed to exploit the full power of GPUs: from parallel computing platform and
+application programming interface specific for NVidia GPU, like <a class="reference external" href="http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html">CUDA 9.0</a>, to the latest version of <a class="reference external" href="http://www.openmp.org/updates/openmp-4-5-specs-released/">OpenMP 4.5</a> which
+contains directives to offload computational work from the CPU to the GPU. While CUDA currently is likely to achieve
+best performance from the device, OpenMP allows for better portability of the code across different architectures.
+Finally, the <a class="reference external" href="https://www.openacc.org/specification">OpenACC</a>  open standard is an intermediate between the two, more
+similar to OpenMP than CUDA, but allowing better usage of the GPU. Developers are strongly advised to look into these
+language paradigms.</p>
+<p>Moreover, it is fundamental to consider that there the several issues linked to hybrid architectures, like CPU-GPU and
+GPU-GPU bandwidth communication (the latest greatly improved through NVlink), direct access through <a class="reference external" href="https://devblogs.nvidia.com/parallelforall/beyond-gpu-memory-limits-unified-memory-pascal/">Unified Virtual
+Addressing</a>, the presence
+of new APIs for programming (such as <a class="reference external" href="https://devblogs.nvidia.com/parallelforall/cuda-9-features-revealed">Tensor Core</a> multiplications specifically designed for deep
+learning alogrithms).</p>
+<p>Finally, it is important to stress the improvements made by NVidia on the implemenation of <a class="reference external" href="https://devblogs.nvidia.com/parallelforall/beyond-gpu-memory-limits-unified-memory-pascal/">Unified Memory</a>. This
+allows the system to automatically migrate data allocated in Unified Memory between host and device so that it looks
+like CPU memory to code running on the CPU, and like GPU memory to code running on the GPU making programmability
+greatly simplified.</p>
+<p>At this stage, GPU programming is quite mainstream and there are many training courses available online, see for
+example the <a class="reference external" href="https://developer.nvidia.com/cuda-education">NVidia education site</a> for material related to CUDA and
+OpenACC. Material for OpenMP is more limited, but as an increasing number of compilers begin to support the OpenMP 4.5
+standard, we expect the amount of such material to grow (see <a class="reference external" href="http://on-demand.gputechconf.com/gtc/2016/presentation/s6510-jeff-larkin-targeting-gpus-openmp.pdf">this presentation on performance of the Clang OpenMP 4.5
+implementaion on NVIDIA gpus</a> for a status
+report as of 2016).</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NVIDIA GPU</a><ul>
+<li><a class="reference internal" href="#feedback-for-software-developers">Feedback for software developers</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intel-many-core.html"
+                        title="previous chapter">Intel Many-core</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fpga.html"
+                        title="next chapter">FPGA</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/best-practices/hpc/hardware/nvidia.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="fpga.html" title="FPGA"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intel-many-core.html" title="Intel Many-core"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Scientific Software Best Practices</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../hpc_programming_guidelines.html" >HPC Programming Guidelines</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="../hpc-hardware.html" >Currently Available Hardware</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

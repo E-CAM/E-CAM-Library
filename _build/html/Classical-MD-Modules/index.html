@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Classical MD Modules &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Path Density for OpenPathSampling" href="modules/OpenPathSampling/ops_path_density/readme.html" />
+    <link rel="prev" title="The E-CAM Software Library" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modules/OpenPathSampling/ops_path_density/readme.html" title="Path Density for OpenPathSampling"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="The E-CAM Software Library"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="classical-md-modules">
+<span id="readme-classical-md"></span><h1><a class="toc-backref" href="#id1">Classical MD Modules</a><a class="headerlink" href="#classical-md-modules" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id2">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">General Information</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#classical-md-modules" id="id1">Classical MD Modules</a><ul>
+<li><a class="reference internal" href="#introduction" id="id2">Introduction</a></li>
+<li><a class="reference internal" href="#rare-events-and-path-sampling" id="id3">Rare events and path sampling</a></li>
+<li><a class="reference internal" href="#openpathsampling" id="id4">OpenPathSampling</a></li>
+<li><a class="reference internal" href="#pilot-projects" id="id5">Pilot Projects</a></li>
+<li><a class="reference internal" href="#extended-software-development-workshops-esdws" id="id6">Extended Software Development Workshops (ESDWs)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul class="last simple">
+<li><a class="reference internal" href="../contributing.html#contributing"><span class="std std-ref">How to contribute?</span></a></li>
+<li><a class="reference internal" href="../search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+<a class="reference internal image-reference" href="../_images/lipid.jpg"><img alt="../_images/lipid.jpg" class="align-left" src="../_images/lipid.jpg" style="width: 15%;" /></a>
+<p>This is a collection of the modules that have been created by <a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a> community
+within the area of Classical MD. This documentation is created using
+ReStructured Text and the git repository for the documentation source files can
+be found at <a class="reference external" href="https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library">https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library</a> which are
+open to contributions from E-CAM members.</p>
+<p>In the context of E-CAM, the definition of a software module is any piece of
+software that could be of use to the E-CAM community and that encapsulates some
+additional functionality, enhanced performance or improved usability for people
+performing computational simulations in the domain areas of interest to us.</p>
+<p>This definition is deliberately broader than the traditional concept of a module
+as defined in the semantics of most high-level programming languages and is
+intended to capture inter alia workflow scripts, analysis tools and test suites
+as well as traditional subroutines and functions. Because such E-CAM modules
+will form a heterogeneous collection we prefer to refer to this as an E-CAM
+software repository rather than a library (since the word library carries a
+particular meaning in the programming world). The modules do however share with
+the traditional computer science definition the concept of hiding the internal
+workings of a module behind simple and well-defined interfaces. It is probable
+that in many cases the modules will result from the abstraction and refactoring
+of useful ideas from existing codes rather than being written entirely de novo.</p>
+<p>Perhaps more important than exactly what a module is, is how it is written and
+used. A final E-CAM module adheres to current best-practice programming style
+conventions, is well documented and comes with either regression or unit tests
+(and any necessary associated data). E-CAM modules should be written in such a
+way that they can potentially take advantage of anticipated hardware
+developments in the near future (and this is one of the training objectives of
+E-CAM).</p>
+</div>
+<div class="section" id="rare-events-and-path-sampling">
+<h2><a class="toc-backref" href="#id3">Rare events and path sampling</a><a class="headerlink" href="#rare-events-and-path-sampling" title="Permalink to this headline">¶</a></h2>
+<p>In many simulations, we come across the challenge of bridging timescales.
+The desire for high resolution in space (and therefore time) is inherently
+in conflict with the desire to study long-time dynamics. To study molecular
+dynamics with atomistic detail, we must use timesteps on the order of a
+femtosecond. However, many problems in biological chemistry, materials
+science, and other fields involve events that only spontaneously occur after
+a millisecond or longer (for example, biomolecular conformational changes,
+or nucleation processes). That means that we would need around
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">10^{12}</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ time steps to see a single millisecond-scale event. This is
+the problem of &#8220;rare events&#8221; in theoretical and computational chemistry.</p>
+<p>While modern supercomputers are beginning to make it possible to obtain
+trajectories long enough to observe some of these processes (such as
+<a class="reference external" href="http://pubs.acs.org/doi/abs/10.1021/acs.jpcb.6b02024">millisecond dynamics of a protein</a>), even then, we may
+only find one example of a given transition. To fully characterize a
+transition (with proper statistics), we need many examples. This is where
+path sampling comes in. Path sampling approaches obtain many trajectories
+using a Markov chain Monte Carlo approach: An existing trajectory is
+perturbed (usually using a variant of the &#8220;shooting&#8221; move), and the
+resulting trial trajectory is accepted or rejected according to conditions
+that preserve the distribution of the path ensemble. As such, path sampling
+is Monte Carlo in the space of paths (trajectories). Conceptually, this
+enhances the sampling of transitions by focusing on the transition region
+instead of the stable states. In direct MD, trajectories spend much more
+time in stable states than in the transition region (exponential population
+differences for linear free energy differences); path sampling skips over
+that time in the stable states.</p>
+<p>The main path sampling approaches used in the modules below are <a class="reference external" href="http://aip.scitation.org/doi/abs/10.1063/1.475562">transition
+path sampling</a> (TPS)
+and <a class="reference external" href="http://aip.scitation.org/doi/abs/10.1063/1.1562614">transition interface sampling</a> (TIS). In practice,
+TPS is mainly used to characterize the mechanism of a transition, while TIS
+(which is more expensive than TPS) is used to calculate rates and free
+energy landscapes. Overviews of these methods, as well as other rare events
+methods, can be found in the following review articles:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://onlinelibrary.wiley.com/doi/10.1002/9780470890905.ch3/summary">2010 review by Bolhuis and Dellago in Reviews in Computational Chemistry</a></li>
+<li><a class="reference external" href="https://link.springer.com/chapter/10.1007%2F978-3-540-87706-6_3">2008 review by Dellago and Bolhuis in Advances in Polymer Science</a></li>
+</ul>
+<p>In addition, several other resources are available on the web to teach path
+sampling, including:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Transition_path_sampling">Wikipedia entry on path sampling</a></li>
+<li><a class="reference external" href="https://sites.google.com/site/aaronskeys/resources/tutorials/transition-path-sampling">Aaron Dinner&#8217;s tutorial on path sampling</a></li>
+</ul>
+<p>Since the problem of bridging timescales, which path sampling addresses, is
+a generic one, path sampling can be used in many fields. Indeed, there&#8217;s
+nothing in the methodology that even restricts it to molecular simulation.
+However, it is best known in the field of classical MD simulations, where
+path sampling methods have shown many successes, including:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://science.sciencemag.org/content/291/5511/2121">Mechanisms of complex chemical reactions, such as autoionization of water</a></li>
+<li><a class="reference external" href="http://pubs.acs.org/doi/abs/10.1021/jp077186+">Mechanism of hydrophobic assembly</a></li>
+<li><a class="reference external" href="http://science.sciencemag.org/content/323/5919/1309">Evidence that the glass transition is a first-order phase transition</a></li>
+<li><a class="reference external" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.106.085701">Mechanism of crystal nucleation</a></li>
+<li><a class="reference external" href="http://www.pnas.org/content/113/48/13582">Mechanism of cavitation</a></li>
+<li><a class="reference external" href="http://www.sciencedirect.com/science/article/pii/S0920586105002099">Identifying new mechanisms in catalytic systems</a></li>
+<li><a class="reference external" href="http://www.pnas.org/content/107/6/2397">Characterization of the conformational dynamics networks in proteins</a></li>
+</ul>
+<p>As computational resources become more powerful, path sampling has the
+promise to provide insight into rare events in larger systems, and into
+events with even longer timescales. For example:</p>
+<ul class="simple">
+<li>Drug/protein binding and unbinding (timescales of minutes), which is
+essential for predicting the efficacy of drugs</li>
+<li>Association processes of proteins (large systems), which is at the core of
+communication in biochemical pathways</li>
+<li>Self assembly processes for complex systems (many intermediates), which
+can be important for the design of new materials</li>
+</ul>
+<p>Further, applying the known successes of path sampling methods to larger
+systems can also be quite valuable. Path sampling can shed light on the
+networks of conformational dynamics for large proteins and protein
+complexes, and on the mechanisms and rates of complex reactions and phase
+transitions. The range of possibilities is so broad that it is impossible
+to enumerate &#8211; both academics and industry will benefit greatly from having
+software for these methods.</p>
+<p>The modules listed here deal with software to perform path sampling methods,
+as well as other approaches to rare events.</p>
+</div>
+<div class="section" id="openpathsampling">
+<h2><a class="toc-backref" href="#id4">OpenPathSampling</a><a class="headerlink" href="#openpathsampling" title="Permalink to this headline">¶</a></h2>
+<p>Several modules were developed based on
+<a class="reference external" href="http://openpathsampling.org">OpenPathSampling (OPS)</a>. These include modules
+that have been incorporated into the core of OPS, as well as some that remain
+separate projects. The modules that were incorporated into the core are:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_path_density/readme.html">Path Density for OpenPathSampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_direct_rate_flux/readme.html">Direct MD (on-the-fly) flux/rate in OpenPathSampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_network_input/readme.html">Improved input for OPS networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_new_wham/readme.html">New WHAM code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_flux_rate_analysis/readme.html">Flux/Rate Analysis in OpenPathSampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_snapshot_features_1/readme.html">OpenPathSampling Snapshot Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_two_way_shooting/readme.html">Two-Way Shooting in OpenPathSampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_committor_analysis/readme.html">Committor Analysis in OpenPathSampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_channel_analysis/readme.html">OPS Channel Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_new_tis_analysis/readme.html">OPS New TIS Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_resampling_statistics/readme.html">Resampling Statistics</a></li>
+</ul>
+</div>
+<p>The modules that are based on OPS, but remain separate, are:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/annotated_trajectories/readme.html">Annotated Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/ops_piggybacker/readme.html">OPS Piggybacker (legacy file converter)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/contact_maps/readme.html">Contact Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/contact_maps_parallelization/readme.html">Contact Map Parallelization</a></li>
+</ul>
+</div>
+<p>Nine of these modules were part of
+<a class="reference external" href="https://www.e-cam2020.eu/deliverables/">E-CAM Deliverable 1.2</a>. Those modules
+provided improvements and new features in software for trajectory sampling and
+for studying the thermodynamics and kinetics of rare events.</p>
+</div>
+<div class="section" id="pilot-projects">
+<h2><a class="toc-backref" href="#id5">Pilot Projects</a><a class="headerlink" href="#pilot-projects" title="Permalink to this headline">¶</a></h2>
+<p>One of primary activity of E-CAM is to engage with pilot projects with industrial partners. These projects are conceived
+together with the partner and typically are to facilitate or improve the scope of computational simulation within the
+partner. The related code development for the pilot projects are open source (where the licence of the underlying
+software allows this) and are described in the modules associated with the pilot projects.</p>
+</div>
+<div class="section" id="extended-software-development-workshops-esdws">
+<h2><a class="toc-backref" href="#id6">Extended Software Development Workshops (ESDWs)</a><a class="headerlink" href="#extended-software-development-workshops-esdws" title="Permalink to this headline">¶</a></h2>
+<p>The first ESDW for the Classical MD workpackage was held in Traunkirchen,
+Austria, in November 2016, with a follow-up to be held in Vienna in April 2017.
+The following modules have been produced:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_tse/readme.html">Transition State Ensemble in OpenPathSampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_reactive_flux/readme.html">Reactive flux in OpenPathSampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_maxlikelihood/readme.html">Maximum likelihood optimization of reaction coordinates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_interface_optimization/readme.html">Interface Optimization</a></li>
+</ul>
+</div>
+<p>The second ESDW for the Classical MD workpackage was held in Leiden, Holland, in
+August 2017. The following modules have been produced:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_spring_shooting/readme.html">Spring Shooting in OpenPathSampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_sr_shooter/readme.html">OPS-based module: Shooting range shooter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_web_throwing/readme.html">Web Throwing in OpenPathSampling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/OpenPathSampling/ops_plumed_wrapper/readme.html">PLUMED Wrapper for OpenPathSampling</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Classical MD Modules</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#rare-events-and-path-sampling">Rare events and path sampling</a></li>
+<li><a class="reference internal" href="#openpathsampling">OpenPathSampling</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#pilot-projects">Pilot Projects</a></li>
+<li><a class="reference internal" href="#extended-software-development-workshops-esdws">Extended Software Development Workshops (ESDWs)</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">The E-CAM Software Library</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="modules/OpenPathSampling/ops_path_density/readme.html"
+                        title="next chapter">Path Density for OpenPathSampling</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Classical-MD-Modules/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modules/OpenPathSampling/ops_path_density/readme.html" title="Path Density for OpenPathSampling"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="The E-CAM Software Library"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Differential Evolution (SHADE) &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Quantum Dynamics Modules" href="../../../Quantum-Dynamics-Modules/index.html" />
+    <link rel="prev" title="Gaussian_interface" href="../Gaussian_interface/README.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../Quantum-Dynamics-Modules/index.html" title="Quantum Dynamics Modules"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Gaussian_interface/README.html" title="Gaussian_interface"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Electronic Structure Modules</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="differential-evolution-shade">
+<h1>Differential Evolution (SHADE)<a class="headerlink" href="#differential-evolution-shade" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Software Technical Information</p>
+<dl class="last docutils">
+<dt>Language</dt>
+<dd>C</dd>
+<dt>Licence</dt>
+<dd>MIT</dd>
+<dt>Documentation Tool</dt>
+<dd>Doxygen</dd>
+</dl>
+</div>
+<div class="section" id="purpose-of-the-module">
+<h2>Purpose of the Module<a class="headerlink" href="#purpose-of-the-module" title="Permalink to this headline">¶</a></h2>
+<p>This module performs a single-objective global optimization in a continuous domain using the metaheuristic algorithm Success-History based Adaptive Differential Evolution (SHADE). SHADE is a recent adaptive version of the differential evolution algorithm, a stochastic population-based derivative-free optimizer. The module is a component of the software tool LRR-DE, developed to parametrize force fields of metal ions. In particular, the role of the SHADE algorithm in LRR-DE is the optimization of the hyperparameters of the model. However the module has general applicability to the black-box minimization of a cost function.</p>
+<p>The input of the module is the objective function, upper and lower limits of the domain for each dimension of the search space, and the parameters of the algorithm. The parameters of the algorithm are the size of the vector population, the maximum number of evaluations of the objective function, and the parameters of that govern the termination of the optimization.
+The output provides the coordinates of the identified minimum and the corresponding value of the objective function.</p>
+</div>
+<div class="section" id="background-information">
+<h2>Background Information<a class="headerlink" href="#background-information" title="Permalink to this headline">¶</a></h2>
+<p>The SHADE algorithm has been proposed by R. Tanabe and A. Fukunaga in the paper &#8220;Success-history based parameter adaptation for differential evolution.&#8221;, Evolutionary Computation (CEC), 2013 IEEE Congress on (pp. 71-78). It is an adaptive version of the differential evolution algorithm <a class="reference internal" href="#storn1997" id="id1">[Storn1997]</a>. It is an evolutionary algorithm based on three main steps: mutation, crossover, selection.</p>
+</div>
+<div class="section" id="source-code">
+<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>The source code of the algorithm is avaliable from the <a class="reference external" href="https://gitlab.e-cam2020.eu:10443/fracchia/Differential_Evolution">E-CAM Gitlab repository</a>. To compile the code execute the Makefile (including the demo.c file provided in the ./test directory). The GNU Scientific Library is necessary. The de.c file contains the core of the code, in de.h the data types are defined.</p>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>The demo.c file in the ./test directory includes three test functions: sphere function, ellipse function, and the Michalewicz function. The command to run the test is</p>
+<blockquote>
+<div>$ ./de NAMEFUNCTION</div></blockquote>
+<p>where NAMEFUNCTION can assume the values &#8220;sphere&#8221;, &#8220;ellips&#8221; or &#8220;michel&#8221;. The dimensionality of the functions is set equal to 20, however it can be modified in the demo.c file. The correct application of the module should identify the global minimum of the functions. They are provided in the file optima.dat in the ./test directory.</p>
+<p>Further functions can be added in the demo.c file defining the functional form and the domain of the search space.</p>
+<table class="docutils citation" frame="void" id="storn1997" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[Storn1997]</a></td><td>Storn, Rainer, and Kenneth Price. &#8220;Differential evolution–a simple and efficient heuristic for global optimization over continuous spaces.&#8221; Journal of global optimization 11.4 (1997): 341-359.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Differential Evolution (SHADE)</a><ul>
+<li><a class="reference internal" href="#purpose-of-the-module">Purpose of the Module</a></li>
+<li><a class="reference internal" href="#background-information">Background Information</a></li>
+<li><a class="reference internal" href="#source-code">Source Code</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../Gaussian_interface/README.html"
+                        title="previous chapter">Gaussian_interface</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../../../Quantum-Dynamics-Modules/index.html"
+                        title="next chapter">Quantum Dynamics Modules</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/Electronic-Structure-Modules/modules/Differential_Evolution/README.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../Quantum-Dynamics-Modules/index.html" title="Quantum Dynamics Modules"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Gaussian_interface/README.html" title="Gaussian_interface"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Electronic Structure Modules</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

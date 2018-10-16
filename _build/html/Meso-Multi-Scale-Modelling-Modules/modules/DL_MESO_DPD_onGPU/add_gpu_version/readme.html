@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>First version of DL_MESO_DPD code for NVidia GPU &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Hierarchical Strategy for Simple One-Component Polymer Melts: fixed-local-tuple" href="../../hierarchical-strategy/components/fixed-local-tuple/readme.html" />
+    <link rel="prev" title="Autocorrelation functions of individual charge dipole moments in DL_MESO_DPD" href="../../DL_MESO_DPD/moldip_af_dlmeso_dpd/readme.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../hierarchical-strategy/components/fixed-local-tuple/readme.html" title="Hierarchical Strategy for Simple One-Component Polymer Melts: fixed-local-tuple"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../../DL_MESO_DPD/moldip_af_dlmeso_dpd/readme.html" title="Autocorrelation functions of individual charge dipole moments in DL_MESO_DPD"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Meso- and Multi-scale Modules</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="first-version-of-dl-meso-dpd-code-for-nvidia-gpu">
+<h1>First version of DL_MESO_DPD code for NVidia GPU<a class="headerlink" href="#first-version-of-dl-meso-dpd-code-for-nvidia-gpu" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Software Technical Information</p>
+<p>The information in this section describes the DL_MESO_DPD GPU versions as a whole.</p>
+<dl class="last docutils">
+<dt>Language</dt>
+<dd>Fortran/CUDA-C (cuda toolkit 7.5)</dd>
+<dt>Documentation Tool</dt>
+<dd>ReST files</dd>
+<dt>Application Documentation</dt>
+<dd>See the <a class="reference external" href="http://www.scd.stfc.ac.uk/SCD/resources/PDF/USRMAN.pdf">DL_MESO Manual</a></dd>
+<dt>Relevant Training Material</dt>
+<dd>See <a class="reference external" href="http://www.scd.stfc.ac.uk/SCD/support/40694.aspx">DL_MESO webpage</a></dd>
+<dt>Licence</dt>
+<dd>BSD, v. 2.7 or later</dd>
+</dl>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#purpose-of-module" id="id1">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information" id="id2">Background Information</a></li>
+<li><a class="reference internal" href="#testing" id="id3">Testing</a></li>
+<li><a class="reference internal" href="#performance" id="id4">Performance</a></li>
+<li><a class="reference internal" href="#examples" id="id5">Examples</a></li>
+<li><a class="reference internal" href="#source-code" id="id6">Source Code</a></li>
+</ul>
+</div>
+<p>This module implements the first version of the DL_MESO_DPD code on NVidia Graphical Processing Unit (GPU). More details about it can be found in the following sections.</p>
+<div class="section" id="purpose-of-module">
+<h2><a class="toc-backref" href="#id1">Purpose of Module</a><a class="headerlink" href="#purpose-of-module" title="Permalink to this headline">¶</a></h2>
+<p>In order to accelerate the DL_MESO_DPD code on the latest and future exascale hardware, a first version for NVidia GPU has been developed. This is only a starting point, it does NOT cover all the possible cases and it does NOT yet support multiple GPUs. However, it represent an HPC milestone for the application, complementing the already present parallel versions developed for shared and distributed memory (MPI/OpenMP).</p>
+<p>In this version, the full computational workload is offloaded to the GPUs with the
+&#8220;H_MAINLOOP&#8221; call present in the &#8220;dlmesodpd.f90&#8221; file. In this way, the initialisation IO operation are left unaltered and fully compatible with the serial version.
+A major change compared to the serial version is in the algorithm used to find the particle-particle interaction forces: in order to guarantee better coalescent access for the CUDA-threads, the algorithm has been re-adapted to the GPU architecture reordering the cell-linked list arrays.</p>
+<p>The FORTRAN files (mainly unaltered from the serial version) are saved in the &#8220;src&#8221; folder, while the CUDA files with their corresponding headers files are in stored in the &#8220;src_cuda&#8221; folder and &#8220;headers&#8221;, respectively. The folder &#8220;bin&#8221; contains the Makefile. This arrangement of the folders
+allow to use the hidden Eclipse IDE project files (.cproject, .project, .settings).</p>
+</div>
+<div class="section" id="background-information">
+<h2><a class="toc-backref" href="#id2">Background Information</a><a class="headerlink" href="#background-information" title="Permalink to this headline">¶</a></h2>
+<p>This module is part of the DL_MESO_DPD code. Full support and documentation is available at:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.scd.stfc.ac.uk/SCD/support/40694.aspx">http://www.scd.stfc.ac.uk/SCD/support/40694.aspx</a></li>
+<li><a class="reference external" href="http://www.scd.stfc.ac.uk/SCD/resources/PDF/USRMAN.pdf">http://www.scd.stfc.ac.uk/SCD/resources/PDF/USRMAN.pdf</a></li>
+</ul>
+<p>To download the DL_MESO_DPD code you need to register at <a class="reference external" href="https://ccpforge.cse.rl.ac.uk/gf/">https://ccpforge.cse.rl.ac.uk/gf/</a>. Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.</p>
+</div>
+<div class="section" id="testing">
+<h2><a class="toc-backref" href="#id3">Testing</a><a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>The DL_MESO code is developed using git version control. Currently the GPU version is under a branch named &#8220;add_gpu_version&#8221;. After downloading the code, checkout to the GPU branch and look into the &#8220;DPD/gpu_version&#8221; folder, i.e:</p>
+<ul class="simple">
+<li>git clone DL_MESO_repository_path</li>
+<li>cd dl_meso</li>
+<li>git checkout gpu_version</li>
+<li>cd ./DPD/gpu_version</li>
+<li>make all</li>
+</ul>
+<p>To compile and run the code you need to have installed the CUDA-toolkit and have a CUDA enabled GPU device (see <a class="reference external" href="http://docs.nvidia.com/cuda/#axzz4ZPtFifjw">http://docs.nvidia.com/cuda/#axzz4ZPtFifjw</a>).</p>
+<p>The current version has been tested ONLY for the Mixture_Large test case available in the DEMO/DPD folder. To run the case, compile the code using the &#8220;make all&#8221; command from the &#8220;bin&#8221; directory, copy the &#8220;FIELD&#8221; and &#8220;CONTROL&#8221; files in this directory and run &#8221;./dpd_gpu.exe&#8221;.</p>
+<p>Attention: the HISTORY file produced is currently NOT compatible with the serial version, because this is written in the C binary data format (Fortran files are organised in records,
+while C not. See <a class="reference external" href="https://scipy.github.io/old-wiki/pages/Cookbook/FortranIO.html">https://scipy.github.io/old-wiki/pages/Cookbook/FortranIO.html</a>).</p>
+<p>However, you can compare the &#8220;OUTPUT&#8221; and the &#8220;export&#8221; files to verify your results. For more details see the README.rst file in the &#8220;gpu_version&#8221; folder.</p>
+</div>
+<div class="section" id="performance">
+<h2><a class="toc-backref" href="#id4">Performance</a><a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
+<p>Below is a table about the performance of the Mixture_Large case on different GPU cards compared to the serial version on a single core:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="20%" />
+<col width="25%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CPU or GPU card</th>
+<th class="head">compute capability</th>
+<th class="head">time per cycle [s]</th>
+<th class="head">speedup</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Intel Ivy Bridge E5-2697v2  &#64;2.7GHz</td>
+<td>none</td>
+<td>0.4740</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td>NVidia Tesla C1060</td>
+<td>1.3</td>
+<td>0.2280</td>
+<td>2.1</td>
+</tr>
+<tr class="row-even"><td>NVidia Tesla C2075</td>
+<td>2.0</td>
+<td>0.1830</td>
+<td>2.6</td>
+</tr>
+<tr class="row-odd"><td>NVidia Tesla K40</td>
+<td>3.5</td>
+<td>0.1011</td>
+<td>4.7</td>
+</tr>
+<tr class="row-even"><td>NVidia Tesla K80</td>
+<td>3.7</td>
+<td>0.0898</td>
+<td>5.3</td>
+</tr>
+<tr class="row-odd"><td>NVidia Tesla M60</td>
+<td>5.2</td>
+<td>0.0978</td>
+<td>4.8</td>
+</tr>
+<tr class="row-even"><td>NVidia Tesla P100</td>
+<td>6.0</td>
+<td>0.0390</td>
+<td>12.2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id5">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>See the Mixture_Large case in the DL_MESO manual.</p>
+</div>
+<div class="section" id="source-code">
+<h2><a class="toc-backref" href="#id6">Source Code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>This module has been merged into DL_MESO code. It is composed of the
+following commits (you need to be registered as developer):</p>
+<ul class="simple">
+<li><a class="reference external" href="https://ccpforge.cse.rl.ac.uk/gf/project/dl_meso/scmgit/?action=ScmCommitDetail&amp;scm_commit_id=110906">https://ccpforge.cse.rl.ac.uk/gf/project/dl_meso/scmgit/?action=ScmCommitDetail&amp;scm_commit_id=110906</a></li>
+<li><a class="reference external" href="https://ccpforge.cse.rl.ac.uk/gf/project/dl_meso/scmgit/?action=ScmCommitDetail&amp;scm_commit_id=111357">https://ccpforge.cse.rl.ac.uk/gf/project/dl_meso/scmgit/?action=ScmCommitDetail&amp;scm_commit_id=111357</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../index.html">
+              <img class="logo" src="../../../../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">First version of DL_MESO_DPD code for NVidia GPU</a><ul>
+<li><a class="reference internal" href="#purpose-of-module">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information">Background Information</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#performance">Performance</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#source-code">Source Code</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../../DL_MESO_DPD/moldip_af_dlmeso_dpd/readme.html"
+                        title="previous chapter">Autocorrelation functions of individual charge dipole moments in DL_MESO_DPD</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../../hierarchical-strategy/components/fixed-local-tuple/readme.html"
+                        title="next chapter">Hierarchical Strategy for Simple One-Component Polymer Melts: fixed-local-tuple</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/Meso-Multi-Scale-Modelling-Modules/modules/DL_MESO_DPD_onGPU/add_gpu_version/readme.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../hierarchical-strategy/components/fixed-local-tuple/readme.html" title="Hierarchical Strategy for Simple One-Component Polymer Melts: fixed-local-tuple"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../../DL_MESO_DPD/moldip_af_dlmeso_dpd/readme.html" title="Autocorrelation functions of individual charge dipole moments in DL_MESO_DPD"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Meso- and Multi-scale Modules</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

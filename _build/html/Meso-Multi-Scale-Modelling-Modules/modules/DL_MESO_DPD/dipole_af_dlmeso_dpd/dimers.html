@@ -1,0 +1,709 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Test case: a dimer solvent &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Autocorrelation functions of individual charge dipole moments in DL_MESO_DPD" href="../moldip_af_dlmeso_dpd/readme.html" />
+    <link rel="prev" title="Autocorrelation functions of charge dipole moments in DL_MESO_DPD" href="readme.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../moldip_af_dlmeso_dpd/readme.html" title="Autocorrelation functions of individual charge dipole moments in DL_MESO_DPD"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="readme.html" title="Autocorrelation functions of charge dipole moments in DL_MESO_DPD"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Meso- and Multi-scale Modules</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="readme.html" accesskey="U">Autocorrelation functions of charge dipole moments in DL_MESO_DPD</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="test-case-a-dimer-solvent">
+<span id="dimers"></span><h1>Test case: a dimer solvent<a class="headerlink" href="#test-case-a-dimer-solvent" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="../../../../_images/dimer_fluid.jpg"><img alt="../../../../_images/dimer_fluid.jpg" class="align-left" src="../../../../_images/dimer_fluid.jpg" style="width: 10%;" /></a>
+<p>Here we describe a physical system in which the software modules dealing with
+charge dipole moments in DPD simulations can be tested.
+It is a <em>polarizable fluid</em> made of harmonically bonded dimers
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">(+q,-q)</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+, pictorially represented on the left (not in scale).
+Fixing appropriately the partial charge <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">q</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+
+and the Bjerrum length <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">l_B</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+, this system mimics <em>water in an oil
+background</em>, as long as the dielectric properties are concerned.</p>
+<p>We recall that the electric permittivity is <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">\epsilon_0</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ for vacuum, and
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">\epsilon&lt;\epsilon_0</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ for a medium. The medium effect can be split into
+a background and a relative term <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">\epsilon/\epsilon_0=\epsilon_b\epsilon_r</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+.
+The background is constant and uniform, whereas the explicit term is due to
+dynamic microscopic objects (dimers in this case) which carry a charge dipole
+moment. The strength of electrostatic interactions in a background is set by the bare Bjerrum length <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">l_B=e^2/(4
+\pi\epsilon_0 \epsilon_b k_BT)</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+. On the other hand, from linear response theory, the bulk value of the relative permittivity is
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">\epsilon_r = 1 + \frac{\langle\vec{P}^2\rangle_{\vec{E}=\vec{0}}}{3\epsilon_0\epsilon_{b}\, k_BT\,V}</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+,
+where tin-foil boundary conditions are assumed.</p>
+<p>Two types of beads are present in the simulation, <cite>solp</cite> and <cite>solm</cite>, the solvent positive
+and negative partial charges, respectively. We fix the bare Bjerrum length
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">l_B=42</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ (appropriate for oil <a class="footnote-reference" href="#id2" id="id1">[1]</a>), the repulsion parameter <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">A=25</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+, the harmonic spring
+constant <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">k=5</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+, the bead density <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">\rho=3</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+, the partial charges <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">|q|=0.46</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ and the Gaussian
+smearing length <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">\sigma=0.5</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+. All quantities are given in DPD units,
+where <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">k_BT=1</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+, <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">r_c=1</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ and <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">m=1</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+.
+This fluid has a relative permittivity <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">\epsilon_r\simeq 40</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+, as can be checked
+using the <code class="docutils literal"><span class="pre">gen_dipole.f90</span></code> utility. This value is compatible with the ratio
+of water and oil permittivities <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">\epsilon^{water}/\epsilon^{oil}\simeq 40</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+.</p>
+<p>The FIELD file defining the composition and interactions for a system of
+volume <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">V=64</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ is</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">DL_MESO</span> <span class="n">charged</span> <span class="n">harmonic</span> <span class="n">dimers</span> <span class="k">with</span> <span class="n">dpd</span> <span class="n">repulsion</span>
+
+<span class="n">SPECIES</span> <span class="mi">2</span>
+<span class="n">solp</span>  <span class="mf">1.0</span>   <span class="mf">0.46</span>  <span class="mi">0</span>
+<span class="n">solm</span>  <span class="mf">1.0</span>  <span class="o">-</span><span class="mf">0.46</span>  <span class="mi">0</span>
+
+<span class="n">MOLECULES</span> <span class="mi">1</span>
+<span class="n">DIMER</span>
+<span class="n">nummols</span> <span class="mi">96</span>
+<span class="n">beads</span> <span class="mi">2</span>
+<span class="n">solp</span>  <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+<span class="n">solm</span>  <span class="mf">0.1</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+<span class="n">bonds</span> <span class="mi">1</span>
+<span class="n">harm</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mf">5.0</span> <span class="mf">0.0</span>
+
+<span class="n">finish</span>
+
+<span class="n">INTERACTIONS</span> <span class="mi">3</span>
+<span class="n">solp</span>  <span class="n">solp</span>  <span class="n">dpd</span> <span class="mf">25.0</span> <span class="mf">1.0</span> <span class="mf">4.5</span>
+<span class="n">solm</span>  <span class="n">solm</span>  <span class="n">dpd</span> <span class="mf">25.0</span> <span class="mf">1.0</span> <span class="mf">4.5</span>
+<span class="n">solp</span>  <span class="n">solm</span>  <span class="n">dpd</span> <span class="mf">25.0</span> <span class="mf">1.0</span> <span class="mf">4.5</span>
+
+<span class="n">CLOSE</span>
+</pre></div>
+</div>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Notice that the physical length scale is set choosing <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">r_c</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+: if we choose <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">r_c=0.646nm</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+
+(appropriate to match water density at room temperature if <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">N_m=3</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+, i.e., one bead represents
+three water molecules), the Bjerrum length of oil in DPD units is <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">l_B=27 nm\simeq 42 r_c</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+,
+hence the value given above for the oil background.</td></tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../index.html">
+              <img class="logo" src="../../../../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="readme.html"
+                        title="previous chapter">Autocorrelation functions of charge dipole moments in DL_MESO_DPD</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../moldip_af_dlmeso_dpd/readme.html"
+                        title="next chapter">Autocorrelation functions of individual charge dipole moments in DL_MESO_DPD</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/Meso-Multi-Scale-Modelling-Modules/modules/DL_MESO_DPD/dipole_af_dlmeso_dpd/dimers.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../moldip_af_dlmeso_dpd/readme.html" title="Autocorrelation functions of individual charge dipole moments in DL_MESO_DPD"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="readme.html" title="Autocorrelation functions of charge dipole moments in DL_MESO_DPD"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Meso- and Multi-scale Modules</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="readme.html" >Autocorrelation functions of charge dipole moments in DL_MESO_DPD</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

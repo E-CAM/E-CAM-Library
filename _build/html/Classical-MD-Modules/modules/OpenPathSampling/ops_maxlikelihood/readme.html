@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Maximum likelihood optimization of reaction coordinates &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Interface Optimization" href="../ops_interface_optimization/readme.html" />
+    <link rel="prev" title="Reactive flux in OpenPathSampling" href="../ops_reactive_flux/readme.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../ops_interface_optimization/readme.html" title="Interface Optimization"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../ops_reactive_flux/readme.html" title="Reactive flux in OpenPathSampling"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Classical MD Modules</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="maximum-likelihood-optimization-of-reaction-coordinates">
+<span id="ops-maximumlikelihood"></span><h1>Maximum likelihood optimization of reaction coordinates<a class="headerlink" href="#maximum-likelihood-optimization-of-reaction-coordinates" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Software Technical Information</p>
+<p>The information in this section describes OpenPathSampling as a whole.
+Information specific to the additions in this module are in subsequent
+sections.</p>
+<dl class="last docutils">
+<dt>Language</dt>
+<dd>Python (2.7)</dd>
+<dt>Documentation Tool</dt>
+<dd>Sphinx, numpydoc format (ReST)</dd>
+<dt>Application Documentation</dt>
+<dd><a class="reference external" href="http://openpathsampling.org">http://openpathsampling.org</a></dd>
+<dt>Relevant Training Material</dt>
+<dd><a class="reference external" href="https://gitlab.e-cam2020.eu/Classical-MD_openpathsampling/MaxLikelihood/tree/master/examples">https://gitlab.e-cam2020.eu/Classical-MD_openpathsampling/MaxLikelihood/tree/master/examples</a></dd>
+<dt>Licence</dt>
+<dd>LGPL v. 2.1 or later</dd>
+</dl>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#purpose-of-module" id="id1">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information" id="id2">Background Information</a></li>
+<li><a class="reference internal" href="#testing" id="id3">Testing</a></li>
+<li><a class="reference internal" href="#examples" id="id4">Examples</a></li>
+<li><a class="reference internal" href="#source-code" id="id5">Source Code</a></li>
+</ul>
+</div>
+<p>Authors: Clemens Moritz and Raffaela Cabriolu</p>
+<p>This module implements an OpenPathSampling library that provides a maximum
+likelihood analysis to obtain an optimal reaction coordinate by combining
+multiple collective variables.</p>
+<div class="section" id="purpose-of-module">
+<h2><a class="toc-backref" href="#id1">Purpose of Module</a><a class="headerlink" href="#purpose-of-module" title="Permalink to this headline">¶</a></h2>
+<p>OpenPathSampling (OPS) is a software package that simulates complex processes
+using path sampling techniques and yields reactive trajectories between states
+of interest in a given system. However, such trajectories do not automatically
+lead to a physical understanding of the reaction mechanism.
+To gain such an understanding it is desirable to find a set of collective
+variables (CVs) that carry physically important information about the process.</p>
+<p>The size and the shape of a crystalline cluster in a freezing liquid, the number
+of native contacts in a folding protein or bond length and bond angles in
+chemical reactions are examples of such CVs. The aim of this module is to find
+an optimized combination of multiple CVs into a single coordinate, that monitors
+the progress of the reaction. Such a coordinate is commonly called a reaction
+coordinate.</p>
+<p>In methods used to study complex processes, having a good reaction coordinate
+either significantly improves their efficiency or it is a prerequisite for the
+reliability of their results.</p>
+<p>The reaction coordinate is constructed by optimizing the likelihood function</p>
+<p><div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">L = \prod_{\mathrm{yes}} p(r(q_i)) ~ \prod_{\mathrm{no}} (1-p(r(q_i))),</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+</p>
+<p>where r is a reaction coordinate model that combines several CVs, q_i, into a
+reaction coordinate and p is the probability model that maps this coordinate to
+a probability of having a successful outcome (yes). The definition of a
+successful outcome depends on the chosen probability model. Both r and p depend
+on a set of coefficients that are used to maximize L.</p>
+<p>For more details on the method, please refer to the references given in
+<a class="reference internal" href="#background-information">Background Information</a>.</p>
+<p>Classes and objects implemented in this module:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TargetFunctionDescription</span></code> class. Wrapper around functions that carries additional information such as the number of parameters which shall be varied during subsequent optimization.</li>
+<li><code class="docutils literal"><span class="pre">REACTION_COORDINATE_MODELS</span></code> dictionary of objects of the class <code class="docutils literal"><span class="pre">TargetFunctionDescription</span></code>. Collection of commonly used reaction coordinate models.  At the moment two combinations of collective variables are available: a linear function, and a quadratic function. Additionally the user can define custom functions.</li>
+<li><code class="docutils literal"><span class="pre">PROBABILITY_MODELS</span></code> dictionary of objects of the class <code class="docutils literal"><span class="pre">TargetFunctionDescription</span></code>. Collection of commonly used probability models. At the moment two functions are available: a sigmoidal function as a model for committor probabilities and a symmetric peaked function as a model for the probability of finding a transition path starting from the configuration r.</li>
+<li><code class="docutils literal"><span class="pre">MaxLikelihoodCVAnalysis</span></code> class. It implements the maximum likelihood analysis. There are two methods implemented: one for optimization based on committor probabilities, using an <code class="docutils literal"><span class="pre">openpathsampling.ShootingPointAnalysis</span></code> object (<code class="docutils literal"><span class="pre">optimize_from_spa</span></code>), and an other one where the user can perform optimizations for custom problems, using the <code class="docutils literal"><span class="pre">optimize</span></code> method.</li>
+</ul>
+</div>
+<div class="section" id="background-information">
+<h2><a class="toc-backref" href="#id2">Background Information</a><a class="headerlink" href="#background-information" title="Permalink to this headline">¶</a></h2>
+<p>This module is built on the OpenPathSampling library. More information about it are given in the following links:</p>
+<ul class="simple">
+<li>OPS documentation: <a class="reference external" href="http://openpathsampling.org">http://openpathsampling.org</a></li>
+<li>OPS source code: <a class="reference external" href="http://github.com/openpathsampling/openpathsampling">http://github.com/openpathsampling/openpathsampling</a></li>
+</ul>
+<p>Information about the method can be found in these publications:</p>
+<ul class="simple">
+<li>Peters, B. &amp; Trout, B. L. &#8220;Obtaining reaction coordinates by likelihood maximization.&#8221; J. Chem. Phys. 125, 54108 (2006).</li>
+<li>Peters, B., Beckham, G. T. &amp; Trout, B. L. &#8220;Extensions to the likelihood maximization approach for finding reaction coordinates.&#8221; J. Chem. Phys. 127, 34109 (2007).</li>
+<li>Peters, B. &#8220;Reaction Coordinates and Mechanistic Hypothesis Tests.&#8221; Annu. Rev. Phys. Chem. 67, annurev-physchem-040215-112215 (2016).</li>
+</ul>
+</div>
+<div class="section" id="testing">
+<h2><a class="toc-backref" href="#id3">Testing</a><a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>To test this module you need to download the source files package (see the <code class="docutils literal"><span class="pre">Source</span> <span class="pre">Code</span></code> section below) and install it using <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code> from the root directory of the package. In the <code class="docutils literal"><span class="pre">ops_maxlikelihood/tests</span></code> folder type <code class="docutils literal"><span class="pre">nosetests</span></code> to test the module using the <a class="reference external" href="http://nose.readthedocs.io/en/latest/">nose</a> package.</p>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id4">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>The example of the Maximum Likelihood module on the 2D toy model implemented in OPS is given in the directory examples. Open it using <code class="docutils literal"><span class="pre">jupyter</span> <span class="pre">notebook</span> <span class="pre">ExampleMaximumLikelihood2DToyModel.ipynb</span></code> (see Jupyter notebook documentation at <a class="reference external" href="http://jupyter.org/">http://jupyter.org/</a> for more details).</p>
+</div>
+<div class="section" id="source-code">
+<h2><a class="toc-backref" href="#id5">Source Code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>Source code can be found at <a class="reference external" href="https://gitlab.e-cam2020.eu/Classical-MD_openpathsampling/MaxLikelihood">https://gitlab.e-cam2020.eu/Classical-MD_openpathsampling/MaxLikelihood</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../index.html">
+              <img class="logo" src="../../../../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Maximum likelihood optimization of reaction coordinates</a><ul>
+<li><a class="reference internal" href="#purpose-of-module">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information">Background Information</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#source-code">Source Code</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../ops_reactive_flux/readme.html"
+                        title="previous chapter">Reactive flux in OpenPathSampling</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../ops_interface_optimization/readme.html"
+                        title="next chapter">Interface Optimization</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/Classical-MD-Modules/modules/OpenPathSampling/ops_maxlikelihood/readme.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../ops_interface_optimization/readme.html" title="Interface Optimization"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../ops_reactive_flux/readme.html" title="Reactive flux in OpenPathSampling"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Classical MD Modules</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

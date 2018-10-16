@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PotMod &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="AuxMod" href="../AuxMod/readme.html" />
+    <link rel="prev" title="ClassMC" href="../ClassMC/readme.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../AuxMod/readme.html" title="AuxMod"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../ClassMC/readme.html" title="ClassMC"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Quantum Dynamics Modules</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="potmod">
+<span id="id1"></span><h1>PotMod<a class="headerlink" href="#potmod" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Software Technical Information</p>
+<dl class="last docutils">
+<dt>Language</dt>
+<dd>Fortran 95/90</dd>
+<dt>Licence</dt>
+<dd>MIT license (MIT)</dd>
+<dt>Documentation Tool</dt>
+<dd>Doxygen</dd>
+<dt>Software Module Developed by</dt>
+<dd>Momir Mališ</dd>
+</dl>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#purpose-of-module" id="id3">Purpose of Module</a></li>
+<li><a class="reference internal" href="#applications-of-the-module" id="id4">Applications of the Module</a></li>
+<li><a class="reference internal" href="#compiling" id="id5">Compiling</a></li>
+<li><a class="reference internal" href="#testing" id="id6">Testing</a></li>
+<li><a class="reference internal" href="#source-code" id="id7">Source Code</a></li>
+<li><a class="reference internal" href="#source-code-documentation" id="id8">Source Code Documentation</a></li>
+<li><a class="reference internal" href="#references" id="id9">References</a></li>
+</ul>
+</div>
+<div class="section" id="purpose-of-module">
+<h2><a class="toc-backref" href="#id3">Purpose of Module</a><a class="headerlink" href="#purpose-of-module" title="Permalink to this headline">¶</a></h2>
+<p>Module <strong>PotMod</strong> is a library of potential energy subroutines and interfaces to external potential energy calculation codes.
+It provides potential energies and corresponding gradients for included potentials or calls an external code to compute
+the required quantities.
+Currently, two subroutines are implemented within this module.
+A subroutine for the calculation of harmonic and Morse potential energies which requires a set of input parameters
+provided as an external file, and a subroutine containing the analytic ground state electronic energy for the
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">\text{CH}_{5}^{+}</tt>)</p>
+latex exited with error
+[stderr]
+
+kpathsea: Running mktexfmt latex.fmt
+mktexfmt: mktexfmt is using the following fmtutil.cnf files (in precedence order):
+mktexfmt:   /usr/share/texmf/web2c/fmtutil.cnf
+mktexfmt:   /usr/share/texlive/texmf-dist/web2c/fmtutil.cnf
+mktexfmt: mktexfmt is using the following fmtutil.cnf file for writing changes:
+mktexfmt:   /home/ffrancesco/.texlive2017/texmf-config/web2c/fmtutil.cnf
+mktexfmt [INFO]: writing formats under /home/ffrancesco/.texlive2017/texmf-var/web2c
+mktexfmt [INFO]: did not find entry for byfmt=latex, skipped
+mktexfmt [INFO]: Not selected formats: 27
+mktexfmt [INFO]: Total formats: 27
+mktexfmt [INFO]: exiting with status 0
+
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+I can&#8217;t find the format file `latex.fmt&#8217;!
+</div>
+ system. <a class="reference internal" href="#jin" id="id2">[Jin]</a></p>
+</div>
+<div class="section" id="applications-of-the-module">
+<h2><a class="toc-backref" href="#id4">Applications of the Module</a><a class="headerlink" href="#applications-of-the-module" title="Permalink to this headline">¶</a></h2>
+<p>This module is extensively used by the <a class="reference internal" href="../PaPIM/readme.html#papim"><span class="std std-ref">PaPIM</span></a> code and <a class="reference internal" href="../PIM_wd/readme.html#pim-wd"><span class="std std-ref">PIM_wd</span></a> and <a class="reference internal" href="../ClassMC/readme.html#classmc"><span class="std std-ref">ClassMC</span></a> modules for providing the necessary
+potentials and gradients of studied systems.</p>
+</div>
+<div class="section" id="compiling">
+<h2><a class="toc-backref" href="#id5">Compiling</a><a class="headerlink" href="#compiling" title="Permalink to this headline">¶</a></h2>
+<p>The code should be compiled in the <code class="docutils literal"><span class="pre">./source</span></code> sub-directory using a Fortran compiler.
+A <code class="docutils literal"><span class="pre">Makefile</span></code> is present for an automatic compilation.
+Execute command &#8216;make&#8217; in the <code class="docutils literal"><span class="pre">./source</span></code> sub-directory to generate the <code class="docutils literal"><span class="pre">PotModRun.exe</span></code> executable:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">source</span>
+
+<span class="n">make</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="testing">
+<h2><a class="toc-backref" href="#id6">Testing</a><a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>For PotMod test purposes the <code class="docutils literal"><span class="pre">numdiff</span></code> package is used for automatic comparison purposes and should be made
+available before running the tests, otherwise the <code class="docutils literal"><span class="pre">diff</span></code> command will be used automatically instead but the user
+is warned that the test might fail due to numerical differences.
+The user is advised to download and install <code class="docutils literal"><span class="pre">numdiff</span></code> from <a class="reference external" href="http://www.nongnu.org/numdiff/">here</a>.
+The module is accompanied by a corresponding Fortran 90 test subroutine and a reference output.
+The reference output is located in sub-directory <code class="docutils literal"><span class="pre">./tests/REFERENCE_VALUE</span></code>.
+The test can be executed automatically by running the script <code class="docutils literal"><span class="pre">./test.sh</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">tests</span>
+
+<span class="o">./</span><span class="n">test</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>or manually by executing the compiled PotModRun.exe code within the sub-directory <code class="docutils literal"><span class="pre">./tests</span></code>
+(example <code class="docutils literal"><span class="pre">../source/PotModRun.exe</span> <span class="pre">&gt;</span> <span class="pre">out</span></code>)
+and comparing the output with the reference values in file <code class="docutils literal"><span class="pre">REFERENCE_VALUE/tested_potentials</span></code>.</p>
+</div>
+<div class="section" id="source-code">
+<h2><a class="toc-backref" href="#id7">Source Code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>The source code is given at <a class="reference external" href="https://gitlab.e-cam2020.eu/Quantum-Dynamics/PIM/tree/PotMod">https://gitlab.e-cam2020.eu/Quantum-Dynamics/PIM/tree/PotMod</a>.
+File <code class="docutils literal"><span class="pre">harmonic_potential.f90</span></code> contains the subroutines for harmonic and Morse potential energy calculations, while
+file <code class="docutils literal"><span class="pre">ch5_pes.f90</span></code> contains the subroutines for calculation of CH<sub>5</sub><sup>+</sup> potential energy.
+File <code class="docutils literal"><span class="pre">PotMod.f90</span></code> controls and calls the included subroutines (<code class="docutils literal"><span class="pre">harmonic_potential.f90</span></code> and <code class="docutils literal"><span class="pre">ch5_pes.f90</span></code>).
+The remaining subroutines (<code class="docutils literal"><span class="pre">GlobType.f90</span></code>, <code class="docutils literal"><span class="pre">kinds.f90</span></code>, <code class="docutils literal"><span class="pre">ReadFiles.f90</span></code>, <code class="docutils literal"><span class="pre">PotModRun.f90</span></code>) are subroutines for
+test purposes, where <code class="docutils literal"><span class="pre">GlobType.f90</span></code> contains the definition of derived types used by PotMod module.</p>
+</div>
+<div class="section" id="source-code-documentation">
+<h2><a class="toc-backref" href="#id8">Source Code Documentation</a><a class="headerlink" href="#source-code-documentation" title="Permalink to this headline">¶</a></h2>
+<p>The source code documentation is given at <a class="reference external" href="https://gitlab.e-cam2020.eu/Quantum-Dynamics/PIM/tree/PotMod/doc/">https://gitlab.e-cam2020.eu/Quantum-Dynamics/PIM/tree/PotMod/doc/</a>.
+The documentation files (html and latex format) are obtained by executing the <code class="docutils literal"><span class="pre">make</span></code> command in the <code class="docutils literal"><span class="pre">./doc</span></code>
+sub-directory:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">doc</span>
+
+<span class="n">make</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id9">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<table class="docutils citation" frame="void" id="jin" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[Jin]</a></td><td>Z. Jin, B. Braams, J. Bowman <em>J. Phys. Chem. A</em> <strong>110</strong> (2006) 1569 <a class="reference external" href="https://pubs.acs.org/doi/abs/10.1021/jp053848o">DOI: 10.1021/jp053848o</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">PotMod</a><ul>
+<li><a class="reference internal" href="#purpose-of-module">Purpose of Module</a></li>
+<li><a class="reference internal" href="#applications-of-the-module">Applications of the Module</a></li>
+<li><a class="reference internal" href="#compiling">Compiling</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#source-code">Source Code</a></li>
+<li><a class="reference internal" href="#source-code-documentation">Source Code Documentation</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../ClassMC/readme.html"
+                        title="previous chapter">ClassMC</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../AuxMod/readme.html"
+                        title="next chapter">AuxMod</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/Quantum-Dynamics-Modules/modules/PotMod/readme.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../AuxMod/readme.html" title="AuxMod"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../ClassMC/readme.html" title="ClassMC"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Quantum Dynamics Modules</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

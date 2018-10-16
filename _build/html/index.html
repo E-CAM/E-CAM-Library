@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The E-CAM Software Library &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Classical MD Modules" href="Classical-MD-Modules/index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Classical-MD-Modules/index.html" title="Classical MD Modules"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">E-CAM Software Library 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-e-cam-software-library">
+<span id="readme"></span><h1>The E-CAM Software Library<a class="headerlink" href="#the-e-cam-software-library" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Scientific Areas</p>
+<ul class="simple">
+<li><a class="reference internal" href="Classical-MD-Modules/index.html#readme-classical-md"><span class="std std-ref">Classical MD Modules</span></a></li>
+<li><a class="reference internal" href="Electronic-Structure-Modules/index.html#readme-electronic-structure"><span class="std std-ref">Electronic Structure Modules</span></a></li>
+<li><a class="reference internal" href="Quantum-Dynamics-Modules/index.html#readme-quantum-dynamics"><span class="std std-ref">Quantum Dynamics Modules</span></a></li>
+<li><a class="reference internal" href="Meso-Multi-Scale-Modelling-Modules/index.html#readme-meso-multi"><span class="std std-ref">Meso- and Multi-scale Modules</span></a></li>
+</ul>
+<p><strong>Best Practices</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="best-practices/index.html#best-practices"><span class="std std-ref">Scientific Software Best Practices</span></a></li>
+</ul>
+<p><strong>Quicklinks</strong></p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#what-is-a-module" id="id1">What is a module?</a><ul>
+<li><a class="reference internal" href="#scientific-software-development-best-practices" id="id2">Scientific Software Development Best Practices</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#e-cam-activities" id="id3">E-CAM Activities</a><ul>
+<li><a class="reference internal" href="#pilot-projects" id="id4">Pilot Projects</a></li>
+<li><a class="reference internal" href="#extended-software-development-workshops" id="id5">Extended Software Development Workshops</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contributing-to-this-documentation" id="id6">Contributing to this documentation</a></li>
+</ul>
+</div>
+<ul class="last simple">
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+<div class="figure align-left" style="width: 25%">
+<img alt="_images/wake_nova-rgb1.png" src="_images/wake_nova-rgb1.png" />
+</div>
+<p>This is a collection of the software modules that have been documented by <a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a> (<a class="reference external" href="http://www.e-cam2020.eu">http://www.e-cam2020.eu</a>) community
+within the four initial target areas of <a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a>:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Classical-MD-Modules/index.html">Classical MD Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Electronic-Structure-Modules/index.html">Electronic Structure Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Quantum-Dynamics-Modules/index.html">Quantum Dynamics Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Meso-Multi-Scale-Modelling-Modules/index.html">Meso- and Multi-scale Modules</a></li>
+</ul>
+</div>
+<div class="section" id="what-is-a-module">
+<h2><a class="toc-backref" href="#id1">What is a module?</a><a class="headerlink" href="#what-is-a-module" title="Permalink to this headline">¶</a></h2>
+<p>In the context of <a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a>, the definition of a software module is any piece of software that could be of use to the
+<a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a> community and that encapsulates some additional functionality, enhanced performance or improved usability for
+people performing computational simulations in the domain areas of interest to us.</p>
+<p>This definition is deliberately broader than the traditional concept of a module as defined in the semantics of most
+high-level programming languages and is intended to capture inter alia workflow scripts, analysis tools and test suites
+as well as traditional subroutines and functions. Because such <a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a> modules will form a heterogeneous collection we
+prefer to refer to this as an <a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a> software repository rather than a library (since the word library carries a
+particular meaning in the programming world). The modules do however share with the traditional computer science
+definition the concept of hiding the internal workings of a module behind simple and well-defined interfaces. It is
+probable that in many cases the modules will result from the abstraction and refactoring of useful ideas from existing
+codes rather than being written entirely de novo.</p>
+<p>Perhaps more important than exactly what a module is, is how it is written and used. A final <a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a> module adheres to
+current best-practice programming style conventions, is well documented and comes with either regression or unit tests
+(and any necessary associated data). <a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a> modules should be written in such a way that they can potentially take
+advantage of anticipated hardware developments in the near future (and this is one of the training objectives of
+<a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a>).</p>
+<div class="section" id="scientific-software-development-best-practices">
+<h3><a class="toc-backref" href="#id2">Scientific Software Development Best Practices</a><a class="headerlink" href="#scientific-software-development-best-practices" title="Permalink to this headline">¶</a></h3>
+<p>We have attempted to gather a set of best practice guidelines for scientific software development in order to assist
+people to develop high quality modules. These guidelines are not specific to E-CAM and gather together best practices
+from a number of different sources that can help increase the quality and reusability of the software developed by
+scientists.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="best-practices/index.html">Scientific Software Best Practices</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="e-cam-activities">
+<h2><a class="toc-backref" href="#id3">E-CAM Activities</a><a class="headerlink" href="#e-cam-activities" title="Permalink to this headline">¶</a></h2>
+<p>The software stored in <a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a> repositories is developed via two main activities: the work of post-docs in the context of
+<em>pilot projects</em> with industrial partners; and the work of the participants at <em>Extended Software Development Workshops</em>
+(ESDWs).</p>
+<div class="section" id="pilot-projects">
+<h3><a class="toc-backref" href="#id4">Pilot Projects</a><a class="headerlink" href="#pilot-projects" title="Permalink to this headline">¶</a></h3>
+<p>One of primary activity of <a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a> is to engage with pilot projects with industrial partners. These projects are conceived
+together with the partner and typically are to facilitate or improve the scope of computational simulation within the
+partner. The related code development for the pilot projects are open source (where the licence of the underlying
+software allows this) and are described in the modules associated with the pilot projects.</p>
+<p>Below is a list of the current pilot projects within <a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a>:</p>
+<ul class="simple">
+<li><a class="reference internal" href="Classical-MD-Modules/index.html#readme-classical-md"><span class="std std-ref">Classical MD Modules</span></a><ul>
+<li><a class="reference external" href="https://www.e-cam2020.eu/pilot-project-biki/">Binding kinetics</a></li>
+<li><a class="reference external" href="https://www.e-cam2020.eu/pilot-project-food-proteins/">Food Proteins</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="Electronic-Structure-Modules/index.html#readme-electronic-structure"><span class="std std-ref">Electronic Structure Modules</span></a><ul>
+<li><a class="reference external" href="https://www.e-cam2020.eu/pilot-project-merck/">Calculations for Applications in Photovoltaic Devices</a></li>
+<li><a class="reference external" href="https://www.e-cam2020.eu/pilot-project-biki-2/">Quantum Mechanical Parameterisation of Metal Ions in Proteins</a></li>
+<li>Wannier90</li>
+</ul>
+</li>
+<li><a class="reference internal" href="Quantum-Dynamics-Modules/index.html#readme-quantum-dynamics"><span class="std std-ref">Quantum Dynamics Modules</span></a><ul>
+<li><a class="reference external" href="https://www.e-cam2020.eu/pilot-project-ibm/">Quantum Computing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="Meso-Multi-Scale-Modelling-Modules/index.html#readme-meso-multi"><span class="std std-ref">Meso- and Multi-scale Modules</span></a><ul>
+<li><a class="reference external" href="https://www.e-cam2020.eu/pilot-project-unilever/">Polarizable Mesoscale Models</a></li>
+<li><a class="reference external" href="https://www.e-cam2020.eu/pilot-project-michelin/">Rheological Properties of New Composite Materials</a></li>
+<li><a class="reference external" href="https://www.e-cam2020.eu/pilot-project-gc-adress/">The GC-AdResS scheme</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="extended-software-development-workshops">
+<h3><a class="toc-backref" href="#id5">Extended Software Development Workshops</a><a class="headerlink" href="#extended-software-development-workshops" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a> carries out 2 week software development workshops. These workshops train scientists in the development of modular
+codes for high performance machines. Documentation and testing are key components of the workshops and the associated
+on-line manuals and test cases are made available through the <a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a> module library. ESDWs are open to postdocs, senior
+graduate students and early career researchers in industry and academia. <a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a> carries out 4 ESDWs per year on each of
+the four scientific areas, with a maximum 2 weeks duration. For more information see <a class="reference external" href="http://www.e-cam2020.eu/events/">http://www.e-cam2020.eu/events/</a></p>
+</div>
+</div>
+<div class="section" id="contributing-to-this-documentation">
+<h2><a class="toc-backref" href="#id6">Contributing to this documentation</a><a class="headerlink" href="#contributing-to-this-documentation" title="Permalink to this headline">¶</a></h2>
+<p>This documentation is created using ReStructured Text and the git repository for the documentation source files can be
+found at <a class="reference external" href="https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library">https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library</a> which are open to contributions from anyone in the <a class="reference external" href="https://www.e-cam2020.eu/">E-CAM</a>
+community. If you would like to contribute to this effort then please follow the contribution guidelines that are
+linked to below.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">How to contribute?</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The E-CAM Software Library</a><ul>
+<li><a class="reference internal" href="#what-is-a-module">What is a module?</a><ul>
+<li><a class="reference internal" href="#scientific-software-development-best-practices">Scientific Software Development Best Practices</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#e-cam-activities">E-CAM Activities</a><ul>
+<li><a class="reference internal" href="#pilot-projects">Pilot Projects</a></li>
+<li><a class="reference internal" href="#extended-software-development-workshops">Extended Software Development Workshops</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contributing-to-this-documentation">Contributing to this documentation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Classical-MD-Modules/index.html"
+                        title="next chapter">Classical MD Modules</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Classical-MD-Modules/index.html" title="Classical MD Modules"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">E-CAM Software Library 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

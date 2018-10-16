@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Designing your software &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Version Control" href="versions.html" />
+    <link rel="prev" title="The Unix Philosophy" href="unix-phil.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="versions.html" title="Version Control"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="unix-phil.html" title="The Unix Philosophy"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Scientific Software Best Practices</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="general_programming_guidelines.html" accesskey="U">General Programming Guidelines</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="designing-your-software">
+<span id="design"></span><h1>Designing your software<a class="headerlink" href="#designing-your-software" title="Permalink to this headline">¶</a></h1>
+<p>After some discussion with other <a class="reference external" href="https://exdci.eu/collaboration/coe">Centres of Excellence</a>, we are wary of
+over-engineering advice with respect to software design. While tools exist that are designed to assist this process,
+such tools typically require repeated use to achieve mastery and this overhead excessive in many cases. For this reason,
+we have chosen to align our software specification method with our <em>acceptance criteria</em> for software contributions to a
+project (source code, testing, documentation, build instructions).</p>
+<p>The subsections below are based on the information from <a class="reference external" href="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</a> (
+<a class="reference internal" href="#softwarespecification" id="id1">[SoftwareSpecification]</a> and <a class="reference internal" href="#tdd" id="id2">[TDD]</a>).</p>
+<table class="docutils citation" frame="void" id="softwarespecification" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[SoftwareSpecification]</a></td><td>Software requirements specification <a class="reference external" href="https://en.wikipedia.org/wiki/Software_requirements_specification">https://en.wikipedia.org/wiki/Software_requirements_specification</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="tdd" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[TDD]</a></td><td>Test-driven Development <a class="reference external" href="https://en.wikipedia.org/wiki/Test-driven_development">https://en.wikipedia.org/wiki/Test-driven_development</a></td></tr>
+</tbody>
+</table>
+<div class="section" id="software-requirements-specification">
+<h2>Software Requirements Specification<a class="headerlink" href="#software-requirements-specification" title="Permalink to this headline">¶</a></h2>
+<p>A software requirements specification (SRS) is a description of a software system to be developed. It lays out
+functional and non-functional requirements, and may include a set of use cases that describe user interactions that the
+software must provide.</p>
+<p>The software requirements specification document lists sufficient and necessary requirements that are required for
+developing the project. To derive the requirements, all developers need to have clear and thorough understanding of the
+application to be developed. This is achieved through continuous communications between the project team (who are
+typically also the <em>customer</em> when we are talking about an open source scientific code).</p>
+<p>An example of an SRS would be:</p>
+<ul class="simple">
+<li>Purpose<ul>
+<li>Definitions</li>
+<li>System overview</li>
+<li>References</li>
+</ul>
+</li>
+<li>Overall description<ul>
+<li>Product perspective<ul>
+<li>System Interfaces</li>
+<li>User interfaces</li>
+<li>Hardware interfaces</li>
+<li>Software interfaces</li>
+<li>Communication Interfaces</li>
+<li>Memory Constraints</li>
+</ul>
+</li>
+<li>Design constraints<ul>
+<li>Operations</li>
+<li>Site Adaptation Requirements</li>
+</ul>
+</li>
+<li>Product functions</li>
+<li>User characteristics</li>
+<li>Constraints, assumptions and dependencies</li>
+</ul>
+</li>
+<li>Specific requirements<ul>
+<li>External interface requirements</li>
+<li>Functional requirements</li>
+<li>Performance requirements</li>
+<li>Software System attributes<ul>
+<li>Reliability</li>
+<li>Availability</li>
+<li>Security</li>
+<li>Maintainability</li>
+<li>Portability.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="test-driven-development">
+<h2>Test-driven Development<a class="headerlink" href="#test-driven-development" title="Permalink to this headline">¶</a></h2>
+<p>The acceptance criteria of E-CAM are explicitly test-focused and we therefore advocate for test-driven development as a
+software specification method, where one first decides how a particular development would be tested (and creates the
+associated test) before writing the software that would pass this test.</p>
+<p>An example of a test-driven development cycle would be:</p>
+<ol class="arabic simple">
+<li>Add a test</li>
+<li>Run all tests and see if the new test fails</li>
+<li>Write the code</li>
+<li>Run tests</li>
+<li>Refactor code</li>
+</ol>
+<p>Such an approach is very task-oriented and if a wider perspective is required (for example if one is beginning a software
+project or implementing a redesign) we advise the creation of a <a class="reference internal" href="#software-requirements-specification">Software Requirements Specification</a> to supplement
+this and provide an overarching structure.</p>
+<p>In addition, when dealing with numerical methods the creation of adequate tests can be difficult since bit-wise
+reproducability of results is frequently not possible due to floating point precision and/or the use of random numbers.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Designing your software</a><ul>
+<li><a class="reference internal" href="#software-requirements-specification">Software Requirements Specification</a></li>
+<li><a class="reference internal" href="#test-driven-development">Test-driven Development</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="unix-phil.html"
+                        title="previous chapter">The Unix Philosophy</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="versions.html"
+                        title="next chapter">Version Control</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/best-practices/general/specs_and_design.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="versions.html" title="Version Control"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="unix-phil.html" title="The Unix Philosophy"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Scientific Software Best Practices</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="general_programming_guidelines.html" >General Programming Guidelines</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>

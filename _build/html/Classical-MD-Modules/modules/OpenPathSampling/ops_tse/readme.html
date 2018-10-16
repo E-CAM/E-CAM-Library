@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Transition State Ensemble in OpenPathSampling &#8212; E-CAM Software Library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/ecam_logo.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Reactive flux in OpenPathSampling" href="../ops_reactive_flux/readme.html" />
+    <link rel="prev" title="Contact Map Parallelization" href="../../contact_maps_parallelization/readme.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../ops_reactive_flux/readme.html" title="Reactive flux in OpenPathSampling"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../../contact_maps_parallelization/readme.html" title="Contact Map Parallelization"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Classical MD Modules</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="transition-state-ensemble-in-openpathsampling">
+<span id="tse-module"></span><h1>Transition State Ensemble in OpenPathSampling<a class="headerlink" href="#transition-state-ensemble-in-openpathsampling" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="first sidebar-title">Software Technical Information</p>
+<p>The information in this section describes OpenPathSampling as a whole.
+Information specific to the additions in this module are in subsequent
+sections.</p>
+<dl class="last docutils">
+<dt>Language</dt>
+<dd>Python (2.7)</dd>
+<dt>Documentation Tool</dt>
+<dd>Sphinx, numpydoc format (ReST)</dd>
+<dt>Application Documentation</dt>
+<dd><a class="reference external" href="http://openpathsampling.org">http://openpathsampling.org</a></dd>
+<dt>Relevant Training Material</dt>
+<dd><a class="reference external" href="http://openpathsampling.org/latest/examples/">http://openpathsampling.org/latest/examples/</a></dd>
+<dt>Licence</dt>
+<dd>LGPL, v. 2.1 or later</dd>
+</dl>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#purpose-of-module" id="id1">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information" id="id2">Background Information</a></li>
+<li><a class="reference internal" href="#testing" id="id3">Testing</a></li>
+<li><a class="reference internal" href="#examples" id="id4">Examples</a></li>
+<li><a class="reference internal" href="#source-code" id="id5">Source Code</a></li>
+</ul>
+</div>
+<p>Authors: Sander Roet</p>
+<p>This module is an addition to OpenPathSampling to calculate the snapshots that
+correspond to the transition state ensemble from a list of trajectories.</p>
+<div class="section" id="purpose-of-module">
+<h2><a class="toc-backref" href="#id1">Purpose of Module</a><a class="headerlink" href="#purpose-of-module" title="Permalink to this headline">¶</a></h2>
+<p>Often in transition path sampling we want to get an idea about the features of
+the transition. This is done by generating an ensemble of snapshots that
+correspond to a committor of approximately 50%. This ensemble gives information
+about the transition state and the shape of the barrier. This code provides a
+straightforward way of calculating this ensemble for a given list of
+trajectories.</p>
+<p>This module tries to efficiently find a single transition state frame from each
+trajectory. This is done by bisection of the trajectory, depending on the
+current committor. For example, if the current committor is to high (to much
+ends up in state B) the next index is selected halfway towards the left edge
+and the current index is set as the new right edge. This is repeated untill a
+committor within a given range is reached or no new frame can be selected.</p>
+<p>In the end this module returns a dictionary of shape <code class="docutils literal"><span class="pre">{snapshot:</span> <span class="pre">comittor</span>
+<span class="pre">value}</span></code> which then can be used for analysis.</p>
+<p>The implementation in this module includes:</p>
+<ul class="simple">
+<li>A <code class="docutils literal"><span class="pre">TransitionStateEnsemble</span></code> subclass of <code class="docutils literal"><span class="pre">PathSimulator</span></code> to run the
+transition state ensemble simulation.</li>
+</ul>
+</div>
+<div class="section" id="background-information">
+<h2><a class="toc-backref" href="#id2">Background Information</a><a class="headerlink" href="#background-information" title="Permalink to this headline">¶</a></h2>
+<p>This module builds on OpenPathSampling, a Python package for path sampling
+simulations. To learn more about OpenPathSampling, you might be interested in
+reading:</p>
+<ul class="simple">
+<li>OPS documentation: <a class="reference external" href="http://openpathsampling.org">http://openpathsampling.org</a></li>
+<li>OPS source code: <a class="reference external" href="http://github.com/openpathsampling/openpathsampling">http://github.com/openpathsampling/openpathsampling</a></li>
+</ul>
+</div>
+<div class="section" id="testing">
+<h2><a class="toc-backref" href="#id3">Testing</a><a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>To test this module you need to download the source files package (see the <code class="docutils literal"><span class="pre">Source</span> <span class="pre">Code</span></code> section below) and install it using
+<code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> from the root directory of the package.
+In the <code class="docutils literal"><span class="pre">ops_tse/tests</span></code> folder type <code class="docutils literal"><span class="pre">nosetests</span> <span class="pre">test_ops_tse.py</span></code> to test the module using the <a class="reference external" href="http://nose.readthedocs.io/en/latest/">nose</a> package.</p>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id4">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>An IPython 2-D toy example can be found in the <code class="docutils literal"><span class="pre">examples</span></code> directory of the the
+source files (see the <code class="docutils literal"><span class="pre">Source</span> <span class="pre">Code</span></code> section below). Open it using <code class="docutils literal"><span class="pre">jupyter</span> <span class="pre">notebook</span> <span class="pre">simple_tse_example.ipynb</span></code>
+(see <code class="docutils literal"><span class="pre">Jupyter</span> <span class="pre">notebook</span></code> documentation at <a class="reference external" href="http://jupyter.org/">http://jupyter.org/</a> for more details)</li>
+</ul>
+</div>
+<div class="section" id="source-code">
+<h2><a class="toc-backref" href="#id5">Source Code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>The source code for this module can be found in: <a class="reference external" href="https://gitlab.e-cam2020.eu/Classical-MD_openpathsampling/TSE/tree/master">https://gitlab.e-cam2020.eu/Classical-MD_openpathsampling/TSE/tree/master</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../index.html">
+              <img class="logo" src="../../../../_static/ecam_logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Transition State Ensemble in OpenPathSampling</a><ul>
+<li><a class="reference internal" href="#purpose-of-module">Purpose of Module</a></li>
+<li><a class="reference internal" href="#background-information">Background Information</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#source-code">Source Code</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../../contact_maps_parallelization/readme.html"
+                        title="previous chapter">Contact Map Parallelization</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../ops_reactive_flux/readme.html"
+                        title="next chapter">Reactive flux in OpenPathSampling</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/Classical-MD-Modules/modules/OpenPathSampling/ops_tse/readme.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../ops_reactive_flux/readme.html" title="Reactive flux in OpenPathSampling"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../../contact_maps_parallelization/readme.html" title="Contact Map Parallelization"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">E-CAM Software Library 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Classical MD Modules</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, E-CAM Centre of Excellence.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.6.
+    </div>
+  </body>
+</html>
