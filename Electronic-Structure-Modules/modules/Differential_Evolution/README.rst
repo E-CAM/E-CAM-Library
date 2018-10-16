@@ -42,6 +42,10 @@ The demo.c file in the ./test directory includes three test functions: sphere fu
 
 where NAMEFUNCTION can assume the values "sphere", "ellips" or "michel". The dimensionality of the functions is set equal to 20, however it can be modified in the demo.c file. The correct application of the module should identify the global minimum of the functions. They are provided in the file optima.dat in the ./test directory. 
 
+The termination of the optimization is defined by three criterions: 1) the maximum number of objective function evaluations 2) the variation of the mean value of the objective function of the population calculated in two cycle separated from a constant number of iterations 3) the difference between the mean value of the objective function of the population and the best value of the population. The criterion are tuned by three parameters defined in the demo.c file: settings.max_evaluations (default value equal to 200000), settings.step_delta is the number of the iterations that separate two checks of the mean value of the objective function of the population (default value equal to 40), settings.tolerance is the tolerance value for the criterions 2) and 3) (default value equal to 0.000001).
+
+A further parameter is set in demo.c file, settings.size (default value equal to 100), that defines the size of the population of the vectors.
+
 Further functions can be added in the demo.c file defining the functional form and the domain of the search space.
 
 .. [Storn1997] Storn, Rainer, and Kenneth Price. "Differential evolution–a simple and efficient heuristic for global optimization over continuous spaces." Journal of global optimization 11.4 (1997): 341-359.
