@@ -15,6 +15,9 @@ PaPIM's Interface to CP2K
   Documentation Tool
     Doxygen
 
+  Software Module Developed by
+    Momir Mališ, Ari P. Seitsonen
+
 .. contents:: :local:
 
 
@@ -33,17 +36,20 @@ Compiling
 _________
 
 In order to compile this module the CP2K program package has to be properlly set-up and the CP2K has to be 
-compiled as a library as well. In tha latter case, the CP2K root directory contains a sub-directory ``lib`` which 
-contains the corresponding library files. In the absence of the latter, CP2K cannot be linked to PaPIM code. For 
-information on installing the CP2K code and compiling it as a library the user is advise to examine the CP2K 
-installation documentation at this `link <https://www.cp2k.org/howto:compile>`_. 
+compiled as a library as well. 
+In tha latter case, the CP2K root directory contains a sub-directory ``lib`` which 
+contains the corresponding library files. In the absence of the latter, CP2K cannot be linked to PaPIM code. 
+For information on installing the CP2K code and compiling it as a library the user is advise to examine the 
+CP2K installation documentation at this `link <https://www.cp2k.org/howto:compile>`_. 
 
 Fortran compiler with a MPI wrapper together with lapack libraries have to be available to successfully 
-compile the code. The user is advise to examine the ``Makefile`` in the ``./source``` sub-directory prior 
-to code compilation in order to select an appropriate compiler and to check or adapt the compiler's options 
-to his local environment, or to generally modify the compiler options to his requirements. Special care 
-should be made on the CP2K paths to the corresponding library files on certain systems. The ``Makefile`` 
-contains three casses, but any other variation is possible. 
+compile the code. 
+The user is advise to examine the ``Makefile`` in the ``./source`` sub-directory prior to code compilation 
+in order to select an appropriate compiler and to check or adapt the compiler's options 
+to his local environment, or to generally modify the compiler options to his requirements. 
+Special care should be made on the CP2K paths to the corresponding library files on certain systems. 
+The ``Makefile`` contains two example casses encountered on cluster systems but any other variation 
+is possible. 
 
 Compilation flag ``--D__USE_CP2K`` controles the inclusion of CP2K into the PaPIM code. 
 If omitted the PaPIM code will be compiled without CP2K and without the split communicator parallelization 
@@ -51,7 +57,8 @@ scheme. Tha latter is not used with any current analitic potential subroutine so
 details on the potential subroutine see here). 
 
 Upon adapting the ``Makefile``, the code compilation is executed by command ``make`` in the ``./source`` 
-sub-directory. The executable ``PaPIM.exe`` is created at the same location upon successful compilation.
+sub-directory. 
+The executable ``PaPIM.exe`` is created at the same location upon successful compilation.
 
 For module's testing purposes the user is advise to have ``numdiff`` package installesd before running the tests. 
 More details on the numdiff program package and its intallation is available 
@@ -78,23 +85,24 @@ Tests are performed automaticaly in the ``./tests`` sub-directory by executing t
 
 	./test.sh -c -n [number of cores]
 
-The optional flag ``-c`` includes runing of the CP2K tests. If omitted only the tests using the analytic 
-potentail will be performed. Flag ``-x`` omits the analytic potential tests and executes only the CP2K 
-tests. 
+The optional flag ``-c`` includes runing of the CP2K tests. 
+If omitted only the tests using the analytic potentail will be performed. 
+Flag ``-x`` omits the analytic potential tests and executes only the CP2K tests. 
 
-Flag ``-n [number of cores]`` controles the number of processor cores used in the tests. By default 
-the tests are performed on two processor cores, which can be changed by setting a different number of 
+Flag ``-n [number of cores]`` controles the number of processor cores used in the tests. 
+By default the tests are performed on two processor cores, which can be changed by setting a different number of 
 required processor cores. The number of processor cores should not exceed 20. 
 In all cases the CP2K potential is calculated on one processor core for each sampling point. 
 In order to change that, a different ``group_size`` variable should be specified manually in the 
-corresponding ``Control.in`` files. Note that the total number of processor cores used in the tests 
-should be divisable by the ``group_size`` value.
+corresponding ``Control.in`` files. 
+Note that the total number of processor cores used in the tests should be divisable by the ``group_size`` value.
 
 For comparison of generated output values with reference data the test script uses ``numdiff`` command 
-in order to compensate for small numerical differences. By default the script looks first for the 
-``numdiff`` command on the system, and in case it fails to locat it, the standard ``diff`` command 
-will be used instead. However, the user is warned that due to small numerical differences between 
-generated output and corresponding reference values the automated tests are most likely to fail. 
+in order to compensate for small numerical differences. 
+By default the script looks first for the ``numdiff`` command on the system, and in case it fails to 
+locat it, the standard ``diff`` command will be used instead. 
+However, the user is warned that due to small numerical differences between generated output and corresponding 
+reference values the automated tests are most likely to fail. 
 A local ``numdiff`` package copy can be included in the test by specifying its absolute path. 
 For this and other options of the test script list them with the command ``./test.sh -h``.
 
@@ -118,16 +126,19 @@ Parallelization and Benchmarking
 ________________________________
 
 Parallelization of linked PaPIM and CP2K codes is achieved with a MPI split communicator approach. 
-A separate communicator is given for the PaPIM code and for the CP2K part. The latter is split into
-groups, each of a number of processor cores given by the ``group_size`` value. Therfore, the number of 
-trajectories which can be sampled simultaniously is given by the quotient of the total number of used 
-processor cores with the value of the ``group_size``. For the same reason the total number of cores 
-must be divisable by the ``group_size`` value. The figure below explains in a simplified graphical 
-maner the parallelization used in the PaPIM code linked to CP2K.
+A separate communicator is given for the PaPIM code and for the CP2K part. 
+The latter is split into groups, each of a number of processor cores given by the ``group_size`` value. 
+Therfore, the number of trajectories which can be sampled simultaniously is given by the quotient of the 
+total number of used processor cores with the value of the ``group_size``. 
+For the same reason the total number of cores must be divisable by the ``group_size`` value. 
+The figure below explains in a simplified graphical maner the parallelization used in the PaPIM code 
+linked to CP2K.
 
+.. image:: ./papim-cp2k_parallel.png
+   :width: 80 %
+   :align: center
 
-
-
+The tested PaPIM-CP2K scalling and parallelization performance are given :ref:`here <PaPIM-CP2K_parallel>`.
 
 
 

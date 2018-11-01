@@ -123,7 +123,7 @@ the user is advised to manually examine the numerical differences between genera
 reference values in case the tests fail. 
 
 
-Performance and benchmarking
+Performance and Benchmarking
 ----------------------------
 
 PaPIM is designed as a highly scalable code. Its performance was extensively tested. 
