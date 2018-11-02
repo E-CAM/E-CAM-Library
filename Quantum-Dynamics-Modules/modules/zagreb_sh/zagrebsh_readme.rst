@@ -23,7 +23,7 @@ Zagreb surface hopping code
     Training material is available through the test examples
 
   Software Module Developed by
-    Surface hopping code was developed in the group of Nadja Doslic in Zagreb, some of the authors are Marin Sapunar, Momir Malis and Nadja Doslic. The implementation of this module has been done by Cristina Sanz-Sanz and Graham A. Worth.    
+    Surface hopping code: Nadja Doslic, Marin Sapunar and Momir Malis. Module: Graham Worth, Cristina Sanz-Sanz.    
 .. contents:: :local:
 
 .. Add technical info as a sidebar and allow text below to wrap around it
