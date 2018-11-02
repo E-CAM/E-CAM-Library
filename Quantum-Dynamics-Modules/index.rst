@@ -330,16 +330,6 @@ polymer chains within the PIM algorithm, improving efficiency in sampling of the
 
 
 
-
-.. toctree::
-    :glob:
-    :maxdepth: 1
-
-    ./modules/PaPIM-CP2K_Interface/readme
-
-**PaPIM-CP2K_Interface** is a PaPIM's code interface to the CP2K program package to increase its functionalities.
-
-
 References
 ==========
 
