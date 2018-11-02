@@ -78,7 +78,7 @@ If the flag is omitted the PaPIM code will be compiled without CP2K and without 
 parallelization scheme. 
 The latter is not used with any current analytic potential subroutine so it is omitted (for more 
 details on the potential subroutine see :ref:`here <PotMod>`). 
-We advise to compile the PaPIM code first sucessfully (by executing and checking the standard tests) before 
+We advise to compile the PaPIM code first successfully (by executing and checking the standard tests) before 
 linking it to CP2K. 
 
 Upon adapting the ``Makefile``, the code compilation is executed by command ``make`` in the ``./source`` 

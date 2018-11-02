@@ -39,7 +39,7 @@ system potential energy and electric dipole moment, based on fitted values, [PJi
 The first two systems use Morse and harmonic potential, respectively. 
 PaPIM comes with a direct interface to the `CP2K program package <https://www.cp2k.org/about>`_ program package for 
 calculation of system's electronic structure properties. 
-The CP2K package is coupled to PaPIM as a library, thus avoiding the exchange of information process vai writing and 
+The CP2K package is coupled to PaPIM as a library, thus avoiding the exchange of information process via writing and 
 reading to an external file. 
 For more information see the corresponding :ref:`PaPIM-CP2K_Interface <PaPIM-CP2K_Interface>` module. 
 .. Example external subroutines are provided for the :math:`\text{OH}` and :math:`\text{CH}_{4}` systems, respectively, 
