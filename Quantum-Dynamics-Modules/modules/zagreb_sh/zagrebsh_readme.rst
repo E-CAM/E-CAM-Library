@@ -22,6 +22,8 @@ Zagreb surface hopping code
   Relevant Training Material
     Training material is available through the test examples
 
+  Software Module Developed by
+    Surface hopping code was developed in the group of Nadja Doslic in Zagreb, some of the authors are Marin Sapunar, Momir Malis and Nadja Doslic. The implementation of this module has been done by Cristina Sanz-Sanz and Graham A. Worth.    
 .. contents:: :local:
 
 .. Add technical info as a sidebar and allow text below to wrap around it
@@ -29,16 +31,16 @@ Zagreb surface hopping code
 Purpose of Module
 _________________
 
-This module implements an interface between the Tully's fewest switch surface hopping code, written and mantained by the group of Nadja Doslic in Zagreb, and QUANTICS code. The module has been added and tested within the Quantics quantum dynamics package which is available on CCP Forge. The purpose of the module is to add the solution of Hamilton classical equation using the surface hopping approach into QUANTICS code, at the same time as Zagreb code benefits from all functionalities implemented in QUANTICS as input definitions, Hamiltonian operator description, direct dynamics calculations and parallel running.    
+This module implements an interface between the Tully's fewest switch surface hopping code, written and mantained by the group of Nadja Doslic in Zagreb, and QUANTICS code. The module has been added and tested within the Quantics quantum dynamics package which is available on Gitlab. The purpose of the module is to add the solution of Hamilton classical equation using the surface hopping approach into QUANTICS code, at the same time as Zagreb code benefits from all functionalities implemented in QUANTICS as input definitions, Hamiltonian operator description, direct dynamics calculations and parallel running.    
 
 
 Background Information
 ______________________
 
 
-Currently, the Zagreb surface hopping quasiclassical trajectory code resides within the Quantics software package available through CCPForge_.
+Currently, the Zagreb surface hopping quasiclassical trajectory code resides within the Quantics software package available through gitlab_. 
 
-.. _CCPFORGE: https://ccpforge.cse.rl.ac.uk/gf/project/quantics/
+.. _GITLAB: https://gitlab.com/quantics/quantics.git
 
 The module consists of an interface between QUANTICS package and Zagreb surface hopping code. The module is fully integrated into QUANTICS code so that initial conditions, wavefunction definition, analysis programs, direct dynamics etc... can be used in the usual way described in QUANTICS documentation. The interface creates the required input files to run separate trajectories using the Zagreb surface hopping code. Although the module is implemented and run under QUANTICS, the Zagreb code requires some directives that must be given in the input file under the SH_ZAGREB_SECTION. This directives are described in the Zagreb code input manual which can be found in a separate pdf file in the QUANTICS documentation under the Zagreb surface hopping program. 
 
@@ -63,11 +65,11 @@ An output directory is provided for testing and comparison (it is available to d
 Source Code
 ___________
 
-The source code for the Zagreb surface hopping code can be found within the Quantics software which can be downloaded via CCPForge_.  You firstly need to make an account (at CCPForge). The quantics project has a private repository so you also need to be a member of the project to checkout. then type:
+The source code for the Zagreb surface hopping code can be found within the Quantics software which can be downloaded via gitlab_.  You firstly need to make an account (at gitlab). The quantics project has a private repository so you also need to be a member of the project to clone it into your computer, then type:
 
- svn checkout --username your-user-name https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/trunk/ quantics
+ git clone https://gitlab.com/quantics/quantics.git
 
-.. _CCPFORGE: https://ccpforge.cse.rl.ac.uk/gf/project/quantics/
+.. _gitlab: https://gitlab.com/quantics/quantics.git
 
 
 Within the Quantics program, explicit code for the Zagreb surface hopping code is located in the subdirectory 'sh_zagreb' into the subdirectory 'source' of the sources.
