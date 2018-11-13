@@ -47,12 +47,11 @@ To compile the code execute the Makefile (including the demo.c file provided in 
 Source Code
 ___________
 
-The source code of the algorithm is available on the following link `E-CAM Gitlab repository`__. The ./source directory includes two files: i) wlrr.c contains the functions that perform the scaling of the data, the operation of fitting and the calculation of the leave-one-out cross-validation error; ii) wlrr.h define the data types employed by wlrr.c. 
+The source code of the algorithm is available is available from the `Weighted Linear Ridge Regression repository <https://gitlab.e-cam2020.eu/fracchia/Weighted_Linear_Ridge_Regression>`__. The ./source directory includes two files: i) wlrr.c contains the functions that perform the scaling of the data, the operation of fitting and the calculation of the leave-one-out cross-validation error; ii) wlrr.h define the data types employed by wlrr.c. 
 
 .. [FF2018] Fracchia F., Del Frate G., Mancini G., Rocchia W., Barone V., Force Field Parametrization of Metal Ions from Statistical Learning Techniques. J. Chem. Theory Comput., 2018, 14(1), pp 255-273
 
 .. __: https://gitlab.e-cam2020.eu/fracchia/Weighted_Linear_Ridge_Regression/tree/master/test
-.. __: https://gitlab.e-cam2020.eu/fracchia/Weighted_Linear_Ridge_Regression
 
 
 
