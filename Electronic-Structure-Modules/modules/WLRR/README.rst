@@ -12,9 +12,6 @@
   Documentation Tool
     Doxygen
 
-  Application Documentation
-    link to documetation
-
   Relevant Training Material
     Not currently available.
 
