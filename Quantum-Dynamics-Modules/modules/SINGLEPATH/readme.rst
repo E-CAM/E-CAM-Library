@@ -7,7 +7,7 @@ Trotter Based Quantum Classical Surface Hopping Propagator - Single Path
 ..  sidebar:: Software Technical Information
 
   Language
-    C++ (GNU 2011 or higher)
+    C++ (C++11 or higher)
 
   Licence
     MIT licence (MIT)
@@ -97,7 +97,7 @@ a significant reduction in runtime.
 
 Compiling
 _________
-All current versions of this code use the GNU scientific library version ?? for random number generation.
+All current versions of this code use the GNU scientific library version 2.5 for random number generation.
 
 OpenMP version:
 
