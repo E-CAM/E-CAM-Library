@@ -15,6 +15,9 @@ CTMQC
   Documentation Tool
     doxygen
 
+  Software Module Developed by
+    Federica Agostini, Seung Kyu Min, Ivano Tavernelli, Graeme H. Gossel
+
 .. contents:: :local:
 
 
