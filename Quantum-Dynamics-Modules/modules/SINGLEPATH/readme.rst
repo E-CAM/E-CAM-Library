@@ -152,6 +152,12 @@ It again demonstrated perfect scaling up to 24 cores and good scaling up to 96 (
 
 These tests were performed by simply comparing the runtimes between codes using 1, 4, 8, ... 24 cores.
 
+.. image:: ./OpenMP_Benchmark.png
+   :align: center
+   
+.. image:: ./MPI_Benchmark.png
+   :align: center
+
 Source Code
 ___________
 
