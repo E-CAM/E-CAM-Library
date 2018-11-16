@@ -45,7 +45,7 @@ the mixed quantum-classical Dyson equation and variants thereof, or the Trotter 
 
 
 Background Information
-_____________________
+______________________
 An understanding of the dynamical properties of condensed phase
 quantum systems underlie the description of a variety of quantum
 phenomena in chemical and biological systems. 
@@ -137,7 +137,7 @@ MPI version:
 
 
 Checking for accuracy
-__________________________________________
+_____________________
 The original serial code was run 1000 times to generate an expected output and variance. These can be found in the ./Regression_testing sub-directory. 
 A regression test is built into both the OpenMP and MPI versions which checks if their output is within five standard deviations
 of the expected output (given a specific set of input parameters). If any part of the output goes outside that limit the regression test will fail. 
@@ -145,7 +145,7 @@ of the expected output (given a specific set of input parameters). If any part o
 
 
 Testing, Performance and Scaling
-_______________________
+________________________________
 Testing was performed on the Fionn supercomputer from ICHEC. Fionn consistes of a large amount of 'nodes' each of which contains 24 processing cores. The OpenMP 
 version was tested on up to 24 cores (1 node) and demonstrated perfect scaling with the number of cores. The MPI version was tested on up to 96 cores (4 nodes).
 It again demonstrated perfect scaling up to 24 cores and good scaling up to 96 (reducing in efficiency as the number of nodes increased). 
