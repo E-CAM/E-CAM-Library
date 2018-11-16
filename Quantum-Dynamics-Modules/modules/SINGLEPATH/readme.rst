@@ -30,8 +30,8 @@ Abstract
 ________
 The present module is a highly refactored version of a code based on a highly cited algorithm published by 
 D. Mackernan, G.Ciccotti and R. Kapral [Mackernan]_.  
-The module software has been entirely refactored in modern C++ (GNU 2011 or higher) so as to: (a) run with high efficiency on massively parallel platforms 
-under openmp or mpi; and (b) be at the core of additional software modules  aimed at addressing important issues such as improving the speed of convergence of 
+The module software has been entirely refactored in modern C++ (GNU 2011 or higher) so as to: (a) run with high-efficiency on massively parallel platforms 
+under OpenMP or MPI; and (b) be at the core of additional software modules aimed at addressing important issues such as improving the speed of convergence of 
 estimates using correlated sampling, and much more realistic treatment of the classical bath, and connecting to other problems such as constant pH simulation 
 through an effective Hamiltonian.
 
@@ -61,7 +61,7 @@ average value of some operator when the system evolves from a
 given initially prepared distribution described by the density
 matrix :math:`\hat{\rho}(0)`. In such cases the quantum mechanical
 average value of an operator :math:`\hat{B}` is given by
-:math:`\overline{B(t)}= Tr \hat{B} \hat{\rho}(t)=  Tr\hat{B}(t) \hat{\rho}(0)`. Here,
+:math:`\overline{B(t)}= Tr \hat{B} \hat{\rho}(t)= Tr\hat{B}(t) \hat{\rho}(0)`. Here,
 :math:`\hat{B}(t)` evolves in time through the Heisenberg equation of motion.
 In many applications, it is useful to partition the system into a subsystem and
 a bath. A phase space description of the bath can be obtained by
@@ -74,17 +74,17 @@ of the full quantum system. In this partial Wigner representation the expectatio
 where the prime on the trace indicates a trace over the subsystem
 degrees of freedom. 
 
-The software module developed here is based on a  Trotter-based scheme for simulating
+The software module developed here is based on a Trotter-based scheme for simulating
 quantum-classical Liouville dynamics in terms of an ensemble of surface-hopping trajectories. The method can be used to compute the dynamics for longer times with fewer trajectories than the
 sequential short-time propagation (SSTP) algorithm, which is also based on surface-hopping trajectories. The full derivation of the algorithm is given in the J.Chem Paper cited above. Here the software focus is to refactor the original code which until now was a purely serial so that it can be used efficiently on massively parallel machines. For mathematical details, we refer the reader to eq.30-35 of the paper.
 
 Applications
 ____________
-The applications of quantum surface hopping include, among others, nonadiabatic chemical rate processes
+The applications of quantum surface hopping include, among others, non-adiabatic chemical rate processes
 involving electronic, vibrational or other degrees of freedom, decoherence in open quantum systems and quantum transport
-processes.  Decoherence due to coupling with the environment is a fundamental difficulty in the development of quantum computing. The ability
-to predicit, control and reduce decoherence requires a adaquate description of the associated non-adiabatic processes taking place.
-Quantum effects and  frequently non-adiabaticity also underlie the study of ultra-fast rate processes in solution.
+processes. Decoherence due to coupling with the environment is a fundamental difficulty in the development of quantum computing. The ability
+to predict, control and reduce decoherence requires an adequate description of the associated non-adiabatic processes taking place.
+Quantum effects and frequently non-adiabaticity also underlie the study of ultra-fast rate processes in solution.
 
 
 Algorithms and Software Implementation
@@ -146,7 +146,7 @@ of the expected output (given a specific set of input parameters). If any part o
 
 Testing, Performance and Scaling
 ________________________________
-Testing was performed on the Fionn supercomputer from ICHEC. Fionn consistes of a large amount of 'nodes' each of which contains 24 processing cores. The OpenMP 
+Testing was performed on the Fionn supercomputer from ICHEC. Fionn consists of a large amount of 'nodes' each of which contains 24 processing cores. The OpenMP 
 version was tested on up to 24 cores (1 node) and demonstrated perfect scaling with the number of cores. The MPI version was tested on up to 96 cores (4 nodes).
 It again demonstrated perfect scaling up to 24 cores and good scaling up to 96 (reducing in efficiency as the number of nodes increased). 
 
