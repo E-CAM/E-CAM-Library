@@ -103,7 +103,7 @@ The module is designed to apply the CTMQC procedure to one-, two-, and three-dim
 Installation
 ____________
 
-The CTMQC is a fortran90 based code. Compilation of the code requires the gfortran compiler, and Lapack libraries. Tests have been performed with GCC 4.x 5.x and 6.x, and confirmed that consistent results are obtained with these three versions of the gfortran compiler; for the moment, GCC 7.x should be avoided for compilation as the benchmark results provided with the module cannot be reproduced.
+The CTMQC is a fortran90 based code. Compilation of the code requires the gfortran compiler, and Lapack libraries. Tests have been performed with GCC 4.x 5.x and 6.x, 7.x, and confirmed that consistent results are obtained with these three versions of the gfortran compiler.
 
 Once the main directory CTMQC has been downloaded, go to the directory and
 
@@ -191,7 +191,7 @@ Analytical expressions of these models can be found in [Tully]_ [CTMQC2]_ [CTMQC
    :align: center
 
 
-In the directory *tests*, the subdirectories are *tully_1* (containing subdirectories *k0_10au* and *k0_25au*), *tully_2* (containing subdirectories *k0_16au* and *k0_30au*), *tully_3* (containing subdirectories *k0_10au* and *k0_30au*), and *tully_4* (containing subdirectories *k0_20au* and *k0_40au*). For the model **Tully #1** examples are provided for initial momenta of :math:`k_0=10, 25~a.u.` as clearly indicated by the name of the subdirectories; for the model **Tully #2** examples are provided for initial momenta of :math:`k_0=16, 30~a.u.`; for the model **Tully #3** examples are provided for initial momenta of :math:`k_0=10, 30~a.u.`; for the model **Tully #4** examples are provided for initial momenta of :math:`k_0=20, 40~a.u.`. The benchmark data provided here are the output files *BO_population.dat* and *BO_coherences.dat*; each subdirectory contains examples of input files.
+In the directory *tests*, the subdirectories are *tully_1* (containing subdirectories *k0_10au* and *k0_25au*), *tully_2* (containing subdirectories *k0_25au* and *k0_30au*), *tully_3* (containing subdirectories *k0_10au* and *k0_30au*), and *tully_4* (containing subdirectories *k0_20au* and *k0_40au*). For the model **Tully #1** examples are provided for initial momenta of :math:`k_0=10, 25~a.u.` as clearly indicated by the name of the subdirectories; for the model **Tully #2** examples are provided for initial momenta of :math:`k_0=25, 30~a.u.`; for the model **Tully #3** examples are provided for initial momenta of :math:`k_0=10, 30~a.u.`; for the model **Tully #4** examples are provided for initial momenta of :math:`k_0=20, 40~a.u.`. The benchmark data provided here are the output files *BO_population.dat* and *BO_coherences.dat*; each subdirectory contains examples of input files.
 
 The directories *tully_1*, *tully_2*, *tully_3*, and *tully_4* contain as well input data: the adiabatic potential energy surfaces *k_bopes.dat* with :math:`k=1,\ldots,n` labelling the corresponding eigenstate (in the form: *first column* value of the energy; *following* :math:`n_{\textrm{d.o.f.}}` *columns* the spatial grid in the :math:`x,y,z` directions); the nonadiabatic coupling vectors *nac1-kl_x*, *nac1-kl_y*, *nac1-kl_z* between states :math:`k` and :math:`l` (the form is the same as for the potential energy surfaces), computed as spatial derivatives along the :math:`x`, :math:`y`, :math:`z` directions, respectively.
 
