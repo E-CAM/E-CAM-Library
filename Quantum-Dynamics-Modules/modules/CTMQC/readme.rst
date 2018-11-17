@@ -261,5 +261,5 @@ __________
 
 .. [CI] B. F. E. Curchod, F. Agostini, *J. Phys. Chem. Lett.* 
           **8** (2017) 831 `DOI: 10.1021/acs.jpclett.7b00043
-          <https://doi.org/10.1021/acs.jpclett.7b000439>`_
+          <https://doi.org/10.1021/acs.jpclett.7b00043>`_
 
