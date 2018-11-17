@@ -76,10 +76,12 @@ To test the installation, you can run both test examples.
 
      cd Examples/exa_PhysicalConstants ; ./run_tests
 
-The results will be compared to previous results in ```Examples/exa_PhysicalConstants/output_17dec2016``
+The results will be compared to previous results in ``Examples/exa_PhysicalConstants/output_17dec2016`` file.
 
 
 Source Code
 ___________
 
 The source code can be downloaded from the `E-CAM GitLab service <https://gitlab.e-cam2020.eu/lauvergn/ElVibRot>`_.
+
+
