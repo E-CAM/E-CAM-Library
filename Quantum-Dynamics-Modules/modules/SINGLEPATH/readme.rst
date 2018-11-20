@@ -1,8 +1,8 @@
 .. _SinglePath:
 
-#######################################################################
+########################################################################
 Trotter Based Quantum Classical Surface Hopping Propagator - Single Path
-#######################################################################
+########################################################################
 
 ..  sidebar:: Software Technical Information
 
@@ -66,7 +66,7 @@ average value of an operator :math:`\hat{B}` is given by
 In many applications, it is useful to partition the system into a subsystem and
 a bath. A phase space description of the bath can be obtained by
 taking a partial Wigner transform over the bath coordinate :math:`\{Q\}` representation
-of the full quantum system. In this partial Wigner representation the expectation value of math:`\hat{B}(t)` takes the
+of the full quantum system. In this partial Wigner representation the expectation value of :math:`\hat{B}(t)` takes the
 
 .. math::
    \overline{B(t)}=  Tr' \int dR dP\;  {B}_W(R,P,t) {\rho}_W(R,P)
@@ -76,7 +76,9 @@ degrees of freedom.
 
 The software module developed here is based on a Trotter-based scheme for simulating
 quantum-classical Liouville dynamics in terms of an ensemble of surface-hopping trajectories. The method can be used to compute the dynamics for longer times with fewer trajectories than the
-sequential short-time propagation (SSTP) algorithm, which is also based on surface-hopping trajectories. The full derivation of the algorithm is given in the J.Chem Paper cited above. Here the software focus is to refactor the original code which until now was a purely serial so that it can be used efficiently on massively parallel machines. For mathematical details, we refer the reader to eq.30-35 of the paper.
+sequential short-time propagation (SSTP) algorithm, which is also based on surface-hopping trajectories. The full derivation of the algorithm is given in [Mackernan]_. 
+Here the software focus is to refactor the original code which until now was a purely serial so that it can be used efficiently on massively parallel machines. For mathematical details, 
+we refer the reader to eq.30-35 of the paper.
 
 Applications
 ____________
