@@ -60,7 +60,9 @@ A test example is provided for the excitation of an initial wavepacket into an e
 
 A more detailed test documentation file 'sh_zagreb.html' can be found in the subdirectory 'sh_zagreb' of the documentation subdirectory 'doc' of the sources. The html file has been provided by the Zagreb code developers. 
  
-An output directory is provided for testing and comparison (it is available to download as a tarball, :download:'output.tgz'<./output.tgz>'.). The output directory includes the output file (quantics common output file) and the zagreb_trj directory. This directory only includes the first trajectory directory (traj.1 directory), for space saving reasons.  
+An output directory is provided for testing and comparison (it is available to download as a tarball, :download:'output.tgz'<./output.tgz>'.). The output directory includes the output file (quantics common output file) and the zagreb_trj directory. This directory only includes the first trajectory directory (traj.1 directory) of a run of a total of 5 trajectories, for space saving reasons. 
+
+The run of this test would produce a directory called 'ferretti_tsh' in which there are the typical output files produced by quantics program run, plus a directory 'zagreb_trj' in which all the individual trajectories appear (traj.1, traj.2, etc...) as independent directories. Inside any of the trajectory directory, there are the output files of the classical trajectories run for this test. In order to compare that the run of the test has gone well the file 'dynamics.out' inside the 'traj.1' directory should be compared. After the propagation of the total number of trajectories the output file inside the 'ferretti_tsh' directory is written and this output file should be as well compared. Please notice that, due to the random number generation, required by the algorithms of classical trajectories, some numerical deviation should be expected in both output files. 
 
 Source Code
 ___________
