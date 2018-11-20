@@ -146,14 +146,16 @@ of the expected output (given a specific set of input parameters). If any part o
 
 Testing, Performance and Scaling
 ________________________________
-Testing was performed on the Fionn supercomputer from ICHEC. Fionn consists of a large amount of 'nodes' each of which contains 24 processing cores. The OpenMP 
-version was tested on up to 24 cores (1 node) and demonstrated perfect scaling with the number of cores. The MPI version was tested on up to 96 cores (4 nodes).
-It again demonstrated perfect scaling up to 24 cores and good scaling up to 96 (reducing in efficiency as the number of nodes increased). 
+Testing was performed on the Kay supercomputer from ICHEC. Kay is separated into nodes, each of which has 2 x (20 core) sockets. To test the parallel efficiency of both the OpenMP and MPI versions
+of the code they were benchmarked on 20 - 200 cores (1 - 5 nodes).
 
-These tests were performed by simply comparing the runtimes between codes using 1, 4, 8, ... 24 cores.
+The OpenMP version was run for 10,000,000 samples (Nsample = 10,000,000) and for a bath size of 200 (N_bath = 200). As can be seen in the graph below OpenMP scales perfectly on a single node (i.e. less than 40 cores), but provides little to no benefit over multiple nodes.
 
 .. image:: ./OpenMP_Benchmark.png
    :align: center
+
+The MPI version was run for 1,000,000 samples (Nsample = 1,000,000) and for a bath size of 2,000 (N_bath = 2,000). 
+MPI scales very well over the entire benchmark (up to 200 cores), with an average efficiency of 96.3%.
    
 .. image:: ./MPI_Benchmark.png
    :align: center
