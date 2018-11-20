@@ -99,7 +99,7 @@ a significant reduction in runtime.
 
 Compiling
 _________
-All current versions of this code use the GNU scientific library version 2.5 for random number generation.
+All current versions of this code use the `GNU scientific library <https://www.gnu.org/software/gsl>`_ version 2.5 for random number generation.
 
 OpenMP version:
 
