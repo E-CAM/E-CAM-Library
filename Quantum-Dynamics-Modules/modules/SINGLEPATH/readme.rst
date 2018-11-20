@@ -191,8 +191,10 @@ Source Code
 ___________
 
 The source codes for the OpenMP and MPI versions of the code are: 
-`OpenMP <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/tree/master/Code_Parallel_Omp>`_, 
-`MPI <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/tree/master/Code_Parallel_MPI>`_.
+
+`Surface Hopping - OpenMP version <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/tree/master/Code_Parallel_Omp>`_ 
+
+`Surface Hopping - MPI version <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/tree/master/Code_Parallel_MPI>`_
 
 
 Source Code Documentation
