@@ -101,7 +101,14 @@ All current versions of this code use the GNU scientific library version 2.5 for
 
 OpenMP version:
 
-With the GNU compiler:
+With the GNU compiler, gcc version 6.3.0 or greater is required.
+
+On the Kay cluster this can be done as follows:
+
+::
+
+    module load gcc/8.2.0
+    module load gsl/gcc/2.5
 
 ::
 
@@ -128,13 +135,31 @@ MPI version:
 
 ::
 
+    module load intel/2018u4
+    module load gsl/intel/2.5
+    module load gcc/8.2.0
+
+::
+
 	Compile command;
 	mpic++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -std=c++11
 
 	Run command:
 	mpirun -n [number of MPI processors] ./run Input
 
+Errors:
 
+A frequent error encountered while compiling is:
+"fatal error: gsl/gsl_rng.h: No such file or directory"
+
+This can occur if the directory is not installed on the standard search path of the compiler. It can be fixed by adding it's location as a flag in the compile command as exaplained in this link: 
+`Using the GSL Library <https://www.gnu.org/software/gsl/doc/html/usage.html>`_. 
+
+On Kay the flags '-I/ichec/packages/gsl/gcc/2.5/include' and '-L/ichec/packages/gsl/gcc/2.5/lib' must be added to the compile command as:
+
+::
+
+    g++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -fopenmp -std=c++11 -I/ichec/packages/gsl/gcc/2.5/include -L/ichec/packages/gsl/gcc/2.5/lib
 
 Checking for accuracy
 _____________________
