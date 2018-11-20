@@ -3,7 +3,6 @@ $system
  istate    3
 $surfhop                                                                        
  coupling nadvec                                                                
- seed 43                                                                        
 $dynamics                                                                       
  tstep = 0.1                                                                    
  nstep =  2001
