@@ -209,7 +209,9 @@ The **PhysConst** enables the use of physical constants and the correct isotopic
 
     ./modules/CTMQC/readme
 
-The **CTMQC** module allows to simulate excited-state dynamics in model systems of one to three spatial (nuclear) dimensions, with an arbitrary number of electronic states. The algorithm is based on the quantum-classical approximation of the equations of motion derived in the framework of the exact factorization of the electron-nuclear wavefunction. In practice, trajectories are used to mimic the nuclear evolution, that is, in turn, coupled to the quantum evolution of the electronic degrees of freedom.
+The **CTMQC** module allows to simulate excited-state dynamics in model systems of one to three spatial (nuclear) dimensions, with an arbitrary number of electronic states. T
+he algorithm is based on the quantum-classical approximation of the equations of motion derived in the framework of the exact factorization of the electron-nuclear wavefuncti
+on. In practice, trajectories are used to mimic the nuclear evolution, that is, in turn, coupled to the quantum evolution of the electronic degrees of freedom.
 
 .. toctree::
     :glob:
@@ -219,7 +221,6 @@ The **CTMQC** module allows to simulate excited-state dynamics in model systems 
 
 The **QuantumModelLib** use potential energy surfaces extracted from the literature and can be linked to quantum dynamics codes.
 
-
 .. toctree::
     :glob:
     :maxdepth: 1
@@ -228,6 +229,13 @@ The **QuantumModelLib** use potential energy surfaces extracted from the literat
 
 The **Quantics-QChem-Interface** is an interface between Quantics and QChem. The DFT algorithm implemented in QChem can be used to provide electronic structure information for direct dynamics simulations using the Quantics program package.
 
+.. toctree::
+        :glob:
+        :maxdepth: 1
+
+        ./modules/zagreb_sh/zagrebsh_readme.rst
+
+The **Zagreb_sh** module is an interface between between QUANTICS package and the Tully's surface hoping code provided by the group of Nadja Doslic in Zagreb.
 
 PaPIM
 -----
