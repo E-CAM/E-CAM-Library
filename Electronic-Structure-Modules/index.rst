@@ -25,7 +25,7 @@ Introduction
 
 This is a collection of the modules that have been created by E-CAM community within the area of Electronic Structure. This documentation is created using ReStructured Text and the git repository for the documentation 
 source files can be found at 
-https://gitlab.e-cam2020.eu/e-cam/Electronic-Structure-Modules which are
+https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are
 public and open to contributions.
 
 In the context of E-CAM, the definition of a software module is any piece of software that could be of use to the E-CAM community and that encapsulates some additional functionality, enhanced performance or improved usability for people performing computational simulations in the domain areas of interest to us. 
@@ -68,13 +68,25 @@ The ESDW in San Sebastian in September 2016 was the starting point for the modul
 
     ./modules/Symmetry-Adapted-Wannier-Functions/readme
     ./modules/Wannier90-TB-Interface/readme
-    ./modules/Non-Collinear-Sping/readme
+    ./modules/Non-Collinear-Spin/readme
     ./modules/Adaptively-Refined-Mesh/readme
     ./modules/FORD-Documentation-Tool-Integration/readme
     ./modules/Improvement-Wannier90-Z2pack-Interface/readme
     ./modules/Improvements-Makefiles/readme
     ./modules/Use_WS_Distance/readme
     ./modules/Test-Suite-Travis-CI-Integration/readme
+
+
+Other Modules
+-------------
+
+Modules not coming from ESDWs
+
+.. toctree::
+     :glob:
+     :maxdepth: 1
+
+     ./modules/SCDM_WFs/readme
 
 Pilot Projects
 ==============
