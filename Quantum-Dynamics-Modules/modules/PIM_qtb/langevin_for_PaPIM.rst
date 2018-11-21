@@ -13,7 +13,7 @@ Langevin module for PaPIM
     MIT license (MIT)
 
   Documentation Tool
-    sphinx
+    Sphinx
 
 :Author: Etienne Mangaud
 :Author: Thomas Plé

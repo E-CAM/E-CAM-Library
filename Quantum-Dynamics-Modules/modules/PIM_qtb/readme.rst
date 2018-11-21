@@ -14,6 +14,7 @@ PIM_qtb
 
   Documentation Tool
     Sphinx
+    Doxygen
 
 .. contents:: :local:
 
