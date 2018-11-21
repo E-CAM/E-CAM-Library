@@ -79,7 +79,7 @@ _________________________
 A brief summary of the methods can be found in the following link:
 
 .. toctree::
-       :glob:
+    :glob:
     :maxdepth: 1
 
     ./langevin_for_PaPIM
