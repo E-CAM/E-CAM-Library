@@ -57,11 +57,6 @@ for ``oh`` and ``lj`` systems.
 Before running the tests the code has to be properly compiled by running the ``make`` command in the 
 ``./source`` sub-directory:
 
-::
-
-	cd tests
-
-	./test.sh
 
 Tests can be executed automatically by running the command in the ``./tests`` sub-directory :
 #. ``./test+lgv.sh`` for tests on OH bonds compared to previous classical implementation  
@@ -89,7 +84,7 @@ A brief summary of the methods can be found in the following link:
 
     ./langevin_for_PaPIM
 
-It can also be compiled by executing the following commands with "Sphinx" python module installed:
+It can also be compiled by executing the following commands in ``./doc/QTB_doc`` directory with "Sphinx" (documentation tool) python module installed:
 
 ::
 
