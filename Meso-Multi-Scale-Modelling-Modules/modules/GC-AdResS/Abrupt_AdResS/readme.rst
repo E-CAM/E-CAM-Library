@@ -76,7 +76,7 @@ _________________
 .. : .. [CIT2009] A citation (as often used in journals).
 
 The original idea of our proposal: to work on a general implementation of AdResS in
-class. MD packages. The current implementation of GC- AdResS in GROMACS has several performance problems. We know that the main performance loss of AdResS simulations in GROMACS is  in the neighboring list search and the generic serial force kernel, linking the atomistic (AT) and coarse grained (CG) forces together via a smooth weighting function. The neighbor list search and the force kernel are linked. Thus, to get rid of the bottleneck with respect to performance and a hindrance regarding the easy/general implementation into other codes and thus get rid of the not optimized force kernel used in GROMACS we had to change the neighborlist search. This lead to a considerable speed up of the code. Furthermore it decouples the method directly from the core of any MD code, which does not hinder the performance and makes the scheme hardware independent. 
+class. MD packages. The current implementation of GC- AdResS in GROMACS has several performance problems. We know that the main performance loss of AdResS simulations in GROMACS is  in the neighboring list search and the generic serial force kernel, linking the atomistic (AT) and coarse grained (CG) forces together via a smooth weighting function. Thus, to get rid of the bottleneck with respect to performance and a hindrance regarding the easy/general implementation into other codes and thus get rid of the not optimized force kernel used in GROMACS we had to change the neighborlist search. This lead to a considerable speed up of the code. Furthermore it decouples the method directly from the core of any MD code, which does not hinder the performance and makes the scheme hardware independent. 
 
 .. The interface between the regions is more fluctuating and needs a more responsive thermodynamic force but it works reasonably well. 
 
@@ -88,11 +88,11 @@ ______________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 This module presents a very straight forward way to implement a new 
-partitioning scheme and how to utilize a constant weighting function. And this
+partitioning scheme. And this
 solves two problems which affect the performance, the neighborlist 
 search and the generic force kernel. 
 
-In GROMACS the neighbor list is put together and organized in the file ns.c. In GROMACS 5.1
+In GROMACS the neighbor list is put together and organized in the file 'ns.c'. In GROMACS 5.1
 there are two functions which basically sort the incoming
 particles into the different neighbor list. In its current official GROMACS release everything other than CG (with :math:`w_i=w_j=1`) or AT (with :math:`w_i=w_j=0` ) is sorted into the neighbor lists. Any other particles are sorted into a special neighbor list only for AdResS. 
 
