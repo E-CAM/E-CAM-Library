@@ -13,7 +13,7 @@
     GC-AdResS: Abrupt scheme
 
   Language
-    Implemented in GROMACS version 5.1.0  
+    Implemented in GROMACS version 5.1.5  
 
   Licence
     See GROMACS web page: `<http://www.gromacs.org/>`_
