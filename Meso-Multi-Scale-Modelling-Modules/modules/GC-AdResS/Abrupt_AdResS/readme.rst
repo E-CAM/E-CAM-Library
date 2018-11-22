@@ -41,6 +41,12 @@ Abrupt GC-AdResS: A new and more general implementation
 ..  Let's add a local table of contents to help people navigate the page
 
 ..  contents:: :local:
+The original idea of our proposal: to work on a general implementation of AdResS in
+class. MD packages. The current implementation of GC- AdResS in GROMACS has several performance problems. This module presents a very straight forward way to implement a new 
+partitioning scheme, which solves two problems which affect the performance, the neighborlist 
+search and the generic force kernel. Furthermore, we update the implementation to address this in a way that decouples the method directly from the core of any MD code, which does not hinder the performance and makes the scheme hardware independent.
+
+
 
 ..  Add an abstract for a *general* audience here. Write a few lines that explains the "helicopter view" of why you are
     creating this module. For example, you might say that "This module is a stepping stone to incorporating XXXX effects
