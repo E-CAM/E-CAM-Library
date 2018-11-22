@@ -119,8 +119,11 @@ ___________
 
 .. .. literalinclude:: ./abrupt_adress.patch
    :language: c
+To apply the patch: 
+1) copy into the main directory (gromacs/)
+2) patch < abrupt_adress.patch
 
-The patch for Abrupt_AdResS:
+The patch for Abrupt_AdResS can be found here:
 
 .. toctree::
    :glob:
