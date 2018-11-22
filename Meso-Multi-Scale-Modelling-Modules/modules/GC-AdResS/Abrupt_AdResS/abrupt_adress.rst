@@ -1,5 +1,3 @@
-.. _abrupt_adress:
-  
 ####################################
 Patch file for module: Abrupt AdResS
 ####################################
