@@ -12,6 +12,9 @@ Differential Evolution (SHADE)
 
   Documentation Tool
     Doxygen
+    
+  Software Module Developed by
+    Francesco Fracchia
 
 Purpose of the Module
 _____________________
@@ -30,7 +33,7 @@ The SHADE algorithm has been proposed by R. Tanabe and A. Fukunaga in the paper 
 Source Code
 ___________
 
-The source code of the algorithm is avaliable from the `E-CAM Gitlab repository`__. To compile the code execute the Makefile (including the demo.c file provided in the ./test directory). The `GNU Scientific Library`__ is necessary (2.4 version tested). The de.c file contains the core of the code, in the de.h file the data types are defined. 
+The source code of the algorithm is avaliable from the `Differential Evolution repository`__. To compile the code execute the Makefile (including the demo.c file provided in the ./test directory). The `GNU Scientific Library`__ is necessary (2.4 version tested). The de.c file contains the core of the code, in the de.h file the data types are defined. 
 
 
 Testing
