@@ -1,8 +1,8 @@
 .. _SinglePath:
 
-#######################################################################
+########################################################################
 Trotter Based Quantum Classical Surface Hopping Propagator - Single Path
-#######################################################################
+########################################################################
 
 ..  sidebar:: Software Technical Information
 
@@ -17,9 +17,6 @@ Trotter Based Quantum Classical Surface Hopping Propagator - Single Path
     
   Application Documentation
     `Documentation <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/blob/master/Doc/html/index.html>`_
-
-  Relevant Training Material
-    Not currently available   
 
   Software Module Developed by
     Sean Kelly, Athina Lange, Philip McGrath, Shrinath Kumar and Donal MacKernan
@@ -66,7 +63,7 @@ average value of an operator :math:`\hat{B}` is given by
 In many applications, it is useful to partition the system into a subsystem and
 a bath. A phase space description of the bath can be obtained by
 taking a partial Wigner transform over the bath coordinate :math:`\{Q\}` representation
-of the full quantum system. In this partial Wigner representation the expectation value of math:`\hat{B}(t)` takes the
+of the full quantum system. In this partial Wigner representation the expectation value of :math:`\hat{B}(t)` takes the
 
 .. math::
    \overline{B(t)}=  Tr' \int dR dP\;  {B}_W(R,P,t) {\rho}_W(R,P)
@@ -76,7 +73,9 @@ degrees of freedom.
 
 The software module developed here is based on a Trotter-based scheme for simulating
 quantum-classical Liouville dynamics in terms of an ensemble of surface-hopping trajectories. The method can be used to compute the dynamics for longer times with fewer trajectories than the
-sequential short-time propagation (SSTP) algorithm, which is also based on surface-hopping trajectories. The full derivation of the algorithm is given in the J.Chem Paper cited above. Here the software focus is to refactor the original code which until now was a purely serial so that it can be used efficiently on massively parallel machines. For mathematical details, we refer the reader to eq.30-35 of the paper.
+sequential short-time propagation (SSTP) algorithm, which is also based on surface-hopping trajectories. The full derivation of the algorithm is given in [Mackernan]_. 
+Here the software focus is to refactor the original code which until now was a purely serial so that it can be used efficiently on massively parallel machines. For mathematical details, 
+we refer the reader to eq.30-35 of the paper.
 
 Applications
 ____________
@@ -97,11 +96,18 @@ a significant reduction in runtime.
 
 Compiling
 _________
-All current versions of this code use the GNU scientific library version 2.5 for random number generation.
+All current versions of this code use the `GNU scientific library <https://www.gnu.org/software/gsl>`_ version 2.5 for random number generation.
 
 OpenMP version:
 
-With the GNU compiler:
+With the GNU compiler, gcc version 6.3.0 or greater is required.
+
+On the Kay cluster this can be done as follows:
+
+::
+
+    module load gcc/8.2.0
+    module load gsl/gcc/2.5
 
 ::
 
@@ -128,13 +134,31 @@ MPI version:
 
 ::
 
+    module load intel/2018u4
+    module load gsl/intel/2.5
+    module load gcc/8.2.0
+
+::
+
 	Compile command;
 	mpic++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -std=c++11
 
 	Run command:
 	mpirun -n [number of MPI processors] ./run Input
 
+Errors:
 
+A frequent error encountered while compiling is:
+"fatal error: gsl/gsl_rng.h: No such file or directory"
+
+This can occur if the directory is not installed on the standard search path of the compiler. It can be fixed by adding it's location as a flag in the compile command as exaplained in this link: 
+`Using the GSL Library <https://www.gnu.org/software/gsl/doc/html/usage.html>`_. 
+
+On Kay the flags '-I/ichec/packages/gsl/gcc/2.5/include' and '-L/ichec/packages/gsl/gcc/2.5/lib' must be added to the compile command as:
+
+::
+
+    g++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -fopenmp -std=c++11 -I/ichec/packages/gsl/gcc/2.5/include -L/ichec/packages/gsl/gcc/2.5/lib
 
 Checking for accuracy
 _____________________
@@ -146,18 +170,28 @@ of the expected output (given a specific set of input parameters). If any part o
 
 Testing, Performance and Scaling
 ________________________________
-Testing was performed on the Fionn supercomputer from ICHEC. Fionn consists of a large amount of 'nodes' each of which contains 24 processing cores. The OpenMP 
-version was tested on up to 24 cores (1 node) and demonstrated perfect scaling with the number of cores. The MPI version was tested on up to 96 cores (4 nodes).
-It again demonstrated perfect scaling up to 24 cores and good scaling up to 96 (reducing in efficiency as the number of nodes increased). 
+Testing was performed on the Kay supercomputer from ICHEC. Kay is separated into nodes, each of which has 2 x (20 core) sockets. To test the parallel efficiency of both the OpenMP and MPI versions
+of the code they were benchmarked on 20 - 200 cores (1 - 5 nodes).
 
-These tests were performed by simply comparing the runtimes between codes using 1, 4, 8, ... 24 cores.
+The OpenMP version was run for 10,000,000 samples (Nsample = 10,000,000) and for a bath size of 200 (N_bath = 200). As can be seen in the graph below OpenMP scales perfectly on a single node (i.e. less than 40 cores), but provides little to no benefit over multiple nodes.
+
+.. image:: ./OpenMP_Benchmark.png
+   :align: center
+
+The MPI version was run for 1,000,000 samples (Nsample = 1,000,000) and for a bath size of 2,000 (N_bath = 2,000). 
+MPI scales very well over the entire benchmark (up to 200 cores), with an average efficiency of 96.3%.
+   
+.. image:: ./MPI_Benchmark.png
+   :align: center
 
 Source Code
 ___________
 
 The source codes for the OpenMP and MPI versions of the code are: 
-`OpenMP <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/tree/master/Code_Parallel_Omp>`_, 
-`MPI <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/tree/master/Code_Parallel_MPI>`_.
+
+`Surface Hopping - OpenMP version <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/tree/master/Code_Parallel_Omp>`_ 
+
+`Surface Hopping - MPI version <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/tree/master/Code_Parallel_MPI>`_
 
 
 Source Code Documentation
