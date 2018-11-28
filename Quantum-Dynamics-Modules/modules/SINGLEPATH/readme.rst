@@ -18,9 +18,6 @@ Trotter Based Quantum Classical Surface Hopping Propagator - Single Path
   Application Documentation
     `Documentation <https://gitlab.e-cam2020.eu/Quantum-Dynamics/Surface-Hopping/blob/master/Doc/html/index.html>`_
 
-  Relevant Training Material
-    Not currently available   
-
   Software Module Developed by
     Sean Kelly, Athina Lange, Philip McGrath, Shrinath Kumar and Donal MacKernan
 
