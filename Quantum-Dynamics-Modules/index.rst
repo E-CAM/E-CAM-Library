@@ -217,6 +217,17 @@ on. In practice, trajectories are used to mimic the nuclear evolution, that is, 
     :glob:
     :maxdepth: 1
 
+    ./modules/SINGLEPATH/readme.rst
+    
+The **SinglePath** module uses combined quantum and classical descriptions of the dynamics to compute quantum rate processes in condensed phase systems. 
+The main purpose of this module is to act as the core of additional software modules aimed at addressing important issues such as improving the speed of convergence of
+estimates using correlated sampling, and much more realistic treatment of the classical bath, and connecting to other problems such as constant pH simulation
+through an effective Hamiltonian.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
     ./modules/QuantumModelLib/readme
 
 The **QuantumModelLib** use potential energy surfaces extracted from the literature and can be linked to quantum dynamics codes.
