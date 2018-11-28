@@ -1,7 +1,7 @@
-.. _Non-Collinear-Sping:
+.. _Non-Collinear-Spin:
 
 ##########################
-Non-Collinear-Sping module
+Non-Collinear-Spin module
 ##########################
 
 .. sidebar:: Software Technical Information
@@ -24,13 +24,13 @@ Non-Collinear-Sping module
 
 .. contents:: :local:
 
-This module implements the non-collinear sping with ultrasoft pseudos functionality.
+This module implements the non-collinear spin with ultrasoft pseudos functionality.
 
 .. Add technical info as a sidebar and allow text below to wrap around it
 
 Purpose of Module
 _________________
-| Non-collinear sping with ultrasoft pseudos now implemented
+| Non-collinear spin with ultrasoft pseudos now implemented
 | in the pw2wannier90 interface with Quantum ESPRESSO, working
 | also in parallel (courtesy F. Thoele (ETHZ, CH), T. Koretsune
 | (Riken, JP), L. Paulatto (UPMC Paris))
