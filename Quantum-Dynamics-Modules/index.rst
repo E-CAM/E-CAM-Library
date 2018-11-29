@@ -328,7 +328,7 @@ electronic structure calculations [RJin]_; and the call to the ab initio `CP2K c
 
     ./modules/PaPIM-CP2K_Interface/readme
 
-**PaPIM-CP2K_Interface** modules linkes the PaPIM code with the `CP2K program package <https://www.cp2k.org/>`_ 
+**PaPIM-CP2K_Interface** module links the PaPIM code with the `CP2K program package <https://www.cp2k.org/>`_ 
 as an internal library for calculation of system's electronic structure properties.
 
 

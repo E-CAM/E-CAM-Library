@@ -32,7 +32,7 @@ It directly links CP2K as a library for potential energy calculations to the PaP
 significantly slower exchange of information between the two codes by reading and writing to an external file. 
 The CP2K program package provides a general framework for different modeling methods such as DFT using 
 the mixed Gaussian and plane waves approaches, semi-empirical methods and classical force fields. 
-This enables virtually calculation of time-dependent correlation functions for any system, without depending on 
+This enables virtually any calculation of time-dependent correlation functions for any system, without depending on 
 the availability of analytical potentials for the studied system, as was the previous case in PaPIM code. 
 Using the MPI split communicator approach the CP2K subroutines can be executed on multiple cores for each 
 sampling trajectory, enabling a parallel calculation of system potential energy and gradient values. 
@@ -60,33 +60,33 @@ compiled as a library as well.
 In the latter case, the CP2K root directory contains a sub-directory ``lib`` which 
 contains the corresponding library files. 
 In the absence of the latter, CP2K cannot be linked to PaPIM code. 
-For information on installing the CP2K code and compiling it as a library the user is advise to examine the 
+For information on installing the CP2K code and compiling it as a library the user is advised to examine the 
 CP2K installation documentation at this `link <https://www.cp2k.org/howto:compile>`_. 
 
 Fortran compiler with a MPI wrapper together with lapack libraries have to be available to successfully 
 compile the code. 
-The user is advise to examine the ``Makefile`` in the ``./source`` sub-directory prior to code compilation 
+The user is advised to examine the ``Makefile`` in the ``./source`` sub-directory prior to code compilation 
 in order to select an appropriate compiler and to check or adapt the compiler's options 
 to his local environment, or to generally modify the compiler options to his requirements. 
 Special care should be made on the CP2K paths to the corresponding library files on certain systems. 
 The ``Makefile`` contains two example cases encountered on cluster systems (which use Intel compilers) 
 but any other variation is possible. 
 
-Compilation flag ``--D__USE_CP2K`` controls the inclusion of CP2K into the PaPIM code. 
+The compilation flag ``--D__USE_CP2K`` controls the inclusion of CP2K into the PaPIM code. 
 In the default compilation settings the flag is commented out. 
 To include CP2K into compilation the user is required to enable the flag in the ``Makefile``. 
 If the flag is omitted the PaPIM code will be compiled without CP2K and without the split communicator 
 parallelization scheme. 
 The latter is not used with any current analytic potential subroutine so it is omitted (for more 
 details on the potential subroutine see :ref:`here <PotMod>`). 
-We advise to compile the PaPIM code first successfully (by executing and checking the standard tests) before 
-linking it to CP2K. 
+We advise to compile the PaPIM code first successfully (by verifying the compilation by executing and checking 
+the standard tests) before recompiling and linking it to CP2K. 
 
 Upon adapting the ``Makefile``, the code compilation is executed by command ``make`` in the ``./source`` 
 sub-directory. 
 The executable ``PaPIM.exe`` is created at the same location upon successful compilation.
 
-For module's testing purposes the user is advise to have ``numdiff`` package installed before running the tests. 
+For module's testing purposes the user is advised to have ``numdiff`` package installed before running the tests. 
 More details on the numdiff program package and its installation are available 
 `here <http://www.nongnu.org/numdiff/>`_.
 
@@ -168,9 +168,6 @@ linked to CP2K.
    :align: center
 
    Graphical representation of the MPI split communicator scheme used in parallelization of PaPIM-CP2K_interface module. An example with CP2K ``group_size`` of 4 is displayed.
-
-
-The tested PaPIM-CP2K scaling and parallelization performance are given :ref:`here <PaPIM-CP2K_parallel>`.
 
 
 
