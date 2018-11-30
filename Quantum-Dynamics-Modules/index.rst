@@ -319,9 +319,18 @@ Results obtained from classical sampling can be used to assess the relevance of 
 **PotMod** is a library of potential energy functions and interfaces for external potential energy calculation codes.
 Currently available in the library are the harmonic and Morse potentials (different molecular systems can be simulated depending on parameters
 provided by the user);  empirical potential of the ground state of :math:`\text{CH}_{5}^{+}` based on high level
-electronic structure calculations [RJin]_.
+electronic structure calculations [RJin]_; and the call to the ab initio `CP2K code <https://www.cp2k.org/>`_ using the **PaPIM-CP2K_Interface** module.
 
-.. , and interface to the ab initio `CP2K code <https://www.cp2k.org/>`_.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/PaPIM-CP2K_Interface/readme
+
+**PaPIM-CP2K_Interface** module links the PaPIM code with the `CP2K program package <https://www.cp2k.org/>`_ 
+as an internal library for calculation of system's electronic structure properties.
+
 
 .. _CP2K: https://www.cp2k.org/
 
@@ -344,7 +353,6 @@ It also contains a library of adapted MPI subroutines for easier programming of 
 
 **Openmpbeads** is a patch to the PaPIM code which enables parallelization of the sampling of the  
 polymer chains within the PIM algorithm, improving efficiency in sampling of the Wigner density.
-
 
 
 
