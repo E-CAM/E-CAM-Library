@@ -41,13 +41,13 @@ The theoretical background of the LRR-DE procedure is illustrated in the paper [
 Building and Testing
 ______________________
 
-To compile the code execute the Makefile (including the demo.c file provided in the `./test`__ directory). In ./test directory a multi-objective data set is provided. The demo.c file includes an example for the definition of a model. The example is the parametrization of a force field with three components (Coulomb, Lennard-Jones 12-6) of the zinc ion in water with respect the solvatation energy and the forces on the ion for a set of clusters. The linear parameters calculated by the module should be 2.40203305, 0.00001364, and -0.10986800.
+To compile the code execute the Makefile (including the demo.c file provided in the `./test`__ directory). In ./test directory a multi-objective data set is provided. The demo.c file includes an example for the definition of a model. The example is the parametrization of a force field with three components (Coulomb, Lennard-Jones 12-6) of the zinc ion in water with respect the solvatation energy and the forces on the ion for a set of clusters. The linear parameters calculated by the module should be 2.40203305, 0.00001364, and -0.10986800. They appear in the third column of the output. The values of the first and second columns are the scaled parameters and the scaling factors respectively. 
 
 
 Source Code
 ___________
 
-The source code of the algorithm is available is available from the `Weighted Linear Ridge Regression repository <https://gitlab.e-cam2020.eu/fracchia/Weighted_Linear_Ridge_Regression>`__. The ./source directory includes two files: i) wlrr.c contains the functions that perform the scaling of the data, the operation of fitting and the calculation of the leave-one-out cross-validation error; ii) wlrr.h define the data types employed by wlrr.c. 
+The source code of the algorithm is available from the `Weighted Linear Ridge Regression repository <https://gitlab.e-cam2020.eu/fracchia/Weighted_Linear_Ridge_Regression>`__. The ./source directory includes two files: i) wlrr.c contains the functions that perform the scaling of the data, the operation of fitting and the calculation of the leave-one-out cross-validation error; ii) wlrr.h define the data types employed by wlrr.c. 
 
 .. [FF2018] Fracchia F., Del Frate G., Mancini G., Rocchia W., Barone V., Force Field Parametrization of Metal Ions from Statistical Learning Techniques. J. Chem. Theory Comput., 2018, 14(1), pp 255-273
 
