@@ -48,6 +48,7 @@ current best-practice programming style conventions, is well documented and come
 advantage of anticipated hardware developments in the near future (this is one of the training objectives of E-CAM).
 
 
+
 Objectives of E-CAM WP3 Quantum Dynamics
 ========================================
 
@@ -76,6 +77,7 @@ To foster this development, we have initiated five parallel activities:
 .. _CPMD: http://www.cpmd.org/
 
 
+
 Pilot Projects
 ==============
 
@@ -87,9 +89,10 @@ software allows this) and are described in the modules associated with the pilot
 The `pilot project <https://www.e-cam2020.eu/pilot-project-ibm/>`_ of the WP3 in collaboration with IBM_ is 
 related to quantum computing and improvements of the quantum computer technology.
 One of our main topic was development of software for construction of control pulses necessary for operating quantum logical gates 
-between qubits in a universal quantum computer using the Local Control Theory. [PLCT]_
+between qubits in a universal quantum computer using the Local Control Theory. [Curc]_
 More information can be found on the `pilot project <https://www.e-cam2020.eu/pilot-project-ibm/>`_ web site. 
 Below are listed the pilot project modules created so far:
+
 
 .. toctree::
     :glob:
@@ -98,6 +101,7 @@ Below are listed the pilot project modules created so far:
     ./modules/LocConQubit/readme
 
 **LocConQubit** is a code for the construction of controlled pulses on isolated qubit systems using the Local Control Theory.
+
 
 .. toctree::
     :glob:
@@ -109,8 +113,10 @@ Below are listed the pilot project modules created so far:
 dissipating effects.
 
 
+
 Extended Software Development Workshops
 =======================================
+
 
 ESDW Maison de la Simulation (Paris 2016)
 -----------------------------------------
@@ -137,6 +143,7 @@ at Maison de la Simulation who gave talks on topics such as architectures and pr
 use of advanced visualization tools such as the Image wall hosted by the Maison de la Simulation.
 
 .. _Maison de la Simulation: http://www.maisondelasimulation.fr/en/index.php?a
+
 
 ESDW University College Dublin (2017)
 -------------------------------------
@@ -172,36 +179,10 @@ lectures and tutorials on OpenMP parallelization.
 .. _IBM: https://www.zurich.ibm.com/
 
 
+
 List of available Modules
 =========================
 
-.. toctree::
-    :glob:
-    :maxdepth: 1
-
-    ./modules/SODLIB/sod_readme
-
-The **SodLib** module provides exact wavefunction propagation using the second-order differencing (SOD) integrator
-scheme to solve the time-dependent Schrödinger equation. This routine has been implemented and tested as an added
-functionality within the Quantics_ quantum dynamics package.
-
-.. toctree::
-    :glob:
-    :maxdepth: 1
-
-    ./modules/cheb_doc/cheb_readme
-
-The **ChebLib** module implements the Chebyshev integration scheme for exact wavefunction propagation on the grid. This
-routine  has been implemented and tested as an added functionality within the Quantics_ quantum dynamics package.
-
-
-.. toctree::
-    :glob:
-    :maxdepth: 1
-
-    ./modules/PhysConst_module/readme
-
-The **PhysConst** enables the use of physical constants and the correct isotopic masses.
 
 .. toctree::
     :glob:
@@ -209,9 +190,11 @@ The **PhysConst** enables the use of physical constants and the correct isotopic
 
     ./modules/CTMQC/readme
 
-The **CTMQC** module allows to simulate excited-state dynamics in model systems of one to three spatial (nuclear) dimensions, with an arbitrary number of electronic states. T
-he algorithm is based on the quantum-classical approximation of the equations of motion derived in the framework of the exact factorization of the electron-nuclear wavefuncti
-on. In practice, trajectories are used to mimic the nuclear evolution, that is, in turn, coupled to the quantum evolution of the electronic degrees of freedom.
+The **CTMQC** module allows to simulate excited-state dynamics in model systems of one to three spatial (nuclear) dimensions, 
+with an arbitrary number of electronic states. The algorithm is based on the quantum-classical approximation of the equations 
+of motion derived in the framework of the exact factorization of the electron-nuclear wavefunction. 
+In practice, trajectories are used to mimic the nuclear evolution, that is, in turn, coupled to the quantum evolution of the electronic degrees of freedom.
+
 
 .. toctree::
     :glob:
@@ -224,6 +207,16 @@ The main purpose of this module is to act as the core of additional software mod
 estimates using correlated sampling, and much more realistic treatment of the classical bath, and connecting to other problems such as constant pH simulation
 through an effective Hamiltonian.
 
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/PhysConst_module/readme
+
+The **PhysConst** enables the use of physical constants and the correct isotopic masses.
+
+
 .. toctree::
     :glob:
     :maxdepth: 1
@@ -232,21 +225,7 @@ through an effective Hamiltonian.
 
 The **QuantumModelLib** use potential energy surfaces extracted from the literature and can be linked to quantum dynamics codes.
 
-.. toctree::
-    :glob:
-    :maxdepth: 1
 
-    ./modules/QQ-Interface/qq-interface.rst
-
-The **Quantics-QChem-Interface** is an interface between Quantics and QChem. The DFT algorithm implemented in QChem can be used to provide electronic structure information for direct dynamics simulations using the Quantics program package.
-
-.. toctree::
-        :glob:
-        :maxdepth: 1
-
-        ./modules/zagreb_sh/zagrebsh_readme.rst
-
-The **Zagreb_sh** module is an interface between between QUANTICS package and the Tully's surface hoping code provided by the group of Nadja Doslic in Zagreb.
 
 PaPIM
 -----
@@ -319,7 +298,7 @@ Results obtained from classical sampling can be used to assess the relevance of 
 **PotMod** is a library of potential energy functions and interfaces for external potential energy calculation codes.
 Currently available in the library are the harmonic and Morse potentials (different molecular systems can be simulated depending on parameters
 provided by the user);  empirical potential of the ground state of :math:`\text{CH}_{5}^{+}` based on high level
-electronic structure calculations [RJin]_; and the call to the ab initio `CP2K code <https://www.cp2k.org/>`_ using the **PaPIM-CP2K_Interface** module.
+electronic structure calculations [ZJin]_; and the call to the ab initio `CP2K code <https://www.cp2k.org/>`_ using the **PaPIM-CP2K_Interface** module.
 
 
 .. toctree::
@@ -330,9 +309,6 @@ electronic structure calculations [RJin]_; and the call to the ab initio `CP2K c
 
 **PaPIM-CP2K_Interface** module links the PaPIM code with the `CP2K program package <https://www.cp2k.org/>`_ 
 as an internal library for calculation of system's electronic structure properties.
-
-
-.. _CP2K: https://www.cp2k.org/
 
 
 .. toctree::
@@ -356,18 +332,87 @@ polymer chains within the PIM algorithm, improving efficiency in sampling of the
 
 
 
+Quantics
+--------
+
+`Quantics <http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/index.html>`_ is suite of programs 
+for molecular quantum dynamics simulations. 
+The package is able to set up and propagate a wavepacket using the MCTDH method [Beck]_. 
+Numerically exact propagation is also possible for small systems using a variety of standard integration schemes [Lefo]_, 
+as is the solution of the time-independent Schrödinger equation using Lanczos diagonalisation. 
+The program can also be used to generate a ground state wavefunction using energy relaxation (i.e. propagation 
+in imaginary time) and with the "improved relaxation" it is even possible to generate (low lying) excited states.
+Within the Quantics package there are also programs to propagate density operators (by solving the 
+Liouville-von Neumann equation for open or closed system) [Mey]_, 
+a program for fitting complicated multi-dimensional potential energy function, programs for determining bound 
+or resonance energies by filter-diagonalisation, 
+parameters of a vibronic coupling Hamiltonian, and many more. 
+Recent developments include the use of Gaussian wavepacket based methods (G-MCTDH) and interfaces to quantum chemistry 
+programs such as Gaussian and Molpro allow direct dynamics calculations using the vMCG method [Ric]_. 
+The following modules are extension of Quantics functionalities developed at E-CAM Extended Software Development Workshops.
+
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/SODLIB/sod_readme
+
+The **SodLib** module provides exact wavefunction propagation using the second-order differencing (SOD) integrator
+scheme to solve the time-dependent Schrödinger equation. This routine has been implemented and tested as an added
+functionality within the Quantics_ quantum dynamics package.
+
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/cheb_doc/cheb_readme
+
+The **ChebLib** module implements the Chebyshev integration scheme for exact wavefunction propagation on the grid. This
+routine  has been implemented and tested as an added functionality within the Quantics_ quantum dynamics package.
+
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/QQ-Interface/qq-interface.rst
+
+The **Quantics-QChem-Interface** is an interface between Quantics and `QChem <http://www.q-chem.com/>`_. The DFT algorithm 
+implemented in QChem can be used to provide electronic structure information for direct dynamics simulations using the Quantics program package.
+
+
+.. toctree::
+        :glob:
+        :maxdepth: 1
+
+        ./modules/zagreb_sh/zagrebsh_readme.rst
+
+The **Zagreb_sh** module is an interface between between Quantics package and the Tully's surface hoping code provided by the group of Nadja Doslic in Zagreb.
+
+
+
 References
 ==========
 
-.. [PLCT] B. F. E. Curchod, T. J. Penfold, U. Rothlisberger, I. Tavernelli *Phys. Rev. A* 
+.. [Curc] B. F. E. Curchod, T. J. Penfold, U. Rothlisberger, I. Tavernelli *Phys. Rev. A* 
           **84** (2012) 042507 `DOI: 10.1103/PhysRevA.84.042507 
           <https://journals.aps.org/pra/abstract/10.1103/PhysRevA.84.042507>`_
 .. [Mon1] M. Monteferrante, S. Bonella, G. Ciccotti *Mol. Phys.* **109** (2011) 3015 `DOI: 10.1080/00268976.2011.619506
           <http://dx.doi.org/10.1080/00268976.2011.619506>`_
 .. [Mon2] M. Monteferrante, S. Bonella, G. Ciccotti *J. Chem. Phys.* **138** (2013) 054118 `DOI: 10.1063/1.4789760
           <http://dx.doi.org/10.1063/1.4789760>`_
-.. [Beu] J. Beutier, M. Monteferrante, S. Bonella, R. Vuilleumier, G. Ciccotti *Mol. Sim.* **40** (2014) 196 `DOI:
-         10.1080/08927022.2013.843776 <http://dx.doi.org/10.1080/08927022.2013.843776>`_
-.. [RJin] Z. Jin, B. Braams, J. Bowman *J. Phys. Chem. A* **110** (2006) 1569 `DOI: 10.1021/jp053848o
-         <https://pubs.acs.org/doi/abs/10.1021/jp053848o>`_
+.. [Beu]  J. Beutier, M. Monteferrante, S. Bonella, R. Vuilleumier, G. Ciccotti *Mol. Sim.* **40** (2014) 196 `DOI:
+          10.1080/08927022.2013.843776 <http://dx.doi.org/10.1080/08927022.2013.843776>`_
+.. [ZJin] Z. Jin, B. Braams, J. Bowman *J. Phys. Chem. A* **110** (2006) 1569 `DOI: 10.1021/jp053848o
+          <https://pubs.acs.org/doi/abs/10.1021/jp053848o>`_
+.. [Beck] M. Beck, A. Jäckle, G.A. Worth, and H.-D. Meyer *Phys. Rep.* **324** (2000) 1–106 
+          `DOI: 10.1016/S0370-1573(99)00047-2 <https://doi.org/10.1016/S0370-1573(99)00047-2>`_
+.. [Lefo]  C. Leforestier, R. H. Bisseling, C. Cerjan, M. D. Feit, R. Friesner, A. Guldberg, A. Hammerich, 
+          G. Jolicard, W. Karrlein, H.-D. Meyer, N. Lipkin, O. Roncero, R. Kosloff *J. Comp. Phys.* **94** (1991) 59
+          `DOI: 10.1016/0021-9991(91)90137-A <https://doi.org/10.1016/0021-9991(91)90137-A>`_
+.. [Mey]  H.-D. Meyer, G. A. Worth *Theor. Chem. Acc.* **109** (2003) 251 `DOI: 10.1007/s00214-003-0439-1 <https://doi.org/10.1007/s00214-003-0439-1>`_
+.. [Ric]  G. W. Richings, I. Polyak, K. E. Spinlove, G. A. Worth, I. Burghardt, B. Lasorne 
+          *Int. Rev. Phys. Chem.* **34** (2015) 269 `DOI: 10.1080/0144235X.2015.1051354 <https://doi.org/10.1080/0144235X.2015.1051354>`_
 

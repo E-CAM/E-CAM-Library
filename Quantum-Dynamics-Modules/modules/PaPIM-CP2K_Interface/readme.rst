@@ -151,8 +151,8 @@ for the ``__USE_CP2K`` keyword.
 
 
 
-Parallelization and Benchmarking
-________________________________
+Parallelization scheme
+______________________
 
 Parallelization of linked PaPIM and CP2K codes is achieved with a MPI split communicator approach. 
 A separate communicator is given for the PaPIM code and for the CP2K part. 
