@@ -203,6 +203,26 @@ routine  has been implemented and tested as an added functionality within the Qu
 
 The **PhysConst** enables the use of physical constants and the correct isotopic masses.
 
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/CTMQC/readme
+
+The **CTMQC** module allows to simulate excited-state dynamics in model systems of one to three spatial (nuclear) dimensions, with an arbitrary number of electronic states. T
+he algorithm is based on the quantum-classical approximation of the equations of motion derived in the framework of the exact factorization of the electron-nuclear wavefuncti
+on. In practice, trajectories are used to mimic the nuclear evolution, that is, in turn, coupled to the quantum evolution of the electronic degrees of freedom.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/SINGLEPATH/readme.rst
+    
+The **SinglePath** module uses combined quantum and classical descriptions of the dynamics to compute quantum rate processes in condensed phase systems. 
+The main purpose of this module is to act as the core of additional software modules aimed at addressing important issues such as improving the speed of convergence of
+estimates using correlated sampling, and much more realistic treatment of the classical bath, and connecting to other problems such as constant pH simulation
+through an effective Hamiltonian.
 
 .. toctree::
     :glob:
@@ -212,7 +232,6 @@ The **PhysConst** enables the use of physical constants and the correct isotopic
 
 The **QuantumModelLib** use potential energy surfaces extracted from the literature and can be linked to quantum dynamics codes.
 
-
 .. toctree::
     :glob:
     :maxdepth: 1
@@ -221,6 +240,13 @@ The **QuantumModelLib** use potential energy surfaces extracted from the literat
 
 The **Quantics-QChem-Interface** is an interface between Quantics and QChem. The DFT algorithm implemented in QChem can be used to provide electronic structure information for direct dynamics simulations using the Quantics program package.
 
+.. toctree::
+        :glob:
+        :maxdepth: 1
+
+        ./modules/zagreb_sh/zagrebsh_readme.rst
+
+The **Zagreb_sh** module is an interface between between QUANTICS package and the Tully's surface hoping code provided by the group of Nadja Doslic in Zagreb.
 
 PaPIM
 -----
@@ -293,9 +319,18 @@ Results obtained from classical sampling can be used to assess the relevance of 
 **PotMod** is a library of potential energy functions and interfaces for external potential energy calculation codes.
 Currently available in the library are the harmonic and Morse potentials (different molecular systems can be simulated depending on parameters
 provided by the user);  empirical potential of the ground state of :math:`\text{CH}_{5}^{+}` based on high level
-electronic structure calculations [RJin]_.
+electronic structure calculations [RJin]_; and the call to the ab initio `CP2K code <https://www.cp2k.org/>`_ using the **PaPIM-CP2K_Interface** module.
 
-.. , and interface to the ab initio `CP2K code <https://www.cp2k.org/>`_.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/PaPIM-CP2K_Interface/readme
+
+**PaPIM-CP2K_Interface** module links the PaPIM code with the `CP2K program package <https://www.cp2k.org/>`_ 
+as an internal library for calculation of system's electronic structure properties.
+
 
 .. _CP2K: https://www.cp2k.org/
 
@@ -318,7 +353,6 @@ It also contains a library of adapted MPI subroutines for easier programming of 
 
 **Openmpbeads** is a patch to the PaPIM code which enables parallelization of the sampling of the  
 polymer chains within the PIM algorithm, improving efficiency in sampling of the Wigner density.
-
 
 
 

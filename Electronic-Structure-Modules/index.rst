@@ -68,13 +68,25 @@ The ESDW in San Sebastian in September 2016 was the starting point for the modul
 
     ./modules/Symmetry-Adapted-Wannier-Functions/readme
     ./modules/Wannier90-TB-Interface/readme
-    ./modules/Non-Collinear-Sping/readme
+    ./modules/Non-Collinear-Spin/readme
     ./modules/Adaptively-Refined-Mesh/readme
     ./modules/FORD-Documentation-Tool-Integration/readme
     ./modules/Improvement-Wannier90-Z2pack-Interface/readme
     ./modules/Improvements-Makefiles/readme
     ./modules/Use_WS_Distance/readme
     ./modules/Test-Suite-Travis-CI-Integration/readme
+
+
+Other Modules
+-------------
+
+Modules not coming from ESDWs
+
+.. toctree::
+     :glob:
+     :maxdepth: 1
+
+     ./modules/SCDM_WFs/readme
 
 Pilot Projects
 ==============
