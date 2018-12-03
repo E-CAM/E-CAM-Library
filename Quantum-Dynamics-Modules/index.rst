@@ -183,6 +183,8 @@ lectures and tutorials on OpenMP parallelization.
 List of available Modules
 =========================
 
+Below are listed all the modules from the E-CAM ESDWs in Quantum Dynamic developed up-to-date:
+
 
 .. toctree::
     :glob:
@@ -377,7 +379,7 @@ routine  has been implemented and tested as an added functionality within the Qu
     :glob:
     :maxdepth: 1
 
-    ./modules/QQ-Interface/qq-interface.rst
+    ./modules/QQ-Interface/qq-interface
 
 The **Quantics-QChem-Interface** is an interface between Quantics and `QChem <http://www.q-chem.com/>`_. The DFT algorithm 
 implemented in QChem can be used to provide electronic structure information for direct dynamics simulations using the Quantics program package.
@@ -387,7 +389,7 @@ implemented in QChem can be used to provide electronic structure information for
         :glob:
         :maxdepth: 1
 
-        ./modules/zagreb_sh/zagrebsh_readme.rst
+        ./modules/zagreb_sh/zagrebsh_readme
 
 The **Zagreb_sh** module is an interface between between Quantics package and the Tully's surface hoping code provided by the group of Nadja Doslic in Zagreb.
 

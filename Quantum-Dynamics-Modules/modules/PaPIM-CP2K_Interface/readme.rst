@@ -164,7 +164,7 @@ The figure below explains in a simplified graphical manner the parallelization u
 linked to CP2K.
 
 .. figure:: ./papim-cp2k_parallel.png
-   :width: 50 %
+   :width: 70 %
    :align: center
 
    Graphical representation of the MPI split communicator scheme used in parallelization of PaPIM-CP2K_interface module. An example with CP2K ``group_size`` of 4 is displayed.
