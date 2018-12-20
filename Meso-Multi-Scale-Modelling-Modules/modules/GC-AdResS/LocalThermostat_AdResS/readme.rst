@@ -30,14 +30,14 @@
 
   Relevant Training Material
     See GROMACS web page: `<http://www.gromacs.org/>`_
-    See VOCTA web page: `http://www.votca.org/tutorials>`_
+    See VOCTA web page: `<http://www.votca.org/tutorials>`_
     
 ..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
     reference, in this case, as ":ref:`example`"). You *MUST* change the reference below from "example" to something
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
     reference to work (so don't insert a comment between).
 
-.. _example:
+.. _LocalT:
 
 ########################################################
 Local thermostat adaption fo the Abrupt GC-AdResS scheme 
@@ -86,7 +86,7 @@ _________________
 .. : .. [CIT2009] A citation (as often used in journals).
 
 The original idea of our proposal: to work on a general implementation of AdResS in
-class. MD packages. If one looks at the AdResS simulations it is possible to describe it in a nutshell as partitioning the simulation box into different regions. The Abrupt coupling scheme has one atomistic and one coarse grained region, coupled via a transition region, where an additional force is acting on the molecules. In previous work (Ref. `<http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_) the idea of a local thermostat was introduced. This modules describes how to couple that ansatz with our new Abrupt AdResS. The first test, as well as an overview over the theory, can be found here  `Link(J.Chem.Phys.): <https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `Link(arXiv): <https://arxiv.org/abs/1806.09870>`_.
+class. MD packages. If one looks at the AdResS simulations it is possible to describe it in a nutshell as partitioning the simulation box into different regions. The Abrupt coupling scheme has one atomistic and one coarse grained region, coupled via a transition region, where an additional force is acting on the molecules. In previous work (Ref. `<http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_) the idea of a local thermostat was introduced. This modules describes how to couple that ansatz with our new Abrupt AdResS. The first test, as well as an overview over the theory, can be found here  `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.
 
 
 .. The interface between the regions is more fluctuating and needs a more responsive thermodynamic force but it works reasonably well. 
@@ -111,7 +111,7 @@ ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-We tested this new implementation on SPC water and 1,3-dimethyl imidazolium chloride. The results are published see Ref `Link(J.Chem.Phys.): <https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `Link(arXiv): <https://arxiv.org/abs/1806.09870>`_.
+We tested this new implementation on SPC water and 1,3-dimethyl imidazolium chloride. The results are published see Ref `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.
 
 Here is a short manual on how to run the test and set up the local thermostat simulation within this Abrupt AdResS simulations in GROMACS:
 
@@ -119,7 +119,9 @@ Here is a short manual on how to run the test and set up the local thermostat si
 
 2) You need a very well converged NVT run, which can be used as starting point for the coarse grained (CG) and then later the AdResS simulations.
 
-3) You have to generate a coarse grained (CG) potential. We use, for convenience, the inverse Boltzmann iteration provided in the VOTCA package (`Link: <http://www.votca.org/home>`_). The resulting tabulated CG potentials are used in the AdResS simulation. Alternatively you can use WCA potentials or standard Lennard-Jones potentials. The main requirement for the AdResS simulation is that the density in the CG region is the same as in the atomistic (AT) region.
+3) You have to generate a coarse grained (CG) potential. We use, for convenience, the inverse Boltzmann iteration provided in the VOTCA package (`<http://www.votca.org/home>`_). The resulting tabulated CG potentials are used in the AdResS simulation. Alternatively you can use WCA potentials or standard Lennard-Jones potentials. The main requirement for the AdResS simulation is that the density in the CG region is the same as in the atomistic (AT) region.
+
+  NOTE: The method can be used with any potential, which preserves the correct density. If only a SPC/E CG potential is available it can be used for SPC/e water models as well as for a more advanced water model. It is possible to use a WCA potential, which is basically a Lennard-Jones potential. *And* it is possible to switch the CG ptential completely off. That will transform the CG region to a true thermodynamic reservoir with a non-interacting gas.
 
 4) The next step is to create a double resolution configuration and adjust the dependncies (force field, topology, index file, GROMACS input file). Creating the configuration is straight forward (we use VOTCA `VOTCA <http://www.votca.org/home>`_):
 ::
