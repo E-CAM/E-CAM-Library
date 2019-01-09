@@ -13,7 +13,7 @@
     OpenMMTools
 
   Language
-    Python (3.6, 3.7)
+    Python (3.5, 3.6)
 
   Licence
     `MIT <https://opensource.org/licenses/mit-license>`_
@@ -25,7 +25,7 @@
     http://openmmtools.readthedocs.org
 
   Relevant Training Material
-    Add a link to any relevant training material. If there currently is none then say 'Not currently available.'
+    http://openmmtools.readthedocs.org
 
   Software Module Developed by
     David W.H. Swenson
@@ -55,7 +55,7 @@ One of the common systems used to study rare events is the double-well dimer
 in a bath of repulsive particles. In this system, two particles are linked
 by a "bond" that allows condensed and extended metastable states. This
 module adds this system, and tools for created several variants of it, to
-the OpenMMTools package. 
+the `OpenMMTools <http://openmmtools.readthedocs.org>`_ package. 
 
 Purpose of Module
 _________________
@@ -138,11 +138,16 @@ ____________________
 This has been incorporated into OpenMMTools. Up-to-date installation
 information can be found in the OpenMMTools documentation; as of this
 writing it simply requires installing conda, and then using the command
-``conda install -c omnia openmmtools``. Note that this requires a Python
-3-based environment; OpenMMTools does not support Python 2.
+``conda install -c conda-forge -c omnia openmmtools``. Note that this
+requires a Python 3-based environment; OpenMMTools does not support Python
+2.
 
-Tests require nose, and the full suite of tests can be run from the
-``openmmtools`` directory with the command ``nosetests``.
+Extra requirements for the tests can be installed with ``conda install -c
+conda-forge -c omnia nose nose-timer pymbar``.  The full suite of tests can
+be run from the ``openmmtools`` directory with the command ``nosetests``.
+The tests specific to this (and other test systems) can be run from the root
+directory of the repository with: ``nosetests
+openmmtools/tests/test_testsystem.py``.
 
 Source Code
 ___________
