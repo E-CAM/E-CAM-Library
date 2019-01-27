@@ -143,6 +143,18 @@ repository, installing the requirements, and then installing the
 <http://contact-map.readthedocs.io/en/latest/installing.html#developer-installation>`_
 of the ``contact_map`` documentation.
 
+Once installed, tests are run using pytest. To check that the code has been
+correctly installed, run ``python -c "import contact_map"`` from the command
+line. To run the tests, install pytest and run the command ``py.test
+--pyargs contact_map``.
+
+
+Examples
+--------
+
+An example can be found in the documentation to the ``contact_map`` paper:
+[docs | GitHub] TODO: add link once completed
+
 
 Source Code
 ___________
