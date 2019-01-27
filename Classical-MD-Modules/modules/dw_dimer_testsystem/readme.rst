@@ -7,7 +7,7 @@
 ..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
     progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
 
-..  sidebar:: Software Technical Information
+.. sidebar:: Software Technical Information
 
   Name
     OpenMMTools
@@ -135,7 +135,7 @@ ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-This has been incorporated into OpenMMTools. Up-to-date installation
+This has been incorporated into OpenMMTools 0.17. Up-to-date installation
 information can be found in the OpenMMTools documentation; as of this
 writing it simply requires installing conda, and then using the command
 ``conda install -c conda-forge -c omnia openmmtools``. Note that this
@@ -148,6 +148,12 @@ be run from the ``openmmtools`` directory with the command ``nosetests``.
 The tests specific to this (and other test systems) can be run from the root
 directory of the repository with: ``nosetests
 openmmtools/tests/test_testsystem.py``.
+
+Examples
+--------
+
+Examples of the tools in this module can be seen in a GitHub gist at:
+https://gist.github.com/dwhswenson/bb79a137a1d65629c22e7b00aa569d76
 
 Source Code
 ___________
