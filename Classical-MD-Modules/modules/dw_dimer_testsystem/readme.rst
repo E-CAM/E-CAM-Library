@@ -13,7 +13,7 @@
     OpenMMTools
 
   Language
-    Python (3.5, 3.6)
+    Python (3.6, 3.7)
 
   Licence
     `MIT <https://opensource.org/licenses/mit-license>`_
@@ -96,6 +96,7 @@ all particles. The WCA interaction is:
     \right)^6 \right) + \epsilon & \text{if $r\le 2^{1/6} \sigma$} \\
     0 & \text{if $r> 2^{1/6} \sigma$}
   \end{cases}
+
 where :math:`\sigma` is a characteristic distance and :math:`\epsilon` is a
 characteristic energy scale.
 
@@ -149,11 +150,14 @@ The tests specific to this (and other test systems) can be run from the root
 directory of the repository with: ``nosetests
 openmmtools/tests/test_testsystem.py``.
 
-Examples
---------
 
-Examples of the tools in this module can be seen in a GitHub gist at:
+Examples
+________
+
+Examples of the tools in this module can be seen in a Jupyter notebook that
+can be viewed or downloaded from a GitHub gist at:
 https://gist.github.com/dwhswenson/bb79a137a1d65629c22e7b00aa569d76
+
 
 Source Code
 ___________
