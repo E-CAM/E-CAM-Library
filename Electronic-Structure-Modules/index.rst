@@ -105,13 +105,10 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/Geomoltools/readme   
     ./modules/GRASP_Sampling/readme   
     ./modules/GROMACS_interface/README   
-<<<<<<< HEAD
     ./modules/Gaussian_interface/README  
     ./modules/Differential_Evolution/README  
-=======
     ./modules/Gaussian_interface/README
     ./modules/WLRR/README   
->>>>>>> cd2b5a3dbe487ea009eb031f52501c1b98be5132
 
 
 .. _E-CAM: https://www.e-cam2020.eu/
