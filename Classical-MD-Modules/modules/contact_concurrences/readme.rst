@@ -77,7 +77,23 @@ Those concurrent contacts could be used to define a metastable state.  This
 module helps identify and analyze those concurrent contacts by providing a
 tool to visualize them.
 
-.. TODO: example of that visualization
+.. figure:: concurrences.png
+   :alt: Output of contact concurrence visualization
+   :figwidth: 50 %
+   :align: right
+
+The figure shows the output of the contact concurrence visualization for the
+contacts between an inhibitor (labelled YYG) and various residues of the
+protein GSK3B. The plot shows when each contact occurred. The x-axis is
+time.  Each dot represents that a specific contact pair is present at that
+time.  The contact pairs are separated along the vertical axis. 
+
+This trajectory shows two groups of stable contacts between the protein and
+the ligand; i.e. there is a change in the stable state.  This allows us to
+visually identify the contacts involved in each state. Both states involve
+the ligand being in contact with Phe33, but the earlier state includes
+contacts with Ile28, Gly29, etc., while the later state includes contacts
+with Ser32 and Gly168.
 
 This is an important tool for identifying stable states based on long-lived
 groups of contacts, and is being used as part of the `E-CAM pilot project on
@@ -153,7 +169,7 @@ Examples
 --------
 
 An example can be found in the documentation to the ``contact_map`` paper:
-[docs | GitHub] TODO: add link once completed
+[`docs <https://contact-map.readthedocs.io/en/latest/examples/nb/concurrences.html>`_ | `GitHub <https://github.com/dwhswenson/contact_map/blob/master/examples/concurrences.ipynb>`_]
 
 
 Source Code
@@ -161,8 +177,8 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
 
-The source code for this module is contained in the following pull request
+The source code for this module is contained in the following pull requests
 in the ``contact_map`` repository:
 
 * https://github.com/dwhswenson/contact_map/pull/28
-
+* https://github.com/dwhswenson/contact_map/pull/47
