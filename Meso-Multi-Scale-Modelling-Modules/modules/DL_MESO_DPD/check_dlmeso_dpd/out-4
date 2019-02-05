@@ -1,0 +1,26 @@
+ unit cell sizes        =     1.0000000000     1.0000000000     1.0000000000
+ nfoldx, nfoldy, nfoldz =        1        1        1
+ system sizes           =     1.0000000000     1.0000000000     1.0000000000
+ imcon     =        1
+ levcfg    =        0
+ lconfzero =        T
+ srftype   =        1
+ srfx, srfy, srfz =           0           0           1
+ nspe      =        3
+ nmoldef   =        2
+ mxmolsize =        3
+ mxbonds   =        2
+ nspec     =        0        6        0
+ nspecmol  =        4        7        7
+ numbond   =       11
+ for molecule ACB      :
+ mlstrtspe =        1        3        2
+ for molecule BC       :
+ mlstrtspe =        2        3        0
+
+ OK: CONFIG file is consistent with FIELD file
+ (composition and bead content of molecules)
+error: bond between beads        7  and        8  crosses hard wall perp. to z
+error: bond between beads       13  and       14  crosses hard wall perp. to z
+
+error: at least one streching bond is crossing a hard wall, please correct the CONFIG file
