@@ -10,4 +10,4 @@ pages:
     paths:
     - public
   only:
-  - patch-1
+  - master
