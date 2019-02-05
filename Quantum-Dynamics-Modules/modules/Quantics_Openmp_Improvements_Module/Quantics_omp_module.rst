@@ -10,7 +10,7 @@ Quantics OpenMP Improvements Module
     Fortran 90
 
   Licence
-    Academy License
+    Academic License
 
   Documentation Tool
     Documentation provided as in-line comments within the source code
@@ -20,7 +20,7 @@ Quantics OpenMP Improvements Module
 
 
   Relevant Training Material
-    Training material is available through the test examples
+    Training material is available through the tests and examples
 
 .. contents:: :local:
 
@@ -29,17 +29,15 @@ Quantics OpenMP Improvements Module
 Purpose of Module
 _________________
 
-This module is related to code developed for the  2 Openmp-Improved SVN revision: v855 and v878 of Quantics `here <https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam17>`_.
+This module is related to code developed for 2 SVN revisions targetting OpenMP improvement: v855 and v878 of Quantics `here <https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam17>`_.
 
-31 source files are changed in v855 compared to v854, such as the openmpmod.f90, quantics.F90, mmomplib.f90 and so on... While in the v878, OpenMP in database reading/interpolation (dd_db.f90) improved.
-Here are the  file1_ and file2_ showing the changes made by the OpenMP Improvements.
-   .. _file1: https://gitlab.e-cam2020.eu/liang/E-CAM-Library/blob/Module_OpenMP_Improvements_Quantics/Quantum-Dynamics-Modules/modules/Quantics_Openmp_Improvements_Module/Diff_quantics_ecam_854-855
-   .. _file2: https://gitlab.e-cam2020.eu/liang/E-CAM-Library/blob/Module_OpenMP_Improvements_Quantics/Quantum-Dynamics-Modules/modules/Quantics_Openmp_Improvements_Module/Diff_quantics_ecam_863-878
+31 source files are changed in v855 compared to v854, such as ``openmpmod.f90``, ``quantics.F90``, ``mmomplib.f90`` and so on. In v878, OpenMP in database reading/interpolation (``dd_db.f90``) improved.
+To highlight the relevant sourcecode changes we include them here as patch files: :download:`patch v855 <./Diff_quantics_ecam_854-855>` and :download:`patch v855 <./Diff_quantics_ecam_863-878>`.
 
 Background Information
 ______________________
 
-Currently the code developed related to this module within the Quantics software package is available through `CCPForge <https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam17>`_.
+Currently the code developed related to this module within the Quantics software package is available through `CCPForge <https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam17>`_ with the relevant specific changes highlighted above.
 
 
 Install
@@ -53,7 +51,7 @@ _______
 Testing
 _______
 
-Several test example are provided for this module and can be found at ``inputs/``. For example the ``p24+.inp``. This test works for Quantics's ECAM branch  Revision v974 . The Quantics README file will help you to install the Quantics code.  After creatin a folder named ``p24+`` and put  ``p24+.inp`` in this folder  then change its name to ``input``.  The test can be done through the following command::
+Several test example are provided for this module and can be found at ``inputs/``. For example the ``p24+.inp``. This test works for Quantics's ECAM branch Revision v974 . The Quantics README file will help you to install the Quantics code.  After creating a folder named ``p24+`` and put  ``p24+.inp`` in this folder  then change its name to ``input``.  The test can be done through the following command::
 
   $ quantics.omp -omp np  -w -I p24+.inp  
 
