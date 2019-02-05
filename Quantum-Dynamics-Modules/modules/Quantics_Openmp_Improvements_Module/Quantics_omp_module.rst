@@ -32,7 +32,7 @@ _________________
 This module is related to code developed for 2 SVN revisions targetting OpenMP improvement: v855 and v878 of Quantics (which is available in the `E-CAM branch of Quantics <https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam17>`_).
 
 31 source files are changed in v855 compared to v854, such as ``openmpmod.f90``, ``quantics.F90``, ``mmomplib.f90`` and so on. In v878, OpenMP in database reading/interpolation (``dd_db.f90``) improved.
-To highlight the relevant sourcecode changes we include them here as patch files: :download:`patch v855 <./Diff_quantics_ecam_854-855>` and :download:`patch v855 <./Diff_quantics_ecam_863-878>`.
+To highlight the relevant sourcecode changes we include them here as patch files: :download:`patch v855 <./Diff_quantics_ecam_854-855>` and :download:`patch v878 <./Diff_quantics_ecam_863-878>`.
 
 Background Information
 ______________________
