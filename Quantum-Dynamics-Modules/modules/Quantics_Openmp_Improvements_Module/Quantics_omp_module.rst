@@ -16,7 +16,7 @@ Quantics OpenMP Improvements Module
     Documentation provided as in-line comments within the source code
 
   Application Documentation
-    Useful documentation can be found `here <http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/index.html>`_.
+    Useful documentation can be found on the `Quantics documentation website <http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/index.html>`_.
 
 
   Relevant Training Material
@@ -29,7 +29,7 @@ Quantics OpenMP Improvements Module
 Purpose of Module
 _________________
 
-This module is related to code developed for 2 SVN revisions targetting OpenMP improvement: v855 and v878 of Quantics `here <https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam17>`_.
+This module is related to code developed for 2 SVN revisions targetting OpenMP improvement: v855 and v878 of Quantics (which is available in the `E-CAM branch of Quantics <https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam17>`_).
 
 31 source files are changed in v855 compared to v854, such as ``openmpmod.f90``, ``quantics.F90``, ``mmomplib.f90`` and so on. In v878, OpenMP in database reading/interpolation (``dd_db.f90``) improved.
 To highlight the relevant sourcecode changes we include them here as patch files: :download:`patch v855 <./Diff_quantics_ecam_854-855>` and :download:`patch v855 <./Diff_quantics_ecam_863-878>`.
@@ -37,7 +37,7 @@ To highlight the relevant sourcecode changes we include them here as patch files
 Background Information
 ______________________
 
-Currently the code developed related to this module within the Quantics software package is available through `CCPForge <https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam17>`_ with the relevant specific changes highlighted above.
+Currently the code developed related to this module within the Quantics software package is available through the `CCPForge Qunatics page <https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam17>`_ with the relevant specific changes highlighted above.
 
 
 Install
