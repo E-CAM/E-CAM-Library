@@ -34,11 +34,11 @@
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
     reference to work (so don't insert a comment between).
 
-.. _paradis_precipitate:
+.. _paradis_precipitate_hpc:
 
-####################
+######################################################
 ParaDiS with precipitates optimized to HPC environment
-####################
+######################################################
 
 ..  Let's add a local table of contents to help people navigate the page
 
