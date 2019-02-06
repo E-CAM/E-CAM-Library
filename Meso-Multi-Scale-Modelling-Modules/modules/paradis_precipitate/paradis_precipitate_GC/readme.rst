@@ -35,9 +35,9 @@
 
 .. _paradis_precipitate:
 
-####################
+#########################
 ParaDiS with precipitates
-####################
+#########################
 
 ..  Let's add a local table of contents to help people navigate the page
 

@@ -63,10 +63,10 @@ The following modules connected to the DL_MESO_DPD code have been produced so fa
     ./modules/DL_MESO_DPD_onGPU/add_gpu_version/readme
     ./modules/DL_MESO_DPD/check_dlmeso_dpd/readme
 
-ESPRESSO++
+ESPResSo++
 ----------
 
-The following modules connected to the ESPRESSO++ code have been produced so far:
+The following modules connected to the ESPResSo++ code have been produced so far:
 
 .. toctree::
     :glob:
@@ -82,6 +82,17 @@ The following modules connected to the ESPRESSO++ code have been produced so far
     ./modules/hierarchical-strategy/simple_one-component_melts/fine-graining/readme
     ./modules/hierarchical-strategy/simple_one-component_melts/coarse-graining/readme
 
+ParaDiS
+-------
+
+The following modules connected to the ParaDiS code have been produced so far:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/paradis_precipitate/paradis_precipitate_GC/readme.rst
+    ./modules/paradis_precipitate/paradis_precipitate_HPC/readme.rst
 
 ESDW Barcelona 2017
 -------------------
