@@ -1,8 +1,8 @@
 .. _check_config:
 
-#####################################################
-[WIP] Consistency check of input files in DL_MESO_DPD
-#####################################################
+###############################################
+Consistency check of input files in DL_MESO_DPD
+###############################################
 
 .. sidebar:: Software Technical Information
 
