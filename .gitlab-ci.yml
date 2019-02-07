@@ -11,4 +11,4 @@ pages:
     - public
   only:
   - master
-  - htc
+  - merge_requests
