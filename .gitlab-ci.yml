@@ -12,3 +12,4 @@ pages:
   only:
   - master
   - htc
+  - htc-yaml
