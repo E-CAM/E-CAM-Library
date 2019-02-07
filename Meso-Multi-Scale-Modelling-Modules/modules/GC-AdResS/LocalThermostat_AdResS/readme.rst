@@ -99,7 +99,7 @@ ______________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-This module combines two different codes. The first part is the Abrupt coupling scheme already presented in a module. In any AdResS simulations the simulation box is partitioned into different regions. Previous AdResS implementations have three regions (atomistic, hybrid and coarse grained). They are coupled in the hybrid region by slowly switching between atomistic forces and coarse grained forces. That is done by introducing the weighting function required for the smooth coupling into the force kernel, which slows down the performance of the code. The Abrupt coupling scheme has one atomistic and one coarse grained region, coupled via a transition region, where an additional force is acting on the molecules. Since the weighting function is not neede any more, the forces are calculated via the standard GROMACS kernels, which increases the performance. 
+This module combines two different codes. The first part is the Abrupt coupling scheme already presented in a module. In any AdResS simulations the simulation box is partitioned into different regions. Previous AdResS implementations have three regions (atomistic, hybrid and coarse grained). They are coupled in the hybrid region by slowly switching between atomistic forces and coarse grained forces. That is done by introducing the weighting function required for the smooth coupling into the force kernel, which slows down the performance of the code. The Abrupt coupling scheme has one atomistic and one coarse grained region, coupled via a transition region, where an additional force is acting on the molecules. Since the weighting function is not needed any more, the forces are calculated via the standard GROMACS kernels, which increases the performance. 
 
 In previous work by Agarwal et al. (Ref. `<http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_) the idea of a local thermostat was introduced. Since in AdResS the simulation box is partitioned into different regions the next logical step is to adapt the thermalization of the box and apply the thermostat only in the hybrid and coarse grained region, since the hybrid region is an artificial region and the coarse grained region represents a reservoir.
 
@@ -155,7 +155,7 @@ The next step is to adjust the GROMACS input file. AdResS needs the Langevin dyn
 ::
   integrator = sd 
 
-Since the system is double resolution, meaning we have the atomistic detals and the virtual particles, we have to define the energygroups:
+Since the system is double resolution, meaning we have the atomistic details and the virtual particles, we have to define the energy groups:
 ::
   ; Selection of energy groups 
   energygrps = EXW WCG 
@@ -185,11 +185,11 @@ To switch the simulation to AdResS this is the key part. This starts the AdResS 
   ; AdResS parameters 
   adress = yes ;no 
 
-Here you define the geometry of the atomistic region, either *sphere* (a spherical region anywhere in the simualtion box) or *xsplit* (a cuboid slice of the whole simulation box for the atomistic region, with the transition and coarse grained region on each side). 
+Here you define the geometry of the atomistic region, either *sphere* (a spherical region anywhere in the simulation box) or *xsplit* (a cuboid slice of the whole simulation box for the atomistic region, with the transition and coarse grained region on each side). 
 ::
   adress_type = sphere ;xsplit sphere or constant 
 
-This defines the width of the atomistic region, starting from the given reference coordinate (keyword *adress_reference_coords*, by simpy using: *tail conf_hybrid.gro | awk '(NF==3){print $1/2., $2/2., $3/2.}'*). In the older versions of AdResS, with a smooth coupling between AT and CG the width of the hybrid region width (*adress_hy_width*) was also defined. In the Abrupt_AdResS setup it is not necessary any more, even if you put a number that region is counted (in the code) as AT. 
+This defines the width of the atomistic region, starting from the given reference coordinate (keyword *adress_reference_coords*, by simply using: *tail conf_hybrid.gro | awk '(NF==3){print $1/2., $2/2., $3/2.}'*). In the older versions of AdResS, with a smooth coupling between AT and CG the width of the hybrid region width (*adress_hy_width*) was also defined. In the Abrupt_AdResS setup it is not necessary any more, even if you put a number that region is counted (in the code) as AT. 
 ::
   adress_ex_width = 1.5 
   adress_hy_width = 1.5 
@@ -210,7 +210,7 @@ Another important aspect is the force capping. Abrupt AdResS works fine for smal
 
 The local thermostat simulations are significantly different from the Abrupt coupling AdResS simulations. The atomistic region is indirectly thermalized by the hybrid/coarse grained, which leads to an NVE-like environment. To make sure the simulations run smoothly, a tabulated potential for shifted Lennard-Jones potentials is needed. Furthermore, GROMACS has to be compiled with double resolutions. It is easy to see when the simulation didn't work, as the atomistic region is evacuated by all molecules and the resulting density has an error of around 50% and higher. 
 
-When the simulation worked, the same checks as for Abrupt AdResS are required. The first check is the density and you see if the patch works right away. If you have no thermodynamic force you have rather pronounced spikes in the density at the interfaces. If you have a converged thermodynamic force the density has to be within +/- 3% (optimal) and +/- 5% (okay..but can be better) off from a comparable full atomistc simulation / experimental data. Then you need further properties to make sure you have an open system. The problem with the simulation is that an "artificial" interface is introduced and checks for the diffusion, the RDF's... (full list see below) ensure that those regions mix and that you have proper particle transfer.
+When the simulation worked, the same checks as for Abrupt AdResS are required. The first check is the density and you see if the patch works right away. If you have no thermodynamic force you have rather pronounced spikes in the density at the interfaces. If you have a converged thermodynamic force the density has to be within +/- 3% (optimal) and +/- 5% (okay..but can be better) off from a comparable full atomistic simulation / experimental data. Then you need further properties to make sure you have an open system. The problem with the simulation is that an "artificial" interface is introduced and checks for the diffusion, the RDFs... (full list see below) ensure that those regions mix and that you have proper particle transfer.
 
 
 
@@ -246,7 +246,7 @@ When *gmx mdrun* finishes normally (with the above mentioned setup), we have sev
   
 1) we check the density along the X-direction (*xsplit*: e.g. gmx density -f traj_compt.xtc -d X) or along the radius (*sphere*: e.g. via VOTCA: *csg_density --axis r --rmax <value> --ref [x_ref,y_ref,z_ref] --trj traj_comp.xtc --top topol.tpr --out test.dens.comp*), the density has to be less then 3% different from experimental data or the density from a full atomistic MD simulation. The density of the example is 1000 kg m^-3. 
 
-2) static properties: crucial RDF's (e.g. for water the oxygen-oxygen RDF) 
+2) static properties: crucial RDFs (e.g. for water the oxygen-oxygen RDF) 
 
   
 3) p(N): It describes the average number of particles in the AT region throughout the simulation.
