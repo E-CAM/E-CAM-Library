@@ -11,4 +11,4 @@ pages:
     - public
   only:
   - master
-  - merge-requests
+  - merge_requests
