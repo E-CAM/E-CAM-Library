@@ -11,5 +11,4 @@ pages:
     - public
   only:
   - master
-  - htc
-  - htc-yaml
+  - merge-requests
