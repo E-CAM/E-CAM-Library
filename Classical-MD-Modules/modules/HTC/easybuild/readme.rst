@@ -39,9 +39,9 @@
 
 .. _htc_eb:
 
-####################
-HTC Multi-node Tasks
-####################
+###############################
+Adding HTC Library to EasyBuild
+###############################
 
 ..  Let's add a local table of contents to help people navigate the page
 
@@ -90,7 +90,7 @@ build command:
 
 ::
 
-    eb
+    eb jobqueue_features-0.0.4-intel-para-2018b-Python-3.6.6.eb
 
 However, please note that this will only work "out of the box" for those with software installation rights on the JURECA
 system. The provided sources (as described below) are intended as templates for those who are familiar with EasyBuild to
