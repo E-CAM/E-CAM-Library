@@ -87,6 +87,7 @@ Modules not coming from ESDWs
      :maxdepth: 1
 
      ./modules/SCDM_WFs/readme
+     ./modules/flook/readme
 
 Pilot Projects
 ==============
