@@ -48,41 +48,23 @@ ______________________
 
 The flook library is built on two libraries; 1) Lua and 2) `AOTUS <https://bitbucket.org/haraldkl/aotus>`_.
 Both are shipped together with the software and are required when building.
-Lua is required to be able to run the Lua interpreter in-memory while the AOTUS library is
-required for the low-level communication layer. 
+Lua is required to be able to run the Lua interpreter in-memory while the AOTUS
+library is required for the low-level communication layer. 
 
-Software Technical Information
-______________________________
-
-License
-  Mozilla Public License 2.0
-
-Language
-  Fortran 1990/2003
-
-Documentation Tool
-  Doxygen
-
-Application Documentation
-   `ESL wiki <http://esl.cecam.org/Flook>`_
-   `API <http://electronicstructurelibrary.github.io/flook/doxygen/index.html>`_ 
-
-Relevant Training Material
-  See usage examples in the ``src/test`` directory of the source code.
 
 Installation
 ____________
 
-The source code of the `flook` module is hosted on Github and can be obtained
-using ``git`` or via the release page of `flook`::
+The source code of the ``flook`` module is hosted on Github and can be obtained
+using ``git`` or via the release page of ``flook``::
 
   git clone https://github.com/ElectronicStructureLibrary/flook
   cd flook
   git submodule update --init --recursive
 
-The source code of the `flook` module itself is contained in the `src` subdirectory.
-Lua depends on the readline library (with headers) to be installed. Please install this
-library first.
+The source code of the ``flook`` module itself is contained in the ``src``
+subdirectory. Lua depends on the readline library (with headers) to be
+installed. Please install this library first.
 
 .. note::
  The information contained in the *Downloading and installation* section are
@@ -97,17 +79,18 @@ library first.
 	include ../Makefile
 
 
- 3. Type ``make`` to compile `flook`, alternatively type ``make liball`` to create
-    a unified library (with Lua, AOTUS and flook linked together).
+ 3. Type ``make`` to compile ``flook``, alternatively type ``make liball`` to
+    create a unified library (with Lua, AOTUS and flook linked together).
 
 
 Testing
 _______
 
 The ``src/test`` directory contains a number of small programs that make use of
-flook. These may be useful to understand the flow of programming.
+flook. These may be useful to understand the flow of programming. You can build
+and test ``flook`` with the included shell script ``quick_test.sh``.
 
 Source Code
 ___________
 
-The source code is available from the Github web-page `here <https://github.com/ElectronicStructureLibrary/flook>`_.
+The source code is available from the ```flook repo`` on Github <https://github.com/ElectronicStructureLibrary/flook>`_.
