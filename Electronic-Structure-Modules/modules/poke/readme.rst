@@ -47,20 +47,20 @@ Documentation Tool
 Application Documentation
    `The ESL wiki <http://esl.cecam.org/POKE>`_ 
 
-Instalation
+Installation
 ___________ 
 
 A release can be download from `this link <https://gitlab.e-cam2020.eu/ESL/poke/tags/Version-Poke-ahi>`_
-Current installation and testing are done with gcc compiler. FFTW is required for instalation and testing. 
+Current installation and testing are done with gcc compiler. FFTW is required for installation and testing. 
 
-Here are the commands for instalation::
+Here are the commands for installation::
 
  $ tar xfvz poke-ahi.tar.gz
  $ ./configure
  $ make
 
 .. note ::
- We provide also the possibility to build modules with Autotools. `This <https://gitlab.e-cam2020.eu/ESL/omm/blob/master/libOMM/doc/hacking-the-build-system.md>`_ is a userful document. 
+ We provide also the possibility to build modules with Autotools. `This <https://gitlab.e-cam2020.eu/ESL/omm/blob/master/libOMM/doc/hacking-the-build-system.md>`_ is a useful document. 
 
 Testing
 _______
