@@ -23,7 +23,7 @@ SQARE states
 .. contents:: :local:
 
 SQARE (Solvers for quantum atomic radial equations) is a library of
-utilities intented for dealing with functions discretized on radial
+utilities intended for dealing with functions discretized on radial
 meshes, wave-equations with spherical symmetry and their corresponding
 quantum states. The utilities are segregated into three levels: radial
 grids and functions, ODE solvers, and states.
