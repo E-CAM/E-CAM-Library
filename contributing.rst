@@ -182,7 +182,7 @@ push the changes back to GitLab:
 .. code-block:: bash
 
     git add modules/gromacs_gpu/readme.rst
-    git commit -m "update documention on how to trigger the GPU support"
+    git commit -m "update documentation on how to trigger the GPU support"
     git push origin <BRANCH_NAME>
 
 The Merge  Request will now be automatically updated with the changed files.
