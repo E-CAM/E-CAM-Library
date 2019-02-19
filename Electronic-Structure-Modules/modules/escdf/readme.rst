@@ -52,7 +52,7 @@ Application Documentation
   `ESL wiki <http://esl.cecam.org/Libescdf>`_
 
 Installation
-___________ 
+____________ 
 
 A release can be download from `this link <https://gitlab.e-cam2020.eu/ESL/escdf/tags/Version0.1.0>`_
 Current installation and testing are done with gcc compiler. HDF5 is required for installation and testing. 

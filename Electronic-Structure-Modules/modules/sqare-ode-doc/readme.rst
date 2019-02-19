@@ -57,7 +57,7 @@ Application Documentation
 `The ESL wiki <http://esl.cecam.org/SQARE>`_
 
 Installation
-___________ 
+____________ 
 
 A release can be download from `This link <https://gitlab.e-cam2020.eu/ESL/sqare/tags/v0.0.0>`_
 Current installation and testing are done with gcc compiler. Check (version>=0.9.4) is required for installation and testing.

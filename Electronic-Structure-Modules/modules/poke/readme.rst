@@ -48,7 +48,7 @@ Application Documentation
    `The ESL wiki <http://esl.cecam.org/POKE>`_ 
 
 Installation
-___________ 
+____________ 
 
 A release can be download from `this link <https://gitlab.e-cam2020.eu/ESL/poke/tags/Version-Poke-ahi>`_
 Current installation and testing are done with gcc compiler. FFTW is required for installation and testing. 
