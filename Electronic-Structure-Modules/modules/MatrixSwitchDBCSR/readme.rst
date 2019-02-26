@@ -1,3 +1,5 @@
+.. matrixswitch_dbcsr:
+
 ##################
 DBCSR@MatrixSwitch
 ##################
