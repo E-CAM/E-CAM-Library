@@ -32,20 +32,20 @@ GitLab account
 If you do not have a (free) GitLab account yet on the E-CAM GitLab service, you'll need to get one via
 https://gitlab.e-cam2020.eu/.
 
-Fork the repository
--------------------
-
-First, you'll need to fork the repository on GitLab you want to work with. Go to
-https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library, and click the grey 'Fork' button under the repository name.
-
 SSH public key @ GitLab
 -----------------------
 
-You also need to register an SSH public key, so you can easily clone, push to and pull from your repository. This can
+You should also register an SSH public key (if you have not already done so), so you can easily clone, push to and pull from your repositories. This can
 be done via https://gitlab.e-cam2020.eu/profile/keys if you're logged in on GitLab.
 
-In the following it is assumed that an SSH public key has been registered, the possibility of using the HTTP protocol
+In the following it is assumed that an SSH public key has been registered, the possibility of using the HTTPS protocol
 to access GitLab is not covered (but is possible).
+
+Fork the repository
+-------------------
+
+Firstly, you'll need to fork the repository on GitLab you want to work with. Go to
+https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library, and click the grey 'Fork' button under the repository name.
 
 Clone your fork of the repository
 ---------------------------------
