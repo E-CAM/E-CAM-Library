@@ -45,7 +45,7 @@ Fork the repository
 -------------------
 
 Firstly, you'll need to fork the repository on GitLab you want to work with. Go to
-https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library, and click the grey 'Fork' button under the repository name.
+https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library , and click the grey 'Fork' button either beside or under the repository name (or just click this `fork link <https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library/forks/new>`_).
 
 Clone your fork of the repository
 ---------------------------------
@@ -130,7 +130,7 @@ Checking your contribution locally
 ----------------------------------
 
 You can locally build the documentation to check that the changes you make look as you expect them. To do this you will
-need the Sphinx python package to be installed (see this `link <http://www.sphinx-doc.org/en/stable/install.html>`_ for
+need the Sphinx python package to be installed (see this `installation link <http://www.sphinx-doc.org/en/stable/install.html>`_ for
 information on how to install this tool on your operating system).
 
 .. code-block:: bash
