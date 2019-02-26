@@ -1,10 +1,10 @@
-##################
-DBCSR@MatrixSwitch
-##################
+############
+MatrixSwitch
+############
 
 .. sidebar:: Software Technical Information
 
-  The information in this section describes `DBCSR@MatrixSwitch` as a whole.
+  The information in this section describes MatrixSwitch as a whole.
   Information specific to the additions in this module are in subsequent
   sections.
 
@@ -18,7 +18,7 @@ DBCSR@MatrixSwitch
    `ESL wiki <http://esl.cecam.org/MatrixSwitch>`_ 
 
   Relevant Training Material
-    See a usage example in the ``omm/MatrixSwitch/examples`` directory of the source code.
+    See usage examples in the ``examples`` directory of the source code.
   
   Licence
     Simplified BSD
@@ -28,84 +28,85 @@ DBCSR@MatrixSwitch
 Purpose of Module
 _________________
 
-`MatrixSwitch` is a module which acts as an intermediary interface layer between
-high-level and low-level routines
-dealing with matrix storage and manipulation. It allows a seamlessly switch
-between different software implementations of the matrix operations.
-`DBCSR` is an optimized library to deal with sparse matrices, which appear
-frequently in many kind of numerical simulations. In `DBCSR@MatrixSwitch`
-the new capability provided by `DBCSR` is added to `MatrixSwitch`, rendering
-much more faster calculations.
+MatrixSwitch is a module which acts as an intermediary interface layer between
+high-level routines for physics-related algorithms and low-level routines
+dealing with matrix storage and manipulation. This allows the high-level
+routines to be written in a way which is physically transparent, and enables
+them to switch seamlessly between different software implementations of the
+matrix operations.
 
 Background Information
 ______________________
 
-`MatrixSwitch`, `DBCSR`, and `DBCSR@MatrixSwitch` are software libraries 
-to be used within a calling code.
-`MatrixSwitch` has been developed within the same repository of other 
-self-contained libraries,
-all them collected in the `omm-bundle` project (see the `Source Code`_ section below). 
-As `DBCSR` has been added to `MatrixSwitch` 
-in a modular way, all them can be used together or separated.
-
-To carry out calculations in serial mode may be too slow sometimes and a paralellization
-is needed. In serial/parallel `MatrixSwitch` employs Lapack/ScaLapack to perform 
-matrix operations, irrespective of their dense or sparse character.
-The disadvantage of the Lapack/ScaLapack schemes is that they are not optimized 
-for sparse matrices. `DBCSR` provides the necessary algorithms to solve this problem and 
-in addition is specially suited to work in parallel. 
+MatrixSwitch is a software library and module to be used within a calling code.
+It is developed within the same repository project as other libraries (see
+Source Code Section), but all are self-contained within separate directories.
 
 Installation
 ____________
 
-The source code of the `MatrixSwitch` module is contained in a subdirectory of
-of the `omm-bundle` package with the same name, ``omm/MatrixSwitch``.  
-'omm-bundle' is in a ``git`` repository and can be obtained in this way: 
+The source code of the `MatrixSwitch` module is bundled in the git repository of
+the ``omm-bundle`` software which you can obtain using ``git``::
 
-  git clone https://gitlab.e-cam2020.eu/esl/omm.git
+  git clone https://gitlab.e-cam2020.eu/ESL/omm.git
 
-The `DBCSR` module is part of the `CP2K` code and it can be found in the 
-``CP2K`` repository:
+The source code of the `MatrixSwitch` module itself is contained in a
+subdirectory with the same name, ``MatrixSwitch``.
 
-  git clone https://github.com/cp2k/dbcsr.git
+.. note::
+ The information contained in the *Installation* and *Testing* sections are
+ likely to work with the latest version of the source code from the repository.
+ If this is not the case you can revert to the commit where the information is
+ guaranteed to work::
 
-To make `DBCSR@MatrixSwitch` work follow the steps below:
+   git checkout 919d916f
+ 
 
-1. Enter the ``omm`` directory.
+1. Enter the ``src`` directory.
 
-2. Copy ``make.inc.example`` to ``make.inc`` and modify it to suit your needs. To use
-`DBCSR` in `MatrixSwitch` include in your ``make.inc`` the path to the `DBCSR` library and add 
-to ``FPPFLAGS`` the new flag ``-DHAVE_DBCSR`` (requires ``-DHAVE_MPI``).
+2. Copy ``make.inc.example`` to ``make.inc`` and modify it to suit your needs.
+   Available options for ``FPPFLAGS`` are:
+
+   * ``-DHAVE_MPI``: enable MPI parallel routines
+   * ``-DHAVE_LAPACK``: enable LAPACK routines
+   * ``-DHAVE_SCALAPACK``: enable ScaLAPACK routines (requires MPI)
+   * ``-DHAVE_PSPBLAS``: enable to link to pspBLAS (requires pspBLAS installed at first)
+   * ``-DCONV``: enable automatic conversion of scalar types (real/complex) to
+     agree with matrix definitions (real/complex). Note that conversions from
+     complex to real will simply discard the imaginary part.
 
 3. Type ``make -f Makefile.manual``.
 
 4. Type ``make -f Makefile.manual install``.
 
+.. note::
+
+ We provide also the possibility to build modules with Autotools. You can find the related documentation in the following files: `omm-bundle <https://gitlab.e-cam2020.eu/ESL/omm>`_ and `MatrixSwith/doc <https://gitlab.e-cam2020.eu/ESL/omm/tree/master/MatrixSwitch/doc>`_
+
 Testing
 _______
 
-The ``examples`` directory of ``MatrixSwitch`` contains ``example_pdcsr_pddbc.F90``. It explains
-the use of `DBCSR@MatrixSwitch` and how `DBCSR` works. To compile it:
+The ``examples`` directory contains a number of small programs that make use of
+MatrixSwitch. These can be useful both for testing the installation and for
+learning how to use the library. To compile them:
 
-1. Enter the ``omm/MatrixSwitch/examples`` directory.
+1. Enter the ``examples`` directory.
 
 2. Copy ``make.inc.example`` to ``make.inc`` and modify it to suit your needs.
    Be aware that ``make.inc`` in the ``src`` directory will also be used.
 
 3. Type ``make -f Makefile.manual``.
 
-As the other examples in `MatrixSwitch`, ``example_pdcsr_pddbc.F90`` contains a header 
-explaining what the program does and provides a sample output to compare with.
+Each example contains a header explaining what the program does and providing
+sample output to compare against.
+
 
 Source Code
 ___________
 
-In the `E-CAM Gitlab`__ can be found all the source codes of `MatrixSwitch`__
-and `omm-bundle`__, while `DBCSR`__ is in the `CP2K`__ `Github`__.
-  
-.. __: https://gitlab.e-cam2020.eu/ 
-.. __: https://gitlab.e-cam2020.eu/esl/omm/tree/master/MatrixSwitch/
-.. __: https://gitlab.e-cam2020.eu/esl/omm/
-.. __: https://github.com/cp2k/dbcsr/
-.. __: https://github.com/cp2k/
-.. __: https://github.com/
+The source code is available from the `E-CAM Gitlab`__ under the `omm-bundle`__
+project. The MatrixSwitch directory can be found `here`__.
+
+.. __: https://gitlab.e-cam2020.eu/
+.. __: https://gitlab.e-cam2020.eu/ESL/omm/
+.. __: https://gitlab.e-cam2020.eu/ESL/omm/tree/master/MatrixSwitch
