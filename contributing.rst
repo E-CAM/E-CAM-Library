@@ -37,7 +37,7 @@ https://gitlab.e-cam2020.eu/.
   You should also register an SSH public key with GitLab (if you have not already done so), so you can easily clone, push to and pull from your repositories. This can
   be done via https://gitlab.e-cam2020.eu/profile/keys (once you're logged in on GitLab).
 
-In the following it is assumed that an SSH public key (see note above) has been registered, the possibility of using the HTTPS protocol
+In the following it is assumed that an SSH public key has been registered with GitLab (see note above), the possibility of using the HTTPS protocol
 to access GitLab is not covered (but is possible).
 
 Fork the repository
