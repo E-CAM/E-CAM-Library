@@ -60,14 +60,14 @@ developed by M. Seaton at Daresbury Laboratory.
 This open source code is available from STFC under both academic (free) and
 commercial (paid) licenses. The module is to be used with DL_MESO_
 in its second to last released version, version 2.6 (dating November 2015).
-A variant of this module to be used with DL_MESO_ in its last released version,
+A variant of this module to be used with its last released version,
 version 2.7 (released December 2018), will be provided soon.
 
 Testing
 _______
 
 The utility ``tetrahedral.f90`` is compiled with the available
-Fortran90 compiler, e.g.:
+Fortran90 compiler [2]_, e.g.:
 
 ``gfortran -o tetrahedral.exe tetrahedral.f90``
    
@@ -89,3 +89,4 @@ ___________
 .. [1] The angle
        :math:`\theta_{ijk}=\cos^{-1}\left\{\frac{\vec{r}_{ij}\cdot\vec{r}_{kj}}{r_{ij}r_{kj}}\right\}`
        where :math:`\vec{r_{ij}} = \vec{r_i} -\vec{r_j}` and :math:`r=|\vec{r}|`. 
+.. [2] Compilation has been tested with the GNU compiler GCC, version 8.2.1.
