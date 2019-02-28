@@ -39,7 +39,7 @@ At the mesoscale level, the user will select one (appropriate) bead species and 
 ordering.
 
 Given a particle :math:`j`, we first find its *four nearest neighbours*
-(n.n.). Then, an *orientational tetrahedral order parameter* is build using
+(n.n.). Then, an *orientational tetrahedral order parameter* is built using
 :math:`q=1-\frac{3}{8}\sum_{i=1}^3\sum_{k=i+1}^4\left(\cos\psi_{ik}+\frac{1}{3}\right)^2`,
 where :math:`i,k` are n.n. of :math:`j` and :math:`\psi_{ik}=\theta_{ijk}` is the angle [1]_
 between the particles :math:`i`, :math:`j` and :math:`k`.
@@ -59,7 +59,9 @@ Dynamics code from the mesoscopic simulation package DL_MESO_,
 developed by M. Seaton at Daresbury Laboratory.
 This open source code is available from STFC under both academic (free) and
 commercial (paid) licenses. The module is to be used with DL_MESO_
-in its last released version, version 2.6 (dating November 2015).
+in its second to last released version, version 2.6 (dating November 2015).
+A variant of this module to be used with DL_MESO_ in its last released version,
+version 2.7 (released December 2018), will be provided soon.
 
 Testing
 _______
@@ -67,7 +69,7 @@ _______
 The utility ``tetrahedral.f90`` is compiled with the available
 Fortran90 compiler, e.g.:
 
-``gfortran -o gen_dipole.exe gen_dipole.f90``
+``gfortran -o tetrahedral.exe tetrahedral.f90``
    
 and the executable must be in the same directory of the HISTORY file. 
 
