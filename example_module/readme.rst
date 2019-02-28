@@ -205,7 +205,7 @@ syntax required to get this):
       :linenos:
 
 
-..  I can't highlight the langauge syntax of a patch though so I have to exclude
+..  I can't highlight the language syntax of a patch though so I have to exclude
     :language: c
 
 .. literalinclude:: ./simple.patch

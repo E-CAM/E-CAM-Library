@@ -1,5 +1,13 @@
 image: umbrellium/sphinx-doc
 
+spelling:
+  script:
+  - pip install codespell
+  - codespell --skip=".git,_static,_build,Diff*" --quiet-level=2
+  only:
+  - master
+  - merge_requests
+
 pages:
   script:
   - apt-get update
@@ -11,3 +19,4 @@ pages:
     - public
   only:
   - master
+  - merge_requests
