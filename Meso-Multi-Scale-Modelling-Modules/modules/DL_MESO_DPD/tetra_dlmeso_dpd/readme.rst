@@ -55,7 +55,12 @@ center of the solid) one has :math:`q=S_k=1`.
 In an ideal gas, where the angle :math:`\psi_{ik}` is randomly distributed,
 :math:`q\simeq0`. On the other side, :math:`S_k\simeq 0` if the density
 fluctuations are large enough.
-            
+
+As a result of the analysis, a file `TETRADAT` is produced, whose columns are
+:math:`\textrm{snapshot index}, q, S_k`, the instantaneous values of the order
+parameters defined above. At the end of the file, the averages and
+standard errors (computed assuming the snapshots are uncorrelated) of both order parameters are given.
+
 
 Background Information
 ______________________
@@ -119,7 +124,7 @@ The output file ``TETRADAT``
    :lines: 1-13
 	   
 containing the values of :math:`q` and :math:`S_k` for each snapshot and their
-average is produced too.
+averages is produced too.
 
 One can see that in the initial snapshot both order parameters detect an
 ordered state (i.e., :math:`S_k=q=1`).
@@ -150,6 +155,9 @@ ___________
        8 atoms. Their coordinates may be given as:
        :math:`A=(0,0,0)`, :math:`B=(0,2,2)`, :math:`C=(2,0,2)`, :math:`D=(2,2,0)`, :math:`E=(3,3,3)`,
        :math:`F=(3,1,1)`, :math:`G=(1,3,1)`, and :math:`H=(1,1,3)` in a unit cubic cell of side :math:`L=4`.
+       One can check that, with the minimum image convention, each
+       particle has its 4 closest neighbours at a distance :math:`\sqrt{3}`, and all the angles are
+       :math:`\textrm{acos}(-1/3)`.
        For this configuration (also if repeated periodically along the three Cartesian axis), :math:`q=1` and :math:`S_k=1`.
 
    
