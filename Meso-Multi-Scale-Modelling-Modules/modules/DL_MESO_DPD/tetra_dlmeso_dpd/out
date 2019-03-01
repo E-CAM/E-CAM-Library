@@ -1,11 +1,9 @@
-Number of nodes used in calculations ?
+ Number of nodes used in calculations?
  Which species number has to be analyzed?
- nsyst=          64
- nspec=          64
- npart=          64
- rcut=   3.0598318439292158     
-
- <q> =   0.12796739341103591     
- error =    1.6516834889860849E-002
- <s_k> =   0.98698525587728092     
- error =    2.7703256730093049E-004
+ total number of beads:                64
+ number of beads by species:           64
+ number of analyzed beads:             64
+   <q> =     0.127967E+00
+ error =     0.165168E-01
+ <s_k> =     0.986985E+00
+ error =     0.277033E-03

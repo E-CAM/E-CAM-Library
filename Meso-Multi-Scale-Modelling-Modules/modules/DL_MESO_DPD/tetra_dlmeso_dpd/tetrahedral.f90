@@ -3,7 +3,7 @@ PROGRAM tetrahedral
 !
 ! module to analyze tetrahedral ordering in dl_meso HISTORY files
 !
-! authors - m. a. seaton & s. chiacchiera, january 2018
+! authors - m. a. seaton & s. chiacchiera, january 2018 (tidied up on march 2019)
 !
 !**********************************************************************************
   IMPLICIT none
@@ -20,7 +20,7 @@ PROGRAM tetrahedral
   CHARACTER(6) :: chan
   CHARACTER(8) :: a1
   
-  INTEGER, ALLOCATABLE :: ltp (:), ltm (:), mole (:), bndtbl (:,:), beads (:), bonds (:), nspec (:)
+  INTEGER, ALLOCATABLE :: ltp (:), ltm (:), beads (:), bonds (:), nspec (:)
   INTEGER :: nrtout
   INTEGER :: chain, imol, ibead, ioerror, i, numtraj, j, k, l, m, nmoldef, ibond
   INTEGER :: nspe, numnodes, nbeads, nusyst, nmbeads, nsyst, nbonds, numbond, global, species, molecule
@@ -40,7 +40,6 @@ PROGRAM tetrahedral
 
 ! Variables for tetrahedral ordering
   INTEGER :: nnlab(4), npart, sp, count
-  REAL(KIND=dp), DIMENSION(3):: rt1, rt2, rt3, rt4, rt5  
   REAL(KIND=dp) :: qtetra, stetra
   REAL(KIND=dp) :: q, sk, q_sum, sk_sum, q_ave, sk_ave
   REAL(KIND=dp) :: q2_sum, sk2_sum, q2_ave, sk2_ave
@@ -49,7 +48,7 @@ PROGRAM tetrahedral
   
   ! Get number of nodes 
 
-  WRITE (*,*) "Number of nodes used in calculations ?"
+  WRITE (*,*) "Number of nodes used in calculations?"
   READ (*,*) numnodes
       
   ALLOCATE (beads (numnodes), bonds (numnodes))
@@ -109,7 +108,7 @@ PROGRAM tetrahedral
   !    STOP
   ! END IF
 
-  ALLOCATE (namspe (nspe), nammol (nmoldef), nspec (nspe)) !NB: I mean ALL beads of a type, not only unbonded
+  ALLOCATE (namspe (nspe), nammol (nmoldef), nspec (nspe)) !NB: nspec here counts ALL beads of a type, not only unbonded ones
   ALLOCATE (xxx (1:nsyst), yyy (1:nsyst), zzz (1:nsyst))
   ALLOCATE (ltp (1:nsyst))
   
@@ -154,7 +153,7 @@ PROGRAM tetrahedral
   
   DO j = 1, numnodes
      CLOSE (ntraj+j-1)
-  END DO
+  END DO 
   
   ! Second reading, where arrays are filled with properties of beads and molecules.
   ! Then, the snapshots of trajectories are read.
@@ -194,12 +193,9 @@ PROGRAM tetrahedral
      END DO
 
      IF (bonds (j)>0) THEN
-        ! Build bndtbl
         DO i = 1, bonds (j)
            ibond = ibond + 1
            READ (ntraj+j-1) bead1, bead2
-!           bndtbl (ibond, 1) = bead1
-!           bndtbl (ibond, 2) = bead2
         END DO
      END IF
      
@@ -220,11 +216,9 @@ PROGRAM tetrahedral
   
   npart = nspec (sp)
 
-  WRITE(*,*) "nsyst=",nsyst
-  WRITE(*,*) "nspec=",nspec
-  WRITE(*,*) "npart=",npart
-  
-!  ALLOCATE (xxx (1:npart), yyy (1:npart), zzz (1:npart))! I think better to keep nsyst
+  WRITE(*,*) "total number of beads:      ", nsyst
+  WRITE(*,*) "number of beads by species: ", nspec
+  WRITE(*,*) "number of analyzed beads:   ", npart
   
   ! Open and write output file
       
@@ -271,7 +265,8 @@ PROGRAM tetrahedral
         
         nbeads = NINT (mbeads)
 
-        xxx (:) = 0._dp !OK?
+! The full coordinate arrays are used to avoid re-labeling, but they are filled *only* for particles of species "sp"
+        xxx (:) = 0._dp 
         yyy (:) = 0._dp
         zzz (:) = 0._dp
 
@@ -314,7 +309,7 @@ PROGRAM tetrahedral
         END SELECT
 
         IF (count /= npart) THEN
-           WRITE (*,*) "Number of particles of species ",sp," differs from expected!" 
+           WRITE (*,*) " Number of particles of species ",sp," differs from expected!" 
            STOP
         END IF
            
@@ -327,17 +322,17 @@ PROGRAM tetrahedral
      DO i = 1, nsyst
      IF (ltp(i) /= sp) CYCLE
      CALL closest4 (i,nnlab)
-     WRITE (*,*) i, nnlab
-     call compute_tetra_lab (i,nnlab, qtetra, stetra)
-     print*,"q=",qtetra
-     print*,"s=",stetra  
+     ! WRITE (*,*) i, nnlab  ! uncomment to see nn labels 
+     call compute_tetra_label (i,nnlab, qtetra, stetra)
+!     print*,"q=",qtetra ! uncomment to print q for each single set of 5 particles
+!     print*,"s=",stetra ! uncomment to print sk for each single set of 5 particles
      q = q + qtetra
      sk = sk + stetra     
   END DO
   q = q / npart
   sk = sk / npart
 
-  WRITE (nrtout,*) nav, q, sk  
+  WRITE (nrtout,'(1p,I8,2(2x,e14.6))') nav, q, sk  
   
   q_sum = q_sum + q
   sk_sum = sk_sum + sk
@@ -346,9 +341,6 @@ PROGRAM tetrahedral
 
   ! ...        
   END DO ! end of loop over trajectories
-
-  ! q_ave = q_sum / (npart * nav) ! average over particles and snapshots
-  ! sk_ave = sk_sum / (npart * nav)
 
   q_ave = q_sum / nav ! average over snapshots
   sk_ave = sk_sum / nav
@@ -359,15 +351,15 @@ PROGRAM tetrahedral
   WRITE (nrtout,*)
   WRITE (nrtout,*)
   
-  WRITE (*,*) "<q> = ", q_ave
-  WRITE (*,*) "error = ", sqrt( q2_ave - q_ave **2)/sqrt(1._dp*nav)
-  WRITE (*,*) "<s_k> = ", sk_ave
-  WRITE (*,*) "error = ", sqrt( sk2_ave - sk_ave **2)/sqrt(1._dp*nav)
+  WRITE (*,'(A9,2x,e14.6)') " <q> = ", q_ave 
+  WRITE (*,'(A9,2x,e14.6)') " error = ", sqrt( q2_ave - q_ave **2)/sqrt(1._dp*nav)
+  WRITE (*,'(A9,2x,e14.6)') " <s_k> = ", sk_ave
+  WRITE (*,'(A9,2x,e14.6)') " error = ", sqrt( sk2_ave - sk_ave **2)/sqrt(1._dp*nav)
   
-  WRITE (nrtout,*) "<q> = ", q_ave
-  WRITE (nrtout,*) "error = ", sqrt( q2_ave - q_ave **2)/sqrt(1._dp*nav)
-  WRITE (nrtout,*) "<s_k> = ", sk_ave
-  WRITE (nrtout,*) "error = ", sqrt( sk2_ave - sk_ave **2)/sqrt(1._dp*nav)
+  WRITE (nrtout,'(A11,2x,e14.6)') " # <q>   = ", q_ave
+  WRITE (nrtout,'(A11,2x,e14.6)') " # error = ", sqrt( q2_ave - q_ave **2)/sqrt(1._dp*nav)
+  WRITE (nrtout,'(A11,2x,e14.6)') " # <s_k> = ", sk_ave
+  WRITE (nrtout,'(A11,2x,e14.6)') " # error = ", sqrt( sk2_ave - sk_ave **2)/sqrt(1._dp*nav)
   
   ! Close the trajectory files
   DO j = 1, numnodes
@@ -388,7 +380,7 @@ PROGRAM tetrahedral
  !-----------------------------------------------------------------------------------------
   CONTAINS 
 
-SUBROUTINE compute_tetra_lab (gb0, nnlab, qtetra, stetra)
+SUBROUTINE compute_tetra_label (gb0, nnlab, qtetra, stetra)
 !*************************************************************************************
 ! subroutine to compute q and sk for five particles given their global labels
 ! (a central one and its four nearest neighbours)
@@ -401,19 +393,17 @@ SUBROUTINE compute_tetra_lab (gb0, nnlab, qtetra, stetra)
   INTEGER, INTENT(IN):: gb0, nnlab (4)
   
   REAL(KIND=dp), INTENT(OUT) :: qtetra, stetra
-  REAL(KIND=dp) :: theta, ctheta, angle_ave, cangle_ave
+  REAL(KIND=dp) :: theta, ctheta!, angle_ave, cangle_ave ! can be uncommented for checks
 
   REAL(KIND=dp) :: xab, yab, zab, rab, rrab, xcb, ycb, zcb, rcb, rrcb
   REAL(KIND=dp) :: r_ave, r2_ave
-
-!  REAL(KIND=dp) :: xxx (5), yyy (5), zzz (5)
     
   INTEGER :: nn1, nn2, i,j,k !change if needed
 
 !-----------------------------------------------------------------------------------------
   qtetra = 0._dp
-  angle_ave = 0._dp 
-  cangle_ave = 0._dp 
+  ! angle_ave = 0._dp 
+  ! cangle_ave = 0._dp 
 
   j = gb0 ! central particle for angle computations
   DO nn1 = 1, 3
@@ -455,26 +445,26 @@ SUBROUTINE compute_tetra_lab (gb0, nnlab, qtetra, stetra)
         zcb = zcb * rrcb
   
         ctheta = xab * xcb + yab * ycb + zab * zcb
-        IF (ABS(ctheta)>1.0_dp) ctheta = SIGN(1.0_dp, ctheta) ! shouldn't I check how much >1 it is?
+        IF (ABS(ctheta)>1.0_dp) ctheta = SIGN(1.0_dp, ctheta) ! could add a check of how much >1 it is
         theta = ACOS (ctheta)
 !-----------------------------------------------------------------------------------------  
         qtetra = qtetra + (ctheta + 1._dp/3) ** 2
-        angle_ave = angle_ave + theta 
-        cangle_ave = cangle_ave + ctheta 
+        ! angle_ave = angle_ave + theta 
+        ! cangle_ave = cangle_ave + ctheta 
 !-----------------------------------------------------------------------------------------
-        WRITE(*,'(i2,1x,i2,1x,f13.6,1x,f13.6)') nn1, nn2, ctheta, ACOS(ctheta)/pi*180
+!        WRITE(*,'(i2,1x,i2,1x,f13.6,1x,f13.6)') nn1, nn2, ctheta, ACOS(ctheta)/pi*180
      END DO
   END DO
-!  qtetra = qtetra/ 6.
+
   qtetra = 1 - 3._dp/8 * qtetra
   
-  angle_ave = angle_ave/ 6.
-  cangle_ave = cangle_ave/ 6.
+  ! angle_ave = angle_ave/ 6.
+  ! cangle_ave = cangle_ave/ 6.
 
-  print*,"average angle=", angle_ave
-  print*,"average cosine angle=", cangle_ave,"-> angle", ACOS(cangle_ave)," and in degrees ",ACOS(cangle_ave)/pi*180
+  ! print*,"average angle=", angle_ave
+  ! print*,"average cosine angle=", cangle_ave,"-> angle", ACOS(cangle_ave)," and in degrees ",ACOS(cangle_ave)/pi*180
 !-----------------------------------------------------------------------------------------
-!  stetra = 0._dp
+
   r_ave = 0._dp
   r2_ave = 0._dp
   
@@ -495,8 +485,7 @@ SUBROUTINE compute_tetra_lab (gb0, nnlab, qtetra, stetra)
      
      r_ave = r_ave + rab
      r2_ave = r2_ave + rab ** 2
-     !     stetra
-     WRITE(*,'(i2,1x,f13.6)') nn1,rab 
+     
   END DO
   
   r_ave = r_ave / 4
@@ -505,7 +494,7 @@ SUBROUTINE compute_tetra_lab (gb0, nnlab, qtetra, stetra)
   stetra = 1 - 1./(3*r_ave**2) * (r2_ave - r_ave ** 2)
   
   RETURN
-END SUBROUTINE compute_tetra_lab
+END SUBROUTINE compute_tetra_label
 
 SUBROUTINE closest4 (gb0, sorted)
 !*************************************************************************************
@@ -529,12 +518,12 @@ SUBROUTINE closest4 (gb0, sorted)
 
   ncut = 15 !10 ! a bit more than 4, to be safe.
   
-10 size = MIN (npart - 1, 2 * ncut)
-   rcut = (3/(4*pi) * ncut / npart * volm) ** (1./3.)
-   count =0 
+  size = MIN (npart - 1, 2 * ncut)
+  rcut = (3/(4*pi) * ncut / npart * volm) ** (1./3.)
+  count =0 
  
   ALLOCATE (list (size, 2))
-!  WRITE(*,*) "shape (list)=",shape(list), "ncut=",ncut
+
   list = 0._dp
   
   DO i = 1, nsyst
@@ -553,7 +542,6 @@ SUBROUTINE closest4 (gb0, sorted)
   
      IF (r > rcut) CYCLE
      count = count + 1
-!     WRITE(*,*) "count=", count
      IF (count>size) THEN
         WRITE(*,*) "error: too many particles!"
         STOP
@@ -562,27 +550,14 @@ SUBROUTINE closest4 (gb0, sorted)
      list (count,2) = r ! store the distance to gb0
   END DO
 
-  WRITE (*,*) "rcut=", rcut
-  WRITE (*,*) gb0, count
+!  WRITE (*,*) "rcut=", rcut  ! uncomment to see radius of search region
+!  WRITE (*,*) gb0, count ! uncomment to see the number of particles within it
   
   IF (count < 4) THEN
      WRITE (*,*) "error: fewer than 4 neighbours - ",count," - found! Increase the searched volume (-> ncut)"
      WRITE (*,*) "time=",time
-     ! IF (ncut >= 20) THEN
-     !    WRITE(*,*)"error: even with ncut>=20 could not find 4 neighbours"
-     !    STOP
-     ! ELSE     
-     !    DEALLOCATE (list)
-     !    ncut = ncut - 2
-     !    GO TO 10
-     ! END IF
      STOP
   END IF
-!  WRITE (*,*) "rcut=", rcut
-!  WRITE (*,*) gb0, count
-!  DO i =1, size !ncut*2
-!     WRITE (*,*) list (i,:)
-!  END DO
   
   ! sorting by distance 
   sorted (:) = 0
@@ -600,20 +575,12 @@ SUBROUTINE closest4 (gb0, sorted)
      END DO
      sorted (j) = indx
      sorted_r (j) = rmin
-     !     WRITE (*,*) rmin, indx
   END DO
-  WRITE (*,*) sorted
-  WRITE (*,*) sorted_r
-!  WRITE (*,*) (list (sorted(i),2), i=1,4)
-!  DO i =1,4
-!     WRITE (*,*) list (sorted(i),2)     
-!  END DO
+!  WRITE (*,'(4(1x,I6))') sorted ! uncomment to see the labels of nn of gb0 (sorted by distance)
+!  WRITE (*,'(4(1x,f13.6))') sorted_r ! uncomment to see the corresponding distances
   
-  DEALLOCATE (list) ! allocate/deallocate here, or in the main?
+  DEALLOCATE (list) ! for fixed size, could allocate/deallocate in the main
   RETURN
 END SUBROUTINE closest4
-
-
-
 
 END PROGRAM tetrahedral
