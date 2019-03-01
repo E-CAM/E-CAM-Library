@@ -49,6 +49,13 @@ A *translational tetrahedral order parameter*, :math:`S_k`, is defined as
 :math:`S_k=1-\frac{1}{3}\sum_{i=1}^4 \frac{(r_i - \bar{r})^2}{4\bar{r}^2}`,
 where :math:`i` is a n.n. of :math:`j` and :math:`\bar{r}=\frac{1}{4}\sum_{i=1}^4 r_i`.
 
+Concerning the limiting values of these parameters:
+in a regular tetrahedron (if the four vertices are referred to the
+center of the solid) one has :math:`q=S_k=1`.
+In an ideal gas, where the angle :math:`\psi_{ik}` is randomly distributed,
+:math:`q\simeq0`. On the other side, :math:`S_k\simeq 0` if the density
+fluctuations are large enough.
+            
 
 Background Information
 ______________________
@@ -114,10 +121,11 @@ The output file ``TETRADAT``
 containing the values of :math:`q` and :math:`S_k` for each snapshot and their
 average is produced too.
 
-One can see that in the initial snapshot both order parameters are :math:`1`.
-However, since the system is a dilute fluid, the evolution in time rapidly
-destroys the orientational ordering (i.e., :math:`q\simeq 0`).
-The translational order parameter stays close to one since the density of the
+One can see that in the initial snapshot both order parameters detect an
+ordered state (i.e., :math:`S_k=q=1`).
+With the evolution in time, since the system is a dilute fluid, 
+the orientational ordering is rapidly lost (i.e., :math:`q\simeq 0`).
+On the other side, the translational order parameter stays close to one since the density of the
 system is roughly uniform.
 
 
