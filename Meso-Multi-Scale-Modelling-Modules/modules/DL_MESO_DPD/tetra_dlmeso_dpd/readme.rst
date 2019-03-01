@@ -50,7 +50,6 @@ A *translational tetrahedral order parameter*, :math:`S_k`, is defined as
 where :math:`i` is a n.n. of :math:`j` and :math:`\bar{r}=\frac{1}{4}\sum_{i=1}^4 r_i`.
 
 
-
 Background Information
 ______________________
 
@@ -71,7 +70,56 @@ Fortran90 compiler [2]_, e.g.:
 
 ``gfortran -o tetrahedral.exe tetrahedral.f90``
    
-and the executable must be in the same directory of the HISTORY file. 
+and the executable must be in the same directory of the HISTORY file.
+The user is asked to provide the number of nodes used to run the
+simulation and the number of the species for which ordering has to be
+analyzed. To input the user-defined parameters one can enter them from the
+keyboard or write them
+into a text file (say, input.txt), one per line
+(in the right order) and run the program in this way:
+
+``tetrahedral.exe < input.txt``
+
+Below we propose a test where a fluid is prepared in a ordered configuration
+(diamond cubic lattice)
+and rapidly goes into an orientationally disordered one.
+
+**Test**
+
+Run the DL_MESO_DPD simulation on a single node (serial run)
+using for the CONTROL file
+
+.. literalinclude:: ./CONTROL
+
+for the FIELD file
+
+.. literalinclude:: ./FIELD
+
+and for the CONFIG file
+		    
+.. literalinclude:: ./CONFIG
+
+This configuration corresponds to a diamond cubic lattice [3]_.
+		    
+Analyzing the trajectory (HISTORY) file with ``tetrahedral.exe`` and input :math:`1`
+for both requirements, this output is printed on the standard output
+
+.. literalinclude:: ./out
+		    
+The output file ``TETRADAT``
+
+.. literalinclude:: ./TETRADAT
+   :lines: 1-13
+	   
+containing the values of :math:`q` and :math:`S_k` for each snapshot and their
+average is produced too.
+
+One can see that in the initial snapshot both order parameters are :math:`1`.
+However, since the system is a dilute fluid, the evolution in time rapidly
+destroys the orientational ordering (i.e., :math:`q\simeq 0`).
+The translational order parameter stays close to one since the density of the
+system is roughly uniform.
+
 
 Source Code
 ___________
@@ -81,7 +129,7 @@ ___________
       :linenos:
 
 	 
-.. Here are the URL references used
+.. Here are the URL and references used
 .. _DL_MESO: http://www.ccp5.ac.uk/DL_MESO
 .. [Duboue2015]  E. Duboué-Dijon, A. Laage, *Characterization of the                                                                                             
 		 local structure in liquid water by various order parameters*,
@@ -90,3 +138,10 @@ ___________
        :math:`\theta_{ijk}=\cos^{-1}\left\{\frac{\vec{r}_{ij}\cdot\vec{r}_{kj}}{r_{ij}r_{kj}}\right\}`
        where :math:`\vec{r_{ij}} = \vec{r_i} -\vec{r_j}` and :math:`r=|\vec{r}|`. 
 .. [2] Compilation has been tested with the GNU compiler GCC, version 8.2.1.
+.. [3] The diamond cubic crystal lattice (https://en.wikipedia.org/wiki/Diamond_cubic) is a repeating pattern of
+       8 atoms. Their coordinates may be given as:
+       :math:`A=(0,0,0)`, :math:`B=(0,2,2)`, :math:`C=(2,0,2)`, :math:`D=(2,2,0)`, :math:`E=(3,3,3)`,
+       :math:`F=(3,1,1)`, :math:`G=(1,3,1)`, and :math:`H=(1,1,3)` in a unit cubic cell of side :math:`L=4`.
+       For this configuration (also if repeated periodically along the three Cartesian axis), :math:`q=1` and :math:`S_k=1`.
+
+   
