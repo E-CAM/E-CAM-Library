@@ -32,20 +32,19 @@ GitLab account
 If you do not have a (free) GitLab account yet on the E-CAM GitLab service, you'll need to get one via
 https://gitlab.e-cam2020.eu/.
 
+.. note::
+
+  You should also register an SSH public key with GitLab (if you have not already done so), so you can easily clone, push to and pull from your repositories. This can
+  be done via https://gitlab.e-cam2020.eu/profile/keys (once you're logged in on GitLab).
+
+In the following it is assumed that an SSH public key has been registered with GitLab (see note above), the possibility of using the HTTPS protocol
+to access GitLab is not covered (but is possible).
+
 Fork the repository
 -------------------
 
-First, you'll need to fork the repository on GitLab you want to work with. Go to
-https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library, and click the grey 'Fork' button under the repository name.
-
-SSH public key @ GitLab
------------------------
-
-You also need to register an SSH public key, so you can easily clone, push to and pull from your repository. This can
-be done via https://gitlab.e-cam2020.eu/profile/keys if you're logged in on GitLab.
-
-In the following it is assumed that an SSH public key has been registered, the possibility of using the HTTP protocol
-to access GitLab is not covered (but is possible).
+Firstly, you'll need to fork the repository on GitLab you want to work with. Go to
+https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library , and click the grey 'Fork' button either beside or under the repository name (or just click this `fork link <https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library/forks/new>`_).
 
 Clone your fork of the repository
 ---------------------------------
@@ -130,7 +129,7 @@ Checking your contribution locally
 ----------------------------------
 
 You can locally build the documentation to check that the changes you make look as you expect them. To do this you will
-need the Sphinx python package to be installed (see this `link <http://www.sphinx-doc.org/en/stable/install.html>`_ for
+need the Sphinx python package to be installed (see this `installation link <http://www.sphinx-doc.org/en/stable/install.html>`_ for
 information on how to install this tool on your operating system).
 
 .. code-block:: bash
@@ -182,7 +181,7 @@ push the changes back to GitLab:
 .. code-block:: bash
 
     git add modules/gromacs_gpu/readme.rst
-    git commit -m "update documention on how to trigger the GPU support"
+    git commit -m "update documentation on how to trigger the GPU support"
     git push origin <BRANCH_NAME>
 
 The Merge  Request will now be automatically updated with the changed files.

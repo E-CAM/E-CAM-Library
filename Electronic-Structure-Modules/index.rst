@@ -87,6 +87,7 @@ Modules not coming from ESDWs
      :maxdepth: 1
 
      ./modules/SCDM_WFs/readme
+     ./modules/flook/readme
 
 Pilot Projects
 ==============
@@ -105,7 +106,10 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/Geomoltools/readme   
     ./modules/GRASP_Sampling/readme   
     ./modules/GROMACS_interface/README   
-    ./modules/Gaussian_interface/README   
+    ./modules/Gaussian_interface/README  
+    ./modules/Differential_Evolution/README  
+    ./modules/Gaussian_interface/README
+    ./modules/WLRR/README   
 
 
 .. _E-CAM: https://www.e-cam2020.eu/
