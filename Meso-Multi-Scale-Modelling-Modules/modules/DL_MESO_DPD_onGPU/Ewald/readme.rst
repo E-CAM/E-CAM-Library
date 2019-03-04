@@ -36,7 +36,7 @@
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
     reference to work (so don't insert a comment between).
 
-.. _example:
+.. _dl_meso_dpd_gpu_Ewald:
 
 ##################################
 Ewald on DL_MESO_DPD (GPU version) 
@@ -81,10 +81,10 @@ ______________________
 
 This module is part of the DL_MESO_DPD code. Full support and documentation is available at:
 
-* http://www.scd.stfc.ac.uk/SCD/support/40694.aspx
-* http://www.scd.stfc.ac.uk/SCD/resources/PDF/USRMAN.pdf
+* https://www.scd.stfc.ac.uk/Pages/DL_MESO.aspx
+* https://www.scd.stfc.ac.uk/Pages/USRMAN.pdf 
 
-To download the DL_MESO_DPD code you need to register at https://ccpforge.cse.rl.ac.uk/gf/. Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.
+To download the DL_MESO_DPD code you need to register at https://gitlab.stfc.ac.uk/dl_meso/dl_meso. Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.
 
 
 
@@ -104,7 +104,6 @@ The DL_MESO code is developed using git version control. Currently the GPU versi
 
 To compile and run the code you need to have installed the CUDA-toolkit and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw).
 
-The current version has been tested ONLY for the Mixture_Large test case available in the DEMO/DPD folder. 
 To run the case, compile the code using the "make all" command from the "bin" directory, copy the "FIELD" and "CONTROL" files in this directory and run "./dpd_gpu.exe".
 The DL_MESO code is developed using git version control. Currently the GPU version is under a branch named "add_gpu_version". 
 After downloading the code, checkout to the GPU branch and look into the "DPD/gpu_version" folder, i.e:
@@ -120,9 +119,7 @@ ___________
 This module has been merged into DL_MESO code. It is composed of the
 following commits (you need to be register as developer):
 
-* https://ccpforge.cse.rl.ac.uk/gf/project/dl_meso/scmgit/?action=ScmCommitDetail&scm_commit_id=110906
-* https://ccpforge.cse.rl.ac.uk/gf/project/dl_meso/scmgit/?action=ScmCommitDetail&scm_commit_id=111357
-
+* https://gitlab.stfc.ac.uk/dl_meso/dl_meso/commit/9962103c7821634a17ecb5da5460183a68951a0b
 
 
 .. _ReST: http://www.sphinx-doc.org/en/stable/rest.html
