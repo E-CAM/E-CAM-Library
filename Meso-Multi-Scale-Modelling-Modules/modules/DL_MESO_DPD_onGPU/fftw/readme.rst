@@ -105,7 +105,6 @@ The DL_MESO code is developed using git version control. Currently the GPU versi
 
 To compile and run the code you need to have installed the CUDA-toolkit and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw).
 
-The current version has been tested ONLY for the Mixture_Large test case available in the DEMO/DPD folder. 
 To run the case, compile the code using the "make all" command from the "bin" directory, copy the "FIELD" and "CONTROL" files in this directory and run "./dpd_gpu.exe".
 The DL_MESO code is developed using git version control. Currently the GPU version is under a branch named "add_gpu_version". 
 
