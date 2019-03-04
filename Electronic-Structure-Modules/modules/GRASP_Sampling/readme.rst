@@ -35,13 +35,13 @@ The GRASP algorithm is illustrated in the paper "Feo T. A., Resende M. G., Greed
 Input/Output Structure
 ______________________
 
-The input file, "candidates.txt", must have the form of an array :math:`N_{Sample} \times N_{dim}`, where :math:`N_{Sample}` is the number of the candidates and :math:`N_{dim}` is the dimension of the vectors. The application of the algorithm provides the files "solution_v_A_B.txt" and "solution_i_A_B.txt" that includes the selected configurations and the corresponding indeces respectively. "A" and "B" in the files of the solutions are the number of the selected configurations in the current application of the algorithm and the total number of configurations included in the solutions. A and B can differ because the algorithm can be applied in cumulative mode. The parameters of the algorithm are set in the file "input.gra" (an example is provided in the repository).
+The input file, "candidates.txt", must have the form of an array :math:`N_{Sample} \times N_{dim}`, where :math:`N_{Sample}` is the number of the candidates and :math:`N_{dim}` is the dimension of the vectors. The application of the algorithm provides the files "solution_v_A_B.txt" and "solution_i_A_B.txt" that includes the selected configurations and the corresponding indices respectively. "A" and "B" in the files of the solutions are the number of the selected configurations in the current application of the algorithm and the total number of configurations included in the solutions. A and B can differ because the algorithm can be applied in cumulative mode. The parameters of the algorithm are set in the file "input.gra" (an example is provided in the repository).
 
 
 Source Code
 ___________
 
-The source code of the algorithm is included in the "grasp.c" file, avaliable from the `E-CAM Gitlab repository`__. To compile the code execute the Makefile. The GNU Scientific Library is necessary.
+The source code of the algorithm is included in the "grasp.c" file, available from the `E-CAM Gitlab repository`__. To compile the code execute the Makefile. The GNU Scientific Library is necessary.
 
 
 Testing

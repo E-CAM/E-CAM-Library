@@ -394,6 +394,13 @@ implemented in QChem can be used to provide electronic structure information for
 The **Zagreb_sh** module is an interface between between Quantics package and the Tully's surface hoping code provided by the group of Nadja Doslic in Zagreb.
 
 
+.. toctree::
+        :glob:
+        :maxdepth: 1
+
+        ./modules/Quantics_Openmp_Improvements_Module/Quantics_omp_module
+
+The **Quantics_openmp** module is an initial effort at OpenMP parallelisation improvements to Quantics.
 
 References
 ==========
