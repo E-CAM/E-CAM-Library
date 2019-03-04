@@ -62,6 +62,7 @@ The following modules connected to the DL_MESO_DPD code have been produced so fa
     ./modules/DL_MESO_DPD/moldip_af_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD_onGPU/add_gpu_version/readme
     ./modules/DL_MESO_DPD/check_dlmeso_dpd/readme
+    ./modules/DL_MESO_DPD/tetra_dlmeso_dpd/readme
 
 ESPResSo++
 ----------
