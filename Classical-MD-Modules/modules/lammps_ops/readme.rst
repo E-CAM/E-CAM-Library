@@ -27,7 +27,7 @@ Integrating LAMMPS with OpenPathSampling
 
 .. contents:: :local:
 
-Authors: Jony Castagna
+Authors: Jan-Hendrik Prinz and Jony Castagna
 
 This module shows how LAMMPS can be used as Molecular Dynamic (MD) engine in OpenPathSampling (OPS)
 and it also provide a benchmark for the impact of OPS overhead over the MD engine.
@@ -46,7 +46,7 @@ The MD engine has to produce the sequence of frames and wait for OPS to provide 
 
 In this module we present the source code for the integration of OPS with LAMMPS as well as a benchmark for of a simple test case to show the impact on the performance due to OPS overhead.      
 
-The integration with LAMMPS has been developed by Jan Hendrick and consists of a Python script where the number of time steps per frame has to be specified (see below for the link to the source file).  
+The integration with LAMMPS has been developed by Jan-Hendrick Prinz (https://github.com/jhprinz) and consists of a Python script where the number of time steps per frame has to be specified (see below for the link to the source file).  
 
 
 .. references would be nice here...
@@ -65,8 +65,8 @@ Details about how to use OPS with LAMMPS are provided in the:
 
 * iPython notebook for LAMMPS: https://github.com/jhprinz/openpathsampling/blob/1235c472217d32b26011cdd6db0ac6287c994ab2/examples/misc/introduction_lammps.ipynb 
 
-Testing
-_______
+Examples
+________
 
 .. IF YOUR MODULE IS IN OPS CORE:
 
@@ -78,8 +78,8 @@ The script which integrate LAMMPS with OPS can be applied to any case running in
 .. installing its requirements, and running the command ``nosetests`` from the
 .. root directory of the repository.
 
-Examples
-________
+Testing and Performance
+_______________________
 
 The table shows the performance of LAMMPS with OPS for the Lennar-Jones (32K atomes) test case using 100 time steps per frame (more frequent queries) and 1000 time steps (less frequent queries) for a total of 100K time steps. The MD engine time (i.e., LAMMPS only time) and the total time (OPS + LAMMPS) using different number of nodes (with 24 cores per node) is presented.
 
