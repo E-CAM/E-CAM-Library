@@ -36,7 +36,7 @@
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
     reference to work (so don't insert a comment between).
 
-.. _example:
+.. _dl_meso_dpd_gpu_fftw:
 
 #################################
 SPME on DL_MESO_DPD (GPU version) 
@@ -51,13 +51,13 @@ SPME on DL_MESO_DPD (GPU version)
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-The electrostatic force calculation represent usually the main computational costs in systems where even a small amount of charged particles is present ($>1\%$).
-The Smooth Particle Ewald Mesh \cite{SPME} splits the electrostatic forces in two parts: a short range, solved in the real space, and a long range, solved in the Fourier space.
-An error weight function combines the two contributes. For the long range force the electrical charges are spread on a virtual particle mesh using a B-spline interpolation function.
+The electrostatic force calculation usually represents the main computational costs in systems where even a small amount of charged particles are present ($>1\%$).
+The Smooth Particle Mesh Ewald [SPME]_ splits the electrostatic forces in two parts: a short range, solved in the real space, and a long range, solved in the Fourier space.
+An error weight function combines the two contributions. For the long range force the electrical charges are spread on a virtual particle mesh using a B-spline interpolation function.
 
-Porting to GPU the full short and long range interactions allowed to maintain the speedup factor of $x4$ when compared to the a traditional Intel 12-core.
+Porting to GPU the full short and long range interactions allowed to maintain the speedup factor of $x4$ when compared to a traditional 12-core Intel CPU.
 
-One of the main applications which included electrical charges are the simulations of plasma. 
+One of the main applications which included electrical charges are the simulations of plasma.
 
 
 
@@ -107,7 +107,6 @@ To compile and run the code you need to have installed the CUDA-toolkit and have
 The current version has been tested ONLY for the Mixture_Large test case available in the DEMO/DPD folder. 
 To run the case, compile the code using the "make all" command from the "bin" directory, copy the "FIELD" and "CONTROL" files in this directory and run "./dpd_gpu.exe".
 The DL_MESO code is developed using git version control. Currently the GPU version is under a branch named "add_gpu_version". 
-After downloading the code, checkout to the GPU branch and look into the "DPD/gpu_version" folder, i.e:
 
 
 
@@ -124,6 +123,7 @@ following commits (you need to be register as developer):
 * https://ccpforge.cse.rl.ac.uk/gf/project/dl_meso/scmgit/?action=ScmCommitDetail&scm_commit_id=111357
 
 
+.. [SPME] J. Chem. Phys. 103, 8577 (1995)
 
 .. _ReST: http://www.sphinx-doc.org/en/stable/rest.html
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/markup/index.html
