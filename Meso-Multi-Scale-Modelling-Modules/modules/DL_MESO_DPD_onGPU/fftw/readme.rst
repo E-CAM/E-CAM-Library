@@ -81,10 +81,11 @@ ______________________
 
 This module is part of the DL_MESO_DPD code. Full support and documentation is available at:
 
-* http://www.scd.stfc.ac.uk/SCD/support/40694.aspx
-* http://www.scd.stfc.ac.uk/SCD/resources/PDF/USRMAN.pdf
+* https://www.scd.stfc.ac.uk/Pages/DL_MESO.aspx
+* https://www.scd.stfc.ac.uk/Pages/USRMAN.pdf 
 
-To download the DL_MESO_DPD code you need to register at https://ccpforge.cse.rl.ac.uk/gf/. Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.
+To download the DL_MESO_DPD code you need to register at https://gitlab.stfc.ac.uk/dl_meso/dl_meso. 
+Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.
 
 
 
@@ -119,8 +120,7 @@ ___________
 This module has been merged into DL_MESO code. It is composed of the
 following commits (you need to be register as developer):
 
-* https://ccpforge.cse.rl.ac.uk/gf/project/dl_meso/scmgit/?action=ScmCommitDetail&scm_commit_id=110906
-* https://ccpforge.cse.rl.ac.uk/gf/project/dl_meso/scmgit/?action=ScmCommitDetail&scm_commit_id=111357
+* https://gitlab.stfc.ac.uk/dl_meso/dl_meso/commit/34a652fe62cadbac5e8a037b57ee9be64dcf4187
 
 
 .. [SPME] J. Chem. Phys. 103, 8577 (1995)
