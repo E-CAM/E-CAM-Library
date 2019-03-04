@@ -115,8 +115,8 @@ This section should also include the following (where appropriate):
 
 .. note::
 
-  If you are a post-docs who works in E-CAM, an obvious application for the module (or for the group of modules that
-  this one is part of) is your pilot project. In this case, you could point for the pilot project page on the main
+  If you are a post-doc who works in E-CAM, an obvious application for the module (or for the group of modules that
+  this one is part of) is your pilot project. In this case, you could point to the pilot project page on the main
   website (and you must ensure that this module is linked there).
 
 If needed you can include latex mathematics like
@@ -205,7 +205,7 @@ syntax required to get this):
       :linenos:
 
 
-..  I can't highlight the langauge syntax of a patch though so I have to exclude
+..  I can't highlight the language syntax of a patch though so I have to exclude
     :language: c
 
 .. literalinclude:: ./simple.patch
