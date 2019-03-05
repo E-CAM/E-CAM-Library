@@ -114,7 +114,7 @@ and for the :download:`CONFIG <./CONFIG>` file
 This configuration corresponds to a diamond cubic lattice [3]_.
 		    
 Analyzing the resulting trajectory (``HISTORY``) file with ``tetrahedral.exe`` and input :math:`1`
-for both requirements, the following output is printed on the standard output
+for both runtime arguments, the following output is printed on the standard output
 
 .. literalinclude:: ./out
 		    
