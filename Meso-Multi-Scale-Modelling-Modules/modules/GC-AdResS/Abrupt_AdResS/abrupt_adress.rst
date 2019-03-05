@@ -9,5 +9,4 @@ The patch for the abrupt AdResS code is:
 
 :download:`Downloadable version of patch file <abrupt_adress.patch>`
 
-..   :language: c,c++
 
