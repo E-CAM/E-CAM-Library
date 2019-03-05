@@ -1,8 +1,8 @@
 .. _dlmeso_tetrahedral:
 
-###########################################################
-WIP: Analysis of local tetrahedral ordering for DL_MESO_DPD
-###########################################################
+######################################################
+Analysis of local tetrahedral ordering for DL_MESO_DPD
+######################################################
 
 .. sidebar:: Software Technical Information
 
@@ -85,9 +85,9 @@ Fortran90 compiler [2]_, e.g.:
 and the executable must be in the same directory of the HISTORY file.
 The user is asked to provide the number of nodes used to run the
 simulation and the number of the species for which ordering has to be
-analyzed. To input the user-defined parameters one can enter them from the
-keyboard or write them
-into a text file (say, input.txt), one per line
+analyzed. To input the user-defined parameters one can enter them interactively
+at runtime or write them
+into a text file (say, ``input.txt``), one per line
 (in the right order) and run the program in this way:
 
 ``tetrahedral.exe < input.txt``
@@ -99,26 +99,26 @@ and rapidly goes into an orientationally disordered one.
 **Test**
 
 Run the DL_MESO_DPD simulation on a single node (serial run)
-using for the CONTROL file
+using for the :download:`CONTROL <./CONTROL>` file
 
 .. literalinclude:: ./CONTROL
 
-for the FIELD file
+for the :download:`FIELD <./FIELD>` file
 
 .. literalinclude:: ./FIELD
 
-and for the CONFIG file
+and for the :download:`CONFIG <./CONFIG>` file
 		    
 .. literalinclude:: ./CONFIG
 
 This configuration corresponds to a diamond cubic lattice [3]_.
 		    
-Analyzing the trajectory (HISTORY) file with ``tetrahedral.exe`` and input :math:`1`
-for both requirements, this output is printed on the standard output
+Analyzing the resulting trajectory (``HISTORY``) file with ``tetrahedral.exe`` and input :math:`1`
+for both requirements, the following output is printed on the standard output
 
 .. literalinclude:: ./out
 		    
-The output file ``TETRADAT``
+The output file :download:`TETRADAT <./TETRADAT>`
 
 .. literalinclude:: ./TETRADAT
    :lines: 1-13
@@ -136,6 +136,8 @@ system is roughly uniform.
 
 Source Code
 ___________
+
+You can directly download the source file :download:`tetrahedral.f90 <./tetrahedral.f90>` and we also include it's contents below.
 
 .. literalinclude:: ./tetrahedral.f90
       :language: fortran
