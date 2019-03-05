@@ -77,7 +77,7 @@ blob's center, and is being kept fixed during the relaxation of the
 local conformation of the FG monomers within the CG blob.
 
 To develop this module, the following classes have been implemented or
-modified (that may have been described in more detail elsewhere):
+modified (and may have been described in more detail elsewhere):
 
 * A ``VSpherePair`` class for calculating
   :math:`V_{nb}=k_{B}T \epsilon U_{G}(r_{ij})`
