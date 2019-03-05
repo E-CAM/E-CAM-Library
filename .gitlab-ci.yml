@@ -12,6 +12,7 @@ pages:
   script:
   - apt-get update
   - apt-get -y install dvipng
+  - pip install pygments --upgrade 
   - READTHEDOCS=True sphinx-build -nWT -b html . _build/html
   - mv _build/html/ public/
   artifacts:
