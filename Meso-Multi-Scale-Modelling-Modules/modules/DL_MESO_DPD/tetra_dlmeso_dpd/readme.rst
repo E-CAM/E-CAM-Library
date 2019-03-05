@@ -98,27 +98,29 @@ and rapidly goes into an orientationally disordered one.
 
 **Test**
 
+The sources used for this test are available to :download:`download <./tetra_example.tgz>`. 
+
 Run the DL_MESO_DPD simulation on a single node (serial run)
-using for the :download:`CONTROL <./CONTROL>` file
+using the `CONTROL` file
 
 .. literalinclude:: ./CONTROL
 
-for the :download:`FIELD <./FIELD>` file
+, the `FIELD` file
 
 .. literalinclude:: ./FIELD
 
-and for the :download:`CONFIG <./CONFIG>` file
+and the `CONFIG` file
 		    
 .. literalinclude:: ./CONFIG
 
 This configuration corresponds to a diamond cubic lattice [3]_.
 		    
-Analyzing the resulting trajectory (``HISTORY``) file with ``tetrahedral.exe`` and input :math:`1`
+Analyzing the resulting trajectory (``HISTORY``) file with ``tetrahedral.exe`` (compiled as indicated above) and input :math:`1`
 for both runtime arguments, the following output is printed on the standard output
 
 .. literalinclude:: ./out
 		    
-The output file :download:`TETRADAT <./TETRADAT>`
+The output file `TETRADAT`
 
 .. literalinclude:: ./TETRADAT
    :lines: 1-13
@@ -137,7 +139,7 @@ system is roughly uniform.
 Source Code
 ___________
 
-You can directly download the source file :download:`tetrahedral.f90 <./tetrahedral.f90>` and we also include it's contents below.
+You can directly download the source file :download:`tetrahedral.f90 <./tetrahedral.f90>` and we also include it's contents below (as well as in the test tarball).
 
 .. literalinclude:: ./tetrahedral.f90
       :language: fortran
