@@ -11,7 +11,7 @@
 - [ ] Did it pass the tests that were described? (Are there unit/regression tests? Do they pass?)
 - [ ] Are the tests sufficient?
 - [ ] If the module introduces new functionality, is it tested? (Unit/regression tests?)
-- [ ] Is the associated source code well formatted? (typos, line length, brackets,...it shouls be consistent with existing source)
+- [ ] Is the associated source code well formatted? (typos, line length, brackets,...it should be consistent with existing source)
 - [ ] Is all new source code sufficiently documented? (functions, their arguments,...)
 - [ ] Is there a description of any applications the module has? (This is a hard requirement for E-CAM PDRAs)
 
