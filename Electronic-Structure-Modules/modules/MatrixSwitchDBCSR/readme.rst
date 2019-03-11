@@ -1,5 +1,3 @@
-.. matrixswitch_dbcsr:
-
 ##################
 DBCSR@MatrixSwitch
 ##################
@@ -34,10 +32,11 @@ _________________
 high-level and low-level routines
 dealing with matrix storage and manipulation. It allows a seamlessly switch
 between different software implementations of the matrix operations.
+
 `DBCSR` is an optimized library to deal with sparse matrices, which appear
 frequently in many kind of numerical simulations. In `DBCSR@MatrixSwitch`
-the new capability provided by `DBCSR` is added to `MatrixSwitch`, rendering
-much more faster calculations.
+`DBCSR` capabilities have been added to `MatrixSwitch` as an *optional* 
+library dependency.
 
 Background Information
 ______________________
@@ -50,8 +49,8 @@ all them collected in the `omm-bundle` project (see the `Source Code`_ section b
 As `DBCSR` has been added to `MatrixSwitch` 
 in a modular way, all them can be used together or separated.
 
-To carry out calculations in serial mode may be too slow sometimes and a paralellization
-is needed. In serial/parallel `MatrixSwitch` employs Lapack/ScaLapack to perform 
+To carry out calculations in serial mode may be too slow sometimes and a paralellisation
+strategy is needed. In serial/parallel `MatrixSwitch` employs Lapack/ScaLapack to perform 
 matrix operations, irrespective of their dense or sparse character.
 The disadvantage of the Lapack/ScaLapack schemes is that they are not optimized 
 for sparse matrices. `DBCSR` provides the necessary algorithms to solve this problem and 
@@ -66,10 +65,12 @@ of the `omm-bundle` package with the same name, ``omm/MatrixSwitch``.
 
   git clone https://gitlab.e-cam2020.eu/esl/omm.git
 
-The `DBCSR` module is part of the `CP2K` code and it can be found in the 
-``CP2K`` repository:
+The `DBCSR` library is part of the `CP2K`__ code and it can be found in the 
+``CP2K`` releases directory:
 
-  git clone https://github.com/cp2k/dbcsr.git
+.. __: https://www.cp2k.org/
+
+https://github.com/cp2k/dbcsr/releases/download/v1.0.0/dbcsr-1.0.0.tar.gz
 
 To make `DBCSR@MatrixSwitch` work follow the steps below:
 
