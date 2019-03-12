@@ -45,7 +45,7 @@ within the four initial target areas of E-CAM_:
 .. toctree::
     :maxdepth: 2
 
-What is a mmodule?
+What is a module?
 =================
 
 In the context of E-CAM_, the definition of a software module is any piece of software that could be of use to the
