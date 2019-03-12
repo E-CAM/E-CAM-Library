@@ -24,4 +24,3 @@ pages:
   except:
     variables:
     - $CI_MERGE_REQUEST_TITLE =~ "^WIP: "
-
