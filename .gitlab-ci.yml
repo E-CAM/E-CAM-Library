@@ -2,7 +2,6 @@ image: umbrellium/sphinx-doc
 
 spelling:
   script:
-  - env
   - pip install codespell
   - codespell --skip=".git,_static,_build,Diff*" --quiet-level=2
   only:
@@ -11,7 +10,6 @@ spelling:
 
 pages:
   script:
-  - env
   - apt-get update
   - apt-get -y install dvipng
   - pip install pygments --upgrade 
@@ -25,4 +23,4 @@ pages:
   - merge_requests
   except:
     variables:
-    - $CI_MERGE_REQUEST_TITLE =~ /WIP/
+    - $CI_COMMIT_TITLE =~ /^Modify/
