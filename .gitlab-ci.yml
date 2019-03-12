@@ -21,3 +21,6 @@ pages:
   only:
   - master
   - merge_requests
+  except:
+    variables:
+    - $CI_MERGE_REQUEST_TITLE =~ /^WIP/
