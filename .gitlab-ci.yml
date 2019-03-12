@@ -23,4 +23,4 @@ pages:
   - merge_requests
   except:
     variables:
-    - $CI_COMMIT_TITLE =~ /^Modify/
+    - $CI_COMMIT_TITLE =~ /^Test/
