@@ -21,6 +21,3 @@ pages:
   only:
   - master
   - merge_requests
-  except:
-    variables:
-    - $CI_COMMIT_TITLE =~ /^Test/
