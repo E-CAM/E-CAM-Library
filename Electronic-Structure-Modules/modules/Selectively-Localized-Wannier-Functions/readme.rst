@@ -17,7 +17,7 @@ Selectively-Localized-Wannier-Functions
     `Ford <http://fortranwiki.org/fortran/show/FORD>`_ online link to different Wannier90 source files `<http://www.wannier.org/ford/>`_
 
   Application Documentation
-    Wannier90 `User guide pdf <http://www.wannier.org/doc/user_guide.pdf>`_ and `Tutorial pdf <http://www.wannier.org/doc/tutorial.pdf>`_
+    Wannier90 `User guide pdf <https://github.com/wannier-developers/wannier90/raw/v3.0.0/doc/compiled_docs/user_guide.pdf>`_ and `Tutorial pdf <https://github.com/wannier-developers/wannier90/raw/v3.0.0/doc/compiled_docs/tutorial.pdf>`_ and `Solution booklet pdf <https://github.com/wannier-developers/wannier90/raw/v3.0.0/doc/compiled_docs/solution_booklet.pdf>`_
 
   Relevant Training Material
     'Not currently available.'
@@ -72,7 +72,7 @@ ______________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-Wannier90 source code is available from the eponymous git-hub repository `<http://github.com/wannier-developers/wannier90>`_, which contains the official repository. Documentation about the source code is done via FORD, an online version of this documentation is available `online <http://www.wannier.org/ford/>`_. Instructions on how to install Wannier90 on a variety of architectures may be found in the `user guide <http://www.wannier.org/doc/user_guide.pdf>`_. Quantum ESPRESSO source code is available from the git-hub repository `<https://github.com/QEF/q-e>`_, and a very detailed web documentation may be found `here <http://www.quantum-espresso.org/wp-content/uploads/Doc/user_guide/>`_. Instruction for the installation of the python-based AiiDA workflow are available online at `<http://aiida-core.readthedocs.io/en/stable/>`_. 
+Wannier90 source code is available from the eponymous git-hub repository `<http://github.com/wannier-developers/wannier90>`_, which contains the official repository. Documentation about the source code is done via FORD, an online version of this documentation is available `online <http://www.wannier.org/ford/>`_. Instructions on how to install Wannier90 on a variety of architectures may be found in the `user guide <https://github.com/wannier-developers/wannier90/raw/v3.0.0/doc/compiled_docs/user_guide.pdf>`_. Quantum ESPRESSO source code is available from the git-hub repository `<https://github.com/QEF/q-e>`_, and a very detailed web documentation may be found `here <http://www.quantum-espresso.org/Doc/user_guide/>`_. Instruction for the installation of the python-based AiiDA workflow are available online at `<http://aiida-core.readthedocs.io/en/stable/>`_. 
 
 
 Building and Testing
