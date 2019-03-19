@@ -11,7 +11,7 @@ OPS-based modules
   sections.
 
   Language
-    Python (2.7)
+    Python (2.7, 3.6, 3.7)
 
   Documentation Tool
     Sphinx, numpydoc format (ReST)
@@ -25,9 +25,10 @@ OPS-based modules
   Licence
     LGPL, v. 2.1 or later
 
-.. contents:: :local:
+  Authors
+    David W.H. Swenson
 
-Authors: David W.H. Swenson
+.. contents:: :local:
 
 This module adds support for Gromacs as an engine for OpenPathSampling.
 
@@ -77,10 +78,10 @@ ___________
 
 .. IF YOUR MODULE IS IN OPS CORE
 
-.. This module has been merged into OpenPathSampling. It is composed of the
-.. following pull requests:
+This module has been merged into OpenPathSampling. It is composed of the
+following pull requests:
 
-.. * link PRs
+* https://github.com/openpathsampling/openpathsampling/pull/819
 
 .. IF YOUR MODULE IS A SEPARATE REPOSITORY
 
