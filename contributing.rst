@@ -180,7 +180,7 @@ repository and then check which branch you want to check out:
     git pull origin <BRANCH_NAME> # Make sure we have any updates we made to our own branch
     git pull upstream master # Also pull in any changes to the main repository
 
-Now that everything is in sync, you can edit your update your files, when you are finished you commit your changes and
+Now that everything is in sync, you can edit and update your files, when you are finished you commit your changes and
 push the changes back to GitLab:
 
 .. code-block:: bash
