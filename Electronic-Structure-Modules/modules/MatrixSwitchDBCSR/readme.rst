@@ -19,6 +19,9 @@ DBCSR@MatrixSwitch
 
   Relevant Training Material
     See a usage example in the ``omm/MatrixSwitch/examples`` directory of the source code.
+
+  Software Module Developed by
+    Alfio Lazzaro and David López-Durán
   
   Licence
     Simplified BSD
@@ -65,8 +68,8 @@ of the `omm-bundle` package with the same name, ``omm/MatrixSwitch``.
 
   git clone https://gitlab.e-cam2020.eu/esl/omm.git
 
-The `DBCSR` library is part of the `CP2K`__ code and it can be found in the 
-``CP2K`` releases directory:
+The `DBCSR` library was originally developed as part of the `CP2K`__ code, it is now
+available as a standalone library, and can be found in the ``CP2K`` releases directory:
 
 .. __: https://www.cp2k.org/
 
