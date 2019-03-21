@@ -26,7 +26,7 @@ QMCQEPack
 ..  contents:: :local:
 
 QMCQEPack is an interface between the QMCPack software for Quantum Monte Carlo simulations of electronic structure
-and the DFT software Quantum Espresso, that allows the DFT computation on the flight of single electron orbitals
+and the DFT software Quantum Espresso, that allows the DFT computation on the fly of single electron orbitals
 to be included in trial wave functions for QMC simulations 
 
 Purpose of Module
@@ -40,7 +40,7 @@ optimized, the single particle orbitals have to be computed in using Density Fun
 
 The QMCQEPack module allows to compute on the fly the single particle orbitals with Quantum Espresso, and
 to use them in QMC simulations with the QMCPack software. The main feature that distinguish QMCQEPack from other orbital
-converters is that all the computations are made on the flight, without having to write any output on the filesystem, 
+converters is that all the computations are made on the fly, without having to write any output on the filesystem, 
 allowing great efficiency and a considerable speed up in the overall workflow.
 
 Being able to efficiently recompute single particle orbitals during a single simulation allows to move ions during the QMC procedure,
