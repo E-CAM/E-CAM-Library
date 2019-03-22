@@ -164,10 +164,43 @@ Scaling  and Performance
 ________________________
 
 As the module uses LAMMPS, the performance and scaling of this module should essentially be the same, provided data for thermodynamic integration and 
-MBAR are not generated too often. In the case of thermodynamic integration, this is due to the central difference approximation of derivatives, and in the case
+MBAR are not generated too often, as is demonstated below. In the case of thermodynamic integration, this is due to the central difference approximation of derivatives, and in the case
 of MBAR, it is due to the fact that many virtual moves are made which can be extremely costly if the number of interpolating points is large. Also, when using
 PMME, the initial setup cost is computationally expensive, and should, therefore, be done as infrequently as possible. A future module in preparation will 
-circumvent the use of central difference approximations of derivatives.
+circumvent the use of central difference approximations of derivatives. The scaling performance of PI-CORE was tested on Jureca multi node. 
+The results for weak scaling (where the number of core and the system size are doubled from 4 to 768 core) are as follows.
+Weak Scaling:
+
+==================  ===========  
+Number of MPI Core  timesteps/s
+==================  ===========
+4                   1664.793 
+8                   1534.013
+16                  1458.936
+24                  1454.075
+48                  1350.257
+96                  1301.325 
+192                 1263.402
+384                 1212.539 
+768                 1108.306
+==================  ===========
+
+and for the strong scaling (where the number of core are doubled from 4 to 384 but the system size is fixed) 
+Strong Scaling:
+
+==================  =============  
+Number of MPI Core  timesteps/s ? 
+==================  =============
+4                   9.197
+8                   17.447
+16                  34.641
+24                  53.345
+48                  104.504
+96                  204.434
+192                 369.178
+384                 634.022
+==================  =============
+
 
 Documentation
 _____________
