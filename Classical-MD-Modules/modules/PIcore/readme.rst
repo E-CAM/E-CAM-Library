@@ -185,8 +185,8 @@ Number of MPI Core  timesteps/s
 768                 1108.306
 ==================  ===========
 
-and for the strong scaling (where the number of core are doubled from 4 to 384 but the system size is fixed) 
-Strong Scaling:
+and for the strong scaling (where the number of core are doubled from 4 to 384 but the system size is fixed equal to 768 times the original system 
+size considered for one core/processor for weak scaling) Strong Scaling:
 
 ==================  =============  
 Number of MPI Core  timesteps/s ? 
