@@ -90,19 +90,9 @@ To enable `DBCSR@MatrixSwitch` in the `omm-bundle` package follow the steps belo
 Testing
 _______
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 The ``examples`` directory of ``MatrixSwitch`` contains ``example_pdcsr_pddbc.F90``. It explains
 the use of `DBCSR@MatrixSwitch` and how `DBCSR` works. `DBCSR` results are compared to those
 obtained with Scapalack to check the validity of the new procedure. To compile it:
-=======
-The ``examples`` directory of ``MatrixSwitch`` contains ``example_pdcsr_pddbc.F90``. It provides an example of
-the usage of `DBCSR@MatrixSwitch` and how `DBCSR` works. To compile it:
->>>>>>> 24f67c6477fc73b509032ee8422615f0653eaa2c
-=======
-The ``examples`` directory of ``MatrixSwitch`` contains ``example_pdcsr_pddbc.F90``. It provides an example of
-the usage of `DBCSR@MatrixSwitch` and how `DBCSR` works. To compile it:
->>>>>>> 24f67c6477fc73b509032ee8422615f0653eaa2c
 
 1. Enter the ``omm/MatrixSwitch/examples`` directory.
 
