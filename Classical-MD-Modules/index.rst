@@ -242,5 +242,6 @@ August 2017. The following modules have been produced:
     ./modules/OpenPathSampling/ops_sr_shooter/readme
     ./modules/OpenPathSampling/ops_web_throwing/readme
     ./modules/OpenPathSampling/ops_plumed_wrapper/readme
+    ./modules/OpenPathSampling/ops_s_shooting/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/
