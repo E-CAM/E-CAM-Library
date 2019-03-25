@@ -142,7 +142,7 @@ Here is a short manual on how to run the test and set up AdResS simulations in G
 
    NOTE: The method can be used with any potential, which preserves the correct density. If only a SPC/E CG potential is available it can be used for SPC/e water models as well as for a more advanced water model. It is possible to use a WCA potential, which is basically a Lennard-Jones potential. *And* it is possible to switch the CG ptential completely off. That will transform the CG region to a true thermodynamic reservoir with a non-interacting gas.
 
-4) The next step is to create a double resolution configuration and adjust the dependncies (force field, topology, index file, GROMACS input file). Creating the configuration is straight forward (we use `<http://www.votca.org/home>`_).
+4) The next step is to create a double resolution configuration and adjust the dependencies (force field, topology, index file, GROMACS input file). Creating the configuration is straight forward (we use `<http://www.votca.org/home>`_).
 
 ::
 
@@ -155,7 +155,7 @@ Of course, if you want to use this configuration in a MD simulation you have to 
 
   [ virtual_sites3 ]
   ; Site from funct a d
-  ; atom depedencies func     a            b
+  ; atom dependencies func     a            b
      4      1 2 3     1    0.05595E+00 0.05595E+00
 
 The next step is to adjust the status of the CG particle in the topology file (in our example: *topol.top*) from *A* for *atom* to *V* as *virtual particle*. And of course insert the new force field.
@@ -246,7 +246,7 @@ Here you define the geometry of the atomistic region, either *sphere* (a spheric
 
   adress_type = sphere ;xsplit sphere or constant 
 
-This defines the width of the atomistic region, starting from the given reference coordinate (keyword *adress_reference_coords*, by simpy using: *tail conf_hybrid.gro | awk '(NF==3){print $1/2., $2/2., $3/2.}'*). In the older versions of AdResS, with a smooth coupling between AT and CG the width of the hybrid region width (*adress_hy_width*) was also defined. In the Abrupt_AdResS setup it is not necessary any more, even if you put a number that region is counted (in the code) as AT. 
+This defines the width of the atomistic region, starting from the given reference coordinate (keyword *adress_reference_coords*, by simply using: *tail conf_hybrid.gro | awk '(NF==3){print $1/2., $2/2., $3/2.}'*). In the older versions of AdResS, with a smooth coupling between AT and CG the width of the hybrid region width (*adress_hy_width*) was also defined. In the Abrupt_AdResS setup it is not necessary any more, even if you put a number that region is counted (in the code) as AT. 
 
 ::
 
@@ -287,7 +287,7 @@ To apply the patch: (:ref:`abrupt_adress_patch`)
     cross-referencing problems
 
 
-In this module we also include a test scenario for GROMACS version 5.1.5 with a possible CG potential and all nessecary input files. To run it simply run *gmx grompp -f grompp.mdp -c conf.gro -p topol.top -n index.ndx -maxwarn 5; gmx mdrun* using the patched version of GROMACS version 5.1.5 (see above). 
+In this module we also include a test scenario for GROMACS version 5.1.5 with a possible CG potential and all necessary input files. To run it simply run *gmx grompp -f grompp.mdp -c conf.gro -p topol.top -n index.ndx -maxwarn 5; gmx mdrun* using the patched version of GROMACS version 5.1.5 (see above). 
 
 When *gmx mdrun* finished normally (with the above mentioned setup), we have several mandatory checks to see if the simulation was successful or not.
   

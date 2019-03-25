@@ -3,7 +3,7 @@ image: umbrellium/sphinx-doc
 spelling:
   script:
   - pip install codespell
-  - codespell --skip=".git,_static,_build,Diff*" --quiet-level=2
+  - codespell --skip=".git,_static,_build,Diff*,*.patch" --quiet-level=2 --ignore-words-list="adress"
   only:
   - master
   - merge_requests
