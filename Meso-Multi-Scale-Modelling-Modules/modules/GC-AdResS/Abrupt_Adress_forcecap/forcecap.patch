@@ -1,23 +1,51 @@
-diff -rupN gromacs-5.1-orig/src/gromacs/mdlib/update.cpp gromacs-5.1-hck/src/gromacs/mdlib/update.cpp
---- gromacs-5.1-orig/src/gromacs/mdlib/update.cpp	2015-06-22 15:17:54.000000000 +0200
-+++ gromacs-5.1-hck/src/gromacs/mdlib/update.cpp	2018-04-17 12:14:10.620230299 +0200
-@@ -623,10 +623,23 @@ static void do_update_sd1(gmx_stochd_t *
+diff -ru /storage/mi/ck69giso/gromacs-5.1.5/src/gromacs/mdlib/update.cpp /home/mi/ck69giso/gmx-515-hck/src/gromacs/mdlib/update.cpp
+--- /storage/mi/ck69giso/gromacs-5.1.5/src/gromacs/mdlib/update.cpp	2016-09-07 14:50:21.000000000 +0200
++++ /home/mi/ck69giso/gmx-515-hck/src/gromacs/mdlib/update.cpp	2018-07-24 16:07:27.000000000 +0200
+@@ -67,6 +67,7 @@
+ #include "gromacs/utility/futil.h"
+ #include "gromacs/utility/gmxomp.h"
+ #include "gromacs/utility/smalloc.h"
++#include "adress.h"
+ 
+ /*For debugging, start at v(-dt/2) for velolcity verlet -- uncomment next line */
+ /*#define STARTFROMDT2*/
+@@ -569,6 +570,8 @@
+     return upd;
+ }
+ 
++/* new */
++
+ static void do_update_sd1(gmx_stochd_t *sd,
+                           int start, int nrend, double dt,
+                           rvec accel[], ivec nFreeze[],
+@@ -579,10 +582,11 @@
+                           int ngtc, real ref_t[],
+                           gmx_bool bDoConstr,
+                           gmx_bool bFirstHalfConstr,
+-                          gmx_int64_t step, int seed, int* gatindex)
++                          gmx_int64_t step, int seed, int* gatindex, real fc)
+ {
+     gmx_sd_const_t *sdc;
+     gmx_sd_sigma_t *sig;
++
+     real            kT;
+     int             gf = 0, ga = 0, gt = 0;
+     real            ism;
+@@ -625,10 +629,21 @@
              {
                  if ((ptype[n] != eptVSite) && (ptype[n] != eptShell) && !nFreeze[gf][d])
                  {
 -                    real sd_V, vn;
 +//                    real sd_V, vn;
-+		    real sd_V, vn, fn, fc, fc1;
-+                   
-+                    sd_V         = ism*sig[gt].V*rnd[d];
-+
-+                    fc           = 10000.;
++		    real sd_V, vn, fn;
 +                    fn           = f[n][d];
++
++//                         fc = 10000.;
++
 +                    if (fabs(fn)>fc) 
 +                       { 
 +			  printf("SD (I) force-cap %e\n", fn);
-+			  fc1=fc;
-+                          fn = fc1*fn/fabs(fn);   
++                          fn = fc*fn/fabs(fn);   
 +                       }
  
                      sd_V         = ism*sig[gt].V*rnd[d];
@@ -27,21 +55,21 @@ diff -rupN gromacs-5.1-orig/src/gromacs/mdlib/update.cpp gromacs-5.1-hck/src/gro
                      v[n][d]      = vn*sdc[gt].em + sd_V;
                      /* Here we include half of the friction+noise
                       * update of v into the integration of x.
-@@ -666,7 +679,20 @@ static void do_update_sd1(gmx_stochd_t *
+@@ -668,7 +683,20 @@
                  {
                      if ((ptype[n] != eptVSite) && (ptype[n] != eptShell) && !nFreeze[gf][d])
                      {
 -                        v[n][d]      = v[n][d] + (im*f[n][d] + accel[ga][d])*dt;
 +
-+                    real fn, fc, fc1;
++                    real fn;
 +       
-+                    fc           = 10000.;
++//                         fc = 10000.;
++
 +                    fn           = f[n][d];
 +                    if (fabs(fn)>fc) 
 +                       { 
 +			  printf("SD (II) force-cap %e\n", fn);
-+			  fc1=fc;
-+                          fn = fc1*fn/fabs(fn);   
++                          fn = fc*fn/fabs(fn);   
 +                       }
 +
 +                        v[n][d]      = v[n][d] + (im*fn + accel[ga][d])*dt;
@@ -49,3 +77,70 @@ diff -rupN gromacs-5.1-orig/src/gromacs/mdlib/update.cpp gromacs-5.1-hck/src/gro
                          xprime[n][d] = x[n][d] +  v[n][d]*dt;
                      }
                      else
+@@ -1644,6 +1672,8 @@
+             end_th   = start + ((nrend-start)*(th+1))/nth;
+ 
+             /* The second part of the SD integration */
++         if (inputrec->bAdress)
++	 {
+             do_update_sd1(upd->sd,
+                           start_th, end_th, dt,
+                           inputrec->opts.acc, inputrec->opts.nFreeze,
+@@ -1653,7 +1683,23 @@
+                           inputrec->opts.ngtc, inputrec->opts.ref_t,
+                           bDoConstr, FALSE,
+                           step, inputrec->ld_seed,
+-                          DOMAINDECOMP(cr) ? cr->dd->gatindex : NULL);
++                          DOMAINDECOMP(cr) ? cr->dd->gatindex : NULL,
++                          inputrec->adress->ex_forcecap);
++	 }
++	 else
++	 {
++            do_update_sd1(upd->sd,
++                          start_th, end_th, dt,
++                          inputrec->opts.acc, inputrec->opts.nFreeze,
++                          md->invmass, md->ptype,
++                          md->cFREEZE, md->cACC, md->cTC,
++                          state->x, xprime, state->v, force,
++                          inputrec->opts.ngtc, inputrec->opts.ref_t,
++                          bDoConstr, FALSE,
++                          step, inputrec->ld_seed,
++                          DOMAINDECOMP(cr) ? cr->dd->gatindex : NULL,
++                          5000.);
++	 }
+         }
+         inc_nrnb(nrnb, eNR_UPDATE, homenr);
+         wallcycle_stop(wcycle, ewcUPDATE);
+@@ -2031,6 +2077,21 @@
+                 break;
+             case (eiSD1):
+                 /* With constraints, the SD1 update is done in 2 parts */
++         if (inputrec->bAdress)
++	 {
++                do_update_sd1(upd->sd,
++                              start_th, end_th, dt,
++                              inputrec->opts.acc, inputrec->opts.nFreeze,
++                              md->invmass, md->ptype,
++                              md->cFREEZE, md->cACC, md->cTC,
++                              state->x, xprime, state->v, force,
++                              inputrec->opts.ngtc, inputrec->opts.ref_t,
++                              bDoConstr, TRUE,
++                              step, inputrec->ld_seed, DOMAINDECOMP(cr) ? cr->dd->gatindex : NULL,
++                              inputrec->adress->ex_forcecap);
++	 }
++	 else
++	 {
+                 do_update_sd1(upd->sd,
+                               start_th, end_th, dt,
+                               inputrec->opts.acc, inputrec->opts.nFreeze,
+@@ -2039,7 +2100,9 @@
+                               state->x, xprime, state->v, force,
+                               inputrec->opts.ngtc, inputrec->opts.ref_t,
+                               bDoConstr, TRUE,
+-                              step, inputrec->ld_seed, DOMAINDECOMP(cr) ? cr->dd->gatindex : NULL);
++                              step, inputrec->ld_seed, DOMAINDECOMP(cr) ? cr->dd->gatindex : NULL,
++		              5000.);
++	 }
+                 break;
+             case (eiSD2):
+                 /* The SD2 update is always done in 2 parts,

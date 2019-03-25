@@ -10,10 +10,10 @@
 ..  sidebar:: Software Technical Information
 
   Name
-    GC-AdResS: Abrupt scheme
+    GC-AdResS -Abrupt scheme- Force Capping
 
   Language
-    Implemented in GROMACS version 5.1.0
+    Implemented in GROMACS version 5.1.5
 
   Licence
     See GROMACS web page: `<http://www.gromacs.org/>`_
@@ -32,9 +32,9 @@
     reference to work (so don't insert a comment between).
  _example:
 
-######################
-Abrupt_AdResS_forcecap
-######################
+#######################
+Abrupt-AdResS: Forcecap
+#######################
 
 ..  Let's add a local table of contents to help people navigate the page
 
@@ -47,10 +47,9 @@ Abrupt_AdResS_forcecap
 
 The original idea of our proposal was to work on a general implementation 
 of grand canonical adaptive resolution simulations (GC-AdResS) in
-classical MD packages. The current implementation of GC- AdResS in GROMACS (up to version 5.1.4)
-has several performance problems. With the Abrupt GC-AdResS we intent to circumvent those and make AdResS more interesting for other MD developers (especially since we could remove the force interpolation from the force kernel).
+classical MD packages. The current implementation of GC- AdResS in GROMACS (up to version 5.1.5) has performance problems. The Abrupt GC-AdResS implementation is avoiding those and make AdResS more interesting for other MD developers (especially since we could remove the force interpolation and weighting functions from the force kernel).
 
-This module works in combination with abrupt_AdResS. It shows a way to couple atomistic and coarse grained regions together and how to avoid particle overlapp at the interface of those two regions.
+This module works in combination with abrupt_AdResS and is at the same time important for a succesful simulation. It shows how to avoid particle overlap at the interface of the atomistic and coarse grained regions.
 
    
 Purpose of Module
@@ -58,15 +57,18 @@ _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-The implementation of Abrupt GC-AdResS is in itself only working for the smallest and simplest of molecules without problems. For larger and more complex molecules the simulation crashes.
-This module shows a way to avoid the crash. 
+The implementation of Abrupt GC-AdResS is in itself only working for the smallest and simplest of molecules without problems. For larger and more complex molecules the simulation crashes. This module shows a way to avoid this. 
+
+
 
 Background Information
 ______________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-As studies of ionic liquids and polymer melts have shown us for large and complicated molecules even the standard GC-AdResS is not working. The reason for that is when a molecules from the coarse grained region enters the hybrid region the atomistic representations, which are present due to the technically necessary double resolution, interact. It is possible for atoms to be too close together, which results in a too high force and thus in too high velocities of those particles. Since in Abrupt GC-AdResS we can avoid the generic force kernel from GROMACS the force capping (which was previously implemented at the end of the force calculation) had to be shifted. Several trials to put it directly after the force calculation didn't work out. So we finally looked at the one place where each force has to be read and handled, the (in our case) stochastic dynamics integrator. The force capping is rather simple. If the force gets too high it is re-scaled to a given value and therefor does not destroy the molecule and causes the program to crash.
+As studies of ionic liquids and polymer melts have shown for large and complicated molecules even the standard GC-AdResS is not working without additional force capping. The reason for that is when a molecules from the coarse grained region enters the hybrid region the atomistic representations, which are present due to the technically necessary double resolution, interact. It is possible for atoms to be too close together, which results in a too high force and thus in too high velocities of those particles. Since in Abrupt AdResS we can avoid the generic force kernel from GROMACS the force capping (which was previously implemented at the end of the force calculation) had to be shifted and replaced. We finally looked at the integrator (in our case the stochastic dynamics integrator), which is the one place where each force has to be read and handled. 
+
+This implementation of force capping is a rudimentary approach. The basic principle is when two particles are too close together, and thus the force are far higher than the average forces in the simulation, the force on the particles are re-scaled to a given value. That tactic makes sure that the insertion of particles in the atomistic region are introduced at reasonable velocities and temperature. And as a side effect limits the area of disturbance due to the introduction of a particle.
 
 
 Building and Testing
@@ -74,23 +76,36 @@ ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-We have tested the new addition to the code on water systems (7k to 48k molecules) and the performance is up to a factor 2.5 faster. Furthermore we run a couple of ionic liquids simulations (1,3-Dimethyl-imidazolium chloride from 1000 ion pairs to 50000 ion pairs) and measured the performance. We can reach a performance up to a factor of 6 faster. 
-For the dynamics and structure check we looked at the more complex 1000 ion pair system. We can reproduce the radial distribution functions in the atomistic region, the density in the atomistic, transition ($\Delta$) region is less than 3\% different from full atomistic simulations and the density diffusion profile shows a complete mixing of the different regions. 
+We have tested the new addition to the code on two systems. The two test cases were water  and ionic liquids, see Ref. `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.  All the informations about studied systems, the performacne can be found there.
+
+The patch provided can be applied alone without the Abrupt AdResS patch, (patch < forcecap.patch) in the main directory of GROMACS. There is a *print* command which is triggered once the force on a particle is higher than a given force cap value.
+
 
 Source Code
 ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
-A note of caution: One has to chose a high enough force, otherwise normal interactions will trigger the force capping and unnecessary change the interactions. That would change the dynamics and the structure of a system. If chosen too high it might run into impossible and unstable configuration, which will also result in a program crash.
+A note of caution: The chosen force cap trigger has to be a high enough value, otherwise normal interactions (interactions with forces around the average forces in a simulation)  will trigger the force capping. That would change the dynamics and the structure of a system. Also it would descrease the performance of the code. If chosen too high it might run into impossible and unstable configuration, which will result in a program crash.
 
 Recipe for hard coded force capping:
 
 .. literalinclude:: ./forcecap.patch
+   :language: c
+   :linenos:
 
 with:
+
 fc = Chosen upper force limit for the ionic liquids simulations 
+
 fn = force acting on a particle 
+
+
+The patch provided can be applied in the main directory of GROMACS via:
+
+::
+
+  patch < forcecap.patch
 
 
 
