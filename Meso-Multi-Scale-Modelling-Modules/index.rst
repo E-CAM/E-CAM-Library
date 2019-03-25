@@ -113,16 +113,3 @@ The first Meso- and Multi-scale ESDW was held in Barcelona, Spain, in July 2017.
     :maxdepth: 1
 
     ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme
-
-
-GC-AdResS 
----------
-
-Adaptive Resolution Simulation: Implementation in GROMACS
-
-.. toctree::
-    :glob:
-    :maxdepth: 1
-
-    ./modules/GC-AdResS/Abrupt_AdResS/readme.rst
-    ./modules/GC-AdResS/Abrupt_AdResS/abrupt_adress.rst
