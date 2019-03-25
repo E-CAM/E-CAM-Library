@@ -74,27 +74,30 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
-We basicaly work with the atomselection and use the pre-existing Radial Pair Distribution Function tool in VMD. This is an example input:
+We basicaly work with the atomselection and use the pre-existing Radial Pair Distribution Function tool in VMD.
+
+
+Example case (for the radial systems), this selection was used with the reference point being defined in the GROMACS input file.
+
+:: 
+
+   x_ref = x-value
+   y_ref = y-value
+   z_ref = z-value
+
+   radius: radius of the atomistic region
+   name "insert your choice of atom here" and (((x-x_ref)^2 + (y-y_ref)^2 + (z-z_ref)^2) < radius*radius )
+
+For the slab structures:
 
 ::
 
-  For the radial systems, this selection was used:
-  reference point is defined in the GROMACS input file:
-  x_ref:  x value
-  y_ref: y value
-  z_ref: z value
-  radius: radius of the atomistic region
-  
-  name "insert your choice of atom here" and (((x-x_ref)^2 + (y-y_ref)^2 + (z-z_ref)^2) < radius*radius )
-  
-  For the slab structures:
-  at_start: start of the atomistic regions along the x axis
-  at_end: end of the atomistic regions along the x axis
-  hy_start: start of the hybrid regions along the x axis
-  hy_end: end of the hybrid regions along the x axis
-  
-  name "insert your choice of atom here" and (x>at_start and x<at_end)
-  name "insert your choice of atom here" and ((x>hy_start and x<at_start) or (x>at_end and x<hy_end) 
+   at_start: start of the atomistic regions along the x axis
+   at_end: end of the atomistic regions along the x axis
+   hy_start: start of the hybrid regions along the x axis
+   hy_end: end of the hybrid regions along the x axis
 
-::
+   name "insert your choice of atom here" and (x>at_start and x<at_end)
+   name "insert your choice of atom here" and ((x>hy_start and x<at_start) or (x>at_end and x<hy_end) 
+
 
