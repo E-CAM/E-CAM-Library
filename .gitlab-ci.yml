@@ -8,6 +8,13 @@ spelling:
   - master
   - merge_requests
 
+orphans:
+  script:
+  - find ./ -name "*.rst"|xargs -i grep -H orphan {}
+  - if [ $(find ./ -name "*.rst"|xargs -i grep -H orphan {}|wc -l) -gt "1" ]; then $(exit 1); else $(exit 0); fi
+  only:
+  - master
+
 pages:
   script:
   - apt-get update
