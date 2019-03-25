@@ -45,7 +45,7 @@
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
     reference to work (so don't insert a comment between).
 
-.. _example:
+.. _abrupt_adress:
 
 #######################################################
 Abrupt GC-AdResS: A new and more general implementation  
@@ -139,7 +139,9 @@ Here is a short manual on how to run the test and set up AdResS simulations in G
 2) You need a very well converged NVT run, which can be used as starting point for the coarse grained (CG) and then later the AdResS simulations.
 
 3) You have to generate a coarse grained (CG) potential. We use, for convenience, the inverse Boltzmann iteration provided in the VOTCA package (`<http://www.votca.org/home>`_). The resulting tabulated CG potentials are used in the AdResS simulation. Alternatively you can use WCA potentials or standard Lennard-Jones potentials. The main requirement for the AdResS simulation is that the density in the CG region is the same as in the atomistic (AT) region. 
- 
+
+   NOTE: The method can be used with any potential, which preserves the correct density. If only a SPC/E CG potential is available it can be used for SPC/e water models as well as for a more advanced water model. It is possible to use a WCA potential, which is basically a Lennard-Jones potential. *And* it is possible to switch the CG ptential completely off. That will transform the CG region to a true thermodynamic reservoir with a non-interacting gas.
+
 4) The next step is to create a double resolution configuration and adjust the dependncies (force field, topology, index file, GROMACS input file). Creating the configuration is straight forward (we use `<http://www.votca.org/home>`_).
 
 ::
@@ -214,7 +216,7 @@ Furthermore, in our simulations we use:
   vdw-type = user  
   rvdw = 1.0 
   
-In case of local thermostat simulations (see `(for J.Chem.Phys.): <https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `(for arXiv): <https://arxiv.org/abs/1806.09870>`_) we use:
+In case of local thermostat simulations (see `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_) we use:
 
 ::
 
@@ -233,7 +235,7 @@ If you use the stochastic dynamics, we add the following entries to make sure we
 
 To switch the simulation to AdResS this is the key part. This starts the AdResS runs.
 
-::
+
 
   ; AdResS parameters 
   adress = yes ;no 
@@ -275,14 +277,11 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
-.. .. literalinclude:: ./abrupt_adress.patch
-   :language: c
+To apply the patch: (:ref:`abrupt_adress_patch`)
 
-To apply the patch: 
 1) copy into the main directory (gromacs/)
-2) patch < abrupt_adress.patch
 
-The patch for Abrupt_AdResS can be found below, see reference :ref:`abrupt_adress`
+2) patch < abrupt_adress.patch
 
 ..  Remember to change the reference "patch" for something unique in your patch file subpage or you will have
     cross-referencing problems
@@ -310,14 +309,7 @@ When *gmx mdrun* finished normally (with the above mentioned setup), we have sev
 5) If we only thermalize the transition region, the AT region is NVE-like, which means it is even possible to determine the dynamics of the system.
 
 The files for the water example can be found here:
+:download:`spc-example.tar.gz <spc-example.tar.gz>`
 
-:download:`<./spc-example.tar.gz>`_
-
-The patch for the abrupt AdResS code is:
-
-.. literalinclude:: ./abrupt_adress.patch
-   :linenos:
-
-:download:`abrupt_adress <abrupt_adress.patch>`
 
 
