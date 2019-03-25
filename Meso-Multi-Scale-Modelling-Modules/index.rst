@@ -67,7 +67,7 @@ The following modules connected to the DL_MESO_DPD code have been produced so fa
 ESPResSo++
 ----------
 
-The following modules connected to the ESPResSo++ code have been produced so far:
+The following modules connected to the ESPResSo++ code have been produced so far in the context of an `associated Pilot Project <https://www.e-cam2020.eu/pilot-project-composite-materials/>`_:
 
 .. toctree::
     :glob:
@@ -82,6 +82,14 @@ The following modules connected to the ESPResSo++ code have been produced so far
     ./modules/hierarchical-strategy/simple_one-component_melts/reinsertion/readme
     ./modules/hierarchical-strategy/simple_one-component_melts/fine-graining/readme
     ./modules/hierarchical-strategy/simple_one-component_melts/coarse-graining/readme
+
+These modules have resulted in the final overarching module that captures the goal of the pilot project:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/hierarchical-strategy/simple_one-component_melts/readme
 
 ParaDiS
 -------
