@@ -22,4 +22,5 @@ Add a brief description briefly here (which replaces this sentence), a line or t
 - [ ] Is there a description of any applications the module has? (This is a hard requirement for E-CAM PDRAs)
 
 *After Merging*
+- [ ] Make sure the module appears in a toctree
 - [ ] Add a link to the final result on https://e-cam.readthedocs.io
