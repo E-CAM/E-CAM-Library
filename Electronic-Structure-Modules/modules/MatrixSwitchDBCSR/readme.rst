@@ -92,7 +92,8 @@ _______
 
 The ``examples`` directory of ``MatrixSwitch`` contains ``example_pdcsr_pddbc.F90``. It explains
 the use of `DBCSR@MatrixSwitch` and how `DBCSR` works. `DBCSR` results are compared to those
-obtained with Scapalack to check the validity of the new procedure. To compile it:
+obtained with Scapalack to check the validity of the new procedure. If this comparison fails,
+the program will exit immediately. To compile it:
 
 1. Enter the ``omm/MatrixSwitch/examples`` directory.
 
