@@ -132,6 +132,7 @@ To see how the library works in a realistic case scenario of an electronic struc
  $make FFTXexamples
 
 .. Besides the PASS/FAIL status of the example, by changing the bash script in the examples directory, you can create your custom examples.
+
 A mini-app will be compiled in src directory and will be symbolicly copied into ``bin`` directory. 
 The mini-app simulates an FFT scenario with a test unit cell, and plane wave expansion cutoff. 
 It creates the FFT structures and tests forward and backward transform on sample array and reports timings. 
