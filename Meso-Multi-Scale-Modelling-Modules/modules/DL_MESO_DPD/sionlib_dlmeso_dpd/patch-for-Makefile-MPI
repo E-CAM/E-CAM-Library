@@ -1,0 +1,35 @@
+diff --git a/Makefile-MPI b/Makefile-MPI
+index 462de59..0078f94 100644
+--- a/Makefile-MPI
++++ b/Makefile-MPI
+@@ -1,10 +1,13 @@
+ MF=      Makefile
+ 
++SCFLAGS = `/home/user/sionlib/bin/sionconfig --cflags --f77 --mpi --threadsafe --64`
++SLFLAGS = `/home/user/sionlib/bin/sionconfig --libs --f77 --mpi --threadsafe --64`
++
+ FC=      mpifort
+-FFLAGS=  -O3
++FFLAGS=  -O3 -cpp
+ LFLAGS=  $(FFLAGS)
+ 
+-EXE=     dpd.exe
++EXE=     dpd-MPI-sion.exe
+ 
+ VPATH=   ../DPD/
+ 
+@@ -38,12 +41,12 @@ SRC= \
+ OBJ=	$(SRC:.f90=.o)
+ 
+ .f90.o:
+-	$(FC) $(FFLAGS) -c $<
++	$(FC) $(FFLAGS) -c $< $(SCFLAGS)
+ 
+ all:	$(EXE)
+ 
+ $(EXE):	$(OBJ)
+-	$(FC) $(LFLAGS) -o $@ $(OBJ)
++	$(FC) $(LFLAGS) -o $@ $(OBJ) $(SLFLAGS)
+ 
+ $(OBJ):	$(MF)
+ 
