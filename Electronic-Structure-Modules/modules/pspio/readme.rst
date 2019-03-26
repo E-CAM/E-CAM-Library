@@ -56,21 +56,21 @@ Application Documentation
 Licence
    GNU Lesser GPL 
 
-Instalation
-___________ 
+Installation
+____________ 
 
 A release can be download from `This link <https://gitlab.e-cam2020.eu/ESL/pspio/tags/v0.0.0>`_
 Current installation and testing are done with gcc compiler. GNU Scientific Library (GSL, version>1.15) and 
-Check (a unit test framework for C, version>0.94) is required for instalation and testing. 
+Check (a unit test framework for C, version>0.94) is required for installation and testing. 
 
-Here are the commands for instalation::
+Here are the commands for installation::
 
  $ tar xfvz libpspio-0.0.0.tar.gz
  $ ./configure
  $ make
 
 .. note ::
- We provide also the possibility to build modules with Autotools. `This <https://gitlab.e-cam2020.eu/ESL/omm/blob/master/libOMM/doc/hacking-the-build-system.md>`_ is a userful document. 
+ We provide also the possibility to build modules with Autotools. `This <https://gitlab.e-cam2020.eu/ESL/omm/blob/master/libOMM/doc/hacking-the-build-system.md>`_ is a useful document. 
 
 
 

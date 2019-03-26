@@ -1,0 +1,33 @@
+Simple test
+
+SPECIES 3
+A  1.0  0.0  0
+B  1.0  0.0  6
+C  1.0  0.0  0
+
+MOLECULES 2
+ACB
+nummols 4
+beads 3
+A  0.0 0.5 0.0
+C  0.0 0.0 0.0
+B  0.5 0.0 0.0
+bonds 2
+harm  1 2 10.0 0.0
+harm  2 3 10.0 0.0
+finish
+BC
+nummols 3
+beads 2
+B  0.0 0.0 0.0
+C  0.5 0.0 0.0
+bonds 1
+harm  1 2 10.0 0.0
+finish
+
+INTERACTIONS 3
+A  A dpd   25.0 1.0 4.0
+B  B dpd   25.0 1.0 4.0
+C  C dpd   25.0 1.0 4.0
+
+CLOSE
