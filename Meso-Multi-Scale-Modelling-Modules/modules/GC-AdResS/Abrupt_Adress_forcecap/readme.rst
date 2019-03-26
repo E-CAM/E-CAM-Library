@@ -76,7 +76,7 @@ ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-We have tested the new addition to the code on two systems. The two test cases were water  and ionic liquids, see Ref. `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.  All the informations about studied systems, the performacne can be found there.
+We have used this new addition to the code on two systems, which were water and ionic liquids. The results have been published in Ref. `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.  All the informations about studied systems, the performance can be found there.
 
 The patch provided can be applied alone without the Abrupt AdResS patch, (patch < forcecap.patch) in the main directory of GROMACS. There is a *print* command which is triggered once the force on a particle is higher than a given force cap value.
 
