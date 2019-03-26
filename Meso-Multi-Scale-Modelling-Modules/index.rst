@@ -103,4 +103,4 @@ As stated in the header this module is a small script for an easy RDF calculatio
     :glob:
     :maxdepth: 1
 
-    ./modules/GC-AdResS/AdResS_RDF/redme.rst
+    ./modules/GC-AdResS/AdResS_RDF/readme.rst
