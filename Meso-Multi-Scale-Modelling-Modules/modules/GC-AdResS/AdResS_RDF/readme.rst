@@ -69,7 +69,7 @@ The most widespread tool for analysing molecular dynamics simulations is `VMD <h
 The program is based on TCL and Tk scripting language. Documentation and tutorials can be found 
 here: `VMD Docs <http://www.ks.uiuc.edu/Research/vmd/current/docs.html>`_ 
 
-The provided inputs (reference coordinates, configuration and trajectory are necessary to run AdResS) can be used for two essential analysis parts for AdResS. The structural part, the radial distribution functions of the simulated system. And the second part with the help of the `Density Profile tool <https://github.com/tonigi/vmd_density_profile>`_ show the diffusion of the molecules during the simulation.
+The reference coordinates (center of the AdResS region, as defined in the GROMACS mdp input file), configuration (standard input GROMACS: conf.gro) and trajectory (standard output GROMACS: traj_comp.xtc) are necessary to run AdResS. And they have to be used for two essential analysis parts for AdResS. The structural part, the radial distribution functions of the simulated system. And the second part with the help of the `Density Profile tool <https://github.com/tonigi/vmd_density_profile>`_ show the diffusion of the molecules during the simulation.
 
 
 Source Code
