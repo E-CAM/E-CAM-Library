@@ -1,4 +1,4 @@
-..  In ReStructured Text (ReST) indentation and spacing are very important (it is how ReST knows what to do with your
+..  deIn ReStructured Text (ReST) indentation and spacing are very important (it is how ReST knows what to do with your
     document). For ReST to understand what you intend and to render it correctly please to keep the structure of this
     template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded
     and followed by white space (if you see warnings when this file is built they this is a common origin for problems).
@@ -65,25 +65,27 @@ ______________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-The most spread tool for analysing molecular dynamics simulations is VMD (http://www.ks.uiuc.edu/Research/vmd). 
+The most widespread tool for analysing molecular dynamics simulations is VMD (`<http://www.ks.uiuc.edu/Research/vmd>`_). 
 The program is based on TCL and Tk scripting language. Documentation and tutorials can be found 
-here: http://www.ks.uiuc.edu/Research/vmd/current/docs.html 
+here: ` <http://www.ks.uiuc.edu/Research/vmd/current/docs.html>`_ 
+
+The provided inputs (reference coordinates, configuration and trajectory are necessary to run AdResS) can be used for two essential analysis parts for AdResS. The structural part, the radial distribution functions of the simulated system. And the second part with the help of the *Density Profile tool* ` <https://github.com/tonigi/vmd_density_profile>`_ show the diffusion of the molecules during the simulation.
+
 
 Source Code
 ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
-We basically work with the atom selection and use the pre-existing Radial Pair Distribution Function tool in VMD.
+We basically work with the atom selection and use the pre-existing Radial Pair Distribution Function tool in VMD. One has to load the configuration file (standard is conf.gro) and the trajectory file (standard: traj_comp.xtc) via either *vmd conf.gro traj_compt.xtc* or the vmd GUI.  
 
-
-Example case (for the radial systems), this selection was used with the reference point being defined in the GROMACS input file.
+Example case (for the radial systems), this selection was used with the reference point being defined in the GROMACS input file. 
 
 :: 
 
-   x_ref = x-value
-   y_ref = y-value
-   z_ref = z-value
+   x_ref = x-value of the center of the chosen AdResS region
+   y_ref = y-value of the center of the chosen AdResS region
+   z_ref = z-value of the center of the chosen AdResS region
 
    radius: radius of the atomistic region
    name "insert your choice of atom here" and (((x-x_ref)^2 + (y-y_ref)^2 + (z-z_ref)^2) < radius*radius )
