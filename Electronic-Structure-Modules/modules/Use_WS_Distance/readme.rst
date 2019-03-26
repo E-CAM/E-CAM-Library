@@ -42,7 +42,7 @@ This module is produced during the ECAM/Wannier90-developer workshop held in San
 Installing
 __________
 
-Installation of wannier90 code is relatively simple. Detailed installing inforamtion is given by `this link <https://raw.githubusercontent.com/wannier-developers/wannier90/develop/README.install>`_.
+Installation of wannier90 code is relatively simple. Detailed installing information is given by `this link <https://raw.githubusercontent.com/wannier-developers/wannier90/develop/README.install>`_.
 
 
 Testing
@@ -50,7 +50,7 @@ _______
 
 Test-Suite (`Pull-Request 5 <https://github.com/wannier-developers/wannier90/pull/5>`_) and Travis-CI integration (`Pull-Request 6 <https://github.com/wannier-developers/wannier90/pull/6>`_) are added to Wannier90 repository during this workshop.
 
-Thus, each Pull-Request within this ECAM module passed the Travis-CI continous integration test before being merged into the Wannier90 code.  Within the Travis-CI test, a set of tests in Test-Suite are checked. Manual testing can be done through the following command::
+Thus, each Pull-Request within this ECAM module passed the Travis-CI continuous integration test before being merged into the Wannier90 code.  Within the Travis-CI test, a set of tests in Test-Suite are checked. Manual testing can be done through the following command::
    
     $ make run-tests
 

@@ -49,7 +49,7 @@ Purpose of Module
 _________________
 
 One purpose of our project is to promote GC-AdResS as method which provides new insights and is not much more complex 
-and difficult to use. And a good way is to use existing codes, if they can provide the informations needed. 
+and difficult to use. And a good way is to use existing codes, if they can provide the information needed. 
 In GC-AdResS simulations we introduce artificial interfaces, from atomistic to hybrid and hybrid to coarse grained. To make 
 sure that we indeed have an open system we have to check several properties, from structural to dynamic properties. 
 Radial distribution functions (RDF'S) are the easiest way to check the structural properties of the 
@@ -77,8 +77,7 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
-We basicaly work with the atomselection and use the pre-existing Radial Pair Distribution Function tool in VMD. One has to load the configuration file (standard is conf.gro) and the trajectory file (standard: traj_comp.xtc) via either *vmd conf.gro traj_compt.xtc* or the vmd GUI.  
-
+We basically work with the atom selection and use the pre-existing Radial Pair Distribution Function tool in VMD. One has to load the configuration file (standard is conf.gro) and the trajectory file (standard: traj_comp.xtc) via either *vmd conf.gro traj_compt.xtc* or the vmd GUI.  
 
 Example case (for the radial systems), this selection was used with the reference point being defined in the GROMACS input file. 
 
