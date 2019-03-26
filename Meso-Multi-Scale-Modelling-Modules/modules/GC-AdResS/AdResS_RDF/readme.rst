@@ -69,7 +69,35 @@ The most widespread tool for analysing molecular dynamics simulations is `VMD <h
 The program is based on TCL and Tk scripting language. Documentation and tutorials can be found 
 here: `VMD Docs <http://www.ks.uiuc.edu/Research/vmd/current/docs.html>`_ 
 
-The reference coordinates (center of the AdResS region, as defined in the GROMACS mdp input file), configuration (standard input GROMACS: conf.gro) and trajectory (standard output GROMACS: traj_comp.xtc) are necessary to run AdResS. And they have to be used for two essential analysis parts for AdResS. The structural part, the radial distribution functions of the simulated system. And the second part with the help of the `Density Profile tool <https://github.com/tonigi/vmd_density_profile>`_ show the diffusion of the molecules during the simulation.
+The reference coordinates (center of the AdResS region, as defined in the GROMACS mdp input file), configuration (standard input GROMACS: conf.gro) and trajectory (standard output GROMACS: traj_comp.xtc) are necessary to run AdResS. And they have to be used for two essential analysis parts for AdResS. The structural part, the radial distribution functions of the simulated system. 
+And the second part with the help of the `Density Profile tool <https://github.com/tonigi/vmd_density_profile>`_ (repository contains a tutorial on how to use) show the diffusion of the molecules during the simulation.
+The RDF plugin is described here: `<https://www.ks.uiuc.edu/Research/vmd/plugins/gofrgui/>`_.
+All results can be stored as plain ASCII files, thus can be analysed via any plotting program. 
+
+
+CASE 1: RDF
+
+- Since we apply the routine in a subspace, the normalization factor is wrong. The correcting factor can be obtained by calculating the RDF in a full atomistic case. Then the RDF in the same subspace (as in the AdResS) in the full atomistic case. The quotient can be used to re-normalize the AdResS RDF.
+
+- Important: for the AdResS RDF the update selection has to be used, and the PBC switched off.
+
+- good case: the RDF's are exactly the same
+
+- bad case: the RDF's are different somehow
+
+
+CASE 2: Density Diffusion
+
+- It is possible to define the different regions in the simulation box. Thus it is possible to look at the region specific density diffusion.
+
+- For that one has to specify several time frames and calculate the average profiles and then plot the entire set. 
+
+- The frame of reference is set by the slider in the main menu. (The update selection option has to be switched off.) The particles in that frame are tagged and then via the different time frames one follows their path.
+
+- Good case: smooth regular and symmetric diffusion
+
+- bad case: spikes at the interface and asymmetric diffusion might hint at an artificial interface between the different regions.
+
 
 
 Source Code
