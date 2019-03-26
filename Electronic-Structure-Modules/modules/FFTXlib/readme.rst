@@ -76,7 +76,7 @@ This index map is created and preserved by the FFTXlib.
 
 
 In summary, FFTXlib allows the user to perform complex 3D fast Fourier transform (FFT) in the context of 
-plane wave based electronic structure software. It containes routines to initialize the array structures, 
+plane wave based electronic structure software. It contains routines to initialize the array structures, 
 to calculate the desired grid shapes. It imposes underlying size assumptions and provides 
 correspondence maps for indices between the two transform domains.
 
@@ -160,7 +160,7 @@ A copy of it is embedded on Prof. de Gironcoli's website_ .
  
 .. _website:  http://people.sissa.it/~degironc/
 
-The FFTXlib is developped with the contributions of C. Cavazzoni, S. de Gironcoli,
+The FFTXlib is developed with the contributions of C. Cavazzoni, S. de Gironcoli,
 P. Giannozzi, F. Affinito, P. Bonfa', Martin Hilgemans, Guido Roma, Pascal Thibaudeau,
 Stephane Lefranc, Nicolas Lacorne, Filippo Spiga, Nicola Varini, Jason Wood.
 
