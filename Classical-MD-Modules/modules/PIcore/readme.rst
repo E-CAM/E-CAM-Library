@@ -232,7 +232,7 @@ The latter two can only be changed by direct editing of the input scripts. All p
    7. variable LJ_system_RCUT index 3.5 # value of rcut for dispersion (pme  or  lj/cut1. )
    8. variable displacment_CENTRAL_difference index 0.00002  # optimal value for central 
       difference estimate of derivatives in lammps runs
-   9.  variable disp_KSPACE_paramater index 0.65 # kspace PME paramater
+   9.  variable disp_KSPACE_parameter index 0.65 # kspace PME parameter
    10. variable THERMODYNAMIC_output_frequency index 1000
    11. variable RUNTIME index 100000 # production run time
    12. variable SAMPLE_frequency index 1000 # measured as number of steps
@@ -255,7 +255,7 @@ Four examples of running the lammps scripts are as follows.
 
 The examples 1. and 2.  use the initial coordinates consisting of 3200 atoms defined by the   -var input_COORDINATES_file example_3200b.lammps option, 
 whereas   the examples 3. and 4. use the default coordinates of 400 atoms.  The  RUNTIME and RELAXATION_time are very short 
-for testing purposes. For  production runs they should be atleast ten times longer. 
+for testing purposes. For  production runs they should be at least ten times longer. 
 
 `data-new8-thdy.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PI/modules/PI/CORE/LJ/CLEAN-CODE/data-new8-thdy.py>`_ 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
