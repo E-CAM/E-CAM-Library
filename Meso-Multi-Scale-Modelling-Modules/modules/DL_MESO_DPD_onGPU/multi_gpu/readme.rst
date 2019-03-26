@@ -51,8 +51,8 @@ ______________________
 
 This module is part of the DL_MESO_DPD code. Full support and documentation is available at:
 
-* http://www.scd.stfc.ac.uk/SCD/support/40694.aspx
-* http://www.scd.stfc.ac.uk/SCD/resources/PDF/USRMAN.pdf
+* https://www.scd.stfc.ac.uk/Pages/DL_MESO.aspx 
+* https://www.scd.stfc.ac.uk/Pages/USRMAN.pdf
 
 To download the DL_MESO_DPD code you need to register at https://ccpforge.cse.rl.ac.uk/gf/. Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.
 
@@ -63,7 +63,7 @@ _______
 
 The DL_MESO code is developed using git version control. Currently the GPU version is under a branch named "add_gpu_version". After downloading the code, checkout the GPU branch and look into the "DPD/gpu_version" folder, i.e:
 
-* git clone DL_MESO_repository_path
+* git clone https://gitlab.stfc.ac.uk/dl_meso.git 
 * cd dl_meso
 * git checkout gpu_version
 * cd ./DPD/gpu_version
