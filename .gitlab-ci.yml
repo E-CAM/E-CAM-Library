@@ -1,8 +1,8 @@
-image: umbrellium/sphinx-doc
+image: cloudcompass/docker-rtdsphinx
 
 spelling:
   script:
-  - pip install codespell
+  - pip3 install codespell
   - codespell --skip=".git,_static,_build,Diff*,*.patch" --quiet-level=2 --ignore-words-list="adress"
   only:
   - master
@@ -19,9 +19,10 @@ orphans:
 
 pages:
   script:
-  - apt-get update
   - apt-get -y install dvipng
-  - pip install pygments --upgrade 
+  - pip3 install pygments --upgrade
+  - pip3 install Sphinx --upgrade
+  - pip3 install sphinx-bootstrap-theme --upgrade
   - READTHEDOCS=True sphinx-build -nWT -b html . _build/html
   - mv _build/html/ public/
   artifacts:
