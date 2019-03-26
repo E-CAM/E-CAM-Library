@@ -92,3 +92,15 @@ The first Meso- and Multi-scale ESDW was held in Barcelona, Spain, in July 2017.
     :maxdepth: 1
 
     ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme
+
+    
+ GC-AdResS: RDF tools for an easier analysis
+--------------------------------------------
+
+As stated in the header this module is a small script for an easy RDF calculation:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/GC-AdResS/AdResS_RDF/redme.rst
