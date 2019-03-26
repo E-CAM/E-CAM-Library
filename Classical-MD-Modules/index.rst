@@ -182,7 +182,10 @@ The modules that are based on OPS, but remain separate, are:
    
     ./modules/annotated_trajectories/readme
     ./modules/ops_piggybacker/readme
+    ./modules/contact_maps/readme
+    ./modules/contact_maps_parallelization/readme
     ./modules/dw_dimer_testsystem/readme
+    ./modules/lammps_ops/readme
 
 Nine of these modules were part of 
 `E-CAM Deliverable 1.2 <https://www.e-cam2020.eu/deliverables/>`_. Those modules

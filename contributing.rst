@@ -115,15 +115,20 @@ examples of these in the repository, but we provide a template for a generic mod
     ./example_module/readme
 
 After creating the branch, implement your contributions: new modules, enhancements or updates to existing modules, bug
-fixes, structure changes, whatever you like. Make sure you commit your work, and try to do it in bite-size chunks, so
-the commit log remains clear.
+fixes, structure changes, whatever you like.
 
-For example:
+Make sure to put your work in the appropriate directory. There are 4 scientific
+areas in E-CAM and your module is likely most relevant in one of those. Each of these directories has a ``modules``
+subdirectory, create a new directory within it to contain all files relevant to your specific module. In the example
+below, this directory has been called ``gromacs_gpu``.
+
+Make sure you commit your work, and try to do it in bite-size chunks, so
+the commit log remains clear, for example:
 
 .. code-block:: bash
 
-    git add modules/gromacs_gpu/readme.rst
-    git commit -m "add details on GPU support within GROMACS"
+    git add Classical-MD-Modules/modules/gromacs_gpu/readme.rst
+    git commit -m "add details on improved GPU support within GROMACS"
 
 Checking your contribution locally
 ----------------------------------
@@ -175,7 +180,7 @@ repository and then check which branch you want to check out:
     git pull origin <BRANCH_NAME> # Make sure we have any updates we made to our own branch
     git pull upstream master # Also pull in any changes to the main repository
 
-Now that everything is in sync, you can edit your update your files, when you are finished you commit your changes and
+Now that everything is in sync, you can edit and update your files, when you are finished you commit your changes and
 push the changes back to GitLab:
 
 .. code-block:: bash

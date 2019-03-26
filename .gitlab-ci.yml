@@ -1,17 +1,28 @@
-image: umbrellium/sphinx-doc
+image: cloudcompass/docker-rtdsphinx
 
 spelling:
   script:
-  - pip install codespell
-  - codespell --skip=".git,_static,_build,Diff*" --quiet-level=2
+  - pip3 install codespell
+  - codespell --skip=".git,_static,_build,Diff*,*.patch" --quiet-level=2 --ignore-words-list="adress"
   only:
   - master
   - merge_requests
 
+orphans:
+  script:
+  # Report all the orphans but ignore the exit code
+  - find ./ -name "*.rst"|xargs -i grep -H orphan {} || true
+  # Now handle the error code
+  - if [ $(find ./ -name "*.rst"|xargs -i grep -H orphan {}|wc -l) -gt "1" ]; then $(exit 1); else $(exit 0); fi
+  only:
+  - master
+
 pages:
   script:
-  - apt-get update
   - apt-get -y install dvipng
+  - pip3 install pygments --upgrade
+  - pip3 install Sphinx --upgrade
+  - pip3 install sphinx-bootstrap-theme --upgrade
   - READTHEDOCS=True sphinx-build -nWT -b html . _build/html
   - mv _build/html/ public/
   artifacts:
