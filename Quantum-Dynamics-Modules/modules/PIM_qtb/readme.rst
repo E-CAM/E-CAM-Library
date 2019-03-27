@@ -33,7 +33,7 @@ These trajectories can be used to sample initial conditions for intramolecular v
 
 
 Description of the module
-=========================
+_________________________
 
 The module implements various methods based on Langevin dynamics to
 sample initial conditions for IVR or to directly exploit the generated
