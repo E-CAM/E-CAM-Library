@@ -411,8 +411,6 @@ References
 
 .. [Hern] J.  Hern'andez-Rojas,  F.  Calvo,  E.  G.  Noya,   Applicability  of  Quantum Thermal Baths to Complex Many-Body Systems with Various Degrees of Anharmonicity, Journal of Chemical Theory and Computation 11 (2015) 861–870.
 
-.. [Man]   E. Mangaud,  S. Huppert,  T. Pl'e,  P. Depondt,  S. Bonella,  F. Finocchi, Quantum thermal bath with enforced fluctuation-dissipation theorem for reliable simulations of nuclear quantum effects, Journal of Chemical Theory and Computation, Submitted (2018).
-
 .. [Lei] B. Leimkuhler,  C. Matthews,  Rational Construction of Stochastic Numerical Methods for Molecular Sampling, Applied Mathematics Research eXpress (2012).
 
 
