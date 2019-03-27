@@ -241,7 +241,7 @@ files follow the following format:
      .
 
 This corresponds to an extended XYZ format with information on momenta.
-It is readable by visualization softwares such as VMD to display the
+It is readable by visualization software such as VMD to display the
 trajectories.
 
 The module outputs multiple trajectory files depending on the number of
