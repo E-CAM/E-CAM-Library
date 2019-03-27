@@ -2,6 +2,7 @@ image: cloudcompass/docker-rtdsphinx
 
 spelling:
   script:
+  - env | grep -i gitlab
   - pip3 install codespell
   - codespell --skip=".git,_static,_build,Diff*,*.patch" --quiet-level=2 --ignore-words-list="adress"
   only:
