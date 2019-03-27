@@ -1,4 +1,4 @@
-.. _langevin_for_PaPIM:..
+.. _langevin_for_PaPIM:
 
 =========================
 Langevin module for PaPIM
@@ -241,7 +241,7 @@ files follow the following format:
      .
 
 This corresponds to an extended XYZ format with information on momenta.
-It is readable by visualization softwares such as VMD to display the
+It is readable by visualization software such as VMD to display the
 trajectories.
 
 The module outputs multiple trajectory files depending on the number of
@@ -406,13 +406,10 @@ the code.
 
 References
 ==========
-.. [Dam] H. Dammak, Y. Chalopin, M. Laroche, M. Hayoun, J.-J. Greffet,  Quantum Thermal Bath for Molecular Dynamics Simulation, Phys. Rev. Lett. 103 (2009) 190601.
 
 .. [Bri] F. Brieuc, Y. Bronstein, H. Dammak, P. Depondt, F. Finocchi, M. Hayoun,  Zero-point energy leakage in quantum thermal bath molecular dynamics simulations,  J. Chem. Th. Comput. 12 (2016) 5688–5697.
 
 .. [Hern] J.  Hern'andez-Rojas,  F.  Calvo,  E.  G.  Noya,   Applicability  of  Quantum Thermal Baths to Complex Many-Body Systems with Various Degrees of Anharmonicity, Journal of Chemical Theory and Computation 11 (2015) 861–870.
-
-.. [Man]   E. Mangaud,  S. Huppert,  T. Pl'e,  P. Depondt,  S. Bonella,  F. Finocchi, Quantum thermal bath with enforced fluctuation-dissipation theorem for reliable simulations of nuclear quantum effects, Journal of Chemical Theory and Computation, Submitted (2018).
 
 .. [Lei] B. Leimkuhler,  C. Matthews,  Rational Construction of Stochastic Numerical Methods for Molecular Sampling, Applied Mathematics Research eXpress (2012).
 
