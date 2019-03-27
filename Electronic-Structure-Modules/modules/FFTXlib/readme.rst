@@ -12,13 +12,16 @@ FFTXlib
     Sphinx, ReStructuredText 
 
   Application Documentation
-   `Doc mirror <https://gitlab.com/kucukben/fftxlib-esl-ecam/doc>`_ 
+   `Doc mirror <https://gitlab.com/kucukben/fftxlib-esl-ecam/tree/master/doc>`_ 
 
   Relevant Training Material
     See usage examples in the ``examples`` directory of the source code.
   
   Licence
     GNU Lesser General Public License v3.0
+
+  Author of Module
+    Emine Kucukbenli
 
 .. contents:: :local:
 
