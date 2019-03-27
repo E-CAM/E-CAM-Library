@@ -88,6 +88,7 @@ Modules not coming from ESDWs
 
      ./modules/SCDM_WFs/readme
      ./modules/flook/readme
+     ./modules/MatrixSwitchDBCSR/readme
 
 Pilot Projects
 ==============
