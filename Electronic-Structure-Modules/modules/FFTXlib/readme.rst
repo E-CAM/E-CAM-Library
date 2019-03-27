@@ -12,7 +12,7 @@ FFTXlib
     Sphinx, ReStructuredText 
 
   Application Documentation
-   `Doc mirror <http://people.sissa.it/~degironc/FFTXlib/Doc/temp_doc.pdf>`_ 
+   `Doc mirror <https://gitlab.com/kucukben/fftxlib-esl-ecam/doc>`_ 
 
   Relevant Training Material
     See usage examples in the ``examples`` directory of the source code.
@@ -87,8 +87,8 @@ It supports both MPI and OpenMP parallelization technologies.
 
 FFTXlib is currently employed within Quantum Espresso package, a widely used suite of codes 
 for electronic structure calculations and materials modeling in the nanoscale, based on 
-planewave and pseudopotentials. FFTXlib is also interfaced with "CB Toy Code" module ( link to version in E-CAM library here)
-that solves the Kohn Sham equations in the basis of planewaves. 
+planewave and pseudopotentials. FFTXlib is also interfaced with "miniPWPP" module 
+that solves the Kohn Sham equations in the basis of planewaves and soon to be released as a part of E-CAM Electronic Structure Library. 
 
 
 Background Information
@@ -106,14 +106,13 @@ to a 1D+1D+1D one; to allow for greater flexibility in parallelization.
 Building and Testing
 ______________________________
 
-A stable version of the module can be downloaded using `this link <http://people.sissa.it/~degironc/FFTXlib/Downloads>`_
+A stable version of the module can be downloaded using `this link <https://gitlab.com/kucukben/fftxlib-esl-ecam>`_
 ..  when fftxlib has its own repo, this link can be moved there.
 Current installation and testing are done with gfortran compiler, version 4.4.7.
 The configuration uses GNU Autoconf 2.69.
 
 The commands for installation are::
 
- $ tar -zxvf FFTXlib-1.0.tgz
  $ ./configure
  $ make libfftx
 
@@ -124,8 +123,7 @@ and symbolicly linked to a "lib" directory.
 
 ..  $ make FFTXtest
 
-.. Besides the PASS/FAIL status of the test, by changing the bash script in the tests directory, you can perform your custom tests.
-.. Read the README.test documentation in the tests subdirectory for further details about the tests.
+.. Besides the PASS/FAIL status of the test, by changing the bash script in the tests directory, you can perform your custom tests. Read the README.test documentation in the tests subdirectory for further details about the tests.
 
 To see how the library works in a realistic case scenario of an electronic structure calculation, run::
 
@@ -141,28 +139,20 @@ Read the README.examples documentation in the examples subdirectory for further 
 Source Code
 ____________
 
-The FFTXlib bundle corresponding to the stable release can be downloaded from this `link <http://people.sissa.it/~degironc/FFTXlib/Downloads>`_
+The FFTXlib bundle corresponding to the stable release can be downloaded from this `link <https://gitlab.com/kucukben/fftxlib-esl-ecam>`_
 The source code itself can be found under the subdirectory ``src``.
 
-Since the development is still going on , 
-the final version of the bundle can be obtained from the git repository using ``git``::
+The development is ongoing. 
 
-  git clone https://gitlab.com/QEF/FFTXlib/FFTXlib.git
-
-The version that corresponds to the one of examples and tests is "TBD" and can be obtained via::
- $ git checkout TBD
+The version that corresponds to the one of examples and tests can be obtained with SHA 31a6f4ecbb7ce474b0c87702c716713758f99a0a. This will soon be replaced with a version tag. 
 
 
 Further Information
 ____________________
 
-This documentation and more can be found inside the ``docs`` subdirectory. 
-A copy of it is embedded on Prof. de Gironcoli's website_ .
- 
-.. _website:  http://people.sissa.it/~degironc/
+This documentation can be found inside the ``docs`` subdirectory. 
 
 The FFTXlib is developed with the contributions of C. Cavazzoni, S. de Gironcoli,
 P. Giannozzi, F. Affinito, P. Bonfa', Martin Hilgemans, Guido Roma, Pascal Thibaudeau,
-Stephane Lefranc, Nicolas Lacorne, Filippo Spiga, Nicola Varini, Jason Wood.
-
+Stephane Lefranc, Nicolas Lacorne, Filippo Spiga, Nicola Varini, Jason Wood, Emine Kucukbenli.
 
