@@ -20,7 +20,7 @@ PIM_qtb
 
 
 Purpose of Module
-_________________
+=================
 
 
 Module **PIM_qtb**  generates trajectories based on several classical and semi-classical stochastic methods:
@@ -33,7 +33,7 @@ These trajectories can be used to sample initial conditions for intramolecular v
 
 
 Description of the module
-_________________________
+=========================
 
 The module implements various methods based on Langevin dynamics to
 sample initial conditions for IVR or to directly exploit the generated
@@ -422,7 +422,7 @@ the code.
 
 
 Compiling
-_________
+=========
 
 A Fortran 90/95 compiler with MPI wrapper is required for successful compilation of the code. 
 Although the correlation function subroutines are serial, the remaining code is parallelized so MPI wrappers have to be used. 
@@ -431,7 +431,7 @@ The same make command generates a ``PaPIM.exe`` executable for testing of the co
 
 
 Testing
-_______
+=======
 
 For PIM_qtb test purposes the ``numdiff`` package is used for automatic comparison purposes and should be made
 available before running the tests, otherwise the ``diff`` command will be used automatically instead but the user
@@ -454,23 +454,15 @@ reference values in case the tests fail.
 
 
 Source Code
-___________
+===========
 
 The PIM_qtb module source code is located at: https://gitlab.e-cam2020.eu:10443/thomas.ple/PIM.git (Temporary link).
 
 
 Source Code Documentation
-_________________________
+=========================
 
-A brief summary of the methods can be found in the following link:
-
-.. toctree::
-    :glob:
-    :maxdepth: 1
-
-    ./langevin_for_PaPIM
-
-It can also be compiled by executing the following commands in ``./doc/QTB_doc`` directory with "Sphinx" (documentation tool) python module installed:
+The documentation can also be compiled by executing the following commands in ``./doc/QTB_doc`` directory with "Sphinx" (documentation tool) python module installed:
 
 ::
 
