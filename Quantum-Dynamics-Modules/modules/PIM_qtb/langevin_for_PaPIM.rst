@@ -406,7 +406,6 @@ the code.
 
 References
 ==========
-.. [Dam] H. Dammak, Y. Chalopin, M. Laroche, M. Hayoun, J.-J. Greffet,  Quantum Thermal Bath for Molecular Dynamics Simulation, Phys. Rev. Lett. 103 (2009) 190601.
 
 .. [Bri] F. Brieuc, Y. Bronstein, H. Dammak, P. Depondt, F. Finocchi, M. Hayoun,  Zero-point energy leakage in quantum thermal bath molecular dynamics simulations,  J. Chem. Th. Comput. 12 (2016) 5688–5697.
 
