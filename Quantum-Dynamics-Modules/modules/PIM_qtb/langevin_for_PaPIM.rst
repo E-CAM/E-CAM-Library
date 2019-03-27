@@ -1,4 +1,4 @@
-.. _langevin_for_PaPIM:..
+.. _langevin_for_PaPIM:
 
 =========================
 Langevin module for PaPIM
