@@ -477,7 +477,7 @@ html and latex format, by executing the following command in the ``./doc`` direc
 	doxygen PIMqcf_doxygen_settings
 
 References
-__________
+==========
 .. [Dam] H. Dammak, Y. Chalopin, M. Laroche, M. Hayoun, J.-J. Greffet,  Quantum Thermal Bath for Molecular Dynamics Simulation, Phys. Rev. Lett. 103 (2009) 190601.
 
 .. [Man]   E. Mangaud,  S. Huppert,  T. Pl'e,  P. Depondt,  S. Bonella,  F. Finocchi, Quantum thermal bath with enforced fluctuation-dissipation theorem for reliable simulations of nuclear quantum effects, Journal of Chemical Theory and Computation, Submitted (2018).
