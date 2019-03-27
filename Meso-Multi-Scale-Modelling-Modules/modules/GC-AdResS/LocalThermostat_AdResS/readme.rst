@@ -124,6 +124,7 @@ Here is a short manual on how to run the test and set up the local thermostat si
   NOTE: The method can be used with any potential, which preserves the correct density. If only a SPC/E CG potential is available it can be used for SPC/e water models as well as for a more advanced water model. It is possible to use a WCA potential, which is basically a Lennard-Jones potential. *And* it is possible to switch the CG potential completely off. That will transform the CG region to a true thermodynamic reservoir with a non-interacting gas.
 
 4) The next step is to create a double resolution configuration and adjust the dependencies (force field, topology, index file, GROMACS input file). Creating the configuration is straight forward (we use VOTCA `VOTCA <http://www.votca.org/home>`_):
+
 ::
 
   Example from VOTCA: 
@@ -139,11 +140,15 @@ Of course, if you want to use this configuration in a MD simulation you have to 
      4      1 2 3     1    0.05595E+00 0.05595E+00
 
 The next step is to adjust the status of the CG particle in the topology file (in our example: *topol.top*) from *A* for *atom* to *V* as *virtual particle*. And of course insert the new force field.
+
 ::
-   #include "spc.adress.itp"  
+
+  #include "spc.adress.itp"  
 
 Then you have to generate an index file with the different energy groups. In this example, we have 2 groups (EXW and WCG, the name of the CG particle): 
+
 ::
+
   gmx make_ndx -f conf_hybrid.gro
   > a WCG
   > !3
@@ -153,20 +158,28 @@ Then you have to generate an index file with the different energy groups. In thi
 
 The next step is to adjust the GROMACS input file. AdResS needs the Langevin dynamics, so you have to choose: 
 ::
+
   integrator = sd 
+
 
 Since the system is double resolution, meaning we have the atomistic details and the virtual particles, we have to define the energy groups:
 ::
+
   ; Selection of energy groups 
   energygrps = EXW WCG 
   energygrp_table = WCG WCG
 
+
 GROMACS  version 5.1.5 is using verlet as standard cutoff-scheme, so we have to change that to *group*:
-:: 
+
+::
+
   ; nblist update frequency 
   cutoff-scheme = group 
 
+
 In case of local thermostat simulations (see `Link (for J.Chem.Phys.): <https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `Link (for arXiv): <https://arxiv.org/abs/1806.09870>`_) we use:
+
 :: 
 
   coulombtype = reaction-field-zero 
@@ -175,22 +188,30 @@ In case of local thermostat simulations (see `Link (for J.Chem.Phys.): <https://
   rvdw = 1.0 
 
 If you use the stochastic dynamics, we add the following entries to make sure we have only NVT and a thermalization via the Langevin dynamics.  
+
 ::
+
   ; Temperature coupling 
   Tcoupl = no 
   Pcoupl = no
 
 To switch the simulation to AdResS this is the key part. This starts the AdResS runs.
+
 ::
+
   ; AdResS parameters 
   adress = yes ;no 
 
 Here you define the geometry of the atomistic region, either *sphere* (a spherical region anywhere in the simulation box) or *xsplit* (a cuboid slice of the whole simulation box for the atomistic region, with the transition and coarse grained region on each side). 
+
 ::
+
   adress_type = sphere ;xsplit sphere or constant 
 
 This defines the width of the atomistic region, starting from the given reference coordinate (keyword *adress_reference_coords*, by simply using: *tail conf_hybrid.gro | awk '(NF==3){print $1/2., $2/2., $3/2.}'*). In the older versions of AdResS, with a smooth coupling between AT and CG the width of the hybrid region width (*adress_hy_width*) was also defined. In the Abrupt_AdResS setup it is not necessary any more, even if you put a number that region is counted (in the code) as AT. 
+
 ::
+
   adress_ex_width = 1.5 
   adress_hy_width = 1.5 
   adress_ex_forcecap = 2000  
@@ -204,6 +225,7 @@ This defines the width of the atomistic region, starting from the given referenc
 Another important aspect is the force capping. Abrupt AdResS works fine for small molecules like water, but for larger or more complex molecules the force capping is very important. We cap every force component (i.e. f(x),f(y),f(z)) acting on a particle and not the norm of the force, which reduces the computational time spend. This is described in another module. 
 
 *adress_interface_correction* defines if you use an external force to correct the density or not. In case of the old AdResS (smooth coupling) that correction simply refined the simulation, as the density difference was not significant. For the Abrupt AdResS, and the method development based on it, and more complex molecules (i.e. polymers) the thermodynamic force is essential. If it is not taken into account the risk to form interfaces between AT and CG is high. Also if particles coming too close (basically overlap) the run can crash. The role of the thermodynamic force, the force cap and the basic theory behind it see `Link (for J.Chem.Phys.): <https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `Link (for arXiv): <https://arxiv.org/abs/1806.09870>`_. For this to work you must have a file e.g. in our example case: *tabletf_WCG.xvg* in the directory, otherwise you have to set:
+
 ::
 
   adress_interface_correction =  off
@@ -211,8 +233,6 @@ Another important aspect is the force capping. Abrupt AdResS works fine for smal
 The local thermostat simulations are significantly different from the Abrupt coupling AdResS simulations. The atomistic region is indirectly thermalized by the hybrid/coarse grained, which leads to an NVE-like environment. To make sure the simulations run smoothly, a tabulated potential for shifted Lennard-Jones potentials is needed. Furthermore, GROMACS has to be compiled with double resolutions. It is easy to see when the simulation didn't work, as the atomistic region is evacuated by all molecules and the resulting density has an error of around 50% and higher. 
 
 When the simulation worked, the same checks as for Abrupt AdResS are required. The first check is the density and you see if the patch works right away. If you have no thermodynamic force you have rather pronounced spikes in the density at the interfaces. If you have a converged thermodynamic force the density has to be within +/- 3% (optimal) and +/- 5% (okay..but can be better) off from a comparable full atomistic simulation / experimental data. Then you need further properties to make sure you have an open system. The problem with the simulation is that an "artificial" interface is introduced and checks for the diffusion, the RDFs... (full list see below) ensure that those regions mix and that you have proper particle transfer.
-
-
 
 Source Code
 ___________
@@ -225,7 +245,7 @@ To apply the patch:
 1) copy into the main directory (gromacs/)
 2) patch < localT_abrupt_adress.patch
 
-The patch for Abrupt_AdResS can be found here:
+The patch for Abrupt_AdResS can be found here:(:ref:`localT_abrupt_adress`)
 
 .. toctree::
    :glob:
@@ -236,9 +256,8 @@ The patch for Abrupt_AdResS can be found here:
 ..  Remember to change the reference "patch" for something unique in your patch file subpage or you will have
     cross-referencing problems
 
-For the patch see reference :ref:`localT_abrupt_adress`
 
-In this module we also include a test scenario for GROMACS version 5.1.5 with a possible CG potential and all necessary input files. To run it simply run *gmx grompp -f grompp.mdp -c conf.gro -p topol.top -n index.ndx -maxwarn 5; gmx mdrun* using the patched version of GROMACS version 5.1.5 (see above). 
+In this module we also include a test scenario for GROMACS version 5.1.5 with a possible CG potential and all necessary input files, see `<https://gitlab.e-cam2020.eu:10443/abrupt_adress/abrupt_adress>`_ . To run it simply run *gmx grompp -f grompp.mdp -c conf.gro -p topol.top -n index.ndx -maxwarn 5; gmx mdrun* using the patched version of GROMACS version 5.1.5 (see above). 
 
 When *gmx mdrun* finishes normally (with the above mentioned setup), we have several mandatory checks to see if the simulation was successful or not.
   
@@ -256,13 +275,4 @@ When *gmx mdrun* finishes normally (with the above mentioned setup), we have sev
 
   
 5) If we only thermalize the transition region, the AT region is NVE-like, which means it is even possible to determine the dynamics of the system.
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   example_inputs.tar.gz
-   
-:download:`GROMACS input files <example_inputs.tar.gz>`
-
 
