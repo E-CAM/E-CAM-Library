@@ -25,6 +25,7 @@ pages:
   - pip3 install sphinx-bootstrap-theme --upgrade
   - READTHEDOCS=True sphinx-build -nWT -b html . _build/html
   - mv _build/html/ public/
+  - echo -e "\n\n\e[1mYou can find your build of this documentation at \n\t\e[32m${CI_PAGES_URL}\e[0m\n\n"
   artifacts:
     paths:
     - public
