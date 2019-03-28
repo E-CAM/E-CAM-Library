@@ -111,7 +111,8 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/Gaussian_interface/README  
     ./modules/Differential_Evolution/README  
     ./modules/Gaussian_interface/README
-    ./modules/WLRR/README   
+    ./modules/WLRR/README
+    ./modules/W90_cube_format_non-orthogonal/readme
 
 
 .. _E-CAM: https://www.e-cam2020.eu/
