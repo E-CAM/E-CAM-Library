@@ -51,7 +51,7 @@ _________________
 .. Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
 
 .. figure:: ./images/Cobalt_selection.png
-   :figwidth: 55 % 
+   :scale: 50 %
    :align: left
 
 This module is part of bundle to extend the capabilities of the Wannier90 code [1]_. In particular, here we have implemented the
