@@ -52,9 +52,8 @@ industrially, for instance in the purification of pharmaceutical active ingredie
 used to compute the free energy associated with changes in the pH, that is the proton transfer from a titratable site to the bulk, 
 for example in water. 
 
-Our approach consists 
-of rescaling the effective size of inserted atoms through a parameter  :math:`\lambda` so that all interactions between inserted atoms and 
-interactions between inserted atoms and atoms already present in the system are zero when  :math:`\lambda = 0`,  creating at most an 
+Our approach consists  of rescaling the effective size of inserted atoms through a parameter  :math:`\lambda` so that all interactions between 
+nserted atoms and  interactions between inserted atoms and atoms already present in the system are zero when  :math:`\lambda = 0`,  creating at most an 
 integrable singularity which we can safely handle.  In the context of Lennard-Jones type pair potentials,  
 our approach at a mathematical level is similar to Simonson, who investigated the mathematical conditions required to `avoid the
 singularity of insertion <https://doi.org/10.1080/00268979300102371>`_. It turns out that a non-linear dependence of the 
