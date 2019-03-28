@@ -188,7 +188,7 @@ and for the strong scaling (where the number of core are doubled from 4 to 384 b
 size considered for one core/processor for weak scaling) Strong Scaling:
 
 ==================  =============  
-Number of MPI Core  timesteps/s ? 
+Number of MPI Core  timesteps/s 
 ==================  =============
 4                   9.197
 8                   17.447
