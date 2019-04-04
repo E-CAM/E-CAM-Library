@@ -49,7 +49,7 @@ Purpose of Module
 _________________
 
 One purpose of our project is to promote GC-AdResS as method which provides new insights and is not much more complex 
-and difficult to use. And a good way is to use existing codes, if they can provide the information needed. 
+and difficult to use. 
 In GC-AdResS simulations we introduce artificial interfaces, from atomistic to hybrid and hybrid to coarse grained. To make 
 sure that we indeed have an open system we have to check several properties, from structural to dynamic properties. 
 Radial distribution functions (RDF'S) are the easiest way to check the structural properties of the 
@@ -77,9 +77,9 @@ All results can be stored as plain ASCII files, thus can be analysed via any plo
 
 CASE 1: RDF
 
-- Since we apply the routine in a subspace, the normalization factor is wrong. The correcting factor can be obtained by calculating the RDF in a full atomistic case. Then the RDF in the same subspace (as in the AdResS) in the full atomistic case. The quotient can be used to re-normalize the AdResS RDF.
+- Since we apply the routine in a subspace, the normalization factor is wrong. The correcting factor can be obtained by calculating the RDF in the full atomistic case. Then the RDF in the same subspace (as in the AdResS) in the full atomistic case. The quotient can be used to re-normalize the AdResS RDF.
 
-- Important: for the AdResS RDF the update selection has to be used, and the PBC switched off.
+- Important: for the AdResS RDF the *update selection* option tick has to be used, and the PBC switched off.
 
 - good case: the RDF's are exactly the same
 
@@ -90,7 +90,7 @@ CASE 2: Density Diffusion
 
 - It is possible to define the different regions in the simulation box. Thus it is possible to look at the region specific density diffusion.
 
-- For that one has to specify several time frames and calculate the average profiles and then plot the entire set. 
+- To do that: one has to specify several time frames and calculate the average profiles, each one gives a ASCII file which (in the end) can be plotted together.  
 
 - The frame of reference is set by the slider in the main menu. (The update selection option has to be switched off.) The particles in that frame are tagged and then via the different time frames one follows their path.
 
@@ -100,8 +100,8 @@ CASE 2: Density Diffusion
 
 
 
-Source Code
-___________
+Example Collection
+__________________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
