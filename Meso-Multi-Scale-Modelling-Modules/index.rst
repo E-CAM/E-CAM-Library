@@ -63,11 +63,12 @@ The following modules connected to the DL_MESO_DPD code have been produced so fa
     ./modules/DL_MESO_DPD_onGPU/add_gpu_version/readme
     ./modules/DL_MESO_DPD_onGPU/fftw/readme
     ./modules/DL_MESO_DPD/check_dlmeso_dpd/readme
+    ./modules/DL_MESO_DPD/tetra_dlmeso_dpd/readme
 
 ESPResSo++
 ----------
 
-The following modules connected to the ESPResSo++ code have been produced so far:
+The following modules connected to the ESPResSo++ code have been produced so far in the context of an `associated Pilot Project <https://www.e-cam2020.eu/pilot-project-composite-materials/>`_:
 
 .. toctree::
     :glob:
@@ -82,6 +83,14 @@ The following modules connected to the ESPResSo++ code have been produced so far
     ./modules/hierarchical-strategy/simple_one-component_melts/reinsertion/readme
     ./modules/hierarchical-strategy/simple_one-component_melts/fine-graining/readme
     ./modules/hierarchical-strategy/simple_one-component_melts/coarse-graining/readme
+
+These modules have resulted in the final overarching module that captures the goal of the pilot project:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/hierarchical-strategy/simple_one-component_melts/readme
 
 ParaDiS
 -------
@@ -105,3 +114,16 @@ The first Meso- and Multi-scale ESDW was held in Barcelona, Spain, in July 2017.
     :maxdepth: 1
 
     ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme
+
+
+GC-AdResS 
+---------
+
+Adaptive Resolution Simulation: Implementation in GROMACS
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/GC-AdResS/Abrupt_AdResS/readme.rst
+    ./modules/GC-AdResS/Abrupt_AdResS/abrupt_adress.rst
