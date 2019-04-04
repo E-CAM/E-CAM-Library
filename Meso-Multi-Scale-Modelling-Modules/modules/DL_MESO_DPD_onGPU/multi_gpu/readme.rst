@@ -54,7 +54,7 @@ This module is part of the DL_MESO_DPD code. Full support and documentation is a
 * https://www.scd.stfc.ac.uk/Pages/DL_MESO.aspx 
 * https://www.scd.stfc.ac.uk/Pages/USRMAN.pdf
 
-To download the DL_MESO_DPD code you need to register at https://ccpforge.cse.rl.ac.uk/gf/. Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.
+To download the DL_MESO_DPD code you need to register at https://gitlab.stfc.ac.uk. Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.
 
 
 
