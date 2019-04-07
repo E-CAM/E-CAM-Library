@@ -128,14 +128,14 @@ The source codes comprise the following 5 files
 ::
 
 
-   (1) A python code `chebychev-lambda-input.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PIhydration/modules/PI/HYDRATION/CORE/chebychev-lambda-input.py>`_ that generates the lambda values to be input into LAMMPS according to the users' choices of  number of  interpolation points and the 
+   (1) A python code `chebychev-lambda-input.py <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIhydration/chebychev-lambda-input.py>`_ that generates the lambda values to be input into LAMMPS according to the users' choices of  number of  interpolation points and the 
    minimum value of lambda to be used as the domain of integration 
-   (2) A LAMMPS script codes `noinsert_trimer_elec6.in <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PIhydration/modules/PI/HYDRATION/CORE/harmonic/templatev5_nokspace-noinsert_trimer_elec6.in>`_ that generates the data required for estimating the changes in free energy due to the insertion TIP3P water molecules using a  standard cut-off respectively.
-   (3) One example of coordinate input files for LAMMPS:  `example_lj403v2.lammps <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PIhydration/modules/PI/HYDRATION/CORE/harmonic/example_lj403v2.lammps>`_
+   (2) A LAMMPS script codes `noinsert_trimer_elec6.in <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIhydration/harmonic/templatev5_nokspace-noinsert_trimer_elec6.in>`_ that generates the data required for estimating the changes in free energy due to the insertion TIP3P water molecules using a  standard cut-off respectively.
+   (3) One example of coordinate input files for LAMMPS:  `example_lj403v2.lammps <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIhydration/harmonic/example_lj403v2.lammps>`_
    
-   and  `example_lj3200b.lammps <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/bf6d646de33532e331407c89e1d78b1064e154f6/modules/PI/CORE/LJ/CLEAN-CODE/example_lj3200b.lammps>`_
-   (4) A python script `data-new8-thdy.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PIhydration/modules/PI/HYDRATION/CORE/data-new8-thdy.py>`_ that takes as input the thermodynamic integration output data from LAMMPS and uses it to compute the corresponding free energy change using thermodynamic integration.
-   (5) A python script `data-new8-mbar.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PIhydration/modules/PI/HYDRATION/CORE/data-new8-mbar.py>`_ that takes as input the MBAR  output data from LAMMPS and uses it to compute the corresponding free energy change using MBAR
+   and  `example_lj3200b.lammps <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIhydration/example_lj3200b.lammps>`_
+   (4) A python script `data-new8-thdy.py <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIhydration/data-new8-thdy.py>`_ that takes as input the thermodynamic integration output data from LAMMPS and uses it to compute the corresponding free energy change using thermodynamic integration.
+   (5) A python script `data-new8-mbar.py <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIhydration/data-new8-mbar.py>`_ that takes as input the MBAR  output data from LAMMPS and uses it to compute the corresponding free energy change using MBAR
    
 Compilation and Linking
 _______________________
@@ -213,14 +213,14 @@ Running the lammps scripts
 
 The examples 1. and 2.  use the initial coordinates consisting of 3200 atoms defined by the   -var input_COORDINATES_file example_3200b.lammps option, whereas the examples 3. and 4. use the default coordinates of 400 atoms.  The  RUNTIME and RELAXATION_time are very short for testing purposes. For production runs, they should be at least ten times longer. 
 
- `data-new8-thdy.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PIhydration/modules/PI/HYDRATION/CORE/data-new8-thdy.py>`_
+ `data-new8-thdy.py <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIhydration/data-new8-thdy.py>`_
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This python code takes as input the thermodynamic integration output data from LAMMPS and uses it to compute the corresponding free energy change using thermodynamic integration. The user should call it from the directory where the output data from LAMMPS is held. It expects output data fo have the format header-name.tdy.number.dat where number equals the number of lambda values excluding zero. Here it is assumed that one particle is inserted. It will print the estimates of the free energy of insertion or deletion and also creates a director called TDY
 and subdirectories where the results of the analysis are stored.
 
 
-`data-new8-mbar.py <https://gitlab.e-cam2020.eu/mackernan/Classical-MD-Modules/blob/PIhydration/modules/PI/HYDRATION/CORE/data-new8-mbar.py>`_ 
+`data-new8-mbar.py <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIhydration/data-new8-mbar.py>`_ 
 ~~~~~~~~~~~~~~~~~~~~~~~~
 This python code takes as input the multiple Bennet Acceptance Ratio (MBAR)  output data from LAMMPS and uses it to compute the corresponding free energy change using the pymbar code from the Chodera lab. The user should call it from the directory where the output data is held. It expects output data fo have the format header-name.mbar.number.dat where number equals the number of lambda values including zero. Here it is assumed that one particle is inserted. It will print the estimates of the free energy of insertion or deletion and also creates a director called MBAR and subdirectories where the results of the analysis are stored. 
 
