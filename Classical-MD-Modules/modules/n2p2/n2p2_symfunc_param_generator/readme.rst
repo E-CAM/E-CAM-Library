@@ -13,17 +13,13 @@
 ..  sidebar:: Software Technical Information
 
   Name
-    Name of the relevant software.
+    n2p2: Symmetry Function Parameter Generator
 
   Language
-    Please indicate the primary language(s) used by the module. Please also state if interfaces for other languages are
-    available.
+    Python
 
   Licence
-    Specify the licence under which the software is released. Provide a link to the full online description of the
-    licence. You'll find descriptions of the most common licences at https://opensource.org/licenses .
-    An example here would be: `GPL <https://opensource.org/licenses/gpl-license>`_ or (the more permissive)
-    `MIT <https://opensource.org/licenses/mit-license>`_
+    `GPL <https://opensource.org/licenses/gpl-license>`_
 
   Documentation Tool
     All source code created for this module should be documented so please indicate what tool has been used for
@@ -37,7 +33,7 @@
     Add a link to any relevant training material. If there currently is none then say 'Not currently available.'
 
   Software Module Developed by
-    Add the name of the person who developed the software for this module here
+    Florian Buchner
 
 
 ..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
