@@ -44,7 +44,10 @@ W90_cube_format_non-orthogonal
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
     
-In many situations it is crucial to inspection the symmetries and shapes of the Wannier functions. To this end, one needs to use a visualisation program such as VESTA or VMD. One of the most popular format to encode volumetric data is the GAUSSIAN CUBE format, which is supported by virtually all molecular visualization programs. This module extends the cability of Wannier90 in generating output files in the CUBE format for periodic calculations with non-orthogonal unit cells.  
+For many applications that rely on the detail of the electronic structure of solids, it is crucial to inspect the symmetries, centres and shapes of the Wannier functions. To this end, one needs to use a visualisation program such as VESTA [1]_ or VMD [2]_. One of the most popular format to encode volumetric data is the GAUSSIAN CUBE format, which is supported by almost all molecular visualization programs. This module extends the cability of Wannier90 in generating output files in the CUBE format for periodic calculations with non-orthogonal unit cells.  
+
+.. [1] J. Appl. Crystallogr **44**, 1272-1276 (2011)
+.. [2] J. Molec. Graphics **14**, 33-38 (1996)
 
 Purpose of Module
 _________________
@@ -57,11 +60,16 @@ _________________
    :scale: 25 % 
    :align: left
 
-This modules allows the User to output volumetric data, e.g. the Wannier functions on a real grid, in the GAUSSIAN CUBE format even when the unit cell of the periodic calculation is defined by non-orthogonal lattice vectors.
+This modules allows the User to output volumetric data, e.g. the Wannier functions on a real space grid, in the GAUSSIAN CUBE format even when the unit cell lattice vectors of the periodic calculation are non-orthogonal. The User can activate this feature by inserting the following two lines in the input file:
+`wannier_plot = .true.`
 
-The module is part of the Wannier90 code [1]_. 
+`wannier_plot_format = cube`
 
-.. [1] Comput. Phys. Commun. **185**, 2309 (2014)
+In addition, one can also specify the cut-off radius for the Wannier functions, i.e. the radius of the sphere that must fit inside the parallelepiped in which the Wannier function is plotted, via the `wannier_plot_radius` keyword. The number of atoms to plot with the volumetric data can be implicitly defined by the `wannier_plot_scale` keyword.
+
+This module is part of the Wannier90 code [3]_. The name of the subroutine that implements it is  `internal_cube_format` and can be found in the `plot.F90` file within the `src` folder. 
+
+.. [3] Comput. Phys. Commun. **185**, 2309 (2014)
 
 
 
