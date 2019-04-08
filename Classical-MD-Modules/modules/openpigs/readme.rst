@@ -26,6 +26,7 @@
     `MIT <https://opensource.org/licenses/mit-license>`_
 
   Documentation Tool
+    Sphinx
     All source code created for this module should be documented so please indicate what tool has been used for
     documentation. Doxygen covers  most languages but for Fortran you might want to use
     `Ford <http://fortranwiki.org/fortran/show/FORD>`_, for Python ReST_, etc.
