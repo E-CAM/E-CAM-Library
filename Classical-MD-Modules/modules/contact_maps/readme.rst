@@ -63,7 +63,7 @@ Testing
 _______
 
 This module can be installed with conda, using ``conda install -c
-conda-forge contact_map``. To intall the specific version associated with
+conda-forge contact_map``. To install the specific version associated with
 this module, use ``conda install -c conda-forge contact_map==0.2.0``
 
 Tests for this module can be run with pytest. Install pytest with ``pip

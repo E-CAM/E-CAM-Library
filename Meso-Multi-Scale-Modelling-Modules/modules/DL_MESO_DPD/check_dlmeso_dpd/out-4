@@ -23,4 +23,4 @@
 error: bond between beads        7  and        8  crosses hard wall perp. to z
 error: bond between beads       13  and       14  crosses hard wall perp. to z
 
-error: at least one streching bond is crossing a hard wall, please correct the CONFIG file
+error: at least one stretching bond is crossing a hard wall, please correct the CONFIG file

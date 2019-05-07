@@ -137,8 +137,9 @@ Source Code
 ___________
 
 The latest version of the library is available on the `jobqueue_features GitHub repository
-<https://github.com/E-CAM/jobqueue_features>`_
+<https://github.com/E-CAM/jobqueue_features>`_, the file specific to this module
+is `decorators.py <https://github.com/E-CAM/jobqueue_features/blob/master/jobqueue_features/decorators.py>`_.
 
-The code that was originally created specifically for this module can be seen in the specific commit `4590a0e427112f
+(The code that was originally created for this module can be seen in the specific commit `4590a0e427112f
 <https://gitlab.e-cam2020.eu/adam/jobqueue_features/tree/4590a0e427112fbf51edff6116e34c90e765baf0>`_
-which can be found in the original private repository of the code.
+which can be found in the original private repository of the code.)
