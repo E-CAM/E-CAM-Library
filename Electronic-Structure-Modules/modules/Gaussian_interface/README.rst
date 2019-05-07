@@ -36,7 +36,7 @@ The output module produces .com Gaussian input files.
 Source Code
 ___________
 
-The source code of the algorithm is avaliable from the `E-CAM Gitlab repository`__. It is included in the file Gaussian_interface.py. For the execution the following command line is required: 
+The source code of the algorithm is available from the `E-CAM Gitlab repository`__. It is included in the file Gaussian_interface.py. For the execution the following command line is required: 
 
 ::
 
