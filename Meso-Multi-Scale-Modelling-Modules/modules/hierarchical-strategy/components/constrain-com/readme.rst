@@ -1,4 +1,4 @@
-.. _simple_one-component_melts:
+.. _constrain_com:
 
 ###########################################################################
 Hierarchical Strategy for Simple One-Component Polymer Melts: constrain-com

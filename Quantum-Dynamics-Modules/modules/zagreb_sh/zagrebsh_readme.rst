@@ -31,7 +31,7 @@ Zagreb surface hopping code
 Purpose of Module
 _________________
 
-This module implements an interface between the Tully's fewest switch surface hopping code, written and mantained by the group of Nadja Doslic in Zagreb, and Quantics code. The module has been added and tested within the Quantics quantum dynamics package which is available on Gitlab. The purpose of the module is to add the solution of Hamilton classical equation using the surface hopping approach into Quantics code, at the same time as Zagreb code benefits from all functionalities implemented in Quantics as input definitions, Hamiltonian operator description, direct dynamics calculations and parallel running.    
+This module implements an interface between the Tully's fewest switch surface hopping code, written and maintained by the group of Nadja Doslic in Zagreb, and Quantics code. The module has been added and tested within the Quantics quantum dynamics package which is available on Gitlab. The purpose of the module is to add the solution of Hamilton classical equation using the surface hopping approach into Quantics code, at the same time as Zagreb code benefits from all functionalities implemented in Quantics as input definitions, Hamiltonian operator description, direct dynamics calculations and parallel running.    
 
 
 Background Information
@@ -48,7 +48,7 @@ Application
 ______________________
 
 The Tully's surface hopping technique has been widely used in molecular dynamics simulations to incorporate the non-adiabatic effects.
-The module can be apply to all classical propagations in multistate systems, specially in thoses systems where the dynamics cannot be explained using only one electronic state.
+The module can be apply to all classical propagations in multistate systems, specially in those systems where the dynamics cannot be explained using only one electronic state.
 
 
 Testing

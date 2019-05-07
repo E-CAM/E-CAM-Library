@@ -96,7 +96,7 @@ In addition, the simulation has ~8500 precipitates which are included in the Par
 and then the precipitates. These are presented one precipitate per line, and the data columns are as follows: [precipitate tag, position x, y and z,
 impurity strength, interaction radius, boolean], where the boolean states if the precipitate is active.
 
-The used printing options defined in .ctrl file can be modfied. Here, examples of the output property data and restart files are included in run_output folder
+The used printing options defined in .ctrl file can be modified. Here, examples of the output property data and restart files are included in run_output folder
 and the file called ParaDiS_test.out contains the standard output of the test when the simulation system is run for ~1.5e-9 seconds. The restart files are written 
 similarly as in unmodified ParaDiS, except that now the precipitates are also included in corresponding rsXXXX.pdata files. In addition to the property files produced 
 by original ParaDiS, the modified ParaDiS writes also files allepsdot and avalanche. Allepsdot contains columns [simulations time, strain rate tensor element 11, stress 
