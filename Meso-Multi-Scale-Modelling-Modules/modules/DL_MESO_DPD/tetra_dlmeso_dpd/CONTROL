@@ -1,0 +1,23 @@
+One species - starting as diamond cubic lattice
+
+#volume 64.0
+temperature 1.0
+cutoff 1.0
+
+timestep 0.01
+steps 1000
+traj 0 10 0
+#traj 500 100 0
+stats every 100
+stack size 100
+print every 100
+job time 7200.0
+close time 100.0
+
+ensemble nvt mdvv
+
+conf zero
+
+nfold 2,2,2
+
+finish

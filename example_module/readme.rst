@@ -3,6 +3,9 @@
     template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded
     and followed by white space (if you see warnings when this file is built they this is a common origin for problems).
 
+..  We allow the template to be standalone, so that the library maintainers add it in the right place
+
+:orphan:
 
 ..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
     progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
@@ -205,7 +208,7 @@ syntax required to get this):
       :linenos:
 
 
-..  I can't highlight the langauge syntax of a patch though so I have to exclude
+..  I can't highlight the language syntax of a patch though so I have to exclude
     :language: c
 
 .. literalinclude:: ./simple.patch

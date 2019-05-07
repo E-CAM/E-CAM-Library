@@ -82,7 +82,7 @@ PROGRAM check_config
   REAL(KIND=dp), POINTER :: xxx (:), yyy (:), zzz (:)
 ! global number, particle type, molecule type
   INTEGER, ALLOCATABLE, SAVE :: lab (:), ltp (:), ltm (:)
-! varibales needed for the checks
+! variables needed for the checks
   INTEGER, ALLOCATABLE :: nspec0 (:), nspecmol0 (:)
   INTEGER :: tp, tm, tp0, ibd, j, k, l
   INTEGER :: fail (13)
@@ -332,7 +332,7 @@ PROGRAM check_config
      END DO
      
      IF (.NOT. safe) THEN
-        WRITE (*,"(/'error: at least one streching bond is crossing a hard wall, please correct the CONFIG file')")
+        WRITE (*,"(/'error: at least one stretching bond is crossing a hard wall, please correct the CONFIG file')")
         IF (nfold>1) WRITE (*,"('(hint: the bonds needing corrections are easier to indetify if nfold=1)')")        
      ELSE
         WRITE (*,*)
