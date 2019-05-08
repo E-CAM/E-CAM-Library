@@ -173,6 +173,7 @@ separate projects. The modules that were incorporated into the core are:
     ./modules/OpenPathSampling/ops_channel_analysis/readme
     ./modules/OpenPathSampling/ops_new_tis_analysis/readme
     ./modules/OpenPathSampling/ops_resampling_statistics/readme
+    ./modules/OpenPathSampling/ops_visit_all_states/readme
  
 The modules that are based on OPS, but remain separate, are:
 
