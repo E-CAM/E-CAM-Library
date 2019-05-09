@@ -54,7 +54,7 @@ E-CAM High Throughput Computing Library
 
 E-CAM is interested in the challenge
 of bridging timescales. To study molecular dynamics with atomistic detail, timesteps must be used on
-the order of a femto-second. Many problems in biological chemistry, materials science, and other
+the order of a femtosecond. Many problems in biological chemistry, materials science, and other
 fields involve events that only spontaneously occur after a millisecond or longer (for example,
 biomolecular conformational changes, or nucleation processes). That means that around :math:`10^{12}` time
 steps would be needed to see a single millisecond-scale event. This is the problem of "rare
@@ -81,7 +81,7 @@ _________________
 
 This module is the first in a sequence that will form the overall capabilities of the library. In particular this module
 deals with creating a set of decorators to wrap around the `Dask-Jobqueue <https://jobqueue.dask.org/en/latest/>`_
-Python library, which aspires to make the overhead of using it lower for our use cases.
+Python library, which aspires to make the development time cost of leveraging it lower for our use cases.
 
 
 Background Information
@@ -106,7 +106,7 @@ for parallelisation is best contextualised by the `Dask <https://dask.org/>`_ do
     Python projects, namely dicts, tuples, and callables. Ideally this minimum solution is easy to adopt and understand
     by a broad community.
 
-While we were attracted by this approach, Dask did not support \emph{task-level} parallelisation (in particular
+While we were attracted by this approach, Dask did not support *task-level* parallelisation (in particular
 multi-node tasks). We researched other options (including Celery, PyCOMPSs, IPyParallel and others) and organised a
 workshop that explored some of these (see https://www.cecam.org/workshop-0-1650.html for further details).
 
