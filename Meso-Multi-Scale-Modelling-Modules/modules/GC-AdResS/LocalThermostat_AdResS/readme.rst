@@ -130,13 +130,13 @@ Here is a short manual on how to run the test and set up the local thermostat si
   Example from VOTCA: 
   csg_map --top topol.tpr --cg cg_mapping_scheme --hybrid --trj conf.gro --out conf_hybrid.gro
 
-Of course, if you want to use this configuration in a MD simulation you have to adjust the force field (see example file: *spc.adress.itp*). You have to define a virtual side:  
+Of course, if you want to use this configuration in a MD simulation you have to adjust the force field (see example file: *spc.adress.itp*). You have to define a virtual site:  
 
 ::
 
   [ virtual_sites3 ]
   ; Site from funct a d
-  ; atom depedencies func     a            b
+  ; atom dependencies func     a            b
      4      1 2 3     1    0.05595E+00 0.05595E+00
 
 The next step is to adjust the status of the CG particle in the topology file (in our example: *topol.top*) from *A* for *atom* to *V* as *virtual particle*. And of course insert the new force field.
