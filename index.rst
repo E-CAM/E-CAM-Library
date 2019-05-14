@@ -42,6 +42,9 @@ within the four initial target areas of E-CAM_:
     ./Meso-Multi-Scale-Modelling-Modules/index
  
 
+.. toctree::
+    :maxdepth: 2
+
 What is a module?
 =================
 

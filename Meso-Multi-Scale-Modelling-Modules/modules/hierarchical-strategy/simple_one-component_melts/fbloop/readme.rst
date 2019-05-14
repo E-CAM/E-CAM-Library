@@ -71,7 +71,7 @@ coarse-grained level.
 
 The present module provides the python script which performs the
 feedback control mechanism.
-The implementation detail is in following bellow.
+The implementation detail is in following below.
 
 1. The microscopic configuration of :math:`N` polymers consisted of :math:`M` monomers is prepared. The system size :math:`L` is determined by the number of density :math:`\rho= (N \times M) /L^3 \approx 0.85`. :math:`m` and :math:`\sigma` stands for the mass and the diameter of monomers.
 	

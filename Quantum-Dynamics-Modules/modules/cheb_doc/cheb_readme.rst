@@ -68,14 +68,20 @@ A more detailed test documentation for Quantics_ code developers can be found `i
 Source Code
 ___________
 
-The source code for the Chebyshev propagator can be found within the Quantics_ software which can be downloaded via CCPForge_.  
-You firstly need to make an account (at CCPForge_). 
-The Quantics_ project has a private repository so you also need to be a member of the project to checkout. 
-Then type into terminal
+.. The source code for the Chebyshev propagator can be found within the Quantics_ software which can be downloaded via CCPForge_.  
+.. You firstly need to make an account (at CCPForge_). 
+.. The Quantics_ project has a private repository so you also need to be a member of the project to checkout. 
+.. Then type into terminal
 
-::
+.. ::
 
-      $ svn checkout --username your-user-name https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/trunk/  
+..      $ svn checkout --username your-user-name https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/trunk/  
+
+The source code for the Chebyshev propagator can be found within the Quantics software which can be downloaded via gitlab_.  You firstly need to make an account (at gitlab). The Quantics project has a private repository so you also need to be a member of the project to clone it into your computer, then type:
+
+ git clone https://gitlab.com/quantics/quantics.git
+
+.. _gitlab: https://gitlab.com/quantics/quantics.git
 
 
 Within the Quantics_ program, explicit code for the Chebyshev routine is located in the file 
