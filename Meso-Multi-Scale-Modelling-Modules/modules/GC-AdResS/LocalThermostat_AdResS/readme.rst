@@ -46,6 +46,7 @@ Local thermostat adaption fo the Abrupt GC-AdResS scheme
 ..  Let's add a local table of contents to help people navigate the page
 
 ..  contents:: :local:
+
 The original idea of our proposal: to work on a general implementations of AdResS in
 class. MD packages. With Abrupt AdresS we implemented a new partitioning scheme to bypass the performance problems in the smooth coupling GC-AdResS implementation. We switched to the general interaction kernel and simplified the neighboring list search. This module takes this new ansatz and combines it with a local thermostat approach (see Ref. `<http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_). 
 
