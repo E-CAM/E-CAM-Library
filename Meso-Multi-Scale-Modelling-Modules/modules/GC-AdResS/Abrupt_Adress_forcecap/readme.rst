@@ -49,7 +49,7 @@ The original idea of our proposal was to work on a general implementation
 of grand canonical adaptive resolution simulations (GC-AdResS) in
 classical MD packages. The current implementation of GC- AdResS in GROMACS (up to version 5.1.5) has performance problems. The Abrupt GC-AdResS implementation is avoiding those and make AdResS more interesting for other MD developers (especially since we could remove the force interpolation and weighting functions from the force kernel).
 
-This module works in combination with abrupt_AdResS and is at the same time important for a succesful simulation. It shows how to avoid particle overlap at the interface of the atomistic and coarse grained regions.
+This module works in combination with abrupt_AdResS and is at the same time important for a successful simulation. It shows how to avoid particle overlap at the interface of the atomistic and coarse grained regions.
 
    
 Purpose of Module
@@ -76,7 +76,7 @@ ____________________
 
 .. Keep the helper ttxt below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-We have used this new addition to the code on two systems: water and ionic liquids. The results have been published in Ref. `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.  All the informations about studied systems and the performance can be found there.
+We have used this new addition to the code on two systems: water and ionic liquids. The results have been published in Ref. `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.  All the information about studied systems and the performance can be found there.
 
 The patch provided can be applied alone without the Abrupt AdResS patch, in the main directory of GROMACS. 
 The important part of the patch is that it adds an upper force limit in the stochastic dynamics intergrator. If that upper limit is triggered the force is rescaled to the given force cap. The rest is basically to make suret that the integrator is called correctly.
@@ -93,8 +93,6 @@ A note of caution: the chosen force cap trigger has to be a high enough value, o
 Recipe for hard coded force capping:
 
 .. literalinclude:: ./forcecap.patch
-   :language: c
-   :linenos:
 
 with:
 
