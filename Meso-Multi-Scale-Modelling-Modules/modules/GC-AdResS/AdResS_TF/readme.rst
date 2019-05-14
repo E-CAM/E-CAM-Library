@@ -1,3 +1,5 @@
+:orphan:
+
 ..  In ReStructured Text (ReST) indentation and spacing are very important (it is how ReST knows what to do with your
     document). For ReST to understand what you intend and to render it correctly please to keep the structure of this
     template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded

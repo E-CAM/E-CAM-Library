@@ -1,0 +1,11 @@
+$system
+ nstate    3
+ istate    3
+$surfhop                                                                        
+ coupling nadvec                                                                
+$dynamics                                                                       
+ tstep = 0.1                                                                    
+ nstep =  2001
+$method
+ qm /home/cris/quantics/bin/shzagreb_inter ../..
+$end
