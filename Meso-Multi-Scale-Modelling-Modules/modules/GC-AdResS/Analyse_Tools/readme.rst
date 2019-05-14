@@ -53,7 +53,7 @@ One purpose of our project is to promote GC-AdResS as a method. It is an advance
 This module provides little tools to make working with AdResS easier. 
 Content:
 
-1) how to mask the configuration (output from a full atomistic simulation run) to generate the doube resolution configuration.
+1) how to mask the configuration (output from a full atomistic simulation run) to generate the double resolution configuration.
 
 2) Quick and dirty: get the reference coordinate from the GROMACS input file 
 
