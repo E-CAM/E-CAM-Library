@@ -1,0 +1,776 @@
+From 95340860c375a9f28ea86f2b32759e8b7fb26e49 Mon Sep 17 00:00:00 2001
+From: Johannes Ehrmaier <johannes.ehrmaier@tum.de>
+Date: Fri, 27 Apr 2018 12:11:24 +0200
+Subject: [PATCH] ECAM17
+
+---
+ funcqchemmod.F90 | 481 +++++++++++++++++++++++++++++++++++++------------------
+ 1 file changed, 329 insertions(+), 152 deletions(-)
+
+diff --git a/funcqchemmod.F90 b/funcqchemmod.F90
+index 75af1b1..16ec62e 100644
+--- a/funcqchemmod.F90
++++ b/funcqchemmod.F90
+@@ -1,4 +1,29 @@
+-!#######################################################################
++!>#######################################################################
++!> This routine interprets the options of the interface to the
++!> external quantum chemistry program (V = qchem{...} or V = external{...}
++!> in .op file) for direct dynamics calculations.
++!> It is called from defmuld, which is called from assignhlab.
++!> In the latter, all relevant information passed in arguments comes from
++!> and goes to common blocks that are defined in operdef.inc.
++!>
++!> Information is extracted from label (<-- hoplab) and pesopts.
++!> 1. A number identifying the program is assigned to ifunc (--> hopilab)
++!> 2. The external script to run the quantum chemistry program is
++!>    assigned to ddextcmd
++!> 3. Other options are assigned to hopipar, lddwrdb, ddmindb,
++!>    dde0,lfchk,fchkcmd (see below)
++!>    Warning: hopipar(3)-hopipar(6) must be left blank as used to pass
++!>    information on function and state of interest
++!> 4. A flag for V = qchem is assigned to ifile (--> hopfile).
++!>
++!> To add a new quantum chemistry program, add a new possible value to
++!> the keyword qcprog.
++!> To add a new quantum chemistry method, add a new possible value to
++!> the keyword method.
++!>
++!> ifile=205 for potentials
++!>
++!>#######################################################################
+       module funcqchemmod
+ 
+ use decimal, only: dop, long
+@@ -24,32 +49,7 @@ use omp_lib
+       public :: defqchem,vqchem,derqchem,qcheminfo,lhaqchem
+       contains
+ 
+-!#######################################################################
+-! This routine interprets the options of the interface to the
+-! external quantum chemistry program (V = qchem{...} or V = external{...}
+-! in .op file) for direct dynamics calculations.
+-! It is called from defmuld, which is called from assignhlab.
+-! In the latter, all relevant information passed in arguments comes from
+-! and goes to common blocks that are defined in operdef.inc.
+-!
+-! Information is extracted from label (<-- hoplab) and pesopts.
+-! 1. A number identifying the program is assigned to ifunc (--> hopilab)
+-! 2. The external script to run the quantum chemistry program is
+-!    assigned to ddextcmd
+-! 3. Other options are assigned to hopipar, lddwrdb, ddmindb,
+-!    dde0,lfchk,fchkcmd (see below)
+-!    Warning: hopipar(3)-hopipar(6) must be left blank as used to pass
+-!    information on function and state of interest
+-! 4. A flag for V = qchem is assigned to ifile (--> hopfile).
+-!
+-! To add a new quantum chemistry program, add a new possible value to
+-! the keyword qcprog.
+-! To add a new quantum chemistry method, add a new possible value to
+-! the keyword method.
+-!
+-! ifile=205 for potentials
+-!
+-!#######################################################################
++
+ 
+       subroutine defqchem(ifunc,label,ifile,pesopts,zpesopts,hopipar,ierr)
+ 
+@@ -224,13 +224,13 @@ use omp_lib
+ !-----------------------------------------------------------------------
+ ! If running Q-Chem, deal with the scratch folder title
+ !-----------------------------------------------------------------------
+-     ilbl=index(qcscr,' ')-1
+-      if (ifunc == 4 .and. ilbl .le. 0) then
+-         routine = 'Defqchem'
+-         message =  &
+-       'Scratch folder name must be defined using qcscratch if running Q-Chem'
+-         call errormsg
+-      endif
++     !ilbl=index(qcscr,' ')-1
++     ! if (ifunc == 4 .and. ilbl .le. 0) then
++     !    routine = 'Defqchem'
++     !    message =  &
++     !  'Scratch folder name must be defined using qcscratch if running Q-Chem'
++     !    call errormsg
++     ! endif
+ 
+ !-----------------------------------------------------------------------
+ ! Assign options
+@@ -301,7 +301,7 @@ use omp_lib
+ 
+       else if (qcmethod .eq. 'tddft') then
+          hopipar(7) = 7
+-         nroot = 1
++         nroot = nddstate
+          dddiab = 0
+ 
+       elseif (qcmethod .eq. 'rohf ') then
+@@ -326,12 +326,6 @@ use omp_lib
+       endif
+ 
+       if (hopipar(7) .eq. 1 .or. hopipar(7) .eq. 6 .or. hopipar(7) .eq. 7) then
+-         if (nddstate .gt. 1) then
+-            routine = 'Defqchem'
+-            message = &
+-           'Hartree-Fock can only be used for single (ground) state'
+-            call errormsg
+-         endif
+          if (lsacas) then
+             routine = 'Defqchem'
+             message = &
+@@ -402,14 +396,14 @@ use omp_lib
+       end subroutine defqchem
+ 
+ 
+-!#######################################################################
+-!
+-! This routine gets the value of a potential at a grid point from a
+-! DB of energies.
+-!
+-! The point is contained in gpoint. 
+-!
+-!#######################################################################
++!>#######################################################################
++!>
++!> This routine gets the value of a potential at a grid point from a
++!> DB of energies.
++!>
++!> The point is contained in gpoint. 
++!>
++!>#######################################################################
+ 
+       subroutine vqchem (v,gpoint,si,sf)
+ 
+@@ -474,14 +468,14 @@ use omp_lib
+       end subroutine vqchem
+ 
+ 
+-!#######################################################################
+-!
+-! This routine gets the derivatives of a potential at a grid point from a
+-! DB of energies.
+-!
+-! The point is contained in gpoint. 
+-!
+-!#######################################################################
++!>#######################################################################
++!>
++!> This routine gets the derivatives of a potential at a grid point from a
++!> DB of energies.
++!>
++!> The point is contained in gpoint. 
++!>
++!>#######################################################################
+ 
+       subroutine derqchem (der,order)
+ 
+@@ -565,24 +559,24 @@ use omp_lib
+       end subroutine derqchem
+ 
+ 
+-!#######################################################################
+-! Set of routines to calculate the LHA of the PES(s) at a grid point,
+-! calling a quantum chemistry program (direct dynamics interface).
+-! The grid point is contained in gpoint, the LHA in v, deriv1, deriv2.
+-!
+-! Representations of another order than 0 or 2 yet to be implemented.
+-!
+-! LHAqchem is called by getddpes.
+-!
+-! For GAUSSIAN calculations, it calls ddgaussian.
+-!
+-! To add a new interface, add a new hopilab1 number, and then any code
+-! needed to calculate and extract the quantum chemistry data.
+-!
+-! nst : no. of states in system (nddstate)
+-! nst1: no. of states (sets of spfs) in dynamics 
+-!       (single-set = 1, multi-set > 1)
+-!#######################################################################
++!>#######################################################################
++!> Set of routines to calculate the LHA of the PES(s) at a grid point,
++!> calling a quantum chemistry program (direct dynamics interface).
++!> The grid point is contained in gpoint, the LHA in v, deriv1, deriv2.
++!>
++!> Representations of another order than 0 or 2 yet to be implemented.
++!>
++!> LHAqchem is called by getddpes.
++!>
++!> For GAUSSIAN calculations, it calls ddgaussian.
++!>
++!> To add a new interface, add a new hopilab1 number, and then any code
++!> needed to calculate and extract the quantum chemistry data.
++!>
++!> nst : no. of states in system (nddstate)
++!> nst1: no. of states (sets of spfs) in dynamics 
++!>       (single-set = 1, multi-set > 1)
++!>#######################################################################
+ 
+       subroutine lhaqchem (time,hopilab1,xgpoint,v,deriv1,deriv2, &
+                  dipole,mocoeff,nact,ndofddpes,hopipar1,lfail,nthreads)
+@@ -626,7 +620,7 @@ use omp_lib
+          call ddmolpro(time,xgpoint,v,deriv1,deriv2,dipole,mocoeff,nact,&
+               hopipar1,dbnrec,lfail,outfile1)
+       case (4)
+-         call ddqchem(xgpoint,v,deriv1,deriv2,hopipar1,nddstate,nstate,lfail)
++         call ddqchem(xgpoint,v,deriv1,deriv2,hopipar1,nddstate,nstate,nact,lfail)
+       case (5)
+          call ddmolcas(xgpoint,v,deriv1,deriv2,dipole,mocoeff,nact,&
+               hopipar1,lfail)
+@@ -2624,8 +2618,8 @@ use ioqc,  only: getder2
+                                                              nt,ns,ntott,gra,dip,nn,&
+                                                              t,l,k,ii,nnn,nnt
+       real(dop)                                           :: edif
+-      real(dop),dimension(:,:),allocatable                :: soc
+-      real(dop),dimension(:,:,:),allocatable              :: txx
++     real(dop),dimension(:,:),allocatable                        :: soc
++     real(dop),dimension(:,:,:),allocatable                      :: txx
+ 
+ 
+ 
+@@ -2662,43 +2656,48 @@ do i=1,nst
+  write(*,*) 'imultmap',i, imultmap(i)
+ enddo
+ 
+-      nsts=0
+-      nstt=0
+-      do i=1,nst
+-       if (imultmap(i).eq.1) then
+-        nsts=nsts+1
+-       else if (imultmap(i).eq.3) then
+-        nstt=nstt+1
+-       endif
+-      enddo
++    nsts=0
++     nstt=0
++     do i=1,nst
++      if (imultmap(i).eq.1) then
++       nsts=nsts+1
++      else if (imultmap(i).eq.3) then
++       nstt=nstt+1
++      endif
++     enddo
+ 
+ write(*,*) 'nsts', nsts
+ write(*,*) 'nstt', nstt
+ 
+-      ns=nsts*(nsts-1)/2
+-      nt=nstt*(nstt-1)/2
+-      ntott=nst*(nst-1)/2
++     ns=nsts*(nsts-1)/2
++     nt=nstt*(nstt-1)/2
++     ntott=nst*(nst-1)/2
++
+ 
+ write(*,*) 'ns', ns
+ write(*,*) 'nt', nt
+ write(*,*) 'ntott', ntott
+ 
+-      do i=ns+1,ntott-nt
+-        nact(:,i)= 0.0000
+-      end do
+ 
+-      if (nstt.gt.0) then
+-        if (nsts.gt.0) then
+-          allocate(soc(nsts,nstt))
+-          allocate(txx(3*nstt,nsts,2))
+-        end if
+-      end if
+ 
+-      nnn=0
+-      n=0
+-      gra=0
+-      dip=0
+-      nn=0
++     do i=ns+1,ntott-nt
++      nact(:,i)= 0.0000
++     end do
++
++  if (nstt.gt.0) then
++   if (nsts.gt.0) then
++    allocate(soc(nsts,nstt))
++    allocate(txx(3*nstt,nsts,2))
++   end if
++  end if
++
++
++     nnn=0
++     n=0
++     gra=0
++     dip=0
++     nn=0
++
+ 
+       found(:)=0
+       j=0
+@@ -2707,6 +2706,7 @@ write(*,*) 'ntott', ntott
+    10 continue
+       read(iunit,'(a)',end=999,err=1000) string
+ 
++
+ !start
+ 
+ !-----------------------------------------------------
+@@ -2724,13 +2724,13 @@ write(*,*) 'ntott', ntott
+ ! Read CASPT2 energies.
+ !-----------------------------------------------------------------------
+      if (string(1:17) .eq. "::    CASPT2 Root") then
+-       if(energymt.eq.2) then
++      if(energymt.eq.2) then
+          nnn=nnn+1
+-         if (nnn.gt.nst) then
+-           message = 'No. of states and energies do not match'
+-           call errormsg
+-         endif
+-       read(string,'(41x,f18.9)',err=1000) v(nnn,nnn)  !! read caspt2
++       if (nnn.gt.nst) then
++         message = 'No. of states and energies do not match'
++         call errormsg
++       endif
++     read(string,'(41x,f18.9)',err=1000) v(nnn,nnn)  !! read caspt2
+        if(nnn.eq.nst) found(1)=1
+       end if
+ 
+@@ -2740,11 +2740,11 @@ write(*,*) 'ntott', ntott
+ !-----------------------------------------------------------------------
+       else if (string(7:24) .eq. "RASSCF root number") then
+         if(energymt.eq.1) then
+-          nnn=nnn+1
+-          if(nnn.le.nst) then
+-            read(string,'(44x,f18.9)',err=1000) v(nnn,nnn)   !! read casscf
+-            if(nnn.eq.nst) found(1)=1
+-          end if
++         if(nnn.le.nst) then
++         nnn=nnn+1
++          read(string,'(44x,f18.9)',err=1000) v(nnn,nnn)   !! read casscf
++          if(nnn.eq.nst) found(1)=1
++         end if
+         end if
+ 
+ !-----------------------------------------------------------------------
+@@ -3740,18 +3740,18 @@ use channels, only: idump,ilog
+ !           .or. (index(string,'ORBPRINT').ne.0)) lorbprt = .true.
+ 
+       if (string(2:14) .eq. "!MCSCF STATE ") then
+-         if(index(string,"Energy").gt.0)then        
++         if(index(string,"Energy").gt.0 .and. vdx.lt.nst)then        
+             read(string(15:15),'(i1)')stread
+ 
+             if(stread.gt.nst)then
+-               message = 'More states found in Output than specified by nroot'
++               message = 'State energies and no. of states do not match'
+                call errormsg
+             endif
+ 
+             read(string,'(34x,f17.9)',err=1000) v(stread,stread)
+             vdx = vdx + 1
+          endif
+-         if (vdx.eq.nst) found(1)=1
++         if(vdx.eq.nst)found(1)=1
+ 
+       else if (string(2:25) .eq. "SA-MC GRADIENT FOR STATE") then
+          if (iflag.lt.1 .or. gdx.ge.nst) go to 10
+@@ -4108,11 +4108,19 @@ use channels, only: idump,ilog
+ 
+ !########################################################################
+ !
+-! Q-Chem interface (Ground state only so far)
++! Q-Chem interface
+ !
+ !########################################################################
+-
+-      subroutine ddqchem (gpoint,v,deriv1,deriv2,hopipar1,nst,nst1,lfail)
++!>-----------------------------------------------------------------------
++!>
++!> QChem Interface
++!> ---------------
++!> 
++!> @brief
++!> main subroutine for the qchem interface
++!> 
++!>------------------------------------------------------------------------
++      subroutine ddqchem (gpoint,v,deriv1,deriv2,hopipar1,nst,nst1,nact,lfail)
+ 
+ !$    use OMP_LIB
+ 
+@@ -4129,9 +4137,13 @@ use channels, only: idump,ilog
+       real(dop), dimension(nst,*), intent(out)                     :: v
+       real(dop), dimension(ndofddpes,nst,*), intent(out)           :: deriv1
+       real(dop), dimension(ndofddpes,ndofddpes,nst,*), intent(out) :: deriv2
++      real(dop), dimension(ndofddpes,(nddstate*(nddstate-1)/2)), &
++      intent(out)            :: nact
++      !real(sip), dimension(nbasis,nbasis), intent(inout)                     :: mocoeff
+       character(len=120)                                           :: templdatfile,inpfile,filnam,nproc !geofile,egfile,hfile
+       character(len=240)                                           :: extcmd,outfile
+ 
++
+      ! Assign necessary variables
+ 
+       lfail = .false.
+@@ -4184,9 +4196,9 @@ use channels, only: idump,ilog
+       if (.not. lqcsimulate) call excmd(extcmd)
+ 
+       ! Read output file(s)
+-      if (imethod == 1 .or. imethod == 4) then
++      if (imethod == 1 .or. imethod == 4 .or. imethod == 7) then
+          outfile = filnam(1:ilbl)//'.out'
+-         call rdqchem_scf(outfile,v,deriv1,deriv2,natm,ndofddpes,nst,iorder,found,lfail)
++         call rdqchem_scf(outfile,v,deriv1,deriv2,natm,ndofddpes,nst,iorder,found,nact,lfail)
+       else
+          write(ilog,'(a)') 'Only RHF and DFT interface is yet implemented for Q-Chem'
+          stop
+@@ -4202,6 +4214,9 @@ use channels, only: idump,ilog
+       else if (found(3) == 0 .and. iorder >= 2) then
+          lfail = .true.
+          write(ilog,'(a)') 'Hessian not found in ouptput!'
++      else if (found(5) == 0 .and. nst > 0) then
++          lfail = .true.
++          write(ilog,'(a)') 'Derivative couplings not found in output!'
+       endif
+ 
+       if (lfail) then
+@@ -4218,16 +4233,20 @@ use channels, only: idump,ilog
+       
+       end subroutine ddqchem
+ 
+-!##########################################################################
++!>-------------------------------------------------------------------------------
++!>
++!> subroutine to produce a QChem input file from the template
++!>
++!>-------------------------------------------------------------------------------
+ 
+-      subroutine wrqchem(templdatfile,scrdir,inpfile,xcoo,natm,atnam,iorder)
++      subroutine wrqchem(templdatfile,qcscr,inpfile,xcoo,natm,atnam,iorder)
+ 
+       implicit none
+ 
+       integer(long)                                  :: i,n,ilbl,jlbl
+       integer(long), intent(in)                      :: natm,iorder
+       real(dop), dimension(3,natm), intent(in)       :: xcoo
+-      character(len=*), intent(in)                   :: templdatfile,scrdir,inpfile !geofile
++      character(len=*), intent(in)                   :: templdatfile,qcscr,inpfile !geofile
+       character(len=c1), dimension(natm), intent(in) :: atnam
+       character(len=120)                             :: string
+       logical                                        :: iscratch,irun
+@@ -4236,7 +4255,6 @@ use channels, only: idump,ilog
+ 
+       iscratch = .false.
+       irun = .false.
+-
+       ! Get the last index of the path to the DB
+       ilbl = slen(inpfile)
+       do
+@@ -4244,18 +4262,20 @@ use channels, only: idump,ilog
+          ilbl = ilbl - 1
+       enddo
+       ! Get the last index of the scratch folder name
+-      jlbl=index(scrdir,' ')
++      jlbl=index(qcscr,' ')
+       
+       ! Read through the template and create the new input file
+       open(itmpin,file=templdatfile)
+       open(idump,file=inpfile)
+       do
+          read(itmpin,'(a)',err=999,end=100) string
+-         string = adjustl(string)
++       !  print*, string
++         string = trim(adjustl(string))
++         
+          if (string(1:9) .eq. "$molecule") then  ! Take care of geometry input
+-            write(idump,'(a)') string
++            write(idump,'(a)') trim(string)
+             if (irun) then
+-               write(idump,'(a)') '  read'
++               write(idump,'(a)') 'read'
+                do ! roll down through template geometry (can be anything)
+                   read(itmpin,'(a)',err=999,end=100) string
+                   string = adjustl(string)
+@@ -4263,30 +4283,45 @@ use channels, only: idump,ilog
+                enddo
+             else
+                read(itmpin,'(a)',err=999,end=100) string ! Read in charge and multiplicity
+-               write(idump,'(a)') string
++               write(idump,'(a)') trim(string)
+                do ! roll down through template geometry (can be anything)
+                   read(itmpin,'(a)',err=999,end=100) string
+                   string = adjustl(string)
+                   if (string(1:4) .eq. "$end") exit
+                enddo
+                do n=1,natm  ! Write input geometry
+-                  write(idump,'(a12,3f15.6)') atnam(n),(xcoo(i,n)*angstroem,i=1,3)
++                  write(idump,'(a12,3f15.6)') xatnam(n),(xcoo(i,n)*angstroem,i=1,3)
+                enddo
++               irun=.true.
+             endif
+             write(idump,'(a)') "$end"
+-         else if (string(1:9) .eq. 'SCF_GUESS' .or. string(1:9) .eq. 'scf_guess') then ! Check if sratch folder exists
+-            inquire(file=inpfile(1:ilbl)//'scratch/'//scrdir(1:jlbl-1)//'/molecule',exist=iscratch)
++
++
++        else if (string(1:9) .eq. 'SCF_GUESS' .or. string(1:9) .eq. 'scf_guess') then ! Check if sratch folder exists
++            inquire(file=inpfile(1:ilbl)//'scratch/'//qcscr(1:jlbl-1)//'/molecule',exist=iscratch)
+             if (iscratch .or. irun) write(idump,'(a)') string
+-         else if (string(1:3) .eq. "@@@") then ! Decide whether to run second job (Frequency)
+-            if (iorder .eq. 1) then
+-               exit
++
++
++         else if (string(1:8) .eq. "$comment" .or. string(1:8) .eq. "$COMMENT") then ! Decide whether to run frequency calculations 
++            read(itmpin,'(a)',err=999,end=100) string
++            if ((iorder .eq. 2 ) .and. (string(1:4)=="FREQ" .or. string(1:4) .eq. "freq")) then
++               write(idump,'(a)') '$comment'
++               write(idump,'(a)') trim(string)
++               irun=.true.
++           elseif((iorder < 2) .and. (string(1:4)=="FREQ" .or. string(1:4) .eq. "freq")) then
++               do while (string(1:3)/="@@@")
++                  read(itmpin,'(a)',err=999,end=100) string
++               enddo
+             else
+-               write(idump,'(a)') string
+-               irun = .true.
++                write(idump,'(a)') "$comment"
++                write(idump,'(a)') trim(string)
++
+             endif
++
+          else
+-            write(idump,'(a)') string
++            write(idump,'(a)') trim(string)
+          endif
++
+       enddo
+ 
+   100 continue
+@@ -4303,9 +4338,12 @@ use channels, only: idump,ilog
+ 
+       end subroutine wrqchem
+ 
+-!##########################################################################
+-
+-      subroutine rdqchem_scf(outfile,v,deriv1,deriv2,natm,ncoo,nst,iorder,found,lfail)
++!>------------------------------------------------------------------------
++!> 
++!> subroutine to read a QChem output file of a SCF calculation
++!>
++!>-------------------------------------------------------------------------
++      subroutine rdqchem_scf(outfile,v,deriv1,deriv2,natm,ncoo,nst,iorder,found,nact,lfail)
+ 
+       implicit none
+ 
+@@ -4316,10 +4354,19 @@ use channels, only: idump,ilog
+       real(dop), dimension(nst,nst), intent(out)           :: v
+       real(dop), dimension(ncoo,ncoo,nst,nst), intent(out) :: deriv2
+       real(dop), dimension(3,natm,nst,nst), intent(out)    :: deriv1
++      real(dop), dimension(ndofddpes,(nddstate*(nddstate-1)/2)), &
++                     intent(out):: nact
+       integer(long)                                        :: iunit,i,j,k
+-      character(len=120)                                   :: string
++      character(len=120)                                   :: string, string2
+       character(len=20)                                    :: forma
+-      integer(long)                                       :: ithr
++      integer(long)                                        :: ithr
++
++      integer(long)                                        :: stread, &
++                    streadhess, vdx, stnact1, stnact2, nonact, n, ioffs, naindx
++      integer(long),dimension(nst)                         :: vdxa, vdxga, vdxha
++      logical                                              :: enduserinput
++      real(dop)                                            :: vdiff
++
+ 
+ #if OMP
+    ithr = omp_get_thread_num()
+@@ -4327,17 +4374,39 @@ use channels, only: idump,ilog
+    ithr = 0
+ #endif
+       iunit=iddin+ithr
+-
+       open(iunit,file=outfile,status='old',err=1003)
+ 
+       found = 0
+ 
++      do i=1,nst
++         vdxa(i)=0
++         vdxga(i)=0
++         vdxha(i)=0
++      end do
++        
++      nonact=0
++      v=0
++      deriv1=0
++      deriv2=0
++
+       do
+          read(iunit,'(a)',end=999,err=1000) string
++
++
+          ! Energy
+          if (string(2:36) == "Total energy in the final basis set") then
+             read(string(40:55),'(f16.10)',err=1000) v(1,1)
+-            found(1) = 1
++            vdxa(1)=1
++            if (ALL(vdxa==1)) found(1)=1
++
++         elseif (string(5:26) == "Total energy for state") then
++             read(string(27:30),'(I4.4)',err=1000) stread
++             if(stread > nst) goto 1006
++             read(string(32:52),'(f16.10)',err=1000) v(stread+1,stread+1)
++             vdxa(stread+1)=1
++             if(ALL(vdxa==1)) found(1)=1
++
++
+          ! Gradients
+          else if (string(2:23) == "Gradient of SCF Energy" .and. iorder >= 1) then
+             do i = 0,natm/6-1
+@@ -4346,6 +4415,7 @@ use channels, only: idump,ilog
+                   read(iunit,'(5x,6(1x,f11.7))',err=1001) (deriv1(j,i*6+k,1,1),k=1,6)
+                enddo
+             enddo
++
+             if (mod(natm,6) > 0) then
+                write(forma,*) mod(natm,6)
+                read(iunit,*)
+@@ -4353,8 +4423,50 @@ use channels, only: idump,ilog
+                   read(iunit,"(5x,"//adjustl(forma)//"(1x,f11.7))",err=1001) (deriv1(j,k,1,1),k=(natm/6)*6+1,natm)
+                enddo
+             endif
+-            found(2) = 1
++            vdxga(1)=1
++            
++            if(ALL(vdxga==1)) found(2) = 1
++
++         !Derivatives
++         else if (string(2:4) == "CIS") then
++            read(iunit,'(a)',end=999,err=1000) string2
++            if(string2(2:63)=="Gradient of the state energy (including CIS Excitation Energy)") then
++                read(string(6:6),'(I1.1)') stread
++                if(stread > nst) goto 1007
++
++                do i = 0,natm/6-1
++                   read(iunit,*)
++                   do j = 1,3
++                      read(iunit,'(5x,6(1x,f11.7))',err=1001) (deriv1(j,i*6+k,stread+1,stread+1),k=1,6)
++                   enddo
++                enddo
++                if (mod(natm,6) > 0) then
++                   write(forma,*) mod(natm,6)
++                   read(iunit,*)
++                   do j = 1,3
++                      read(iunit,"(5x,"//adjustl(forma)//"(1x,f11.7))",err=1001) (deriv1(j,k,stread+1,stread+1),k=(natm/6)*6+1,natm)
++                   enddo
++                endif
++                vdxga(stread+1)=1
++                if(ALL(vdxga==1)) found(2) = 1
++            endif
++
+          ! Hessian
++         !get state
++         else if (string(1:4)=="$rem") then
++             enduserinput=.false.
++             do while(enduserinput .eqv. .false.)
++                read(iunit,'(a)',end=999,err=1000) string
++                if ((string(1:15)=="cis_state_deriv") .or. (string(1:15) == "CIS_STATE_DERIV")) then
++                    read(string(16:),'(I4.4)') streadhess
++                    !print*, 'all right ', streadhess
++                    if(streadhess > nst) goto 1008
++                endif
++                if (string(1:4)=="$end") enduserinput=.true.
++            enddo
++
++
++         !Hessian of ground state
+          else if (string(2:26) == "Hessian of the SCF Energy" .and. iorder >= 2) then
+             do i = 0,ncoo/6-1
+                read(iunit,*)
+@@ -4369,13 +4481,62 @@ use channels, only: idump,ilog
+                   read(iunit,"(5x,"//adjustl(forma)//"(1x,f11.7))",err=1002) (deriv2(j,k,1,1),k=(ncoo/6)*6+1,ncoo)
+                enddo
+             endif
+-            found(3) = 1
+-         endif
++            vdxha(1)=1
++            if(ALL(vdxha==1)) found(3) = 1
+   
++
++
++         !Hessian of excited states
++         else if ((string(2:26) == "Hessian of the CIS Energy" .or. string(2:15) == "Final Hessian.") &
++                  &.and. iorder >= 2) then
++            stread=streadhess
++            do i = 0,ncoo/6-1
++               read(iunit,*)
++               do j = 1,ncoo
++                  read(iunit,'(5x,6(1x,f11.7))',err=1002) (deriv2(j,i*6+k,stread+1,stread+1),k=1,6)
++               enddo
++            enddo
++            if (mod(ncoo,6) > 0) then
++               write(forma,*) mod(natm,6)
++               read(iunit,*)
++               do j = 1,ncoo
++                  read(iunit,"(5x,"//adjustl(forma)//"(1x,f11.7))",err=1002) (deriv2(j,k,stread+1,stread+1),k=(ncoo/6)*6+1,ncoo)
++               enddo
++            endif
++            vdxha(stread+1)=1
++            if(ALL(vdxha==1)) found(3) = 1
++       
++       
++
++         !Derivative Couplings   
++         elseif (string(15:28)=="between states") then
++                read(string(29:31),'(I2.2)',err=1000) stnact1
++                read(string(35:),'(I2.2)',err=1000) stnact2
++                if (stnact1 > nst .or. stnact2 > nst) goto 1009
++                read(iunit,'(a)',end=999,err=1002) string2
++                do while(string2(1:46)/="DC between ground and excited states with ETF:" &
++                    & .and. string2(1:32)/="CIS derivative coupling with ETF") 
++                   read(iunit,'(a)',err=1000) string2
++                enddo
++                read(iunit,*)
++                read(iunit,*)
++                ioffs=0
++                naindx=(stnact2+1-1)*(stnact2+1-2)/2+stnact1+1
++                do n=1,natm
++                   read(iunit,'(5x,3(4x,f11.7))',err=1005)&
++                       (nact(i+ioffs,naindx),i=1,3)
++                   ioffs=ioffs+3
++                enddo
++                vdiff=v(stnact2+1,stnact2+1)-v(stnact1+1,stnact1+1)
++                nact(:,naindx)=nact(:,naindx)*vdiff
++                nonact=nonact + 1
++                if(nonact==nst*(nst-1)/2) found(5)=1
++       
++        endif
++
+       enddo
+ 
+   999 continue
+-
+       close(iunit)
+ 
+       return
+@@ -4392,6 +4553,22 @@ use channels, only: idump,ilog
+  1003 print*,'ERROR opening Q-Chem output  ',outfile
+       lfail = .true.
+       return
++ 1005 print*, 'ERROR reading Q-Chem output non-adiabatic couplings'
++      lfail = .true.
++      return
++ 1006 print*, 'ERROR reading Q-Chem energies: Too many states found'
++      lfail = .true.
++      return
++ 1007 print*, 'ERROR reading Q-Chem gradients: Too many gradients found'
++      lfail = .true.
++      return
++ 1008 print*, 'ERROR reading Q-Chem hessians: Too many hessians found'
++      lfail = .true.
++      return
++ 1009 print*, 'ERROR reading Q-Chem derivative couplings: Too many couplings found'
++      lfail = .true.
++      return
++
+ 
+       end subroutine rdqchem_scf
+ 
+-- 
+1.9.1
+
