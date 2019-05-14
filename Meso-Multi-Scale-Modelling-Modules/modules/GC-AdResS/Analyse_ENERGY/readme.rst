@@ -69,12 +69,6 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
-.. toctree::
-   :glob:
-   :maxdepth: 1
- 
-   analyze.energy.explicit.tar.gz
-   
-:download:`analyse source code: <analyze.energy.explicit.tar.gz>`
+:download:`analysis source code <analyze.energy.explicit.tar.gz>`
 
-It is important to have the XDR files and setup in the same directory as they have to be specified in the Makefile. The XDR files can be found via the GROMACS web page, see `<http://www.gromacs.org/Developer_Zone/Programming_Guide/XTC_Library`_ or `<ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.4.tar.gz>`_.
+It is important to have the XDR files and setup in the same directory as they have to be specified in the Makefile. The XDR files can be found via the GROMACS web page, see http://www.gromacs.org/Developer_Zone/Programming_Guide/XTC_Library or ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.4.tar.gz.
