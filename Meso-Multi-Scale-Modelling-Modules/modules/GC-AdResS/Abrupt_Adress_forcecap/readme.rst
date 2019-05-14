@@ -93,8 +93,6 @@ A note of caution: the chosen force cap trigger has to be a high enough value, o
 Recipe for hard coded force capping:
 
 .. literalinclude:: ./forcecap.patch
-   :language: c
-   :linenos:
 
 with:
 
