@@ -1,0 +1,9 @@
+One species - starting as diamond cubic lattice
+
+SPECIES 1
+A 1.0  0.0  8  0
+
+INTERACTIONS 1
+A A dpd   25.0 1.0 4.0
+
+CLOSE

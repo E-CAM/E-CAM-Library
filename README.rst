@@ -9,3 +9,5 @@ The E-CAM Library
 This is our the repository of our library of software development modules. There is no software here, just
 documentation of software development efforts that satisfied the E-CAM acceptance criteria. The lines of code relevant
 to each module are linked in the modules themselves.
+
+You find the rendered version of this documentation at https://e-cam.readthedocs.io/en/latest/ .
