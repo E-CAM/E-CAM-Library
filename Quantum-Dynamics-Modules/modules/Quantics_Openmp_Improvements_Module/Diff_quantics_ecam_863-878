@@ -1,0 +1,349 @@
+Index: source/opfuncs/dd_db.f90
+===================================================================
+--- source/opfuncs/dd_db.f90	(revision 863)
++++ source/opfuncs/dd_db.f90	(revision 878)
+@@ -22,6 +22,8 @@
+ use dirdyn
+ use openmpmod
+ 
++use omp_lib
++
+       implicit none                                                    
+ 
+       !integer(long)     :: nrec ! number of records in the database
+@@ -80,8 +82,15 @@
+       real(dop), allocatable        :: dertmp1(:,:,:)
+       real(dop), allocatable        :: dertmp2(:,:,:,:)
+       real(dop), allocatable        :: diptmp(:,:,:)
++      real(dop), allocatable        :: tv(:,:)
++      real(dop), allocatable        :: tderiv1(:,:,:)
++      real(dop), allocatable        :: tderiv2(:,:,:,:)
++      real(dop), allocatable        :: tdipole(:,:,:)
+       real(dop)                     :: maxwgt,dv
+ 
++      real(dop)                     :: t1,t2,dt
++      integer(long)                 :: tid
++
+       character(len=c5) :: pesfile,grafile,hesfile,geofile,dipfile
+       logical, save     :: initial = .true.
+ 
+@@ -243,20 +252,33 @@
+       if (linterpol) then
+ 
+          maxwgt = -999.0_dop
++!$omp parallel do schedule(static) default(none) &
++!$omp shared(weight,maxwgt) &
++!$omp private(irec) &
++!$omp firstprivate(dbnrec,dbignore,dbinterp,dbinterord,r1) &
++!$omp num_threads(ompthread) if(lompthread)
+          do irec=1,dbnrec
+             if (dbignore(irec) .eq. 1) cycle
+             if (dbinterp(irec) .lt. 0) cycle
+             weight(irec) = 1.0_dop/(r1(irec)**dbinterord)
+-            maxwgt = max(maxwgt,weight(irec))
+          enddo
+-
+-         norm=0.0_dop
++!$omp end parallel do
++         maxwgt = max(maxwgt,maxval(weight))
++         weight = weight/maxwgt
++         !write(ilog,*) 'dbnrec = ',dbnrec
++         !write(ilog,*) 'dbignore(nrec) = ',dbignore(dbnrec)
++         !write(ilog,*) 'dbinterp(nrec) = ',dbinterp(dbnrec)
++         !write(ilog,*) 'weight(nrec) = ',weight(dbnrec)
++!$omp parallel do schedule(static) reduction(+:norm) &
++!$omp default(none) &
++!$omp private(irec) firstprivate(dbnrec,dbignore,dbinterp,dbminwgt,weight) &
++!$omp num_threads(ompthread) if(lompthread)
+          do irec=1,dbnrec
+             if (dbignore(irec) .eq. 1) cycle
+             if (dbinterp(irec) .lt. 0) cycle
+-            weight(irec) = weight(irec)/maxwgt
+             if (weight(irec) .ge. dbminwgt) norm = norm + weight(irec)
+          enddo
++!$omp end parallel do
+          if (norm.eq.0.0_dop) then
+            routine='dddb_rd (dd_db.f90)'
+            write(message,'(2a)') 'ERROR: No suitable points in database'
+@@ -265,118 +287,76 @@
+ 
+          if (ldbsave) then
+ 
+-!$omp parallel &
+-!$omp private(gx,vv,dv,der1,der2,dip,vtmp,dertmp1,dertmp2,diptmp,f,f1,s,s1,i,i1) &
++!$omp parallel reduction(+:dipole,v,deriv1,deriv2) default(none) &
++!$omp shared(dbignore,dbinterp,weight,dbgeo,dbener,dbgrad,dbhess,dbdipmom,xgpoint) &
++!$omp private(dv,vtmp,dertmp1,dertmp2,diptmp,tdipole,tv,tderiv1,tderiv2,irec,t1,t2,dt,tid) &
++!$omp firstprivate(dbnrec,dbminwgt,nddstate,dddiab,dddvmin,ldipdb,lvonly,ndofddpes) &
+ !$omp num_threads(ompthread) if(lompthread)
+ 
+-            allocate(gx(ndofddpes),vv(nddstate,nddstate),&
+-                  der1(ndofddpes,nddstate,nddstate),&
+-                  der2(ndofddpes,ndofddpes,nddstate,nddstate),&
+-                  dip(3,nddstate,nddstate),&
+-                  vtmp(nddstate,nddstate),dertmp1(ndofddpes,nddstate,nddstate),&
+-                  dertmp2(ndofddpes,ndofddpes,nddstate,nddstate),&
+-                  diptmp(3,nddstate,nddstate))
++            allocate(vtmp(nddstate,nddstate),dertmp1(ndofddpes,nddstate,nddstate),&
++                  dertmp2(ndofddpes,ndofddpes,nddstate,nddstate),diptmp(3,nddstate,nddstate),&
++                  tdipole(3,nddstate,nddstate),tv(nddstate,nddstate),&
++                  tderiv1(ndofddpes,nddstate,nddstate),&
++                  tderiv2(ndofddpes,ndofddpes,nddstate,nddstate))
+             dv=0
+-            gx=0
+-            vv=0
+-            der1=0
+-            der2=0
+-            dip=0
+             vtmp=0
+             dertmp1=0
+             dertmp2=0
+             diptmp=0
++            tdipole=0
++            tv=0
++            tderiv1=0
++            tderiv2=0
+ 
+-!$omp do
++!$omp do schedule(dynamic)
+              do irec=1,dbnrec
++ 
++                !tid = OMP_get_thread_num()
++                !t1 = OMP_get_wtime()
++ 
+                 if (dbignore(irec) .eq. 1) cycle
+                 if (dbinterp(irec) .lt. 0) cycle
+                 if (weight(irec) .lt. dbminwgt) cycle
+                    
+-                ! read point from DB
+-                gx(1:ndofddpes) = dbgeo(1:ndofddpes,irec)
+-                ! get distance of point from geometry with BLAS norm function
+-            !    r1=dnrm2(ndofddpes,gx-xgpoint,1)
+-                ! get adiabatic/diabatic energy
+-                do s=1,nddstate
+-                   vv(1:nddstate,s) = dbener(1:nddstate,s,irec)
+-                enddo
+                 ! get adiabatic energy difference and check if too small
+                 ! do not use point when regularisation (only for two states)
+                 if (nddstate .eq. 2 .and. dddiab .eq. 1) then
+-                   dv=dsqrt((vv(2,2)-vv(1,1))**2+4.0_dop*vv(2,1)**2)
++                   dv=dsqrt((dbener(2,2,irec)-dbener(1,1,irec))**2+4.0_dop*dbener(2,1,irec)**2)
++                   if (dv .lt. dddvmin) cycle
+                 endif
+-                !
+-                !if (r1(irec) .gt. ddmaxdb .or. (nddstate .eq. 2 &
+-                !   .and. dddiab .eq. 1 .and. dv .lt. dddvmin)) then
+-                if (nddstate .eq. 2 .and. dddiab .eq. 1 .and. dv .lt. dddvmin) then
+-                   cycle
+-                else
+-                   ! read gradients, Hessian and optionally dipole moment
+-                   do s=1,nddstate
+-                      do s1=1,nddstate
+-                         der1(1:ndofddpes,s1,s) = dbgrad(1:ndofddpes,s1,s,irec)
+-                         do i=1,ndofddpes
+-                            der2(1:ndofddpes,i,s1,s) = &
+-                                 dbhess(1:ndofddpes,i,s1,s,irec)
+-                         enddo
+-                         if (ldipdb) dip(1:3,s1,s) = dbdipmom(1:3,s1,s,irec)
+-                      enddo
+-                   enddo
+-                   ! shift PES
+ 
+-                   call shiftdd(vtmp,dertmp1,dertmp2,diptmp,xgpoint,vv, &
+-                        der1,der2,dip,gx,2)  
+-!$omp critical
++                ! shift PES
++                !tid = OMP_get_thread_num()
++                !t1 = OMP_get_wtime()
++                call shiftdd(vtmp,dertmp1,dertmp2,diptmp,xgpoint,dbener(1:nddstate,1:nddstate,irec), &
++                             dbgrad(1:ndofddpes,1:nddstate,1:nddstate,irec), &
++                             dbhess(1:ndofddpes,1:ndofddpes,1:nddstate,1:nddstate,irec), &
++                             dbdipmom(1:3,1:nddstate,1:nddstate,irec),dbgeo(1:ndofddpes,irec),2)  
++                !t2 = OMP_get_wtime()
++                !dt = t2-t1
++                !write(ilog,*) 'TID: ',tid,'Time1: ',t1, 'Time2: ',t2,'dT: ',dt
+ 
+-                   if (ldipdb .and. .not. lvonly) then
+-                      do s = 1,nddstate
+-                         do s1 = 1,nddstate
+-                            do i=1,3
+-                               dipole(i,s1,s) = &
+-                                    dipole(i,s1,s) + weight(irec)*dip(i,s1,s)
+-                            enddo
+-                         enddo
+-                      enddo
+-                   endif
+-!$omp end critical
+-!$omp critical
+-                   do s = 1,nddstate
+-                      do s1 = 1,nddstate
+-                         v(s1,s) = v(s1,s) + weight(irec)*vtmp(s1,s)
+-                         if(.not.lvonly)then
+-                            do f=1,ndofddpes
+-                               deriv1(f,s1,s) = deriv1(f,s1,s) + &
+-                                    weight(irec)*dertmp1(f,s1,s)
+-                            enddo
+-                         endif
+-                      enddo
+-                   enddo
+-!$omp end critical
+-                   if(.not.lvonly)then
++                if (ldipdb .and. .not. lvonly) tdipole = tdipole + weight(irec)*diptmp
++                tv = tv + weight(irec)*vtmp
++                tderiv1 = tderiv1 + weight(irec)*dertmp1
++                !if (.not. lvonly) call hessian_update1(xgpoint,deriv1,deriv2,r1,dbnrec)
++                if (.not. lvonly) tderiv2 = tderiv2 + weight(irec)*dertmp2
+ 
+-             !        call hessian_update1(xgpoint,deriv1,deriv2,r1,dbnrec)
+-!$omp critical
+-                       do s = 1,nddstate
+-                          do s1 = 1,nddstate
+-                             do f=1,ndofddpes
+-                                do f1=1,ndofddpes
+-                                   deriv2(f1,f,s1,s) = deriv2(f1,f,s1,s) + &
+-                                        weight(irec)*dertmp2(f1,f,s1,s)
+-                               enddo
+-                             enddo
+-                          enddo
+-                       enddo
+-!$omp end critical
+-                   endif
+-                endif
++                !t2 = OMP_get_wtime()
++                !dt = t2-t1
++                !write(ilog,*) 'TID: ',tid,'Time1: ',t1, 'Time2: ',t2,'dT: ',dt
++
+                 ! get next record
+              enddo
+ !$omp enddo
++
++             if (ldipdb) dipole = dipole + tdipole
++             v = v + tv
++             deriv1 = deriv1 + tderiv1
++             if (.not. lvonly) deriv2 = deriv2 + tderiv2
+   
+-            deallocate(gx,vv,der1,der2,dip,vtmp,dertmp1,dertmp2,diptmp)
++            deallocate(vtmp,dertmp1,dertmp2,diptmp,tdipole,tv,tderiv1,tderiv2)
+ 
+-
+ !$omp end parallel
+ 
+          else
+@@ -1366,7 +1346,8 @@
+       integer(long)                             :: irec,n,isax,natom
+       integer(long), intent(in)                 :: nrec
+       integer(long), intent(out)                :: iloc
+-      real(dop)                                 :: rx1,rx2,r1,r2,natnrm
++      real(dop)                                 :: r1,r2,natnrm
++      real(dop), dimension(nrec)                :: rx1,rx2
+       real(dop), dimension(ndofddpes), intent(in) :: xgpoint
+       real(dop), dimension(ndofdd)              :: qdist,gpoint
+       real(dop), dimension(nrec), intent(out) :: dist
+@@ -1398,54 +1379,65 @@
+       qdist(:)=0.0_dop
+       xdist(:)=0.0_dop
+ 
+-!-----------------------------------------------------------------------
+-! get filestem from ddname variable and open database file
+-!-----------------------------------------------------------------------
+-      if (.not. ldbsave) then
+-         geofile=ddname(1:ddlaenge)//'/geo.db'
+-         open(igeodb,file=geofile,form='unformatted',err=1001)
+-         rewind(igeodb)
+-      endif
+-
+ !-----------------------------------------------------------------------  
+ ! loop over DB 
+ !----------------------------------------------------------------------- 
+-      do irec=1,nrec
+-
+-         if (dbignore(irec) .eq. 1) cycle
+-
+-         if (ldbsave) then
++      ! If in memory - parallelise
++      if (ldbsave) then
++!$omp parallel do schedule(static) default(none) &
++!$omp shared(dbgeo,dist,rx1,rx2) &
++!$omp private(irec,gx,distvectmp) &
++!$omp firstprivate(nrec,ldbsave,ndofddpes,xgpoint,dbweight,dbignore) &
++!$omp num_threads(ompthread) if(lompthread) 
++         do irec=1,nrec
++            if (dbignore(irec) .eq. 1) cycle
+             gx(1:ndofddpes) = dbgeo(1:ndofddpes,irec)
+-         else
++            distvectmp=xgpoint-gx
++            ! calculate the distance using BLAS norm function
++            rx1(irec) = dnrm2(ndofddpes,distvectmp,1)
++            ! calculate max atom displacement
++            call maxatdist(rx2(irec),distvectmp)
++            if (dbweight .eq. 1) then
++               dist(irec) = rx1(irec)
++            else if (dbweight .eq. 2) then
++               dist(irec) = rx2(irec)
++            endif
++         enddo
++!$omp end parallel do
++         r1 = minval(rx1)
++         r2 = minval(rx2)
++         iloc = minloc(rx2,DIM=1)
++         xdist = dbgeo(1:ndofddpes,iloc)
++      ! If from file - serial (with a tweak)
++      else
++         geofile=ddname(1:ddlaenge)//'/geo.db'
++         open(igeodb,file=geofile,form='unformatted',err=1001)
++         rewind(igeodb)
++         do irec=1,nrec
++            if (dbignore(irec) .eq. 1) cycle
+             read(igeodb,err=1000,end=900) isax,(gx(n),n=1,ndofddpes)
+-         endif
+-
+-         distvectmp=xgpoint-gx
+-! calculate the distance using BLAS norm function
+-         rx1 = dnrm2(ndofddpes,distvectmp,1)
+-! calculate max atom displacement
+-         call maxatdist(rx2,distvectmp)
+-
+-         if (dbweight .eq. 1) then
+-            dist(irec) = rx1
+-         else if (dbweight .eq. 2) then
+-            dist(irec) = rx2
+-         endif
+-         if (rx2 .lt. r2) then
+-            iloc=irec 
+-            r2=rx2
+-            r1=rx1
+-            xdist=gx 
+-         endif                                                       
+-
+-      enddo
++            distvectmp=xgpoint-gx
++            ! calculate the distance using BLAS norm function
++            rx1(irec) = dnrm2(ndofddpes,distvectmp,1)
++            ! calculate max atom displacement
++            call maxatdist(rx2(irec),distvectmp)
++            if (dbweight .eq. 1) then
++               dist(irec) = rx1(irec)
++            else if (dbweight .eq. 2) then
++               dist(irec) = rx2(irec)
++            endif
++         enddo
++         r1 = minval(rx1)
++         r2 = minval(rx2)
++         iloc = minloc(rx2,DIM=1)
++         rewind(igeodb)
++         do irec=1,iloc
++            read(igeodb,err=1000,end=900) isax,(xdist(n),n=1,ndofddpes)
++         enddo
++ 900     continue
++         close(igeodb)
++      endif
+ !
+-! end of file found
+-!
+-  900 continue
+-      if (.not. ldbsave) close(igeodb)
+-
+-!
+ ! convert distance from NModes to Cartesians
+ !
+       mindist(1) = r1/natnrm

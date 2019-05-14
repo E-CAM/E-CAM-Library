@@ -47,7 +47,7 @@ The module produces the "selected_coords.txt" file that identifies the v_len coo
 Source Code
 ___________
 
-The source code of the algorithm is avaliable from the `E-CAM Gitlab repository`__. It is included in the file gromacs_interfaces.py, it is exectuted as follows: 
+The source code of the algorithm is available from the `E-CAM Gitlab repository`__. It is included in the file gromacs_interfaces.py, it is exectuted as follows: 
 
 ::
 
