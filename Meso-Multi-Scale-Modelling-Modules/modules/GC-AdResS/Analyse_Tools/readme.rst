@@ -1,3 +1,5 @@
+:orphan:
+
 ..  In ReStructured Text (ReST) indentation and spacing are very important (it is how ReST knows what to do with your
     document). For ReST to understand what you intend and to render it correctly please to keep the structure of this
     template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded
@@ -53,7 +55,7 @@ One purpose of our project is to promote GC-AdResS as a method. It is an advance
 This module provides little tools to make working with AdResS easier. 
 Content:
 
-1) how to mask the configuration (output from a full atomistic simulation run) to generate the doube resolution configuration.
+1) how to mask the configuration (output from a full atomistic simulation run) to generate the double resolution configuration.
 
 2) Quick and dirty: get the reference coordinate from the GROMACS input file 
 
@@ -145,12 +147,6 @@ And the corresponding extract_coord.tcl
 
 Files:
 
-.. toctree::
-   :glob:
-   :maxdepth: 1
- 
-    analyse.tools.tar.gz
-   
-:download:`analyse tools source code: <analyse.tools.tar.gz>`
+:download:`analyse tools source code <analyse.tools.tar.gz>`
 
-It is important to have the XDR files and setup in the same directory as they have to be specified in the Makefile. The XDR files can be found via the GROMACS web page, see `<http://www.gromacs.org/Developer_Zone/Programming_Guide/XTC_Library`_ or  `<ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.4.tar.gz>`_.
+It is important to have the XDR files and setup in the same directory as they have to be specified in the Makefile. The XDR files can be found via the GROMACS web page, see http://www.gromacs.org/Developer_Zone/Programming_Guide/XTC_Library or  ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.4.tar.gz.
