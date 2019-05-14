@@ -99,7 +99,7 @@ This module supports (as listed in PLUMED documentation):
   ``UNITS``).
 
 * CV Documentation: all CVs are created by calling ``PLUMEDCV(name,
-  PLUMEDInterface, definition)``. The returned function can be appied
+  PLUMEDInterface, definition)``. The returned function can be applied
   to a ``Trajectory``. CVs with components should specify the
   ``components=["c1", "c2", "c3", ...]`` keyword and the corresponding
   PLUMED keywords in the ``definition``.

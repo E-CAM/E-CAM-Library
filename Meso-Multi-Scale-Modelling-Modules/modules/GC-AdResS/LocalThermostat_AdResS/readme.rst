@@ -1,3 +1,5 @@
+:orphan:
+
 ..  In ReStructured Text (ReST) indentation and spacing are very important (it is how ReST knows what to do with your
     document). For ReST to understand what you intend and to render it correctly please to keep the structure of this
     template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded
@@ -46,6 +48,7 @@ Local thermostat adaption fo the Abrupt GC-AdResS scheme
 ..  Let's add a local table of contents to help people navigate the page
 
 ..  contents:: :local:
+
 The original idea of our proposal: to work on a general implementations of AdResS in
 class. MD packages. With Abrupt AdresS we implemented a new partitioning scheme to bypass the performance problems in the smooth coupling GC-AdResS implementation. We switched to the general interaction kernel and simplified the neighboring list search. This module takes this new ansatz and combines it with a local thermostat approach (see Ref. `<http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_). 
 
@@ -130,13 +133,13 @@ Here is a short manual on how to run the test and set up the local thermostat si
   Example from VOTCA: 
   csg_map --top topol.tpr --cg cg_mapping_scheme --hybrid --trj conf.gro --out conf_hybrid.gro
 
-Of course, if you want to use this configuration in a MD simulation you have to adjust the force field (see example file: *spc.adress.itp*). You have to define a virtual side:  
+Of course, if you want to use this configuration in a MD simulation you have to adjust the force field (see example file: *spc.adress.itp*). You have to define a virtual site:  
 
 ::
 
   [ virtual_sites3 ]
   ; Site from funct a d
-  ; atom depedencies func     a            b
+  ; atom dependencies func     a            b
      4      1 2 3     1    0.05595E+00 0.05595E+00
 
 The next step is to adjust the status of the CG particle in the topology file (in our example: *topol.top*) from *A* for *atom* to *V* as *virtual particle*. And of course insert the new force field.
@@ -239,8 +242,6 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
-.. .. literalinclude:: ./abrupt_adress.patch
-   :language: c
 To apply the patch: 
 1) copy into the main directory (gromacs/)
 2) patch < localT_abrupt_adress.patch

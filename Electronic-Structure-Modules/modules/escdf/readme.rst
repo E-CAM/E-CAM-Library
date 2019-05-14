@@ -51,26 +51,26 @@ Documentation Tool
 Application Documentation
   `ESL wiki <http://esl.cecam.org/Libescdf>`_
 
-Instalation
-___________ 
+Installation
+____________ 
 
 A release can be download from `this link <https://gitlab.e-cam2020.eu/ESL/escdf/tags/Version0.1.0>`_
-Current installation and testing are done with gcc compiler. HDF5 is required for instalation and testing. 
+Current installation and testing are done with gcc compiler. HDF5 is required for installation and testing. 
 
-Here are the commands for instalation::
+Here are the commands for installation::
 
  $ tar xfvz libescdf-0.1.0.tar.gz
  $ ./configure
  $ make
 
 .. note ::
- We provide also the possibility to build modules with Autotools. `Here <https://gitlab.e-cam2020.eu/ESL/escdf/tree/master/doc>`_ are some userful documents. 
+ We provide also the possibility to build modules with Autotools. `Here <https://gitlab.e-cam2020.eu/ESL/escdf/tree/master/doc>`_ are some useful documents. 
 
 Testing
 _______
 
 Libescdf contains several unit tests that can be used to check the
-compilation and to perform regression testing. Check (version>=0.9.4) is required for instalation and testing. These tests can be
+compilation and to perform regression testing. Check (version>=0.9.4) is required for installation and testing. These tests can be
 executed by doing::
 
    $ make check
