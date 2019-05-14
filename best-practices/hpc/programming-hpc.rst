@@ -8,7 +8,7 @@ C++17
 C++17 is the name for the most recent revision of the `ISO/IEC 14882 <https://en.wikipedia.org/wiki/ISO/IEC_14882>`_
 standard for the C++ programming language.
 
-The previous C++ versions show very limited parallel processing capabilities when using mutli/many core architectures.
+The previous C++ versions show very limited parallel processing capabilities when using multi/many core architectures.
 This situation will change with the C++17, in which the parallelised version of `Standard Template Library
 <https://en.wikipedia.org/wiki/Standard_Template_Library>`_ is
 included. The STL is a software library for C++ programming which has 4 components: Algorithms, Containers, Functors
@@ -23,7 +23,7 @@ Fortran 2015
 ~~~~~~~~~~~~
 
 `Fortran 2015 <http://fortranwiki.org/fortran/show/Fortran+2015>`_ is a minor revision of Fortran 2008 (which was when
-Fortran became a Partioned Global Address Space (PGAS) language with the introduction of `coarrays
+Fortran became a Partitioned Global Address Space (PGAS) language with the introduction of `coarrays
 <https://en.wikipedia.org/wiki/Coarray_Fortran>`_). The revisions mostly target additional parallelisation features and
 increased interoperability with C.
 
