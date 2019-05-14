@@ -23,7 +23,7 @@ SQARE states
 .. contents:: :local:
 
 SQARE (Solvers for quantum atomic radial equations) is a library of
-utilities intented for dealing with functions discretized on radial
+utilities intended for dealing with functions discretized on radial
 meshes, wave-equations with spherical symmetry and their corresponding
 quantum states. The utilities are segregated into three levels: radial
 grids and functions, ODE solvers, and states.
@@ -54,13 +54,13 @@ Documentation Tool
 Application Documentation
    `The ESL wiki <http://esl.cecam.org/SQARE>`_
 
-Instalation
-___________ 
+Installation
+____________ 
 
 A release can be download from `this link <https://gitlab.e-cam2020.eu/ESL/sqare/tags/v0.0.0>`_
-Current installation and testing are done with gcc compiler. Check (version>=0.9.4) is required for instalation and testing.
+Current installation and testing are done with gcc compiler. Check (version>=0.9.4) is required for installation and testing.
 
-Here are the commands for instalation::
+Here are the commands for installation::
 
  $ tar xfvz libsqare-0.0.0.tar.gz
  $ ./configure
