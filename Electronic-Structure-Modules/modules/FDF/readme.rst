@@ -93,7 +93,7 @@ then do::
  
   make 
 
-2. For parallel version installation, you should follow the same procedure except of using a approriate
+2. For parallel version installation, you should follow the same procedure except of using a appropriate
 parallel ``arch.make``. A `arch.make <https://gitlab.e-cam2020.eu:10443/E-CAM/Electronic-Structure-Modules/uploads/5fb8a4bbd4612fcfb4ea932d30804d6f/arch.make>`_ file with gcc compiler is available in E-CAM website.   
 
 Testing
