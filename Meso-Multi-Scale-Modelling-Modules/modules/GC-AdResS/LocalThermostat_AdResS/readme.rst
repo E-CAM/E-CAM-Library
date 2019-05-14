@@ -240,8 +240,6 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
-.. .. literalinclude:: ./abrupt_adress.patch
-   :language: c
 To apply the patch: 
 1) copy into the main directory (gromacs/)
 2) patch < localT_abrupt_adress.patch
