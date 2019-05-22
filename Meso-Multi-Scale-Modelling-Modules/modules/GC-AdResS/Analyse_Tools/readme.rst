@@ -80,19 +80,21 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
-quick and fast data grab from the configuration file:
+Quick and fast data grab from the configuration file:
+
 ::
 
   tail conf.gro | awk '(NF==3){print $1/2.0,$2/2.0,$3/2.0}' 
 
 
-how to mask the configuration for setting it up for the AdResS simulation:
+How to mask the configuration for setting it up for the AdResS simulation:
+
 ::
 
   csg_map --cg mapping_scheme.xml --hybrid --trj input_file.gro --out output_file.gro --top atomistic_run/topol.tpr
 
 
-checkout temperature on the fly from the output md.log:
+Check temperature on the fly from the output md.log:
 
 :: 
 
@@ -103,8 +105,6 @@ checkout temperature on the fly from the output md.log:
   paste mdlogging1 mdlogging2 >temperature
   rm mdlogging1 mdlogging2 
 
-
-  
 Quick grab of the density in the xsplit (slab like) configuration:
 
 ::
@@ -145,8 +145,7 @@ And the corresponding extract_coord.tcl
   exit
 
 
-Files:
+All the small scripts are available as files:
 
 :download:`analyse tools source code <analyse.tools.tar.gz>`
 
-It is important to have the XDR files and setup in the same directory as they have to be specified in the Makefile. The XDR files can be found via the GROMACS web page, see http://www.gromacs.org/Developer_Zone/Programming_Guide/XTC_Library or  ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.4.tar.gz.
