@@ -246,7 +246,11 @@ Another important aspect is the force capping. Abrupt AdResS works fine for smal
 
 The local thermostat simulations are significantly different from the Abrupt coupling AdResS simulations. The atomistic region is indirectly thermalized by the hybrid/coarse grained, which leads to an NVE-like environment. To make sure the simulations run smoothly, a tabulated potential for shifted Lennard-Jones potentials is needed. Furthermore, GROMACS has to be compiled with double resolutions. It is easy to see when the simulation didn't work, as the atomistic region is evacuated by all molecules and the resulting density has an error of around 50% and higher. 
 
-When the simulation worked, the same checks as for Abrupt AdResS are required. The first check is the density and you see if the patch works right away. If you have no thermodynamic force you have rather pronounced spikes in the density at the interfaces. If you have a converged thermodynamic force the density has to be within +/- 3% (optimal) and +/- 5% (okay..but can be better) off from a comparable full atomistic simulation / experimental data. Then you need further properties to make sure you have an open system. The problem with the simulation is that an "artificial" interface is introduced and checks for the diffusion, the RDFs... (full list see below) ensure that those regions mix and that you have proper particle transfer.
+When the simulation worked, the same checks as for Abrupt AdResS are required. The first check is about the density: if you have no thermodynamic force you will have rather pronounced spikes in the density at the interfaces. If you have a converged thermodynamic force the density has to be within +/- 3% (optimal) and +/- 5% (still valid) off from a comparable full atomistic simulation / experimental data. However, an "artificial" interface is introduced and checks for the diffusion, the RDFs, etc. (full list see below), ensure that the regions mix toghether and that you have proper particle transfer.
+
+
+
+
 
 Source Code
 ___________
