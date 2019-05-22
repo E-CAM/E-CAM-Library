@@ -66,20 +66,19 @@ ______________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-As studies of ionic liquids and polymer melts have shown for large and complicated molecules even the standard GC-AdResS is not working without additional force capping. The reason for that is when a molecules from the coarse grained region enters the hybrid region the atomistic representations, which are present due to the technically necessary double resolution, interact. It is possible for atoms to be too close together, which results in a too high force and thus in too high velocities of those particles. Since in Abrupt AdResS we can avoid the generic force kernel from GROMACS, the force capping (which was previously implemented at the end of the force calculation) had to be shifted and replaced. We finally looked at the integrator (in our case the stochastic dynamics integrator), which is the place where each force has to be read and handled. 
+As studies of ionic liquids and polymer melts have shown for large and complicated molecules even the standard GC-AdResS is not working without additional force capping. The reason for that is when a molecule from the coarse grained region enters the hybrid region the atomistic representations, which are present due to the technically necessary double resolution, interact. It is possible for atoms to be too close together, which results in a too high force and thus in too high velocities of those particles. Since in Abrupt AdResS we can avoid the generic force kernel from GROMACS, the force capping (which was previously implemented at the end of the force calculation) had to be shifted and replaced. We finally looked at the integrator (in our case the stochastic dynamics integrator), which is the place where each force has to be read and handled. 
 
-This implementation of force capping is a rudimentary approach. The basic principle is when two particles are too close together, and thus the force are far higher than the average forces in the simulation, the force on the particles are re-scaled to a given value. That tactic makes sure that the insertion of particles in the atomistic region are introduced at reasonable velocities and temperature. As a side effect, the area of disturbance due to the introduction of a particle is limited.
+This implementation of force capping is a rudimentary approach. The basic principle is when two particles are too close together, and thus the force are far higher than the average forces in the simulation, the force on the particles are re-scaled to a given value. That tactic makes sure that the insertion of particles in the atomistic region is introduced at reasonable velocities and temperature. As a side effect, the area of disturbance due to the introduction of a particle is limited.
 
 
 Building and Testing
 ____________________
 
 .. Keep the helper ttxt below around in your module by just adding "..  " in front of it, which turns it into a comment
-
 We have used this new addition to the code on two systems: water and ionic liquids. The results have been published in Ref. `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.  All the information about studied systems and the performance can be found there.
 
 The patch provided can be applied alone without the Abrupt AdResS patch, in the main directory of GROMACS. 
-The important part of the patch is that it adds an upper force limit in the stochastic dynamics intergrator. If that upper limit is triggered the force is rescaled to the given force cap. The rest is basically to make suret that the integrator is called correctly.
+The important part of the patch is that it adds an upper force limit in the stochastic dynamics integrator. If that upper limit is triggered the force is re-scaled to the given force cap. The rest is basically to make sure that the integrator is called correctly.
 There is a *print* command which is triggered once the force on a particle is higher than a given force cap value. The force capping simulation can in some cases cause lincs warnings. Since we take care of faulty configuration that way, we can disabling those warnings (*export GMX_MAXBACKUP=-1* ; *export GMX_MAXCONSTRWARN=-1*). Otherwise it generates too many files and can crash as well.  
 
 
@@ -88,7 +87,7 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
-A note of caution: the chosen force cap trigger has to be a high enough value, otherwise normal interactions (interactions with forces around the average forces in a simulation)  will trigger the force capping. That would change the dynamics and the structure of a system. Also it would descrease the performance of the code. If chosen too high it might run into impossible and unstable configuration, which will result in a program crash.
+A note of caution: the chosen force cap trigger has to be a high enough value, otherwise normal interactions (interactions with forces around the average forces in a simulation)  will trigger the force capping. That would change the dynamics and the structure of a system. Also it would decrease the performance of the code. If chosen too high it might run into impossible and unstable configuration, which will result in a program crash.
 
 Recipe for hard coded force capping:
 
