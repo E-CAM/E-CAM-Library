@@ -50,7 +50,7 @@ Local thermostat adaption fo the Abrupt GC-AdResS scheme
 ..  contents:: :local:
 
 The original idea of our proposal: to work on a general implementations of AdResS in
-class. MD packages. With Abrupt AdresS we implemented a new partitioning scheme to bypass the performance problems in the smooth coupling GC-AdResS implementation. We switched to the general interaction kernel and simplified the neighboring list search. This module takes this new ansatz and combines it with a local thermostat approach (see Ref. `<http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_). 
+class. MD packages. With Abrupt AdresS we implemented a new partitioning scheme to bypass the performance problems in the smooth coupling GC-AdResS implementation. We switched to the general interaction kernel and simplified the neighbor list search. This module takes this new ansatz and combines it with a local thermostat approach (see Ref. `<http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_). 
 
 The advantages of this module are: we can thermalize the transition and the coarse grained region, the atomistic region is thermalized indirectly. Furthermore, we still have a method which is decoupled from the core of any MD code. Theory, application and tests see `Link(J.Chem.Phys.): <https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `Link(arXiv): <https://arxiv.org/abs/1806.09870>`_.
 
@@ -102,7 +102,7 @@ ______________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-This module combines two different codes. The first part is the Abrupt coupling scheme already presented in a module. In any AdResS simulations the simulation box is partitioned into different regions. Previous AdResS implementations have three regions (atomistic, hybrid and coarse grained). They are coupled in the hybrid region by slowly switching between atomistic forces and coarse grained forces. That is done by introducing the weighting function required for the smooth coupling into the force kernel, which slows down the performance of the code. The Abrupt coupling scheme has one atomistic and one coarse grained region, coupled via a transition region, where an additional force is acting on the molecules. Since the weighting function is not needed any more, the forces are calculated via the standard GROMACS kernels, which increases the performance. 
+This module combines two different codes. The first part is the Abrupt coupling scheme already presented in a module. In any AdResS simulations the simulation box is partitioned into different regions. Previous AdResS implementations have three regions (atomistic, hybrid and coarse grained). They are coupled in the hybrid region by slowly switching between atomistic forces and coarse grained forces. That is done by introducing the weighting function required for the smooth coupling into the force kernel, which slows down the performance of the code. The Abrupt coupling scheme has one atomistic and one coarse grained region, coupled via a transition region, which is only due to the fact that an additional force is acting on the molecules. Since the weighting function is not needed any more, the forces are calculated via the standard GROMACS kernels, which increases the performance. 
 
 In previous work by Agarwal et al. (Ref. `<http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_) the idea of a local thermostat was introduced. Since in AdResS the simulation box is partitioned into different regions the next logical step is to adapt the thermalization of the box and apply the thermostat only in the hybrid and coarse grained region, since the hybrid region is an artificial region and the coarse grained region represents a reservoir.
 
@@ -166,11 +166,22 @@ The next step is to adjust the GROMACS input file. AdResS needs the Langevin dyn
 
 
 Since the system is double resolution, meaning we have the atomistic details and the virtual particles, we have to define the energy groups:
+
 ::
 
   ; Selection of energy groups 
   energygrps = EXW WCG 
   energygrp_table = WCG WCG
+
+
+Note: the table for the WCG and WCG particles can be a pre-defined coarse grained potential but can be also set to zero. 
+
+Alternatively, the non-bonded interactions for WCG in the force field can be set to zero.a Then the input would be like:
+
+::
+
+  ; Selection of energy groups 
+  energygrps = EXW WCG 
 
 
 GROMACS  version 5.1.5 is using verlet as standard cutoff-scheme, so we have to change that to *group*:
