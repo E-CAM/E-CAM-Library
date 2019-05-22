@@ -9,7 +9,7 @@ j=$2
 
 case $3 in
  [1]*)
-#intial run: first density without thermodyn. Force  
+#initial run: first density without thermodyn. Force  
 rm F_th_* tabletf* *.dens.s* dens_mix_* \#* *.dens_s*.xvg
 ./TF_calc_water_xplit_sphere.sh 0  dens.REF.out CALC.dens.out s0 1
 
