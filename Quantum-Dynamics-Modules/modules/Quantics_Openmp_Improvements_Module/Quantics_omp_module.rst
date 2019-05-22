@@ -44,7 +44,7 @@ Install
 _______
 
 1. Under the ``install`` folder,  once the fortran compile is available, do ``./install_quantics``.
-2. Once the quantics serial version is correctely installed, in the same folder, do ``source QUANTICS_client``.
+2. Once the quantics serial version is correctly installed, in the same folder, do ``source QUANTICS_client``.
 3. Run ``compile -O quantics`` in order to install the OpenMP version of Quantics.  
 
 
