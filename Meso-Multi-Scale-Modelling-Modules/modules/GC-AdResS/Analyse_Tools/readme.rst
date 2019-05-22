@@ -83,7 +83,7 @@ ___________
 Quick and fast data grab from the configuration file:
 
 ::
-
+  
   tail conf.gro | awk '(NF==3){print $1/2.0,$2/2.0,$3/2.0}' 
 
 
@@ -134,7 +134,7 @@ Collect the p(N) data and combine them in one file:
   paste column1 column2|awk '{print $1, $2}' > dat.3nm.pn.WCG.dat
 
 
-And the corresponding extract_coord.tcl
+And the corresponding extract_coord.tcl:
 
 ::
 
@@ -142,10 +142,10 @@ And the corresponding extract_coord.tcl
   mol new conf.gro
   mol addfile traj_comp.xtc type xtc waitfor all first 0 last -1 step 1
   topo writevarxyz WCG.xyz selmod "name WCG and (x>285 and x<315)"
-  exit
+  
 
 
 All the small scripts are available as files:
 
-:download:`analyse tools source code <analyse.tools.tar.gz>`
+:download:`analyse tools source code <./analyse.tools.tar.gz>`
 
