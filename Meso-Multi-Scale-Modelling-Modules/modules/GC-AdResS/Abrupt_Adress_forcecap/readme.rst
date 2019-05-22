@@ -80,7 +80,7 @@ We have used this new addition to the code on two systems: water and ionic liqui
 
 The patch provided can be applied alone without the Abrupt AdResS patch, in the main directory of GROMACS. 
 The important part of the patch is that it adds an upper force limit in the stochastic dynamics intergrator. If that upper limit is triggered the force is rescaled to the given force cap. The rest is basically to make suret that the integrator is called correctly.
-There is a *print* command which is triggered once the force on a particle is higher than a given force cap value. The force capping simualtion can in some cases cause lincs warnings. We run them by disabling those warnings (
+There is a *print* command which is triggered once the force on a particle is higher than a given force cap value. The force capping simulation can in some cases cause lincs warnings. Since we take care of faulty configuration that way, we can disabling those warnings (*export GMX_MAXBACKUP=-1* ; *export GMX_MAXCONSTRWARN=-1*). Otherwise it generates too many files and can crash as well.  
 
 
 Source Code
