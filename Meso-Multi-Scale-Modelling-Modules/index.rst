@@ -101,8 +101,8 @@ The following modules connected to the ParaDiS code have been produced so far:
     :glob:
     :maxdepth: 1
 
-    ./modules/paradis_precipitate/paradis_precipitate_GC/readme.rst
-    ./modules/paradis_precipitate/paradis_precipitate_HPC/readme.rst
+    ./modules/paradis_precipitate/paradis_precipitate_GC/readme
+    ./modules/paradis_precipitate/paradis_precipitate_HPC/readme
 
 
 GC-AdResS 
@@ -114,9 +114,10 @@ Adaptive Resolution Simulation: Implementation in GROMACS
     :glob:
     :maxdepth: 1
 
-    ./modules/GC-AdResS/Abrupt_AdResS/readme.rst
-    ./modules/GC-AdResS/Abrupt_AdResS/abrupt_adress.rst
-    ./modules/GC-AdResS/AdResS_RDF/readme.rst
+    ./modules/GC-AdResS/Abrupt_AdResS/readme
+    ./modules/GC-AdResS/Abrupt_AdResS/abrupt_adress
+    ./modules/GC-AdResS/AdResS_RDF/readme
+    ./modules/GC-AdResS/Abrupt_Adress_forcecap/readme
 
 .. _ALL_background:
 
