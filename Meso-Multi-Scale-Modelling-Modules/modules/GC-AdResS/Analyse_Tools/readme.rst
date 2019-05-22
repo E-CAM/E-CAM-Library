@@ -15,7 +15,7 @@
     Tools for AdResS.
 
   Language
-    C/C++, Phyton, Fortran, BASH, AWK
+    C/C++, Python, Fortran, BASH, AWK
 
   Licence
   Opensource
