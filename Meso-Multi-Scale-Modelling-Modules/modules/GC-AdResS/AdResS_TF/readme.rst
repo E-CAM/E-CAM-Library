@@ -16,7 +16,7 @@
 
   Language
     bash
-    Phyton 2.7
+    Python 2.7
 
   Licence
     MD Simulation:
