@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/gmx_abrupt_adress/bin/GMXRC
+source /<put your directory path here>/gromacs_abrupt_adress/bin/GMXRC
 
 export GMX_MAXCONSTRWARN=-1
 

@@ -118,7 +118,14 @@ ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-The 3 presented scripts (:download:`AdResS_TF <./AdResS_TF.tar.gz>`) present a  way to calculate the thermodynamics force. 
+These three scripts present one way to calculate the thermodynamics force.
+
+::
+
+:download:`TF calculation script: <./TF_calc_water_xplit_sphere.sh>`
+:download:`Density interpolation script: <./smooth_dens.sh>`
+:download:`Script to call TF calculation: <./run_tf_water_xplsit_sphere.sh>`
+
 
 The central script is *smooth_dens.sh*. This is a phyton 2.7 script which interpolates the density and generates the gradiant of the density and provides the force as an ascii table. 
 
