@@ -56,7 +56,7 @@ Thermodynamic Force Calculator for Abrupt AdResS
 We introduced with the Abrupt AdResS method a new way of coupling the different simulation regions together. That is the basis for easier implementation into other codes. The implementation of smooth coupling GC- AdResS in GROMACS has several performance problems. However, the new Abrupt AdResS presents a very straight forward way to implement a new partitioning scheme, which solves two problems which affect the performance, the neighborlist search and the generic force kernel. Furthermore, we update the implementation to address this in a way that decouples the method directly from the core of any MD code, which does not hinder the performance and makes the scheme hardware independent.
 Theory, application and tests see `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_. 
 
-The drawback of this method is that a new way to calculate the thermodynamic force is needed.  
+The drawback of this method is that a new (as in more direct) way to calculate the thermodynamic force is needed. The theory is still the same, the interpolation has to be adapted.
 
 
 ..  Add an abstract for a *general* audience here. Write a few lines that explains the "helicopter view" of why you are
