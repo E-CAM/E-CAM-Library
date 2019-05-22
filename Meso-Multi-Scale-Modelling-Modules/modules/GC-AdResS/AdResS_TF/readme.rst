@@ -94,7 +94,7 @@ _________________
 
 The new Abrupt coupling scheme introduces a density discrepancy which is very much restricted to the interface of the atomistic region and the coarse grained region. The thermodynamic force calculator in VOTCA (implemented up to version 1.3) is designed for the more smooth coupling over a larger region in space. Thus this code cannot be used for the small area of disturbance in this new scheme. 
 
-Here we present a thermodynamic force calculator for the abrupt coupling scheme. It is a mix between bash and phyton and can be applied even to the older smooth coulping scheme.
+Here we present a thermodynamic force calculator for the abrupt coupling scheme. It is a mix between bash and Python and can be applied even to the older smooth coulping scheme.
 
 .. The interface between the regions is more fluctuating and needs a more responsive thermodynamic force but it works reasonably well. 
 
@@ -127,7 +127,7 @@ These three scripts present one way to calculate the thermodynamics force.
 :download:`Script to call TF calculation: <./run_tf_water_xplsit_sphere.sh>`
 
 
-The central script is *smooth_dens.sh*. This is a phyton 2.7 script which interpolates the density and generates the gradiant of the density and provides the force as an ascii table. 
+The central script is *smooth_dens.sh*. This is a Python 2.7 script which interpolates the density and generates the gradiant of the density and provides the force as an ascii table. 
 
 *TF_calc_water_xplit_sphere.sh* is controlling the MD run, and which region to interpolate, and builds the tables needed. The commands and the options used are described in `<http://www.gromacs.org/>`_ or if the  spherical geometry for AdResS is used also here: `<http://www.votca.org/Documentation>`_.
 
