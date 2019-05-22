@@ -12,7 +12,7 @@
 ..  sidebar:: Software Technical Information
 
   Name
-    GC-AdResS: Local thermostat adaption fo the Abrupt AdResS scheme
+    GC-AdResS: Local thermostat adaption of the Abrupt AdResS scheme
 
   Language
     Implemented in GROMACS version 5.1.5  
@@ -42,7 +42,7 @@
 .. _LocalT:
 
 ########################################################
-Local thermostat adaption fo the Abrupt GC-AdResS scheme 
+Local thermostat adaption of the Abrupt GC-AdResS scheme 
 ########################################################
 
 ..  Let's add a local table of contents to help people navigate the page
