@@ -19,13 +19,38 @@
 
   Licence
   Opensource
+  
+  MD Simulation:
+
+    See GROMACS web page: `<http://www.gromacs.org>`_
+
+    Analysis tools and thermodynamic force calculation:
+
+    see VOTCA web page: `<http://www.votca.org/home>`_
+	
+	Visualize Molecular Dynamics: `<http://www.ks.uiuc.edu/Research/vmd/>`_
 
   Documentation Tool
     none
-    
+  
   Application Documentation
-    none
-	
+  
+  See GROMACS web page: `<http://www.gromacs.org>`_
+
+  See VOCTA web page: `<http://www.votca.org/Documentation>`_
+
+  Visualize Molecular Dynamics: `<http://www.ks.uiuc.edu/Research/vmd/>`_
+
+
+  Relevant Training Material
+
+  See GROMACS web page: `<http://www.gromacs.org>`_
+
+  See VOCTA web page: `<http://www.votca.org/tutorials>`_
+  
+   Visualize Molecular Dynamics: `<http://www.ks.uiuc.edu/Research/vmd/>`_
+   
+  	
   Relevant Training Material
     none
 	
@@ -87,7 +112,7 @@ Quick and fast data grab from the configuration file:
   tail conf.gro | awk '(NF==3){print $1/2.0,$2/2.0,$3/2.0}' 
 
 
-How to mask the configuration for setting it up for the AdResS simulation:
+How to mask the configuration for setting it up for the AdResS simulation. A straigh forward way is using `VOTCA <http://www.votca.org/tutorials>`_ :
 
 ::
 
@@ -105,21 +130,21 @@ Check temperature on the fly from the output md.log:
   paste mdlogging1 mdlogging2 >temperature
   rm mdlogging1 mdlogging2 
 
-Quick grab of the density in the xsplit (slab like) configuration:
+Quick grab of the density in the xsplit (slab like) configuration. One way is using the tool from  `GROMACS <http://www.gromacs.org>`_:
 
 ::
 
   gmx density -d X -f trajectory_file.xtc -sl 50
 
 
-Quick grab of the density in the sphere configuration:
+Quick grab of the density in the sphere configuration. We use  `VOTCA <http://www.votca.org/tutorials>`_  for it:
 
 ::
   
   csg_density -- axis r -- rmax 10. --ref [x_ref,y_ref,z_ref] --trj trajectory_input.xtc --top topol.tpr --out SOL.dens.out 
 
 
-Collect the p(N) data and combine them in one file:
+Collect the p(N) data and combine them in one file. For that we use `VMD <http://www.ks.uiuc.edu/Research/vmd/>`_, it includes a script called topotools, which is used to handle the trajectory. This script can be run from the command line directly: 
 
 ::
 
@@ -142,7 +167,7 @@ And the corresponding extract_coord.tcl:
   mol new conf.gro
   mol addfile traj_comp.xtc type xtc waitfor all first 0 last -1 step 1
   topo writevarxyz WCG.xyz selmod "name WCG and (x>285 and x<315)"
-  
+  exit
 
 
 All the small scripts are available as files:
