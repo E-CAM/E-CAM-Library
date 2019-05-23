@@ -55,16 +55,34 @@ One purpose of our project is to promote GC-AdResS as a method. It is an advance
 
 This module provides the code to check one very important quantity, the interaction energy in the atomistic region compared with the interaction energy in the comparable subregion in a full atomistic simulation. The difference between those energies is the interaction energy at the interface, which has to be much smaller than the interaction energy in the atomistic region.  
 
-The theory  is described in `Ref. <http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_.  This code is based on that theory and has been developed to check the energy of the local thermostat GC-AdResS simulations presented in the paper cited above.
+The theory  is described in `Ref. <http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_.  This legacy code is based on that theory and has been developed to check the energy of the local thermostat GC-AdResS simulations presented in the paper cited above.
 
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 
-Background Information
-______________________
+Running the code:
+_________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
+The executable is called *energy*. The options on how to run the analysis:
+
+::
+
+     -h  : help message
+     -b  : start frame  
+     -e  : end  frame 
+     -n  : number of regions 
+     -x0 : start transition region 
+     -x1 : end transition region (if x1 == 0, use the whole box)       
+     -q1 : charge on oxygen
+     -q2 : charge on hydrogen
+     -sig : sigma      
+     -eps : eps
+     -beads :  no. of beads in one ring polymer 
+     -c  : cut off radius for neighbor list search      
+     -f  : the input .xtc file (default: traj.xtc)     
+     -o  :the output file
 
 
 Source Code
