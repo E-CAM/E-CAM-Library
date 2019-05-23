@@ -251,6 +251,22 @@ When the simulation worked, the same checks as for Abrupt AdResS are required. T
 
 This is an example of test scenario for GROMACS version 5.1.5 with a possible CG potential and all necessary input files, see `<https://gitlab.e-cam2020.eu:10443/abrupt_adress/abrupt_adress>`_ . To run it simply run *gmx grompp -f grompp.mdp -c conf.gro -p topol.top -n index.ndx -maxwarn 5; gmx mdrun* using the patched version of GROMACS version 5.1.5 (see above). 
 
+When *gmx mdrun* finishes normally (with the above mentioned setup), we have several mandatory checks to see if the simulation was successful or not.
+  
+0) Easiest check: load the conf.gro and the trajectory file in vmd and check if you see particle diffusion or depleted areas.
+  
+1) we check the density along the X-direction (*xsplit*: e.g. gmx density -f traj_compt.xtc -d X) or along the radius (*sphere*: e.g. via VOTCA: *csg_density --axis r --rmax <value> --ref [x_ref,y_ref,z_ref] --trj traj_comp.xtc --top topol.tpr --out test.dens.comp*), the density has to be less then 3% different from experimental data or the density from a full atomistic MD simulation. The density of the example is 1000 kg m^-3. 
+
+2) static properties: crucial RDFs (e.g. for water the oxygen-oxygen RDF) 
+
+  
+3) p(N): It describes the average number of particles in the AT region throughout the simulation.
+
+  
+4) the density diffusion for each region (via a very helpful expansion for `VMD <http://www.ks.uiuc.edu/Research/vmd/>`_, the density profile tool see `Link: <https://github.com/tonigi/vmd_density_profile>`_).
+
+  
+5) If we only thermalize the transition region, the AT region is NVE-like, which means it is even possible to determine the dynamics of the system.
 
 
 Source Code
@@ -275,20 +291,5 @@ The patch for Abrupt_AdResS can be found here:(:ref:`localT_abrupt_adress`)
 
 
 
-When *gmx mdrun* finishes normally (with the above mentioned setup), we have several mandatory checks to see if the simulation was successful or not.
-  
-0) Easiest check: load the conf.gro and the trajectory file in vmd and check if you see particle diffusion or depleted areas.
-  
-1) we check the density along the X-direction (*xsplit*: e.g. gmx density -f traj_compt.xtc -d X) or along the radius (*sphere*: e.g. via VOTCA: *csg_density --axis r --rmax <value> --ref [x_ref,y_ref,z_ref] --trj traj_comp.xtc --top topol.tpr --out test.dens.comp*), the density has to be less then 3% different from experimental data or the density from a full atomistic MD simulation. The density of the example is 1000 kg m^-3. 
 
-2) static properties: crucial RDFs (e.g. for water the oxygen-oxygen RDF) 
-
-  
-3) p(N): It describes the average number of particles in the AT region throughout the simulation.
-
-  
-4) the density diffusion for each region (via a very helpful expansion for `VMD <http://www.ks.uiuc.edu/Research/vmd/>`_, the density profile tool see `Link: <https://github.com/tonigi/vmd_density_profile>`_).
-
-  
-5) If we only thermalize the transition region, the AT region is NVE-like, which means it is even possible to determine the dynamics of the system.
 
