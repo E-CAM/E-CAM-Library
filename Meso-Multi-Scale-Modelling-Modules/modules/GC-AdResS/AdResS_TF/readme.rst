@@ -94,7 +94,7 @@ _________________
 
 The new Abrupt coupling scheme introduces a density discrepancy which is very much restricted to the interface of the atomistic region and the coarse grained region. The thermodynamic force calculator in VOTCA (implemented up to version 1.3) is designed for the more smooth coupling over a larger region in space. Thus this code cannot be used for the small area of disturbance in this new scheme. 
 
-Here we present a thermodynamic force calculator for the abrupt coupling scheme. It is a mix between bash and Python and can be applied even to the older smooth coulping scheme.
+Here we present a thermodynamic force calculator for the abrupt coupling scheme. It is a mix between bash and Python and can be applied even to the older smooth coupling scheme.
 
 .. The interface between the regions is more fluctuating and needs a more responsive thermodynamic force but it works reasonably well. 
 
