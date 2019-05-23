@@ -22,13 +22,14 @@
 
   Documentation Tool
     none
-    
+
   Application Documentation
-    none
-	
+    http://www.ks.uiuc.edu/Research/vmd/current/docs.html
+
   Relevant Training Material
-    none
-	
+    http://www.ks.uiuc.edu/Research/vmd/current/docs.html
+
+
 ..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
     reference, in this case, as ":ref:`example`"). You *MUST* change the reference below from "example" to something
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
