@@ -97,4 +97,4 @@ Source code:
    
 :download:`Analyis source code <analyze.dacf.tar.gz>`
 
-It is important to have the XDR files and setup in the same directory as they have to be specified in the Makefile. The XDR files can be found via the GROMACS web page, see http://www.gromacs.org/Developer_Zone/Programming_Guide/XTC_Library or  ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.4.tar.gz .
+It is important to have the XDR files and setup in the same directory as they have to be specified in the Makefile. The XDR files can be found via the GROMACS web page, see `<http://www.gromacs.org/Developer_Zone/Programming_Guide/XTC_Library>`_ or `<ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.4.tar.gz>`_. The installation instruction can be found `<https://gitlab.e-cam2020.eu:10443/krekeler/analyze.energy#installation-instructions>`_. 
