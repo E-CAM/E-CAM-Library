@@ -53,10 +53,10 @@ Thermodynamic Force Calculator for Abrupt AdResS
 
 ..  contents:: :local:
 
-We introduced with the Abrupt AdResS method a new way of coupling the different simulation regions together. That is the basis for easier implementation into other codes. The implementation of smooth coupling GC- AdResS in GROMACS has several performance problems. However, the new Abrupt AdResS presents a very straight forward way to implement a new partitioning scheme, which solves two problems which affect the performance, the neighborlist search and the generic force kernel. Furthermore, we update the implementation to address this in a way that decouples the method directly from the core of any MD code, which does not hinder the performance and makes the scheme hardware independent.
+We introduced with the Abrupt AdResS method a new way of coupling the different simulation regions together. That is the basis for easier implementation into other codes. The implementation of smooth coupling GC- AdResS in GROMACS has several performance problems. However, the new Abrupt AdResS presents a very straight forward way to implement a new partitioning scheme, which solves two problems which affect the performance, the neighbor list search and the generic force kernel. Furthermore, we update the implementation to address this in a way that decouples the method directly from the core of any MD code, which does not hinder the performance and makes the scheme hardware independent.
 Theory, application and tests see `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_. 
 
-The drawback of this method is that a new (as in more direct) way to calculate the thermodynamic force is needed. The theory is still the same, the interpolation has to be adapted.
+The drawback of this method is that a new (as in more direct) way to calculate the thermodynamic force is needed. While the theory is still the same, the interpolation has to be adapted.
 
 
 ..  Add an abstract for a *general* audience here. Write a few lines that explains the "helicopter view" of why you are
@@ -108,9 +108,9 @@ ______________________
 
 Abrupt AdResS presents a very straight forward way to implement a new partitioning scheme. The drawback is that the particles mix in a very narrow region in space. The distance of the molecules at that interface can be too close, which has to be compensated via a force capping. However the flux of particles at that interface is fast, which leads to a rather localized discrepancy in the density. 
 
-The thermodynamic force calculator in VOTCA (up to version 1.3) is designed for a smooth and not very much disturbed region in space. Thus a new code to calculate the thermodynamic force was needed. The thermodynamic force is calculated by calculating the gradiant of the density in a specific region in space. Thus any code taking this into account can be used. For the detailed discussion of the role and the basic principles behind this force see `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.
+The thermodynamic force calculator in VOTCA (up to version 1.3) is designed for a smooth and not very much disturbed region in space. Thus a new code to calculate the thermodynamic force was needed. The thermodynamic force is calculated by calculating the gradient of the density in a specific region in space. Thus any code taking this into account can be used. For the detailed discussion of the role and the basic principles behind this force see `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.
 
-The code provided here is designed for easy adjutable and can be used on different computer architectures (knowledge of bash is of an advantage).
+The code provided here is designed for easy adjustable and can be used on different computer architectures (knowledge of bash is of an advantage).
 
 
 Building and Running
@@ -127,7 +127,7 @@ These three scripts present one way to calculate the thermodynamics force.
 :download:`Script to call TF calculation: <./run_tf_water_xplsit_sphere.sh>`
 
 
-The central script is *smooth_dens.sh*. This is a Python 2.7 script which interpolates the density and generates the gradiant of the density and provides the force as an ascii table. 
+The central script is *smooth_dens.sh*. This is a Python 2.7 script which interpolates the density and generates the gradient of the density and provides the force as an ascii table. 
 
 *TF_calc_water_xplit_sphere.sh* is controlling the MD run, and which region to interpolate, and builds the tables needed. The commands and the options used are described in `<http://www.gromacs.org/>`_ or if the  spherical geometry for AdResS is used also here: `<http://www.votca.org/Documentation>`_.
 
