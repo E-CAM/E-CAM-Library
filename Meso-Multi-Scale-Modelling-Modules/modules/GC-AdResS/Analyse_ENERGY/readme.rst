@@ -65,6 +65,7 @@ Running the code:
 _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
+
 The executable is called *energy*. The options on how to run the analysis:
 
 ::
