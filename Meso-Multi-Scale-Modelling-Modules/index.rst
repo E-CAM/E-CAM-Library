@@ -108,14 +108,13 @@ The following modules connected to the ParaDiS code have been produced so far:
 GC-AdResS 
 ---------
 
-Adaptive Resolution Simulation: Implementation in GROMACS
+This modules are connected to the Adaptive Resolution Simulation implementation in GROMACS. 
 
 .. toctree::
     :glob:
     :maxdepth: 1
 
     ./modules/GC-AdResS/Abrupt_AdResS/readme
-    ./modules/GC-AdResS/Abrupt_AdResS/abrupt_adress
     ./modules/GC-AdResS/AdResS_RDF/readme
     ./modules/GC-AdResS/Abrupt_Adress_forcecap/readme
     ./modules/GC-AdResS/AdResS_TF/readme
