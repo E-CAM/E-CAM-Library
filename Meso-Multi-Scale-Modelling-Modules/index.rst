@@ -118,6 +118,7 @@ Adaptive Resolution Simulation: Implementation in GROMACS
     ./modules/GC-AdResS/Abrupt_AdResS/abrupt_adress
     ./modules/GC-AdResS/AdResS_RDF/readme
     ./modules/GC-AdResS/Abrupt_Adress_forcecap/readme
+    ./modules/GC-AdResS/AdResS_TF/readme
 
 .. _ALL_background:
 
