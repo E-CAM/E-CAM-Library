@@ -88,8 +88,9 @@ _________________
 
 .. : .. [CIT2009] A citation (as often used in journals).
 
-The original idea of our proposal: to work on a general implementation of AdResS in
-class. MD packages. If one looks at the AdResS simulations it is possible to describe it in a nutshell as partitioning the simulation box into different regions. The Abrupt coupling scheme has one atomistic and one coarse grained region, coupled via a transition region, where an additional force is acting on the molecules. In previous work (Ref. `<http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_) the idea of a local thermostat was introduced. This module describes how to couple that ansatz with our new Abrupt AdResS. The first test, as well as an overview over the theory, can be found here  `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.
+If one looks at the AdResS simulations it is possible to describe it in a nutshell as partitioning the simulation box into different regions. The Abrupt coupling scheme has one atomistic and one coarse grained region, coupled via a transition region, where an additional force is acting on the molecules. In previous work (Ref. `<http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_) the idea of a local thermostat was introduced. 
+
+This module describes how to couple that ansatz with our new Abrupt AdResS. The first test, as well as an overview over the theory, can be found here  `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.
 
 
 .. The interface between the regions is more fluctuating and needs a more responsive thermodynamic force but it works reasonably well. 
