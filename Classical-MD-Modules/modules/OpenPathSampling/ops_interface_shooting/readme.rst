@@ -1,5 +1,7 @@
 .. _ops_interface_shooting:
 
+:orphan:
+
 ##################################################
 Interface-Constrained Shooting in OpenPathSampling
 ##################################################
@@ -27,6 +29,7 @@ Interface-Constrained Shooting in OpenPathSampling
 
   Software module developed by
     Peter G. Bolhuis and David W.H. Swenson
+
 
 .. contents:: :local:
 
