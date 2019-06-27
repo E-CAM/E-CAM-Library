@@ -55,9 +55,9 @@ The electrostatic force calculation usually represents the main computational co
 The Smooth Particle Mesh Ewald [SPME]_ splits the electrostatic forces in two parts: a short range, solved in the real space, and a long range, solved in the Fourier space.
 An error weight function combines the two contributions. For the long range force the electrical charges are spread on a virtual particle mesh using a B-spline interpolation function.
 
-Porting to GPU the full short and long range interactions allowed to maintain the speedup factor of x4 when compared to a traditional 12-core Intel CPU.
+Porting the full short and long range interactions to GPUs allowed us to achieve a speedup factor of 4x when compared to a traditional 12-core Intel CPU.
 
-One of the main applications which included electrical charges are the simulations of plasma.
+One of the main applications which includes electrical charges are the simulations of plasma.
 
 
 
@@ -66,10 +66,10 @@ _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-The Ewald summation method above described scales with :math:`N^{1.5}` at best, where N is the number of charged particles. The SPME allows a better scaling, :math:`N*log(N)`, 
-but requires a stencil domain decomposition (i.e. decomposing the domain along one direction only) to allow the FFTW library scaling with more than 1 core.
-If this is not used, as in the current master version of DL\_MESO\_DPD, the FFTW becomes rapidly a bottleneck for scaling across several nodes.
-On the other side, the porting to a single GPU does not need domain decomposition and the same speedup factor (x4 compared to 12-core Intel) is mainteined.
+The Ewald summation method scales with :math:`N^{1.5}` at best, where N is the number of charged particles. The SPME method allows for improved scaling, :math:`N*log(N)`, 
+but requires a stencil domain decomposition (i.e. decomposing the domain along one direction only) to allow the FFTW library to scale with more than 1 core.
+If this is not used, as in the current master version of DL\_MESO\_DPD, FFTW rapidly becomes a bottleneck for scaling across several nodes.
+On the other hand, the porting to a single GPU does not need domain decomposition and the same speedup factor (4x compared to 12-core Intel) is maintained.
 
 
 
@@ -79,12 +79,12 @@ ______________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 
-This module is part of the DL_MESO_DPD code. Full support and documentation is available at:
+This module is part of the DL\_MESO\_DPD code. Full support and documentation is available at:
 
 * https://www.scd.stfc.ac.uk/Pages/DL_MESO.aspx
 * https://www.scd.stfc.ac.uk/Pages/USRMAN.pdf 
 
-To download the DL_MESO_DPD code you need to register at https://gitlab.stfc.ac.uk/dl_meso/dl_meso. 
+To download the DL\_MESO\_DPD code you need to register at https://gitlab.stfc.ac.uk/dl_meso/dl_meso. 
 Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.
 
 
@@ -95,7 +95,7 @@ ____________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 
-The DL_MESO code is developed using git version control. Currently the GPU version is under a branch named "add_gpu_version". After downloading the code, checkout the GPU branch and look into the "DPD/gpu_version" folder, i.e:
+The DL\_MESO code is developed using git version control. Currently the GPU version is under a branch named "add\_gpu\_version". After downloading the code, checkout the GPU branch and look into the "DPD/gpu\_version" folder, i.e:
 
 * git clone DL_MESO_repository_path
 * cd dl_meso
