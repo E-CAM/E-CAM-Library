@@ -1,7 +1,7 @@
 .. sidebar:: Software Technical Information
 
   Name
-   Weigthed Linear Ridge Regression    
+   Weighted Linear Ridge Regression    
 
   Language
     C
@@ -19,7 +19,7 @@
     Francesco Fracchia
 
 ################################
-Weigthed Linear Ridge Regression
+Weighted Linear Ridge Regression
 ################################
 
 ..  contents:: :local:
