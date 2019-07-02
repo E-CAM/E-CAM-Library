@@ -3,7 +3,7 @@ image: cloudcompass/docker-rtdsphinx
 spelling:
   script:
   - pip3 install codespell
-  - codespell --skip=".git,_static,_build,Diff*,*.patch" --quiet-level=2 --ignore-words-list="adress"
+  - codespell --skip=".git,_static,_build,Diff*,*.patch,*.f90" --quiet-level=2 --ignore-words-list="adress,catalogue"
   only:
   - master
   - merge_requests
@@ -13,7 +13,7 @@ orphans:
   # Report all the orphans but ignore the exit code
   - find ./ -name "*.rst"|xargs -i grep -H orphan {} || true
   # Now handle the error code
-  - if [ $(find ./ -name "*.rst"|xargs -i grep -H orphan {}|wc -l) -gt "1" ]; then $(exit 1); else $(exit 0); fi
+  - if [ $(find ./ -name "*.rst"|xargs -i grep -H orphan {}|wc -l) -gt "2" ]; then $(exit 1); else $(exit 0); fi
   only:
   - master
 
