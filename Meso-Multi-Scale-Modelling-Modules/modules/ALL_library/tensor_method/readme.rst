@@ -30,6 +30,9 @@
 
   Software Module Developed by
     Rene Halver
+ 
+ Module Commited by
+    Dr. Horacio V. Guzman
 
 
 ..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
@@ -87,10 +90,7 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
 
-**Here link the source code *that is relevant for the module*. If you are using Github or GitLab and the `Gitflow
-Workflow <https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature
-branch. Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits or locations
-in the source code.**
+**Here link the source code *that is relevant for the module*. If you are using ALL Tensor-Product `ALL T-P <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/refactor/include/ALL_Tensor.hpp>`_ 
 
 .. _ReST: http://www.sphinx-doc.org/en/stable/rest.html
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/markup/index.html
