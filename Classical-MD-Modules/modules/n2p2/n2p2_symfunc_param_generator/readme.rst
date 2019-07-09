@@ -54,76 +54,57 @@ Symmetry Function Parameter Generator for n2p2
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-The E-CAM library is purely a set of documentation that describes software development efforts related to the project. A
-*module* for E-CAM is the documentation of the single development of effort associated to the project.In that sense, a
-module does not directly contain source code but instead contains links to source code, typically stored elsewhere. Each
-module references the source code changes to which it direcctly applies (usually via a URL), and provides detailed
-information on the relevant *application* for the changes as well as how to build and test the associated software.
-
-The original source of this page (:download:`readme.rst`) contains lots of additional comments to help you create your
-documentation *module* so please use this as a starting point. We use Sphinx_ (which in turn uses ReST_) to create this
-documentation. You are free to add any level of complexity you wish (within the bounds of what Sphinx_ and ReST_ can
-do). More general instructions for making your contribution can be found in ":ref:`contributing`".
-
-Remember that for a module to be accepted into the E-CAM repository, your source code changes in the target application
-must pass a number of acceptance criteria:
-
-* Style *(use meaningful variable names, no global variables,...)*
-
-* Source code documentation *(each function should be documented with each argument explained)*
-
-* Tests *(everything you add should have either unit or regression tests)*
-
-* Performance *(If what you introduce has a significant computational load you should make some performance optimisation
-  effort using an appropriate tool. You should be able to verify that your changes have not introduced unexpected
-  performance penalties, are threadsafe if needed,...)*
+This module implements schemes from the literature ([GaSc2018]_, [ImAn2018]_) for automatically generating parameter
+sets for Behler-Parrinello-type symmetry functions ([BePa2007]_, [Beh2011]_), and variations thereof, in neural network
+potential applications. It is designed to work in conjunction with the n2p2 package, but can be used as a standalone,
+too.
 
 Purpose of Module
 _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
+.. Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
 it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
 non-expert in the domain area of the software module.
 
-This section should also include the following (where appropriate):
+To represent potential energy surfaces via an artificial neural network, in a first step, the n2p2 software package
+uses Behler-Parrinello-type symmetry functions ([BePa2007]_, [Beh2011]_), and variations thereof. These serve as
+descriptors of an atom's local chemical environment, that make manifest, already at the input level, the output's
+invariance w.r.t. translations, rotations, and particle number permutations. They are obtained via a transformation
+from the cartesian coordinates of the atom and its neighbor atoms.
 
-* Who will use the module? in what area(s) and in what context?
+The choice of these symmetry functions is an important step in the application of a neural network potential. Both
+the number of symmetry functions to be used, and the parameters of those symmetry functions (symmetry functions with
+different parameters being sensitive to different regions in an atom's surroundings), need to be decided on. In
+principle, using more symmetry functions yields a more complete description of an atom's chemical environment and
+thus improves accuracy. On the other hand, the numerical computation of those symmetry functions in fact tends to be
+the most computationally expensive step in the application of a neural network potential, so it is undesirable to use
+too many symmetry functions.
 
-* What kind of problems can be solved by the code?
+Now, what this module does is implement algorithms from the literature ([GaSc2018]_, [ImAn2018]_) for automatically
+generating sets of these symmetry function parameters. The aim of these algorithms is to create symmetry function
+parameter sets that capture all the possible spatial correlations of atoms with their neighbors as completely as
+possible, while still being economical (i.e., as few symmetry functions as possible), and to do so in a more
+systematic fashion than when parameters are chosen by hand.
 
-* Are there any real-world applications for it?
+Note that the implemented procedures for generating symmetry function parameter sets are agnostic to the actual
+dataset of atom configurations that the neural network potential is applied to, and the correlations of atoms therein.
+They are merely a way of covering all regions in an atom's environment as completely, yet at the same time as
+parsimoniously, as possible, without any knowledge of where neighbor atoms in a given system are actually most likely
+to be located. The symmetry functions generated this way are what is referred to as the 'pool of candidate SFs' in
+[ImAn2018]_. This is alluding to the fact that this 'pool of candidate SFs' could then be further sparsified,
+keeping only those symmetry functions that have the greatest descriptive power for a given dataset. Functionality for
+this is, however, not currently implemented in this module.
 
-* Has the module been interfaced with other packages?
+The main module file is ``sfparamgen.py``, in ``tools/python/symfunc_paramgen/src``. It implements the class
+``SymFuncParamGenerator``, which provides methods for the parameter generation described above, as well as for
+outputting the parameter sets in the format that is required for the parameter file ``input.nn`` used by n2p2.
 
-* Was it used in a thesis, a scientific collaboration, or was it cited in a publication?
-
-* If there are published results obtained using this code, describe them briefly in terms readable for non-expert users.
-  If you have few pictures/graphs illustrating the power or utility of the module, please include them with
-  corresponding explanatory captions.
-
-.. note::
-
-  If the module is an ingredient for a more general workflow (e.g. the module was the necessary foundation for later
-  code; the module is part of a group of modules that will be used to calculate certain property or have certain
-  application, etc.) mention this, and point to the place where you specify the applications of the more general
-  workflow (that could be in another module, in another section of this repository, an application’s website, etc.).
-
-.. note::
-
-  If you are a post-doc who works in E-CAM, an obvious application for the module (or for the group of modules that
-  this one is part of) is your pilot project. In this case, you could point to the pilot project page on the main
-  website (and you must ensure that this module is linked there).
-
-If needed you can include latex mathematics like
-:math:`\frac{ \sum_{t=0}^{N}f(t,k) }{N}`
-which won't show up on GitLab/GitHub but will in final online documentation.
-
-If you want to add a citation, such as [CIT2009]_, please check the source code to see how this is done. Note that
-citations may get rearranged, e.g., to the bottom of the "page".
-
-.. [CIT2009] This is a citation (as often used in journals).
+.. [GaSc2018] https://doi.org/10.1063/1.5019667
+.. [ImAn2018] https://doi.org/10.1063/1.5024611
+.. [BePa2007] https://doi.org/10.1103/PhysRevLett.98.146401
+.. [Beh2011] https://doi.org/10.1063/1.3553717
 
 Background Information
 ______________________
@@ -147,8 +128,8 @@ potentials in computational physics and chemistry. For more information on n2p2 
 
 That being said, this module does not directly interface the core of n2p2 or call any of its functionality. The
 communication of this module with the core of n2p2 is limited to outputting symmetry function parameter sets in a
-format that n2p2 can read (the format in which symmetry functions are specified in the parameter file ``input.nn`` of n2p2).
-Therefore, the module's functionality for generating symmetry function parameter sets can in principle be used
+format that n2p2 can read (the format in which symmetry functions are specified in the parameter file ``input.nn`` of
+n2p2). Therefore, the module's functionality for generating symmetry function parameter sets can in principle be used
 independently of n2p2.
 
 Building and Testing
