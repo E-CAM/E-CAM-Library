@@ -61,6 +61,7 @@ _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
+The primary aim of pybop is the calculation of bond orientational order parameters as proposed by Steinhardt et. al. [#]_. Bond orientational order parameters have been widely used in distinction of crystal structures in computational studies [#]_. Additionally, these parameters have also been used to distinguish between solid and liquid particles in studies of crystallisation during solidification. 
 
 
 Background Information
