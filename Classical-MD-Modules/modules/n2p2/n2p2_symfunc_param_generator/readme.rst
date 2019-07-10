@@ -170,7 +170,7 @@ The soure code for this module can be found
 `here <https://github.com/flobuch/n2p2/tree/symfunc_paramgen/tools/python/symfunc_paramgen>`_.
 
 Ultimately, this module is intended to be merged into the official n2p2 code. For the status of the corresponding pull
-request, see `here <URL>`_.
+request, see `here <https://github.com/CompPhysVienna/n2p2/pull/15>`_.
 
 .. Here are the URL references used (which is alternative method to the one described above)
 
