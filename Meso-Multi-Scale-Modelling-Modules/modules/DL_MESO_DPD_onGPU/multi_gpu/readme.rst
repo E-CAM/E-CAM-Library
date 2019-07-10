@@ -63,6 +63,7 @@ _______
 The DL\_MESO code is developed using git version control. Currently the GPU version is under a branch named ``add_gpu_version``. After downloading the code, checkout the GPU branch and look into the ``DPD/gpu_version`` folder, i.e:
 
 .. code-block:: bash
+
   git clone https://gitlab.stfc.ac.uk/dl_meso.git 
   cd dl_meso
   git checkout gpu_version
