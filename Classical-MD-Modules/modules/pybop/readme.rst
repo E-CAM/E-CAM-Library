@@ -111,7 +111,7 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
 
-The source code of the module can be found `here <https://github.com/srmnitc/pybop>`_.
+The `source code <https://github.com/srmnitc/pybop>`_.  of the module can be found is available on github. 
 
 
 .. [#]  Steinhardt, PJ, Nelson, DR, Ronchetti, M. Phys. Rev. B 28, 1983.
