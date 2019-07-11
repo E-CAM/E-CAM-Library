@@ -104,7 +104,7 @@ After cloning the repository, ``pybop`` can be installed by running ``python set
 
 **Examples**  
 
-Examples uses of ``pybop`` can be found `here <https://srmnitc.github.io/pybop/html/examples.html>`_. An interactive notebook using binder can be found `here <https://mybinder.org/v2/gh/srmnitc/pybop/master?filepath=examples%2F>`_.
+Examples uses of ``pybop`` can be found `here <https://srmnitc.github.io/pybop/html/examples.html>`_. An `interactive notebook <https://mybinder.org/v2/gh/srmnitc/pybop/master?filepath=examples%2F>`_ using binder is also available.
 
 Source Code
 ___________
