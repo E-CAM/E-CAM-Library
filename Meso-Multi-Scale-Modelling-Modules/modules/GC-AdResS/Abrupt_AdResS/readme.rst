@@ -95,8 +95,7 @@ _________________
 
 .. : .. [CIT2009] A citation (as often used in journals).
 
-The original idea of our proposal: to work on a general implementation of AdResS in
-class. MD packages. The current implementation of GC- AdResS in GROMACS has several performance problems. We know that the main performance loss of AdResS simulations in GROMACS is  in the neighboring list search and the generic serial force kernel, linking the atomistic (AT) and coarse grained (CG) forces together via a smooth weighting function. Thus, to get rid of the bottleneck with respect to performance and a hindrance regarding the easy/general implementation into other codes and thus get rid of the not optimized force kernel used in GROMACS we had to change the neighborlist search. This lead to a considerable speed up of the code. Furthermore it decouples the method directly from the core of any MD code, which does not hinder the performance and makes the scheme hardware independent. For the theory, application and tests see `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.
+The main performance loss of AdResS simulations in GROMACS is  in the neighboring list search and the generic serial force kernel, linking the atomistic (AT) and coarse grained (CG) forces together via a smooth weighting function. Thus, to get rid of the bottleneck with respect to performance and a hindrance regarding the easy/general implementation into other codes and thus get rid of the not optimized force kernel used in GROMACS we had to change the neighborlist search. This lead to a considerable speed up of the code. Furthermore it decouples the method directly from the core of any MD code, which does not hinder the performance and makes the scheme hardware independent. For the theory, application and tests see `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.
 
 
 .. The interface between the regions is more fluctuating and needs a more responsive thermodynamic force but it works reasonably well. 
@@ -277,7 +276,11 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
-To apply the patch: (:ref:`abrupt_adress_patch`)
+The patch file for Abrupt GC-Adress is:
+
+.. literalinclude:: ./abrupt_adress.patch
+
+To apply the patch: 
 
 1) copy into the main directory (gromacs/)
 
