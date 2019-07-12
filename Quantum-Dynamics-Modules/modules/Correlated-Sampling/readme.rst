@@ -1,4 +1,4 @@
-.. _SinglePath:
+.. _Correlated-Sampling:
 
 ################################################################################
 Trotter Based Quantum Classical Surface Hopping Propagator - correlated sampling 
