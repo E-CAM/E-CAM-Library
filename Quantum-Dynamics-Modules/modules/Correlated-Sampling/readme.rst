@@ -27,7 +27,7 @@ Abstract
 ________
 
 The present module is a highly refactored version of a code based on a highly cited algorithm published by 
-D. Mackernan, G.Ciccotti and R. Kapral [Mackernan]_.  
+D. Mackernan, G.Ciccotti and R. Kapral [Mackernan1]_.  
 The module software has been entirely refactored in modern C++ (GNU 2011 or higher) so as to: (a) run with high-efficiency on massively parallel platforms 
 under OpenMP or MPI; and (b) be at the core of additional software modules aimed at addressing important issues such as improving the speed of convergence of 
 estimates using correlated sampling, and much more realistic treatment of the classical bath, and connecting to other problems such as constant pH simulation 
@@ -76,7 +76,7 @@ degrees of freedom.
 
 The software module developed here is based on a Trotter-based scheme for simulating
 quantum-classical Liouville dynamics in terms of an ensemble of surface-hopping trajectories. The method can be used to compute the dynamics for longer times with fewer trajectories than the
-sequential short-time propagation (SSTP) algorithm, which is also based on surface-hopping trajectories. This module builds on the single path version of the trotter-based sampling scheme [Mackernan]_ but introduces a ket improvement
+sequential short-time propagation (SSTP) algorithm, which is also based on surface-hopping trajectories. This module builds on the single path version of the trotter-based sampling scheme [Mackernan1]_ but introduces a ket improvement
 of correlated sampling to drastically reduce the variance associated with sampling. It also builds on the C++ formulation of the single path code. For mathematical details, 
 we refer the reader to eq.30-35 of the paper.
 
@@ -212,6 +212,6 @@ These documentation files can be updated by executing the ``make`` command in th
 References
 __________
 
-.. [Mackernan] D.Mackernan, G.Ciccotti, R.Kapral, `Trotter-Based Simulation of Quantum-Classical Dynamics`_, *J. Phys. Chem. B*, **2008**, 112 (2), pp 424-432.
+.. [Mackernan1] D.Mackernan, G.Ciccotti, R.Kapral, `Trotter-Based Simulation of Quantum-Classical Dynamics`_, *J. Phys. Chem. B*, **2008**, 112 (2), pp 424-432.
 
 .. _Trotter-Based Simulation of Quantum-Classical Dynamics: http://dx.doi.org/10.1021/jp0761416
