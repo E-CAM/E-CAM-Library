@@ -37,6 +37,9 @@ _________________
 
 .. Give a brief overview of why the module is/was being created.
 
+Different molecular dynamics (MD) codes have developed to serve different
+communities. For example, although 
+
 
 Background Information
 ______________________
@@ -52,13 +55,32 @@ reading:
 Testing
 _______
 
-Tests in OpenPathSampling use the `nose`_ package.
-
 .. IF YOUR MODULE IS IN OPS CORE:
 
-This module has been included in the OpenPathSampling core. Its tests can
-be run by setting up a developer install of OpenPathSampling and running
-the command ``nosetests`` from the root directory of the repository.
+.. This module has been included in the OpenPathSampling core. Its tests can
+.. be run by setting up a developer install of OpenPathSampling and running
+.. the command ``py.test`` from the root directory of the repository.
+
+This module is in a development branch of OpenPathSampling. If you have
+conda installed, this branch of OPS can be installed by downloading the
+``conda_ops_dev_install.sh`` script and running it with the command:
+
+.. code:: bash
+
+    source conda_ops_dev_install.sh dwhswenson gromacs_engine
+
+This will download a new copy of the git repository, select the
+``gromacs_engine`` branch from the ``dwhswenson`` fork, install the
+requirements, and create an editable install of OPS. If you would like to do
+this in a new conda environment, set the environment variable ``OPS_ENV``,
+and it will install in a new environment with that the name ``$OPS_ENV``.
+
+To run tests, you may need ``pytest``, which can be installed with ``conda
+install pytest``.
+
+The entire OPS test suite can be run with run with ``py.test --pyargs
+openpathsampling``. Tests specific to the Gromacs engine can be run with
+``py.test --pyargs openpathsampling.tests.test_gromacs_engine``.
 
 .. IF YOUR MODULE IS IN A SEPARATE REPOSITORY
 
@@ -69,7 +91,7 @@ the command ``nosetests`` from the root directory of the repository.
 Examples
 ________
 
-Link to examples, if you have one. May be a file within your source code.
+* An example can be found here: https://github.com/dwhswenson/openpathsampling/tree/gromacs_engine/examples/gromacs
 
 Source Code
 ___________
@@ -78,8 +100,10 @@ ___________
 
 .. IF YOUR MODULE IS IN OPS CORE
 
-This module has been merged into OpenPathSampling. It is composed of the
-following pull requests:
+.. This module has been merged into OpenPathSampling. It is composed of the
+.. following pull requests:
+
+This module is contained in the following pull request:
 
 * https://github.com/openpathsampling/openpathsampling/pull/819
 
