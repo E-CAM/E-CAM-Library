@@ -44,8 +44,8 @@ together with the partner and typically are to facilitate or improve the scope o
 partner. The related code development for the pilot projects are open source (where the licence of the underlying
 software allows this) and are described in the modules associated with the pilot projects.
 
-Extended Software Development Workshops
-=======================================
+Software related to Extended Software Development Workshops
+===========================================================
 
 DL_MESO_DPD
 -----------
@@ -61,8 +61,10 @@ The following modules connected to the DL_MESO_DPD code have been produced so fa
     ./modules/DL_MESO_DPD/dipole_af_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD/moldip_af_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD_onGPU/add_gpu_version/readme
+    ./modules/DL_MESO_DPD_onGPU/fftw/readme
     ./modules/DL_MESO_DPD/check_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD/tetra_dlmeso_dpd/readme
+    ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme
 
 ESPResSo++
 ----------
@@ -100,29 +102,64 @@ The following modules connected to the ParaDiS code have been produced so far:
     :glob:
     :maxdepth: 1
 
-    ./modules/paradis_precipitate/paradis_precipitate_GC/readme.rst
-    ./modules/paradis_precipitate/paradis_precipitate_HPC/readme.rst
-
-ESDW Barcelona 2017
--------------------
-
-The first Meso- and Multi-scale ESDW was held in Barcelona, Spain, in July 2017. The following modules have been produced:
-
-.. toctree::
-    :glob:
-    :maxdepth: 1
-
-    ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme
+    ./modules/paradis_precipitate/paradis_precipitate_GC/readme
+    ./modules/paradis_precipitate/paradis_precipitate_HPC/readme
 
 
 GC-AdResS 
 ---------
 
-Adaptive Resolution Simulation: Implementation in GROMACS
+This modules are connected to the Adaptive Resolution Simulation implementation in GROMACS. 
 
 .. toctree::
     :glob:
     :maxdepth: 1
 
-    ./modules/GC-AdResS/Abrupt_AdResS/readme.rst
-    ./modules/GC-AdResS/Abrupt_AdResS/abrupt_adress.rst
+    ./modules/GC-AdResS/Abrupt_AdResS/readme
+    ./modules/GC-AdResS/AdResS_RDF/readme
+    ./modules/GC-AdResS/Abrupt_Adress_forcecap/readme
+    ./modules/GC-AdResS/AdResS_TF/readme
+
+.. _ALL_background:
+
+ALL (A Load-balancing Library)
+------------------------------
+
+Most modern parallelized (classical) particle simulation programs are based on a spatial decomposition method as an
+underlying parallel algorithm: different processors administrate different spatial regions of the simulation domain and
+keep track of those particles that are located in their respective region. Processors exchange information
+
+* in order to compute interactions between particles located on different processors
+* to exchange particles that have moved to a region administrated by a different processor.
+
+This implies that the workload of a given processor is very much determined by its number of particles, or, more
+precisely, by the number of interactions that are to be evaluated within its spatial region.
+
+Certain systems of high physical and practical interest (e.g. condensing fluids) dynamically develop into a state where
+the distribution of particles becomes spatially inhomogeneous. Unless special care is being taken, this results in a
+substantially inhomogeneous distribution of the processors’ workload. Since the work usually has to be synchronized
+between the processors, the runtime is determined by the slowest processor (i.e. the one with highest workload). In the
+extreme case, this means that a large fraction of the processors is idle during these waiting times. This problem
+becomes particularly severe if one aims at strong scaling, where the number of processors is increased at constant
+problem size: Every processor administrates smaller and smaller regions and therefore inhomogeneities will become more
+and more pronounced. This will eventually saturate the scalability of a given problem, already at a processor number
+that is still so small that communication overhead remains negligible.
+
+The solution to this problem is the inclusion of dynamic load balancing techniques. These methods redistribute the
+workload among the processors, by lowering the load of the most busy cores and enhancing the load of the most idle ones.
+Fortunately, several successful techniques are known already to put this strategy into practice. Nevertheless, dynamic
+load balancing that is both efficient and widely applicable implies highly non-trivial coding work. Therefore it has has
+not yet been implemented in a number of important codes of the E-CAM community, e.g. DL_Meso, DL_Poly, Espresso,
+Espresso++, to name a few. Other codes (e.g. LAMMPS) have implemented somewhat simpler schemes, which however might turn
+out to lack sufficient flexibility to accommodate all important cases. Therefore, the ALL library was created in the
+context of an Extended Software Development Workshop (ESDW) within E-CAM (see `ALL ESDW event details <https://www.e-cam2020.eu/legacy_event/extended-software-development-workshop-for-atomistic-meso-and-multiscale-methods-on-hpc-systems/>`_
+), where code developers of CECAM community codes were invited together with E-CAM postdocs, to work on the
+implementation of load balancing strategies. The goal of this activity was to increase the scalability of these
+applications to a larger number of cores on HPC systems, for spatially inhomogeneous systems, and thus to reduce the
+time-to-solution of the applications.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/ALL_library/tensor_method/readme
