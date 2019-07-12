@@ -1,8 +1,8 @@
 .. _SinglePath:
 
-########################################################################
+################################################################################
 Trotter Based Quantum Classical Surface Hopping Propagator - correlated sampling 
-########################################################################
+################################################################################
 
 ..  sidebar:: Software Technical Information
 
@@ -25,6 +25,7 @@ Trotter Based Quantum Classical Surface Hopping Propagator - correlated sampling
 
 Abstract
 ________
+
 The present module is a highly refactored version of a code based on a highly cited algorithm published by 
 D. Mackernan, G.Ciccotti and R. Kapral [Mackernan]_.  
 The module software has been entirely refactored in modern C++ (GNU 2011 or higher) so as to: (a) run with high-efficiency on massively parallel platforms 
@@ -34,6 +35,7 @@ through an effective Hamiltonian.
 
 Purpose of Module
 _________________
+
 Quantum rate processes in condensed phase systems are
 often computed by combining quantum and classical descriptions of
 the dynamics including non-adiabatic coupling, using propagators which
@@ -43,6 +45,7 @@ the mixed quantum-classical Dyson equation and variants thereof, or the Trotter 
 
 Background Information
 ______________________
+
 An understanding of the dynamical properties of condensed phase
 quantum systems underlie the description of a variety of quantum
 phenomena in chemical and biological systems. 
@@ -79,6 +82,7 @@ we refer the reader to eq.30-35 of the paper.
 
 Applications
 ____________
+
 The applications of quantum surface hopping include, among others, non-adiabatic chemical rate processes
 involving electronic, vibrational or other degrees of freedom, decoherence in open quantum systems and quantum transport
 processes. Decoherence due to coupling with the environment is a fundamental difficulty in the development of quantum computing. The ability
@@ -88,6 +92,7 @@ Quantum effects and frequently non-adiabaticity also underlie the study of ultra
 
 Algorithms and Software Implementation
 ______________________________________
+
 The current Single Path code has three main advantages over the original version. First it is separated into files based on function for better readability.
 For example the 'transition_matrix.cpp' file is where the transition matrix and associated functions are defined, etc. Secondly input parameters are read from
 an Input file, so the code no longer needs to be recompiled to adjust these parameters. And finally the code has been altered to run in parallel which allows for 
@@ -96,6 +101,7 @@ a significant reduction in runtime.
 
 Compiling
 _________
+
 All current versions of this code use the `GNU scientific library <https://www.gnu.org/software/gsl>`_ version 2.5 for random number generation.
 
 OpenMP version:
@@ -162,6 +168,7 @@ On Kay the flags '-I/ichec/packages/gsl/gcc/2.5/include' and '-L/ichec/packages/
 
 Checking for accuracy
 _____________________
+
 The original serial code was run 1000 times to generate an expected output and variance. These can be found in the ./Regression_testing sub-directory. 
 A regression test is built into both the OpenMP and MPI versions which checks if their output is within five standard deviations
 of the expected output (given a specific set of input parameters). If any part of the output goes outside that limit the regression test will fail. 
@@ -170,6 +177,7 @@ of the expected output (given a specific set of input parameters). If any part o
 
 Testing, Performance and Scaling
 ________________________________
+
 Testing was performed on the Kay supercomputer from ICHEC. Kay is separated into nodes, each of which has 2 x (20 core) sockets. To test the parallel efficiency of both the OpenMP and MPI versions
 of the code they were benchmarked on 20 - 200 cores (1 - 5 nodes).
 
