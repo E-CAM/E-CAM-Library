@@ -73,7 +73,7 @@ Some of the major uses of ``pybop`` are listed below-
 - calculation of the parameters in non-orthogonal simulation boxes.
 - other quantities like radial distribution function, coordination number and voronoi volume of individual particles.
 
-``pybop`` can read in output data from from LAMMPS [#]_ `dump format <https://lammps.sandia.gov/doc/dump.html>`_ and POSCAR files from VASP. The module also provides an easy interface for extension of the available data formats or linking with other codes to read in input data.
+``pybop`` can read in output data from LAMMPS [#]_ `dump format <https://lammps.sandia.gov/doc/dump.html>`_ and POSCAR files from VASP. The module also provides an easy interface for extension of the available data formats or linking with other codes to read in input data.
 
 .. I will add information about the paper and results using pybop.
 
