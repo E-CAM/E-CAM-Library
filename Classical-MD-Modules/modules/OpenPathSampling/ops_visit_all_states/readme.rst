@@ -11,7 +11,7 @@ OPS Visit All States Ensemble
   sections.
 
   Language
-    Python (2.7, 3.5, 3.6)
+    Python (2.7, 3.6, 3.7)
 
   Documentation Tool
     Sphinx, numpydoc format (ReST)
@@ -41,10 +41,11 @@ _________________
 
 One of the ways to get initial trajectories for path sampling is to use
 dynamics that aren't physical for the ensemble of interest, such as using an
-increased temperature. If a trajectory has a frame in every state, then in
+increased temperature. If a trajectory has a frame in every state, then it
 must have subtrajectories that connect from each state to another one, and
 therefore it has all the information to start a MSTIS simulation. The
-ensemble definition tools in OPS make it easy to create such 
+ensemble definition tools in OPS make it easy to create such custom
+sequential ensembles [1]_.
 
 However, users often want to do simulation setup in an interactive mode,
 such as in a Jupyter notebook, or at a minimum want to have a sense of the
@@ -69,6 +70,10 @@ This module includes:
   ``silent`` for no output, or can take a 2-tuple of callables where the
   first determines what to write, and the second determined how to emit the
   information.
+
+.. [1] D.W.H. Swenson, J.-H. Prinz, F. Noe, J.D. Chodera, and P.G. Bolhuis.
+   J. Chem. Theory Comput. **15**, 837 (2019);
+   http://doi.org/10.1021/acs.jctc.8b00627
 
 
 Background Information
