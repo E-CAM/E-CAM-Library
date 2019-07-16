@@ -106,6 +106,7 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/Geomoltools/readme   
     ./modules/GRASP_Sampling/readme   
     ./modules/GROMACS_interface/README   
+    ./modules/Gaussian_interface/README   
     ./modules/Selectively-Localized-Wannier-Functions/readme
     ./modules/Gaussian_interface/README  
     ./modules/Differential_Evolution/README  
@@ -113,7 +114,7 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/WLRR/README   
     ./modules/SCDM_WFs/readme
     ./modules/W90_solution_booklet/readme
-    ./modules/Selectively-Localized-Wannier-Functions/readme
+    ./modules/FFTXlib/readme
 
 
 .. _E-CAM: https://www.e-cam2020.eu/
