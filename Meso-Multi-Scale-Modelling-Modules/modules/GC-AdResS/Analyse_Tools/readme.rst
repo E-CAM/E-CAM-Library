@@ -63,7 +63,7 @@ Content:
 
 4) Check the temperature on the fly
 
-5) A short fortran code to calculate the distribution of the angles in slab like AdResS simulation.
+5) A short fortran code to calculate the distribution of the angles in slab-like AdResS simulation.
 
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
