@@ -49,10 +49,10 @@ Local thermostat adaption of the Abrupt GC-AdResS scheme
 
 ..  contents:: :local:
 
-The original idea of our proposal: to work on a general implementations of AdResS in
-class. MD packages. With Abrupt AdresS we implemented a new partitioning scheme to bypass the performance problems in the smooth coupling GC-AdResS implementation. We switched to the general interaction kernel and simplified the neighbor list search. This module takes this new ansatz and combines it with a local thermostat approach (see Ref. `<http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_). 
+The original idea of our proposal was to work on a general implementations of AdResS in
+classical MD packages. With Abrupt AdresS, we implemented a new partitioning scheme to bypass the performance problems in the smooth coupling GC-AdResS implementation. We switched to the general interaction kernel and simplified the neighbor list search.
 
-The advantages of this module are: we can thermalize the transition and the coarse grained region, the atomistic region is thermalized indirectly. Furthermore, we still have a method which is decoupled from the core of any MD code. Theory, application and tests see `Link(J.Chem.Phys.): <https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `Link(arXiv): <https://arxiv.org/abs/1806.09870>`_.
+This module takes this new ansatz and combines it with a local thermostat approach (see Ref. `<http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_). The advantages of this are: we can thermalize the transition and the coarse grained region, the atomistic region is thermalized indirectly. Furthermore, we still have a method which is decoupled from the core of any MD code. For theory, application and tests see `Link(J.Chem.Phys.): <https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `Link(arXiv): <https://arxiv.org/abs/1806.09870>`_.
 
 
 ..  Add an abstract for a *general* audience here. Write a few lines that explains the "helicopter view" of why you are
@@ -88,9 +88,9 @@ _________________
 
 .. : .. [CIT2009] A citation (as often used in journals).
 
-If one looks at the AdResS simulations it is possible to describe it in a nutshell as partitioning the simulation box into different regions. The Abrupt coupling scheme has one atomistic and one coarse grained region, coupled via a transition region, where an additional force is acting on the molecules. In previous work (Ref. `<http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_) the idea of a local thermostat was introduced. 
+If one looks at the AdResS simulations it is possible to describe it in a nutshell as partitioning the simulation box into different regions. The Abrupt coupling scheme has one atomistic and one coarse grained region, coupled via a transition region, where an additional force is acting on the molecules. In previous work (see `this reference <http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_) the idea of a local thermostat was introduced. 
 
-This module describes how to couple that ansatz with our new Abrupt AdResS. The first test, as well as an overview over the theory, can be found here  `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.
+This module describes how to couple that ansatz with our new Abrupt AdResS. The first test, as well as an overview over the theory, can be found at  `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.
 
 
 .. The interface between the regions is more fluctuating and needs a more responsive thermodynamic force but it works reasonably well. 
@@ -107,7 +107,7 @@ This module combines two different codes. The first part is the Abrupt coupling 
 
 In previous work by Agarwal et al. (Ref. `<http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_) the idea of a local thermostat was introduced. Since in AdResS the simulation box is partitioned into different regions the next logical step is to adapt the thermalization of the box and apply the thermostat only in the hybrid and coarse grained region, since the hybrid region is an artificial region and the coarse grained region represents a reservoir.
 
-This module describes how to couple these two approaches. The first test, as well as an overview over the theory, can be found here  `Link(J.Chem.Phys.): <https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `Link(arXiv): <https://arxiv.org/abs/1806.09870>`_.
+This module describes how to couple these two approaches. The first test, as well as an overview of the theory, can be found here  `Link(J.Chem.Phys.): <https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `Link(arXiv): <https://arxiv.org/abs/1806.09870>`_.
 
 
 Building and Testing
@@ -115,7 +115,7 @@ ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-We tested this new implementation on SPC water and 1,3-dimethyl imidazolium chloride. The results are published see Ref `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.
+We tested this new implementation on SPC water and 1,3-dimethyl imidazolium chloride. The results are published in `<https://aip.scitation.org/doi/10.1063/1.5031206>`_ or `<https://arxiv.org/abs/1806.09870>`_.
 
 Here is a short manual on how to run the test and set up the local thermostat simulation within this Abrupt AdResS simulations in GROMACS:
 
@@ -127,14 +127,14 @@ Here is a short manual on how to run the test and set up the local thermostat si
 
   NOTE: The method can be used with any potential, which preserves the correct density. If only a SPC/E CG potential is available it can be used for SPC/e water models as well as for a more advanced water model. It is possible to use a WCA potential, which is basically a Lennard-Jones potential. *And* it is possible to switch the CG potential completely off. That will transform the CG region to a true thermodynamic reservoir with a non-interacting gas.
 
-4) The next step is to create a double resolution configuration and adjust the dependencies (force field, topology, index file, GROMACS input file). Creating the configuration is straight forward (we use VOTCA `VOTCA <http://www.votca.org/home>`_):
+4) The next step is to create a double resolution configuration and adjust the dependencies (force field, topology, index file, GROMACS input file). Creating the configuration is straightforward (we use VOTCA `VOTCA <http://www.votca.org/home>`_):
 
 ::
 
   Example from VOTCA: 
   csg_map --top topol.tpr --cg cg_mapping_scheme --hybrid --trj conf.gro --out conf_hybrid.gro
 
-Of course, if you want to use this configuration in a MD simulation you have to adjust the force field (see example file: *spc.adress.itp*). You have to define a virtual site:  
+Of course, if you want to use this configuration in a MD simulation you have to adjust the force field (see example file: *spc.adress.itp* in the `abrupt_adress example repository <https://gitlab.e-cam2020.eu/krekeler/abrupt_adress>`_). You have to define a virtual site:  
 
 ::
 
@@ -287,6 +287,7 @@ The patch for Abrupt_AdResS can be found here:(:ref:`localT_abrupt_adress`)
 
    localT_abrupt_adress
 
+There is also the `abrupt_adress example repository <https://gitlab.e-cam2020.eu/krekeler/abrupt_adress>`_ which contains example files to be used as described above.
 ..  Remember to change the reference "patch" for something unique in your patch file subpage or you will have
     cross-referencing problems
 
