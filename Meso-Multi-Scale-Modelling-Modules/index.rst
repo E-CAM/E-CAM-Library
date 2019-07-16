@@ -121,6 +121,7 @@ This modules are connected to the Adaptive Resolution Simulation implementation 
     ./modules/GC-AdResS/Abrupt_Adress_forcecap/readme
     ./modules/GC-AdResS/AdResS_TF/readme
     ./modules/GC-AdResS/LocalThermostat_AdResS/readme
+    ./modules/GC-AdResS/Analyse_Tools/readme
 
 .. _ALL_background:
 
