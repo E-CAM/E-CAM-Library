@@ -57,19 +57,15 @@ This module provides the code to run a velocity velocity autocorrelation functio
 `Ref. <http://iopscience.iop.org/article/10.1088/1367-2630/17/8/083042>`_ describes the correlation functions and why they can be used in AdResS. This code is based on that theory and has been developed to check the dynamics of the local thermostat GC-AdResS simulations presented in the paper cited above.
 
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
-
-
-Background Information
-______________________
-
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
-
-
 Source Code
 ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
+
+  
+Files are stored here: `<https://gitlab.e-cam2020.eu/krekeler/analyze.energy>`_. The source code for the velocity autocorrelation function can be found here: `<https://gitlab.e-cam2020.eu/krekeler/analyze.energy/tree/master/app/cal_vel_acc_adr.cpp>`_
+
+The installation instruction can be found `<https://gitlab.e-cam2020.eu:10443/krekeler/analyze.energy#installation-instructions>`_.
 
 Usage:
 
@@ -89,10 +85,6 @@ Usage:
   -m  type of simulation to analyze (adress or atom)
   -f  input .xtc file
   -o  output file
-  
-Source code:
-Files are stored here: `<https://gitlab.e-cam2020.eu/krekeler/analyze.energy>`_. The source code for the velocity autocorrelation function can be found here: `<https://gitlab.e-cam2020.eu/krekeler/analyze.energy/tree/master/app/cal_vel_acc_adr.cpp>`_
-The installation instruction can be found `<https://gitlab.e-cam2020.eu:10443/krekeler/analyze.energy#installation-instructions>`_.
 
 It is important to have the XDR files and setup in the same directory as they have to be specified in the Makefile. The XDR files can be found via the GROMACS web page, see `<http://www.gromacs.org/Developer_Zone/Programming_Guide/XTC_Library>`_ or `<ftp://ftp.gromacs.org/pub/contrib/xdrfile-1.1.4.tar.gz>`_. 
 
