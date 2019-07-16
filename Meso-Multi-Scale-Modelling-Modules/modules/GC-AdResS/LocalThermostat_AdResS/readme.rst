@@ -288,6 +288,7 @@ The patch for Abrupt_AdResS can be found here:(:ref:`localT_abrupt_adress`)
    localT_abrupt_adress
 
 There is also the `abrupt_adress example repository <https://gitlab.e-cam2020.eu/krekeler/abrupt_adress>`_ which contains example files to be used as described above.
+
 ..  Remember to change the reference "patch" for something unique in your patch file subpage or you will have
     cross-referencing problems
 
