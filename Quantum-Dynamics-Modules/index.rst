@@ -284,6 +284,15 @@ The function is given in the phase-space representation and is the basis for any
     :glob:
     :maxdepth: 1
 
+    ./modules/PIM_qtb/readme
+
+**PIM_qtb** implements various classical and semi-classical methods based on Langevin dynamics (classical Langevin dynamics, Quantum Thermal Bath (QTB) and two variants of adaptive QTB (adQTB-r and adQTB-f). The generated trajectories can be used to sample initial conditions for intramolecular vibrational-energy redistribution (IVR) dynamics.
+
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
     ./modules/ClassMC/readme
 
 **ClassMC** samples, via Metropolis Monte Carlo algorithm, the system's classical Boltzmann distribution function and calculates
