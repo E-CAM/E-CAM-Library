@@ -35,7 +35,7 @@ calculation using the Quantics_ software package.
 Background Information
 ______________________
 
-Currently the SOD integration scheme resides within the Quantics_ software package available through CCPForge_.
+Currently the SOD integration scheme resides within the Quantics_ software package available through github_.
 
 
 Testing
@@ -58,7 +58,7 @@ A more detailed test documentation for Quantics_ code developers can be found `i
 Source Code
 ___________
 
-The source code for the second-order differencing propagator can be found within the Quantics_ software which 
+The source code for pergauss can be found within the Quantics_ software which 
 can be downloaded via CCPForge_. 
 You firstly need to make an account (at `CCPForge <https://ccpforge.cse.rl.ac.uk/gf/project/quantics/>`_). 
 The Quantics_ project has a private repository so you also need to be a member of the project to checkout. 
@@ -71,7 +71,7 @@ Then type into terminal
 Within the Quantics_ program, the explicit code is located in files ``~/quantics/source/blabla.f90``, ``~/quantics/source/blabla.f90``, ``~/quantics/source/blabla.f90`` and ``~/quantics/source/blabla.f90``. Every modified line will be preceded by a comment saying !pergauss to help people finding the modifications.
 
 .. _Quantics: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics
-.. _CCPFORGE: https://ccpforge.cse.rl.ac.uk/gf/project/quantics/
+.. _gitlab: https://gitlab.com/quantics
 
 
 References
