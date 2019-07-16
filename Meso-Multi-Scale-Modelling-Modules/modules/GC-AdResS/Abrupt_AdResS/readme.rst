@@ -314,5 +314,3 @@ When *gmx mdrun* finished normally (with the above mentioned setup), we have sev
 The files for the water example can be found here:
 :download:`spc-example.tar.gz <spc-example.tar.gz>`
 
-
-
