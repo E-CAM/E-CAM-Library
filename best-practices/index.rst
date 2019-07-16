@@ -64,7 +64,7 @@ specific things that need to be considered that impact the software development 
 ..    * Applications and Libraries
 ..    * Portability and Optimisation
 ..    * Scalability
-..    * Reproducability
+..    * Reproducibility
 .. * Hardware
 ..    * General Architecture
 ..    * Where is the compute power on modern HPC machines?
