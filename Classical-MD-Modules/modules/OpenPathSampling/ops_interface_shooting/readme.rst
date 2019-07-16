@@ -59,14 +59,14 @@ can then lead to shooting moves that usually generate trajectories that
 don't cross the interface, and therefore must be rejected. This uses a lot
 of simulation effort without generating useful new trajectories.
 
-Interface-constrained shooting [1]_ is an approach to solve
-this problem. Instead of selecting from anywhere along the trajectory, only
-the first point after crossing the interface is allowed as a shooting point.
-This ensures that every trajectory that is generated will be valid (will
-cross the interface). In addition, because the first crossing is still the
-first crossing in the new trajectory, this leads to the Metropolis
-acceptance probability also being 1. Therefore, every trial trajectory is
-accepted.
+Interface-constrained shooting (also called "constrained interface
+shooting") [1]_ is an approach to solve this problem. Instead of selecting
+from anywhere along the trajectory, only the first point after crossing the
+interface is allowed as a shooting point.  This ensures that every
+trajectory that is generated will be valid (will cross the interface). In
+addition, because the first crossing is still the first crossing in the new
+trajectory, this leads to the Metropolis acceptance probability also being
+1. Therefore, every trial trajectory is accepted.
 
 In practice, this must be combined with the path reversal move in order to
 sample all of trajectory space. The result is an approach with very high
@@ -83,7 +83,9 @@ This module implements interface-constrained shooting using:
   the first point outside the given volume (the boundary of which defines
   the interface).
 
-.. [1] TODO: Add citation here
+.. [1] Bolhuis, P. G. (2008). Rare events via multiple reaction channels
+   sampled by path replica exchange. The Journal of Chemical Physics,
+   129(11), 114108. https://doi.org/10.1063/1.2976011
 
 
 Background Information
