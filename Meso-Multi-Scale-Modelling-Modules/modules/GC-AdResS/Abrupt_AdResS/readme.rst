@@ -289,7 +289,6 @@ To apply the patch:
 ..  Remember to change the reference "patch" for something unique in your patch file subpage or you will have
     cross-referencing problems
 
-
 In this module we also include a test scenario for GROMACS version 5.1.5 with a possible CG potential and all necessary input files. To run it simply run *gmx grompp -f grompp.mdp -c conf.gro -p topol.top -n index.ndx -maxwarn 5; gmx mdrun* using the patched version of GROMACS version 5.1.5 (see above). 
 
 When *gmx mdrun* finished normally (with the above mentioned setup), we have several mandatory checks to see if the simulation was successful or not.
