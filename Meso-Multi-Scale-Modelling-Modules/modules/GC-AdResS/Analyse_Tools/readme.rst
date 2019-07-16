@@ -147,5 +147,5 @@ And the corresponding extract_coord.tcl:
 
 All the small scripts are available as files:
 
-:download:`analyse tools source code <./analyse.tools.tar.gz>`
+:download:`analysis tools source code <./analysis.tools.tar.gz>`
 
