@@ -76,7 +76,7 @@ ____________________
 
 For generating the PDF file for the solution booklet one has to navigate to the doc/solution_booklet/ folder and type "make". This will produce the ``solution_booklet.pdf`` file, which contains the compiled text. You will need pdflatex and bibtex to be installed.
 
-Source Code.
+Source Code
 ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
