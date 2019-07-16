@@ -18,39 +18,14 @@
     C/C++, Python, Fortran, BASH, AWK
 
   Licence
-  Opensource
+    Opensource
   
-  MD Simulation:
-
-    See GROMACS web page: `<http://www.gromacs.org>`_
-
-    Analysis tools and thermodynamic force calculation:
-
-    see VOTCA web page: `<http://www.votca.org/home>`_
-	
-	Visualize Molecular Dynamics: `<http://www.ks.uiuc.edu/Research/vmd/>`_
+  Application Documentation
+    See GROMACS web page: `<http://www.gromacs.org>`_. For analysis tools and thermodynamic force calculation see VOTCA web page: `<http://www.votca.org/home>`_. Visualize molecular dynamics with `VMD <http://www.ks.uiuc.edu/Research/vmd/>`_.
 
   Documentation Tool
     none
   
-  Application Documentation
-  
-  See GROMACS web page: `<http://www.gromacs.org>`_
-
-  See VOCTA web page: `<http://www.votca.org/Documentation>`_
-
-  Visualize Molecular Dynamics: `<http://www.ks.uiuc.edu/Research/vmd/>`_
-
-
-  Relevant Training Material
-
-  See GROMACS web page: `<http://www.gromacs.org>`_
-
-  See VOCTA web page: `<http://www.votca.org/tutorials>`_
-  
-   Visualize Molecular Dynamics: `<http://www.ks.uiuc.edu/Research/vmd/>`_
-   
-  	
   Relevant Training Material
     none
 	
