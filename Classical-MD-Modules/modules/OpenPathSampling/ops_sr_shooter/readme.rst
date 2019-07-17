@@ -70,7 +70,7 @@ ________
 
 | There are two `example jupyter notebooks <https://gitlab.e-cam2020.eu/hejung/sr_shooter/tree/master/examples>`_ in the example directory of the repository:
 | One shows the `general setup of a two way shooting transition path sampling with a shooting range on a toy system <https://gitlab.e-cam2020.eu/hejung/sr_shooter/blob/master/examples/toy_example.ipynb>`_.
-| The other is a `comparison between one way shooting and two way shooting from the shooting range <https://gitlab.e-cam2020.eu/hejung/sr_shooter/blob/master/examples/OneWayShooting_vs_TwoWayShooting.ipynb>`_ and shows that path space is explored faster with two way shooting when using a (well placed) shooting range. The reason beeing that the shots initiated at the barrier top have a high probability of success and two way shooting decorrelates faster (if using randomized velocities even faster).
+| The other is a `comparison between one way shooting and two way shooting from the shooting range <https://gitlab.e-cam2020.eu/hejung/sr_shooter/blob/master/examples/OneWayShooting_vs_TwoWayShooting.ipynb>`_ and shows that path space is explored faster with two way shooting when using a (well placed) shooting range. The reason being that the shots initiated at the barrier top have a high probability of success and two way shooting decorrelates faster (if using randomized velocities even faster).
 
 Source Code
 ___________
