@@ -124,6 +124,7 @@ This modules are connected to the Adaptive Resolution Simulation implementation 
     ./modules/GC-AdResS/Analyse_Tools/readme
     ./modules/GC-AdResS/Analyse_VACF/readme
     ./modules/GC-AdResS/Analyse_DACF/readme
+    ./modules/GC-AdResS/Analyse_ENERGY/readme
 
 .. _ALL_background:
 
