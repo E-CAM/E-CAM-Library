@@ -84,7 +84,7 @@ ______________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-
+See the `application documentation <https://srmnitc.github.io/pybop/html/index.html>`_ for full details.
 
 Building and Testing
 ____________________
