@@ -24,7 +24,7 @@ Introduction
    :width: 30 %
    :align: left
 
-This is a collection of the modules that have been created by the E-CAM community 
+This was a collection of the modules that have been created by the E-CAM community 
 within the area of Quantum Dynamics. This documentation is created using ReStructured Text and the git repository for the documentation. 
 Source files can be found at 
 https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are open to contributions from E-CAM members.
