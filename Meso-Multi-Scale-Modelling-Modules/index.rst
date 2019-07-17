@@ -61,8 +61,10 @@ The following modules connected to the DL_MESO_DPD code have been produced so fa
     ./modules/DL_MESO_DPD/dipole_af_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD/moldip_af_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD_onGPU/add_gpu_version/readme
+    ./modules/DL_MESO_DPD_onGPU/fftw/readme
     ./modules/DL_MESO_DPD/check_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD/tetra_dlmeso_dpd/readme
+    ./modules/DL_MESO_DPD_onGPU/multi_gpu/readme
     ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme
 
 ESPResSo++
@@ -101,22 +103,26 @@ The following modules connected to the ParaDiS code have been produced so far:
     :glob:
     :maxdepth: 1
 
-    ./modules/paradis_precipitate/paradis_precipitate_GC/readme.rst
-    ./modules/paradis_precipitate/paradis_precipitate_HPC/readme.rst
+    ./modules/paradis_precipitate/paradis_precipitate_GC/readme
+    ./modules/paradis_precipitate/paradis_precipitate_HPC/readme
 
 
 GC-AdResS 
 ---------
 
-Adaptive Resolution Simulation: Implementation in GROMACS
+This modules are connected to the Adaptive Resolution Simulation implementation in GROMACS. 
 
 .. toctree::
     :glob:
     :maxdepth: 1
 
-    ./modules/GC-AdResS/Abrupt_AdResS/readme.rst
-    ./modules/GC-AdResS/Abrupt_AdResS/abrupt_adress.rst
-    ./modules/GC-AdResS/AdResS_RDF/readme.rst
+    ./modules/GC-AdResS/Abrupt_AdResS/readme
+    ./modules/GC-AdResS/AdResS_RDF/readme
+    ./modules/GC-AdResS/Abrupt_Adress_forcecap/readme
+    ./modules/GC-AdResS/AdResS_TF/readme
+    ./modules/GC-AdResS/LocalThermostat_AdResS/readme
+    ./modules/GC-AdResS/Analyse_Tools/readme
+    ./modules/GC-AdResS/Analyse_VACF/readme
 
 .. _ALL_background:
 
