@@ -99,6 +99,7 @@ Below are listed the pilot project modules created so far:
     :maxdepth: 1
 
     ./modules/LocConQubit/readme
+    ./modules/module_faster/readme
 
 **LocConQubit** is a code for the construction of controlled pulses on isolated qubit systems using the Local Control Theory.
 
@@ -179,6 +180,17 @@ lectures and tutorials on OpenMP parallelization.
 .. _IBM: https://www.zurich.ibm.com/
 
 
+
+ESDW Durham University (Durham 2019)
+------------------------------------
+
+This modules have been developed at Durham ESDW
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/CTMQC/readme
 
 List of available Modules
 =========================
