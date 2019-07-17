@@ -86,7 +86,6 @@ Modules not coming from ESDWs
      :glob:
      :maxdepth: 1
 
-     ./modules/SCDM_WFs/readme
      ./modules/flook/readme
      ./modules/MatrixSwitchDBCSR/readme
 
@@ -113,6 +112,8 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/Differential_Evolution/README  
     ./modules/Gaussian_interface/README
     ./modules/WLRR/README   
+    ./modules/SCDM_WFs/readme
+    ./modules/W90_solution_booklet/readme
     ./modules/FFTXlib/readme
 
 
