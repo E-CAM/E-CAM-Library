@@ -86,6 +86,8 @@ ______________________
 
 See the `application documentation <https://srmnitc.github.io/pybop/html/index.html>`_ for full details.
 
+The utilisation of Dask within the project came about as a result of the `E-CAM High Throughput Computing ESDW <https://www.e-cam2020.eu/event/4424/?instance_id=71>`_ held in Turin in 2018 and 2019.
+
 Building and Testing
 ____________________
 
