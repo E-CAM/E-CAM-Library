@@ -1,8 +1,8 @@
-.. _ost_example:
+.. _ops_gromacs_engine:
 
-#################
-OPS-based modules
-#################
+##################################
+Gromacs engine in OpenPathSampling
+##################################
 
 .. sidebar:: Software Technical Information
 
@@ -38,7 +38,33 @@ _________________
 .. Give a brief overview of why the module is/was being created.
 
 Different molecular dynamics (MD) codes have developed to serve different
-communities. For example, although 
+communities. Gromacs is one of the major MD codes for the biomolecular
+community, and even though much of its functionality can be reproduced by
+other MD codes, such as OpenMM, there are still some extensions that are
+built on top of Gromacs that haven't been ported to other codes. For
+example, the MARTINI coarse-grained model is not available other codes such
+as OpenMM.
+
+Additionally, people who are familiar with a given MD package will prefer to
+continue to work with that. Therefore codes that wrap around MD packages, as
+OpenPathSampling does, can expand their reach by adding ways to interface
+with other MD packages.
+
+This module adds the Gromacs engine for OpenPathSampling. It is the first
+practical test of the external engine API of OPS.
+
+Specific functionality in this module includes:
+
+* ``GromacsEngine``: the OPS dynamics engine, based on the
+  ``ExternalEngine``, that runs Gromacs as an external tool. Option on
+  initialization allow the user to customize the path to the Gromacs
+  executable.
+* ``ExternalMDSnapshot``: an OPS snapshot for external MD engines, which
+  contains coordinates, velocities, and box vectors. Requires that the
+  engine implement a ``read_frame_data`` method to load from a specific MD
+  trajectory.
+* ``snapshot_from_gro``: a function that creates an OPS snapshot from a
+  Gromacs ``.gro`` file.
 
 
 Background Information
@@ -69,11 +95,11 @@ conda installed, this branch of OPS can be installed by downloading the
 
     source conda_ops_dev_install.sh dwhswenson gromacs_engine
 
-This will download a new copy of the git repository, select the
+This will download a new copy of the OPS git repository, select the
 ``gromacs_engine`` branch from the ``dwhswenson`` fork, install the
 requirements, and create an editable install of OPS. If you would like to do
 this in a new conda environment, set the environment variable ``OPS_ENV``,
-and it will install in a new environment with that the name ``$OPS_ENV``.
+and it will install in a new environment with the name ``$OPS_ENV``.
 
 To run tests, you may need ``pytest``, which can be installed with ``conda
 install pytest``.
