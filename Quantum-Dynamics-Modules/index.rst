@@ -96,6 +96,7 @@ Below are listed the pilot project modules created so far:
     :maxdepth: 1
 
     ./modules/LocConQubit/readme
+    ./modules/Pergauss/readme
 
 **LocConQubit** is a code for the construction of controlled pulses on isolated qubit systems using the Local Control Theory.
 
