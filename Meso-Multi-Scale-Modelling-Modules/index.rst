@@ -64,6 +64,7 @@ The following modules connected to the DL_MESO_DPD code have been produced so fa
     ./modules/DL_MESO_DPD_onGPU/fftw/readme
     ./modules/DL_MESO_DPD/check_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD/tetra_dlmeso_dpd/readme
+    ./modules/DL_MESO_DPD_onGPU/multi_gpu/readme
     ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme
 
 ESPResSo++
@@ -119,6 +120,11 @@ This modules are connected to the Adaptive Resolution Simulation implementation 
     ./modules/GC-AdResS/AdResS_RDF/readme
     ./modules/GC-AdResS/Abrupt_Adress_forcecap/readme
     ./modules/GC-AdResS/AdResS_TF/readme
+    ./modules/GC-AdResS/LocalThermostat_AdResS/readme
+    ./modules/GC-AdResS/Analyse_Tools/readme
+    ./modules/GC-AdResS/Analyse_VACF/readme
+    ./modules/GC-AdResS/Analyse_DACF/readme
+    ./modules/GC-AdResS/Analyse_ENERGY/readme
 
 .. _ALL_background:
 
