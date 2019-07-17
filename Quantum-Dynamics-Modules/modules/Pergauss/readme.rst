@@ -29,8 +29,8 @@ Periodic Boundary Conditions in a gaussian basis (Pergauss)
 Purpose of Module
 _________________
 
-This module provides periodic boundary conditions for periodic normal modes while running a G-MCTDH or vMCG
-calculation using the Quantics_ software package. 
+This module provides periodic boundary conditions for periodic normal modes while using gaussian bases in  G-MCTDH or vMCG
+calculations using the Quantics_ software package. 
 
 Background Information
 ______________________
@@ -67,7 +67,7 @@ Then type into terminal
 
         $ git clone https://gitlab.com/quantics/quantics.git DIRECTORY  
 
-Within the Quantics_ program, the explicit code is located in files ``~/quantics/source/blabla.f90``, ``~/quantics/source/blabla.f90``, ``~/quantics/source/blabla.f90`` and ``~/quantics/source/blabla.f90``. Every modified line will be preceded by a comment saying !pergauss to help people finding the modifications.
+Within the Quantics_ program, the explicit code is located in files ``~/quantics/source/gendvr/einpbasmod.f90``, ``~/quantics/source/geninwf/eininwfmod.f90``, ``~/quantics/source/mctdhlib/gwplib.f90``, ``~/quantics/source/include/global.f90`` and ``~/quantics/source/blabla.f90``. Every modified line will be preceded by a comment saying !pergauss to help people finding the modifications.
 
 .. _Quantics: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics
 .. _gitlab: https://gitlab.com/quantics
