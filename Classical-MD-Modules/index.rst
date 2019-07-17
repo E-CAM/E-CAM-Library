@@ -252,5 +252,6 @@ The third ESDW for the Classical MD workpackage was held in Turin, Italy in July
     :maxdepth: 1
 
     ./modules/HTC/decorators/readme
+    ./modules/pybop/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/
