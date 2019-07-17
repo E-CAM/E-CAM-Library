@@ -1,7 +1,5 @@
 .. _ops_interface_shooting:
 
-:orphan:
-
 ##################################################
 Interface-Constrained Shooting in OpenPathSampling
 ##################################################

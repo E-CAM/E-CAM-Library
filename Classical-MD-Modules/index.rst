@@ -175,6 +175,7 @@ separate projects. The modules that were incorporated into the core are:
     ./modules/OpenPathSampling/ops_resampling_statistics/readme
     ./modules/OpenPathSampling/ops_gromacs_engine/readme
     ./modules/OpenPathSampling/ops_visit_all_states/readme
+    ./modules/OpenPathSampling/ops_interface_shooting/readme
 
 The modules that are based on OPS, but remain separate, are:
 
