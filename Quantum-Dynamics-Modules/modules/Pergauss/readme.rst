@@ -35,16 +35,16 @@ calculation using the Quantics_ software package.
 Background Information
 ______________________
 
-Currently the SOD integration scheme resides within the Quantics_ software package available through github_.
+Currently pergauss resides within the Quantics_ software package available through github_.
 
 
 Testing
 _______
 
-A test example (``pergauss.inp``) is provided for the SOD integration scheme and can be found in the directory 
-``~/quantics/elk_inputs``. 
-This test works for Quantics_ Revision 787. 
-The Quantics_ README file will help you to install the Quantics_ code. 
+A test example (``pergauss.inp``) is provided to test the module and can be found in the directory 
+``~/quantics/inputs``. 
+This test works for Quantics_ Revision xx. 
+The Quantics_ README file will help you to install the Quantics_ code. (tocheck)
 The test can be done through the following command
 
 ::
@@ -59,14 +59,13 @@ Source Code
 ___________
 
 The source code for pergauss can be found within the Quantics_ software which 
-can be downloaded via CCPForge_. 
-You firstly need to make an account (at `CCPForge <https://ccpforge.cse.rl.ac.uk/gf/project/quantics/>`_). 
+can be downloaded via Gitlab_. 
 The Quantics_ project has a private repository so you also need to be a member of the project to checkout. 
 Then type into terminal
 
 ::
 
-        $ svn checkout --username your-user-name https://ccpforge.cse.rl.ac.uk/svn/quantics/gmctdh/quantics/branches/ecam18 quantics.eca/  
+        $ git clone https://gitlab.com/quantics/quantics.git DIRECTORY  
 
 Within the Quantics_ program, the explicit code is located in files ``~/quantics/source/blabla.f90``, ``~/quantics/source/blabla.f90``, ``~/quantics/source/blabla.f90`` and ``~/quantics/source/blabla.f90``. Every modified line will be preceded by a comment saying !pergauss to help people finding the modifications.
 
