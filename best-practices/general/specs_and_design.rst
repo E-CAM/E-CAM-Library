@@ -88,4 +88,4 @@ project or implementing a redesign) we advise the creation of a `Software Requir
 this and provide an overarching structure.
 
 In addition, when dealing with numerical methods the creation of adequate tests can be difficult since bit-wise
-reproducability of results is frequently not possible due to floating point precision and/or the use of random numbers.
+reproducibility of results is frequently not possible due to floating point precision and/or the use of random numbers.
