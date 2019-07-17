@@ -191,6 +191,7 @@ Below are listed all the modules from the E-CAM ESDWs in Quantum Dynamic develop
     :maxdepth: 1
 
     ./modules/CTMQC/readme
+    ./modules/modules_Quantics_DD_MPIOMP/readme
 
 The **CTMQC** module allows to simulate excited-state dynamics in model systems of one to three spatial (nuclear) dimensions, 
 with an arbitrary number of electronic states. The algorithm is based on the quantum-classical approximation of the equations 
