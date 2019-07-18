@@ -52,21 +52,46 @@ the computation of forces for Molecular Dynamics.
 Background Information
 ______________________
 
-QMCPack is available from the github repository `https://github.com/QMCPACK/qmcpack <https://github.com/QMCPACK/qmcpack>`_,
-and the documentation can be found at the QMCPack website `https://qmcpack.org/documentation <https://qmcpack.org/documentation>`_.
+QMCPack is available from the github repository `<https://github.com/QMCPACK/qmcpack>`_,
+and the documentation can be found at the QMCPack website `<https://qmcpack.org/documentation>`_.
 
-Quantum Espresso is available from the github repository `https://github.com/QEF/q-e <https://github.com/QEF/q-e>`_, and the
-documentation can be found in `http://www.quantum-espresso.org/Doc/user_guide/ <http://www.quantum-espresso.org/Doc/user_guide/>`_.
+Quantum Espresso is available from the github repository `<https://github.com/QEF/q-e>`_, and the
+documentation can be found in `<http://www.quantum-espresso.org/Doc/user_guide/>`_.
 
-Building and Testing
+Building and testing
 ____________________
 
-To be done...
+The first step to install QMCQEPack is cloning the QMCQEPack branch of the QMCPack git repository 
+`<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_.
+After cloning and getting to the QMCQEPack branch with
+
+``git clone https://github.com/michruggeri/qmcpack.git``
+``git checkout QMCQEPack``
+
+one has to install, patch and compile the required Quantum Espresso libraries.
+This can be done executing the ``QMCQEPack_download_and_patch_qe.sh`` script found in ``qmcpack/external_codes/quantum_espresso``.
+Once the patching process is complete one just has to run the ``configure`` script in the resulting folder q-e-qe5.3 and finally
+build the ``libpwinterface.so`` library with
+
+``make pw``
+
+Note that in order to build this library the FFTW3 library must be compiled as position independent code (PIC);
+if that is not the case it is possible to use the internal version of FFTW library changing the ``__FFTW3`` flag to ``__FFTW`` in
+``make.sys``.
+
+Once the ``libpwinterface.so`` library is compiled and included/linked to the library path one can procede to build the QMCPack software, as
+detailed in the official QMCPack documentation `<https://qmcpack.org/documentation>`_.
+
+To test the code one can run the tests in the directory ``qmcpack/QMCQEPack_test``; here there are folders with input files for 
+some simulation examples each with their one ``Reference`` directory to check the results. A more detailed
+``Readme`` file is also present there.
+
+It should be noted that the current version of this module only supports serial runs; a parallel version is currently in developement.
 
 Source Code
 ___________
 
-The source code will be available from the `E-CAM Gitlab <https://gitlab.e-cam2020.eu/>`_ under the QMCQEPack project.
+The source code is available available from `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_. 
 
 .. Here are the URL references used (which is alternative method to the one described above)
 
