@@ -54,7 +54,8 @@ Improved overlap computation communiction in DL_MESO_DPD (multi-GPU version)
 The following module present an improved overlap between communication and computation for the DL_MESO_DPD packge on multi-GPUs.
 
 A binary mixture phase separation test case up to 1.8 billion particles has been used for weak and strong benchmarks. The results
-show good scaling in both cases.
+show good scaling in both cases up to 1024 GPUs. After that the scaling without improved overlap quicly tails off while the other shows good efficiency (>85%)
+up to 4096 GPUs.
 
 
 Purpose of Module
@@ -63,9 +64,9 @@ _________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 The previous multi-GPU version of DL_MESO_DPD was not correctly setting the order of the CUDA streams dedicated to computation and
-communication. This was preventing their overlap drastically reducing the overall performance and scalability. The current module
-fixes this problem and present weak and strong scaling on the Piz Daint Supercomputer (see https://user.cscs.ch/) using up to 2048 GPUs.
-
+communication. This was preventing their overlap and drastically reduce the overall performance and scalability. The current module
+fixes this problem and present weak and strong scaling on the Piz Daint Supercomputer (see https://user.cscs.ch/) using up to 4096 GPUs.
+The previous performance is presented for comparison.
 
 
 Background Information
@@ -89,23 +90,24 @@ ____________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 
-The DL_MESO code is developed using git version control. Currently the GPU version is under a branch named "add_gpu_version". After downloading the code, checkout to the GPU branch and look into the "DPD/gpu_version" folder, i.e:
+The DL_MESO code is developed using git version control. Currently the GPU version is under a branch named "multi_GPU_version". After downloading the code, checkout to the GPU branch and look into the "DPD/gpu_version" folder, i.e:
 
 * git clone DL_MESO_repository_path
 * cd dl_meso
-* git checkout gpu_version
-* cd /DPD/gpu_version
+* git checkout multi_GPU_version
+* cd /DPD/gpu_version/bin
 * make all
 
-To compile and run the code you need to have installed the CUDA-toolkit and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw).
+To compile and run the code you need to have installed the CUDA-toolkit, a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw), a fortran compiler (like GCC gfortran, Intel Fortran, Cray ftn) and MPI library. Moreover, the code uses CUDA_aware_MPI which is part of GPU Direct Technologies. Please make sure your cluster support CUDA_aware_MPI!
 
 The current version has been tested ONLY for the Mixture_Large test case available in the DEMO/DPD folder. 
-To run the case, compile the code using the "make all" command from the "bin" directory, copy the "FIELD" and "CONTROL" files in this directory and run "./dpd_gpu.exe".
-The DL_MESO code is developed using git version control. Currently the GPU version is under a branch named "add_gpu_version". 
-After downloading the code, checkout to the GPU branch and look into the "DPD/gpu_version" folder, i.e:
+To run the case, compile the code using the "make all" command from the "bin" directory, copy the "FIELD" and "CONTROL" files in this directory and run "mpirun -np N ./dpd_gpu.exe".
+For a the strong scaling test we used 1.8 billion particles keeping the density ratio particles/volume=5. Below is a plot of the strong scaling with and without improved overlap.  
 
 
-
+.. image:: ./StrongScaling.png
+   :width: 30 %
+   :align: center
 
 Source Code
 ___________
