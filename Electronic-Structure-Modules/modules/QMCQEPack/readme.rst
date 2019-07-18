@@ -66,6 +66,7 @@ The first step to install QMCQEPack is cloning the QMCQEPack branch of the QMCPa
 After cloning and getting to the QMCQEPack branch with
 
 ``git clone https://github.com/michruggeri/qmcpack.git``
+
 ``git checkout QMCQEPack``
 
 one has to install, patch and compile the required Quantum Espresso libraries.
