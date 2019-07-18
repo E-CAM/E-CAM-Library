@@ -94,9 +94,10 @@ it is located.
 
 Therefore, a typical way of installing the collection of ESL libraries is the
 following::
-    mkdir my_build_dir
-    cd my_build_dir
-    ../jhbuild.py build
+
+   mkdir my_build_dir
+   cd my_build_dir
+   ../jhbuild.py build
 
 By default, the ``build`` command will compile all the modules from the
 ``esl-bundle`` meta-module and install them in the current directory. This, and a
