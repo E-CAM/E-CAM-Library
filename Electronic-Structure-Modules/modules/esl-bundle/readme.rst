@@ -115,6 +115,7 @@ options:
 
 Configuration options to be passed to the modules build systems can also be
 specified in the configuration file. Here is an example of how to do this::
+
    # Set the FC variable when invoking the configure script for all modules
    autogenargs="FC=gfortran"
 
