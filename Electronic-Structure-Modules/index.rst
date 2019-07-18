@@ -76,6 +76,16 @@ The ESDW in San Sebastian in September 2016 was the starting point for the modul
     ./modules/Use_WS_Distance/readme
     ./modules/Test-Suite-Travis-CI-Integration/readme
 
+ESDW Lausanne 2018
+------------------
+
+The ESDW in Lausanne in February 2018 was the starting point for the modules below.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/esl-bundle/readme
 
 Other Modules
 -------------
