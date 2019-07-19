@@ -24,7 +24,7 @@ Introduction
    :width: 30 %
    :align: left
 
-This was a collection of the modules that have been created by the E-CAM community 
+This is a collection of the modules that have been created by the E-CAM community 
 within the area of Quantum Dynamics. This documentation is created using ReStructured Text and the git repository for the documentation. 
 Source files can be found at 
 https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are open to contributions from E-CAM members.
@@ -98,8 +98,7 @@ Below are listed the pilot project modules created so far:
     :glob:
     :maxdepth: 1
 
-    ./modules//readme
-    ./modules/module_faster/readme
+    ./modules/LocConQubit/readme
 
 **LocConQubit** is a code for the construction of controlled pulses on isolated qubit systems using the Local Control Theory.
 
@@ -180,17 +179,6 @@ lectures and tutorials on OpenMP parallelization.
 .. _IBM: https://www.zurich.ibm.com/
 
 
-
-ESDW Durham University (Durham 2019)
-------------------------------------
-
-This modules have been developed at Durham ESDW
-
-.. toctree::
-    :glob:
-    :maxdepth: 1
-
-    ./modules/CTMQC/readme
 
 List of available Modules
 =========================
