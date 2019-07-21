@@ -60,7 +60,7 @@ ____________________
 ALL uses the `CMake <https://cmake.org/runningcmake/>`_ build system, specific build and installation requirements can
 be found in the `ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/refactor/README.md>`_.
 
-There are some tests available in the `ALL GitLab repository examples <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/tree/refactor/example>`_ . There are 3 examples within the testing examples, namely: (1) Simple Wye-shape biosystem; (2) Heterogeneous polymer melt and (3) A rotated version of the Wye-shaped biosystem. They can be run with the `JUBE script https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/refactor/example/jube/ALL_benchmark.xml>`_. Of course for this method you need to choose the method_name as TENSOR and the corresponding test example (1) By using 'Y', (2) 'Polymer' and (3) 'rot_Y'. Note that example (2) is the most basic example to understand how the borders of the cartesian planes are adjusted.
+There are some tests available in the `ALL GitLab repository examples <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/tree/refactor/example>`_ . There are 3 examples within the testing examples, namely: (1) Simple Wye-shape biosystem; (2) Heterogeneous polymer melt and (3) A rotated version of the Wye-shaped biosystem. They can be run with the `JUBE script <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/refactor/example/jube/ALL_benchmark.xml>`_. Of course for this method you need to choose the method_name as TENSOR and the corresponding test example (1) By using 'Y', (2) 'Polymer' and (3) 'rot_Y'. Note that example (2) is the most basic example to understand how the borders of the cartesian planes are adjusted.
 
 Source Code
 ___________
