@@ -80,14 +80,14 @@ Note that in order to build this library the FFTW3 library must be compiled as p
 if that is not the case it is possible to use the internal version of FFTW library changing the ``__FFTW3`` flag to ``__FFTW`` in
 ``make.sys``.
 
-Once the ``libpwinterface.so`` library is compiled and included/linked to the library path one can procede to build the QMCPack software, as
+Once the ``libpwinterface.so`` library is compiled and included/linked to the library path one can proceed to build the QMCPack software, as
 detailed in the official QMCPack documentation `<https://qmcpack.org/documentation>`_.
 
 To test the code one can run the tests in the directory ``qmcpack/QMCQEPack_test``; here there are folders with input files for 
 some simulation examples each with their one ``Reference`` directory to check the results. A more detailed
 ``Readme`` file is also present there.
 
-It should be noted that the current version of this module only supports serial runs; a parallel version is currently in developement.
+It should be noted that the current version of this module only supports serial runs; a parallel version is currently in development.
 
 Source Code
 ___________
