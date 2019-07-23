@@ -127,7 +127,7 @@ reading:
 Testing
 _______
 
-Tests in OpenPathSampling use the `nose`_ package.
+.. Tests in OpenPathSampling use the `nose`_ package.
 
 .. IF YOUR MODULE IS IN OPS CORE:
 
@@ -140,8 +140,8 @@ Tests in OpenPathSampling use the `nose`_ package.
 The tests for this module can be run by downloading its source code (see the 
 ``Source Code`` section below), installing its requirements and installing it
 by running ``python setup.py install`` from the root directory of the package.
-Test this module by running the command ``nosetests`` from the root directory of the
-repository.
+Test this module with the `nose`_ package, by running the command ``nosetests``
+from the root directory of the repository.
 
 Examples
 ________
