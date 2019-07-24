@@ -11,7 +11,7 @@ Web Throwing in OpenPathSampling
   sections.
 
   Language
-    Python (2.7)
+    Python (2.7, 3.6, 3.7)
 
   Documentation Tool
     Sphinx, numpydoc format (ReST)
@@ -122,7 +122,7 @@ reading:
 Testing
 _______
 
-Tests in OpenPathSampling use the `nose`_ package.
+.. Tests in OpenPathSampling use the `nose`_ package.
 
 .. IF YOUR MODULE IS IN OPS CORE:
 
@@ -136,8 +136,8 @@ The tests for this module can be run by installing `OpenPathSampling`_,
 downloading source code for the module (see the ``Source Code`` 
 section below), and installing it by running by running 
 ``python setup.py install`` from the root directory of the package.
-Test this module by running the command ``nosetests`` from the root directory of
-the repository.
+Test this module with the `nose`_ package, by running the command ``nosetests``
+from the root directory of the repository.
 
 
 Examples
