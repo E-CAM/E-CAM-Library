@@ -126,5 +126,6 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/W90_solution_booklet/readme
     ./modules/FFTXlib/readme
     ./modules/W90_cube_format_non-orthogonal/readme
+    ./modules/miniPWPP/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/
