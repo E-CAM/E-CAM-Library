@@ -127,5 +127,10 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/FFTXlib/readme
     ./modules/W90_cube_format_non-orthogonal/readme
     ./modules/miniPWPP/readme
+    ./modules/PANNA-GVECT/readme
+    ./modules/PANNA-TFR/readme
+    ./modules/PANNA-TRAIN/readme
+    ./modules/PANNA-EVAL/readme
+    ./modules/PANNA-Charges/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/
