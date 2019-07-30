@@ -1,6 +1,6 @@
-########
+##############
 PANNA-Charges
-########
+##############
 
 .. sidebar:: Software Technical Information
 

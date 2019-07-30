@@ -1,6 +1,6 @@
-########
+###########
 PANNA-GVECT
-########
+###########
 
 .. sidebar:: Software Technical Information
 

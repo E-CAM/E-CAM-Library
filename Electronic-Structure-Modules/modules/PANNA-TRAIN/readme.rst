@@ -1,6 +1,6 @@
-########
+#############
 PANNA-TRAIN
-########
+#############
 
 .. sidebar:: Software Technical Information
 
