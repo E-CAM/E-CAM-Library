@@ -34,7 +34,7 @@ making it difficult to test new ideas, to benchmark core libraries, to profile d
 what exactly is happening under the hood of an electronic structure engine.
 
 With miniPWPP, we present a simple, modularized electronic structure engine, 
-with core capabilities (less than 10 main routines, each beloging to a single step of a DFT workflow)
+with core capabilities (less than 10 main routines, each belonging to a single step of a DFT workflow)
 and with minimum decoration.
 
 Due to this simple structure, miniPWPP can also serve for didactic purposes, both in physics and in information technologies.
@@ -103,4 +103,4 @@ ______________________
 This documentation can be found inside the ``docs`` subdirectory.
 Further diagonalization techniques such as Davidson and ParO will be added in the future. 
 
-The miniPWPP module is developped with the contributions of S. de Gironcoli, A. Chandran and E. Kucukbenli
+The miniPWPP module is developed with the contributions of S. de Gironcoli, A. Chandran and E. Kucukbenli
