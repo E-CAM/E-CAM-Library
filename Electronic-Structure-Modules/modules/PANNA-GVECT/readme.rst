@@ -66,7 +66,7 @@ A detailed tutorial about the contents of the configuration file can be found
 `here <https://gitlab.com/PANNAdevs/panna/blob/master/doc/tutorial/README_tutorial_2_data_preparation.md>`_.
 
 In this comprehensive tutorial, how use this module with other modules such as PANNA-TOOLS and PANNA-TFR 
-is also demonstrated. Together, these modules cover all the steps necessary whlie going from raw data to descriptors that can be 
+is also demonstrated. Together, these modules cover all the steps necessary while going from raw data to descriptors that can be 
 used in machine learning workflow.
 
 Source Code
