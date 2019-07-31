@@ -45,7 +45,7 @@ ______________________________
 
 A stable version of the module can be downloaded using the download button on this `page <https://gitlab.com/PANNAdevs/panna>`_
 
-As a python module PANNA-GVECT does not require installation but it relies on numpy library version > 1.15.0.
+As a python module PANNA-GVECT does not require installation but it relies on numpy library version >= 1.15.0.
 
 In order to set up and test the module, run the following::
 
