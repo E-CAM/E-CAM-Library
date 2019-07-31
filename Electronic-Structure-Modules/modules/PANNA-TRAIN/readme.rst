@@ -68,11 +68,11 @@ A typical command for using this module is as follows::
 A detailed tutorial about the contents of the configuration file can be found 
 `here <https://gitlab.com/PANNAdevs/panna/blob/master/doc/tutorial/README_tutorial_1_training.md>`_.
 
-In this comprehensive tutorial, a neural network training scenarios is demonstrated from beginning to end. 
+In this comprehensive tutorial, a neural network training scenario is demonstrated from beginning to end. 
 Network validation is a key step in network training, hence in the tutorial how to use this module together 
 with PANNA-EVAL module used in validation is also explained. 
 Together, these two modules cover all the steps necessary to train an atomistic neural network, starting from a data which specifies
-the machine learning task in (input, target output) paird form. 
+the machine learning task in (input, target output) pair form. 
 
 Source Code
 ___________
