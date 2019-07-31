@@ -60,7 +60,7 @@ PANNA-GVECT main script requires a configuration file that specifies the paramet
 A typical command for using this module is as follows::
 
  $ export PYTHONPATH=/path/to/panna/directory/panna 
- $ python3 gvect_calculator.py  -ini gvect_configuration.ini
+ $ python3 gvect_calculator.py --config gvect_configuration.ini
 
 A detailed tutorial about the contents of the configuration file can be found 
 `here <https://gitlab.com/PANNAdevs/panna/blob/master/doc/tutorial/README_tutorial_2_data_preparation.md>`_.
