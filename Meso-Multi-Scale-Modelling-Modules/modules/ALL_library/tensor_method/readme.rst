@@ -73,7 +73,13 @@ There are 3 tests of available for the Tensor-Product method in the `ALL GitLab 
   # JUBE must be available in the environment
   jube run ALL_benchmark.xml --tag Polymer --type 1
 
-Within `ALL_benchmark.xml <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/refactor/example/jube/ALL_benchmark.xml>`_ you can find different options depending on the method and test you would like to run. For example the tests can be chosen by the ``--tag`` and using (1) ``Y``, (2) ``Polymer`` and (3) ``rot_Y``, correspondingly. In addition, the ``--type`` flag is used to choose the method 1 for the Tensor Product. Note that example (2) is the most illustrative and hence recommended example to understand how the borders of the cartesian planes are adjusted.
+Within `ALL_benchmark.xml <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/refactor/example/jube/ALL_benchmark.xml>`_ you can find different options depending on the method and test you would like to run. For example the tests can be chosen by the ``--tag`` and using:
+
+  1. ``Y``,
+  2. ``Polymer``
+  3. ``rot_Y``
+
+In addition, the ``--type`` flag is used to choose the method 1 for the Tensor Product. Note that the second example is the most illustrative and hence recommended example to understand how the borders of the cartesian planes are adjusted.
 
 
 Source Code
@@ -81,5 +87,11 @@ ___________
 
 The implementation of the Tensor-Product method in ALL can be found in `ALL_Tensor.hpp <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/include/ALL_Tensor.hpp>`_.
 
-The source code to the ALL library is available as a git repository at https://gitlab.version.fz-juelich.de/SLMS/loadbalancing . To obtain a copy of the repository you can use ``git clone https://gitlab.version.fz-juelich.de/SLMS/loadbalancing.git``. However, please note that the source code is currently under embargo until an associated paper is published, if you would like to be obtain a copy of the code, please contact Prof. Godehard Sutmann at ``g.sutmann@fz-juelich.de``.
+The source code to the ALL library is available as a git repository at https://gitlab.version.fz-juelich.de/SLMS/loadbalancing . To obtain a copy of the repository you can use 
+
+.. code:: bash
+
+  git clone https://gitlab.version.fz-juelich.de/SLMS/loadbalancing.git
+  
+However, please note that the source code is currently under embargo until an associated paper is published, if you would like to be obtain a copy of the code, please contact Prof. Godehard Sutmann at ``g.sutmann@fz-juelich.de``.
 
