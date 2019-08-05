@@ -52,7 +52,7 @@ Bond forces on DL_MESO_DPD (single GPU)
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
 
-This module add the bond forces to the single GPU version of DL_MESO (DPD). These take in account on the itneractiions between differenct chemical species
+This module add the bond forces to the single GPU version of DL_MESO (DPD). These take in account on the itneractiions between different chemical species
 which allow to create complex molecules more rapresentative of real systems. An example of application is the ternary solution where a main component 
 contains bonds interacting with the other two phases.
 
