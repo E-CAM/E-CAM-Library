@@ -24,7 +24,7 @@
     Sphinx/RST
 
   Application Documentation
-    https://srmnitc.github.io/pybop/html/index.html
+    https://pybop.readthedocs.io/en/latest/
 
   Relevant Training Material
     https://mybinder.org/v2/gh/srmnitc/pybop/master?filepath=examples%2F
