@@ -108,6 +108,18 @@ The following modules connected to the ParaDiS code have been produced so far:
     ./modules/paradis_precipitate/paradis_precipitate_HPC/readme
 
 
+Cubble
+------
+The following modules connected to the Cubble code, a mesoscale CUDA/C++ simulator of foams, have been produced so far:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/cubble_coarsening/cubble_coarsening_static/readme
+    ./modules/cubble_coarsening/cubble_coarsening_flow/readme
+
+
 GC-AdResS 
 ---------
 
