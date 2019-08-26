@@ -34,7 +34,7 @@
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
     reference to work (so don't insert a comment between).
 
-.. _cubble_coarsening_static:
+.. _cubble_coarsening_flow:
 
 ########################################################
 Cubble: Static foam coarsening simulator using c++/CUDA
