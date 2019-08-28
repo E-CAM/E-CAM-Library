@@ -54,8 +54,7 @@ fluids i.e. their flow requires external stress that exceeds a paricular value, 
 materials by their internal structure development, coarsening, where while the gas concentration of the foam remains constant, the gas diffuses
 between the bubbles. The larger bubbles grow at the expense of the smaller ones. 
 
-This module provides a c++/CUDA implementation of a foam coarsening simulator (https://journals.aps.org/pre/abstract/10.1103/PhysRevE.98.012607) 
-designed from the bottom to be run in a GPU environment. This module adds the capability to run dynamical coarsening on flowing systems.
+This module provides the capability to run dynamical coarsening on flowing systems to the cubble_coarsening_static module.
 
 
 
