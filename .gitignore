@@ -1,3 +1,17 @@
+# compiled python files
+*.pyc
+
+# sphinx build folder
 _build
 _templates
-*.pyc
+
+# OS generated files #
+######################
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Editor backup files #
+#######################
+*~

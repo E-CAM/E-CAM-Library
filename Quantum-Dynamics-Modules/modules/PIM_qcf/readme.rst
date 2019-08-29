@@ -1,8 +1,8 @@
 .. _PIM_qcf:
 
-####################
+#######
 PIM_qcf
-####################
+#######
 
 .. sidebar:: Software Technical Information
 
@@ -14,6 +14,9 @@ PIM_qcf
 
   Documentation Tool
     Doxygen
+
+  Software Module Developed by
+    Momir Mališ
 
 .. contents:: :local:
 

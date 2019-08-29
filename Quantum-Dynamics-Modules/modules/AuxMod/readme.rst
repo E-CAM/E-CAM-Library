@@ -15,6 +15,9 @@ AuxMod
   Documentation Tool
     Doxygen
 
+  Software Module Developed by
+    Ari P. Seitsonen, Momir Mališ
+
 .. contents:: :local:
 
 
@@ -26,7 +29,7 @@ input file reader,
 and a library of common MPI commands adapted for easier implementation when programming a Fortran MPI parallel code. 
 The module consists of an input parser designed to read any formatted file 
 with the possibility to find a specific set of user pre-defined keywords 
-and examine whether the read in variable types are consistent with the code requirments. 
+and examine whether the read in variable types are consistent with the code requirements. 
 The library of parallel subroutines contains a number of MPI commands for communicating information between all or 
 a pair of processor cores, and are adapted for easier user implementation into his/her own code. 
 The provided subroutines/libraries can also be considered as a Fortran template which the user can adapt or 
