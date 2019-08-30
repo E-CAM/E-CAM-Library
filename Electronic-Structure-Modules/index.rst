@@ -98,6 +98,7 @@ Modules not coming from ESDWs
      :maxdepth: 1
 
      ./modules/flook/readme
+     ./modules/libvdwxc/readme
      ./modules/MatrixSwitchDBCSR/readme
 
 Pilot Projects
