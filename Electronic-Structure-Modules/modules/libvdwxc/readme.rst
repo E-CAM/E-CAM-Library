@@ -101,5 +101,5 @@ For more information about the Autotools, please consult `the Autotools Mythbust
 Source Code
 ___________
 
-The source code of libvdwxc is hosted on `Gitlab <https://gitlab.com/libvdwxc/libvdwxc`_.
+The source code of libvdwxc is hosted on `Gitlab <https://gitlab.com/libvdwxc/libvdwxc>`_.
 
