@@ -11,7 +11,7 @@
     Fortran
 
   Licence
-    `4-clause BSD <https://opensource.org/licenses/bsd-license>`_
+    `BSD 3-Clause <https://opensource.org/licenses/BSD-3-Clause>`_
 
   Documentation Tool
     SIESTA Documentation Specifications (document available soon).
@@ -29,9 +29,9 @@
 
 .. _libgridxc:
 
-####################
-LibGridXC
-####################
+###############################################################################
+LibGridXC - Exchange-correlation energies and potentials in radial and 3D grids
+###############################################################################
 
 ..  contents:: :local:
 
@@ -45,7 +45,7 @@ _________________
 LibGridXC provides routines to calculate the exchange and correlation energy
 and potential in spherical (i.e. an atom) or periodic systems, using a variety
 of LDA and GGA functionals, as well as a variety of van der Waals DFT
-functionals [DION2004,KLIMES2009,LEE2010,VYDROV2010]_, implemented as
+functionals [DION2004]_ [KLIMES2009]_ [LEE2010]_ [VYDROV2010]_, implemented as
 described by Román-Pérez and Soler [ROMAN2009]_.
 
 .. [DION2004] Dion et al., Phys. Rev. Lett. 92, 246401 (2004).
