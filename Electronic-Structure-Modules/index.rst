@@ -86,6 +86,7 @@ The ESDW in Lausanne in February 2018 was the starting point for the modules bel
     :maxdepth: 1
 
     ./modules/esl-bundle/readme
+    ./modules/ELPA_easyblock/readme
 
 ESDW Dublin 2019
 -----------------
