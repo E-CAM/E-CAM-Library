@@ -87,6 +87,18 @@ The ESDW in Lausanne in February 2018 was the starting point for the modules bel
 
     ./modules/esl-bundle/readme
 
+ESDW Dublin 2019
+-----------------
+
+The ESDW in Dublin in January 2019 was the starting point for the modules below.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/esl-easyconfigs/readme
+
+
 Other Modules
 -------------
 
