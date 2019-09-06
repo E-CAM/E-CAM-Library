@@ -23,8 +23,7 @@
     Not currently available.
 
   Software Module Developed by
-    E. Artacho, J.D. Gale, A. Garcia, J. Junquera, P. Ordejón,
-    D. Sánchez-Portal, J.M. Soler.
+    J.M. Soler, A. Garcia, M. Oliveira, Y. Pouillon, C. Balbás and N. R. Papior
 
 
 .. _libgridxc:
@@ -35,8 +34,9 @@ LibGridXC - Exchange-correlation energies and potentials in radial and 3D grids
 
 ..  contents:: :local:
 
-This module allows the calculation of electronic interactions on simulation
-grids, both on serial and parallel computers.
+This module allows the calculation of electronic exchange and
+correlation energies and potentials on simulation grids, both on
+serial and parallel computers.
 
 
 Purpose of Module
