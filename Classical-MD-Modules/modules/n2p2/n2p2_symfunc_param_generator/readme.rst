@@ -65,8 +65,8 @@ _________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 .. Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
-it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
-non-expert in the domain area of the software module.
+   it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
+   non-expert in the domain area of the software module.
 
 To represent potential energy surfaces via an artificial neural network, in a first step, the n2p2 software package
 uses Behler-Parrinello-type symmetry functions ([BePa2007]_, [Beh2011]_), and variations thereof. These serve as
@@ -112,13 +112,13 @@ ______________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 .. If the modifications are to an existing code base (which is typical) then this would be the place to name that
-application. List any relevant urls and explain how to get access to that code. There needs to be enough information
-here so that the person reading knows where to get the source code for the application, what version this information is
-relevant for, whether this requires any additional patches/plugins, etc.
+   application. List any relevant urls and explain how to get access to that code. There needs to be enough information
+   here so that the person reading knows where to get the source code for the application, what version this information is
+   relevant for, whether this requires any additional patches/plugins, etc.
 
 .. Overall, this module is supposed to be self-contained, but linking to specific URLs with more detailed information is
-encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
-the links they need should be already in this module.
+   encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
+   the links they need should be already in this module.
 
 This module is designed to be used in conjunction with n2p2, a software package for high-dimensional neural network
 potentials in computational physics and chemistry. For more information on n2p2 itself, see:
@@ -138,8 +138,8 @@ ____________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 .. Provide the build information for the module here and explain how tests are run. This needs to be adequately detailed,
-explaining if necessary any deviations from the normal build procedure of the application (and links to information
-about the normal build process needs to be provided).
+   explaining if necessary any deviations from the normal build procedure of the application (and links to information
+   about the normal build process needs to be provided).
 
 Seeing as this module itself is just a lightweight Python tool and does not directly interface the core of n2p2, it does
 not require building. Realistically, however, you will want to use it in conjunction with n2p2's functionality for
@@ -154,6 +154,12 @@ Follow these steps to test the module:
 
 3. Run ``pytest`` in your terminal.
 
+4. For an additional code coverage report install the pytest-cov_ package.
+
+5. Go to the ``tools/python/symfunc_paramgen/tests`` directory.
+
+6. Execute ``pytest --cov=sfparamgen --cov-report=html .``.
+
 Examples
 ________
 See the ``example.ipynb`` IPython notebook in the ``tools/python/symfunc_paramgen/examples``
@@ -167,14 +173,15 @@ ___________
 .. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
 
 The soure code for this module can be found
-`here <https://github.com/flobuch/n2p2/tree/symfunc_paramgen/tools/python/symfunc_paramgen>`_.
+`here <https://github.com/flobuch/n2p2/tree/symfunc_paramgen/tools/python/symfunc_paramgen>`__.
 
 Ultimately, this module is intended to be merged into the official n2p2 code. For the status of the corresponding pull
-request, see `here <https://github.com/CompPhysVienna/n2p2/pull/15>`_.
+request, see `here <https://github.com/CompPhysVienna/n2p2/pull/15>`__.
 
 .. Here are the URL references used (which is alternative method to the one described above)
 
 .. _ReST: http://www.sphinx-doc.org/en/stable/rest.html
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/markup/index.html
 .. _pytest: https://docs.pytest.org/en/latest/
+.. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
 
