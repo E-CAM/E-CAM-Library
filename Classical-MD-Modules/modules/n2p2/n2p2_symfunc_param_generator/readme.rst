@@ -172,7 +172,7 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
 
-The soure code for this module can be found
+The source code for this module can be found
 `here <https://github.com/flobuch/n2p2/tree/symfunc_paramgen/tools/python/symfunc_paramgen>`__.
 
 Ultimately, this module is intended to be merged into the official n2p2 code. For the status of the corresponding pull
