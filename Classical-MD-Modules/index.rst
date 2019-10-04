@@ -173,7 +173,10 @@ separate projects. The modules that were incorporated into the core are:
     ./modules/OpenPathSampling/ops_channel_analysis/readme
     ./modules/OpenPathSampling/ops_new_tis_analysis/readme
     ./modules/OpenPathSampling/ops_resampling_statistics/readme
- 
+    ./modules/OpenPathSampling/ops_gromacs_engine/readme
+    ./modules/OpenPathSampling/ops_visit_all_states/readme
+    ./modules/OpenPathSampling/ops_interface_shooting/readme
+
 The modules that are based on OPS, but remain separate, are:
 
 .. toctree::
@@ -243,5 +246,15 @@ August 2017. The following modules have been produced:
     ./modules/OpenPathSampling/ops_web_throwing/readme
     ./modules/OpenPathSampling/ops_plumed_wrapper/readme
     ./modules/OpenPathSampling/ops_s_shooting/readme
+
+The third ESDW for the Classical MD workpackage was held in Turin, Italy in July
+2018. The following have been produced as a result:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/HTC/decorators/readme
+    ./modules/pybop/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/
