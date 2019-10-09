@@ -76,7 +76,6 @@ This module is part of the DL\_MESO\_DPD code. Full support and documentation is
 
 To download the DL\_MESO\_DPD code you need to register at https://gitlab.stfc.ac.uk. Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.
 
-The ALL library has been introduced during the ECAM Extended Software Development Workshop for Meso and Multi Scale Modelling hosted in Julich in June 2019.
 
 
 
