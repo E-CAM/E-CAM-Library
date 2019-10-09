@@ -60,8 +60,8 @@ This module concern about the implementation of the ALL library for load balanci
 Purpose of Module
 _________________
 
-The intention is to allow better performance when complex systmes, like large proteins or lipid bylars, redistributing the work load
-accross the GPUs. The A Load Balancing (ALL) library, developed at Julich Supercomputer Center, provides several scheme to find the ideal split of the 
+The intention is to allow better performance when complex systems, like large proteins or lipid bylars, redistributing the work load
+across the GPUs. The A Load Balancing (ALL) library, developed at Julich Supercomputer Center, provides several scheme to find the ideal split of the 
 work load: from the simplest orthogonal non staggered domain decomposition, to the more fancy Voronoi mesh scheme.
 
 
@@ -76,7 +76,7 @@ This module is part of the DL\_MESO\_DPD code. Full support and documentation is
 
 To download the DL\_MESO\_DPD code you need to register at https://gitlab.stfc.ac.uk. Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.
 
-The ALL library has been introduced during the ECAM Extended Sofwtare Development Workshop for Meso and Multi Scale Modelling hosted in Julich in June 2019.
+The ALL library has been introduced during the ECAM Extended Software Development Workshop for Meso and Multi Scale Modelling hosted in Julich in June 2019.
 
 
 
