@@ -61,7 +61,7 @@ _________________
 
 The current version of DL\_MESO\_DPD on multi GPU cannot run systme larger than 1.8 billion particles due to the INTEGER type used in ForTran for the particle arrays.
 
-This module addresses this problem replacing, only where needed, the INTEGER with INTEGER(8) type in the ForTran arrays. This allow to run simulation with more than 1.8 billion particles and then more 
+This module addresses this problem replacing, only where needed, the INTEGER with LONG INTEGER type in the ForTran arrays. This allow to run simulation with more than 1.8 billion particles and then more 
 complex systems.
 
 Background Information
