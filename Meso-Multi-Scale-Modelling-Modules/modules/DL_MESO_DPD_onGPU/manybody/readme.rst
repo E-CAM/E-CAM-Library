@@ -59,7 +59,7 @@ This module implement the many body DPD boundary conditions on the multi-GPU ver
 Purpose of Module
 _________________
 
-One of the main weak point of the DPD simulation is in its equation of state. For example, compressible gas or vapor liquid mixtures are difficult, if not impossible, to correclty be simulated. The many body DPD approach allow to overcome this limit extendind the potential of neighbour beads to a large cut off radius. 
+One of the main weak point of the DPD simulation is in its equation of state. For example, compressible gas or vapor liquid mixtures are difficult, if not impossible, to correctly be simulated. The many body DPD approach allow to overcome this limit extendind the potential of neighbour beads to a large cut off radius. 
 
 This module consists in the implementation of the many body DPD on the multi GPU version of DL\_MESO\_DPD. The new feature will allow to simulate complex systems liquid liquid drop, phase interactions, etc.
 
