@@ -40,9 +40,9 @@
 
 .. _example:
 
-############################
-E-CAM Quantum_Smolyak module
-############################
+################################
+E-CAM Quantum_Smolyak_MPI module
+################################
 
 ..  Let's add a local table of contents to help people navigate the page
 
@@ -53,10 +53,12 @@ E-CAM Quantum_Smolyak module
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-This module is a quantum ab initial code applying the Smolyak algorithm, designed for the quantum simulation of molecules. 
+This module is a MPI parallelization of quantum dynamics code applying the Smolyak algorithm, designed for the quantum simulation of molecules. 
 
 Purpose of Module
 _________________
+
+The module is intended to provide an efficient parallelization of quantum ab initial simulation with Smolyak algorithm. The final code will be available for switching between MPI and openMP according to the interested system and the cluster resource available. A MPI-openMP hybrid implementation might be also available according to the progress. 
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
@@ -107,97 +109,101 @@ ______________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-If the modifications are to an existing code base (which is typical) then this would be the place to name that
-application. List any relevant urls and explain how to get access to that code. There needs to be enough information
-here so that the person reading knows where to get the source code for the application, what version this information is
-relevant for, whether this requires any additional patches/plugins, etc.
+This module is an MPI implementation of the quantum dynamics with Smolyak algorithm. One should refer to the relevant module for more details of the basic algorithms. 
 
-Overall, this module is supposed to be self-contained, but linking to specific URLs with more detailed information is
-encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
-the links they need should be already in this module.
+.. If the modifications are to an existing code base (which is typical) then this would be the place to name that
+.. application. List any relevant urls and explain how to get access to that code. There needs to be enough information
+.. here so that the person reading knows where to get the source code for the application, what version this information is
+.. relevant for, whether this requires any additional patches/plugins, etc.
+
+.. Overall, this module is supposed to be self-contained, but linking to specific URLs with more detailed information is
+.. encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
+.. the links they need should be already in this module.
 
 Building and Testing
 ____________________
 
+Building the program requires Open MPI v3.0 or above. Open MPI should be built as 64-bit for a full access of the functions.
+
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-Provide the build information for the module here and explain how tests are run. This needs to be adequately detailed,
-explaining if necessary any deviations from the normal build procedure of the application (and links to information
-about the normal build process needs to be provided).
+.. Provide the build information for the module here and explain how tests are run. This needs to be adequately detailed,
+.. explaining if necessary any deviations from the normal build procedure of the application (and links to information
+.. about the normal build process needs to be provided).
 
 Source Code
 ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
 
-Here link the source code *that was created for the module*. If you are using Github or GitLab and the `Gitflow Workflow
-<https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature branch.
-Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits.
+.. Here link the source code *that was created for the module*. If you are using Github or GitLab and the `Gitflow Workflow
+.. <https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature branch.
+.. Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits.
 
-* `Link to a merge request containing my source code changes
-  <https://github.com/easybuilders/easybuild-easyblocks/pull/1106>`_
+.. * `Link to a merge request containing my source code changes
+..  <https://github.com/easybuilders/easybuild-easyblocks/pull/1106>`_
 
-There may be a situation where you cannot do such linking. In this case, I'll go through an example that uses a patch
-file to highlight my source code changes, for that reason I would need to explain what code (including exact version
-information), the source code is for.
+.. There may be a situation where you cannot do such linking. In this case, I'll go through an example that uses a patch
+.. file to highlight my source code changes, for that reason I would need to explain what code (including exact version
+.. information), the source code is for.
 
-You can create a similar patch file by (for example if you are using git for your version control) making your changes
-for the module in a feature branch and then doing something like the following:
+.. You can create a similar patch file by (for example if you are using git for your version control) making your changes
+.. for the module in a feature branch and then doing something like the following:
 
 ..  Don't forget the white space around the "literal block" (a literal block keeps all spacing and is a good way to
     include terminal output, file contents, etc.)
 
 ::
 
-  [adam@mbp2600 example (master)]$ git checkout -b tmpsquash
-  Switched to a new branch "tmpsquash"
+..  [adam@mbp2600 example (master)]$ git checkout -b tmpsquash
+..  Switched to a new branch "tmpsquash"
 
-  [adam@mbp2600 example (tmpsquash)]$ git merge --squash newlines
-  Updating 4d2de39..b6768b2
-  Fast forward
-  Squash commit -- not updating HEAD
-   test.txt |    2 ++
-   1 files changed, 2 insertions(+), 0 deletions(-)
+..  [adam@mbp2600 example (tmpsquash)]$ git merge --squash newlines
+..  Updating 4d2de39..b6768b2
+..  Fast forward
+..  Squash commit -- not updating HEAD
+..   test.txt |    2 ++
+..   1 files changed, 2 insertions(+), 0 deletions(-)
 
-  [adam@mbp2600 example (tmpsquash)]$ git commit -a -m "My squashed commits"
-  [tmpsquash]: created 75b0a89: "My squashed commits"
-   1 files changed, 2 insertions(+), 0 deletions(-)
+..  [adam@mbp2600 example (tmpsquash)]$ git commit -a -m "My squashed commits"
+..  [tmpsquash]: created 75b0a89: "My squashed commits"
+..   1 files changed, 2 insertions(+), 0 deletions(-)
 
-  [adam@mbp2600 example (tmpsquash)]$ git format-patch master
-  0001-My-squashed-commits.patch
+..  [adam@mbp2600 example (tmpsquash)]$ git format-patch master
+..  0001-My-squashed-commits.patch
 
 
-To include a patch file do something like the following (take a look at the source code of this document to see the
-syntax required to get this):
+.. To include a patch file do something like the following (take a look at the source code of this document to see the
+.. syntax required to get this):
 
 ..  Below I am telling Sphinx that the included file is C code, if possible it will then do syntax highlighting. I can
     even emphasise partiuclar lines (here 2 and 9-11)
 
 .. .. literalinclude:: ./simple.patch
-      :language: c
-      :emphasize-lines: 2,9-11
-      :linenos:
+..      :language: c
+..      :emphasize-lines: 2,9-11
+..      :linenos:
 
 
 ..  I can't highlight the language syntax of a patch though so I have to exclude
-    :language: c
+..    :language: c
 
 .. literalinclude:: ./simple.patch
-   :emphasize-lines: 2,9-11
-   :linenos:
+..   :emphasize-lines: 2,9-11
+..   :linenos:
 
-If the patch is very long you will probably want to add it as a subpage which can be done as follows
+.. If the patch is very long you will probably want to add it as a subpage which can be done as follows
 
 .. toctree::
-   :glob:
-   :maxdepth: 1
+..   :glob:
+..   :maxdepth: 1
 
-   patch
+..   patch
 
 ..  Remember to change the reference "patch" for something unique in your patch file subpage or you will have
-    cross-referencing problems
+..    cross-referencing problems
 
-you can reference it with :ref:`patch`
+.. you can reference it with :ref:`patch`
 
 .. Here are the URL references used (which is alternative method to the one described above)
 
