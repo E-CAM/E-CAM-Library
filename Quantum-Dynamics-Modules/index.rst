@@ -240,6 +240,15 @@ The **PhysConst** enables the use of physical constants and the correct isotopic
 The **QuantumModelLib** use potential energy surfaces extracted from the literature and can be linked to quantum dynamics codes.
 
 
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/Quantum_Smolyak/readme
+
+The **Quantum_Smolyak** is a MPI parallelization of quantum dynamics code applying the Smolyak algorithm
+
+
 
 PaPIM
 -----

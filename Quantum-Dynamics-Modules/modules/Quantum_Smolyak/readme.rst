@@ -106,14 +106,12 @@ _________________
 ..  If you have few pictures/graphs illustrating the power or utility of the module, please include them with
 ..  corresponding explanatory captions.
 
-.. note::
 
 ..  If the module is an ingredient for a more general workflow (e.g. the module was the necessary foundation for later
   code; the module is part of a group of modules that will be used to calculate certain property or have certain
   application, etc.) mention this, and point to the place where you specify the applications of the more general
   workflow (that could be in another module, in another section of this repository, an application’s website, etc.).
 
-.. note::
 
 ..  If you are a post-doc who works in E-CAM, an obvious application for the module (or for the group of modules that
   this one is part of) is your pilot project. In this case, you could point to the pilot project page on the main
