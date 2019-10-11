@@ -127,4 +127,14 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/FFTXlib/readme
     ./modules/W90_cube_format_non-orthogonal/readme
 
+QMCPack interfaces
+------------------
+The following modules related to interfaces for the QMCPack code have been produced so far in the context of an `associated Pilot Project <https://www.e-cam2020.eu/qmcpack-interfaces-for-es-computations/>`_:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+                                                                                    
+    ./modules/ESBaseInterface
+
 .. _E-CAM: https://www.e-cam2020.eu/
