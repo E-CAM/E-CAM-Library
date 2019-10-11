@@ -3,7 +3,7 @@
 ..  sidebar:: Software Technical Information
 
   Name
-    ESInterfaceBase
+    ESHDF5Interface
 
   Language
     C++
@@ -19,10 +19,10 @@
   Software Module Developed by
     Michele Ruggeri, Raymond Clay III
 
-.. _ESInterfaceBase:
+.. _ESHDF5Interface:
 
 ####################
-ESInterfaceBase
+ESHDF5Interface
 ####################
 
 ..  contents:: :local:
@@ -38,7 +38,7 @@ Such a wave function for an electron system will be typically given by the produ
 where :math:`R` is the vector containing the position of all electrons and :math:`r_i` is the position of the :math:`i`-th electron.
 While there is great freedom in the definition of the Jastrow term, that can then be variationally optimized, the single particle orbitals have to be computed in using Density Functional Theory.
 
-The ESBaseInterface module provides a base class for a general interface to generate single particle orbitals for QMC simulations performed using QMCPack;  implementations of specific implementations as derived classes of ESInterfaceBase are available as separate modules.
+The ESHDF5Interface module provides a derived class of ESInterfaceBase to generate single particle orbitals for QMC simulations performed using QMCPack from a suitable HDF5 file.
 
 Background Information
 ______________________
@@ -49,7 +49,7 @@ and the documentation can be found at the QMCPack website `<https://qmcpack.org/
 Building and testing
 ____________________
 
-The ESBaseInterface module can be found in the QMCQEPack branch of the QMCPack git repository 
+The EHDF5Interface module can be found in the QMCQEPack branch of the QMCPack git repository 
 `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_.
 After cloning and getting to the QMCQEPack branch with
 
@@ -60,6 +60,8 @@ After cloning and getting to the QMCQEPack branch with
 one can proceed to build the QMCPack software, as
 detailed in the official QMCPack documentation `<https://qmcpack.org/documentation>`_, or in the manual available
 in the ``manual`` subdirectory in the main QMCPack directory.
+
+To use the interface one must use the ``interfaceh5`` keyword in the ``determinantset`` block in a QMCPack input file; further information can be found in Section 22.5.2 of the QMCPack manual, that can be compiled with the files in the ``manual`` directory.
 
 The tests for this code are part of the deterministic unit tests for QMCPack, that can be run with the command
 

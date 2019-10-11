@@ -148,6 +148,9 @@ The following modules related to interfaces for the QMCPack code have been produ
     :glob:
     :maxdepth: 1
                                                                                     
-    ./modules/ESBaseInterface
+    ./modules/ESInterfaceBase/readme
+    ./modules/ESHDF5Interface/readme
+    ./modules/ESPWSCFInterface/readme
+    ./modules/QMCQEPack_qepatch/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/

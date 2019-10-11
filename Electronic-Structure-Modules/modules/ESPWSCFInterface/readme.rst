@@ -3,7 +3,7 @@
 ..  sidebar:: Software Technical Information
 
   Name
-    ESInterfaceBase
+    ESPWSCFInterface
 
   Language
     C++
@@ -19,10 +19,10 @@
   Software Module Developed by
     Michele Ruggeri, Raymond Clay III
 
-.. _ESInterfaceBase:
+.. _ESPWSCFInterface:
 
 ####################
-ESInterfaceBase
+ESPWSCFInterface
 ####################
 
 ..  contents:: :local:
@@ -38,28 +38,41 @@ Such a wave function for an electron system will be typically given by the produ
 where :math:`R` is the vector containing the position of all electrons and :math:`r_i` is the position of the :math:`i`-th electron.
 While there is great freedom in the definition of the Jastrow term, that can then be variationally optimized, the single particle orbitals have to be computed in using Density Functional Theory.
 
-The ESBaseInterface module provides a base class for a general interface to generate single particle orbitals for QMC simulations performed using QMCPack;  implementations of specific implementations as derived classes of ESInterfaceBase are available as separate modules.
+The ESPWSCFInterface module provides a derived class of ESInterfaceBase to generate single particle orbitals for QMCPack via a DFT computation performed with Quantum Espresso.
 
 Background Information
 ______________________
 
 QMCPack is available from the github repository `<https://github.com/QMCPACK/qmcpack>`_,
-and the documentation can be found at the QMCPack website `<https://qmcpack.org/documentation>`_.
+and the documentation can be found in the QMCPack website `<https://qmcpack.org/documentation>`_.
+
+Quantum Espresso can be installed using the module :doc:`../QMCQEPack_qepatch/readme`, and the documentation
+can be found in the Quantum Espresso website `<https://www.quantum-espresso.org/resources/users-manual>`_.
 
 Building and testing
 ____________________
 
-The ESBaseInterface module can be found in the QMCQEPack branch of the QMCPack git repository 
+The EHDF5Interface module can be found in the ``QMCQEPack`` branch of the QMCPack git repository 
 `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_.
-After cloning and getting to the QMCQEPack branch with
+After cloning the repository and checking out the ``QMCQEPack`` branch with
 
 ``git clone https://github.com/michruggeri/qmcpack.git``
 
 ``git checkout QMCQEPack``
 
-one can proceed to build the QMCPack software, as
+one can proceed to download Quantum Espresso and build the ``libpwinterface.so`` library
+using the :doc:`../QMCQEPack_qepatch/readme` module.
+
+Once the library is build one can proceed to build and compile  QMCPack, as
 detailed in the official QMCPack documentation `<https://qmcpack.org/documentation>`_, or in the manual available
-in the ``manual`` subdirectory in the main QMCPack directory.
+in the ``manual`` subdirectory in the main QMCPack directory. Note that to use the Quantum Espresso interface the 
+``cmake`` options ``QE_INTERFACE`` must be used, typically using with
+
+``cmake -DQE_INTERFACE=1 -DQMC_COMPLEX=1 <QMCPack base directory>``
+
+before compiling with ``make``.
+
+To use the interface one must use the ``qmcqepack`` keyword in the ``determinantset`` block in a QMCPack input file; further information can be found in Section 22.5.3 of the QMCPack manual, that can be compiled with the files in the ``manual`` directory.
 
 The tests for this code are part of the deterministic unit tests for QMCPack, that can be run with the command
 
