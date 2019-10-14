@@ -17,7 +17,7 @@
     Not currently available
 
   Software Module Developed by
-    Michele Ruggeri, Raymond Clay III
+    Michele Ruggeri, Raymond C. Clay III
 
 .. _ESPWSCFInterface:
 
@@ -33,7 +33,7 @@ _________________
 To obtain accurate results with ground state Quantum Monte Carlo methods (such as Variational and Diffusion Monte Carlo) an accurate trial wave function is essential.
 Such a wave function for an electron system will be typically given by the product of two factors: (1) a Jastrow term :math:`J`  describing electronic correlations and (2) a Slater determinant of suitable single particle orbitals :math:`\phi_i`
 
-:math:`\Psi({bf R}) = J({bf R) \cdot \Det(\phi_i({\bf r}_j)`
+:math:`\Psi({bf R}) = J({bf R}) \cdot \Det(\phi_i({\bf r}_j))`
 
 where :math:`R` is the vector containing the position of all electrons and :math:`r_i` is the position of the :math:`i`-th electron.
 While there is great freedom in the definition of the Jastrow term, that can then be variationally optimized, the single particle orbitals have to be computed in using Density Functional Theory.
@@ -63,10 +63,10 @@ After cloning the repository and checking out the ``QMCQEPack`` branch with
 one can proceed to download Quantum Espresso and build the ``libpwinterface.so`` library
 using the :doc:`../QMCQEPack_qepatch/readme` module.
 
-Once the library is build one can proceed to build and compile  QMCPack, as
+Once the library is built one can proceed to build and compile  QMCPack, as
 detailed in the official QMCPack documentation `<https://qmcpack.org/documentation>`_, or in the manual available
 in the ``manual`` subdirectory in the main QMCPack directory. Note that to use the Quantum Espresso interface the 
-``cmake`` options ``QE_INTERFACE`` must be used, typically using with
+``cmake`` options ``QE_INTERFACE`` must be used, typically with
 
 ``cmake -DQE_INTERFACE=1 -DQMC_COMPLEX=1 <QMCPack base directory>``
 

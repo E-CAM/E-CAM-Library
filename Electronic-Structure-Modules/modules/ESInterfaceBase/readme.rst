@@ -17,7 +17,7 @@
     Not currently available
 
   Software Module Developed by
-    Michele Ruggeri, Raymond Clay III
+    Michele Ruggeri, Raymond C. Clay III
 
 .. _ESInterfaceBase:
 
@@ -33,12 +33,12 @@ _________________
 To obtain accurate results with ground state Quantum Monte Carlo methods (such as Variational and Diffusion Monte Carlo) an accurate trial wave function is essential.
 Such a wave function for an electron system will be typically given by the product of two factors: (1) a Jastrow term :math:`J`  describing electronic correlations and (2) a Slater determinant of suitable single particle orbitals :math:`\phi_i`
 
-:math:`\Psi({bf R}) = J({bf R) \cdot \Det(\phi_i({\bf r}_j)`
+:math:`\Psi({bf R}) = J({bf R}) \cdot \Det(\phi_i({\bf r}_j))`
 
 where :math:`R` is the vector containing the position of all electrons and :math:`r_i` is the position of the :math:`i`-th electron.
 While there is great freedom in the definition of the Jastrow term, that can then be variationally optimized, the single particle orbitals have to be computed in using Density Functional Theory.
 
-The ESBaseInterface module provides a base class for a general interface to generate single particle orbitals for QMC simulations performed using QMCPack;  implementations of specific implementations as derived classes of ESInterfaceBase are available as separate modules.
+The ESInterfaceBase module provides a base class for a general interface to generate single particle orbitals for QMC simulations performed using QMCPack;  implementations of specific interfaces as derived classes of ESInterfaceBase are available as separate modules.
 
 Background Information
 ______________________
