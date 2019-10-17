@@ -122,6 +122,13 @@ To use CLstunfti, the following steps are necessary:
       export PYTHONPATH=$PYTHONPATH:$HOME/My_Python_Modules/CLstunfti
   
   in your shell or add the line to the end of your ``.bashrc`` (or ``.zshrc`` or ``.cshrc``) file.
+* Build the documentation by running
+  
+  ::
+      
+      make html
+  
+  It is found in ``_build/html`` (actually, it should already be there).
 * Use CLstunfti!
 
 The examples created for this E-CAM module are in the folder ``examples``.
