@@ -423,6 +423,25 @@ The **Zagreb_sh** module is an interface between between Quantics package and th
 
 The **Quantics_openmp** module is an initial effort at OpenMP parallelisation improvements to Quantics.
 
+CLstunfti
+---------
+
+`CLstunfti <https://gitlab.com/axelschild/CLstunfti>`_ is an extendable Python 
+toolbox to compute scattering of electrons with a given kinetic energy in 
+liquids and amorphous solids. It uses a continuum trajectory model with 
+differential ionization and scattering cross sections as input to simulate the 
+motion of the electrons through the medium. 
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/CLstunfti/readme
+
+The module **CLstunfti** makes CLstunfti available to the world by providing 
+a documentation of the toolbox and inline documentations of the source code, 
+as well as a set of examples that can also be used for testing.
+
 References
 ==========
 
