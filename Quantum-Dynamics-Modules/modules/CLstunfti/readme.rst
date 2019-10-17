@@ -22,7 +22,7 @@
     GNU General Public License v3
 
   Documentation Tool
-    ReST
+    ReST, Sphinx
   
   Application Documentation
     https://gitlab.com/axelschild/CLstunfti
