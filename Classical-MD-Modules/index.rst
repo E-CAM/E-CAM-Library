@@ -148,14 +148,14 @@ to enumerate -- both academics and industry will benefit greatly from having
 software for these methods.
 
 The modules listed here deal with software to perform path sampling methods,
-as well as other approaches to rare events. 
+as well as other approaches to rare events.
 
 OpenPathSampling
 ================
 
-Several modules were developed based on 
-`OpenPathSampling (OPS) <http://openpathsampling.org>`_. These include modules 
-that have been incorporated into the core of OPS, as well as some that remain 
+Several modules were developed based on
+`OpenPathSampling (OPS) <http://openpathsampling.org>`_. These include modules
+that have been incorporated into the core of OPS, as well as some that remain
 separate projects. The modules that were incorporated into the core are:
 
 .. toctree::
@@ -182,7 +182,7 @@ The modules that are based on OPS, but remain separate, are:
 .. toctree::
     :glob:
     :maxdepth: 1
-   
+
     ./modules/annotated_trajectories/readme
     ./modules/ops_piggybacker/readme
     ./modules/contact_maps/readme
@@ -190,9 +190,9 @@ The modules that are based on OPS, but remain separate, are:
     ./modules/dw_dimer_testsystem/readme
     ./modules/lammps_ops/readme
 
-Nine of these modules were part of 
+Nine of these modules were part of
 `E-CAM Deliverable 1.2 <https://www.e-cam2020.eu/deliverables/>`_. Those modules
-provided improvements and new features in software for trajectory sampling and 
+provided improvements and new features in software for trajectory sampling and
 for studying the thermodynamics and kinetics of rare events.
 
 Pilot Projects
@@ -221,8 +221,8 @@ The following modules were developed specifically for the Classical MD pilot pro
 Extended Software Development Workshops (ESDWs)
 ===============================================
 
-The first ESDW for the Classical MD workpackage was held in Traunkirchen, 
-Austria, in November 2016, with a follow-up to be held in Vienna in April 2017. 
+The first ESDW for the Classical MD workpackage was held in Traunkirchen,
+Austria, in November 2016, with a follow-up to be held in Vienna in April 2017.
 The following modules have been produced:
 
 .. toctree::
@@ -234,7 +234,7 @@ The following modules have been produced:
     ./modules/OpenPathSampling/ops_maxlikelihood/readme
     ./modules/OpenPathSampling/ops_interface_optimization/readme
 
-The second ESDW for the Classical MD workpackage was held in Leiden, Holland, in 
+The second ESDW for the Classical MD workpackage was held in Leiden, Holland, in
 August 2017. The following modules have been produced:
 
 .. toctree::
@@ -254,7 +254,7 @@ The third ESDW for the Classical MD workpackage was held in Turin, Italy in July
     :glob:
     :maxdepth: 1
 
-    ./modules/pybop/readme
+    ./modules/pyscal/readme
     ./modules/HTC/decorators/readme
     ./modules/HTC/configuration/readme
     ./modules/HTC/mpi/readme
