@@ -1,13 +1,3 @@
-..  In ReStructured Text (ReST) indentation and spacing are very important (it is how ReST knows what to do with your
-    document). For ReST to understand what you intend and to render it correctly please to keep the structure of this
-    template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded
-    and followed by white space (if you see warnings when this file is built they this is a common origin for problems).
-
-..  We allow the template to be standalone, so that the library maintainers add it in the right place
-
-..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
-    progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
-
 ..  sidebar:: Software Technical Information
 
   Name
@@ -31,11 +21,12 @@
   Software Module Developed by
     Rene Halver
 
+  Polymer melt test is provided by
+    Dr. Horacio V. Guzman
+ 
+  Module Committed by
+    Dr. Horacio V. Guzman
 
-..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
-    reference, in this case, as ":ref:`ALL_example`"). You *MUST* change the reference below from "ALL_method_example"
-    to something unique otherwise you will cause cross-referencing errors. The reference must come right before the
-    heading for the reference to work (so don't insert a comment between).
 
 .. _ALL_tensor_method:
 
@@ -43,54 +34,64 @@
 ALL Tensor-Product method
 #########################
 
-..  Let's add a local table of contents to help people navigate the page
-
 ..  contents:: :local:
 
-..  Add an abstract for a *general* audience here. Write a few lines that explains the "helicopter view" of why this
-    module was are created.
-
-The A Load Balancing Library (ALL) library aims to provide an easy way to include dynamic domain-based load balancing
+A Load-Balancing Library (ALL) library aims to provide an easy and portable way to include dynamic domain-based load balancing
 into particle based simulation codes. The library is developed in the Simulation Laboratory Molecular Systems of the
 Juelich Supercomputing Centre at Forschungszentrum Juelich.
 
 Purpose of Module
 _________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
-
-This module provides an additional method to the ALL library, up-to-date descriptions of the methods in the library can
+This module provides an additional method to the `ALL library <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing>`_ , up-to-date descriptions of the methods in the library can
 be found in the `ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
 
-For the Tensor-Product method, the work on all processes is reduced over the cartesian planes in the systems. This work
+For the Tensor-Product method, the work on all processes (subdomains) is reduced over the cartesian planes in the systems. This work
 is then equalized by adjusting the borders of the cartesian planes.
 
 Background Information
 ______________________
-
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 See :ref:`ALL_background` for details.
 
 Building and Testing
 ____________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
-
 ALL uses the `CMake <https://cmake.org/runningcmake/>`_ build system, specific build and installation requirements can
 be found in the `ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
 
-**Need to provide information on how to test the particular method here.**
+There are 3 tests of available for the Tensor-Product method in the `ALL GitLab repository examples <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/tree/master/example>`_ . Namely: (1) Simple Wye-shape biosystem; (2) Heterogeneous polymer melt and (3) A rotated version of the Wye-shaped biosystem. They can be run by executing the commands below:
+
+.. code:: bash
+
+  export ALL_INSTALLATION=/path/to/my/loadbalancing/install
+  cmake .. -DCMAKE_INSTALL_PREFIX=$ALL_INSTALLATION -DCM_ALL_FORTRAN=ON
+  make -j
+  make install
+  cd example/jube/
+  ln -s $ALL_INSTALLATION/bin/ALL_test
+  # JUBE must be available in the environment
+  jube run ALL_benchmark.xml --tag Polymer --type 1
+
+Within `ALL_benchmark.xml <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/refactor/example/jube/ALL_benchmark.xml>`_ you can find different options depending on the method and test you would like to run. For example the tests can be chosen by the ``--tag`` and using:
+
+  1. ``Y``,
+  2. ``Polymer``
+  3. ``rot_Y``
+
+In addition, the ``--type`` flag is used to choose the method 1 for the Tensor Product. Note that the second example is the most illustrative and hence recommended example to understand how the borders of the cartesian planes are adjusted.
+
 
 Source Code
 ___________
 
-.. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
+The implementation of the Tensor-Product method in ALL can be found in `ALL_Tensor.hpp <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/include/ALL_Tensor.hpp>`_.
 
-**Here link the source code *that is relevant for the module*. If you are using Github or GitLab and the `Gitflow
-Workflow <https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature
-branch. Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits or locations
-in the source code.**
+The source code to the ALL library is available as a git repository at https://gitlab.version.fz-juelich.de/SLMS/loadbalancing . To obtain a copy of the repository you can use 
 
-.. _ReST: http://www.sphinx-doc.org/en/stable/rest.html
-.. _Sphinx: http://www.sphinx-doc.org/en/stable/markup/index.html
+.. code:: bash
+
+  git clone https://gitlab.version.fz-juelich.de/SLMS/loadbalancing.git
+  
+However, please note that the source code is currently under embargo until an associated paper is published, if you would like to be obtain a copy of the code, please contact Prof. Godehard Sutmann at ``g.sutmann@fz-juelich.de``.
+
