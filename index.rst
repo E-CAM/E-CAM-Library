@@ -31,7 +31,7 @@ The E-CAM Software Library
    :align: left
 
 Collected in this website we have a compilation of the *software modules* that have been documented by the E-CAM_ community
-within the four initial target areas of E-CAM_. These four areas represent the relative diversity of the broad domain of interest relevant to E-CAM_, and indeed the wider `CECAM <https://www.cecam.org/>`_ community:
+within the four initial target areas of E-CAM_. These four areas represent the relative diversity of the broad domain of interest relevant to E-CAM_, and indeed the wider `CECAM <https://www.cecam.org/>`_ community, and try to perform a rough categorisation of the areas of interest:
 
 .. toctree::
     :maxdepth: 1
