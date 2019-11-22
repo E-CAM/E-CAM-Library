@@ -3,6 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. sidebar:: General Information
+
+    .. contents:: :depth: 2
+
+    * :ref:`contributing`
+    * :ref:`search`
+
 .. _readme_electronic_structure:
 
 ****************************
@@ -12,14 +19,7 @@ Electronic Structure Modules
 Introduction
 ============
 
-.. sidebar:: General Information
-
-    .. contents:: :depth: 2
-
-    * :ref:`contributing`
-    * :ref:`search`
-
-.. figure:: ./images/wake_nova-rgb.png 
+.. figure:: ./images/protein-metal-cluster.png 
    :figwidth: 25 % 
    :align: left
 
