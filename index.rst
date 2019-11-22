@@ -5,7 +5,9 @@
 
 .. _readme:
 
-.. sidebar:: Scientific Areas
+.. sidebar:: Links 
+
+    **Scientific Areas**
 
     * :ref:`readme_classical_md`
     * :ref:`readme_electronic_structure`
@@ -16,7 +18,7 @@
 
     * :ref:`best_practices`
 
-    **Quicklinks**
+    **On this page**
 
     .. contents:: :local:
 
@@ -30,7 +32,7 @@ The E-CAM Software Library
    :figwidth: 35 % 
    :align: left
 
-Collected in this website we have a compilation of the *software modules* that have been documented by the E-CAM_ community
+Formally, E-CAM is a European HPC Centre of Excellence supporting HPC simulations in industry and academia through software development, training and discussion in simulation and modeling. Collected in this website we have a compilation of the *software modules* that have been documented by the E-CAM_ community
 within the four initial target areas of E-CAM_. These four areas represent the relative diversity of the broad domain of interest relevant to E-CAM_, and indeed the wider `CECAM <https://www.cecam.org/>`_ community, and try to perform a rough categorisation of the areas of interest:
 
 .. toctree::
