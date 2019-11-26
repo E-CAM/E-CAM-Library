@@ -82,19 +82,28 @@ ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-The DL\_MESO code is developed using git version control. Currently, the single GPU version is under a branch named ``single_GPU_version``. After downloading the code, checkout the GPU branch and look into the ``DPD/gpu_version`` folder, i.e:
+To compile and run the code you need to have installed the CUDA-toolkit (>=8.0) and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw). For the MPI library the OpenMPI 3.1.0 has been used.
+
+The DL\_MESO code is developed using git version control. Currently, the single GPU version is under a branch named ``single_GPU_version``. After downloading the code, checkout the GPU branch and move to the ``DPD/gpu_version/bin`` folder. Modify the Makefile to use the correct GPU architecture (sm_XX) and check if the CPP flags are supported (i.e.: -DAWARE_MPI for CUDA\_aware\_MPI support, -DOPENMPI for OpenMPI library, -DMVAPICH for MVAPICH library and -DHWLOC for ``hwloc`` support). Make sure nvcc is installed (or CUDA toolkit module loaded). Then, compile using ``make all``. Resume: 
 
 .. code-block:: bash
 
   git clone https://gitlab.stfc.ac.uk/dl_meso.git
   cd dl_meso
-  git checkout multi_GPU_version
+  git checkout single_GPU_version
   cd ./DPD/gpu_version/bin
+  modify Makefile according to your device and libraries
   make all
 
-To compile and run the code you need to have installed the CUDA-toolkit (>=8.0) and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw). For the MPI library the OpenMPI 3.1.0 has been used.
+There are two test cases for this module: 
+* a water drop between two surfaces
+* a vapour-liquid interface. 
 
-To run the surface drop test case, copy the ``FIELD`` and ``CONTROL`` files from the "../tests/WaterDrop" directory and run using ``mpirun -np NP ./dpd_gpu.exe``. The test case consists in simulating a drop of water between two surfaces.
+To run the water drop case, copy the ``FIELD`` and ``CONTROL`` files from the "../tests/SurfaceDrop" directory and run using ``./dpd_gpu.exe``. The test case consists in simulating the evolution of a water droplets full dispersed which will eventual agglomerate and deposit on a surface. 
+
+To run vapour-liquid interface, copy the ``FIELD`` and ``CONTROL`` files from the "../tests/VapourLiquid" directory and run using ``./dpd_gpu.exe``. The test case consist in simulating the interface between vapour and liquid starting from water particle dispersed into the vapour.
+
+For both test cases, compare the ``OUTPUT`` and the ``export`` files to verify your results.
 
 
 
@@ -106,7 +115,7 @@ ___________
 This module has been merged into DL\_MESO code. It is composed of the
 following commits (you need to be registered as collaborator):
 
-* https://gitlab.stfc.ac.uk/dl_meso/dl_meso/commit/7f3e7abe7bb1c8010dd6a5baa0de4907ffe2f003
+* https://gitlab.stfc.ac.uk/dl_meso/dl_meso/commit/09c62778b1d5e6928b74570191f037a54c80fabc
 
 
 
