@@ -100,7 +100,7 @@ The DL\_MESO code is developed using git version control. Currently, the multi G
   modify Makefile according to your device and libraries
   make all
 
-To run the case, copy the ``FIELD`` and ``CONTROL`` files from the "../tests/Poiseuille" directory and run using ``mpirun -np NP ./dpd_gpu.exe``.The test case consists in simulating the Poiseuille flow obtained between two parallel plane surfaces. Being the flow laminar, the solution has to match with the analytic parabolic profile of the velocity field. Compare the ``OUTPUT`` and the ``export`` files to verify your results.
+To run the case, copy the ``FIELD`` and ``CONTROL`` files from the "../tests/Poiseuille" directory and run using ``mpirun -np 8 ./dpd_gpu.exe``.The test case consists in simulating the Poiseuille flow, using 8 GPUs, obtained between two parallel plane surfaces. Being the flow laminar, the solution has to match with the analytic parabolic profile of the velocity field. Compare the ``OUTPUT`` and the ``export`` files to verify your results. Do not worry about the ``problem with total_nbeads`` warning message.
 
 
 
