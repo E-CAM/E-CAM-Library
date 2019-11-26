@@ -26,7 +26,7 @@
 .. _ALL_staggered:
 
 #########################
-ALL Tensor-Product method
+ALL Staggered Grid Method
 #########################
 
 ..  contents:: :local:
