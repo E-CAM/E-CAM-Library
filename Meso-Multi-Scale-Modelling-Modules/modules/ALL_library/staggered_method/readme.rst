@@ -42,9 +42,11 @@ This module provides an additional method to the `ALL library <https://gitlab.ve
 be found in the `ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
 
 In the *staggered-grid* scheme, a 3-step hierarchical approach is applied, where:
+
 * work over the cartesian planes is reduced, before the borders of these planes are adjusted;
 * in each of the cartesian planes the work is reduced for each cartesian column. These columns are then adjusted to each other to homogenize the work in each column;
 * the work between neighboring domains in each column is adjusted.
+
 Each adjustment is done locally with the neighboring planes, columns or domains by adjusting the adjacent boundaries.
 
 Background Information
@@ -58,7 +60,13 @@ ____________________
 ALL uses the `CMake <https://cmake.org/runningcmake/>`_ build system, specific build and installation requirements can
 be found in the `ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
 
-There are 3 tests of available for the each method in the `ALL GitLab repository examples <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/tree/master/example>`_ . Namely: (1) Simple Wye-shape biosystem; (2) Heterogeneous polymer melt and (3) A rotated version of the Wye-shaped biosystem. They can be run by executing the commands below:
+There are 3 tests of available for the each method in the `ALL GitLab repository examples <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/tree/master/example>`_ . Namely:
+
+1. Simple Wye-shape biosystem;
+2. Heterogeneous polymer melt and
+3. A rotated version of the Wye-shaped biosystem.
+
+They can be run by executing the commands below:
 
 .. code:: bash
 
@@ -73,7 +81,7 @@ There are 3 tests of available for the each method in the `ALL GitLab repository
 
 Within `ALL_benchmark.xml <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/refactor/example/jube/ALL_benchmark.xml>`_ you can find different options depending on the method and test you would like to run. For example the tests can be chosen by the ``--tag`` and using:
 
-  1. ``Y``,
+  1. ``Y``
   2. ``Polymer``
   3. ``rot_Y``
 
