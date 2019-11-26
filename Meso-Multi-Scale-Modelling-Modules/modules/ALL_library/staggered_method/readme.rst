@@ -77,7 +77,7 @@ Within `ALL_benchmark.xml <https://gitlab.version.fz-juelich.de/SLMS/loadbalanci
   2. ``Polymer``
   3. ``rot_Y``
 
-In addition, the ``--type`` flag is used to choose the method ``4`` for the staggered grid method. Note that the second example is the most illustrative and hence recommended example to understand how the borders of the cartesian planes are adjusted.
+In addition, the ``--type`` flag is used to choose the method ``0`` for the staggered grid method. Note that the second example is the most illustrative and hence recommended example to understand how the borders of the cartesian planes are adjusted.
 
 
 Source Code
