@@ -89,7 +89,7 @@ ____________________
 
 To compile and run the code you need to have installed the CUDA-toolkit (>=8.0) and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw). For the MPI library the OpenMPI 3.1.0 has been used.
 
-The DL\_MESO code is developed using git version control. Currently, the multi GPU version is under a branch named ``multi_GPU_version``. After downloading the code, checkout the GPU branch and move to the ``DPD/gpu_version/bin`` folder. Modify the Makefile to use the correct GPU architecture (sm_XX) and check if the CPP flags are supported (i.e.: -DAWARE_MPI for CUDA\_aware\_MPI support, -DOPENMPI for OpenMPI library, -DHWLOC for hwloc support). Make sure nvcc is installed (or CUDA toolkit module loaded). Then, compile using ``make all``. Resume: 
+The DL\_MESO code is developed using git version control. Currently, the multi GPU version is under a branch named ``multi_GPU_version``. After downloading the code, checkout the GPU branch and move to the ``DPD/gpu_version/bin`` folder. Modify the Makefile to use the correct GPU architecture (sm_XX) and check if the CPP flags are supported (i.e.: -DAWARE_MPI for CUDA\_aware\_MPI support, -DOPENMPI for OpenMPI library, -DMVAPICH for MVAPICH library and -DHWLOC for ``hwloc`` support). Make sure nvcc is installed (or CUDA toolkit module loaded). Then, compile using ``make all``. Resume: 
 
 .. code-block:: bash
 
