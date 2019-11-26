@@ -41,9 +41,9 @@
 
 .. _dl_meso_gpu_surface:
 
-##################################
-Surfaces on DL_MESO_DPD multi-GPUs
-##################################
+#####################################################
+Surface boundary conditions on DL_MESO_DPD multi-GPUs
+#####################################################
 
 ..  Let's add a local table of contents to help people navigate the page
 
@@ -75,7 +75,7 @@ ______________________
 This module is part of the DL\_MESO\_DPD code. Full support and documentation is available at:
 
 * https://www.scd.stfc.ac.uk/Pages/DL_MESO.aspx
-  * https://www.scd.stfc.ac.uk/Pages/USRMAN.pdf
+* https://www.scd.stfc.ac.uk/Pages/USRMAN.pdf
 
 To download the DL\_MESO\_DPD code you need to register at https://gitlab.stfc.ac.uk. Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.
 
