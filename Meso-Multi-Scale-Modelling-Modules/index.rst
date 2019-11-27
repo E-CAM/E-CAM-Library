@@ -170,3 +170,4 @@ time-to-solution of the applications.
     :maxdepth: 1
 
     ./modules/ALL_library/tensor_method/readme
+    ./modules/ALL_library/staggered_method/readme
