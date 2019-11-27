@@ -41,7 +41,7 @@ This module provides an additional method to the `ALL library <https://gitlab.ve
 up-to-date descriptions of the methods in the library can be found in the
 `ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
 
-Similar to the topological mesh method (:ref:`ALL_unstructured`), this method computes a
+Similar to the topological mesh method (:ref:`ALL_unstructured`), the *Voronoi mesh* method computes a
 force, based on work differences. In contrast to the topological mesh
 method, the force acts on a Voronoi point rather than a vertex, i.e. a
 point defining a Voronoi cell, which describes the domain. Consequently,
