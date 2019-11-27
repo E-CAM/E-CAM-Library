@@ -54,33 +54,84 @@ ______________________
 
 See :ref:`ALL_background` for details.
 
+.. _ALL_testing: 
+
 Building and Testing
 ____________________
 
-ALL uses the `CMake <https://cmake.org/runningcmake/>`_ build system, specific build and installation requirements can
-be found in the `ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
+ALL is a C++ header only library using template programming, strictly speaking
+there is no need to install the library, you simply include the header files in
+your application. In order to provide examples, ALL uses the
+`CMake <https://cmake.org/runningcmake/>`_ build system, specific build and
+installation requirements can be found in the
+`ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
+If you wish to use/test the topological mesh scheme, you will need an MPI-enabled
+installation of the `VTK <https://vtk.org/>`_ package.
 
-There are 3 tests of available for the Tensor-Product method in the `ALL GitLab repository examples <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/tree/master/example>`_ . Namely: (1) Simple Wye-shape biosystem; (2) Heterogeneous polymer melt and (3) A rotated version of the Wye-shaped biosystem. They can be run by executing the commands below:
+To build ALL, begin in the root directory of the package and use
 
 .. code:: bash
 
   export ALL_INSTALLATION=/path/to/my/loadbalancing/install
-  cmake .. -DCMAKE_INSTALL_PREFIX=$ALL_INSTALLATION -DCM_ALL_FORTRAN=ON
+  mkdir build
+  cd build
+  cmake .. -DCMAKE_INSTALL_PREFIX=$ALL_INSTALLATION -DCM_ALL_VTK_OUTPUT=ON -DCM_ALL_VORONOI=ON
   make -j
   make install
-  cd example/jube/
-  ln -s $ALL_INSTALLATION/bin/ALL_test
-  # JUBE must be available in the environment
-  jube run ALL_benchmark.xml --tag Polymer --type 1
+  cd ..
+  
+This will create an installation of ALL in the path pointed to by
+``ALL_INSTALLATION``. ``ALL_test`` (in the ``bin`` folder) is the binary that
+performs the tests. If you omit the option ``-DCM_ALL_VTK_OUTPUT=ON`` you will
+not require  the VTK dependency (but cannot use the unstructured mesh method).
 
-Within `ALL_benchmark.xml <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/refactor/example/jube/ALL_benchmark.xml>`_ you can find different options depending on the method and test you would like to run. For example the tests can be chosen by the ``--tag`` and using:
+In the ``example/jube/input`` subdirectory there are 3 test data sets available,
+namely:
 
-  1. ``Y``,
-  2. ``Polymer``
-  3. ``rot_Y``
+1. Simple Wye-shape biosystem;
+2. Heterogeneous polymer melt and
+3. A rotated version of the Wye-shaped biosystem.
 
-In addition, the ``--type`` flag is used to choose the method 1 for the Tensor Product. Note that the second example is the most illustrative and hence recommended example to understand how the borders of the cartesian planes are adjusted.
+These data sets are in raw ascii format and need to be translated into a format
+that can be consumed by ``ALL_test``. A utility ``ASCII2MPIBIN`` is provided to
+do the conversion, with the command line options:
 
+.. code:: bash
+
+  ASCII2MPIBIN <in_file (ASCII)> <out_file (binary)> <n_x> <n_y> <n_z>
+  
+where ``n_x``, ``n_y``, ``n_z`` are the number of (MPI) processes (in the X, Y
+and Z directions) that will be used.
+
+``ALL_test`` takes a number of options,
+
+.. code:: bash
+
+  ALL_test <Method> <Number of iterations> <gamma> <weighted> <input file> <system size: x, y, z> <domain layout: x, y, z>
+
+``Method`` (integer) is the load-balancing scheme to use of which there are 5 options:
+
+.. code:: bash
+
+  0 : Tensor
+  1 : Staggered
+  2 : Unstructured
+  3 : Voronoi
+  4 : Histogram
+  
+, ``gamma`` (double) is a relaxation which controls the convergence of the
+load-balancing methods, ``weighted`` (boolean) indicates whether points should
+be assigned a weight. The system size and domain layout are provided in the
+output of the call to ``ASCII2MPIBIN``.
+
+
+An example execution using the polymer melt data set on 125 processors looks
+like
+
+.. code:: bash
+
+  ASCII2MPIBIN globalBlockCoordsPolymer.txt input.bin 5 5 5
+  mpirun -n 125 ALL_test 0 50 8.0 0 input.bin 80 80 450 5 5 5
 
 Source Code
 ___________
