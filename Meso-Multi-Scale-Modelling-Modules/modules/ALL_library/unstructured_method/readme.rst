@@ -41,7 +41,7 @@ This module provides an additional method to the `ALL library <https://gitlab.ve
 up-to-date descriptions of the methods in the library can be found in the
 `ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
 
-In contrast to :ref:`ALL_tensor` and :ref:`ALL_staggered`, this method adjusts
+In contrast to :ref:`ALL_tensor` and :ref:`ALL_staggered`, the *unstructured mesh* method adjusts
 domains not by moving boundaries but vertices, i.e. corner points, of
 domains. For each vertex a force, based on the differences
 in work of the neighboring domains, is computed and the
