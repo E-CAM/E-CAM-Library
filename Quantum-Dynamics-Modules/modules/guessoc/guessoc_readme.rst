@@ -71,7 +71,7 @@ Once the executable is created the user can run it just typing ./guessSO.exe. Th
 Source Code
 ___________
 
-The source code for this module can be download via gitlat_. You firstly need to make an account (at gitlab). The code of the guessoc module has its own repository so you can clone it typing:
+The source code for this module can be download via gitlab_. You firstly need to make an account (at gitlab). The code of the guessoc module has its own repository so you can clone it typing:
 
 git clone ssh://git@gitlab.e-cam2020.eu:10022/sanz/durham-ecam.git or
 git clone https://gitlab.e-cam2020.eu:10443/sanz/durham-ecam.git
