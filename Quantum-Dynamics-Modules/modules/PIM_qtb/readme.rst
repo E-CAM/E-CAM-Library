@@ -480,7 +480,7 @@ References
 ==========
 .. [Dam] H. Dammak, Y. Chalopin, M. Laroche, M. Hayoun, J.-J. Greffet,  Quantum Thermal Bath for Molecular Dynamics Simulation, Phys. Rev. Lett. 103 (2009) 190601.
 
-.. [Man]   E. Mangaud,  S. Huppert,  T. Pl'e,  P. Depondt,  S. Bonella,  F. Finocchi, Quantum thermal bath with enforced fluctuation-dissipation theorem for reliable simulations of nuclear quantum effects, Journal of Chemical Theory and Computation, Submitted (2018).
+.. [Man] E. Mangaud,  S. Huppert,  T. Pl\'e,  P. Depondt,  S. Bonella,  F. Finocchi, The Fluctuation–Dissipation Theorem as a Diagnosis and Cure for Zero-Point Energy Leakage in Quantum Thermal Bath Simulations, J. Chem. Th. Comput. 15 (2019) 2863-2880.
 
 .. [Bri] F. Brieuc, Y. Bronstein, H. Dammak, P. Depondt, F. Finocchi, M. Hayoun,  Zero-point energy leakage in quantum thermal bath molecular dynamics simulations,  J. Chem. Th. Comput. 12 (2016) 5688–5697.
 
