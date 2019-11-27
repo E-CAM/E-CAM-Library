@@ -23,21 +23,26 @@ Purpose of Module
 =================
 
 
-Module **PIM_qtb**  generates trajectories based on several classical and semi-classical stochastic methods:
-- Langevin classical dynamics
+Module **PIM_qtb**  generates trajectories according to one of the following stochastic methods:
+
+
+- Classical Langevin dynamics
+
 - Quantum Thermal Bath [Dam]_
+
 - Adaptive Quantum Thermal Bath [Man]_ 
 
-These trajectories can be used to sample initial conditions for intramolecular vibrational-energy redistribution (IVR) dynamics. 
+These trajectories can be used to sample initial conditions for Linearized Semi-Classical Initial Value Representation (LSC-IVR) calculations. 
 
 
 
 Description of the module
 =========================
 
-The module implements various methods based on Langevin dynamics to
-sample initial conditions for IVR or to directly exploit the generated
-trajectories. The methods implemented are: classical Langevin dynamics,
+The module implements different methods based on Langevin dynamics. 
+The trajectories generated can be exploited directly or used to
+sample initial conditions for LSC-IVR calculations.
+The methods implemented are: classical Langevin dynamics,
 Quantum Thermal Bath (QTB) and two variants of adaptive QTB (adQTB-r and
 adQTB-f).
 
@@ -47,15 +52,15 @@ Classical Langevin dynamics
 Classical Langevin dynamics is described by a stochastic differential
 equation :
 
-.. math::  m \dot v = -\nabla U -m \gamma v + F(t)
+.. math::  \dot p = -\nabla U - \gamma p + F(t)
    :label: eqLGV
 
-where :math:`-\nabla U` is the vector forces exerted on the sets of
-atoms, :math:`m` the mass of atoms, :math:`\gamma` the damping term
-determining the strength of a viscous force and :math:`F(t)` a
-stochastic noise. The stochastic noise is gaussian and delta-correlated.
-To ensure the classical fluctuation-dissipation theorem, one might write
-its autocorrelation function spectra as :
+where :math:`p` is the momentum vector of the set of
+atoms, interacting via the potential :math:`U` , :math:`\gamma` is the damping coefficient
+and :math:`F(t)` is the stochastic force. The random force  :math:`F(t)` 
+is gaussian and delta-correlated.
+To enforce the classical fluctuation-dissipation theorem, 
+its autocorrelation spectrum is given by :
 
 .. math:: C_{FF}(\omega)= \int \limits_{-\infty}^{+\infty} dt \langle F(t) F(t+\tau) \rangle e^{-i \omega t}  = 2m \gamma  k_B T
 
@@ -65,12 +70,10 @@ temperature.
 Quantum Thermal Bath (QTB)
 --------------------------
 
-Quantum Thermal Bath is an approximate semi-classical method
-[Dam]_ consisting in modifying the
-stochastic noise in eq. :eq:`eqLGV` in order to mimic the energy
-distribution of a set of quantum harmonic oscillators. In QTB dynamics,
-stochastic noise is no longer delta-correlated but is colored with the
-following form :
+The Quantum Thermal Bath uses a generalized Langevin equation in order 
+to approximate nuclear quantum effects[Dam]_ .  In QTB dynamics, the
+stochastic force is no longer delta-correlated but is colored according to the
+following formula :
 
 .. math:: C_{FF}(\omega)=2m \gamma  \theta(\omega,T)
        :label: eqQTB
@@ -79,23 +82,25 @@ with
 
 .. math:: \theta(\omega,T) = \hbar \omega \left[\frac{1}{2}+\frac{1}{e^{\hbar \beta \omega}-1}\right]
 
-where :math:`\beta = \frac{1}{k_BT}` and :math:`2 \pi \hbar` is Planck
-constant. :math:`\theta(\omega,T)` function represents the energy
-distribution of a quantum harmonic oscillators of angular frequency
-:math:`\omega` at a temperature :math:`T` (Bose function) and notably,
-its zero-point energy. This method is known to lead to qualitatively
-good results [Bri]_ but as most of the semi-classical methods, it suffers from zero-point energy leakage [Hern]_.
+where :math:`\beta = \frac{1}{k_BT}` and :math:`2 \pi \hbar` is the Planck
+constant. The function :math:`\theta(\omega,T)` describes the energy
+of a quantum harmonic oscillators of angular frequency
+:math:`\omega` at a temperature :math:`T` .  The colored random force allows to 
+approximate zero-point energy contributions to the equilibrium properties of the system. 
+The QTB method is known to lead to qualitatively
+good results [Bri]_ but as many semi-classical methods, it suffers from zero-point energy leakage
+(ZPEL) [Hern]_.
 
 Adaptive Quantum Thermal Bath (adQTB-r/f)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Adaptive Quantum Thermal Bath is a variant of QTB to ensure for each
-degree of freedom and each frequency the energy distribution provided by
-the quantum fluctuation-dissipation theorem all along the trajectories.
+The Adaptive Quantum Thermal Bath is an extension of the QTB method, 
+designed to eliminate the zero-point energy leakage by enforcing 
+the energy distribution prescribed by the quantum fluctuation-dissipation theorem 
+for each degree of freedom and each frequency, all along the trajectories [Man]_ .
 
-In practice, one minimizes during QTB dynamics a fluctuation-dissipation
-relation :math:`\Delta_{FDT}` [Man]_ defined
-as:
+In practice, this is done by minimizing the fluctuation-dissipation spectrum 
+:math:`\Delta_{FDT}` defined as:
 
 .. math:: \Delta_{FDT} (\omega)  = {\rm{Re}} \left[C_{vF}(\omega)\right] - m \gamma_{r} (\omega) C_{vv} (\omega)  
     :label: eqDFDT
@@ -105,28 +110,31 @@ spectrum, :math:`C_{vv}` the velocity autocorrelation spectrum and
 :math:`\gamma_{r}` a set of damping coefficients dependent (or not) on
 the frequency.
 
-This minimization is carried out by dissymetrizing the system-bath
-coefficients between the injected and the extracted energy distribution.
-One can do it either by directly modifying the spectrum of the random
-noise :math:`F(t)` with frequency dependent damping term
+This minimization is carried out on the fly during the QTB simulation by dissymetrizing 
+the system-bath coupling coefficients corresponding to the damping force (dissipation) 
+and to the random force (energy injection).
+This can be done either by directly modifying the random force spectrum
+:math:`F(t)` with frequency dependent damping term
 :math:`\gamma_r(\omega)` (adQTB-r variant) or by modifying the memory
-dissipative kernel :math:`\gamma_{f} (\omega)` within the framework of a
-generalized Langevin equation (adQTB-f variant).
+kernel of the dissipative force :math:`\gamma_{f} (\omega)` within the framework of a
+non-Markovian generalized Langevin equation (adQTB-f variant).
 
 The coefficients :math:`\gamma_r` or :math:`\gamma_f` are slowly
-adjusted with a first-order differential equation and a damping term
+adjusted with a first-order differential equation and an adaptation coefficient
 :math:`A_\gamma` :
 
 .. math::  \frac{d }{dt}\gamma_{r/f} (\omega)  \propto  A_\gamma  \gamma \Delta_{FDT,r/f}(\omega,t)
        :label: eqgammadapt
 
-during a “thermalization time” until they reach convergence. Then,
-observables are computed by keeping on active the adaptive process.
-Further and more precise implementation details can be found in ref.[Man]_.
+during a preliminary “adaptation time” until they reach convergence. 
+Observables are then computed while the adaptive process is kept active.
+Further informations and precise implementation details can be found in ref.[Man]_.
 
 Two implementations are currently available in PaPIM:
 
-#. Random force adaptive QTB (adQTB-r) In this variant, the dissipation
+#. Random force adaptive QTB (adQTB-r) 
+
+In this variant, the dissipation
    kernel is left unchanged, i.e. :math:`\gamma_{f}(\omega) = \gamma`
    while the random force is modified according to a frequency-dependent
    set of damping coefficients :math:`\gamma_r(\omega)` to satisfy
@@ -139,15 +147,17 @@ This method is applicable only if the initial damping coefficient
 :math:`\gamma` is large enough to compensate effects of a possible
 zero-point energy leakage.
 
-#. Dissipative kernel adaptive QTB (adQTB-f) In this approach, the
-   random force is not modified (i.e.
-   :math:`\gamma_{r} (\omega) = \gamma` which remains the same as in QTB
-   formalism(eq. :eq:`eqQTB`)) but the dissipation term is not only
-   represented as a mere damping viscous term (:math:`-m \gamma v`) but
-   as a dissipative memory kernel. It leads to a generalized Langevin
-   equation:
+#. Dissipative kernel adaptive QTB (adQTB-f) 
 
-   .. math:: m \dot v = -\nabla U -m \int_0^\infty \  \gamma_f(\tau) v(t-\tau) \ d\tau + F(t)
+In this approach, the
+   random force is not modified, i.e.
+   :math:`\gamma_{r} (\omega) = \gamma` and remains the same as in the standard QTB
+   method (eq. :eq:`eqQTB`)) but the dissipation term is not 
+   described by a viscous damping term anymore (:math:`-m \gamma v`) but
+   corresponds to a non-Markovian dissipative force. This leads to the following 
+   generalized Langevin equation:
+
+   .. math::  \dot p = -\nabla U - \int_0^\infty \  \gamma_f(\tau) p(t-\tau) \ d\tau + F(t)
       :label: eqgenlgv
 
 In order to avoid solving with brute force this integro-differential
@@ -160,7 +170,7 @@ equally spaced (:math:`\Delta \omega`) lorentzian functions of width
       :label: eqlorentzgenlgv
 
 The parameter :math:`\gamma_{f,j}` are then modified to satisfy
-:math:`\Delta_{FDT} = 0` (eq. :eq:`eqDFDT`). In this method, one should take care of checking results convergence by decreasing the :math:`\alpha` parameter.
+:math:`\Delta_{FDT} = 0` (eq. :eq:`eqDFDT`). 
 
 Input file
 ==========
