@@ -76,6 +76,6 @@ The source code for this module can be download via gitlat_. You firstly need to
 git clone ssh://git@gitlab.e-cam2020.eu:10022/sanz/durham-ecam.git or
 git clone https://gitlab.e-cam2020.eu:10443/sanz/durham-ecam.git
 
-.. _gitlab: ssh://git@gitlab.e-cam2020.eu:10022/sanz/durham-ecam.git
+.. _gitlabssh: ssh://git@gitlab.e-cam2020.eu:10022/sanz/durham-ecam.git
 .. _gitlab: https://gitlab.e-cam2020.eu:10443/sanz/durham-ecam.git
 
