@@ -71,7 +71,7 @@ your application. In order to provide examples, ALL uses the
 installation requirements can be found in the
 `ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
 If you wish to use/test the topological mesh scheme, you will need an MPI-enabled
-installtion of the `VTK <https://vtk.org/>`_ package.
+installation of the `VTK <https://vtk.org/>`_ package.
 
 To build ALL, begin in the root directory of the package and use
 
