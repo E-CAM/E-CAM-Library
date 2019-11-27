@@ -1,3 +1,5 @@
+:orphan:
+
 ..  sidebar:: Software Technical Information
 
   Name
@@ -23,21 +25,23 @@
 
 .. _ALL_histogram:
 
-#########################
-ALL Tensor-Product method
-#########################
+#########################################
+ALL Histogram-based Staggered Grid Method
+#########################################
 
 ..  contents:: :local:
 
-A Load-Balancing Library (ALL) library aims to provide an easy and portable way to include dynamic domain-based load balancing
-into particle based simulation codes. The library is developed in the Simulation Laboratory Molecular Systems of the
-Juelich Supercomputing Centre at Forschungszentrum Juelich.
+A Load-Balancing Library (ALL) library aims to provide an easy and portable way
+to include dynamic domain-based load balancing into particle based simulation
+codes. The library is developed in the Simulation Laboratory Molecular Systems
+of the Juelich Supercomputing Centre at Forschungszentrum Juelich.
 
 Purpose of Module
 _________________
 
-This module provides an additional method to the `ALL library <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing>`_ , up-to-date descriptions of the methods in the library can
-be found in the `ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
+This module provides an additional method to the `ALL library <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing>`_,
+up-to-date descriptions of the methods in the library can be found in the
+`ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
 
 The *histogram-based staggered-grid* scheme
 results in the same grid as the staggered-grid scheme (see :ref:`ALL_staggered`), this scheme uses
@@ -57,35 +61,13 @@ See :ref:`ALL_background` for details.
 Building and Testing
 ____________________
 
-ALL uses the `CMake <https://cmake.org/runningcmake/>`_ build system, specific build and installation requirements can
-be found in the `ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
-
-There are 3 tests of available for the Tensor-Product method in the `ALL GitLab repository examples <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/tree/master/example>`_ . Namely: (1) Simple Wye-shape biosystem; (2) Heterogeneous polymer melt and (3) A rotated version of the Wye-shaped biosystem. They can be run by executing the commands below:
-
-.. code:: bash
-
-  export ALL_INSTALLATION=/path/to/my/loadbalancing/install
-  cmake .. -DCMAKE_INSTALL_PREFIX=$ALL_INSTALLATION -DCM_ALL_FORTRAN=ON
-  make -j
-  make install
-  cd example/jube/
-  ln -s $ALL_INSTALLATION/bin/ALL_test
-  # JUBE must be available and configured in the environment
-  jube run ALL_benchmark.xml --tag Polymer --type 4
-
-Within `ALL_benchmark.xml <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/refactor/example/jube/ALL_benchmark.xml>`_ you can find different options depending on the method and test you would like to run. For example the tests can be chosen by the ``--tag`` and using:
-
-  1. ``Y``,
-  2. ``Polymer``
-  3. ``rot_Y``
-
-In addition, the ``--type`` flag is used to choose the method ``4`` for the histogram-based staggered grid method. Note that the second example is the most illustrative and hence recommended example to understand how the borders of the cartesian planes are adjusted.
-
+See :ref:`ALL_testing` for details.
 
 Source Code
 ___________
 
-The implementation of the method in ALL can be found in `ALL_Histogram.hpp <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/include/ALL_Histogram.hpp>`_.
+The implementation of the method in ALL can be found in
+`ALL_Histogram.hpp <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/include/ALL_Histogram.hpp>`_.
 
 The source code to the ALL library is available as a git repository at https://gitlab.version.fz-juelich.de/SLMS/loadbalancing . To obtain a copy of the repository you can use 
 
