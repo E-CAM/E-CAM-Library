@@ -171,3 +171,4 @@ time-to-solution of the applications.
 
     ./modules/ALL_library/tensor_method/readme
     ./modules/ALL_library/staggered_method/readme
+    ./modules/ALL_library/histogram_method/readme
