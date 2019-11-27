@@ -58,8 +58,7 @@ equation :
 where :math:`p` is the momentum vector of the set of
 atoms, interacting via the potential :math:`U` , :math:`\gamma` is the damping coefficient
 and :math:`F(t)` is the stochastic force. The random force  :math:`F(t)` 
-is gaussian and delta-correlated.
-To enforce the classical fluctuation-dissipation theorem, 
+is a Gaussian white noise: to enforce the classical fluctuation-dissipation theorem, 
 its autocorrelation spectrum is given by :
 
 .. math:: C_{FF}(\omega)= \int \limits_{-\infty}^{+\infty} dt \langle F(t) F(t+\tau) \rangle e^{-i \omega t}  = 2m \gamma  k_B T
@@ -71,8 +70,8 @@ Quantum Thermal Bath (QTB)
 --------------------------
 
 The Quantum Thermal Bath uses a generalized Langevin equation in order 
-to approximate nuclear quantum effects[Dam]_ .  In QTB dynamics, the
-stochastic force is no longer delta-correlated but is colored according to the
+to approximate nuclear quantum effects [Dam]_ .  In QTB dynamics, the
+stochastic force is no longer a white noise but is colored according to the
 following formula :
 
 .. math:: C_{FF}(\omega)=2m \gamma  \theta(\omega,T)
@@ -85,8 +84,8 @@ with
 where :math:`\beta = \frac{1}{k_BT}` and :math:`2 \pi \hbar` is the Planck
 constant. The function :math:`\theta(\omega,T)` describes the energy
 of a quantum harmonic oscillators of angular frequency
-:math:`\omega` at a temperature :math:`T` .  The colored random force allows to 
-approximate zero-point energy contributions to the equilibrium properties of the system. 
+:math:`\omega` at a temperature :math:`T` .  The colored random force allows  
+approximating zero-point energy contributions to the equilibrium properties of the system. 
 The QTB method is known to lead to qualitatively
 good results [Bri]_ but as many semi-classical methods, it suffers from zero-point energy leakage
 (ZPEL) [Hern]_.
@@ -104,6 +103,7 @@ In practice, this is done by minimizing the fluctuation-dissipation spectrum
 
 .. math:: \Delta_{FDT} (\omega)  = {\rm{Re}} \left[C_{vF}(\omega)\right] - m \gamma_{r} (\omega) C_{vv} (\omega)  
     :label: eqDFDT
+    
 
 where :math:`C_{vF}` is the velocity random force cross-correlation
 spectrum, :math:`C_{vv}` the velocity autocorrelation spectrum and
@@ -128,14 +128,14 @@ adjusted with a first-order differential equation and an adaptation coefficient
 
 during a preliminary “adaptation time” until they reach convergence. 
 Observables are then computed while the adaptive process is kept active.
-Further informations and precise implementation details can be found in ref.[Man]_.
+Further informations and precise implementation details can be found in ref. [Man]_.
 
 Two implementations are currently available in PaPIM:
 
-#. Random force adaptive QTB (adQTB-r) 
 
-In this variant, the dissipation
-   kernel is left unchanged, i.e. :math:`\gamma_{f}(\omega) = \gamma`
+#. Random force adaptive QTB (adQTB-r):  
+
+   In this variant, the dissipation kernel is left unchanged, i.e. :math:`\gamma_{f}(\omega) = \gamma`
    while the random force is modified according to a frequency-dependent
    set of damping coefficients :math:`\gamma_r(\omega)` to satisfy
    :math:`\Delta_{FDT} = 0` (eq. :eq:`eqDFDT`):
@@ -143,14 +143,14 @@ In this variant, the dissipation
    .. math:: C_{FF}(\omega)=2m \gamma_r(\omega)  \theta(\omega,T)
       :label: eqadQTBr
 
-This method is applicable only if the initial damping coefficient
-:math:`\gamma` is large enough to compensate effects of a possible
-zero-point energy leakage.
+   This method is applicable only if the initial damping coefficient
+   :math:`\gamma` is large enough to compensate effects of a possible
+   zero-point energy leakage.
+
 
 #. Dissipative kernel adaptive QTB (adQTB-f) 
 
-In this approach, the
-   random force is not modified, i.e.
+   In this approach, the random force is not modified, i.e.
    :math:`\gamma_{r} (\omega) = \gamma` and remains the same as in the standard QTB
    method (eq. :eq:`eqQTB`)) but the dissipation term is not 
    described by a viscous damping term anymore (:math:`-m \gamma v`) but
@@ -160,14 +160,15 @@ In this approach, the
    .. math::  \dot p = -\nabla U - \int_0^\infty \  \gamma_f(\tau) p(t-\tau) \ d\tau + F(t)
       :label: eqgenlgv
 
-In order to avoid solving with brute force this integro-differential
-equation, the dissipative memory kernel is expressed as a sum of
-equally spaced (:math:`\Delta \omega`) lorentzian functions of width
-:math:`\alpha` :
+   In order to avoid solving with brute force this integro-differential
+   equation, the dissipative memory kernel is expressed as a sum of
+   equally spaced (:math:`\Delta \omega`) lorentzian functions of width
+   :math:`\alpha` :
 
    .. math:: \gamma_f(\omega) = \frac{\Delta \omega}{\pi}\sum_{j=0}^{n_\omega} 
              \frac{ \gamma_{f,j} }{\alpha + i(\omega-\omega_j)} +\frac{ \gamma_{f,j}}{\alpha + i(\omega+\omega_j)}
       :label: eqlorentzgenlgv
+
 
 The parameter :math:`\gamma_{f,j}` are then modified to satisfy
 :math:`\Delta_{FDT} = 0` (eq. :eq:`eqDFDT`). 
