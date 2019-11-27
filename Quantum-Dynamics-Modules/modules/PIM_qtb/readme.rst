@@ -407,20 +407,6 @@ Langevin module.
 -  ``ReadFiles.f90``: read input files
 
 
-Outlook
-=======
-
-The next step in the implementation is to add the Wigner Langevin
-dynamics to sample the initial conditions for the IVR.
-
-Furthermore, one should note that the current implementation is
-functional with the pre-CP2K version of PaPIM. Thus, some work must be
-done to ensure that everything is compatible with the last version of
-the code.
-
-
-
-
 Compiling
 =========
 
