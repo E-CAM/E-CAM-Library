@@ -87,7 +87,8 @@ To build ALL, begin in the root directory of the package and use
   
 This will create an installation of ALL in the path pointed to by
 ``ALL_INSTALLATION``. ``ALL_test`` (in the ``bin`` folder) is the binary that
-performs the tests.
+performs the tests. If you omit the option ``-DCM_ALL_VTK_OUTPUT=ON`` you will
+not require  the VTK dependency (but cannot use the unstructured mesh method).
 
 In the ``example/jube/input`` subdirectory there are 3 test data sets available,
 namely:
@@ -123,7 +124,7 @@ and Z directions) that will be used.
   3 : Voronoi
   4 : Histogram
   
-``gamma`` (double) is a relaxation which controls the convergence of the
+, ``gamma`` (double) is a relaxation which controls the convergence of the
 load-balancing methods, ``weighted`` (boolean) indicates whether points should
 be assigned a weight. The system size and domain layout are provided in the
 output of the call to ``ASCII2MPIBIN``.
