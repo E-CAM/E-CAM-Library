@@ -56,8 +56,8 @@ See :ref:`ALL_background` for details.
 
 .. _ALL_testing: 
 
-Building and Testing
-____________________
+ALL: Building and Testing
+_________________________
 
 ALL is a C++ header only library using template programming, strictly speaking
 there is no need to install the library, you simply include the header files in
