@@ -31,7 +31,7 @@ Spin orbit coupling smoothing
     Documentation provided in a README file together with the source code.
 
   Application Documentation
-    Detailed documentation related to the running of the module can found 'here https://gitlab.e-cam2020.eu:10443/sanz/durham-ecam.git/readme.
+    Detailed documentation related to the running of the module can found here 'https://gitlab.e-cam2020.eu:10443/sanz/durham-ecam/blob/master/README'
 
   Relevant Training Material
     Training material is available through the test example
@@ -45,10 +45,10 @@ Spin orbit coupling smoothing
 Purpose of Module
 _________________
 
-This module is an standalone program that allows to smooth the off diagonal values (this program is created for spin-orbit couplings) of an 
-electronic estructure calculation. The purpose of the module is to remove the sudden changes in the off-diagonal elements (spin-orbit couplings) due to the 
+This module is a standalone program that allows to smooth the off diagonal values (this program is created for spin-orbit couplings) of an 
+electronic structure calculation. The purpose of the module is to remove the sudden changes in the off-diagonal elements (spin-orbit couplings) due to the 
 swap between near states and sign changes that electronic structure calculation programs produce along one of the coordinates (internuclear distance in 
-the test example). The way to remove the discontinuities is based in the idea that after the diagonalisation of the matrix, the eigenvalues are the spin-orbit states that are obtained from the electronic structure calculation, so the (spin-orbit) coupling elements can be optimised (using conjugate gradient in this program) so that after the diagonalisation using the optimised value the eigenvalue is as near as possible as the onle obtained from the electronic structure calculation. We ensure the continuity using the couplings of a point near to the point that we want to optimised. Further details can be found in PCCP, 21, 14429 (2019).
+the test example). The way to remove the discontinuities is based in the idea that after the diagonalisation of the matrix, the eigenvalues are the spin-orbit states that are obtained from the electronic structure calculation, so the (spin-orbit) coupling elements can be optimised (using conjugate gradient in this program) so that after the diagonalisation using the optimised value the eigenvalue is as near as possible as the one obtained from the electronic structure calculation. We ensure the continuity using the couplings of a point near to the point that we want to optimised. Further details can be found in PCCP, 21, 14429 (2019).
 
 The module is particularly thought for computational chemists that need to fit the spin-orbit couplings to use them in quantum and/or classical dynamics simulations.  
 
@@ -63,7 +63,7 @@ The code has been already used for the control of the photodissociation of IBr s
 Building and Testing
 ____________________
 
-The module includes a Makefile that will compile the code always that user has a fortran compiler and the lapack and blas libraries installed in the computer. The compiler included in the Makefile is gfotran and no specification is given for the location of lapack and blas subroutines. Be sure that you have access to the compiler and libraries. Otherwise, change the compiler to use and include the full path of the libraries.
+The module includes a Makefile. To compile you need:  that will compile the code always that user has a fortran compiler and the lapack and blas libraries installed in the computer. The compiler included in the Makefile is gfotran and no specification is given for the location of lapack and blas subroutines. Be sure that you have access to the compiler and libraries. Otherwise, change the compiler to use and include the full path of the libraries.
 
 Once the executable is created the user can run it just typing ./guessSO.exe. The program reads the input files from the directory inpmat/. For the testing run there are 36x36 elements, each element of the matrix is in a different file. Open one of the files to see the structure of the input files. The program creates intermediate files, ssXX-XX.dat, so that the user can see the evolution of the running. The final output files are adia.dat, adiai.dat, soXX-XX.dat. Where adiai.dat are the initial eigenvalues of the non-optimised matrix (spin-orbit states in this example), adia.dat are the eigenvalues with the optimised matrix and the soXX-XX.dat are the individual elements of the optimised matrix in which the off-diagonal values should be now smooth and suitable for fitting. 
 
