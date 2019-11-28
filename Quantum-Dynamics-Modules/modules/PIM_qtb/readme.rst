@@ -423,6 +423,7 @@ Compiling
 
 A Fortran 90/95 compiler with MPI wrapper is required for successful compilation of the code. 
 Although the correlation function subroutines are serial, the remaining code is parallelized so MPI wrappers have to be used. 
+The code must be compiled using the FFTW library.
 Quantum correlation subroutines within PIM_qtb modules are compiled by executing the command ``make`` in the ``./source`` directory. 
 The same make command generates a ``PaPIM.exe`` executable for testing of the correlation functions. 
 
