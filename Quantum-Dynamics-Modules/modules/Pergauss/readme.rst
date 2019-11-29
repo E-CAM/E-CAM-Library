@@ -1,7 +1,7 @@
 .. _Pergauss:
 
 ###########################################################
-Periodic Boundary Conditions in a gaussian basis (Pergauss)
+PerGauss: Periodic Boundary Conditions for gaussian bases
 ###########################################################
 
 .. sidebar:: Software Technical Information
@@ -16,12 +16,11 @@ Periodic Boundary Conditions in a gaussian basis (Pergauss)
     Documentation provided as in-line comments within the source code
 
   Application Documentation
-    Useful documentation can be found here_
+    Quantics documentation can be found in quantics_
     
-    .. _here: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics/doc/index.html 
-
   Relevant Training Material
-    Training material is available through the test examples
+    Tutorial and exercises to test the code are available here_
+
 
 .. contents:: :local:
 
@@ -29,22 +28,20 @@ Periodic Boundary Conditions in a gaussian basis (Pergauss)
 Purpose of Module
 _________________
 
-This module provides periodic boundary conditions for periodic normal modes while using gaussian bases in  G-MCTDH or vMCG
+This module provides periodic boundary conditions for gaussian basis sets to be used in  G-MCTDH[1] and vMCG[2]
 calculations using the Quantics_ software package. 
 
 Background Information
 ______________________
 
-Currently pergauss resides within the Quantics_ software package available through github_.
+Currently pergauss resides within the Quantics_ software package available upon request through gitlab_.
 
 
 Testing
 _______
 
 A test example (``pergauss.inp``) is provided to test the module and can be found in the directory 
-``~/quantics/inputs``. 
-This test works for Quantics_ Revision xx. 
-The Quantics_ README file will help you to install the Quantics_ code. (tocheck)
+``$quantics_path/inputs``, where ``quantics_path`` is where Quantics_ is located.
 The test can be done through the following command
 
 ::
@@ -59,7 +56,7 @@ Source Code
 ___________
 
 The source code for pergauss can be found within the Quantics_ software which 
-can be downloaded via Gitlab_. 
+can be downloaded via gitlab_. 
 The Quantics_ project has a private repository so you also need to be a member of the project to checkout. 
 Then type into terminal
 
@@ -67,17 +64,18 @@ Then type into terminal
 
         $ git clone https://gitlab.com/quantics/quantics.git DIRECTORY  
 
-Within the Quantics_ program, the explicit code is located in files ``~/quantics/source/gendvr/einpbasmod.f90``, ``~/quantics/source/geninwf/eininwfmod.f90``, ``~/quantics/source/mctdhlib/gwplib.f90``, ``~/quantics/source/include/global.f90`` and ``~/quantics/source/blabla.f90``. Every modified line will be preceded by a comment saying !pergauss to help people finding the modifications.
+Within the Quantics_ program, the explicit code is located at the source code folder in files ``mctdhlib/gwplib.f90``, ``geninwf/eininwfmod.f90``, ``geninwf/genphi1.f90``, ``gendvr/einpbasmod.f90`` and ``include/global.f90``. Every modified line will be preceded by a comment saying !pergauss to help users finding the modifications.
 
-.. _Quantics: http://chemb125.chem.ucl.ac.uk/worthgrp/quantics
+.. _Quantics: https://www2.chem.ucl.ac.uk/worthgrp/quantics/doc/index.html
 .. _gitlab: https://gitlab.com/quantics
-
 
 References
 __________
 
-.. [Lef] C. Leforestier, R. H. Bisseling, C. Cerjan, M. D. Feit, R. Friesner, A. Guldberg, A. Hammerich, G. Jolicard, 
-         W. Karrlein, H.-D. Meyer, N. Lipkin, O. Roncero, R. Kosloff *J. Comp. Phys.* **94** (1991) 59 
-         `DOI: https://doi.org/10.1016/0021-9991(91)90137-A <http://www.sciencedirect.com/science/article/pii/002199919190137A>`_
+.. [1] I. Burghardt, I, H.-D. Meyer, and L. S. Cederbaum 
+       *J. Chem. Phys.* **115** (1999) 2927
 
 
+.. [2] G. W. Richings, I. Polyak, K. E. Spinlove, G. A. Worth, I. Burghardt, 
+       B. Lasorne *Int. Rev. Phys. Chem.* **34** (2015) 269
+        

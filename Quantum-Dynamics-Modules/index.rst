@@ -309,6 +309,13 @@ It also contains a library of adapted MPI subroutines for easier programming of 
 **Openmpbeads** is a patch to the PaPIM code which enables parallelization of the sampling of the  
 polymer chains within the PIM algorithm, improving efficiency in sampling of the Wigner density.
 
+**PerGauss** is an implementation of periodic boundary conditions for gaussian basis functions to be used within the quantics program package.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/Pergauss/readme
 
 
 References
