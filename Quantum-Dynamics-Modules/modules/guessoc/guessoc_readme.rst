@@ -58,6 +58,7 @@ The applicability of the code is general for all type of dynamical simulations t
 
 The code has been already used for the control of the photodissociation of IBr system, where the total number of the states for the simulations is 36, producing a total number of (spin-orbit) couplings equal to 1260. All the couplings needed to be fit to use them in a wavepacket propagation. (Sanz-Sanz C., Worth, G.A., PCCP, 21, 14429-14439 (2019)).
 
+
 Building and Testing
 ____________________
 
