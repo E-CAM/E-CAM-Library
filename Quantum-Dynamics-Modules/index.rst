@@ -421,6 +421,16 @@ The **Zagreb_sh** module is an interface between between Quantics package and th
 
 The **Quantics_openmp** module is an initial effort at OpenMP parallelisation improvements to Quantics.
 
+
+.. toctree::
+        :glob:
+        :maxdepth: 1
+ 
+        ./modules/guessoc/guessoc_readme
+
+The **Spin orbit coupling smoothing** module is to smooth spin orbit couplings along internuclear distance.
+
+
 References
 ==========
 
