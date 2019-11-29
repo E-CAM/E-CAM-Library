@@ -68,6 +68,7 @@ Within the Quantics_ program, the explicit code is located at the source code fo
 
 .. _Quantics: https://www2.chem.ucl.ac.uk/worthgrp/quantics/doc/index.html
 .. _gitlab: https://gitlab.com/quantics
+.. _here: https://www2.chem.ucl.ac.uk/worthgrp/quantics/ 
 
 References
 __________
