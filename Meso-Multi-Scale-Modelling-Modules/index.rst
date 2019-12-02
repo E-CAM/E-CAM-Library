@@ -3,6 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. sidebar:: General Information
+
+    .. contents:: :depth: 2
+
+    * :ref:`contributing`
+    * :ref:`search`
+
 .. _readme_meso_multi:
 
 *****************************
@@ -11,13 +18,6 @@ Meso- and Multi-scale Modules
 
 Introduction
 ============
-
-.. sidebar:: General Information
-
-    .. contents:: :depth: 2
-
-    * :ref:`contributing`
-    * :ref:`search`
 
 .. image:: ./images/DPD1.jpg
    :width: 10 %
@@ -170,3 +170,7 @@ time-to-solution of the applications.
     :maxdepth: 1
 
     ./modules/ALL_library/tensor_method/readme
+    ./modules/ALL_library/staggered_method/readme
+    ./modules/ALL_library/unstructured_method/readme
+    ./modules/ALL_library/voronoi_method/readme
+    ./modules/ALL_library/histogram_method/readme
