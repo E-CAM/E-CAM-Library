@@ -63,7 +63,7 @@ E-CAM example module
 The E-CAM library is purely a set of documentation that describes software development efforts related to the project. A
 *module* for E-CAM is the documentation of the single development of effort associated to the project.In that sense, a
 module does not directly contain source code but instead contains links to source code, typically stored elsewhere. Each
-module references the source code changes to which it direcctly applies (usually via a URL), and provides detailed
+module references the source code changes to which it directly applies (usually via a URL), and provides detailed
 information on the relevant *application* for the changes as well as how to build and test the associated software.
 
 The original source of this page (:download:`readme.rst`) contains lots of additional comments to help you create your

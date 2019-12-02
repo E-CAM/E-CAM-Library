@@ -3,6 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. sidebar:: General Information
+
+    .. contents:: :depth: 2
+
+    * :ref:`contributing`
+    * :ref:`search`
+
 .. _readme_electronic_structure:
 
 ****************************
@@ -12,14 +19,7 @@ Electronic Structure Modules
 Introduction
 ============
 
-.. sidebar:: General Information
-
-    .. contents:: :depth: 2
-
-    * :ref:`contributing`
-    * :ref:`search`
-
-.. figure:: ./images/wake_nova-rgb.png 
+.. figure:: ./images/protein-metal-cluster.png 
    :figwidth: 25 % 
    :align: left
 
@@ -76,6 +76,29 @@ The ESDW in San Sebastian in September 2016 was the starting point for the modul
     ./modules/Use_WS_Distance/readme
     ./modules/Test-Suite-Travis-CI-Integration/readme
 
+ESDW Lausanne 2018
+------------------
+
+The ESDW in Lausanne in February 2018 was the starting point for the modules below.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/esl-bundle/readme
+    ./modules/ELPA_easyblock/readme
+
+ESDW Dublin 2019
+-----------------
+
+The ESDW in Dublin in January 2019 was the starting point for the modules below.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/esl-easyconfigs/readme
+
 
 Other Modules
 -------------
@@ -86,7 +109,6 @@ Modules not coming from ESDWs
      :glob:
      :maxdepth: 1
 
-     ./modules/SCDM_WFs/readme
      ./modules/flook/readme
      ./modules/MatrixSwitchDBCSR/readme
 
@@ -107,11 +129,15 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/Geomoltools/readme   
     ./modules/GRASP_Sampling/readme   
     ./modules/GROMACS_interface/README   
+    ./modules/Gaussian_interface/README   
     ./modules/Selectively-Localized-Wannier-Functions/readme
     ./modules/Gaussian_interface/README  
     ./modules/Differential_Evolution/README  
     ./modules/Gaussian_interface/README
     ./modules/WLRR/README   
-
+    ./modules/SCDM_WFs/readme
+    ./modules/W90_solution_booklet/readme
+    ./modules/FFTXlib/readme
+    ./modules/W90_cube_format_non-orthogonal/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/
