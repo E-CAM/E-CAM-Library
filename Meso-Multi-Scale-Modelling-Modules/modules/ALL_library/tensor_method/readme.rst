@@ -1,13 +1,3 @@
-..  In ReStructured Text (ReST) indentation and spacing are very important (it is how ReST knows what to do with your
-    document). For ReST to understand what you intend and to render it correctly please to keep the structure of this
-    template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded
-    and followed by white space (if you see warnings when this file is built they this is a common origin for problems).
-
-..  We allow the template to be standalone, so that the library maintainers add it in the right place
-
-..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
-    progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
-
 ..  sidebar:: Software Technical Information
 
   Name
@@ -31,66 +21,128 @@
   Software Module Developed by
     Rene Halver
 
+  Polymer melt test is provided by
+    Dr. Horacio V. Guzman
+ 
+  Module Committed by
+    Dr. Horacio V. Guzman
 
-..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
-    reference, in this case, as ":ref:`ALL_example`"). You *MUST* change the reference below from "ALL_method_example"
-    to something unique otherwise you will cause cross-referencing errors. The reference must come right before the
-    heading for the reference to work (so don't insert a comment between).
 
-.. _ALL_tensor_method:
+.. _ALL_tensor:
 
 #########################
 ALL Tensor-Product method
 #########################
 
-..  Let's add a local table of contents to help people navigate the page
-
 ..  contents:: :local:
 
-..  Add an abstract for a *general* audience here. Write a few lines that explains the "helicopter view" of why this
-    module was are created.
-
-The A Load Balancing Library (ALL) library aims to provide an easy way to include dynamic domain-based load balancing
+A Load-Balancing Library (ALL) library aims to provide an easy and portable way to include dynamic domain-based load balancing
 into particle based simulation codes. The library is developed in the Simulation Laboratory Molecular Systems of the
 Juelich Supercomputing Centre at Forschungszentrum Juelich.
 
 Purpose of Module
 _________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
-
-This module provides an additional method to the ALL library, up-to-date descriptions of the methods in the library can
+This module provides an additional method to the `ALL library <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing>`_ , up-to-date descriptions of the methods in the library can
 be found in the `ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
 
-For the Tensor-Product method, the work on all processes is reduced over the cartesian planes in the systems. This work
+For the Tensor-Product method, the work on all processes (subdomains) is reduced over the cartesian planes in the systems. This work
 is then equalized by adjusting the borders of the cartesian planes.
 
 Background Information
 ______________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
-
 See :ref:`ALL_background` for details.
 
-Building and Testing
-____________________
+.. _ALL_testing: 
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
+ALL: Building and Testing
+_________________________
 
-ALL uses the `CMake <https://cmake.org/runningcmake/>`_ build system, specific build and installation requirements can
-be found in the `ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
+ALL is a C++ header only library using template programming, strictly speaking
+there is no need to install the library, you simply include the header files in
+your application. In order to provide examples, ALL uses the
+`CMake <https://cmake.org/runningcmake/>`_ build system, specific build and
+installation requirements can be found in the
+`ALL README file <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/README.md>`_.
+If you wish to use/test the topological mesh scheme, you will need an MPI-enabled
+installation of the `VTK <https://vtk.org/>`_ package.
 
-**Need to provide information on how to test the particular method here.**
+To build ALL, begin in the root directory of the package and use
+
+.. code:: bash
+
+  export ALL_INSTALLATION=/path/to/my/loadbalancing/install
+  mkdir build
+  cd build
+  cmake .. -DCMAKE_INSTALL_PREFIX=$ALL_INSTALLATION -DCM_ALL_VTK_OUTPUT=ON -DCM_ALL_VORONOI=ON
+  make -j
+  make install
+  cd ..
+  
+This will create an installation of ALL in the path pointed to by
+``ALL_INSTALLATION``. ``ALL_test`` (in the ``bin`` folder) is the binary that
+performs the tests. If you omit the option ``-DCM_ALL_VTK_OUTPUT=ON`` you will
+not require  the VTK dependency (but cannot use the unstructured mesh method).
+
+In the ``example/jube/input`` subdirectory there are 3 test data sets available,
+namely:
+
+1. Simple Wye-shape biosystem;
+2. Heterogeneous polymer melt and
+3. A rotated version of the Wye-shaped biosystem.
+
+These data sets are in raw ascii format and need to be translated into a format
+that can be consumed by ``ALL_test``. A utility ``ASCII2MPIBIN`` is provided to
+do the conversion, with the command line options:
+
+.. code:: bash
+
+  ASCII2MPIBIN <in_file (ASCII)> <out_file (binary)> <n_x> <n_y> <n_z>
+  
+where ``n_x``, ``n_y``, ``n_z`` are the number of (MPI) processes (in the X, Y
+and Z directions) that will be used.
+
+``ALL_test`` takes a number of options,
+
+.. code:: bash
+
+  ALL_test <Method> <Number of iterations> <gamma> <weighted> <input file> <system size: x, y, z> <domain layout: x, y, z>
+
+``Method`` (integer) is the load-balancing scheme to use of which there are 5 options:
+
+.. code:: bash
+
+  0 : Tensor
+  1 : Staggered
+  2 : Unstructured
+  3 : Voronoi
+  4 : Histogram
+  
+, ``gamma`` (double) is a relaxation which controls the convergence of the
+load-balancing methods, ``weighted`` (boolean) indicates whether points should
+be assigned a weight. The system size and domain layout are provided in the
+output of the call to ``ASCII2MPIBIN``.
+
+
+An example execution using the polymer melt data set on 125 processors looks
+like
+
+.. code:: bash
+
+  ASCII2MPIBIN globalBlockCoordsPolymer.txt input.bin 5 5 5
+  mpirun -n 125 ALL_test 0 50 8.0 0 input.bin 80 80 450 5 5 5
 
 Source Code
 ___________
 
-.. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
+The implementation of the Tensor-Product method in ALL can be found in `ALL_Tensor.hpp <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/blob/master/include/ALL_Tensor.hpp>`_.
 
-**Here link the source code *that is relevant for the module*. If you are using Github or GitLab and the `Gitflow
-Workflow <https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature
-branch. Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits or locations
-in the source code.**
+The source code to the ALL library is available as a git repository at https://gitlab.version.fz-juelich.de/SLMS/loadbalancing . To obtain a copy of the repository you can use 
 
-.. _ReST: http://www.sphinx-doc.org/en/stable/rest.html
-.. _Sphinx: http://www.sphinx-doc.org/en/stable/markup/index.html
+.. code:: bash
+
+  git clone https://gitlab.version.fz-juelich.de/SLMS/loadbalancing.git
+  
+However, please note that the source code is currently under embargo until an associated paper is published, if you would like to be obtain a copy of the code, please contact Prof. Godehard Sutmann at ``g.sutmann@fz-juelich.de``.
+
