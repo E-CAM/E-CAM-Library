@@ -142,12 +142,13 @@ Here is a typical sequence to follow to build the code::
 
     mkdir my_build
     cd my_build
-    cmake ..
+    cmake .. -DBUILD_TESTING=1
     make -j8
 
 To run `esl-demo`_, you will need at least a pseudopotential and a FDF input
 file. Some examples are provided in the `tests/` subdirectory of the source
-tree.
+tree (which will now also be found in your ``my_build`` directory). You can
+run the test suite in the ``my_build`` directory with ``make test``.
 
 .. note::
 
