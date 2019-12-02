@@ -125,6 +125,7 @@ The third code written in python takes the output data from LAMMPS, prepares it 
 selected ensemble can be computed using MBAR provided by the pymbar suite of python codes of the Chodera group. 
 
 The fourth code, also written in python take the LAMMPS output and performs the thermodynamic integration.
+
 .. image:: ./flowchart1.png
 
 Source Code
