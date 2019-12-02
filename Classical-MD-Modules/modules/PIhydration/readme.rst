@@ -31,7 +31,7 @@ Particle Insertion Hydration
 Purpose of the Module
 _____________________
 
-This software module computes the change in free energy associated with the insertion or deletion of water in dilute or dense conditions in a variety of Thermodynamic Ensembles, where statistical sampling through molecular dynamics is performed under `LAMMPS<https://lammps.sandia.gov/>`_ but will be extended to other molecular dynamics engines at a later date. It builds on the PI Core module of codes by adding electrostatic, bond, and angle
+This software module computes the change in free energy associated with the insertion or deletion of water in dilute or dense conditions in a variety of Thermodynamic Ensembles, where statistical sampling through molecular dynamics is performed under `LAMMPS <https://lammps.sandia.gov/>`_ but will be extended to other molecular dynamics engines at a later date. It builds on the PI Core module of codes by adding electrostatic, bond, and angle
 :math:`\lambda`   dependent interactions including SHAKE to the Lennard-Jones interactions that were dealt with in PIcore. It differs from the main community approach used to date to compute such changes as it does not use soft-core potentials. Its key advantages over soft-core potentials are: (a) electrostatic interactions 
 can in principle be performed simultaneously
 with particle insertion (this and other functionalities will be added in a new module); and, (b) essentially exact long-range dispersive interactions 
