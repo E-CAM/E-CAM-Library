@@ -3,6 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. sidebar:: General Information
+
+    .. contents:: :depth: 2
+
+    * :ref:`contributing`
+    * :ref:`search`
+
 .. _readme_classical_md:
 
 ********************
@@ -11,13 +18,6 @@ Classical MD Modules
 
 Introduction
 ============
-
-.. sidebar:: General Information
-
-    .. contents:: :depth: 2
-
-    * :ref:`contributing`
-    * :ref:`search`
 
 .. image:: ./images/lipid.jpg
    :width: 15 %
@@ -215,8 +215,11 @@ The following modules were developed specifically for the Classical MD pilot pro
     :maxdepth: 1
 
     ./modules/contact_maps/readme
-    ./modules/contact_maps_parallelization/readme
+    ./modules/contact_maps_parallelization/readme 
     ./modules/contact_concurrences/readme
+    ./modules/PIcore/readme
+    ./modules/PIhydration/readme
+
 
 Extended Software Development Workshops (ESDWs)
 ===============================================
