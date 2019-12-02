@@ -178,6 +178,13 @@ lectures and tutorials on OpenMP parallelization.
 
 .. _IBM: https://www.zurich.ibm.com/
 
+Modules developed in this workshop not included in other subheadings are:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/Correlated-Sampling/readme
 
 
 ESDW Durham University (Durham 2019)
