@@ -74,6 +74,7 @@ Consider a  system consisting of :math:`N+M` degrees of freedom  and the Hamilto
 
 .. math::
   H(r,p,\lambda) =&H_0 + KE_{insert} +  \Delta V(r, \lambda)
+
 where :math:`H_0` corresponds to an unperturbed Hamiltonian, and the perturbation :math:`\Delta V(r, \lambda)` depends nonlinearly on a control parameter :math:`\lambda`. The first set of N degrees of freedom is denoted by A and the second set of  M degrees of freedom is denoted by B.  To explore equilibrium properties of the system, thermostats, and barostats are used to sample either the NVT (canonical) ensemble or the NPT (Gibbs) ensemble. The perturbation is devised so that 
 when  :math:`\lambda = 0`, :math:`\Delta V(r, \lambda) = 0`, B is in purely virtual. When :math:`\lambda = 1`, B 
 corresponds to a  fully physical augmentation of the original system.
@@ -95,7 +96,7 @@ where for each inserted atom i
   \hat{q}( \lambda)_i &= \lambda ^p \\
   
 and the mixing rule for Van der Waals diameters and binding energy between different atoms uses the geometric mean for atoms pairs where one or more of the atoms is inserted but retains the mixing rule for atoms already present. The dependence of 
-math:`\sigma` on :math:`\lambda` has the  consequence that the mean 
+:math:`\sigma` on :math:`\lambda` has the  consequence that the mean 
 :math:`\sigma` between a pair of inserted atoms scales as :math:`\lambda`, but scales as :math:`\sqrt{\lambda}` when one atom in the pair is  
 inserted and the other is already present. The dependence of math:`\epsilon` on  :math:`\lambda` ensures that forces behave regularly when 
 :math:`\lambda` is very small. These choices of perturbations guarantees that the particle insertion and deletion catastrophes are avoided.
