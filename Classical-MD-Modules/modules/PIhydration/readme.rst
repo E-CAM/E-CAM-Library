@@ -56,7 +56,9 @@ atoms and those already present is required (i.e. a simple linear dependence on 
 
 
 The applications of this module use in upcoming modules include computing the free energy changes associated with:
+
 ::
+
     (a) hydration and drying;
     (b) the addition of multiple molecules into a condenses environment;
     (c) residue mutation and alchemy;
