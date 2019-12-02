@@ -19,8 +19,9 @@ Particle Insertion Hydration
     with Doxygen and ReST but if you use other tools it might be harder for us to help if there are problems.
 
   Application Documentation
-    See `PIhydration README <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/tree/master/PIhydration>`_
-  Relevant Training Material
+    See `PIhydration README file <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/tree/master/PIhydration>`_
+
+    Relevant Training Material
     Add a link to any relevant training material.
 
 .. contents:: :local:
