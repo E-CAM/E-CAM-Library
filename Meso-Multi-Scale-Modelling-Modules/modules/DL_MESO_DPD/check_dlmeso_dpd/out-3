@@ -1,0 +1,22 @@
+ unit cell sizes        =     1.0000000000     1.0000000000     1.0000000000
+ nfoldx, nfoldy, nfoldz =        1        1        1
+ system sizes           =     1.0000000000     1.0000000000     1.0000000000
+ imcon     =        1
+ levcfg    =        0
+ lconfzero =        T
+ srftype   =        0
+ nspe      =        3
+ nmoldef   =        2
+ mxmolsize =        3
+ mxbonds   =        2
+ nspec     =        0        6        0
+ nspecmol  =        4        7        7
+ numbond   =       11
+ for molecule ACB      :
+ mlstrtspe =        1        3        2
+ for molecule BC       :
+ mlstrtspe =        2        3        0
+ error: problem with the molecular content of  ACB     :            1 -th bead is C        instead of A       (bead label =          10 )
+ error: problem with the molecular content of  ACB     :            2 -th bead is A        instead of C       (bead label =          11 )
+
+ error: CONFIG file is not consistent with FIELD file
