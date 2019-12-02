@@ -1,0 +1,711 @@
+diff -Naur /storage/mi/ck69giso/gromacs-5.1.5/src/gromacs/legacyheaders/update.h /home/mi/ck69giso/gmx-515-lt/src/gromacs/legacyheaders/update.h
+--- /storage/mi/ck69giso/gromacs-5.1.5/src/gromacs/legacyheaders/update.h	2016-07-13 14:56:04.000000000 +0200
++++ /home/mi/ck69giso/gmx-515-lt/src/gromacs/legacyheaders/update.h	2018-12-03 12:07:23.228392303 +0100
+@@ -102,7 +102,9 @@
+                    t_commrec        *cr, /* these shouldn't be here -- need to think about it */
+                    t_nrnb           *nrnb,
+                    gmx_constr_t      constr,
+-                   t_idef           *idef);
++                   t_idef           *idef,
++		   t_forcerec       *fr);
++
+ 
+ /* Return TRUE if OK, FALSE in case of Shake Error */
+ 
+@@ -125,7 +127,8 @@
+                         gmx_update_t      upd,
+                         gmx_constr_t      constr,
+                         gmx_bool          bFirstHalf,
+-                        gmx_bool          bCalcVir);
++                        gmx_bool          bCalcVir,
++			t_forcerec *fr);
+ 
+ /* Return TRUE if OK, FALSE in case of Shake Error */
+ 
+diff -Naur /storage/mi/ck69giso/gromacs-5.1.5/src/gromacs/mdlib/adress.c /home/mi/ck69giso/gmx-515-lt/src/gromacs/mdlib/adress.c
+--- /storage/mi/ck69giso/gromacs-5.1.5/src/gromacs/mdlib/adress.c	2016-07-13 14:56:04.000000000 +0200
++++ /home/mi/ck69giso/gmx-515-lt/src/gromacs/mdlib/adress.c	2018-08-15 12:39:32.000000000 +0200
+@@ -101,17 +101,17 @@
+         return 0;
+     }
+     /* molecule is explicit */
+-    else if (sqr_dl < adressr*adressr)
++    else //if (sqr_dl < adressr*adressr)
+     {
+         return 1;
+     }
+-    /* hybrid region */
++    /* hybrid region 
+     else
+-    {
+-        dl  = sqrt(sqr_dl);
+-        tmp = cos((dl-adressr)*M_PI/2/adressw);
+-        return tmp*tmp;
+-    }
++    { 
++//        dl  = sqrt(sqr_dl);
++//        tmp = cos((dl-adressr)*M_PI/2/adressw);
++        return 0.5;
++    }    */
+ }
+ 
+ void
+diff -Naur /storage/mi/ck69giso/gromacs-5.1.5/src/gromacs/mdlib/ns.c /home/mi/ck69giso/gmx-515-lt/src/gromacs/mdlib/ns.c
+--- /storage/mi/ck69giso/gromacs-5.1.5/src/gromacs/mdlib/ns.c	2016-07-13 14:56:04.000000000 +0200
++++ /home/mi/ck69giso/gmx-515-lt/src/gromacs/mdlib/ns.c	2018-08-15 12:55:06.000000000 +0200
+@@ -264,10 +264,12 @@
+     for (i = 0; i < fr->nnblists; i++)
+     {
+         nbl = &(fr->nblists[i]);
+-
+-        if ((fr->adress_type != eAdressOff) && (i >= fr->nnblists/2))
++/* chk */
++//        if ((fr->adress_type != eAdressOff) && (i >= fr->nnblists/2))
++        if ((fr->adress_type != eAdressOff))
+         {
+-            type = GMX_NBLIST_INTERACTION_ADRESS;
++	/*  type = GMX_NBLIST_INTERACTION_ADRESS; */
++            type = GMX_NBLIST_INTERACTION_STANDARD;
+         }
+         init_nblist(log, &nbl->nlist_sr[eNL_VDWQQ], &nbl->nlist_lr[eNL_VDWQQ],
+                     maxsr, maxlr, ivdw, ivdwmod, ielec, ielecmod, igeometry_def, type, bElecAndVdwSwitchDiffers);
+@@ -601,11 +603,14 @@
+     int          *cginfo;
+     int          *type, *typeB;
+     real         *charge, *chargeB;
++    real         *wf; 
+     real          qi, qiB, qq, rlj;
+     gmx_bool      bFreeEnergy, bFree, bFreeJ, bNotEx, *bPert;
+     gmx_bool      bDoVdW_i, bDoCoul_i, bDoCoul_i_sol;
++    gmx_bool      b_hybrid;
+     int           iwater, jwater;
+     t_nblist     *nlist;
++    gmx_bool      bEnergyGroupCG; 
+ 
+     /* Copy some pointers */
+     cginfo  = fr->cginfo;
+@@ -614,6 +619,7 @@
+     type    = md->typeA;
+     typeB   = md->typeB;
+     bPert   = md->bPerturbed;
++    wf      = md->wf; 
+ 
+     /* Get atom range */
+     i0     = index[icg];
+@@ -625,7 +631,7 @@
+     iwater = (solvent_opt != esolNO) ? GET_CGINFO_SOLOPT(cginfo[icg]) : esolNO;
+ 
+     bFreeEnergy = FALSE;
+-    if (md->nPerturbed)
++    if (md->nPerturbed ) 
+     {
+         /* Check if any of the particles involved are perturbed.
+          * If not we can do the cheaper normal put_in_list
+@@ -683,6 +689,7 @@
+     }
+ 
+     if (!bFreeEnergy)
++/*    if (!bFreeEnergy ||  (fr->adress_type != eAdressOff)) */
+     {
+         if (iwater != esolNO)
+         {
+@@ -846,8 +853,13 @@
+                 bDoVdW_i  = (bDoVdW  && bHaveVdW[type[i_atom]]);
+                 bDoCoul_i = (bDoCoul && qi != 0);
+ 
++		/* chk */
++                    bEnergyGroupCG = !egp_explicit(fr, igid); 
++		/* chk */
++
+                 if (bDoVdW_i || bDoCoul_i)
+                 {
++
+                     /* Loop over the j charge groups */
+                     for (j = 0; (j < nj); j++)
+                     {
+@@ -867,7 +879,19 @@
+                         /* Finally loop over the atoms in the j-charge group */
+                         for (jj = jj0; jj < jj1; jj++)
+                         {
++
+                             bNotEx = NOTEXCL(bExcl, i, jj);
++      /* change 7.11.2017 chk*/
++                        if ( fr->adress_type != eAdressOff ) 
++		        { 
++                            if ( ( !bEnergyGroupCG && ( wf[i_atom] <= GMX_REAL_EPS || wf[jj] <= GMX_REAL_EPS ) ) || 
++			       ( ( bEnergyGroupCG ) && ( wf[i_atom] > GMX_REAL_EPS || wf[jj] > GMX_REAL_EPS ) ))
++//  abrupt-GC 	       ( ( bEnergyGroupCG ) && ( wf[i_atom] > GMX_REAL_EPS && wf[jj] > GMX_REAL_EPS ) ))
++                            {
++                                continue;
++                            } 
++			}
++      /* change 7.11.2017 chk*/
+ 
+                             if (bNotEx)
+                             {
+@@ -984,6 +1008,10 @@
+                     jj1 = index[jcg+1];
+                     /* Finally loop over the atoms in the j-charge group */
+                     bFree = bPert[i_atom];
++
++		    /* chk 
++                    bEnergyGroupCG = !egp_explicit(fr, igid); */
++
+                     for (jj = jj0; (jj < jj1); jj++)
+                     {
+                         bFreeJ = bFree || bPert[jj];
+@@ -994,6 +1022,16 @@
+                         {
+                             bNotEx = NOTEXCL(bExcl, i, jj);
+ 
++			    /* chk 
++
++                        if ( ( !bEnergyGroupCG && ( wf[i_atom] <= GMX_REAL_EPS || wf[jj] <= GMX_REAL_EPS ) ) || 
++			     ( ( bEnergyGroupCG ) && ( wf[i_atom] >= GMX_REAL_EPS && wf[jj] >= GMX_REAL_EPS ) ) 
++			     )
++
++                            {
++                                continue;
++                            } */
++
+                             if (bNotEx)
+                             {
+                                 if (bFreeJ)
+@@ -1250,6 +1288,19 @@
+                      * b_hybrid=true are placed into the _adress neighbour lists and
+                      * processed by the generic AdResS kernel.
+                      */
++      /* change 7.11.2017 chk*/     
++                   /* if ( fr->adress_type != eAdressOff ) 
++		       { */
++                        if ( ( !bEnergyGroupCG && ( wf[i_atom] <= GMX_REAL_EPS || wf[jj] <= GMX_REAL_EPS ) ) || 
++			     ( ( bEnergyGroupCG ) && ( wf[i_atom] > GMX_REAL_EPS || wf[jj] > GMX_REAL_EPS ) ) 
++//			     ( ( bEnergyGroupCG ) && ( wf[i_atom] > GMX_REAL_EPS && wf[jj] > GMX_REAL_EPS ) ) 
++			     )
++
++                            {
++                                continue;
++                            } 
++                    /*    } */
++/*    old version from normal GC-AdResS before october 7                 
+                     if ( (bEnergyGroupCG &&
+                           wf[i_atom] >= 1-GMX_REAL_EPS && wf[jj] >= 1-GMX_REAL_EPS ) ||
+                          ( !bEnergyGroupCG && wf[jj] <= GMX_REAL_EPS ) )
+@@ -1259,6 +1310,7 @@
+ 
+                     b_hybrid = !((wf[i_atom] >= 1-GMX_REAL_EPS && wf[jj] >= 1-GMX_REAL_EPS) ||
+                                  (wf[i_atom] <= GMX_REAL_EPS && wf[jj] <= GMX_REAL_EPS));
++*/
+ 
+                     if (bNotEx)
+                     {
+@@ -1266,28 +1318,15 @@
+                         {
+                             if (charge[jj] != 0)
+                             {
+-                                if (!b_hybrid)
+-                                {
+-                                    add_j_to_nblist(coul, jj, bLR);
+-                                }
+-                                else
+-                                {
+-                                    add_j_to_nblist(coul_adress, jj, bLR);
+-                                }
++				    /* chk: removed the !b_hybrid if loops */
++                               add_j_to_nblist(coul, jj, bLR);
+                             }
+                         }
+                         else if (!bDoCoul_i)
+                         {
+                             if (bHaveVdW[type[jj]])
+                             {
+-                                if (!b_hybrid)
+-                                {
+                                     add_j_to_nblist(vdw, jj, bLR);
+-                                }
+-                                else
+-                                {
+-                                    add_j_to_nblist(vdw_adress, jj, bLR);
+-                                }
+                             }
+                         }
+                         else
+@@ -1296,38 +1335,16 @@
+                             {
+                                 if (charge[jj] != 0)
+                                 {
+-                                    if (!b_hybrid)
+-                                    {
+                                         add_j_to_nblist(vdwc, jj, bLR);
+-                                    }
+-                                    else
+-                                    {
+-                                        add_j_to_nblist(vdwc_adress, jj, bLR);
+-                                    }
+                                 }
+                                 else
+                                 {
+-                                    if (!b_hybrid)
+-                                    {
+                                         add_j_to_nblist(vdw, jj, bLR);
+-                                    }
+-                                    else
+-                                    {
+-                                        add_j_to_nblist(vdw_adress, jj, bLR);
+-                                    }
+-
+                                 }
+                             }
+                             else if (charge[jj] != 0)
+                             {
+-                                if (!b_hybrid)
+-                                {
+                                     add_j_to_nblist(coul, jj, bLR);
+-                                }
+-                                else
+-                                {
+-                                    add_j_to_nblist(coul_adress, jj, bLR);
+-                                }
+ 
+                             }
+                         }
+@@ -2671,8 +2688,10 @@
+     rvec     box_size, grid_x0, grid_x1;
+     int      i, j, m, ngid;
+     real     min_size, grid_dens;
++    real     b_hybrid;
+     int      nsearch;
+     gmx_bool     bGrid;
++    gmx_bool     bEnergyGroupCG;
+     char     *ptr;
+     gmx_bool     *i_egp_flags;
+     int      cg_start, cg_end, start, end;
+@@ -2774,8 +2793,9 @@
+     }
+     debug_gmx();
+ 
+-    if (fr->adress_type == eAdressOff)
+-    {
++/* chk */
++//    if (fr->adress_type == eAdressOff)
++//    {
+         if (!fr->ns.bCGlist)
+         {
+             put_in_list = put_in_list_at;
+@@ -2784,11 +2804,12 @@
+         {
+             put_in_list = put_in_list_cg;
+         }
+-    }
+-    else
+-    {
+-        put_in_list = put_in_list_adress;
+-    }
++//    }
++//    else
++//    {
++//        put_in_list = put_in_list_adress;
++//    }
++/* chk */
+ 
+     /* Do the core! */
+     if (bGrid)
+diff -Naur /storage/mi/ck69giso/gromacs-5.1.5/src/gromacs/mdlib/update.cpp /home/mi/ck69giso/gmx-515-lt/src/gromacs/mdlib/update.cpp
+--- /storage/mi/ck69giso/gromacs-5.1.5/src/gromacs/mdlib/update.cpp	2016-09-07 14:50:21.000000000 +0200
++++ /home/mi/ck69giso/gmx-515-lt/src/gromacs/mdlib/update.cpp	2018-12-03 12:19:21.924644082 +0100
+@@ -67,6 +67,7 @@
+ #include "gromacs/utility/futil.h"
+ #include "gromacs/utility/gmxomp.h"
+ #include "gromacs/utility/smalloc.h"
++#include "adress.h"
+ 
+ /*For debugging, start at v(-dt/2) for velolcity verlet -- uncomment next line */
+ /*#define STARTFROMDT2*/
+@@ -569,6 +570,8 @@
+     return upd;
+ }
+ 
++/* new */
++
+ static void do_update_sd1(gmx_stochd_t *sd,
+                           int start, int nrend, double dt,
+                           rvec accel[], ivec nFreeze[],
+@@ -579,14 +582,28 @@
+                           int ngtc, real ref_t[],
+                           gmx_bool bDoConstr,
+                           gmx_bool bFirstHalfConstr,
+-                          gmx_int64_t step, int seed, int* gatindex)
++                          gmx_int64_t step, int seed, int* gatindex, real fc, t_forcerec *fr)
+ {
+     gmx_sd_const_t *sdc;
+     gmx_sd_sigma_t *sig;
++
+     real            kT;
+     int             gf = 0, ga = 0, gt = 0;
+     real            ism;
+-    int             n, d;
++    int             i, n, d;
++
++    int             adresstype;
++    real            adressr,  sqr_dl, dl;
++//    real            adressw;
++    rvec            *ref, dx, xnew;
++
++    adresstype         = fr->adress_type;
++    adressr            = fr->adress_ex_width;
++//    adressw            = fr->adress_hy_width;
++    ref                = &(fr->adress_refs);
++
++    //real l2 = adressr + adressw;
++    real fc1 = fc;
+ 
+     sdc = sd->sdc;
+     sig = sd->sdsig;
+@@ -621,14 +638,65 @@
+ 
+             gmx_rng_cycle_3gaussian_table(step, ng, seed, RND_SEED_UPDATE, rnd);
+ 
++    	    xnew[0] = x[n][0], xnew[1] = x[n][1], xnew[2] = x[n][2];
++            rvec_sub((*ref), xnew, dx);
++            sqr_dl = 0.0;
++            switch (adresstype)
++            {
++                case eAdressXSplit:
++                /* plane through center of ref, varies in x direction */
++                    sqr_dl         = dx[0]*dx[0];
++                break;
++                case eAdressSphere:
++                /* point at center of ref, assuming cubic geometry */
++              // sqr_dl = 0.0;
++                     for (i = 0; i < 3; i++)
++                     {
++                         sqr_dl    += dx[i]*dx[i];
++                     }
++                break;
++            }
++    /* Don't thermostat the explicit region */
++            dl = sqrt(sqr_dl);
++
++            if (dl < adressr)
++            {
++            for (d = 0; d < DIM; d++)
++            {
++                if ((ptype[n] != eptVSite) && (ptype[n] != eptShell) && !nFreeze[gf][d])
++                {
++//                    real sd_V;
++                    real vn, fn;
++                    fn           = f[n][d];
++                    vn           = v[n][d] + (invmass[n]*fn + accel[ga][d])*dt;
++                    /* Here we include half of the friction+noise
++                     * update of v into the integration of x.
++                     */
++                    xprime[n][d] = x[n][d] + 0.5*(vn + v[n][d])*dt;
++                }
++                else
++                {
++                    v[n][d]      = 0.0;
++                    xprime[n][d] = x[n][d];
++                }
++            }
++            continue;
++            }
++
+             for (d = 0; d < DIM; d++)
+             {
+                 if ((ptype[n] != eptVSite) && (ptype[n] != eptShell) && !nFreeze[gf][d])
+                 {
+-                    real sd_V, vn;
++                    real sd_V, vn, fn;
++                    fn           = f[n][d];
++                    if (fabs(fn)>fc) 
++                       { 
++//			  printf("SD (I) force-cap %e\n", fn);
++                          fn = fc1*fn/fabs(fn);
++                       }
+ 
+                     sd_V         = ism*sig[gt].V*rnd[d];
+-                    vn           = v[n][d] + (invmass[n]*f[n][d] + accel[ga][d])*dt;
++                    vn           = v[n][d] + (invmass[n]*fn + accel[ga][d])*dt;
+                     v[n][d]      = vn*sdc[gt].em + sd_V;
+                     /* Here we include half of the friction+noise
+                      * update of v into the integration of x.
+@@ -663,12 +731,39 @@
+                 {
+                     ga  = cACC[n];
+                 }
++		
++		xnew[0] = x[n][0], xnew[1] = x[n][1], xnew[2] = x[n][2];
++                rvec_sub((*ref), xnew, dx);
++                sqr_dl = 0.0;
++                switch (adresstype)
++                {
++                    case eAdressXSplit:
++                    /* plane through center of ref, varies in x direction */
++                        sqr_dl         = dx[0]*dx[0];
++                    break;
++                    case eAdressSphere:
++                    /* point at center of ref, assuming cubic geometry */
++                  // sqr_dl = 0.0;
++                         for (i = 0; i < 3; i++)
++                         {
++                             sqr_dl    += dx[i]*dx[i];
++                         }
++                    break;
++                }
++        /* Don't thermostat the explicit region */
++                dl = sqrt(sqr_dl);
+ 
++                if (dl < adressr)
++                {
+                 for (d = 0; d < DIM; d++)
+                 {
+                     if ((ptype[n] != eptVSite) && (ptype[n] != eptShell) && !nFreeze[gf][d])
+                     {
+-                        v[n][d]      = v[n][d] + (im*f[n][d] + accel[ga][d])*dt;
++
++                    real fn;
++                    fn           = f[n][d];
++
++                        v[n][d]      = v[n][d] + (im*fn + accel[ga][d])*dt;
+                         xprime[n][d] = x[n][d] +  v[n][d]*dt;
+                     }
+                     else
+@@ -677,6 +772,31 @@
+                         xprime[n][d] = x[n][d];
+                     }
+                 }
++                continue;
++                }
++                for (d = 0; d < DIM; d++)
++                                {
++                                    if ((ptype[n] != eptVSite) && (ptype[n] != eptShell) && !nFreeze[gf][d])
++                                    {
++
++                                    real fn;
++                                    fn           = f[n][d];
++                                    if (fabs(fn)>fc)
++                                       {
++                	//		  printf("SD (II) force-cap %e\n", fn);
++                                          fn = fc*fn/fabs(fn);
++                                       }
++
++                                        v[n][d]      = v[n][d] + (im*fn + accel[ga][d])*dt;
++                //                        v[n][d]      = v[n][d] + (im*f[n][d] + accel[ga][d])*dt;
++                                        xprime[n][d] = x[n][d] +  v[n][d]*dt;
++                                    }
++                                    else
++                                    {
++                                        v[n][d]      = 0.0;
++                                        xprime[n][d] = x[n][d];
++                                    }
++                                }
+             }
+         }
+         else
+@@ -697,8 +817,45 @@
+                     gt  = cTC[n];
+                 }
+ 
++                xnew[0] = x[n][0], xnew[1] = x[n][1], xnew[2] = x[n][2];
++                rvec_sub((*ref), xnew, dx);
++                sqr_dl = 0.0;
++                switch (adresstype)
++              {
++                case eAdressXSplit:
++                    /* plane through center of ref, varies in x direction */
++                    sqr_dl         = dx[0]*dx[0];
++                    break;
++                case eAdressSphere:
++                    /* point at center of ref, assuming cubic geometry */
++                  // sqr_dl = 0.0;
++                   for (i = 0; i < 3; i++)
++                    {
++                        sqr_dl    += dx[i]*dx[i];
++                    }
++                    break;
++              }
+                 gmx_rng_cycle_3gaussian_table(step, ng, seed, RND_SEED_UPDATE, rnd);
+ 
++        /* Don't thermostat the explicit region */
++
++                dl = sqrt(sqr_dl);
++        //	real l2 = adressr+adressw;
++
++                if (dl < adressr)
++                {
++                    for (d = 0; d < DIM; d++)
++                    {
++                        if ((ptype[n] != eptVSite) && (ptype[n] != eptShell) && !nFreeze[gf][d])
++                        {
++                            real vn;
++
++                            vn           = v[n][d];
++                            xprime[n][d] = xprime[n][d] + 0.5*(v[n][d] - vn)*dt;
++                        }
++                    }
++        		continue;
++        	    }
+                 for (d = 0; d < DIM; d++)
+                 {
+                     if ((ptype[n] != eptVSite) && (ptype[n] != eptShell) && !nFreeze[gf][d])
+@@ -1523,7 +1680,8 @@
+                         gmx_update_t      upd,
+                         gmx_constr_t      constr,
+                         gmx_bool          bFirstHalf,
+-                        gmx_bool          bCalcVir)
++                        gmx_bool          bCalcVir,
++						t_forcerec        *fr)
+ {
+     gmx_bool             bLastStep, bLog = FALSE, bEner = FALSE, bDoConstr = FALSE;
+     double               dt;
+@@ -1644,6 +1802,8 @@
+             end_th   = start + ((nrend-start)*(th+1))/nth;
+ 
+             /* The second part of the SD integration */
++         if (inputrec->bAdress)
++	 {
+             do_update_sd1(upd->sd,
+                           start_th, end_th, dt,
+                           inputrec->opts.acc, inputrec->opts.nFreeze,
+@@ -1653,7 +1813,23 @@
+                           inputrec->opts.ngtc, inputrec->opts.ref_t,
+                           bDoConstr, FALSE,
+                           step, inputrec->ld_seed,
+-                          DOMAINDECOMP(cr) ? cr->dd->gatindex : NULL);
++                          DOMAINDECOMP(cr) ? cr->dd->gatindex : NULL,
++                          inputrec->adress->ex_forcecap, fr);
++	 }
++	 else
++	 {
++            do_update_sd1(upd->sd,
++                          start_th, end_th, dt,
++                          inputrec->opts.acc, inputrec->opts.nFreeze,
++                          md->invmass, md->ptype,
++                          md->cFREEZE, md->cACC, md->cTC,
++                          state->x, xprime, state->v, force,
++                          inputrec->opts.ngtc, inputrec->opts.ref_t,
++                          bDoConstr, FALSE,
++                          step, inputrec->ld_seed,
++                          DOMAINDECOMP(cr) ? cr->dd->gatindex : NULL,
++                          5000., fr);
++	 }
+         }
+         inc_nrnb(nrnb, eNR_UPDATE, homenr);
+         wallcycle_stop(wcycle, ewcUPDATE);
+@@ -1912,7 +2088,8 @@
+                    t_commrec        *cr, /* these shouldn't be here -- need to think about it */
+                    t_nrnb           *nrnb,
+                    gmx_constr_t      constr,
+-                   t_idef           *idef)
++                   t_idef           *idef,
++				   t_forcerec       *fr)
+ {
+     gmx_bool          bNH, bPR, bDoConstr = FALSE;
+     double            dt, alpha;
+@@ -2031,6 +2208,21 @@
+                 break;
+             case (eiSD1):
+                 /* With constraints, the SD1 update is done in 2 parts */
++         if (inputrec->bAdress)
++	 {
++                do_update_sd1(upd->sd,
++                              start_th, end_th, dt,
++                              inputrec->opts.acc, inputrec->opts.nFreeze,
++                              md->invmass, md->ptype,
++                              md->cFREEZE, md->cACC, md->cTC,
++                              state->x, xprime, state->v, force,
++                              inputrec->opts.ngtc, inputrec->opts.ref_t,
++                              bDoConstr, TRUE,
++                              step, inputrec->ld_seed, DOMAINDECOMP(cr) ? cr->dd->gatindex : NULL,
++                              inputrec->adress->ex_forcecap, fr);
++	 }
++	 else
++	 {
+                 do_update_sd1(upd->sd,
+                               start_th, end_th, dt,
+                               inputrec->opts.acc, inputrec->opts.nFreeze,
+@@ -2039,7 +2231,9 @@
+                               state->x, xprime, state->v, force,
+                               inputrec->opts.ngtc, inputrec->opts.ref_t,
+                               bDoConstr, TRUE,
+-                              step, inputrec->ld_seed, DOMAINDECOMP(cr) ? cr->dd->gatindex : NULL);
++                              step, inputrec->ld_seed, DOMAINDECOMP(cr) ? cr->dd->gatindex : NULL,
++		              5000., fr);
++	 }
+                 break;
+             case (eiSD2):
+                 /* The SD2 update is always done in 2 parts,
+diff -Naur /storage/mi/ck69giso/gromacs-5.1.5/src/programs/mdrun/md.cpp /home/mi/ck69giso/gmx-515-lt/src/programs/mdrun/md.cpp
+--- /storage/mi/ck69giso/gromacs-5.1.5/src/programs/mdrun/md.cpp	2017-12-21 10:16:18.000000000 +0100
++++ /home/mi/ck69giso/gmx-515-lt/src/programs/mdrun/md.cpp	2018-12-03 12:14:02.874757865 +0100
+@@ -1124,7 +1124,7 @@
+             update_coords(fplog, step, ir, mdatoms, state, fr->bMolPBC,
+                           f, bUpdateDoLR, fr->f_twin, bCalcVir ? &fr->vir_twin_constr : NULL, fcd,
+                           ekind, M, upd, bInitStep, etrtVELOCITY1,
+-                          cr, nrnb, constr, &top->idef);
++                          cr, nrnb, constr, &top->idef, fr);
+ 
+             if (!bRerunMD || rerun_fr.bV || bForceUpdate)         /* Why is rerun_fr.bV here?  Unclear. */
+             {
+@@ -1133,7 +1133,7 @@
+                                    state, fr->bMolPBC, graph, f,
+                                    &top->idef, shake_vir,
+                                    cr, nrnb, wcycle, upd, constr,
+-                                   TRUE, bCalcVir);
++                                   TRUE, bCalcVir, fr);
+                 wallcycle_start(wcycle, ewcUPDATE);
+                 if (bCalcVir && bUpdateDoLR && ir->nstcalclr > 1)
+                 {
+@@ -1376,7 +1376,7 @@
+                                    state, fr->bMolPBC, graph, f,
+                                    &top->idef, tmp_vir,
+                                    cr, nrnb, wcycle, upd, constr,
+-                                   TRUE, bCalcVir);
++                                   TRUE, bCalcVir, fr);
+             }
+         }
+         /* #########   START SECOND UPDATE STEP ################# */
+@@ -1416,7 +1416,7 @@
+                 update_coords(fplog, step, ir, mdatoms, state, fr->bMolPBC, f,
+                               bUpdateDoLR, fr->f_twin, bCalcVir ? &fr->vir_twin_constr : NULL, fcd,
+                               ekind, M, upd, FALSE, etrtVELOCITY2,
+-                              cr, nrnb, constr, &top->idef);
++                              cr, nrnb, constr, &top->idef, fr);
+             }
+ 
+             /* Above, initialize just copies ekinh into ekin,
+@@ -1438,14 +1438,14 @@
+ 
+             update_coords(fplog, step, ir, mdatoms, state, fr->bMolPBC, f,
+                           bUpdateDoLR, fr->f_twin, bCalcVir ? &fr->vir_twin_constr : NULL, fcd,
+-                          ekind, M, upd, bInitStep, etrtPOSITION, cr, nrnb, constr, &top->idef);
++                          ekind, M, upd, bInitStep, etrtPOSITION, cr, nrnb, constr, &top->idef, fr);
+             wallcycle_stop(wcycle, ewcUPDATE);
+ 
+             update_constraints(fplog, step, &dvdl_constr, ir, mdatoms, state,
+                                fr->bMolPBC, graph, f,
+                                &top->idef, shake_vir,
+                                cr, nrnb, wcycle, upd, constr,
+-                               FALSE, bCalcVir);
++                               FALSE, bCalcVir, fr);
+ 
+             if (bCalcVir && bUpdateDoLR && ir->nstcalclr > 1)
+             {
+@@ -1472,7 +1472,7 @@
+ 
+                 update_coords(fplog, step, ir, mdatoms, state, fr->bMolPBC, f,
+                               bUpdateDoLR, fr->f_twin, bCalcVir ? &fr->vir_twin_constr : NULL, fcd,
+-                              ekind, M, upd, bInitStep, etrtPOSITION, cr, nrnb, constr, &top->idef);
++                              ekind, M, upd, bInitStep, etrtPOSITION, cr, nrnb, constr, &top->idef, fr);
+                 wallcycle_stop(wcycle, ewcUPDATE);
+ 
+                 /* do we need an extra constraint here? just need to copy out of state->v to upd->xp? */
+@@ -1484,7 +1484,7 @@
+                                    state, fr->bMolPBC, graph, f,
+                                    &top->idef, tmp_vir,
+                                    cr, nrnb, wcycle, upd, NULL,
+-                                   FALSE, bCalcVir);
++                                   FALSE, bCalcVir, fr);
+             }
+             if (bVV)
+             {

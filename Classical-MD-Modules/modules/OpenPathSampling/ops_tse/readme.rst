@@ -11,7 +11,7 @@ Transition State Ensemble in OpenPathSampling
   sections.
 
   Language
-    Python (2.7)
+    Python (3.7)
 
   Documentation Tool
     Sphinx, numpydoc format (ReST)
@@ -49,7 +49,7 @@ This module tries to efficiently find a single transition state frame from each
 trajectory. This is done by bisection of the trajectory, depending on the
 current committor. For example, if the current committor is to high (to much
 ends up in state B) the next index is selected halfway towards the left edge
-and the current index is set as the new right edge. This is repeated untill a
+and the current index is set as the new right edge. This is repeated until a
 committor within a given range is reached or no new frame can be selected.
 
 In the end this module returns a dictionary of shape ``{snapshot: comittor
