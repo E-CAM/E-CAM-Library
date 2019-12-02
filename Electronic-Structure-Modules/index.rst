@@ -3,6 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. sidebar:: General Information
+
+    .. contents:: :depth: 2
+
+    * :ref:`contributing`
+    * :ref:`search`
+
 .. _readme_electronic_structure:
 
 ****************************
@@ -12,14 +19,7 @@ Electronic Structure Modules
 Introduction
 ============
 
-.. sidebar:: General Information
-
-    .. contents:: :depth: 2
-
-    * :ref:`contributing`
-    * :ref:`search`
-
-.. figure:: ./images/wake_nova-rgb.png 
+.. figure:: ./images/protein-metal-cluster.png 
    :figwidth: 25 % 
    :align: left
 
@@ -87,6 +87,19 @@ The ESDW in Lausanne in February 2018 was the starting point for the modules bel
     :maxdepth: 1
 
     ./modules/esl-bundle/readme
+    ./modules/ELPA_easyblock/readme
+
+ESDW Dublin 2019
+-----------------
+
+The ESDW in Dublin in January 2019 was the starting point for the modules below.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/esl-easyconfigs/readme
+
 
 Other Modules
 -------------

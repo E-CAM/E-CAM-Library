@@ -47,7 +47,7 @@ available modules reached a sufficient level of usability and completeness to
 be used widely within the whole community. However, documenting every single
 module properly so that developers of electronic-structure software can
 integrate them seamlessly into their own codes would have been a daunting
-task. The challenge was double:
+task. The challenge was two-fold:
 
 - How do we provide usable and comprehensive documentation and keep it
   accurate, while all the ESL projects are evolving asynchronously, each at
@@ -65,7 +65,7 @@ Doxygen, to provide relevant explanations about how to use each ESL component
 in the appropriate context. In this case, such an approach is much more
 suitable than traditional documentation, mainly because instead of having to
 document between 10 and 20 components separately, the ESL developers only have
-to take care of one meta-component.
+to take care of one meta-component, therefore:
 
 - it requires less effort from less people;
 - it can be put into action by anyone with a working build environment;
@@ -96,7 +96,7 @@ as illustrated in the following table:
   | Self-Consistent Field                                           |
   +------------------+---------------------+------------------------+
   | Eigensolvers     | Eigensolvers        | Smearing               |
-  +------------------+---------------------+ Echange-Correlation    +
+  +------------------+---------------------+ Exchange-Correlation   +
   | HΨ               | Hamiltonian Builder | Poisson Solver         |
   |                  |                     | Mixing                 |
   +------------------+---------------------+ Ion-Ion Interaction    +
@@ -114,11 +114,11 @@ available, as well as imports/exports data related to the current calculation.
 In the middle layer, itself divided into 3 sub-levels, it implements the
 quantum-mechanical equations in the framework of Density-Functional Theory
 (DFT). At the top level, it drives the operations of the lower layers and
-applies completion crtieria. All cells of the table but the Self-Consistent
+applies completion criteria. All cells of the table but the Self-Consistent
 Field correspond to the use of one or more ESL components.
 
 `esl-demo`_ is available from the `E-CAM Gitlab Repository`_ and mirrored on
-GitHub_. It can be downloaded witb Git. Please note that only the E-CAM
+GitHub_. It can be downloaded with Git. Please note that only the E-CAM
 version is guaranteed to be up-to-date.
 
 
@@ -142,12 +142,13 @@ Here is a typical sequence to follow to build the code::
 
     mkdir my_build
     cd my_build
-    cmake ..
+    cmake .. -DBUILD_TESTING=1
     make -j8
 
 To run `esl-demo`_, you will need at least a pseudopotential and a FDF input
 file. Some examples are provided in the `tests/` subdirectory of the source
-tree.
+tree (which will now also be found in your ``my_build`` directory). You can
+run the test suite in the ``my_build`` directory with ``make test``.
 
 .. note::
 
