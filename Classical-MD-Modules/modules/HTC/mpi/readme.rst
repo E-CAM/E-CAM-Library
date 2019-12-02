@@ -52,7 +52,7 @@ HTC Multi-node Tasks
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-This module is the second in a sequence that will form the overall capabilities of the HTC library (see :ref:`htc_yaml`
+This module is the third in a sequence that will form the overall capabilities of the HTC library (see :ref:`htc_yaml`
 for the previous module). This module deals with enabling tasks to be run over a set of nodes (specifically MPI/OpenMP
 tasks).
 
