@@ -3,6 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. sidebar:: General Information
+
+    .. contents:: :depth: 2
+
+    * :ref:`contributing`
+    * :ref:`search`
+
 .. _readme_electronic_structure:
 
 ****************************
@@ -12,14 +19,7 @@ Electronic Structure Modules
 Introduction
 ============
 
-.. sidebar:: General Information
-
-    .. contents:: :depth: 2
-
-    * :ref:`contributing`
-    * :ref:`search`
-
-.. figure:: ./images/wake_nova-rgb.png 
+.. figure:: ./images/protein-metal-cluster.png 
    :figwidth: 25 % 
    :align: left
 
@@ -55,6 +55,7 @@ The first Electronic Structure ESDW in Zaragoza in June 2016 was the starting po
     ./modules/sqare-grids-doc/readme
     ./modules/sqare-ode-doc/readme
     ./modules/sqare-states-doc/readme
+    ./modules/esl-demo/readme
 
 
 ESDW San Sebastian 2016
@@ -110,6 +111,7 @@ Modules not coming from ESDWs
      :maxdepth: 1
 
      ./modules/flook/readme
+     ./modules/libvdwxc/readme
      ./modules/MatrixSwitchDBCSR/readme
 
 Pilot Projects
