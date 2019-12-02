@@ -28,7 +28,7 @@ PerGauss: Periodic Boundary Conditions for gaussian bases
 Purpose of Module
 _________________
 
-This module provides periodic boundary conditions for gaussian basis sets to be used in  G-MCTDH[1] and vMCG[2]
+This module provides periodic boundary conditions for gaussian basis sets to be used in  G-MCTDH[1]_ and vMCG[2]_
 calculations using the Quantics_ software package. 
 
 Background Information
