@@ -184,7 +184,7 @@ Modules developed in this workshop not included in other subheadings are:
     :glob:
     :maxdepth: 1
 
-..    ./modules/Correlated-Sampling/readme
+    ./modules/Correlated-Sampling/readme
 
 
 ESDW Durham University (Durham 2019)
