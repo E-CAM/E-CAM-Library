@@ -1,0 +1,57 @@
+easyblock = 'PythonBundle'
+
+name = 'jobqueue_features'
+version = '0.0.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/E-CAM/jobqueue_features'
+description = """
+A Python module that adds features to dask-jobqueue to handle MPI workloads and different clusters.
+Examples of usage can be found in the examples folder of the installation ($JOBQUEUE_FEATURES_EXAMPLES)
+"""
+
+toolchain = {'name': 'intel-para', 'version': '2018b'}
+
+dependencies = [
+    ('Python', '3.6.6'),
+    ('Dask', 'Nov2018Bundle', versionsuffix),
+]
+
+use_pip = True
+
+exts_list = [
+    ('typing', '3.6.6', {
+        'source_urls': ['https://pypi.python.org/packages/source/t/typing/'],
+        'checksums': ['4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d'],
+    }),
+    ('pytest-cov', '2.6.0', {
+        'source_urls': ['https://pypi.python.org/packages/source/p/pytest-cov/'],
+        'checksums': ['e360f048b7dae3f2f2a9a4d067b2dd6b6a015d384d1577c994a43f3f7cbad762'],
+    }),
+    (name, version, {
+        'patches': ['jobqueue_features-%s.patch' % version],
+        'source_tmpl': 'v%(version)s.tar.gz',
+        'source_urls': ['https://github.com/E-CAM/jobqueue_features/archive/'],
+        'checksums': [
+            '0152ff89f237225656348865073f73f46bda7a17c97e3bc1de8227eea450fb09',  # v0.0.4.tar.gz
+            '698204ef68f5842c82c5f04bfb614335254fae293f00ca65719559582c1fb181',  # jobqueue_features-env.patch
+        ],
+    }),
+]
+
+postinstallcmds = [
+    'cp -r %(builddir)s/%(name)s/%(name)s-%(version)s/examples %(installdir)s/examples',
+    'mkdir %(installdir)s/config && cp %(builddir)s/%(name)s/%(name)s-%(version)s/%(name)s/%(name)s.yaml %(installdir)s/config'
+]
+
+modextravars = {
+    'DASK_ROOT_CONFIG': '%(installdir)s/config',
+    'JOBQUEUE_FEATURES_EXAMPLES': '%(installdir)s/examples',
+}
+
+sanity_check_paths = {
+    'files': ['config/jobqueue_features.yaml'],
+    'dirs': ['lib/python%(pyshortver)s/site-packages', 'examples', 'config'],
+}
+
+moduleclass = 'devel'
