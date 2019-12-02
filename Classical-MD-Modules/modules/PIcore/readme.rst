@@ -19,9 +19,10 @@ Particle Insertion Core
     with Doxygen and ReST but if you use other tools it might be harder for us to help if there are problems.
 
   Application Documentation
+    See `PIcore repository <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/tree/master/PIcore>`_
 
   Relevant Training Material
-    Add a link to any relevant training material.
+    None
 
 .. contents:: :local:
 
@@ -129,35 +130,12 @@ The fourth code, also written in python take the LAMMPS output and performs the 
 Source Code
 ___________
 
-The source codes comprise the following 8 files. They are in the `directory <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/>`
-https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/chebychev-lambda-input.py
-
-   (1) A python code `chebychev-lambda-input.py <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/chebychev-lambda-input.py>`_ that generates the lambda values to be input into LAMMPS according to the users' choices of  number of  interpolation points and the 
-   minimum value of lambda to be used as the domain of integration 
-   (2,3) Two LAMMPS script codes `templatev5.in <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/templatev5.in>`_
-   and  `templatev5_nokspace.in  <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/templatev5_nokspace.in>`_
-   that generate the data required for estimating the changes in free energy due to the insertion or deletion of particles using Particle Mesh Ewald long range estimate of dispersion and standard cut-off respectively.
-   (4,5) Two examples of coordinate input files for LAMMPS:  `example_lj400b.lammps <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/example_lj400b.lammps>`_
-   
-   and  `example_lj3200b.lammps <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/example_lj3200b.lammps>`_
-   (6) A python script `data-new8-thdy.py <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/data-new8-thdy.py>`_ that takes as input the thermodynamic integration output data from LAMMPS and uses it to compute the corresponding free energy change using thermodynamic integration.
-   (7) A python script `data-new8-mbar.py <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/data-new8-mbar.py>`_ that takes as input the MBAR  output data from LAMMPS and uses it to compute the corresponding free energy change using MBAR
-   (8) A c code `ljeos1.c <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/ljeos1.c>`_ that uses published results of `K. Johnson et al <https://doi.org/10.1080/00268979300100411>`_ to estimate the chemical potential for a Lennard Jones Fluid. This allows direct comparison of our predictions as a test with a wide variety of densities and temperatures of a Lennard-Jones fluid.
-
-
+All files can be found in the ``PIcore`` subdirectory of the `particle_insertion git repository <https://gitlab.e-cam2020.eu/mackernan/particle_insertion>`_.
 
 Compilation and Linking
 _______________________
 
-    (1) The initialization python code - this just used numpy so should work without additional libraries. We assume python 2.7 - but this can be easily adjusted 
-        (only the print and possibly input commands may need to be adjusted for more recent version.
-    (2) The LAMMPS script will run on any standard LAMMPS distribution from  2016 to 2018.
-    (3) The example LAMMPS input functions with  any standard LAMMPS distribution from at least 2016 and up
-    (4) The python code that takes as input the thermodynamic integration uses similar libraries to pymbar of the Chodera lab - but are pretty much standard.
-    (5) The MBAR python code uses pymbar from the `Chodera lab <https://github.com/choderalab/pymbar>`_
-    (6) The c code for comparing the output with Equation of State Results is vanilla C.
-    
-
+See `PIcore README <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/tree/master/PIcore/README.rst>`_ for full details.
     
 Scaling  and Performance
 ________________________
@@ -199,77 +177,4 @@ Number of MPI Core  timesteps/s
 192                 369.178
 384                 634.022
 ==================  =============
-
-
-Documentation
-_____________
-
-Particle Integration Core of codes consists of 6 codes in the directory (short URL) https://goo.gl/iyJxbT  
-
-
-`chebychev-lambda-input.py <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/chebychev-lambda-input.py>`_ 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This is a python code that generates the lambda values to be input into LAMMPS according to the users' choices of number of interpolation points and the minimum value of lambda to be used as the domain of integration. The set of lambda values  and 0  correspond to the LAMMPS script public values "LAMBDAS and LLAMBDAS" listed below, arranged in increasing order, and the the number of values equals the public variable "NUMBER_of_lambas"  
-
-
-`templatev5.in <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/templatev5.in>`_   and  `templatev5_nokspace.in  <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/templatev5_nokspace.in>`_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-These two LAMMPS based script codes generate the data required for estimating the changes in free energy due to the insertion of deletion of particles using Particle Mesh Ewald long-range estimate of dispersion and standard cut-off respectively. The codes are essentially identical apart from their different treatment of long-range dispersion. They each have 18 public variables which the user can set to suit the specific problem they have. All but the last two public variables (LAMBDAS and LLAMBDAS) can be changed at a LAMMPS command level at startup using the commands -var variable_name1 value1 -var variable_name2 value2 ...etc. 
-The latter two can only be changed by direct editing of the input scripts. All public variables have names including a mixed upper and lower case letters. All non-public or internal variables names have letters written lower case format.  The codes have several internal loops. The  code has a large number of explanatory comments within the script.
-
-:Public Variables:
-
-   1. variable input_COORDINATES_file index lj3200nvt # input coordinate data filename
-   2. variable input_RESTART_filename index lj3200-rcut13-equil.restart
-   3. variable LJ_sigma_final3 index 1 # Final sigma of inserted particle type . If there is 
-      more than one type, add more rows here.
-   4. variable LJ_epsilon_final3 index 1 # Final binding energy of inserted particle type. 
-      If there is more than one type, add more rows here.
-   5. variable system_TEMPERATURE index 2
-   6. variable system_PRESSURE index 4 # Note if pressure is not isotropic add additional 
-      rows with ensemble variables and info here
-   7. variable LJ_system_RCUT index 3.5 # value of rcut for dispersion (pme  or  lj/cut1. )
-   8. variable displacment_CENTRAL_difference index 0.00002  # optimal value for central 
-      difference estimate of derivatives in lammps runs
-   9.  variable disp_KSPACE_parameter index 0.65 # kspace PME parameter
-   10. variable THERMODYNAMIC_output_frequency index 1000
-   11. variable RUNTIME index 100000 # production run time
-   12. variable SAMPLE_frequency index 1000 # measured as number of steps
-   13. variable RELAXATION_time index 50000
-   14. variable TIME_step index 0.005
-   15. variable MBAR_switch index 10
-   16. variable NUMBER_of_lambas index 10  # excluding zero lambda. 
-   17.  variable LAMBDAS index 0.0  0.106836511145 0.160288568297 0.26074557564     0.396090935503 0.55 0.703909064497 0.839254424359 0.939711431703 0.993163488855   
-   18. variable LLAMBDAS_mbar index 0.0  0.106836511145 0.160288568297 0.260745575641 0.396090935503 0.55 0.703909064497 0.839254424359 0.939711431703 0.993163488855 
-
-Running the lammps scripts
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Four examples of running the lammps scripts are as follows.
-
-   1. mpirun -np 24 lmp_fionn.mpi -var input_COORDINATES_file example_3200b.lammps -var RUNTIME 10000  -var RELAXATION_time 5000 -in templatev5.in 
-   2. mpirun -np 24 lmp_fionn.mpi -var input_COORDINATES_file example_3200b.lammps -var RUNTIME 10000  -var RELAXATION_time 5000 -in templatev5_nokspace.in 
-   3. mpirun -np 24 lmp_fionn.mpi  -var RUNTIME 10000  -var RELAXATION_time 5000 -in templatev5.in
-   4. mpirun -np 24 lmp_fionn.mpi  -var RUNTIME 10000  -var RELAXATION_time 5000 -in templatev5_nokspace.in
-
-The examples 1. and 2.  use the initial coordinates consisting of 3200 atoms defined by the   -var input_COORDINATES_file example_3200b.lammps option, 
-whereas   the examples 3. and 4. use the default coordinates of 400 atoms.  The  RUNTIME and RELAXATION_time are very short 
-for testing purposes. For  production runs they should be at least ten times longer. 
-
-`data-new8-thdy.py <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/data-new8-thdy.py>`_ 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This python code takes as input the thermodynamic integration output data from LAMMPS and uses it to compute the corresponding free energy change using thermodynamic integration. The user should call it from the directory where the output data from LAMMPS is held. It expects output data fo have the format header-name.tdy.number.dat where number equals the number of lambda values excluding zero. Here it is assumed that one particle is inserted. It will print the estimates of the free energy of insertion or deletion and also creates a director called TDY
-and subdirectories where the results of the analysis are stored.
-
-
-`data-new8-mbar.py <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/data-new8-mbar.py>`_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This python code takes as input the multiple Bennet Acceptance Ratio (MBAR)  output data from LAMMPS and uses it to compute the corresponding free energy change using the  pymbar code from the Chodera lab. The user should call it from the directory where the output data is held. It expects output data fo have the format header-name.mbar.number.dat where number equals the number of lambda values including zero. Here it is assumed that one particle is inserted. It will print the estimates of the free energy of insertion or deletion and also creates a director called MBAR and subdirectories where the results of the analysis are stored. 
-
-
-`ljeos1.c <https://gitlab.e-cam2020.eu/mackernan/particle_insertion/blob/master/PIcore/ljeos1.c>`_ 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This simple C code uses published results of `K. Johnson et al <https://doi.org/10.1080/00268979300100411>`_ to estimate the chemical potential for a Lennard Jones Fluid. This allows direct comparison of our predictions as a test with a wide variety of densities and temperatures of a Lennard-Jones fluid. The user needs to input the target density and temperature. 
-
 

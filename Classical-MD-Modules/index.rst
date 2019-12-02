@@ -212,7 +212,7 @@ The following modules were developed specifically for the Classical MD pilot pro
     :maxdepth: 1
 
     ./modules/contact_maps/readme
-    ./modules/contact_maps_parallelization/readme    
+    ./modules/contact_maps_parallelization/readme 
     ./modules/contact_concurrences/readme
     ./modules/PIcore/readme
 
