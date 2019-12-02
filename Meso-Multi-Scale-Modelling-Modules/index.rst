@@ -3,6 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. sidebar:: General Information
+
+    .. contents:: :depth: 2
+
+    * :ref:`contributing`
+    * :ref:`search`
+
 .. _readme_meso_multi:
 
 *****************************
@@ -11,13 +18,6 @@ Meso- and Multi-scale Modules
 
 Introduction
 ============
-
-.. sidebar:: General Information
-
-    .. contents:: :depth: 2
-
-    * :ref:`contributing`
-    * :ref:`search`
 
 .. image:: ./images/DPD1.jpg
    :width: 10 %
@@ -63,7 +63,9 @@ The following modules connected to the DL_MESO_DPD code have been produced so fa
     ./modules/DL_MESO_DPD_onGPU/add_gpu_version/readme
     ./modules/DL_MESO_DPD_onGPU/fftw/readme
     ./modules/DL_MESO_DPD/check_dlmeso_dpd/readme
+    ./modules/DL_MESO_DPD_onGPU/Ewald/readme
     ./modules/DL_MESO_DPD/tetra_dlmeso_dpd/readme
+    ./modules/DL_MESO_DPD_onGPU/multi_gpu/readme
     ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme
 
 ESPResSo++
@@ -119,6 +121,11 @@ This modules are connected to the Adaptive Resolution Simulation implementation 
     ./modules/GC-AdResS/AdResS_RDF/readme
     ./modules/GC-AdResS/Abrupt_Adress_forcecap/readme
     ./modules/GC-AdResS/AdResS_TF/readme
+    ./modules/GC-AdResS/LocalThermostat_AdResS/readme
+    ./modules/GC-AdResS/Analyse_Tools/readme
+    ./modules/GC-AdResS/Analyse_VACF/readme
+    ./modules/GC-AdResS/Analyse_DACF/readme
+    ./modules/GC-AdResS/Analyse_ENERGY/readme
 
 .. _ALL_background:
 
@@ -163,3 +170,7 @@ time-to-solution of the applications.
     :maxdepth: 1
 
     ./modules/ALL_library/tensor_method/readme
+    ./modules/ALL_library/staggered_method/readme
+    ./modules/ALL_library/unstructured_method/readme
+    ./modules/ALL_library/voronoi_method/readme
+    ./modules/ALL_library/histogram_method/readme

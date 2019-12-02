@@ -114,27 +114,28 @@ On the Kay cluster this can be done as follows:
 
 ::
 
+    # Load modules to give us the right environment
     module load gcc/8.2.0
     module load gsl/gcc/2.5
 
 ::
 
-	Compile command;
+	# Compile command;
 	g++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -fopenmp -std=c++11
 
-	Run command:
-	export OMP_NUM_THREADS=[number of OpenMP threads]; ./run Input
+	# Run command:
+	OMP_NUM_THREADS=[number of OpenMP threads] ./run Input
 
 
 With the Intel compiler:
 
 ::
 
-	Compile command;
+	# Compile command;
 	icpc -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -qopenmp -std=c++11
 
-	Run command:
-	export OMP_NUM_THREADS=[number of OpenMP threads]; ./run Input
+	# Run command:
+	OMP_NUM_THREADS=[number of OpenMP threads] ./run Input
 
 -----------------------------------
 
@@ -142,31 +143,32 @@ MPI version:
 
 ::
 
+    # Load modules to give us the right environment
     module load intel/2018u4
     module load gsl/intel/2.5
     module load gcc/8.2.0
 
 ::
 
-	Compile command;
+	# Compile command;
 	mpic++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -std=c++11
 
-	Run command:
+	# Run command:
 	mpirun -n [number of MPI processors] ./run Input
 
-Errors:
+.. note::
 
-A frequent error encountered while compiling is:
-"fatal error: gsl/gsl_rng.h: No such file or directory"
+  A frequent error encountered while compiling is:
+  "fatal error: gsl/gsl_rng.h: No such file or directory"
 
-This can occur if the directory is not installed on the standard search path of the compiler. It can be fixed by adding it's location as a flag in the compile command as exaplained in this link: 
-`Using the GSL Library <https://www.gnu.org/software/gsl/doc/html/usage.html>`_. 
+  This can occur if the directory is not installed on the standard search path of the compiler. It can be fixed by adding it's location as a flag in the compile command as exaplained in this link: 
+  `Using the GSL Library <https://www.gnu.org/software/gsl/doc/html/usage.html>`_. 
 
-On Kay the flags '-I/ichec/packages/gsl/gcc/2.5/include' and '-L/ichec/packages/gsl/gcc/2.5/lib' must be added to the compile command as:
+  On Kay the flags '-I/ichec/packages/gsl/gcc/2.5/include' and '-L/ichec/packages/gsl/gcc/2.5/lib' must be added to the compile command as:
 
-::
+  ::
 
-    g++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -fopenmp -std=c++11 -I/ichec/packages/gsl/gcc/2.5/include -L/ichec/packages/gsl/gcc/2.5/lib
+      g++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -fopenmp -std=c++11 -I/ichec/packages/gsl/gcc/2.5/include -L/ichec/packages/gsl/gcc/2.5/lib
 
 Checking for accuracy
 _____________________

@@ -3,7 +3,7 @@ image: cloudcompass/docker-rtdsphinx
 spelling:
   script:
   - pip3 install codespell
-  - codespell --skip=".git,_static,_build,Diff*,*.patch,*.f90" --quiet-level=2 --ignore-words-list="adress,catalogue"
+  - codespell --skip=".git,_static,_build,Diff*,*.patch,*.f90" --quiet-level=2 --ignore-words-list="adress,catalogue,noe"
   only:
   - master
   - merge_requests
@@ -22,7 +22,7 @@ pages:
   - apt-get -y install dvipng
   - pip3 install pygments --upgrade
   - pip3 install Sphinx --upgrade
-  - pip3 install sphinx-bootstrap-theme --upgrade
+  - pip3 install sphinx-rtd-theme --upgrade
   - READTHEDOCS=True sphinx-build -nWT -b html . _build/html
   - mv _build/html/ public/
   - echo -e "\n\n\e[1mYou can find your build of this documentation at \n\t\e[32m${CI_PAGES_URL}\e[0m\n\n"
