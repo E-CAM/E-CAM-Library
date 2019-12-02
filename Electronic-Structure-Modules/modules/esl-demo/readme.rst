@@ -117,21 +117,21 @@ quantum-mechanical equations in the framework of Density-Functional Theory
 applies completion criteria. All cells of the table but the Self-Consistent
 Field correspond to the use of one or more ESL components.
 
-`esl-demo`_ is available from the `E-CAM Gitlab Repository`_ and mirrored on
-GitHub_. It can be downloaded with Git. Please note that only the E-CAM
-version is guaranteed to be up-to-date.
+`esl-demo`_ is available on `Gitlab`_ and mirrored on `GitHub`_. It can be
+downloaded with Git. Please note that only the Gitlab version is guaranteed to
+be up-to-date.
 
 
 Building and Testing
 ____________________
 
-.. warning::
-   Should make a link to the ESL Bundle once the module is available.
+The `esl-demo`_ is based on the `esl-bundle`_ module, which should be
+installed before starting to do anything related to the `esl-demo`_.
 
 The recommended way to get started with the `esl-demo`_ module is first to
-download it from the E-CAM repository with `Git <https://git-scm.org/>`_::
+download it from Gitlab with `Git <https://git-scm.org/>`_::
 
-    git clone https://gitlab.e-cam2020.eu/esl/esl-demo.git
+    git clone https://gitlab.com/esl/esl-demo.git
     cd esl-demo
 
 Before continuing, please read the README.rst file of `esl-demo`_ carefully and
@@ -164,11 +164,12 @@ Source Code
 ___________
 
 `esl-demo`_ is an original ESL product created from scratch. Its source code is
-available from the `E-CAM Gitlab Repository`_ under the esl-demo_ project.
+available from `Gitlab`_ under the `esl-demo`_ project.
 
 
 .. _Doxygen: https://www.doxygen.org/
-.. _`E-CAM Gitlab Repository`: https://gitlab.e-cam2020.eu/
-.. _esl-demo: https://gitlab.e-cam2020.eu/esl/esl-demo
+.. _Gitlab: https://gitlab.com/ElectronicStructureLibrary
+.. _esl-bundle: https://gitlab.com/ElectronicStructureLibrary/esl-bundle
+.. _esl-demo: https://gitlab.com/ElectronicStructureLibrary/esl-demo
 .. _GitHub: https://github.com/ElectronicStructureLibrary/esl-demo
 .. _`Mozilla Public License v2.0`: https://www.mozilla.org/en-US/MPL/2.0/
