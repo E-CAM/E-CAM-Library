@@ -1,8 +1,8 @@
 .. _classmc:
 
-####################
+#######
 ClassMC
-####################
+#######
 
 .. sidebar:: Software Technical Information
 
@@ -14,6 +14,9 @@ ClassMC
 
   Documentation Tool
     Doxygen
+
+  Software Module Developed by
+    Momir Mališ
 
 .. contents:: :local:
 

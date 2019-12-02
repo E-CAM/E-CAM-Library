@@ -1,8 +1,8 @@
 .. _OpenQubit:
 
-####################
+#########
 OpenQubit
-####################
+#########
 
 .. sidebar:: Software Technical Information
 
@@ -14,6 +14,9 @@ OpenQubit
 
   Documentation Tool
     sphinx
+
+  Software Module Developed by
+    Momir Mališ
 
 .. contents:: :local:
 

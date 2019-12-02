@@ -1,8 +1,8 @@
 .. _PotMod:
 
-####################
+######
 PotMod
-####################
+######
 
 .. sidebar:: Software Technical Information
 
@@ -14,6 +14,9 @@ PotMod
 
   Documentation Tool
     Doxygen
+
+  Software Module Developed by
+    Momir Mališ
 
 .. contents:: :local:
 

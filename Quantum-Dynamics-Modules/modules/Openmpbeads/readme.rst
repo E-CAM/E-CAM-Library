@@ -1,8 +1,8 @@
 .. _Openmpbeads:
 
-####################
+###########
 Openmpbeads
-####################
+###########
 
 .. sidebar:: Software Technical Information
 
@@ -14,6 +14,9 @@ Openmpbeads
 
   Documentation Tool
     Doxygen
+
+  Software Module Developed by
+    Przemyslaw Juda, Momir Mališ
 
 .. contents:: :local:
 
