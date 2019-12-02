@@ -25,9 +25,10 @@ OPS-based modules
   Licence
     LGPL, v. 2.1 or later
 
-.. contents:: :local:
+  Software module developed by
+    YOUR NAME(S) HERE
 
-Authors: Alan O'Cais 
+.. contents:: :local:
 
 This is the template for an E-CAM *module* based on OpenPathSampling (OPS). Several
 sections are already pre-filled with the details of OPS. Please fill out the
@@ -66,18 +67,19 @@ reading:
 Testing
 _______
 
-Tests in OpenPathSampling use the `nose`_ package.
+Tests in OpenPathSampling use `pytest`_.
 
 .. IF YOUR MODULE IS IN OPS CORE:
 
 .. This module has been included in the OpenPathSampling core. Its tests can
-.. be run by setting up a developer install of OpenPathSampling and running
-.. the command ``nosetests`` from the root directory of the repository.
+.. be run by installing pytest and OPS (with commit ????????, which will be
+.. part of release ??? and later), and running the command ``py.test
+.. --pyargs  openpathsampling``.
 
 .. IF YOUR MODULE IS IN A SEPARATE REPOSITORY
 
 .. The tests for this module can be run by downloading its source code, 
-.. installing its requirements, and running the command ``nosetests`` from the
+.. installing its requirements, and running the command ``py.test`` from the
 .. root directory of the repository.
 
 Examples
@@ -105,5 +107,5 @@ ___________
 
 .. Here are the URL references used
 
-.. _nose: http://nose.readthedocs.io/en/latest/
+.. _pytest: http://pytest.org/
 

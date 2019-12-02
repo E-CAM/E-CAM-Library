@@ -3,22 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. _readme_quantum_dynamics:
-
-************************
-Quantum Dynamics Modules
-************************
-
-
-Introduction
-============
-
 .. sidebar:: General Information
 
     .. contents:: :depth: 2
 
     * :ref:`contributing`
     * :ref:`search`
+
+.. _readme_quantum_dynamics:
+
+************************
+Quantum Dynamics Modules
+************************
+
+Introduction
+============
 
 .. image:: ./images/AltLogo.png
    :width: 30 %
@@ -99,6 +98,7 @@ Below are listed the pilot project modules created so far:
     :maxdepth: 1
 
     ./modules/LocConQubit/readme
+..    ./modules/module_faster/readme
 
 **LocConQubit** is a code for the construction of controlled pulses on isolated qubit systems using the Local Control Theory.
 
@@ -180,6 +180,17 @@ lectures and tutorials on OpenMP parallelization.
 
 
 
+ESDW Durham University (Durham 2019)
+------------------------------------
+
+This modules have been developed at Durham ESDW
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+..    ./modules/CTMQC/readme
+
 List of available Modules
 =========================
 
@@ -226,7 +237,6 @@ The **PhysConst** enables the use of physical constants and the correct isotopic
     ./modules/QuantumModelLib/readme
 
 The **QuantumModelLib** use potential energy surfaces extracted from the literature and can be linked to quantum dynamics codes.
-
 
 
 PaPIM
@@ -278,6 +288,15 @@ The function is given in the phase-space representation and is the basis for any
     ./modules/PIM_qcf/readme
 
 **PIM_qcf** is a library of quantum correlation functions for computing system's time-dependent properties.
+
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/PIM_qtb/readme
+
+**PIM_qtb** implements various classical and semi-classical methods based on Langevin dynamics (classical Langevin dynamics, Quantum Thermal Bath (QTB) and two variants of adaptive QTB (adQTB-r and adQTB-f). The generated trajectories can be used to sample initial conditions for intramolecular vibrational-energy redistribution (IVR) dynamics.
 
 
 .. toctree::
@@ -401,6 +420,16 @@ The **Zagreb_sh** module is an interface between between Quantics package and th
         ./modules/Quantics_Openmp_Improvements_Module/Quantics_omp_module
 
 The **Quantics_openmp** module is an initial effort at OpenMP parallelisation improvements to Quantics.
+
+
+.. toctree::
+        :glob:
+        :maxdepth: 1
+ 
+        ./modules/guessoc/guessoc_readme
+
+The **Spin orbit coupling smoothing** module is to smooth spin orbit couplings along internuclear distance.
+
 
 References
 ==========
