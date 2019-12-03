@@ -26,7 +26,7 @@ Purpose of Module
 ___________________
 
 PANNA-GVECT module demonstrates how to efficiently generate Behler-Parinello and modified Behler-Parinello
-descriptors (See References 1,2,3). 
+descriptors (see References [1]_, [2]_, [3]_). 
 
 These descriptors can then be used in machine learning algorithms. Even though these descriptors were originally designed for 
 neural network models, they are equally suitable for other supervised learning schemes such as kernel methods, 
@@ -37,7 +37,7 @@ PANNA-GVECT, unlike other modules within the PANNA project, does not use TensorF
 Features
 __________
 
-PANNA-Gvect supports periodic and aperiodic structures, multiple species, 
+PANNA-GVECT supports periodic and aperiodic structures, multiple species, 
 derivative of the descriptors with respect to atomic positions.
 
 Building and Testing
@@ -72,7 +72,7 @@ used in machine learning workflow.
 Source Code
 ___________
 
-PANNA-GVECT source is currently hosted on `gitlab <https://gitlab.com/PANNAdevs/panna>`_.
+PANNA-GVECT source is currently hosted on `GitLab <https://gitlab.com/PANNAdevs/panna>`_.
 
 Further Information
 ______________________
@@ -81,14 +81,18 @@ The PANNA-GVECT module is developed with the contributions of R. Lot, Y. Shaidu,
 
 References
 ____________
+
 PANNA manuscript:
-[1] R. Lot, Y. Shaidu, F. Pellegrini, E. Kucukbenli. 
-`arxiv:1907.03055 <https://arxiv.org/abs/1907.03055>`_. Submitted (2019). 
 
-[2] J. Behler and M. Parrinello, Generalized Neural-Network 
-Representation  of  High-Dimensional  Potential-Energy
-Surfaces, Phys. Rev. Lett. 98, 146401 (2007)
+.. [1] R. Lot, Y. Shaidu, F. Pellegrini, E. Kucukbenli. 
+  `arxiv:1907.03055 <https://arxiv.org/abs/1907.03055>`_. Submitted (2019). 
 
-[3] Justin S. Smith, Olexandr Isayev, Adrian E. Roitberg. 
-ANI-1: An extensible neural network potential with DFT accuracy 
-at force field computational cost. Chemical Science,(2017), DOI: 10.1039/C6SC05720A
+and,
+
+.. [2] J. Behler and M. Parrinello, Generalized Neural-Network 
+  Representation  of  High-Dimensional  Potential-Energy
+  Surfaces, Phys. Rev. Lett. 98, 146401 (2007)
+
+.. [3] Justin S. Smith, Olexandr Isayev, Adrian E. Roitberg. 
+  ANI-1: An extensible neural network potential with DFT accuracy 
+  at force field computational cost. Chemical Science,(2017), DOI: 10.1039/C6SC05720A
