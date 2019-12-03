@@ -110,11 +110,6 @@ minimal distance.
   We would use the present module to avoid topology violation in an entangled polymer system.
   This module is used by other ongoing work.
 
-.. note::
-
-  This module is a part of a pilot project (E-CAM post-doc). We would use it to avoid topology violation in entangle polymer system.
-  url to the pilot project main page not currently available.
-
 ..  If needed you can include latex mathematics like :math:`\frac{ \sum_{t=0}^{N}f(t,k) }{N}`
     which won't show up on GitLab/GitHub but will in final online documentation.
 
@@ -147,8 +142,9 @@ ____________________
 
 I provide a simple Makefile you can find at the same location that the source code.
 You need C++11 in order to use the pseudo-random number generator.
-It also has OpenMP acceleration. Edit the make file to enable it.
-Before the compilation you can clean the previous build with "make mrproper" command.
+The example also has OpenMP acceleration, edit the ``Makefile`` to enable it.
+Before the compilation you can clean the previous build with the ``make mrproper`` command.
+
 The purpose of the module is to calculate the minimal distance between two segments.
 For each distance we compare the result to an "exact enumeration" of all the possible
 distances and return a warning if the two results differ by more than the enumeration
