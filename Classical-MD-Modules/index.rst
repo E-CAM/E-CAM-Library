@@ -219,7 +219,7 @@ The following modules were developed specifically for the Classical MD pilot pro
     ./modules/contact_concurrences/readme
     ./modules/PIcore/readme
     ./modules/PIhydration/readme
-
+    ./modules/MSJuly2019_minDist2segments_KKT/readme
 
 Extended Software Development Workshops (ESDWs)
 ===============================================
