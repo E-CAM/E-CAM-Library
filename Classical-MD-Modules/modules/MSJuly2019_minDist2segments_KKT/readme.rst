@@ -161,5 +161,5 @@ ___________
    <https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature branch.
    Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits.
 
-The source code and more informations can be find at `GitLab E-CAM 2020 <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
+The source code and more information can be find at `GitLab E-CAM 2020 <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
 
