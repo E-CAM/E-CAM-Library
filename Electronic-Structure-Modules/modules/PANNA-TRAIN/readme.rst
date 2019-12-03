@@ -27,8 +27,7 @@ ___________________
 
 PANNA-TRAIN is a neural network training module for atomistic data, eg. prediction of total energy and forces 
 given a crystal structure. 
-It implements a separate atomic network for each species, following the seminal work of Behler and Parinello. 
-(See References 1,2,3)
+It implements a separate atomic network for each species, following the seminal work of Behler and Parinello (see References [1]_, [2]_, [3]_)
 which can later be used as interatomic potential in molecular dynamics simulations.
 
 PANNA-TRAIN uses TensorFlow framework as the underlying neural network training and data i/o engine.
@@ -38,7 +37,7 @@ __________
 
 PANNA-TRAIN supports all to all connected networks for each species. 
 Networks with different number of nodes and layers are allowed. 
-It further supports controlling the training dynamics: eg. reeze/unfreeze layers, weight transfer, decaying learning rates etc. 
+It further supports controlling the training dynamics: eg. freeze/unfreeze layers, weight transfer, decaying learning rates etc. 
 
 Building and Testing
 ______________________________
@@ -77,7 +76,7 @@ the machine learning task in (input, target output) pair form.
 Source Code
 ___________
 
-PANNA-TRAIN source is currently hosted on `gitlab <https://gitlab.com/PANNAdevs/panna>`_.
+PANNA-TRAIN source is currently hosted on `GitLab <https://gitlab.com/PANNAdevs/panna>`_.
 
 Further Information
 ______________________
@@ -86,14 +85,18 @@ The PANNA-TRAIN module is developed with the contributions of R. Lot, Y. Shaidu,
 
 References
 ____________
+
 PANNA manuscript:
-[1] R. Lot, Y. Shaidu, F. Pellegrini, E. Kucukbenli. 
-`arxiv:1907.03055 <https://arxiv.org/abs/1907.03055>`_. Submitted (2019). 
 
-[2] J. Behler and M. Parrinello, Generalized Neural-Network 
-Representation  of  High-Dimensional  Potential-Energy
-Surfaces, Phys. Rev. Lett. 98, 146401 (2007)
+.. [1] R. Lot, Y. Shaidu, F. Pellegrini, E. Kucukbenli. 
+  `arxiv:1907.03055 <https://arxiv.org/abs/1907.03055>`_. Submitted (2019). 
 
-[3] Justin S. Smith, Olexandr Isayev, Adrian E. Roitberg. 
-ANI-1: An extensible neural network potential with DFT accuracy 
-at force field computational cost. Chemical Science,(2017), DOI: 10.1039/C6SC05720A
+and
+
+.. [2] J. Behler and M. Parrinello, Generalized Neural-Network 
+  Representation  of  High-Dimensional  Potential-Energy
+  Surfaces, Phys. Rev. Lett. 98, 146401 (2007)
+
+.. [3] Justin S. Smith, Olexandr Isayev, Adrian E. Roitberg. 
+  ANI-1: An extensible neural network potential with DFT accuracy 
+  at force field computational cost. Chemical Science,(2017), DOI: 10.1039/C6SC05720A

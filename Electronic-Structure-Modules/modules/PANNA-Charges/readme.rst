@@ -5,7 +5,7 @@ PANNA-Charges
 .. sidebar:: Software Technical Information
 
  Language
-   Python 3.6.
+   Python 3.6
 
  Documentation Tool
    Sphinx,ReStructuredText
@@ -27,16 +27,16 @@ ___________________
 
 PANNA-Charges module demonstrates how to train a neural network to predict local atomic charges. 
 This network can later be used to calculate the electrostatic energy density of a crystal. 
-See Reference 2 for the theoretical model behind this approach.
+See Reference [2]_ for the theoretical model behind this approach.
 
-PANNA-Charges, following other modules within the PANNA project, uses TensorFlow framework. 
+PANNA-Charges, following other modules within the PANNA project [1]_, uses TensorFlow framework. 
 
 Features
 __________
 
 PANNA-Charge supports periodic and aperiodic structures, multiple species, 
 and a different all-to-all connected network architecture for each species.
-It further supports controlling the training dynamics: eg. reeze/unfreeze layers, weight transfer, decaying learning rates etc. 
+It further supports controlling the training dynamics: eg. freeze/unfreeze layers, weight transfer, decaying learning rates etc. 
 
 Building and Testing
 ______________________________
@@ -72,19 +72,23 @@ In this comprehensive tutorial, a neural network training scenario for systems w
 Source Code
 ___________
 
-PANNA-Charges source is not currently public, when it is released it will be hosted on `gitlab <https://gitlab.com/PANNAdevs/panna>`_.
+PANNA-Charges source is not currently public, when it is released it will be hosted on `GitLab <https://gitlab.com/PANNAdevs/panna>`_.
 
 Further Information
 ______________________
 
-The PANNA-Charges module is developed with the contributions of Y. Shaidu, R. Lot, F. Pellegrini, E. Kucukbenli
+The PANNA-Charges module is developed with the contributions of Y. Shaidu, R. Lot, F. Pellegrini, E. Kucukbenli.
 
 References
 ____________
-PANNA manuscript:
-[1] R. Lot, Y. Shaidu, F. Pellegrini, E. Kucukbenli. 
-`arxiv:1907.03055 <https://arxiv.org/abs/1907.03055>`_. Submitted (2019). 
 
-[2] N. Artrith, T. Morawietz, J. Behler. PRB 83, 153101 (2011). 
-High-dimensional neural-network potentials for multicomponent systems: Applications to zinc oxide.
-Erratum: PRB 86, 079914 (2012). 
+PANNA manuscript:
+
+.. [1] R. Lot, Y. Shaidu, F. Pellegrini, E. Kucukbenli. 
+  `arxiv:1907.03055 <https://arxiv.org/abs/1907.03055>`_. Submitted (2019). 
+
+and
+
+.. [2] N. Artrith, T. Morawietz, J. Behler. PRB 83, 153101 (2011). 
+  High-dimensional neural-network potentials for multicomponent systems: Applications to zinc oxide.
+  Erratum: PRB 86, 079914 (2012). 

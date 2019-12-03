@@ -26,7 +26,7 @@ Purpose of Module
 ___________________
 
 PANNA-TFR module demonstrates how to efficiently pack the Behler-Parinello and 
-modified Behler-Parinello descriptor vectors (See References 1,2,3) written in binary format, into TensorFlow data format
+modified Behler-Parinello descriptor vectors (See References [1]_, [2]_, [3]_) written in binary format, into TensorFlow data format
 for efficient reading during training. 
 
 These descriptors can then be used within TensorFlow efficiently, reducing the overhead during batch creation. 
@@ -43,7 +43,7 @@ ______________________________
 
 A stable version of the module can be downloaded using the download button on this `page <https://gitlab.com/PANNAdevs/panna>`_
 
-As a python module PANNA-TFR does not require installation but it relies on numpy library version => 1.15.0 and tensorflow version => 1.13.0
+As a python module PANNA-TFR does not require installation but it relies on numpy library version => 1.15.0 and tensorflow version => 1.13.0.
 
 In order to set up and test the module, run the following::
 
@@ -71,7 +71,7 @@ used in machine learning workflow.
 Source Code
 ___________
 
-PANNA-TFR source is currently hosted on `gitlab <https://gitlab.com/PANNAdevs/panna>`_.
+PANNA-TFR source is currently hosted on `GitLab <https://gitlab.com/PANNAdevs/panna>`_.
 
 Further Information
 ______________________
@@ -80,14 +80,18 @@ The PANNA-TFR module is developed with the contributions of R. Lot, Y. Shaidu, F
 
 References
 ____________
+
 PANNA manuscript:
-[1] R. Lot, Y. Shaidu, F. Pellegrini, E. Kucukbenli. 
-`arxiv:1907.03055 <https://arxiv.org/abs/1907.03055>`_. Submitted (2019). 
 
-[2] J. Behler and M. Parrinello, Generalized Neural-Network 
-Representation  of  High-Dimensional  Potential-Energy
-Surfaces, Phys. Rev. Lett. 98, 146401 (2007)
+.. [1] R. Lot, Y. Shaidu, F. Pellegrini, E. Kucukbenli. 
+  `arxiv:1907.03055 <https://arxiv.org/abs/1907.03055>`_. Submitted (2019). 
 
-[3] Justin S. Smith, Olexandr Isayev, Adrian E. Roitberg. 
-ANI-1: An extensible neural network potential with DFT accuracy 
-at force field computational cost. Chemical Science,(2017), DOI: 10.1039/C6SC05720A
+and,
+
+.. [2] J. Behler and M. Parrinello, Generalized Neural-Network 
+  Representation  of  High-Dimensional  Potential-Energy
+  Surfaces, Phys. Rev. Lett. 98, 146401 (2007)
+
+.. [3] Justin S. Smith, Olexandr Isayev, Adrian E. Roitberg. 
+  ANI-1: An extensible neural network potential with DFT accuracy 
+  at force field computational cost. Chemical Science,(2017), DOI: 10.1039/C6SC05720A

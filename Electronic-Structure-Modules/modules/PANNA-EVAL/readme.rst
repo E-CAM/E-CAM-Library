@@ -5,7 +5,7 @@ PANNA-EVAL
 .. sidebar:: Software Technical Information
 
  Language
-   Python 3.6.
+   Python 3.6
 
  Documentation Tool
    Sphinx,ReStructuredText
@@ -40,14 +40,14 @@ __________
 
 PANNA-EVAL module has two user-end scripts: evaluate.py and extract_weights.py.
 
-Main script of the PANNA-EVAL module, evaluate.py can evaluate all to all connected networks with various sizes for each species. 
+The main script of the PANNA-EVAL module, ``evaluate.py`` can evaluate all to all connected networks with various sizes for each species. 
 It can also calculate the derivative of the target function, ie. forces for an energy network.
 
 This module was primarily created to validate TensorFlow networks stored during training in checkpoint format, hence it has the functionality to look for 
 checkpoint numbers in a training directory, and/or run several checkpoint evaluations at once.
 
-Extract_weights.py script allows to save the network parameters from TensorFlow native checkpoint format to other useful ones, such as 
-human readable or LAMMPS potential formats. This last one allows neural networks that are trained and validated using PANNA modules to 
+The ``extract_weights.py`` script allows one to save the network parameters from TensorFlow native checkpoint format to other useful ones, such as 
+human readable or LAMMPS potential formats. This last one allows neural networks that are trained and validated using PANNA [1]_ modules to 
 be exported to LAMMPS as interatomic potentials. 
 
 
@@ -56,9 +56,9 @@ ______________________________
 
 A stable version of the module can be downloaded using the download button on this `page <https://gitlab.com/PANNAdevs/panna>`_
 
-As a python module PANNA-EVAL does not require installation but it relies on numpy library version >= 1.15.0, tensorflow version >= 1.13.0. 
-Note that with version 2.0.0, tensorflow libraries went under substantial changes in structure, the 1.1X.X 
-family supports the equally valid previous structure and is still being maintained. PANNA-EVAL requires tensorflow 1.1X.X family of versions. 
+As a python module PANNA-EVAL does not require installation but it relies on numpy library version >= 1.15.0, TensorFlow version >= 1.13.0. 
+Note that with version 2.0.0, TensorFlow libraries went under substantial changes in structure, the 1.1X.X 
+family supports the equally valid previous structure and is still being maintained. PANNA-EVAL requires TensorFlow 1.1X.X family of versions. 
 
 In order to set up and test the module, run the following::
 
@@ -66,7 +66,7 @@ In order to set up and test the module, run the following::
  $ cd panna-master
  $ python3 ./panna/test-evaluate.py
 
-Currently this test only assesses the evaluate.py script. Another test for extract_weights.py will be released in the near future. 
+Currently this test only assesses the ``evaluate.py`` script. Another test for ``extract_weights.py`` will be released in the near future. 
 
 Usage
 ______
@@ -90,23 +90,17 @@ the machine learning task in (input, target output) pair form.
 Source Code
 ___________
 
-PANNA-EVAL source is currently hosted on `gitlab <https://gitlab.com/PANNAdevs/panna>`_.
+PANNA-EVAL source is currently hosted on `GitLab <https://gitlab.com/PANNAdevs/panna>`_.
 
 Further Information
 ______________________
 
-The PANNA-EVAL module is developed with the contributions of R. Lot, Y. Shaidu, F. Pellegrini, E. Kucukbenli
+The PANNA-EVAL module is developed with the contributions of R. Lot, Y. Shaidu, F. Pellegrini, E. Kucukbenli.
 
 References
 ____________
+
 PANNA manuscript:
-[1] R. Lot, Y. Shaidu, F. Pellegrini, E. Kucukbenli. 
-`arxiv:1907.03055 <https://arxiv.org/abs/1907.03055>`_. Submitted (2019). 
 
-[2] J. Behler and M. Parrinello, Generalized Neural-Network 
-Representation  of  High-Dimensional  Potential-Energy
-Surfaces, Phys. Rev. Lett. 98, 146401 (2007)
-
-[3] Justin S. Smith, Olexandr Isayev, Adrian E. Roitberg. 
-ANI-1: An extensible neural network potential with DFT accuracy 
-at force field computational cost. Chemical Science,(2017), DOI: 10.1039/C6SC05720A
+.. [1] R. Lot, Y. Shaidu, F. Pellegrini, E. Kucukbenli. 
+  `arxiv:1907.03055 <https://arxiv.org/abs/1907.03055>`_. Submitted (2019). 

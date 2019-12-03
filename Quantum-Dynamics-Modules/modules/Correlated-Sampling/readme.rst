@@ -106,17 +106,17 @@ All current versions of this code use the `GNU scientific library <https://www.g
 
 OpenMP version:
 
-With the GNU compiler, gcc version 6.3.0 or greater is required.
+  With the GNU compiler, gcc version 6.3.0 or greater is required.
 
-On the Kay cluster this can be done as follows:
+  On the Kay cluster this can be done as follows:
 
-::
+  ::
 
     # Load modules to give us the right environment
     module load gcc/8.2.0
     module load gsl/gcc/2.5
 
-::
+  ::
 
 	# Compile command;
 	g++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -fopenmp -std=c++11
@@ -125,9 +125,9 @@ On the Kay cluster this can be done as follows:
 	OMP_NUM_THREADS=[number of OpenMP threads] ./run Input
 
 
-With the Intel compiler:
+  With the Intel compiler:
 
-::
+  ::
 
 	# Compile command;
 	icpc -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -qopenmp -std=c++11
@@ -135,18 +135,16 @@ With the Intel compiler:
 	# Run command:
 	OMP_NUM_THREADS=[number of OpenMP threads] ./run Input
 
------------------------------------
-
 MPI version:
 
-::
+  ::
 
     # Load modules to give us the right environment
     module load intel/2018u4
     module load gsl/intel/2.5
     module load gcc/8.2.0
 
-::
+  ::
 
 	# Compile command;
 	mpic++ -o run main.cpp bath_setup.cpp density.cpp propagation.cpp transition_matrix.cpp opt_parser.cpp -lgsl -lgslcblas -lm -std=c++11
