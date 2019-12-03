@@ -108,7 +108,7 @@ minimal distance.
 .. note::
 
   We would use the present module to avoid topology violation in an entangled polymer system.
-  This module is used by the ongoing work "velocities_resolve_EVC" module.
+  This module is used by other ongoing work.
 
 .. note::
 
@@ -146,12 +146,8 @@ ____________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 I provide a simple Makefile you can find at the same location that the source code.
-<<<<<<< HEAD
-You need C++11 in order to use pseudo-random number generator.
-It has OpenMP acceleration. Edit the make file to enable it.
-=======
 You need C++11 in order to use the pseudo-random number generator.
->>>>>>> 3dae205631a9670376742991d107654cf5145fb9
+It also has OpenMP acceleration. Edit the make file to enable it.
 Before the compilation you can clean the previous build with "make mrproper" command.
 The purpose of the module is to calculate the minimal distance between two segments.
 For each distance we compare the result to an "exact enumeration" of all the possible
@@ -167,9 +163,4 @@ ___________
    <https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature branch.
    Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits.
 
-<<<<<<< HEAD
-The source code and more informations can be find at `minDist2segments_KKT GitLab repository <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
-=======
-The source code and more information can be find at `GitLab E-CAM 2020 <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
-
->>>>>>> 3dae205631a9670376742991d107654cf5145fb9
+The source code and more information can be find at `minDist2segments_KKT GitLab repository <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
