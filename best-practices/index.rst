@@ -3,18 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. _best_practices:
-
-==================================
-Scientific Software Best Practices
-==================================
-
 .. sidebar:: General Information
 
     .. contents:: :local:
 
     * :ref:`contributing`
     * :ref:`search`
+
+.. _best_practices:
+
+==================================
+Scientific Software Best Practices
+==================================
 
 .. image:: ./images/512px-Waterfall_model.svg.png
     :alt: "By Peter Kemp / Paul Smith [CC BY 3.0], via Wikimedia Commons"
@@ -64,7 +64,7 @@ specific things that need to be considered that impact the software development 
 ..    * Applications and Libraries
 ..    * Portability and Optimisation
 ..    * Scalability
-..    * Reproducability
+..    * Reproducibility
 .. * Hardware
 ..    * General Architecture
 ..    * Where is the compute power on modern HPC machines?
