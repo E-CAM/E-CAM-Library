@@ -1,3 +1,5 @@
+:orphan:
+
 ..  In ReStructured Text (ReST) indentation and spacing are very important (it is how ReST knows what to do with your
     document). For ReST to understand what you intend and to render it correctly please to keep the structure of this
     template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded
@@ -19,13 +21,13 @@
     `MIT <https://opensource.org/licenses/mit-license>`_
 
   Documentation Tool
-    sphynx
+    Sphinx
 
   Application Documentation
-    `doxygen documentation <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt/blob/master/refman.pdf>`_
+    `Doxygen documentation <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt/blob/master/refman.pdf>`_
 
   Relevant Training Material
-    `pdf documentation <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt/blob/master/minDist2segments_KKT.pdf>`_
+    `PDF documentation <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt/blob/master/minDist2segments_KKT.pdf>`_
 
   Software Module Developed by
     Pascal Carrivain
@@ -84,7 +86,7 @@ _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-To study the long term memory of the initial conformation of a highly entangle polymer we need to preserve the topology.
+To study the long term memory of the initial conformation of a highly entangled polymer we need to preserve the topology.
 It means that two polymer bonds cannot cross. It is of great importance for the study of post-mitotic chromosome unfolding.
 To resolve the excluded volume constraints one could use a soft or hard potential between the two points associated to the
 minimal distance.
@@ -105,7 +107,7 @@ minimal distance.
 
 .. note::
 
-  We would use the present module to avoid topology violation in entangle polymer system.
+  We would use the present module to avoid topology violation in an entangled polymer system.
   This module is used by the ongoing work "velocities_resolve_EVC" module.
 
 .. note::
@@ -144,8 +146,12 @@ ____________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 I provide a simple Makefile you can find at the same location that the source code.
+<<<<<<< HEAD
 You need C++11 in order to use pseudo-random number generator.
 It has OpenMP acceleration. Edit the make file to enable it.
+=======
+You need C++11 in order to use the pseudo-random number generator.
+>>>>>>> 3dae205631a9670376742991d107654cf5145fb9
 Before the compilation you can clean the previous build with "make mrproper" command.
 The purpose of the module is to calculate the minimal distance between two segments.
 For each distance we compare the result to an "exact enumeration" of all the possible
@@ -161,4 +167,9 @@ ___________
    <https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature branch.
    Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits.
 
+<<<<<<< HEAD
 The source code and more informations can be find at `minDist2segments_KKT GitLab repository <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
+=======
+The source code and more information can be find at `GitLab E-CAM 2020 <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
+
+>>>>>>> 3dae205631a9670376742991d107654cf5145fb9
