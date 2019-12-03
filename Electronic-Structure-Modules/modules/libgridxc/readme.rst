@@ -1,7 +1,5 @@
 ..  We allow the template to be standalone, so that the library maintainers add it in the right place
 
-:orphan:
-
 ..  sidebar:: Software Technical Information
 
   Name
@@ -17,7 +15,7 @@
     SIESTA Documentation Specifications (document available soon).
 
   Application Documentation
-    Source code can be browsed on `Gitlab <https://gitlab.com/siesta-project/libgridxc>`_.
+    Source code can be browsed on `GitLab <https://gitlab.com/siesta-project/libgridxc>`_.
 
   Relevant Training Material
     Not currently available.
@@ -105,5 +103,5 @@ For more information about the Autotools, please consult `the Autotools Mythbust
 Source Code
 ___________
 
-The source code of LibGridXC is hosted on `Gitlab <https://gitlab.com/siesta-project/libgridxc>`_.
+The source code of LibGridXC is hosted on `GitLab <https://gitlab.com/siesta-project/libgridxc>`_.
 
