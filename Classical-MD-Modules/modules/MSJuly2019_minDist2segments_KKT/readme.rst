@@ -51,8 +51,9 @@ E-CAM minDist2segments_KKT module
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-The minDist2segments_KKT module returns the minimal distance between two segments.
-It uses the Karush-Kuhn-Tucker conditions for the minimization under constraints.
+The minDist2segments_KKT module returns the minimal distance between two `line segments <https://en.wikipedia.org/wiki/Line_segment>`_.
+It uses the Karush-Kuhn-Tucker conditions `(KKT) <https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions>`_
+for the minimization under constraints.
 
 ..  The E-CAM library is purely a set of documentation that describes software development efforts related to the project.
     A *module* for E-CAM is the documentation of the single development of effort associated to the project. In that sense, a
@@ -135,7 +136,7 @@ ______________________
     the links they need should be already in this module.
 
 You can find pdf file with a detailed derivation of the minimal distance between two segments using the Karush-Kuhn-Tucker
-conditions at `GitLab E-CAM 2020 <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
+conditions on the `minDist2segments_KKT GitLab repository <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
 
 Building and Testing
 ____________________
@@ -144,6 +145,7 @@ ____________________
 
 I provide a simple Makefile you can find at the same location that the source code.
 You need C++11 in order to use pseudo-random number generator.
+It has OpenMP acceleration. Edit the make file to enable it.
 Before the compilation you can clean the previous build with "make mrproper" command.
 The purpose of the module is to calculate the minimal distance between two segments.
 For each distance we compare the result to an "exact enumeration" of all the possible
@@ -159,5 +161,4 @@ ___________
    <https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature branch.
    Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits.
 
-The source code and more informations can be find at `GitLab E-CAM 2020 <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
-
+The source code and more informations can be find at `minDist2segments_KKT GitLab repository <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
