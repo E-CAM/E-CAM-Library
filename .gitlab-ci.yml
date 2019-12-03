@@ -3,7 +3,7 @@ image: cloudcompass/docker-rtdsphinx
 spelling:
   script:
   - pip3 install codespell
-  - codespell --skip=".git,_static,_build,Diff*,*.patch,*.f90" --quiet-level=2 --ignore-words-list="adress,catalogue,noe"
+  - codespell --skip=".git,_static,_build,Diff*,*.patch,*.f90" --quiet-level=2 --ignore-words-list="adress,catalogue,noe,soler"
   only:
   - master
   - merge_requests

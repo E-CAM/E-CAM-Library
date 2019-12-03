@@ -111,6 +111,7 @@ Modules not coming from ESDWs
      :maxdepth: 1
 
      ./modules/flook/readme
+     ./modules/libgridxc/readme
      ./modules/libvdwxc/readme
      ./modules/MatrixSwitchDBCSR/readme
 
