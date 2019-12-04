@@ -5,8 +5,6 @@
 
 ..  We allow the template to be standalone, so that the library maintainers add it in the right place
 
-:orphan:
-
 ..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
     progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
 
@@ -41,9 +39,9 @@
 
 .. _dl_meso_gpu_loadBalance:
 
-##################################
-Load balance on DL_MESO multi-GPUs
-##################################
+####################################
+Load balancing for multi-GPU DL_MESO
+####################################
 
 ..  Let's add a local table of contents to help people navigate the page
 
@@ -55,12 +53,12 @@ Load balance on DL_MESO multi-GPUs
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
 
-This module concern about the implementation of the ALL library for load balancing on the multi-GPU version of DL\_MESO\_DPD.
+This module concerns the implementation of the ALL library for load balancing in the multi-GPU version of DL\_MESO\_DPD.
 
 Purpose of Module
 _________________
 
-The intention is to allow better performance when complex systems, like large proteins or lipid bylars, redistributing the work load
+The intention is to allow for better performance when modelling complex systems, like large proteins or lipid bylars, redistributing the work load
 across the GPUs. The A Load Balancing (ALL) library, developed at Julich Supercomputer Center, provides several scheme to find the ideal split of the 
 work load: from the simplest orthogonal non staggered domain decomposition, to the more fancy Voronoi mesh scheme.
 
@@ -72,7 +70,7 @@ ______________________
 This module is part of the DL\_MESO\_DPD code. Full support and documentation is available at:
 
 * https://www.scd.stfc.ac.uk/Pages/DL_MESO.aspx
-  * https://www.scd.stfc.ac.uk/Pages/USRMAN.pdf
+* https://www.scd.stfc.ac.uk/Pages/USRMAN.pdf
 
 To download the DL\_MESO\_DPD code you need to register at https://gitlab.stfc.ac.uk. Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.
 
@@ -95,7 +93,7 @@ The DL\_MESO code is developed using git version control. Currently, the multi G
   cd ./DPD/gpu_version/bin
   make all
 
-To compile and run the code you need to have installed the CUDA-toolkit (>=8.0) and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw). For the MPI library the OpenMPI 3.1.0 has been used.
+To compile and run the code you need to have installed the CUDA-toolkit (>=8.0) and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw). For the MPI library, OpenMPI 3.1.0 has been used in testing.
 
 To run the case, copy the ``FIELD`` and ``CONTROL`` files from the "../tests" directory and run using ``mpirun -np NP ./dpd_gpu.exe``. Compare the ``OUTPUT`` and the ``export`` files to verify your results.
 
