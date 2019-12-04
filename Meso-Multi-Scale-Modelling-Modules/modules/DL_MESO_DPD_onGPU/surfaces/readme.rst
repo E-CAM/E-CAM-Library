@@ -89,7 +89,7 @@ ____________________
 
 To compile and run the code you need to have installed the CUDA-toolkit (>=8.0) and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw). For the MPI library the OpenMPI 3.1.0 has been used.
 
-The DL\_MESO code is developed using git version control. Currently, the multi GPU version is under a branch named ``multi_GPU_version``. After downloading the code, checkout the GPU branch and move to the ``DPD/gpu_version/bin`` folder. Modify the Makefile to use the correct GPU architecture (sm_XX) and check if the CPP flags are supported (i.e.: -DAWARE_MPI for CUDA\_aware\_MPI support, -DOPENMPI for OpenMPI library, -DMVAPICH for MVAPICH library and -DHWLOC for ``hwloc`` support). Make sure nvcc is installed (or CUDA toolkit module loaded). Then, compile using ``make all``. Resume: 
+The DL\_MESO code is developed using git version control. Currently, the multi GPU version is under a branch named ``multi_GPU_version``. After downloading the code, checkout the GPU branch and move to the ``DPD/gpu_version/bin`` folder. Modify the Makefile to use the correct GPU architecture (sm_XX) and check if the CPP flags are supported (i.e.: -DAWARE_MPI for CUDA\_aware\_MPI support, -DOPENMPI for OpenMPI library, -DMVAPICH for MVAPICH library and -DHWLOC for ``hwloc`` support). Make sure nvcc is installed (or CUDA toolkit module loaded). Then, compile using ``make all``. In short: 
 
 .. code-block:: bash
 
@@ -97,10 +97,10 @@ The DL\_MESO code is developed using git version control. Currently, the multi G
   cd dl_meso
   git checkout multi_GPU_version
   cd ./DPD/gpu_version/bin
-  modify Makefile according to your device and libraries
+  # Modify the Makefile according to your device and libraries
   make all
 
-To run the case, copy the ``FIELD`` and ``CONTROL`` files from the "../tests/Poiseuille" directory and run using ``mpirun -np 8 ./dpd_gpu.exe``.The test case consists in simulating the Poiseuille flow, using 8 GPUs, obtained between two parallel plane surfaces. Being the flow laminar, the solution has to match with the analytic parabolic profile of the velocity field. Compare the ``OUTPUT`` and the ``export`` files to verify your results. Do not worry about the ``problem with total_nbeads`` warning message.
+To run the  test case, copy the ``FIELD`` and ``CONTROL`` files from the "../tests/Poiseuille" directory and run using ``mpirun -np 8 ./dpd_gpu.exe`` on a job partition with 1 GPU available per MPI process. The test case consists in simulating the Poiseuille flow, using 8 GPUs, obtained between two parallel plane surfaces. Being the flow laminar, the solution has to match with the analytic parabolic profile of the velocity field. Compare the ``OUTPUT`` and the ``export`` files to verify your results. Do not worry about the ``problem with total_nbeads`` warning message.
 
 
 
