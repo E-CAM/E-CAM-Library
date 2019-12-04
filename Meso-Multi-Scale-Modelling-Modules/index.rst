@@ -69,6 +69,7 @@ The following modules connected to the DL_MESO_DPD code have been produced so fa
     ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD_onGPU/surfaces/readme
     ./modules/DL_MESO_DPD_onGPU/loadBalance/readme
+    ./modules/DL_MESO_DPD_onGPU/manybody_singleGPU/readme
 
 ESPResSo++
 ----------
