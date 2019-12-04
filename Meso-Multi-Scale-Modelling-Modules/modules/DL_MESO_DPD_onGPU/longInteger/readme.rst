@@ -5,8 +5,6 @@
 
 ..  We allow the template to be standalone, so that the library maintainers add it in the right place
 
-:orphan:
-
 ..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
     progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
 
@@ -54,15 +52,14 @@ Long Integer on DL_MESO_DPD multi-GPU
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-This module extend the capability of the DL_MESO code to run simulation with more than 1.8 billion particles using long integer arrays.
+This module extends the capability of the DL_MESO code to run simulations with more than 1.8 billion particles using long integer arrays.
 
 Purpose of Module
 _________________
 
-The current version of DL\_MESO\_DPD on multi GPU cannot run system larger than 1.8 billion particles due to the INTEGER type used in ForTran for the particle arrays.
+The current version of DL\_MESO\_DPD on multi GPU cannot run systems larger than 1.8 billion particles due to the ``INTEGER`` type used in Fortran for the particle arrays.
 
-This module addresses this problem replacing, only where needed, the INTEGER with LONG INTEGER type in the ForTran arrays. This allow to run simulation with more than 1.8 billion particles and then more 
-complex systems.
+This module addresses this problem replacing, only where needed, the ``INTEGER`` with ``LONG INTEGER`` type in the Fortran arrays. This allows us to run simulations with more than 1.8 billion particles and, as a result, more complex systems.
 
 Background Information
 ______________________
@@ -70,7 +67,7 @@ ______________________
 This module is part of the DL\_MESO\_DPD code. Full support and documentation is available at:
 
 * https://www.scd.stfc.ac.uk/Pages/DL_MESO.aspx
-  * https://www.scd.stfc.ac.uk/Pages/USRMAN.pdf
+* https://www.scd.stfc.ac.uk/Pages/USRMAN.pdf
 
 To download the DL\_MESO\_DPD code you need to register at https://gitlab.stfc.ac.uk. Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.
 
@@ -92,7 +89,7 @@ The DL\_MESO code is developed using git version control. Currently, the multi G
   cd ./DPD/gpu_version/bin
   make all
 
-To compile and run the code you need to have installed the CUDA-toolkit (>=8.0) and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw). For the MPI library the OpenMPI 3.1.0 has been used.
+To compile and run the code you need to have installed the CUDA-toolkit (>=8.0) and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw). For testing, the MPI library the OpenMPI 3.1.0 has been used.
 
 To run the separation test case, copy the ``FIELD`` and ``CONTROL`` files from the "../tests/LargeSeparation" directory and run using ``mpirun -np NP ./dpd_gpu.exe``. The test case consists in simulating a binary mixture of 24 billion particles on 4096 GPUs (tested on PizDaint CSCS supercomputer).
 
@@ -107,8 +104,4 @@ This module has been merged into DL\_MESO code. It is composed of the
 following commits (you need to be registered as collaborator):
 
 * https://gitlab.stfc.ac.uk/dl_meso/dl_meso/commit/7f3e7abe7bb1c8010dd6a5baa0de4907ffe2f003
-
-
-
-
 
