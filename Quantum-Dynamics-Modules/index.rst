@@ -178,6 +178,13 @@ lectures and tutorials on OpenMP parallelization.
 
 .. _IBM: https://www.zurich.ibm.com/
 
+Modules developed in this workshop not included in other subheadings are:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/Correlated-Sampling/readme
 
 
 ESDW Durham University (Durham 2019)
@@ -237,7 +244,6 @@ The **PhysConst** enables the use of physical constants and the correct isotopic
     ./modules/QuantumModelLib/readme
 
 The **QuantumModelLib** use potential energy surfaces extracted from the literature and can be linked to quantum dynamics codes.
-
 
 
 PaPIM
@@ -421,6 +427,16 @@ The **Zagreb_sh** module is an interface between between Quantics package and th
         ./modules/Quantics_Openmp_Improvements_Module/Quantics_omp_module
 
 The **Quantics_openmp** module is an initial effort at OpenMP parallelisation improvements to Quantics.
+
+
+.. toctree::
+        :glob:
+        :maxdepth: 1
+ 
+        ./modules/guessoc/guessoc_readme
+
+The **Spin orbit coupling smoothing** module is to smooth spin orbit couplings along internuclear distance.
+
 
 References
 ==========

@@ -67,6 +67,8 @@ The following modules connected to the DL_MESO_DPD code have been produced so fa
     ./modules/DL_MESO_DPD/tetra_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD_onGPU/multi_gpu/readme
     ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme
+    ./modules/DL_MESO_DPD_onGPU/surfaces/readme
+    ./modules/DL_MESO_DPD_onGPU/loadBalance/readme
 
 ESPResSo++
 ----------
@@ -170,3 +172,7 @@ time-to-solution of the applications.
     :maxdepth: 1
 
     ./modules/ALL_library/tensor_method/readme
+    ./modules/ALL_library/staggered_method/readme
+    ./modules/ALL_library/unstructured_method/readme
+    ./modules/ALL_library/voronoi_method/readme
+    ./modules/ALL_library/histogram_method/readme

@@ -55,6 +55,7 @@ The first Electronic Structure ESDW in Zaragoza in June 2016 was the starting po
     ./modules/sqare-grids-doc/readme
     ./modules/sqare-ode-doc/readme
     ./modules/sqare-states-doc/readme
+    ./modules/esl-demo/readme
 
 
 ESDW San Sebastian 2016
@@ -98,7 +99,7 @@ The ESDW in Dublin in January 2019 was the starting point for the modules below.
     :maxdepth: 1
 
     ./modules/esl-easyconfigs/readme
-
+    ./modules/ELSI/readme
 
 Other Modules
 -------------
@@ -110,6 +111,8 @@ Modules not coming from ESDWs
      :maxdepth: 1
 
      ./modules/flook/readme
+     ./modules/libgridxc/readme
+     ./modules/libvdwxc/readme
      ./modules/MatrixSwitchDBCSR/readme
 
 Pilot Projects
@@ -139,5 +142,11 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/W90_solution_booklet/readme
     ./modules/FFTXlib/readme
     ./modules/W90_cube_format_non-orthogonal/readme
+    ./modules/miniPWPP/readme
+    ./modules/PANNA-GVECT/readme
+    ./modules/PANNA-TFR/readme
+    ./modules/PANNA-TRAIN/readme
+    ./modules/PANNA-EVAL/readme
+    ./modules/PANNA-Charges/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/
