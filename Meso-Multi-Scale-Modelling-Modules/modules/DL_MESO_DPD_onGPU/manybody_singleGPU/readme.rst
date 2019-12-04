@@ -5,8 +5,6 @@
 
 ..  We allow the template to be standalone, so that the library maintainers add it in the right place
 
-:orphan:
-
 ..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
     progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
 
@@ -59,9 +57,9 @@ This module implement the many body DPD boundary conditions on the single-GPU ve
 Purpose of Module
 _________________
 
-One of the main weak point of the DPD simulation is in its equation of state. For example, compressible gas or vapor liquid mixtures are difficult, if not impossible, to correctly be simulated. The many body DPD approach allow to overcome this limit extendind the potential of neighbour beads to a large cut off radius. 
+One of the main weak point of DPD simulation is in its equation of state. For example, compressible gas or vapor liquid mixtures are difficult, if not impossible, to correctly be simulated. The many-body DPD approach allows us to overcome this limit by extending the potential of neighbour beads to a large cut off radius. 
 
-This module consists in the implementation of the many body DPD on the single GPU version of DL\_MESO\_DPD. The new feature will allow to simulate complex systems liquid liquid drop, phase interactions, etc.
+This module consists in the implementation of many-body DPD on the single GPU version of DL\_MESO\_DPD. The new feature will allow the simulation of complex systems such as liquid drop, phase interactions, etc.
 
 
 Background Information
@@ -70,7 +68,7 @@ ______________________
 This module is part of the DL\_MESO\_DPD code. Full support and documentation is available at:
 
 * https://www.scd.stfc.ac.uk/Pages/DL_MESO.aspx
-  * https://www.scd.stfc.ac.uk/Pages/USRMAN.pdf
+* https://www.scd.stfc.ac.uk/Pages/USRMAN.pdf
 
 To download the DL\_MESO\_DPD code you need to register at https://gitlab.stfc.ac.uk. Please contact Dr. Micheal Seaton at Daresbury Laboratory (STFC) for further details.
 
@@ -82,9 +80,9 @@ ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-To compile and run the code you need to have installed the CUDA-toolkit (>=8.0) and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw). For the MPI library the OpenMPI 3.1.0 has been used.
+To compile and run the code you need to have installed the CUDA-toolkit (>=8.0) and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw). For the MPI library, OpenMPI 3.1.0 has been used during testing.
 
-The DL\_MESO code is developed using git version control. Currently, the single GPU version is under a branch named ``single_GPU_version``. After downloading the code, checkout the GPU branch and move to the ``DPD/gpu_version/bin`` folder. Modify the Makefile to use the correct GPU architecture (sm_XX) and check if the CPP flags are supported (i.e.: -DAWARE_MPI for CUDA\_aware\_MPI support, -DOPENMPI for OpenMPI library, -DMVAPICH for MVAPICH library and -DHWLOC for ``hwloc`` support). Make sure nvcc is installed (or CUDA toolkit module loaded). Then, compile using ``make all``. Resume: 
+The DL\_MESO code is developed using git version control. Currently, the single GPU version is under a branch named ``single_GPU_version``. After downloading the code, checkout the GPU branch and move to the ``DPD/gpu_version/bin`` folder. Modify the Makefile to use the correct GPU architecture (sm_XX) and check if the CPP flags are supported (i.e.: ``-DAWARE_MPI`` for CUDA\_aware\_MPI support, ``-DOPENMPI`` for OpenMPI library, ``-DMVAPICH`` for MVAPICH library and ``-DHWLOC`` for ``hwloc`` support). Make sure ``nvcc`` is installed (or CUDA toolkit module loaded). Then, compile using ``make all``. In short, 
 
 .. code-block:: bash
 
@@ -92,16 +90,16 @@ The DL\_MESO code is developed using git version control. Currently, the single 
   cd dl_meso
   git checkout single_GPU_version
   cd ./DPD/gpu_version/bin
-  modify Makefile according to your device and libraries
+  # Modify Makefile according to your device and libraries
   make all
 
 There are two test cases for this module: 
 * a water drop between two surfaces
 * a vapour-liquid interface. 
 
-To run the water drop case, copy the ``FIELD`` and ``CONTROL`` files from the "../tests/SurfaceDrop" directory and run using ``./dpd_gpu.exe``. The test case consists in simulating the evolution of a water droplets full dispersed which will eventual agglomerate and deposit on a surface. 
+To run the water drop case, copy the ``FIELD`` and ``CONTROL`` files from the "../tests/SurfaceDrop" directory and run using ``./dpd_gpu.exe``. The test case consists of simulating the evolution of fully-dispersed water droplets which will eventual agglomerate and deposit on a surface. 
 
-To run vapour-liquid interface, copy the ``FIELD`` and ``CONTROL`` files from the "../tests/VapourLiquid" directory and run using ``./dpd_gpu.exe``. The test case consist in simulating the interface between vapour and liquid starting from water particle dispersed into the vapour.
+To run the vapour-liquid interface, copy the ``FIELD`` and ``CONTROL`` files from the "../tests/VapourLiquid" directory and run using ``./dpd_gpu.exe``. The test case consists of simulating the interface between vapour and liquid starting from water particle dispersed into the vapour.
 
 For both test cases, compare the ``OUTPUT`` and the ``export`` files to verify your results.
 
@@ -116,8 +114,4 @@ This module has been merged into DL\_MESO code. It is composed of the
 following commits (you need to be registered as collaborator):
 
 * https://gitlab.stfc.ac.uk/dl_meso/dl_meso/commit/09c62778b1d5e6928b74570191f037a54c80fabc
-
-
-
-
 
