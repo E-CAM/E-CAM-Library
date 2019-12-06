@@ -69,7 +69,7 @@ constraint in one time-step of molecular dynamics.
 
 .. note::
 
-  This module is a part of a pilot project (E-CAM post-doc). We would use it to avoid topology violation in entangle polymer system.
+  This module is a part of a pilot project (E-CAM post-doc). We would use it to avoid topology violation in an entangled polymer system.
 
 Background Information
 ______________________
