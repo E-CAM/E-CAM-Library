@@ -13,7 +13,7 @@
     2spaces_on_gpu
 
   Language
-    C
+    C, OpenCL
 
   Licence
     `MIT <https://opensource.org/licenses/mit-license>`_
@@ -98,7 +98,7 @@ moving half of the polymer. We can use the GPU units to take care one of the sub
 
 * To equilibrate large polymer.
 
-* It is used in a scientific collaboration.
+* It is used in a scientific collaboration with C. Vaillant and D. Jost (ENS Lyon).
 
 * Publications: not currently available.
 
@@ -134,15 +134,15 @@ ______________________
 .. encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
 .. the links they need should be already in this module.
 
-You can find pdf file with a detailed derivation of the velocity-based method we use to resolve the excluded volume constraint
-in one time-step of molecular dynamics at `GitLab E-CAM 2020 <https://gitlab.e-cam2020.eu/carrivain/2spaces_on_gpu>`_.
+Please consider reading the two research articles `Massively Parallel Architectures and Polymer Simulation <https://www.semanticscholar.org/paper/Massively-Parallel-Architectures-and-Polymer-Ostrovsky-Smith/f79694076e40eca0fae9b35a381e43b7abfa029c>`_
+and `Cellular automata for polymer simulation with application to polymer melts and polymer collapse including implications for protein folding <https://www.sciencedirect.com/science/article/pii/S0167819100000818>`_ for details about the method.
 
 Building and Testing
 ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-I provide a simple Makefile you can find at the same location that the source code.
+I provide a simple make file as well as OpenCL kernel and main source code to run the model.
 You need C++11 in order to use pseudo-random number generator.
 Before the compilation you can clean the previous build with "make mrproper" command.
 
@@ -155,4 +155,4 @@ ___________
    <https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature branch.
    Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits.
 
-The source code and more informations can be find at `GitLab E-CAM 2020 <https://gitlab.e-cam2020.eu/carrivain/2spaces_on_gpu>`_.
+The source code and more informations can be find on the `2spaces_on_gpu GitLab repository <https://gitlab.e-cam2020.eu/carrivain/2spaces_on_gpu>`_.
