@@ -99,7 +99,7 @@ The ESDW in Dublin in January 2019 was the starting point for the modules below.
     :maxdepth: 1
 
     ./modules/esl-easyconfigs/readme
-
+    ./modules/ELSI/readme
 
 Other Modules
 -------------
@@ -111,6 +111,7 @@ Modules not coming from ESDWs
      :maxdepth: 1
 
      ./modules/flook/readme
+     ./modules/libgridxc/readme
      ./modules/libvdwxc/readme
      ./modules/MatrixSwitchDBCSR/readme
 

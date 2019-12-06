@@ -1,5 +1,3 @@
-:orphan:
-
 ..  In ReStructured Text (ReST) indentation and spacing are very important (it is how ReST knows what to do with your
     document). For ReST to understand what you intend and to render it correctly please to keep the structure of this
     template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded
@@ -53,8 +51,9 @@ E-CAM minDist2segments_KKT module
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-The minDist2segments_KKT module returns the minimal distance between two segments.
-It uses the Karush-Kuhn-Tucker conditions for the minimization under constraints.
+The minDist2segments_KKT module returns the minimal distance between two `line segments <https://en.wikipedia.org/wiki/Line_segment>`_.
+It uses the Karush-Kuhn-Tucker conditions `(KKT) <https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions>`_
+for the minimization under constraints.
 
 ..  The E-CAM library is purely a set of documentation that describes software development efforts related to the project.
     A *module* for E-CAM is the documentation of the single development of effort associated to the project. In that sense, a
@@ -107,12 +106,7 @@ minimal distance.
 .. note::
 
   We would use the present module to avoid topology violation in an entangled polymer system.
-  This module is used by the ongoing work "velocities_resolve_EVC" module.
-
-.. note::
-
-  This module is a part of a pilot project (E-CAM post-doc). We would use it to avoid topology violation in entangle polymer system.
-  url to the pilot project main page not currently available.
+  This module is used by other ongoing work.
 
 ..  If needed you can include latex mathematics like :math:`\frac{ \sum_{t=0}^{N}f(t,k) }{N}`
     which won't show up on GitLab/GitHub but will in final online documentation.
@@ -137,7 +131,7 @@ ______________________
     the links they need should be already in this module.
 
 You can find pdf file with a detailed derivation of the minimal distance between two segments using the Karush-Kuhn-Tucker
-conditions at `GitLab E-CAM 2020 <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
+conditions on the `minDist2segments_KKT GitLab repository <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
 
 Building and Testing
 ____________________
@@ -146,7 +140,9 @@ ____________________
 
 I provide a simple Makefile you can find at the same location that the source code.
 You need C++11 in order to use the pseudo-random number generator.
-Before the compilation you can clean the previous build with "make mrproper" command.
+The example also has OpenMP acceleration, edit the ``Makefile`` to enable it.
+Before the compilation you can clean the previous build with the ``make mrproper`` command.
+
 The purpose of the module is to calculate the minimal distance between two segments.
 For each distance we compare the result to an "exact enumeration" of all the possible
 distances and return a warning if the two results differ by more than the enumeration
@@ -161,5 +157,4 @@ ___________
    <https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature branch.
    Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits.
 
-The source code and more information can be find at `GitLab E-CAM 2020 <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
-
+The source code and more information can be find at `minDist2segments_KKT GitLab repository <https://gitlab.e-cam2020.eu/carrivain/mindist2segments_kkt>`_.
