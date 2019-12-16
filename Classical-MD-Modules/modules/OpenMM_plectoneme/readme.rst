@@ -22,7 +22,7 @@
     sphynx
 
   Application Documentation
-    `pydoc3.7 <https://gitlab.e-cam2020.eu:10443/carrivain/plectonemes-with-openmm/blob/master/openmm_plectoneme_functions.html>`_
+    `pydoc3.7 <https://gitlab.e-cam2020.eu/carrivain/plectonemes-with-openmm/blob/master/openmm_plectoneme_functions.html>`_
 
   Relevant Training Material
     `pdf documentation <https://gitlab.e-cam2020.eu/carrivain/plectonemes-with-openmm/blob/master/openmm_plectoneme.pdf>`_
@@ -51,14 +51,15 @@ E-CAM openmm_plectoneme module
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-The openmm_plectoneme is a module that introduce twist to a ring plectoneme and sample the accessible conformations under
-torsionnal constraints. This module takes advantage of the OpenMM software and GPU acceleration.
-It builds a Kremer-Grest polymer model with virtual sites to attach a frame to each of the bead.
+The openmm_plectoneme is a module that introduce twist to a ring or linear polymer and sample the accessible conformations under
+torsional constraints. This module takes advantage of the OpenMM software and GPU acceleration to perform simulation at the scale
+of the DNA helix. It builds a Kremer-Grest polymer model with virtual sites to attach a frame to each of the bead.
+The frames are used to introduce bending and twisting forces.
 
 .. The E-CAM library is purely a set of documentation that describes software development efforts related to the project. A
 .. *module* for E-CAM is the documentation of the single development of effort associated to the project.In that sense, a
 .. module does not directly contain source code but instead contains links to source code, typically stored elsewhere. Each
-.. module references the source code changes to which it direcctly applies (usually via a URL), and provides detailed
+.. module references the source code changes to which it directly applies (usually via a URL), and provides detailed
 .. information on the relevant *application* for the changes as well as how to build and test the associated software.
 
 .. The original source of this page (:download:`readme.rst`) contains lots of additional comments to help you create your
@@ -75,54 +76,49 @@ It builds a Kremer-Grest polymer model with virtual sites to attach a frame to e
 
 .. * Tests *(everything you add should have either unit or regression tests)*
 
-.. * Performance *(If what you introduce has a significant computational load you should make some performance optimisation
+.. * Performance *(If what you introduce has a significant computational load you should make some performance optimization
    effort using an appropriate tool. You should be able to verify that your changes have not introduced unexpected
    performance penalties, are threadsafe if needed,...)*
 
 Purpose of Module
 _________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-Bacterial DNA is known to form specific conformations called plectonemes because of internal twisting constraints.
-In order to study such a system we need to introduce a linking number deficit in to a circular polymer.
+Bacterial DNA is known to form specific conformations called *plectonemes* because of internal twisting constraints.
+This physical mechanism participates to the compaction of the genome.
+In order to study such a system we need to introduce a `linking number <https://en.wikipedia.org/wiki/Linking_number>`_ deficit into a circular polymer.
 We then tackle the question : does the protocol matter ?
-Indeed, does a highly overtwisted ring polymer reach the thermal equilibrium ? Does the memory of initial conformation
-matter ?
+Indeed, does a highly over-twisted ring polymer reach the thermal equilibrium ? Does the memory of initial conformation matter ?
 
-.. Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
-.. it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
-.. non-expert in the domain area of the software module.
-
-.. This section should also include the following (where appropriate):
+We can use this module to model single-molecule DNA under `magnetic or optical tweezers <https://en.wikipedia.org/wiki/Magnetic_tweezers>`_ too.
 
 * Polymer physicist.
 
-* To understand the conformation of bacterial DNA under torsionnal constraints.
+* To understand the conformation of bacterial DNA under torsional constraints.
 
-* It is used in a scientific collaboration with Ivan Junier from TIMC-IMAG, Grenoble, France.
+* It is used in a scientific collaboration with Ivan Junier from TIMC-IMAG, Grenoble, France and Ralf Everaers, ENS Lyon, France.
 
 * Publications: not currently available.
 
 Background Information
 ______________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-We use the OpenMM toolkit for molecular dynamics. We implemented functionnalities to build a frame and add twisting energy
-to a Kremer-Grest polymer system. It is important to study bacterial DNA conformations under twisting constraints.
-You can find pdf file with a detailed description `GitLab E-CAM 2020 <https://gitlab.e-cam2020.eu/carrivain/plectonemes-with-openmm>`_.
+We use the OpenMM toolkit for molecular dynamics. We implemented functionalities to build a frame (that follows the contour of the polymer)
+and add twisting energy to a Kremer-Grest polymer system. We implemented function to extract *plectonemes*, writhe and twist from polymer conformations.
 
 Building and Testing
 ____________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-The module openmm_plectoneme comes with a script example as well as script test (using unittest python module).
+The module openmm_plectoneme comes with an example script as well as a test script (using unittest python module).
 In order to test the twist implementation we provide a script that make comparison between the twisting correlations
 we measure from our model with the theoretical one.
+
+We are currently working on a benchmark between the present module and an already published `Monte-Carlo <https://www.sciencedirect.com/science/article/pii/S0378437119307204>`_
+and `rigid body dynamics <https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003456>`_ codes.
 
 Source Code
 ___________
 
-The source code and more informations can be find at `GitLab E-CAM 2020 <https://gitlab.e-cam2020.eu/carrivain/plectonemes-with-openmm>`_.
+The source code and more information can be find on the `openmm_plectoneme GitLab repository <https://gitlab.e-cam2020.eu/carrivain/plectonemes-with-openmm>`_.
