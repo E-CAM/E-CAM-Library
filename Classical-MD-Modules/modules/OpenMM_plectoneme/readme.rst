@@ -54,7 +54,7 @@ E-CAM openmm_plectoneme module
 The openmm_plectoneme is a module that introduce twist to a ring or linear polymer and sample the accessible conformations under
 torsional constraints. This module takes advantage of the OpenMM software and GPU acceleration to perform simulation at the scale
 of the DNA helix. It builds a Kremer-Grest polymer model with virtual sites to attach a frame to each of the bead.
-The frames are used to introduce bending and twisting forces.
+The frames are used to describe the contour of the molecule and to introduce bending and twisting forces.
 
 .. The E-CAM library is purely a set of documentation that describes software development efforts related to the project. A
 .. *module* for E-CAM is the documentation of the single development of effort associated to the project.In that sense, a
@@ -83,7 +83,6 @@ The frames are used to introduce bending and twisting forces.
 Purpose of Module
 _________________
 
-
 Bacterial DNA is known to form specific conformations called *plectonemes* because of internal twisting constraints.
 This physical mechanism participates to the compaction of the genome.
 In order to study such a system we need to introduce a `linking number <https://en.wikipedia.org/wiki/Linking_number>`_ deficit into a circular polymer.
@@ -103,19 +102,18 @@ We can use this module to model single-molecule DNA under `magnetic or optical t
 Background Information
 ______________________
 
-
-We use the OpenMM toolkit for molecular dynamics. We implemented functionalities to build a frame (that follows the contour of the polymer)
-and add twisting energy to a Kremer-Grest polymer system. We implemented function to extract *plectonemes*, writhe and twist from polymer conformations.
+We use the OpenMM toolkit for molecular dynamics.
+We implemented functionalities to build a frame (that follows the contour of the polymer) and add twisting energy to a Kremer-Grest polymer system.
+We implemented function to extract *plectonemes*, `writhe <https://en.wikipedia.org/wiki/Writhe>`_ and `twist <https://en.wikipedia.org/wiki/Twist_(mathematics)>`_ from polymer conformations.
 
 Building and Testing
 ____________________
-
 
 The module openmm_plectoneme comes with an example script as well as a test script (using unittest python module).
 In order to test the twist implementation we provide a script that make comparison between the twisting correlations
 we measure from our model with the theoretical one.
 
-We are currently working on a benchmark between the present module and an already published `Monte-Carlo <https://www.sciencedirect.com/science/article/pii/S0378437119307204>`_
+We are currently working on a benchmark between the present module and already published `Monte-Carlo <https://www.sciencedirect.com/science/article/pii/S0378437119307204>`_
 and `rigid body dynamics <https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003456>`_ codes.
 
 Source Code
