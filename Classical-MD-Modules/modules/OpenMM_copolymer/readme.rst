@@ -51,11 +51,11 @@ E-CAM OpenMM_Copolymer module
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-The OpenMM_Copolymer is a module that sample conformation of a block-copolymer given a genome epigenetic state file.
+The OpenMM_Copolymer is a module that sample conformation of a *block-copolymer* given an *epigenome* state file.
 This module takes advantage of the OpenMM software and GPU acceleration.
-It builds a Kremer-Grest polymer model with uni-dimensionnal epigenetic informations and construct the epigenetic interactions
-based on the model you design.
-You simply need to feed the module with a epigenetic state file, the interaction model and the mechanical properties of the polymer.
+It builds a `Kremer-Grest <https://aip.scitation.org/doi/10.1063/1.458541>`_ polymer model with uni-dimensional epigenetic information and construct the epigenetic interactions based on the model you design.
+You simply need to feed the module with an *epigenome* state file, the interaction model and the mechanical properties of the polymer.
+You can imagine to model small part of an *epigenome* or the whole genome confined inside the cell nucleus.
 
 .. The E-CAM library is purely a set of documentation that describes software development efforts related to the project. A
 .. *module* for E-CAM is the documentation of the single development of effort associated to the project.In that sense, a
@@ -84,73 +84,44 @@ You simply need to feed the module with a epigenetic state file, the interaction
 Purpose of Module
 _________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
-
-Recently, the epigenetic and the tri-dimensionnal structure of a genome is studied by means of block-copolymer.
-The epigenetic information is not present on the DNA but on the histone tails modifications.
-This one dimensionnal information can be projected along the contour of a polymer.
+Recently, the epigenetic and the tri-dimensional structure of fly genome is studied by means of *block-copolymer*.
+The epigenetic information do not involve alterations in the DNA but `histone <https://en.wikipedia.org/wiki/Histone>`_ tails modifications.
+This uni-dimensional information can be projected along the contour of a *block-copolymer* model.
 Then, every pairwise interacts according to the epigenetic states leading to specific patterns of interactions.
-However, the strength of the interactions between epigenetic states is not clearly known.
-The module we propose uses the OpenMM software with the GPU acceleration to sample as many as possible epigenetic parameters.
+However, the strength and model of interactions between epigenetic states is not clearly known.
+The module we propose uses the OpenMM software with GPU acceleration to sample as many as possible epigenetic parameters.
+The module introduces the possibility to replace effective epigenetic interactions with `binders model <https://www.ncbi.nlm.nih.gov/pubmed/22988072>`_.
 
-.. Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
-.. it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
-.. non-expert in the domain area of the software module.
+The present module assist with simulation of a *block-copolymer* model and assist with the analysis of the data.
 
-.. This section should also include the following (where appropriate):
+* Polymer physicists, biophysicists, epigenetic modeling.
 
-* Polymer physicists, biophysicists, epigenetic modelling.
+* To understand the link between epigenetic and tri-dimensional structure of a genome. To estimate first-passage-time encounter of two locii.
 
-* To understand the link between epigenetic and tri-dimensionnal structure of a genome. To estimate first-passage-time encounter of two locii.
-
-* It is used in a scientific collaboration to study a specific promoter-enhancer system in the fruit-fly organism.
+* It is used in a scientific collaboration to study a specific promoter-enhancer system in the fruit-fly organism (Yad Ghavi-Helm and Cedric Vaillant, ENS Lyon, France).
 
 * Publications: not currently available.
-
-..
-   .. note::
-
-     If the module is an ingredient for a more general workflow (e.g. the module was the necessary foundation for later
-     code; the module is part of a group of modules that will be used to calculate certain property or have certain
-     application, etc.) mention this, and point to the place where you specify the applications of the more general
-     workflow (that could be in another module, in another section of this repository, an application’s website, etc.).
-
-   .. note::
-
-     If you are a post-doc who works in E-CAM, an obvious application for the module (or for the group of modules that
-     this one is part of) is your pilot project. In this case, you could point to the pilot project page on the main
-     website (and you must ensure that this module is linked there).
-
-..
-   If needed you can include latex mathematics like
-   :math:`\frac{ \sum_{t=0}^{N}f(t,k) }{N}`
-   which won't show up on GitLab/GitHub but will in final online documentation.
-
-   If you want to add a citation, such as [CIT2009]_, please check the source code to see how this is done. Note that
-   citations may get rearranged, e.g., to the bottom of the "page".
-
-   .. [CIT2009] This is a citation (as often used in journals).
 
 Background Information
 ______________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
-
-We use the OpenMM toolkit for molecular dynamics. We implemented functionnalities to build a Kremer-Grest polymer system
-with uni-dimensionnal epigenetic information. We also implement functions to build the quantities biologists extract
-from experiments. You can find pdf file with a detailed description at `GitLab E-CAM 2020 <https://gitlab.e-cam2020.eu/carrivain/copolymer-using-openmm>`_.
+We use the OpenMM toolkit for molecular dynamics.
+We implemented functionalities to build a Kremer-Grest polymer system with uni-dimensional epigenetic information.
+We also implement functions to build the quantities biologists extract from `high-throughput <https://en.wikipedia.org/wiki/Chromosome_conformation_capture>`_ and FISH `<https://en.wikipedia.org/wiki/Fluorescence_in_situ_hybridization>`_ experiments.
+You can find pdf file with a detailed description on the `openmm_copolymer GitLab repository <https://gitlab.e-cam2020.eu/carrivain/copolymer-using-openmm/blob/master>`_.
+The module will be constantly improved with new functionalities.
 
 Building and Testing
 ____________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
-
-I built tests using the python unittest module `tests source code <https://gitlab.e-cam2020.eu/carrivain/copolymer-using-openmm/blob/master/unittest_openmm_copolymer_functions.py>`_.
+The module openmm_plectoneme comes with an example script as well as a test script (using unittest python module).
+The `openmm_copolymer GitLab repository <https://gitlab.e-cam2020.eu/carrivain/copolymer-using-openmm/blob/master>`_ gives usages
+and results from simple models.
 
 Source Code
 ___________
 
-The source code can be found at `source code <https://gitlab.e-cam2020.eu/carrivain/copolymer-using-openmm/blob/master>`_.
+The source code can be found on the `openmm_copolymer GitLab repository <https://gitlab.e-cam2020.eu/carrivain/copolymer-using-openmm/blob/master>`_.
 
 ..
    .. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
