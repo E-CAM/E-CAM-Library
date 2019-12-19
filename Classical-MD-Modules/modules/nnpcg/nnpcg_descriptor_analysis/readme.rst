@@ -12,12 +12,12 @@
 
 ..  sidebar:: Software Technical Information
 
-  The information in this section describes N2P2 as a whole.
+  The information in this section describes *n2p2* as a whole.
   Information specific to the additions in this module are in subsequent
   sections.
 
   Name
-    N2P2 (NeuralNetworkPotentialPackage)
+    n2p2 (NeuralNetworkPotentialPackage)
 
   Language
     C++, Python (3.6+), Jupyter notebook
@@ -53,14 +53,14 @@ NNP-CG - Descriptor analysis
 
 .. contents:: :local:
 
-This module adds tools to the N2P2 package which allow to assess the quality of
-atomic environment descriptors. This is particularly useful when designing a
-neural network potential based coarse-grained model (NNP-CG).
-
 ..  Add an abstract for a *general* audience here. Write a few lines that explains the "helicopter view" of why you are
     creating this module. For example, you might say that "This module is a stepping stone to incorporating XXXX effects
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
+
+This module adds tools to the *n2p2* package which allow to assess the quality of
+atomic environment descriptors. This is particularly useful when designing a
+neural network potential based coarse-grained model (NNP-CG).
 
 .. The E-CAM library is purely a set of documentation that describes software development efforts related to the project. A
    *module* for E-CAM is the documentation of the single development of effort associated to the project.In that sense, a
@@ -87,6 +87,51 @@ neural network potential based coarse-grained model (NNP-CG).
 
 Purpose of Module
 _________________
+
+Creating a coarse-grained (CG) model from the full description of a system is a
+two-step process: (1) selecting a reduced set of degrees of freedom and (2)
+defining interactions depending on these coarse-grained variables. For example,
+in a common coarse-graining approach for molecular systems the atomistic picture
+is replaced by a simpler description with CG particles sitting at the
+center-of-mass coordinates of the actual molecules. The corresponding
+interactions between CG sites can be modelled with empirical force fields but
+also, as has been recently shown in [1]_ and [2]_, with machine learning
+potentials. This module is the first part of a series which implement
+coarse-grained models in *n2p2* and provides tools to estimate the quality of
+atomic environment descriptors, which in turn hints on the expected performance
+of the coarse-grained description.
+
+The overall goal of the analysis is to show qualitatively whether there is a
+correlation between the raw atomic environment descriptors (and their
+derivatives) and the atomic forces. If no or very little correlation can be
+found we can assume that the descriptors do not encode enough information to
+construct a (free) energy landscape. On the other hand, if "similar" descriptors
+correspond to "similar" forces there is a good chance that a machine learning
+algorithm is capable of detecting this link and a machine learning potential can
+be fitted. In order to find a possible correlation between descriptors and
+forces the following approach is used: First, a clustering algorithm (k-means or
+HDBSCAN) searches for groups in the high-dimensional descriptor space of all
+atoms. Then, for every detected cluster the statistical distribution of the
+corresponding atomic forces is compared to the statistics of all remaining
+atomic forces. A hypothesis test (Welch's t-test) is applied to decide whether
+the link between descriptors and forces is statistically significant. The
+percentage of clusters which show a clear link is then an indicator for a good
+descriptor-force correlation.
+
+In order to perform the analysis described above *n2p2* was extended by two
+separate software pieces:
+
+   1. **A new application based on the C++ libraries:** `nnp-sfclust`
+
+   This application allows to generate files containing the atomic environment
+   data required for the cluster analysis.
+
+   2. **A new Jupyter notebook with the actual analysis:** `analyze-descriptors.ipynb`
+
+   The script depends on common Python libraries (*numpy*, *scipy*,
+   *scikit-learn*) and reads in data provided by `nnp-sfclust`. It then clusters
+   the data, performs statistical tests and presents graphical results.
+
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
@@ -242,3 +287,10 @@ ___________
 .. .. _ReST: http://www.sphinx-doc.org/en/stable/rest.html
 .. .. _Sphinx: http://www.sphinx-doc.org/en/stable/markup/index.html
 
+.. [1] Zhang, L.; Han, J.; Wang, H.; Car, R.; E, W. DeePCG: Constructing
+   Coarse-Grained Models via Deep Neural Networks. J. Chem. Phys. 2018, 149 (3),
+   034101. https://doi.org/10.1063/1.5027645.
+
+.. [2] John, S. T.; Csányi, G. Many-Body Coarse-Grained Interactions Using
+   Gaussian Approximation Potentials. J. Phys. Chem. B 2017, 121 (48), 10934–10949.
+   https://doi.org/10.1021/acs.jpcb.7b09636.
