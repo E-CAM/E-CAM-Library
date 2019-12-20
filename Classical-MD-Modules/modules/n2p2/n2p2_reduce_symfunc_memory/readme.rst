@@ -12,18 +12,21 @@
 
 .. sidebar:: Software Technical Information
 
-  The information in this section describes N2P2 as a whole.
+  The information in this section describes *n2p2* as a whole.
   Information specific to the additions in this module are in subsequent
   sections.
+
+  Name
+    n2p2 (NeuralNetworkPotentialPackage)
 
   Language
     C++
 
   Licence
-    GPL, v3.0 or later
+    `GPL-3.0-or-later <https://www.gnu.org/licenses/gpl.txt>`__
 
   Documentation Tool
-    Doxygen, Sphinx
+    `Doxygen <http://www.doxygen.nl/>`__, `Sphinx <http://www.sphinx-doc.org>`__
 
   Application Documentation
     http://compphysvienna.github.io/n2p2/
@@ -34,17 +37,17 @@
   Software Module Developed by
     Andreas Singraber
 
-.. _n2p2_reduce_symfunc_memory:
-
-###################################################
-N2P2 - Symmetry Function Memory Footprint Reduction
-###################################################
 
 ..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
     reference, in this case, as ":ref:`example`"). You *MUST* change the reference below from "example" to something
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
     reference to work (so don't insert a comment between).
 
+.. _n2p2_reduce_symfunc_memory:
+
+###################################################
+n2p2 - Symmetry Function Memory Footprint Reduction
+###################################################
 
 ..  Let's add a local table of contents to help people navigate the page
 
@@ -55,10 +58,9 @@ N2P2 - Symmetry Function Memory Footprint Reduction
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-This module improves memory management in N2P2. More specifically, a new
+This module improves memory management in *n2p2*. More specifically, a new
 strategy to store symmetry function derivatives is implemented. In this way the
 memory footprint during training is drastically reduced.
-
 
 .. The E-CAM library is purely a set of documentation that describes software development efforts related to the project. A
    *module* for E-CAM is the documentation of the single development of effort associated to the project.In that sense, a
@@ -86,7 +88,50 @@ memory footprint during training is drastically reduced.
 Purpose of Module
 _________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
+Training high-dimensional neural network potentials (HDNNPs) means to minimize
+the error between predictions and the reference information in a data set of
+atomic configurations. There, the desired potential energy surface is supplied
+in the form of an energy per configuration and forces on each atom. Consider the
+HDNNP expression for forces
+
+.. math::
+
+   F_{i,\alpha} = - \sum_{j=0}^{N_\text{atoms}}
+   \sum_{k=0}^{N_\text{sym.func.}} \frac{\partial E_j}{\partial G_{j,k}}
+   \frac{\partial G_{j,k}}{\partial x_{i, \alpha}},
+
+where :math:`G_{j,k}` denotes the :math:`k`-th symmetry function of atom
+:math:`j`. Only the first expression :math:`\frac{\partial E_j}{\partial
+G_{j,k}}` depends on the neural network weights and therefore changes during the
+training process. The symmetry function derivatives with respect to atom
+coordinates :math:`\frac{\partial G_{j,k}}{\partial x_{i, \alpha}}`, however,
+stay fixed for each atomic configuration in the data set. Given the high
+computational cost of symmetry functions it is essential to pre-calculate and
+store them in memory. While this strategy speeds up the training procedure
+significantly [1]_ it also drastically increases the memory footprint, which
+easily reaches more than 100 GB for common data set sizes.
+
+This module alters the core C++ library of *n2p2* in order to reduce the memory
+consumption of all depending applications and provides benchmark results
+quantifying the improvement. The idea is to exploit that for specific
+combinations of neighboring atoms :math:`i` and :math:`j` the expression
+:math:`\frac{\partial G_{j,k}}{\partial x_{i, \alpha}}` always equals zero.
+Consider a three-component system with elements A, B and C. In addition, let
+atoms :math:`i` and :math:`j` be of element A and B, respectively.  Then, the
+derivative of a symmetry function :math:`G_{j,k}` with signature B-C (i.e. only
+sensitive to neighbor atoms of type C) with respect to :math:`i`'s coordinates
+vanishes. Hence, by taking these element combination relations automatically into
+account a significant portion of the memory usage can be avoided. Depending on
+the symmetry function setup savings of about 30 to 50% can be achieved for
+typical systems.
+
+Code changes cover most of the classes in the `libnnp` core library where they
+add functionality to identify relevant (nonzero) element combinations for the
+symmetry function derivative computation. Additional CI tests ensure that
+results are not affected.
+
+.. Keep the helper text below around in your module by just adding "..  " in
+   front of it, which turns it into a comment
 
 .. Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
    it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
@@ -144,12 +189,12 @@ ______________________
    encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
    the links they need should be already in this module.
 
-This module is based on N2P2, a C++ code for generation and application of
+This module is based on *n2p2*, a C++ code for generation and application of
 neural network potentials used in molecular dynamics simulations. The source
 code and documentation are located here:
 
-* N2P2 documentation: http://compphysvienna.github.io/n2p2/
-* N2P2 source code: http://github.com/CompPhysVienna/n2p2
+* *n2p2* documentation: http://compphysvienna.github.io/n2p2/
+* *n2p2* source code: http://github.com/CompPhysVienna/n2p2
 
 
 Building and Testing
@@ -240,3 +285,6 @@ ___________
 .. .. _ReST: http://www.sphinx-doc.org/en/stable/rest.html
 .. .. _Sphinx: http://www.sphinx-doc.org/en/stable/markup/index.html
 
+.. [1] `Singraber, A.; Morawietz, T.; Behler, J.; Dellago, C. Parallel
+   Multistream Training of High-Dimensional Neural Network Potentials. J. Chem.
+   Theory Comput. 2019, 15 (5), 3075–3092. <https://doi.org/10.1021/acs.jctc.8b01092>`__
