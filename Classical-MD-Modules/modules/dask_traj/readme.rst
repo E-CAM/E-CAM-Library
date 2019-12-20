@@ -1,4 +1,3 @@
-.. _dask-traj 
 
 .. sidebar:: Software Technical Information
 
@@ -8,7 +7,7 @@
   Language
     Python (3.6, 3.7)
 
-  Licence
+  License
     LGPL 2.1 or later
 
   Documentation Tool
@@ -38,12 +37,12 @@ Dask-traj
 .. contents:: :local:
 
 
-For analysis of MD simulations `MDTraj <http://mdtraj.org/>`_ is a fast and comomnly used analysis.
-However MDTraj has limitations, such as the requirement that the whole trajecotry and result of the
+For analysis of MD simulations `MDTraj <http://mdtraj.org/>`_ is a fast and commonly used analysis.
+However MDTraj has limitations, such as the requirement that the whole trajectory and result of the
 computation fits into memory. This module rewrites part of MDTraj to work with
 `Dask <https://dask.org/>`_ in order to achieve out-of-memory computations, and combined with
 `dask-distributed <https://distributed.dask.org/en/latest/>`_ results in possible 
-out-of-machine paralelization, essential for HPCs and a (surprising) speed-up
+out-of-machine parallelization, essential for HPCs and a (surprising) speed-up
 even on a single machine. 
 
 
@@ -56,7 +55,7 @@ _________________
 ..  it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
 ..  non-expert in the domain area of the software module.
 
-Using `MDTraj <http://mdtraj.org/>`_ is a fast and easy way to analyse MD trajectories.
+Using `MDTraj <http://mdtraj.org/>`_ is a fast and easy way to analyze MD trajectories.
 However, MDTraj has a couple limitations:
 
 * The whole trajectory needs to fit into memory
@@ -64,26 +63,26 @@ However, MDTraj has a couple limitations:
 * The result of the computation also needs to fit into memory
 
 * All processes need access to all the memory, preventing out-of-machine
-  paralelization, and HPC scaling
+  parallelization, and HPC scaling
 
 Dask-traj solves all 3 limitations by rewriting the MDTraj functions to work
 with `dask.arrays <https://docs.dask.org/en/latest/array.html>`_.
-This is done for both the trajecotory and the computation functions.
+This is done for both the trajectory and the computation functions.
 As dask.arrays know how to spill to disk, this lifts the requirement to fit into memory on both.
 
 Together with `dask-distributed <https://distributed.dask.org/en/latest/>`_ it also allows the
 computation to be executed in a distributed way, which allows scaling out of a single machine.
 In preliminary tests this approach evens leads to a speedup on a single machine,
-whch is suprising as MDTraj is already a parralel code.
+which is surprising as MDTraj is already a parallel code.
 
 The splitting of everything in Dask-traj is done in the time-axis of the MD
-trajectory and as a lot of analysis is embarrassingly parralel, this leads to
-nice non-comunicating compute graphs as show here.
+trajectory and as a lot of analysis is embarrassingly parallel, this leads to
+nice non-communicating compute graphs as show here.
 
-.. image:: my_dask.png
-    :width: 800px
+.. image:: dask_traj.png
+    :height: 600px
     :align: center
-    :alt: graph figure of a trajectory with 1251 split in chunks of 100 frames
+    :alt: Graph figure of a trajectory with 1251 split in chunks of 100 frames
 
 
 Current Limitations
@@ -91,14 +90,14 @@ ___________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-One very important point of dask-traj is that we seek in the trajecotry file.
+One very important point of dask-traj is that we ``seek`` in the trajectory file.
 So if your files are stored in a format that does not have an efficient seek
 method, the loading of Trajectories will not get a speed-up, and might even be
 slower than MDTraj.
 
-Also, due to the way the code is writen in MDTraj, only a subset of functions
+Also, due to the way the code is written in MDTraj, only a subset of functions
 are available at the moment, but this will be expanded further in the future.
-If you have a usecase that requires the conversion of a MDTraj functionality,
+If you have a use-case that requires the conversion of a MDTraj functionality,
 not yet present in dask-traj, please 
 `make an issue <https://github.com/sroet/dask-traj/issues/new>`_ and I will
 focus on that.
@@ -106,9 +105,8 @@ focus on that.
 Building and Testing
 ____________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 This code can also be downloaded with pip by running
-``pip install dask-traj``.
+``pip install dask-traj``
 
 This code can be installed by downloading the source code (see the ``Source
 Code`` section below), and running ``python setup.py install`` from the root
@@ -135,8 +133,7 @@ http://jupyter.org/ for more details)
 Source Code
 ___________
 
-.. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
 The source code for this module, and modules that build on it, is hosted at
 https://github.com/sroet/dask-traj. This module specifically includes
 everything up to and including 
-`release 0.1.0 <https://github.com/sroet/dask-traj/releases/tag/v0.1.0>`_.
+`release 0.1.0 <https://github.com/sroet/dask-traj/releases/tag/v0.1.0>`_
