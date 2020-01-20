@@ -1,7 +1,3 @@
-########
-SCDM_WFs
-########
-
 ..  sidebar:: Software Technical Information
 
   Name
@@ -32,6 +28,10 @@ SCDM_WFs
     reference to work (so don't insert a comment between).
 
 .. _SCDM_in_Wannier90:
+
+########
+SCDM_WFs
+########
 
 ..  Let's add a local table of contents to help people navigate the page
 
