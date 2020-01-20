@@ -1,5 +1,3 @@
-:orphan:
-
 ..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
     progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
 
@@ -67,11 +65,11 @@ Create a fully-automated protocol based on the SCDM algorithm for the constructi
 parameters are determined automatically (in our HT approach the dimensionality of the disentangled space is fixed by the
 total number of states used to generate the pseudopotentials in the DFT calculations).
 
-In the `paper derived from this work <https://psi-k.net/download/highlights/Highlight_147.pdf>`_ [vitale2019automated]_, we apply our approach to a dataset of 200 bulk crystalline materials that span a wide structural and chemical
+In the `paper derived from this work <https://psi-k.net/download/highlights/Highlight_147.pdf>`_ [vitale2019]_, we apply our approach to a dataset of 200 bulk crystalline materials that span a wide structural and chemical
 space. We assess the quality of our MLWFs in terms of the accuracy of the band-structure interpolation that they provide
 as compared to the band-structure obtained via full first-principles calculations.
 
-.. [vitale2019automated]  `arXiv:1909.00433 <https://arxiv.org/abs/1909.00433>`_ [physics.comp-ph] 
+.. [vitale2019]  `arXiv:1909.00433 <https://arxiv.org/abs/1909.00433>`_ [physics.comp-ph] 
 
 Background Information
 ______________________

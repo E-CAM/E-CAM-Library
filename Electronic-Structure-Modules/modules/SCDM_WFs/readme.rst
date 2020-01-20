@@ -29,9 +29,9 @@
 
 .. _SCDM_in_Wannier90:
 
-########
-SCDM_WFs
-########
+######################
+SCDM Wannier Functions
+######################
 
 ..  Let's add a local table of contents to help people navigate the page
 
