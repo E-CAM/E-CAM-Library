@@ -16,7 +16,7 @@
     `MIT <https://opensource.org/licenses/mit-license>`_ for AiiDA
 
   Documentation Tool
-    LATEX for Wannier90, ReST_ for AiiDA
+    `Ford <http://fortranwiki.org/fortran/show/FORD>`_ online link to different Wannier90 source files `<http://www.wannier.org/ford/>`_, ReST_ for AiiDA
 
   Application Documentation
     `Wannier90 <http://www.wannier.org/support/>`_, `AiiDA <https://aiida.readthedocs.io/projects/aiida-core/en/latest/>`_
@@ -55,7 +55,7 @@ that promises to accelerate the reliable and cost-effective design and optimisat
 properties. The use of MLWFs in HT workflows has been hampered by the fact that generating MLWFs automatically and
 robustly without any user intervention and for arbitrary materials is, in general, very challenging. We address this
 problem directly by proposing a procedure for automatically generating MLWFs for HT frameworks. Our approach is based
-on the selected columns of the density matrix method (SCDM, see :ref:`_SCDM_in_Wannier90`) and is implemented in an AiiDA
+on the selected columns of the density matrix method (SCDM, see :ref:`SCDM_in_Wannier90`) and is implemented in an AiiDA
 workflow.
 
 Purpose of Module
@@ -80,7 +80,7 @@ ______________________
 
 This module is a collaboration between the E-CAM and `MaX <http://www.max-centre.eu/>`_ HPC centres of excellence.
 
-In :ref:`_SCDM_in_Wannier90`, E-CAM has implemented the SCDM algorithm in the ``pw2wannier90`` interface code between the
+In :ref:`SCDM_in_Wannier90`, E-CAM has implemented the SCDM algorithm in the ``pw2wannier90`` interface code between the
 Quantum ESPRESSO software and the Wannier90 code. We have used this
 implementation as the basis for a complete computational workflow for obtaining MLWFs
 and electronic properties based on Wannier interpolation of the BZ, starting only from the
