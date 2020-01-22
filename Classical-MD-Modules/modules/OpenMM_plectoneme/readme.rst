@@ -85,19 +85,31 @@ _________________
 
 Bacterial DNA is known to form specific conformations called *plectonemes* because of internal twisting constraints.
 This physical mechanism participates to the compaction of the genome.
+The *plectonemes* are braided structures you often experiment with phone cables.
 In order to study such a system we need to introduce a `linking number <https://en.wikipedia.org/wiki/Linking_number>`_ deficit into a circular polymer.
-We then tackle the question : does the protocol matter ?
-Indeed, does a highly over-twisted ring polymer reach the thermal equilibrium ? Does the memory of initial conformation matter ?
+The Linking number (Lk) is the sum of the Twist (Tw, cumulative helicity of the DNA) and the Writhe (Wr, global intracity).
+In the case of circular DNA that is topologically constrained any variation of the Twist affects the Writhe and therefore the conformation.
+In particular, does slow change of the twist lead to the same conformation that the one we get from a rapidly change in the Twist ?
+We then tackle the question : does the introduction protocol of Linking number inside circular molecule matter ?
+Indeed, does a rapidly Linking number injection freeze the conformation in braided structures where *plectonemes* do not merge/move along the DNA ?
+Does the memory of initial conformation matter ?
 
 We can use this module to model single-molecule DNA under `magnetic or optical tweezers <https://en.wikipedia.org/wiki/Magnetic_tweezers>`_ too.
+In this kind of setup the molecule is clamped on a plate and to a magnetic bead at the other extremity.
+The bead is used to apply stretching force and/or rotational constraint.
+The position of the bead is used to monitor the response of the molecule to the mechanical constraints.
+From the mechanical constraints you can extract the mechanical properties of your molecule of interest.
 
-* Polymer physicist.
+This module assist the creation of polymer described by FENE bond and WCA repulsive potential to resolve the excluded volume constraints.
+On top of that, the module introduces the twist and mechanical response to twisting constraint with the help of *virtual sites* functionalities from OpenMM API.
+The module proposes functions to help the data analysis with High-Performance-Computing Dask software and Python module Numba.
+For example, the estimation of the Writhe that is a computation over all the possible pairwize of bonds is highly expensive and can be fasten.
+In addition to that, we introduce an algorithm to detect the positions, length and shape of *plectonemes*.
+It is useful to follow the dynamics of these braided structures and try to answer the previous questions.
 
-* To understand the conformation of bacterial DNA under torsional constraints.
-
-* It is used in a scientific collaboration with Ivan Junier from TIMC-IMAG, Grenoble, France and Ralf Everaers, ENS Lyon, France.
-
-* Publications: not currently available.
+This module can be used by polymer physicist to understand the conformation of bacterial DNA under torsional constraints for example.
+Indeed, it used in a scientific collaboration with Ivan Junier from TIMC-IMAG, Grenoble, France and Ralf Everaers, ENS Lyon, France.
+However, the publication is not currently available.
 
 Background Information
 ______________________
