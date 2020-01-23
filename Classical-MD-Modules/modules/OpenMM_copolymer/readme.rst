@@ -85,29 +85,34 @@ Purpose of Module
 _________________
 
 Recently, the epigenetic and the tri-dimensional structure of fly genome is studied by means of *block-copolymer*.
+The *block-copolymer* is made of more than one monomer species.
 The epigenetic information do not involve alterations in the DNA but `histone <https://en.wikipedia.org/wiki/Histone>`_ tails modifications.
 This uni-dimensional information can be projected along the contour of a *block-copolymer* model.
-Then, every pairwise interacts according to the epigenetic states leading to specific patterns of interactions.
-However, the strength and model of interactions between epigenetic states is not clearly known.
+Then, every pairwise of monomers interacts according to the epigenetic states leading to specific pattern of interactions.
+The interaction patterns can be visualized using contacts map : two-dimensional map with position along the polymer and a third dimension with color scale for the intensity of contacts.
+Since 2000, biologists can produce the same kind of data thanks to the *high-throughput-sequencing* methods 3C, 4C, 5C and Hi-C : `Chromosome-Conformation-Capture <https://en.wikipedia.org/wiki/Chromosome_conformation_capture>`_.
+Recently, biologists shown the interactions pattern is correlated with the epigenetic information.
+However, the strength and model of interactions between epigenetic states are not always clearly known.
+
 The module we propose uses the OpenMM software with GPU acceleration to sample as many as possible epigenetic parameters.
-The module introduces the possibility to replace effective epigenetic interactions with `binders model <https://www.ncbi.nlm.nih.gov/pubmed/22988072>`_.
+It is possible to use effective interactions (gaussian overlap or Lennard-Jones potential) to model the epigenetic.
+The module introduces the possibility to replace effective epigenetic interactions with `binders model <https://www.ncbi.nlm.nih.gov/pubmed/22988072>`_ too.
+In this case, the binder is like a protein that can bind to a specific site of the genome.
+A simple input file is enough to tell the script about the binder-binder and monomer-binder interactions.
 
-The present module assist with simulation of a *block-copolymer* model and assist with the analysis of the data.
-
-* Polymer physicists, biophysicists, epigenetic modeling.
-
-* To understand the link between epigenetic and tri-dimensional structure of a genome. To estimate first-passage-time encounter of two locii.
-
-* It is used in a scientific collaboration to study a specific promoter-enhancer system in the fruit-fly organism (Yad Ghavi-Helm and Cedric Vaillant, ENS Lyon, France).
-
-* Publications: not currently available.
+The present module assists with simulation of a *block-copolymer* model and assist with the analysis of the data (`HPC Dask <https://dask.org/>`_ and `Python compiler Numba <http://numba.pydata.org/>`_).
+In particular, it assists the creation of polymer described by FENE bond and WCA repulsive potential to resolve the excluded volume constraints.
+On top of that, it builds the epigenetic interactions based on a simple input file.
+It can be used by polymer physicists, biophysicists for epigenetic modeling, to understand the link between epigenetic and tri-dimensional structure of a genome, to estimate first-passage-time encounter of two locii.
+It is used in a scientific collaboration to study a specific promoter-enhancer system in the fruit-fly organism (Yad Ghavi-Helm and Cedric Vaillant, ENS Lyon, France).
+However, the publication is not currently available.
 
 Background Information
 ______________________
 
 We use the OpenMM toolkit for molecular dynamics.
 We implemented functionalities to build a Kremer-Grest polymer system with uni-dimensional epigenetic information.
-We also implement functions to build the quantities biologists extract from `high-throughput <https://en.wikipedia.org/wiki/Chromosome_conformation_capture>`_ and FISH `<https://en.wikipedia.org/wiki/Fluorescence_in_situ_hybridization>`_ experiments.
+We also implement functions to build the quantities biologists extract from `high-throughput-sequencing <https://en.wikipedia.org/wiki/Chromosome_conformation_capture>`_ and FISH `<https://en.wikipedia.org/wiki/Fluorescence_in_situ_hybridization>`_ experiments.
 You can find pdf file with a detailed description on the `openmm_copolymer GitLab repository <https://gitlab.e-cam2020.eu/carrivain/copolymer-using-openmm/blob/master>`_.
 The module will be constantly improved with new functionalities.
 
