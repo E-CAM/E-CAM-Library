@@ -84,8 +84,8 @@ You can imagine to model small part of an *epigenome* or the whole genome confin
 Purpose of Module
 _________________
 
-Recently, the epigenetic and the tri-dimensional structure of fly genome is studied by means of *block-copolymer*.
-The *block-copolymer* is made of more than one monomer species.
+The epigenetic and the tri-dimensional structure of fly genome is studied by means of *block-copolymer*.
+The *block-copolymer* is a polymer made of more than one monomer species.
 The epigenetic information do not involve alterations in the DNA but `histone <https://en.wikipedia.org/wiki/Histone>`_ tails modifications.
 This uni-dimensional information can be projected along the contour of a *block-copolymer* model.
 Then, every pairwise of monomers interacts according to the epigenetic states leading to specific pattern of interactions.
@@ -94,13 +94,16 @@ Since 2000, biologists can produce the same kind of data thanks to the *high-thr
 Recently, biologists shown the interactions pattern is correlated with the epigenetic information.
 However, the strength and model of interactions between epigenetic states are not always clearly known.
 
+In addition to the *high-throughput-sequencing* methods, we can study the spatial distances inside part of the genome with the help of FISH `<https://en.wikipedia.org/wiki/Fluorescence_in_situ_hybridization>`_ and high-resolution methods.
+All the spatial distances can be simply extracted from the model built with the help of OpenMM_Copolymer module.
+
 The module we propose uses the OpenMM software with GPU acceleration to sample as many as possible epigenetic parameters.
 It is possible to use effective interactions (gaussian overlap or Lennard-Jones potential) to model the epigenetic.
 The module introduces the possibility to replace effective epigenetic interactions with `binders model <https://www.ncbi.nlm.nih.gov/pubmed/22988072>`_ too.
 In this case, the binder is like a protein that can bind to a specific site of the genome.
 A simple input file is enough to tell the script about the binder-binder and monomer-binder interactions.
 
-The present module assists with simulation of a *block-copolymer* model and assist with the analysis of the data (`HPC Dask <https://dask.org/>`_ and `Python compiler Numba <http://numba.pydata.org/>`_).
+The present module assists with simulation of a *block-copolymer* model and assists with the analysis of the data (`HPC Dask <https://dask.org/>`_ and `Python compiler Numba <http://numba.pydata.org/>`_).
 In particular, it assists the creation of polymer described by FENE bond and WCA repulsive potential to resolve the excluded volume constraints.
 On top of that, it builds the epigenetic interactions based on a simple input file.
 It can be used by polymer physicists, biophysicists for epigenetic modeling, to understand the link between epigenetic and tri-dimensional structure of a genome, to estimate first-passage-time encounter of two locii.
