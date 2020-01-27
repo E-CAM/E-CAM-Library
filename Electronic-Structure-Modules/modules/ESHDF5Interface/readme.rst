@@ -33,7 +33,7 @@ Such a wave function for an electron system will be typically given by the produ
 
 .. math::
 
-  `\Psi({\bf R}) = J({\bf R}) \cdot \text{Det}(\phi_i({\bf r}_j))`
+  \Psi({\bf R}) = J({\bf R}) \cdot \text{Det}(\phi_i({\bf r}_j))
 
 where :math:`R` is the vector containing the position of all electrons and :math:`r_i` is the position of the :math:`i`-th electron.
 While there is great freedom in the definition of the Jastrow term, that can then be variationally optimized, the single particle orbitals have to be computed in using Density Functional Theory.
