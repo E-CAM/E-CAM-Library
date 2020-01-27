@@ -61,7 +61,7 @@ After cloning the repository and checking out the ``QMCQEPack`` branch with
 ``git checkout QMCQEPack``
 
 one can proceed to download Quantum Espresso and build the ``libpwinterface.so`` library
-using the :doc:`../QMCQEPack_qepatch/readme` module.
+using the :ref:`QMCQEPack_qepatch` module.
 
 Once the library is built one can proceed to build and compile  QMCPack, as
 detailed in the official QMCPack documentation `<https://qmcpack.org/documentation>`_, or in the manual available
@@ -81,7 +81,16 @@ The tests for this code are part of the deterministic unit tests for QMCPack, th
 Source Code
 ___________
 
-The source code is available available from `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_. 
+The source code is available available from `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_ in the `QMCQEPack` branch. Specifically relevant files for this module include:
+
+* `src/Interfaces/PWSCF/ESPWSCFInterface.cpp`
+* `src/Interfaces/PWSCF/ESPWSCFInterface.h`
+* `src/Interfaces/PWSCF/pwinterface.h`
+
+and for the tests:
+
+* `src/Interfaces/tests/pwscf.in`
+* `src/Interfaces/tests/test_interface_PWSCF.cpp`
 
 .. Here are the URL references used (which is alternative method to the one described above)
 

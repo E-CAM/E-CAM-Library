@@ -68,7 +68,12 @@ The tests for this code are part of the deterministic unit tests for QMCPack, th
 Source Code
 ___________
 
-The source code is available available from `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_. 
+The source code is available available from `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_ in the `QMCQEPack` branch. Specifically relevant files for this module include:
+
+* `src/Interfaces/ESInterfaceBase.cpp`
+* `src/Interfaces/ESInterfaceBase.h`
+* `src/Interfaces/InterfaceBase.cpp`
+* `src/Interfaces/InterfaceBase.h`
 
 .. Here are the URL references used (which is alternative method to the one described above)
 
