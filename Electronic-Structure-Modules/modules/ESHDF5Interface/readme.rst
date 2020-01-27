@@ -70,15 +70,15 @@ The tests for this code are part of the deterministic unit tests for QMCPack, th
 Source Code
 ___________
 
-The source code is available available from `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_ in the `QMCQEPack` branch. Specifically relevant files for this module include:
+The source code is available available from `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_ in the ``QMCQEPack`` branch. Specifically relevant files for this module include:
 
-* `src/Interfaces/ESHDF5/ESHDF5Interface.cpp`
-* `src/Interfaces/ESHDF5/ESHDF5Interface.h`
+* ``src/Interfaces/ESHDF5/ESHDF5Interface.cpp``
+* ``src/Interfaces/ESHDF5/ESHDF5Interface.h``
 
 and for the tests:
 
-* `src/Interfaces/tests/test_interface_HDF5.cpp`
-* `src/Interfaces/tests/O.BFD.upf`
+* ``src/Interfaces/tests/test_interface_HDF5.cpp``
+* ``src/Interfaces/tests/O.BFD.upf``
 
 .. Here are the URL references used (which is alternative method to the one described above)
 

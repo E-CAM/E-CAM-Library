@@ -72,12 +72,12 @@ The tests for this code are part of the deterministic unit tests for QMCPack, th
 Source Code
 ___________
 
-The source code is available available from `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_ in the `QMCQEPack` branch. Specifically relevant files for this module include:
+The source code is available available from `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_ in the ``QMCQEPack`` branch. Specifically relevant files for this module include:
 
-* `external_codes/quantum_espresso/download_and_patch_qeinterface5.3.sh`
-* `external_codes/quantum_espresso/add_pw2qmcpack_to_intespresso-5.3.0.diff`
-* `external_codes/quantum_espresso/QMCQEPack_qepatch.diff`
-* `external_codes/quantum_espresso/QMCQEPack_download_and_patch_qe.sh`
+* ``external_codes/quantum_espresso/download_and_patch_qeinterface5.3.sh``
+* ``external_codes/quantum_espresso/add_pw2qmcpack_to_intespresso-5.3.0.diff``
+* ``external_codes/quantum_espresso/QMCQEPack_qepatch.diff``
+* ``external_codes/quantum_espresso/QMCQEPack_download_and_patch_qe.sh``
 
 .. Here are the URL references used (which is alternative method to the one described above)
 

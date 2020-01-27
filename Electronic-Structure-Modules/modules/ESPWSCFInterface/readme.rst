@@ -81,16 +81,16 @@ The tests for this code are part of the deterministic unit tests for QMCPack, th
 Source Code
 ___________
 
-The source code is available available from `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_ in the `QMCQEPack` branch. Specifically relevant files for this module include:
+The source code is available available from `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_ in the ``QMCQEPack`` branch. Specifically relevant files for this module include:
 
-* `src/Interfaces/PWSCF/ESPWSCFInterface.cpp`
-* `src/Interfaces/PWSCF/ESPWSCFInterface.h`
-* `src/Interfaces/PWSCF/pwinterface.h`
+* ``src/Interfaces/PWSCF/ESPWSCFInterface.cpp``
+* ``src/Interfaces/PWSCF/ESPWSCFInterface.h``
+* ``src/Interfaces/PWSCF/pwinterface.h``
 
 and for the tests:
 
-* `src/Interfaces/tests/pwscf.in`
-* `src/Interfaces/tests/test_interface_PWSCF.cpp`
+* ``src/Interfaces/tests/pwscf.in``
+* ``src/Interfaces/tests/test_interface_PWSCF.cpp``
 
 .. Here are the URL references used (which is alternative method to the one described above)
 
