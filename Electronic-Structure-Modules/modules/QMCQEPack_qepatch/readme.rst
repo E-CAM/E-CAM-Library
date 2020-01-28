@@ -67,15 +67,15 @@ To use this library to perform DFT simulations QMCPack must be suitably compiled
 
 The tests for this code are part of the deterministic unit tests for QMCPack, that can be run with the command
 
-``ctest -R deterministic``
+``ctest -R interface``
+
+Note that the code is tested using the GCC compiler and OpenMPI.
 
 Source Code
 ___________
 
 The source code is available available from `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_ in the ``QMCQEPack`` branch. Specifically relevant files for this module include:
 
-* ``external_codes/quantum_espresso/download_and_patch_qeinterface5.3.sh``
-* ``external_codes/quantum_espresso/add_pw2qmcpack_to_intespresso-5.3.0.diff``
 * ``external_codes/quantum_espresso/QMCQEPack_qepatch.diff``
 * ``external_codes/quantum_espresso/QMCQEPack_download_and_patch_qe.sh``
 

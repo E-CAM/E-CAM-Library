@@ -76,7 +76,9 @@ To use the interface one must use the ``qmcqepack`` keyword in the ``determinant
 
 The tests for this code are part of the deterministic unit tests for QMCPack, that can be run with the command
 
-``ctest -R deterministic``
+``ctest -R interface``
+
+Note that the code is tested using the GCC compiler and OpenMPI.
 
 Source Code
 ___________

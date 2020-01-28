@@ -49,7 +49,7 @@ and the documentation can be found at the QMCPack website `<https://qmcpack.org/
 Building and testing
 ____________________
 
-The ESBaseInterface module can be found in the QMCQEPack branch of the QMCPack git repository 
+The ESInterfaceBase module can be found in the QMCQEPack branch of the QMCPack git repository 
 `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_.
 After cloning and getting to the QMCQEPack branch with
 
@@ -63,7 +63,9 @@ in the ``manual`` subdirectory in the main QMCPack directory.
 
 The tests for this code are part of the deterministic unit tests for QMCPack, that can be run with the command
 
-``ctest -R deterministic``
+``ctest -R interface``
+
+Note that the code is tested using the GCC compiler and OpenMPI.
 
 Source Code
 ___________
