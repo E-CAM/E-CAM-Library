@@ -1,5 +1,3 @@
-:orphan:
-
 ..  sidebar:: Software Technical Information
 
   Name
@@ -21,9 +19,9 @@
 
 .. _ESPWSCFInterface:
 
-####################
+################
 ESPWSCFInterface
-####################
+################
 
 ..  contents:: :local:
 
@@ -33,7 +31,9 @@ _________________
 To obtain accurate results with ground state Quantum Monte Carlo methods (such as Variational and Diffusion Monte Carlo) an accurate trial wave function is essential.
 Such a wave function for an electron system will be typically given by the product of two factors: (1) a Jastrow term :math:`J`  describing electronic correlations and (2) a Slater determinant of suitable single particle orbitals :math:`\phi_i`
 
-.. math::`\Psi({\bf R}) = J({\bf R}) \cdot \text{Det}(\phi_i({\bf r}_j))`
+.. math::
+
+  \Psi({\bf R}) = J({\bf R}) \cdot \text{Det}(\phi_i({\bf r}_j))
 
 where :math:`R` is the vector containing the position of all electrons and :math:`r_i` is the position of the :math:`i`-th electron.
 While there is great freedom in the definition of the Jastrow term, that can then be variationally optimized, the single particle orbitals have to be computed in using Density Functional Theory.
@@ -52,7 +52,7 @@ can be found in the Quantum Espresso website `<https://www.quantum-espresso.org/
 Building and testing
 ____________________
 
-The EHDF5Interface module can be found in the ``QMCQEPack`` branch of the QMCPack git repository 
+The ESPWSCFInterface module can be found in the ``QMCQEPack`` branch of the QMCPack git repository 
 `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_.
 After cloning the repository and checking out the ``QMCQEPack`` branch with
 
@@ -61,7 +61,7 @@ After cloning the repository and checking out the ``QMCQEPack`` branch with
 ``git checkout QMCQEPack``
 
 one can proceed to download Quantum Espresso and build the ``libpwinterface.so`` library
-using the :doc:`../QMCQEPack_qepatch/readme` module.
+using the :ref:`QMCQEPack_qepatch` module.
 
 Once the library is built one can proceed to build and compile  QMCPack, as
 detailed in the official QMCPack documentation `<https://qmcpack.org/documentation>`_, or in the manual available
@@ -81,7 +81,16 @@ The tests for this code are part of the deterministic unit tests for QMCPack, th
 Source Code
 ___________
 
-The source code is available available from `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_. 
+The source code is available available from `<https://github.com/michruggeri/qmcpack/tree/QMCQEPack>`_ in the ``QMCQEPack`` branch. Specifically relevant files for this module include:
+
+* ``src/Interfaces/PWSCF/ESPWSCFInterface.cpp``
+* ``src/Interfaces/PWSCF/ESPWSCFInterface.h``
+* ``src/Interfaces/PWSCF/pwinterface.h``
+
+and for the tests:
+
+* ``src/Interfaces/tests/pwscf.in``
+* ``src/Interfaces/tests/test_interface_PWSCF.cpp``
 
 .. Here are the URL references used (which is alternative method to the one described above)
 
