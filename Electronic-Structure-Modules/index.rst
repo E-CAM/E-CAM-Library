@@ -149,4 +149,17 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/PANNA-EVAL/readme
     ./modules/PANNA-Charges/readme
 
+QMCPack interfaces
+------------------
+The following modules related to interfaces for the QMCPack code have been produced so far in the context of an `associated Pilot Project <https://www.e-cam2020.eu/qmcpack-interfaces-for-es-computations/>`_:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+                                                                                    
+    ./modules/ESInterfaceBase/readme
+    ./modules/ESHDF5Interface/readme
+    ./modules/ESPWSCFInterface/readme
+    ./modules/QMCQEPack_qepatch/readme
+
 .. _E-CAM: https://www.e-cam2020.eu/
