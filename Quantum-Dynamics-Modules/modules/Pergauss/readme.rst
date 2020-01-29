@@ -28,9 +28,12 @@ PerGauss: Periodic Boundary Conditions for gaussian bases
 Purpose of Module
 _________________
 
-The module PerGauss (Periodic Gaussians) consists on an implementation of periodic boundary conditions for gaussian bases for the  Quantics_  program package. 
+The module PerGauss (**Per** iodic **Gauss** ians) consists on an implementation of periodic boundary conditions for gaussian bases for the  Quantics_  program package. 
+
 In quantum dynamics, the choice of coordinates is crucial to obtain meaningful results. While xyz or normal mode coordinates are linear and do not need a periodical treatment, particular angles, such as dihedrals, must be included to describe accurately the (photo-)chemistry of the system under consideration. In these cases, periodicity can be taken into account, since the value of the wave function and hamiltonian repeats itself after certain intervals. 
+
 This feature is already implemented for grid basis functions such as exponential-DVR and FFT to use in the framework of the MCTDH method, within the quantics package. Using as wave function ansatz a linear combination of gaussians, following the original idea of Heller, has enormous advantages: First, a gaussian that follows a classical trajectory is the exact solution of the quantum harmonic oscillator and harmonic oscillators are generally the first step into approximating potential energy surfaces. This also allows a smooth transition to dynamics methods based on classical trajectories such as Ab-Initio Multiple Spawning (AIMS) and Surface Hopping. Second, one can easily take advantage of the locality of gaussians and move towards on-the-fly methods, where the potential is calculated as the basis functions span the conformational space.
+
 In the case of methods that use gaussian basis functions, such as G-MCTDH [1]_ , vMCG [2]_ and its on-the-fly version DD-vMCG within the quantics set of programs, no implementation of periodic boundary conditions has been made until this contribution. 
 
 The module is expected to provide the quantum dynamics community with a more efficient way of treating large systems whose excited state driving forces involve periodic coordinates. When used on precomputed potentials (in G-MCTDH and vMCG), the model can improve the convergence since smaller grid sizes are needed. Used on-the-fly, it reduces considerably the amount of electronic structure computations needed compared to cartesian coordinates, since conformations that seemed far in the spanned space may be closer after applying a periodic transformation.  
