@@ -139,6 +139,7 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/Gaussian_interface/README
     ./modules/WLRR/README   
     ./modules/SCDM_WFs/readme
+    ./modules/W90_MaX_collab/readme
     ./modules/W90_solution_booklet/readme
     ./modules/FFTXlib/readme
     ./modules/W90_cube_format_non-orthogonal/readme
