@@ -3,6 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. sidebar:: General Information
+
+    .. contents:: :depth: 2
+
+    * :ref:`contributing`
+    * :ref:`search`
+
 .. _readme_electronic_structure:
 
 ****************************
@@ -12,14 +19,7 @@ Electronic Structure Modules
 Introduction
 ============
 
-.. sidebar:: General Information
-
-    .. contents:: :depth: 2
-
-    * :ref:`contributing`
-    * :ref:`search`
-
-.. figure:: ./images/wake_nova-rgb.png 
+.. figure:: ./images/protein-metal-cluster.png 
    :figwidth: 25 % 
    :align: left
 
@@ -55,6 +55,7 @@ The first Electronic Structure ESDW in Zaragoza in June 2016 was the starting po
     ./modules/sqare-grids-doc/readme
     ./modules/sqare-ode-doc/readme
     ./modules/sqare-states-doc/readme
+    ./modules/esl-demo/readme
 
 
 ESDW San Sebastian 2016
@@ -98,7 +99,7 @@ The ESDW in Dublin in January 2019 was the starting point for the modules below.
     :maxdepth: 1
 
     ./modules/esl-easyconfigs/readme
-
+    ./modules/ELSI/readme
 
 Other Modules
 -------------
@@ -110,6 +111,8 @@ Modules not coming from ESDWs
      :maxdepth: 1
 
      ./modules/flook/readme
+     ./modules/libgridxc/readme
+     ./modules/libvdwxc/readme
      ./modules/MatrixSwitchDBCSR/readme
 
 Pilot Projects
@@ -136,8 +139,28 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/Gaussian_interface/README
     ./modules/WLRR/README   
     ./modules/SCDM_WFs/readme
+    ./modules/W90_MaX_collab/readme
     ./modules/W90_solution_booklet/readme
     ./modules/FFTXlib/readme
     ./modules/W90_cube_format_non-orthogonal/readme
+    ./modules/miniPWPP/readme
+    ./modules/PANNA-GVECT/readme
+    ./modules/PANNA-TFR/readme
+    ./modules/PANNA-TRAIN/readme
+    ./modules/PANNA-EVAL/readme
+    ./modules/PANNA-Charges/readme
+
+QMCPack interfaces
+------------------
+The following modules related to interfaces for the QMCPack code have been produced so far in the context of an `associated Pilot Project <https://www.e-cam2020.eu/qmcpack-interfaces-for-es-computations/>`_:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+                                                                                    
+    ./modules/ESInterfaceBase/readme
+    ./modules/ESHDF5Interface/readme
+    ./modules/ESPWSCFInterface/readme
+    ./modules/QMCQEPack_qepatch/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/

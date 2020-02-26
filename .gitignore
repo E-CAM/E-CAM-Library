@@ -3,7 +3,6 @@
 
 # sphinx build folder
 _build
-_templates
 
 # OS generated files #
 ######################
