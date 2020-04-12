@@ -13,7 +13,7 @@
 ..  sidebar:: Software Technical Information
 
   Name
-    MPI parallelization of quantum dynamics with Smolyak method
+    MPI of quantum dynamics with Smolyak method
 
   Language
     Fortran 90
@@ -25,8 +25,7 @@
     Doxygen
 
   Application Documentation
-    https://github.com/lauvergn/ElVibRot-TnumTana/tree/master/doc/
-    Tnum: http://pagesperso.lcp.u-psud.fr/lauvergnat/ElVibRot/Tnum-manual-v24.4-09_09_2013.pdf
+    See `Docs for ElVibRot-TnumTana <https://github.com/lauvergn/ElVibRot-TnumTana/tree/master/doc/>`_ and `Docs for Tnum <http://pagesperso.lcp.u-psud.fr/lauvergnat/ElVibRot/Tnum-manual-v24.4-09_09_2013.pdf>`_
 
   Relevant Training Material
     Not currently available
@@ -42,9 +41,9 @@
 
 .. _Quantum_Smolyak:
 
-############################
-E-CAM Quantum_Smolyak module
-############################
+######################
+Quantum_Smolyak module
+######################
 
 ..  Let's add a local table of contents to help people navigate the page
 
@@ -80,7 +79,7 @@ E-CAM Quantum_Smolyak module
 ..  performance penalties, are threadsafe if needed,...)*
 
 
-This module is a MPI parallelization of quantum dynamics with Smolyak algorithm, 
+This module is an MPI implementation of quantum dynamics with Smolyak algorithm, 
 designed for the general simulation of molecules. 
 
 
@@ -127,7 +126,7 @@ _________________
 ..  If you want to add a citation, such as [CIT2009]_, please check the source code to see how this is done. Note that
 ..  citations may get rearranged, e.g., to the bottom of the "page".
 
-This module is intended to provide an efficient MPI parallelization of quantum dynamics in the frameworks of Smolyak method. 
+This module is intended to provide an MPI implementation of quantum dynamics in the frameworks of Smolyak method. 
 The parallelization, taking advantage of the Smolyak method, is designed to be applicable for various levels of machine, from small 
 to massive clusters. This code, in the meantime, is also capable of the simulation of general molecules. 
 
@@ -152,11 +151,15 @@ ______________________
 ..  encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
 ..  the links they need should be already in this module.
 
-This module is a MPI implementation of the quantum dynamics with Smolyak algorithm. 
-One should refer to the relevant module for details of the basic algorithms and the code develop page at:
+This module is a MPI implementation of the Smolyak algorithm in ElVibRot-TnumTana, which is a general quantum dynamics code using curvilinear coordinates and a numerical kinetic energy operator. One should refer to the relevant modules and the details of code in the `code develop page <https://github.com/lauvergn/ElVibRot-TnumTana>`_. 
 
-https://github.com/lauvergn/ElVibRot-TnumTana  
 
+Applications of the Module
+__________________________
+
+The code could be applied to the simulation of generally molecules with properly prepared potential. 
+
+The code is currently applied for the simulation of clathrate hydrogen. 
 
 
 Building and Testing
@@ -168,16 +171,68 @@ ____________________
 .. explaining if necessary any deviations from the normal build procedure of the application (and links to information
 ..  about the normal build process needs to be provided).
 
-Building the program requires OpenMPI v3.0 or above. Open MPI should be built as 64-bit for a full access of the functions 
+Building the program requires OpenMPI v3.0 or above. OpenMPI should be built as 64-bit for a full access of the functions 
 when requiring extremely big memory
 
-> build with MPI: set 
-	F90=gfortran
+To build code:
+
+.. code-block:: c
+  :linenos:
+
+  make
+
+To test code:
+
+.. code-block:: c
+  :linenos:
+
+  make test 
+
+
+To clean test files
+
+.. code-block:: c
+  :linenos:
+
+  make cleantest
+
+
+
+
+* build with MPI
+
+
+set makefile: ::
+
+  F90=mpifort
+  MPICORE=gfortran ! gfortran or ifort according to the compiler for MPI
+
+
+* build with openMP
+
+
+set makefile: ::
+
+  F90=gfortran
+  OMP=1           ! enable openMP
+
+* other main options 
+
+::
+ 
+  F90=ifort       ! compile with ifort
+  F90=pgf90       ! compile with pgf90
+  parallel_make=1 ! enable parallel make with -j argument
+  OPT=1           ! enable optimization
+  INT=4           ! 4 or 8 for 32-bits or 64-bits integer
+  LAPACK=1        ! enable LAPACK
+  ARPACK=1        ! enable ARPACK
+  QML=1           ! enable QMLib
+
 
 
 Source Code
 ___________
 
-See the MPI_working of ElVibRot-TnumTana at:  
+See the `MPI branch <https://github.com/lauvergn/ElVibRot-TnumTana/tree/MPI_working>`_ of ElVibRot-TnumTana  
 
-https://github.com/lauvergn/ElVibRot-TnumTana/tree/MPI_working

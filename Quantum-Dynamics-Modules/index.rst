@@ -252,7 +252,7 @@ The **QuantumModelLib** use potential energy surfaces extracted from the literat
 
     ./modules/Quantum_Smolyak/readme
 
-The **Quantum_Smolyak** is a MPI parallelization of quantum dynamics with Smolyak algorithm. 
+The **Quantum_Smolyak** is an MPI implementation of the Smolyak algorithm in ElVibRot-TnumTana, a general quantum dynamics code using curvilinear coordinates and a numerical kinetic energy operator . 
 
 
 
