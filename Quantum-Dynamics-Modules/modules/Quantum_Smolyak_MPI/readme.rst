@@ -13,7 +13,7 @@
 ..  sidebar:: Software Technical Information
 
   Name
-    MPI of quantum dynamics with Smolyak method
+    Quantum_Smolyak_MPI
 
   Language
     Fortran 90
