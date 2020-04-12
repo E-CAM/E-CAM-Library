@@ -3,22 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. _readme_quantum_dynamics:
-
-************************
-Quantum Dynamics Modules
-************************
-
-
-Introduction
-============
-
 .. sidebar:: General Information
 
     .. contents:: :depth: 2
 
     * :ref:`contributing`
     * :ref:`search`
+
+.. _readme_quantum_dynamics:
+
+************************
+Quantum Dynamics Modules
+************************
+
+Introduction
+============
 
 .. image:: ./images/AltLogo.png
    :width: 30 %
@@ -179,6 +178,13 @@ lectures and tutorials on OpenMP parallelization.
 
 .. _IBM: https://www.zurich.ibm.com/
 
+Modules developed in this workshop not included in other subheadings are:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/Correlated-Sampling/readme
 
 
 ESDW Durham University (Durham 2019)
@@ -246,7 +252,7 @@ The **QuantumModelLib** use potential energy surfaces extracted from the literat
 
     ./modules/Quantum_Smolyak/readme
 
-The **Quantum_Smolyak** is a MPI parallelization of quantum dynamics code applying the Smolyak algorithm
+The **Quantum_Smolyak** is a MPI parallelization of quantum dynamics with Smolyak algorithm. 
 
 
 
@@ -431,6 +437,16 @@ The **Zagreb_sh** module is an interface between between Quantics package and th
         ./modules/Quantics_Openmp_Improvements_Module/Quantics_omp_module
 
 The **Quantics_openmp** module is an initial effort at OpenMP parallelisation improvements to Quantics.
+
+
+.. toctree::
+        :glob:
+        :maxdepth: 1
+ 
+        ./modules/guessoc/guessoc_readme
+
+The **Spin orbit coupling smoothing** module is to smooth spin orbit couplings along internuclear distance.
+
 
 References
 ==========
