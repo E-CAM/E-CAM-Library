@@ -13,10 +13,10 @@
 ..  sidebar:: Software Technical Information
 
   Name
-    Code Optimization for Exact and Linearized Quantum Dynamics
+    MPI parallelization of quantum dynamics with Smolyak method
 
   Language
-    Fortran
+    Fortran 90
 
   Licence
     GNU Lesser General Public License (http://www.gnu.org/licenses/)
@@ -25,13 +25,14 @@
     Doxygen
 
   Application Documentation
-    Not currently available
+    https://github.com/lauvergn/ElVibRot-TnumTana/tree/master/doc/
+    Tnum: http://pagesperso.lcp.u-psud.fr/lauvergnat/ElVibRot/Tnum-manual-v24.4-09_09_2013.pdf
 
   Relevant Training Material
     Not currently available
 
   Software Module Developed by
-    David Lauvergnat, Mamadou Ndong, Josep Maria Luis, etc.
+    David Lauvergnat, Ahai Chen
 
 
 ..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
@@ -78,8 +79,10 @@ E-CAM Quantum_Smolyak module
 ..  effort using an appropriate tool. You should be able to verify that your changes have not introduced unexpected
 ..  performance penalties, are threadsafe if needed,...)*
 
-This module is a MPI parallelization of quantum dynamics code applying the Smolyak algorithm, 
-designed for the quantum simulation of molecules. 
+
+This module is a MPI parallelization of quantum dynamics with Smolyak algorithm, 
+designed for the general simulation of molecules. 
+
 
 Purpose of Module
 _________________
@@ -124,10 +127,16 @@ _________________
 ..  If you want to add a citation, such as [CIT2009]_, please check the source code to see how this is done. Note that
 ..  citations may get rearranged, e.g., to the bottom of the "page".
 
-The module is intended to provide an efficient parallelization of quantum ab initial simulation with Smolyak algorithm. 
-The final code will be available for switching between MPI and openMP according to the interested system 
-and the cluster resource available. A MPI-openMP hybrid implementation might be also available according to the
+This module is intended to provide an efficient MPI parallelization of quantum dynamics in the frameworks of Smolyak method. 
+The parallelization, taking advantage of the Smolyak method, is designed to be applicable for various levels of machine, from small 
+to massive clusters. This code, in the meantime, is also capable of the simulation of general molecules. 
+
+The final code will be available for switching among different types of MPI methods, openMP and non-parallel case according to 
+the interested system and the cluster resource available. An MPI-openMP hybrid implementation might be also available according to the
 progress. 
+
+The code is compatible with gfortran, mpifort, ifort, pgf90, etc.
+
 
 Background Information
 ______________________
@@ -144,7 +153,11 @@ ______________________
 ..  the links they need should be already in this module.
 
 This module is a MPI implementation of the quantum dynamics with Smolyak algorithm. 
-One should refer to the relevant module for details of the basic algorithms. 
+One should refer to the relevant module for details of the basic algorithms and the code develop page at:
+
+https://github.com/lauvergn/ElVibRot-TnumTana  
+
+
 
 Building and Testing
 ____________________
@@ -155,10 +168,16 @@ ____________________
 .. explaining if necessary any deviations from the normal build procedure of the application (and links to information
 ..  about the normal build process needs to be provided).
 
-Building the program requires Open MPI v3.0 or above. Open MPI should be built as 64-bit for a full access of the functions.
+Building the program requires OpenMPI v3.0 or above. Open MPI should be built as 64-bit for a full access of the functions 
+when requiring extremely big memory
+
+> build with MPI: set 
+	F90=gfortran
 
 
 Source Code
 ___________
-  
-  Not currently available
+
+See the MPI_working of ElVibRot-TnumTana at:  
+
+https://github.com/lauvergn/ElVibRot-TnumTana/tree/MPI_working
