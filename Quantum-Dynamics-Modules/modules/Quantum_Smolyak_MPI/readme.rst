@@ -39,11 +39,11 @@
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
     reference to work (so don't insert a comment between).
 
-.. _Quantum_Smolyak:
+.. _Quantum_Smolyak_MPI:
 
-######################
-Quantum_Smolyak module
-######################
+###################
+Quantum_Smolyak_MPI
+###################
 
 ..  Let's add a local table of contents to help people navigate the page
 

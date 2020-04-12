@@ -250,9 +250,9 @@ The **QuantumModelLib** use potential energy surfaces extracted from the literat
     :glob:
     :maxdepth: 1
 
-    ./modules/Quantum_Smolyak/readme
+    ./modules/Quantum_Smolyak_MPI/readme
 
-The **Quantum_Smolyak** is an MPI implementation of the Smolyak algorithm in ElVibRot-TnumTana, a general quantum dynamics code using curvilinear coordinates and a numerical kinetic energy operator . 
+The **Quantum_Smolyak_MPI** module is an MPI implementation of the Smolyak algorithm in ElVibRot-TnumTana, a general quantum dynamics code using curvilinear coordinates and a numerical kinetic energy operator . 
 
 
 
