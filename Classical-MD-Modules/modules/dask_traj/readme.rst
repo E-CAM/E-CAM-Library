@@ -11,13 +11,13 @@
     LGPL 2.1 or later
 
   Documentation Tool
-    Sphinx, numpydoc format (ReST)  
+    Sphinx, numpydoc format (ReST)
 
   Application Documentation
-   https://dask-traj.readthedocs.io/en/latest/ 
+   https://dask-traj.readthedocs.io/en/latest/
 
   Relevant Training Material
-   https://github.com/sroet/dask-traj/tree/master/examples  
+   https://github.com/sroet/dask-traj/tree/master/examples
 
   Software Module Developed by
     Sander Roet
@@ -41,18 +41,18 @@ For analysis of MD simulations `MDTraj <http://mdtraj.org/>`_ is a fast and comm
 However MDTraj has limitations, such as the requirement that the whole trajectory and result of the
 computation fits into memory. This module rewrites part of MDTraj to work with
 `Dask <https://dask.org/>`_ in order to achieve out-of-memory computations, and combined with
-`dask-distributed <https://distributed.dask.org/en/latest/>`_ results in possible 
-out-of-machine parallelization, essential for HPCs and a (surprising) speed-up
-even on a single machine. 
+`dask-distributed <https://distributed.dask.org/en/latest/>`_ results in possible out-of-machine parallelization, essential for HPCs and a (surprising) speed-up even on a single machine.
 
 
 Purpose of Module
 _________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
+.. Keep the helper text below around in your module by just adding "..  "
+.. in front of it, which turns it into a comment
 
 ..  Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
-..  it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
+..  it fits into the larger picture of what you want to achieve. The overview should be
+..  comprehensible to a scientist
 ..  non-expert in the domain area of the software module.
 
 Using `MDTraj <http://mdtraj.org/>`_ is a fast and easy way to analyze MD trajectories.
@@ -98,8 +98,8 @@ slower than MDTraj.
 Also, due to the way the code is written in MDTraj, only a subset of functions
 are available at the moment, but this will be expanded further in the future.
 If you have a use-case that requires the conversion of a MDTraj functionality,
-not yet present in dask-traj, please 
-`make an issue <https://github.com/sroet/dask-traj/issues/new>`_ and I will
+not yet present in dask-traj,
+ please `make an issue <https://github.com/sroet/dask-traj/issues/new>`_ and I will
 focus on that.
 
 Building and Testing
