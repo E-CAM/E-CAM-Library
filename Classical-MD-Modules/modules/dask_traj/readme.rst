@@ -122,7 +122,7 @@ Examples
 
 * An example on how to do analysis using Dask-traj can be found in `dask-traj_example.ipynb <https://github.com/sroet/dask-traj/blob/master/examples/dask-traj_example.ipynb>`_
 
-* An example on how to combine dask-traj with dask.distributed can be found in `dask-traj_distributed example.ipynb <https://github.com/sroet/dask-traj/blob/master/examples/dask-traj_distributed%20example.ipynb>`_ 
+* An example on how to combine dask-traj with dask.distributed can be found in `dask-traj_distributed example.ipynb <https://github.com/sroet/dask-traj/blob/master/examples/dask-traj_distributed%20example.ipynb>`_
 
 These examples can also be found in the ``examples`` directory in the source code. They can be run by
 using ``jupyter notebook`` from that directory (see ``Jupyter notebook`` documentation at http://jupyter.org/ for more details)
