@@ -54,7 +54,8 @@ Improved overlap computation communiction in DL_MESO_DPD (multi-GPU version)
 The following module present an improved overlap between communication and computation for the DL_MESO_DPD package on multi-GPUs.
 
 A binary mixture phase separation test case up to 1.8 billion particles has been used for weak and strong benchmarks. The results
-show good scaling in both cases up to 1024 GPUs. After that the scaling without improved overlap quicly tails off while the other shows good efficiency (>85%)
+show good scaling in both cases up to 1024 GPUs. 
+After that the scaling without improved overlap quickly tails off while the other shows good efficiency (>85%)
 up to 4096 GPUs.
 
 
