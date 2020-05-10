@@ -72,7 +72,7 @@ This is achieved with a partial sum of the forces based on the internal particle
 A flowchart of the algorithm is presented in the figure below.
 
 .. image:: manybodyDPD-flowchart.png
-   :width: 500
+   :width: 200
 
 Background Information
 ______________________
@@ -116,7 +116,7 @@ Below is an snapshot from the simulation based on the same input (but large syst
 
 
 .. image:: snapshot-SurfaceDrop.png
-   :width: 500
+   :width: 200
 
 Source Code
 ___________
