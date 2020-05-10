@@ -29,11 +29,11 @@ software needs for exascale computing within the ETP4HPC SRA report is shown in 
 
   While quite specific "key applications" are under continuous support by other CoEs, this is not the current
   model of E-CAM. E-CAM is more likely to support and develop a software installation framework (such as
-  `EasyBuild <http://easybuild.readthedocs.io/en/latest/>`_) that simplifies building the (increasingly non-trivial) software stack of a particular application
-  in a reliable, reproducible and portable way. Industry has already shown significant interest in this and
-  E-CAM is particularly interested in extending the capabilities of EasyBuild to EsD architectures, performance
-  analysis workflows and to new scientific software packages. Such an effort could easily be viewed
-  as transversal since such developments could be leveraged by any other CoE.
+  `EasyBuild <http://easybuild.readthedocs.io/en/latest/>`_) that simplifies building the (increasingly non-trivial)
+  software stack of a particular application in a reliable, reproducible and portable way. Industry has already shown
+  significant interest in this and E-CAM is particularly interested in extending the capabilities of EasyBuild to EsD
+  architectures, performance analysis workflows and to new scientific software packages. Such an effort could easily be
+  viewed as transversal since such developments could be leveraged by any other CoE.
 
 One important focus of the SRA is the development of the “Extreme-Scale Demonstrators” (EsDs) that are vehicles to
 optimise and synergise the effectiveness of the entire HPC H2020 programme, through the integration of R&D outcomes
@@ -49,9 +49,9 @@ The work in developing the EsDs will fill critical gaps in the H2020 programme, 
 As one of the CoEs, E-CAM should aim to provide insight and input into the requirements of future exascale systems
 based on lessons learnt from activities within E-CAM (e.g. software development and relevant performance optimisation
 and scaling work). This would entail further knowledge and understanding within E-CAM on exploiting current
-multi-petaflop infrastructures, what future exascale architectures may look like, as well as interaction and close collaboration
-between E-CAM and other projects (i.e. the projects shown in Figure 12); these are also covered in subsequent
-sections of this paper.
+multi-petaflop infrastructures, what future exascale architectures may look like, as well as interaction and close
+collaboration between E-CAM and other projects (i.e. the projects shown in Figure 12); these are also covered in
+subsequent sections of this paper.
 
 Emerging hardware architectures relevant to exascale computing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
