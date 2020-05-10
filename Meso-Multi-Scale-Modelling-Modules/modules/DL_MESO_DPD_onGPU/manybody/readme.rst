@@ -138,7 +138,7 @@ Below is an snapshot from the simulation based on the
 same input (but large system) using 8 GPUs and for 20k time steps.
 
 
-.. image:: snapshot-SurfaceDrop.png
+.. image:: SurfaceDrop.png
    :width: 200
 
 Source Code
