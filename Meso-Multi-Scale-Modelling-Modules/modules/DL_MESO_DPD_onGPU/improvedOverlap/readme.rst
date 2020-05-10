@@ -115,7 +115,7 @@ ___________
 .. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
 
 This module has been merged into DL_MESO code. It is composed of the
-following commits (you need to be register as developer):
+following commits (you need to be registered as developer):
 
 * https://gitlab.stfc.ac.uk/srb73435/dl_meso/commit/90701a3ad97d53dc0555d0b79862e0db3134f83c
 
