@@ -39,7 +39,7 @@
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
     reference to work (so don't insert a comment between).
 
-.. _dl_meso_gpu_manybody:
+.. _dl_meso_multiGPU_manybody:
 
 ######################################
 Many body DPD on DL_MESO_DPD multi-GPU
