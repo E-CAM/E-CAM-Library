@@ -141,7 +141,9 @@ same input (but large system) using 8 GPUs and for 20k time steps.
 .. image:: SurfaceDrop.png
    :width: 200
 
-.. raw:: html<video controls src="_static/final_8GPUs.mp4"></video>
+.. raw:: html
+
+   <video controls src="_static/final_8GPUs.mp4"></video>
 
 Source Code
 ___________
