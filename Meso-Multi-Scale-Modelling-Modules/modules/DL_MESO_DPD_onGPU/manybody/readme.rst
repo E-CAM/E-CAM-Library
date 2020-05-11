@@ -135,7 +135,7 @@ For the current module, the ``test/SurfaceDrop`` test case is a
 good example of combined manybody DPD and load balanced 
 presented in https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library/-/merge_requests/180.
 Below is an snapshot from the simulation based on the 
-same input (but large system) using 8 GPUs and for 20k time steps.
+same input (but large system) using 8 GPUs and for 35k time steps.
 
 
 .. raw:: html
