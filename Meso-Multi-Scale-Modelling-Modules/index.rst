@@ -189,3 +189,12 @@ time-to-solution of the applications.
     ./modules/ALL_library/unstructured_method/readme
     ./modules/ALL_library/voronoi_method/readme
     ./modules/ALL_library/histogram_method/readme
+
+Ludwig: A lattice Boltzmann code for complex fluids
+---------------------------------------------------
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+    
+	./modules/Lattice_Boltzmann/external_chemical_potential_gradient/readme
