@@ -50,9 +50,9 @@
 
 .. _example:
 
-####################
+########################################################
 Externally imposed chemical potential gradient in Ludwig
-####################
+########################################################
 
 ..  Let's add a local table of contents to help people navigate the page
 
@@ -69,10 +69,10 @@ module does not directly contain source code but instead contains links to sourc
 module references the source code changes to which it directly applies (usually via a URL), and provides detailed
 information on the relevant *application* for the changes as well as how to build and test the associated software.
 
-The original source of this page (:download:`readme.rst`) contains lots of additional comments to help you create your
-documentation *module* so please use this as a starting point. We use Sphinx_ (which in turn uses ReST_) to create this
-documentation. You are free to add any level of complexity you wish (within the bounds of what Sphinx_ and ReST_ can
-do). More general instructions for making your contribution can be found in ":ref:`contributing`".
+.. The original source of this page (:download:`readme.rst`) contains lots of additional comments to help you create your
+.. documentation *module* so please use this as a starting point. We use Sphinx_ (which in turn uses ReST_) to create this
+.. documentation. You are free to add any level of complexity you wish (within the bounds of what Sphinx_ and ReST_ can
+.. do). More general instructions for making your contribution can be found in ":ref:`contributing`".
 
 Remember that for a module to be accepted into the E-CAM repository, your source code changes in the target application
 must pass a number of acceptance criteria:
