@@ -200,4 +200,4 @@ Neki neki neki.
     :glob:
     :maxdepth: 1
     
-	./modules/Lattice_Boltzmann/external_chemical_potential_gradient/readme
+	./modules/Lattice_Boltzmann/external_chemical_potential_gradient/readme.rst
