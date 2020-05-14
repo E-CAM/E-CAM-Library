@@ -17,15 +17,9 @@
 	Ludwig: A lattice Boltzmann code for complex fluids
 
   Language
-..    Please indicate the primary language(s) used by the module. Please also state if interfaces for other languages are
-..    available.
 	C
 
   Licence
-..    Specify the licence under which the software is released. Provide a link to the full online description of the
-..    licence. You'll find descriptions of the most common licences at https://opensource.org/licenses .
-..    An example here would be: `GPL <https://opensource.org/licenses/gpl-license>`_ or (the more permissive)
-..    `MIT <https://opensource.org/licenses/mit-license>`_
 	`<https://github.com/ludwig-cf/ludwig/blob/master/LICENSE>`_
 
   Documentation Tool
