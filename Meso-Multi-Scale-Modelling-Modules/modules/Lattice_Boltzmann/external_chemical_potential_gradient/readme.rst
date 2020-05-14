@@ -81,10 +81,14 @@ ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-Provide the build information for the module here and explain how tests are run. This needs to be adequately detailed,
-explaining if necessary any deviations from the normal build procedure of the application (and links to information
-about the normal build process needs to be provided).
+The module is built and run in the same way as any other simulation in Ludwig. A detailed description of the latter is
+available at: `<https://github.com/ludwig-cf/ludwig/tree/master/docs/tutorial>`_. Specifically, an example of a binary fluid
+simulation is available at: `<https://github.com/ludwig-cf/ludwig/tree/master/docs/tutorial/test2>`_. The externally imposed
+chemical potential gradient is specified in the input file, by adding another line, e.g.:
 
+.. code:: bash
+
+  grad_mu 0.0_0.01_0.0
 
 Source code
 ___________
