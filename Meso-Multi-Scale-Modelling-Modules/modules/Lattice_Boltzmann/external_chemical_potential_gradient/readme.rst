@@ -5,8 +5,6 @@
 
 ..  We allow the template to be standalone, so that the library maintainers add it in the right place
 
-.. :orphan:
-
 ..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
     progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
 
@@ -22,17 +20,15 @@
     `<https://github.com/ludwig-cf/ludwig/blob/master/LICENSE>`_
 
   Documentation Tool
-..    All source code created for this module should be documented so please indicate what tool has been used for
-..    documentation. Doxygen covers  most languages but for Fortran you might want to use
-..    `Ford <http://fortranwiki.org/fortran/show/FORD>`_, for Python ReST_, etc.
+    LaTex-generated pdf
 
   Application Documentation
-    Provide a link to any documentation for the application.
+    `<https://github.com/ludwig-cf/ludwig/tree/master/docs/tutorial>`_
 
-  Relevant Training Material
+..  Relevant Training Material
     Add a link to any relevant training material. If there currently is none then say 'Not currently available.'
 
-  Software Module Developed by
+..  Software Module Developed by
     Add the name of the person who developed the software for this module here
 
 
