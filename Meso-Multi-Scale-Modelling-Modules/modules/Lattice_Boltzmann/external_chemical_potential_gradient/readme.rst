@@ -5,7 +5,7 @@
 
 ..  We allow the template to be standalone, so that the library maintainers add it in the right place
 
-:orphan:
+.. :orphan:
 
 ..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
     progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
@@ -48,7 +48,7 @@
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
     reference to work (so don't insert a comment between).
 
-.. _example:
+.. .. _example:
 
 ########################################################
 Externally imposed chemical potential gradient in Ludwig
