@@ -81,47 +81,12 @@ _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
-it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
-non-expert in the domain area of the software module.
-
-This section should also include the following (where appropriate):
-
-* Who will use the module? in what area(s) and in what context?
-
-* What kind of problems can be solved by the code?
-
-* Are there any real-world applications for it?
-
-* Has the module been interfaced with other packages?
-
-* Was it used in a thesis, a scientific collaboration, or was it cited in a publication?
-
-* If there are published results obtained using this code, describe them briefly in terms readable for non-expert users.
-  If you have few pictures/graphs illustrating the power or utility of the module, please include them with
-  corresponding explanatory captions.
-
-.. note::
-
-  If the module is an ingredient for a more general workflow (e.g. the module was the necessary foundation for later
-  code; the module is part of a group of modules that will be used to calculate certain property or have certain
-  application, etc.) mention this, and point to the place where you specify the applications of the more general
-  workflow (that could be in another module, in another section of this repository, an application’s website, etc.).
-
-.. note::
-
-  If you are a post-doc who works in E-CAM, an obvious application for the module (or for the group of modules that
-  this one is part of) is your pilot project. In this case, you could point to the pilot project page on the main
-  website (and you must ensure that this module is linked there).
-
-If needed you can include latex mathematics like
-:math:`\frac{ \sum_{t=0}^{N}f(t,k) }{N}`
-which won't show up on GitLab/GitHub but will in final online documentation.
-
-..  If you want to add a citation, such as [CIT2009]_, please check the source code to see how this is done. Note that
-..  citations may get rearranged, e.g., to the bottom of the "page".
-
-..  .. [CIT2009] This is a citation (as often used in journals).
+The gradient in chemical potential in a binary fluid mixture gives rise to a flow, whenever the value of the order parameter
+differs from 0. In Ludwig, we first implement the gradient as a vectorial physical property, which can, similarly to all
+other physical properties, be used anywhere in the code. Further on, we use it in the context of binary fluid
+mixture in the subroutines that account for the time evolution of the order parameter (Cahn-Hilliard equation) and the force,
+that arises due to the non-zero chemical potential gradient and order parameter. This module is essential for studying binary
+fluid flows in porous materials as well as flows, arising due to the wetting effect of the walls in nanochannels.
 
 Background Information
 ______________________
