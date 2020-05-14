@@ -52,39 +52,19 @@ Externally imposed chemical potential gradient in Ludwig
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-The E-CAM library is purely a set of documentation that describes software development efforts related to the project. A
-*module* for E-CAM is the documentation of the single development of effort associated to the project.In that sense, a
-module does not directly contain source code but instead contains links to source code, typically stored elsewhere. Each
-module references the source code changes to which it directly applies (usually via a URL), and provides detailed
-information on the relevant *application* for the changes as well as how to build and test the associated software.
-
-.. The original source of this page (:download:`readme.rst`) contains lots of additional comments to help you create your
-.. documentation *module* so please use this as a starting point. We use Sphinx_ (which in turn uses ReST_) to create this
-.. documentation. You are free to add any level of complexity you wish (within the bounds of what Sphinx_ and ReST_ can
-.. do). More general instructions for making your contribution can be found in ":ref:`contributing`".
-
-Remember that for a module to be accepted into the E-CAM repository, your source code changes in the target application
-must pass a number of acceptance criteria:
-
-* Style *(use meaningful variable names, no global variables,...)*
-
-* Source code documentation *(each function should be documented with each argument explained)*
-
-* Tests *(everything you add should have either unit or regression tests)*
-
-* Performance *(If what you introduce has a significant computational load you should make some performance optimisation
-  effort using an appropriate tool. You should be able to verify that your changes have not introduced unexpected
-  performance penalties, are threadsafe if needed,...)*
+We present a module that implements an externally imposed chemical potential gradient to the Lattice Boltzmann code Ludwig.
+The gradient is further used in simulation of binary fluid mixture and enables the studies of the related flows in
+various porous materials.
 
 Purpose of Module
 _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-The gradient in chemical potential in a binary fluid mixture gives rise to a flow, whenever the value of the order parameter
+The gradient of chemical potential in a binary fluid mixture gives rise to a flow, whenever the value of the order parameter
 differs from 0. In Ludwig, we first implement the gradient as a vectorial physical property, which can, similarly to all
 other physical properties, be used anywhere in the code. Further on, we use it in the context of binary fluid
-mixture in the subroutines that account for the time evolution of the order parameter (Cahn-Hilliard equation) and the force,
+mixture, in the subroutines that account for the time evolution of the order parameter (Cahn-Hilliard equation) and the force,
 that arises due to the non-zero chemical potential gradient and order parameter. This module is essential for studying binary
 fluid flows in porous materials as well as flows, arising due to the wetting effect of the walls in nanochannels.
 
