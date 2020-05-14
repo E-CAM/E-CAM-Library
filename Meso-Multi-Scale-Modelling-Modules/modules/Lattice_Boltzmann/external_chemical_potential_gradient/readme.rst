@@ -13,7 +13,6 @@
 ..  sidebar:: Software Technical Information
 
   Name
-..    Name of the relevant software.
     Ludwig: A lattice Boltzmann code for complex fluids
 
   Language
