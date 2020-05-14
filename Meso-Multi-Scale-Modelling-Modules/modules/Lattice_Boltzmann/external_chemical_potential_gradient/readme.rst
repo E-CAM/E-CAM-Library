@@ -14,13 +14,13 @@
 
   Name
 ..    Name of the relevant software.
-	Ludwig: A lattice Boltzmann code for complex fluids
+    Ludwig: A lattice Boltzmann code for complex fluids
 
   Language
-	C
+    C
 
   Licence
-	`<https://github.com/ludwig-cf/ludwig/blob/master/LICENSE>`_
+    `<https://github.com/ludwig-cf/ludwig/blob/master/LICENSE>`_
 
   Documentation Tool
     All source code created for this module should be documented so please indicate what tool has been used for
