@@ -39,9 +39,9 @@
 
 .. .. _example:
 
-########################################################
-Externally imposed chemical potential gradient in Ludwig
-########################################################
+#######################################################################
+Externally imposed chemical potential gradient for binary fluid mixture
+#######################################################################
 
 ..  Let's add a local table of contents to help people navigate the page
 
