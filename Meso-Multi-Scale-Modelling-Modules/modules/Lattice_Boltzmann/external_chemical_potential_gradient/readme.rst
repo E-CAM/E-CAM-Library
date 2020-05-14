@@ -129,7 +129,7 @@ ______________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 This module implements the externally imposed chemical potential gradient (for binary fluid mixture) in the Ludwig code.
-The latter, together with its documentation and tutorial is availiable on the following link: `<https://github.com/ludwig-cf/ludwig>`_
+The latter, together with its documentation and tutorial is availiable on the following link: `<https://github.com/ludwig-cf/ludwig>`_.
 
 Building and Testing
 ____________________
@@ -139,5 +139,11 @@ ____________________
 Provide the build information for the module here and explain how tests are run. This needs to be adequately detailed,
 explaining if necessary any deviations from the normal build procedure of the application (and links to information
 about the normal build process needs to be provided).
+
+
+Source code
+___________
+
+The module has been provided as a pull request on the github repository of Ludwig, availiable at: `<https://github.com/ludwig-cf/ludwig/pull/80>`_.
 
 
