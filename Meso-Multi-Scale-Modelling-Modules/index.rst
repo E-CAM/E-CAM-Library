@@ -194,7 +194,7 @@ time-to-solution of the applications.
 Ludwig: A lattice Boltzmann code for complex fluids
 ---------------------------------------------------
 
-The modules listed here account for the modifications of the code Ludwig, carried out within the ECAM project. 
+The modules listed here account for the modifications of the code Ludwig, carried out within the E-CAM project.
 
 .. toctree::
     :glob:
