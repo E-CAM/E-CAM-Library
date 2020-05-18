@@ -108,7 +108,7 @@ ____________________
 This code can be installed with pip by running
 ``pip install dask-traj``
 
-This code can be installed by downloading the source code (see the ``Source
+This code can also be installed by downloading the source code (see the ``Source
 Code`` section below), and running ``python setup.py install`` from the root
 directory.
 
