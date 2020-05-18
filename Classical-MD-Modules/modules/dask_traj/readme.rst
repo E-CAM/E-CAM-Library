@@ -78,7 +78,7 @@ which is surprising as MDTraj is already a parallel code.
 
 The splitting of everything in Dask-traj is done in the time-axis of the MD
 trajectory and as a lot of analysis is embarrassingly parallel, this leads to
-nice non-communicating compute graphs as show here.
+nice non-communicating compute graphs as shown here.
 
 .. image:: dask_traj.png
     :height: 600px
