@@ -105,7 +105,7 @@ not yet present in dask-traj, please `make an issue <https://github.com/sroet/da
 Building and Testing
 ____________________
 
-This code can also be downloaded with pip by running
+This code can be installed with pip by running
 ``pip install dask-traj``
 
 This code can be installed by downloading the source code (see the ``Source
