@@ -73,7 +73,7 @@ As dask.arrays know how to spill to disk, this lifts the requirement to fit into
 
 Together with `dask-distributed <https://distributed.dask.org/en/latest/>`_ it also allows the
 computation to be executed in a distributed way, which allows scaling out of a single machine.
-In preliminary tests this approach evens leads to a speedup on a single machine,
+In preliminary tests this approach even leads to a speedup on a single machine,
 which is surprising as MDTraj is already a parallel code.
 
 The splitting of everything in Dask-traj is done in the time-axis of the MD
