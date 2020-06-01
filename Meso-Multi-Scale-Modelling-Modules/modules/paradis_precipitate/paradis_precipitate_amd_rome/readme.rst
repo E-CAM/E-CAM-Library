@@ -1,121 +1,159 @@
-..  In ReStructured Text (ReST) indentation and spacing are very important (it is how ReST knows what to do with your
-    document). For ReST to understand what you intend and to render it correctly please to keep the structure of this
-    template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded
-    and followed by white space (if you see warnings when this file is built they this is a common origin for problems).
-
-
-..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
-    progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
+:orphan:
 
 ..  sidebar:: Software Technical Information
 
   Name
-    ParaDiS_Precipitate_HPC
-
+    ParaDiS_Precipitate_GC optimized for AMD Zen2
 
   Language
-   C++
+    C++
 
   Licence
-    This is patch based on the ParaDIS version 2.5.1. The additions are GPL.
+    Extension is based on ParaDIS version 2.5.1. The additions in the
+    extension are GPL.
 
   Documentation Tool
     Sphinx
-     
+
   Application Documentation
     http://paradis.stanford.edu/
 
   Relevant Training Material
     https://version.aalto.fi/gitlab/csm_open/paradis_version_diffs/tree/master/test_run
 
+  Software Module Developed by
+    Phuong Nguyen (phuong.nguyen@csc.fi)
 
-..  In the next line you have the name of how this module will be referenced in the main documentation (which you  can
-    reference, in this case, as ":ref:`example`"). You *MUST* change the reference below from "example" to something
-    unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
-    reference to work (so don't insert a comment between).
+.. _paradis_rome:
 
-.. _paradis_precipitate_hpc:
-
-######################################################
-ParaDiS with precipitates optimized to HPC environment
-######################################################
-
-..  Let's add a local table of contents to help people navigate the page
+################################################
+ParaDiS with precipitates optimized for AMD Zen2
+################################################
 
 ..  contents:: :local:
 
-..  Add an abstract for a *general* audience here. Write a few lines that explains the "helicopter view" of why you are
-    creating this module. For example, you might say that "This module is a stepping stone to incorporating XXXX effects
-    into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
-    produce compound AAAA while avoiding expensive process BBBB and CCCC."
+Discrete dislocation dynamics (DDD) simulations usually treat with “pure”
+crystals and dislocations in them. An extension of the ParaDIS DDD code (LLNL,
+http://paradis.stanford.edu/) that includes dislocation/precipitate
+interactions has been developed (E-CAM module: `ParaDiS with precipitates`_).
 
-Discrete dislocation dynamics (DDD) simulations usually treat with "pure" crystals and dislocations in them. In reality, there is a need to look at more 
-complicated scenarios of impurities interacting with the dislocations and their motion. Effects on a single atom / vacancy level may be 
-incorporated by renormalizing the dislocation mobility but in many cases the dislocation dynamics is changed by the presence of clusters or precipitates,
-that act as local pinning centers. The consequences of the impurities are multiple: the yield stress is changed, and in general the plastic deformation
-process is greatly affected. Simulating these by DDD allows to look at a large number of issues from materials design to controlling the yield stress and
-may be done in a multiscale manner by computing the dislocation-precipitate interactions from microscopic simulations or by coarse-graining the DDD 
-results for the stress-strain curves on the mesoscopic scale to more macroscopic Finite Element Method (the material model therein).
+This module provides a guide for optimal porting of the
+`ParaDiS with precipitates`_ to the AMD Rome CPUs, in preparation for the
+`Mahti supercomputer`_ service at CSC, Finland.
+Mahti is an Atos BullSequana XH2000 system consisting of 1404 nodes each with two 64-core AMD Zen2 CPUs (AMD EPYC 7H42, 2.6GHz). 
+Since Mahti is not ready for general access at this moment, the module was
+prepared based on a single testing node which has 2 AMD EPYC 7742 @2.25GHz (128 cores in total).
 
-This module provides 
-an extension of the ParaDIS DDD code (LLNL, http://paradis.stanford.edu/) where dislocation/precipitate interactions are included. The extension is for an HPC environment, in which the original code has been optimized for the Mahti cluster running on AMD Rome environment at CSC in Finland in mind. 
+By choosing a suitable compiler and compiler optimization flags, the application works
+more efficiently on the target platform. On the testing node, Intel compilers with either AVX or
+AVX2 vector sets gives the best performance for *ParaDiS with precipitates*. Alternatively, GCC compilers with AVX2 vector works as competitive as the Intel ones.
+
 
 Purpose of Module
 _________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
+This module helps to run simulations of the *ParaDiS with precipitates* more
+efficiently. By using a suitable set of optimization flags for compilers,
+especially the one determining vectorization type, the best library routines
+can be chosen.
 
-The method is based on extending a recent version of ParaDIS to handle the presence of pinning centers. These work as localized Gaussian potentials that
-interact with the near-by dislocations (see A. Lehtinen et al. Phys. Rev. E 93, 013309 (2016)). The "disorder field" is given as an input where the locations
-of the precipates are given in 3D, and the interactions are parametrized by the impurity strength (which may vary from precipitate to another) and the range
-of the Gaussian potential (which also may vary). The dislocation dynamics is handled as in ParaDIS in general with an additional force terms that accounts for
-each dislocation segment for the nearby impurities (a cut-off is applied in the force).
-
-The Module thus allows to study various precipitate fields (density, geometry, strength, interaction range) as desired. In a typical ParaDIS simulation one
-does a simulation of the response of a dislocation system to a strain/stress protocol. The starting point is a dislocation system, which has been obtained from
-relaxing a random or patterned configuration under zero external stress until the evolution becomes negligible. In the presence of impurities the customary approach 
-is to do two relaxation steps: first follow the relaxation of dislocation configuration, then add the disorder field to that and re-relax. In the current version apart from HPC-related parallelization-relevant steps the subroutines SegSegForce (segment-to-segment force calculation) and FMSigma2Core2 (force multipole expansion) are well vectorized, and the code now also uses better multiple threads in their context. 
 
 Background Information
 ______________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
+The module is based on the ParaDiS (http://paradis.stanford.edu/)
+extension `ParaDiS with precipitates`_.
 
-The module version is built on the ParaDIS version 2.5.1 which can be obtained from http://paradis.stanford.edu/ and 
-following the steps outlined there for obtaining the code.
 
 Building and Testing
 ____________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
+Build instructions for `ParaDiS with precipitates`_ are provided with the
+extension.
 
-The version offered is built exactly like the normal ParaDIS; the makefiles etc. are for the local CSC system and should be
-modified for the local environment. To test the ParaDiS build, an example case of a constant strain rate simulation of BCC iron with precipitates is included.
-The input of the test simulation is in file ParaDiS_test.ctrl, where the output directories and the used number of computational domains need to be defined. 
-The initial dislocation structure is contained in the ParaDiS_test.data as usual and the structure of the file is identical to the files used by default ParaDiS. 
-In addition, the simulation has ~8500 precipitates which are included in the ParaDiS_test.pdata file. This .pdata file has first some domain variables defined similar to .data file,
-and then the precipitates. These are presented one precipitate per line, and the data columns are as follows: [precipitate tag, position x, y and z,
-impurity strength, interaction radius, boolean], where the boolean states if the precipitate is active.
+Different compilers and compiler options were tested to find the most optimal
+ones for the Zen2 architecture. Figure 1 (below) shows a comparison
+of normalized running times between different vectorization extensions and
+compilers. On the testing platform, Intel compilers with either AVX or AVX2 helps the
+application to achieve good performance. Alternatively, GCC compilers with AVX2 can be used to obtain the same performance as the Intel ones.
 
-The used printing options defined in .ctrl file can be modified. Here, examples of the output property data and restart files are included in run_output folder
-and the file called ParaDiS_test.out contains the standard output of the test when the simulation system is run for ~1.5e-9 seconds. The restart files are written 
-similarly as in unmodified ParaDiS, except that now the precipitates are also included in corresponding rsXXXX.pdata files. In addition to the property files produced 
-by original ParaDiS, the modified ParaDiS writes also files allepsdot and avalanche. Allepsdot contains columns [simulations time, strain rate tensor element 11, stress 
-tensor element 11,...], and avalanche columns [time, average velocity, plastic strain, applied stress, total dislocation length, integrated strain rate] where the average
-velocity is calculated as a segment weighted average velocity of dislocations.
-
-The test case is illustrated with three files: ParaDiS_test.out, and two plots, which are:
-aver_velocity_time.pdf (the resulting average dislocation velocity during the run) and stress_plastic_strain.pdf (yield strain versus applied stres during the run).
+Table 1 presents a comparison of different optimization flags
+for the Intel and GCC compilers. For the Intel compilers, the optimal performance is reached with the compiler 
+options: ``-O3 -mavx2`` or ``-O3 -mavx``. For the GCC compilers,
+``-O2 -march=znver2 -pipe -fomit-frame-pointer -ftree-vectorize`` compiler options
+help the application to gain a good performance.
 
 
+.. figure:: chart.png
+  :alt: Figure1
+  :width: 600px
+
+  Figure 1: Comparison of normalized times between different compilers and
+  vectorization extentions (smaller is better)
+
+
+*Table 1: Comparison between different optimization flag options*
+
+.. list-table::
+   :widths: 15 40 15
+   :header-rows: 1
+
+   * - Compilers
+     - Flags
+     - Time (s)
+   * - Intel
+     - -O2 -axCORE-AVX2
+     - 328
+   * -
+     - -O2 -axHASWELL
+     - 360
+   * -
+     - -O2 -mavx2
+     - 309
+   * -
+     - -O3 -mavx2
+     - 295
+   * -
+     - -O3 -mavx
+     - 298
+   * -
+     - -Ofast -mavx2
+     - 301
+   * -
+     - -O3 -mavx2 -funroll-all-loops
+     - 317
+   * - GCC
+     - -O2 -march=znver1 -pipe -fomit-frame-pointer -ftree-vectorize
+     - 352
+   * - 
+     - -O2 -march=znver2 -pipe -fomit-frame-pointer -ftree-vectorize
+     - 296
+   * -
+     - -O3 -march=znver2
+     - 382
+   * -
+     - -O2 -march=haswell -pipe -fomit-frame-pointer -ftree-vectorize
+     - 352
+
+``*`` *The input case in these tests is different to the one at* `ParaDiS with precipitates optimized for Puhti`_ .
+
+
+Besides, in the `ParaDiS with precipitates optimized to HPC environment`_,
+it's written that using multiple threads through a hybrid OpenMP and MPI model speeds up
+the calculation up to 1.5 factors, especially for large-scale simulations.
+However, this combination did not give an advantage of performance on the Zen2
+testing machine. Thus, using a single thread for each MPI process is recommended.
 
 
 Source Code
 ___________
 
-.. Notice the syntax of a URL reference below `Text <URL>`_
+Source code modifications for the extension *ParaDiS with precipitates* are
+available here:
+https://version.aalto.fi/gitlab/csm_open/paradis_version_diffs.git.
 
 
-
-Due to licensing reasons, only the difference between ParaDiS version 2.5.1 files and modified files are submitted, and these files can be found in `<https://version.aalto.fi/gitlab/csm_open/paradis_version_diffs.git>`_. 
-
+.. _ParaDiS with precipitates: https://e-cam.readthedocs.io/en/latest/Meso-Multi-Scale-Modelling-Modules/modules/paradis_precipitate/paradis_precipitate_GC/readme.html
+.. _ParaDiS with precipitates optimized to HPC environment: https://e-cam.readthedocs.io/en/latest/Meso-Multi-Scale-Modelling-Modules/modules/paradis_precipitate/paradis_precipitate_HPC/readme.html
+.. _ParaDiS with precipitates optimized for Puhti: https://gitlab.csc.fi/hpc-support/e-cam-library/tree/paradis-rome/Meso-Multi-Scale-Modelling-Modules/modules/paradis_precipitate/paradis_optimized_puhti
+.. _Mahti supercomputer: https://research.csc.fi/techspecs~Mahti
