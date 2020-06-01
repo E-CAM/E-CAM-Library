@@ -54,7 +54,7 @@ ____________
 One needs to install firstly `Easybuild`__ by following the preferred instructions
 
 To install the full set of ESL modules and their dependencies for foss toolchain version
-2019a (latest release at time of wrtiing) one needs to do
+2019a (latest release at time of writing) one needs to do
 
 .. code-block:: bash
 
