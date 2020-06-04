@@ -7,8 +7,8 @@ For the last decade, power and thermal management has been of high importance. T
 from achieving better performance through single-thread optimizations, e.g., speculative execution, towards simpler
 architectures that achieve better performance per watt, provided that vast parallelism exists. The HPC community,
 particularly at the higher end, focuses on the flops/watt metric since the running cost of high-end HPC systems are
-so significant. It is the potential power requirements of exa-scale systems that are the limiting factor (given currently
-available technologies).
+so significant. It is the potential power requirements of exa-scale systems that are the limiting factor (given
+currently available technologies).
 
 The practical outcome of this is the rise of accelerating co-processors and many-core systems. In the following sections
 we will discuss three such technologies that are likely to form the major computing components of the first
