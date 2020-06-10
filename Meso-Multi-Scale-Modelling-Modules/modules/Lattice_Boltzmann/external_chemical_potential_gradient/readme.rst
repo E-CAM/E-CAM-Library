@@ -75,7 +75,7 @@ ______________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 This module implements the externally imposed chemical potential gradient (for binary fluid mixture) in the Ludwig code.
-The latter, together with its documentation and tutorial is availiable on the following link:
+The latter, together with its documentation and tutorial is available on the following link:
 `<https://github.com/ludwig-cf/ludwig>`_.
 
 Building and Testing
@@ -95,7 +95,7 @@ externally imposed chemical potential gradient is specified in the input file, b
 Source code
 ___________
 
-The module has been provided as a pull request on the github repository of Ludwig, availiable at:
+The module has been provided as a pull request on the github repository of Ludwig, available at:
 `<https://github.com/ludwig-cf/ludwig/pull/80>`_.
 
 
