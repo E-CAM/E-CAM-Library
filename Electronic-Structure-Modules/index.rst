@@ -19,24 +19,35 @@ Electronic Structure Modules
 Introduction
 ============
 
-.. figure:: ./images/protein-metal-cluster.png 
-   :figwidth: 25 % 
+.. figure:: ./images/protein-metal-cluster.png
+   :figwidth: 25 %
    :align: left
 
-This is a collection of the modules that have been created by E-CAM community within the area of Electronic Structure. This documentation is created using ReStructured Text and the git repository for the documentation 
-source files can be found at 
-https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are
-public and open to contributions.
+This is a collection of the modules that have been created by E-CAM community within the area of Electronic Structure.
+This documentation is created using ReStructured Text and the git repository for the documentation source files can be
+found at https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are public and open to contributions.
 
-In the context of E-CAM, the definition of a software module is any piece of software that could be of use to the E-CAM community and that encapsulates some additional functionality, enhanced performance or improved usability for people performing computational simulations in the domain areas of interest to us. 
+In the context of E-CAM, the definition of a software module is any piece of software that could be of use to the E-CAM
+community and that encapsulates some additional functionality, enhanced performance or improved usability for people
+performing computational simulations in the domain areas of interest to us.
 
-This definition is deliberately broader than the traditional concept of a module as defined in the semantics of most high-level programming languages and is intended to capture inter alia workflow scripts, analysis tools and test suites as well as traditional subroutines and functions. Because such E-CAM modules will form a heterogeneous collection we prefer to refer to this as an E-CAM software repository rather than a library (since the word library carries a particular meaning in the programming world). The modules do however share with the traditional computer science definition the concept of hiding the internal workings of a module behind simple and well-defined interfaces. It is probable that in many cases the modules will result from the abstraction and refactoring of useful ideas from existing codes rather than being written entirely de novo.
+This definition is deliberately broader than the traditional concept of a module as defined in the semantics of most
+high-level programming languages and is intended to capture inter alia workflow scripts, analysis tools and test suites
+as well as traditional subroutines and functions. Because such E-CAM modules will form a heterogeneous collection we
+prefer to refer to this as an E-CAM software repository rather than a library (since the word library carries a
+particular meaning in the programming world). The modules do however share with the traditional computer science
+definition the concept of hiding the internal workings of a module behind simple and well-defined interfaces. It is
+probable that in many cases the modules will result from the abstraction and refactoring of useful ideas from existing
+codes rather than being written entirely de novo.
 
-Perhaps more important than exactly what a module is, is how it is written and used. A final E-CAM module adheres to current best-practice programming style conventions, is well documented and comes with either regression or unit tests (and any necessary associated data). E-CAM modules should be written in such a way that they can potentially take advantage of anticipated hardware developments in the near future (and this is one of the training objectives of E-CAM). 
+Perhaps more important than exactly what a module is, is how it is written and used. A final E-CAM module adheres to
+current best-practice programming style conventions, is well documented and comes with either regression or unit tests
+(and any necessary associated data). E-CAM modules should be written in such a way that they can potentially take
+advantage of anticipated hardware developments in the near future (and this is one of the training objectives of E-CAM).
 
 Extended Software Development Workshops
 =======================================
-    
+
 ESDW Zaragoza 2016
 ------------------
 
@@ -124,21 +135,22 @@ partner. The related code development for the pilot projects are open source (wh
 software allows this) and are described in the modules associated with the pilot projects.
 
 Below is a list of the modules developed directly within the context of the pilot projects within E-CAM:
-  
+
 .. toctree::
     :glob:
     :maxdepth: 1
-                                                                                    
-    ./modules/Geomoltools/readme   
-    ./modules/GRASP_Sampling/readme   
-    ./modules/GROMACS_interface/README   
-    ./modules/Gaussian_interface/README   
-    ./modules/Selectively-Localized-Wannier-Functions/readme
-    ./modules/Gaussian_interface/README  
-    ./modules/Differential_Evolution/README  
+
+    ./modules/Geomoltools/readme
+    ./modules/GRASP_Sampling/readme
+    ./modules/GROMACS_interface/README
     ./modules/Gaussian_interface/README
-    ./modules/WLRR/README   
+    ./modules/Selectively-Localized-Wannier-Functions/readme
+    ./modules/Gaussian_interface/README
+    ./modules/Differential_Evolution/README
+    ./modules/Gaussian_interface/README
+    ./modules/WLRR/README
     ./modules/SCDM_WFs/readme
+    ./modules/W90_MaX_collab/readme
     ./modules/W90_solution_booklet/readme
     ./modules/FFTXlib/readme
     ./modules/W90_cube_format_non-orthogonal/readme
@@ -148,5 +160,19 @@ Below is a list of the modules developed directly within the context of the pilo
     ./modules/PANNA-TRAIN/readme
     ./modules/PANNA-EVAL/readme
     ./modules/PANNA-Charges/readme
+
+QMCPack interfaces
+------------------
+The following modules related to interfaces for the QMCPack code have been produced so far in the context of an
+`associated Pilot Project <https://www.e-cam2020.eu/qmcpack-interfaces-for-es-computations/>`_:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/ESInterfaceBase/readme
+    ./modules/ESHDF5Interface/readme
+    ./modules/ESPWSCFInterface/readme
+    ./modules/QMCQEPack_qepatch/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/
