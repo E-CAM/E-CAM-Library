@@ -52,21 +52,22 @@ Externally imposed chemical potential gradient for binary fluid mixture
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-We present a module that implements an externally imposed chemical potential gradient to the Lattice Boltzmann code Ludwig.
-The gradient is further used in simulation of binary fluid mixture and enables the studies of the related flows in
-various porous materials.
+We present a module that implements an externally imposed chemical potential gradient to the Lattice Boltzmann code
+Ludwig. The gradient is further used in simulation of binary fluid mixture and enables the studies of the related flows
+in various porous materials.
 
 Purpose of Module
 _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-The gradient of chemical potential in a binary fluid mixture gives rise to a flow, whenever the value of the order parameter
-differs from 0. In Ludwig, we first implement the gradient as a vectorial physical property, which can, similarly to all
-other physical properties, be used anywhere in the code. Further on, we use it in the context of binary fluid
-mixture, in the subroutines that account for the time evolution of the order parameter (Cahn-Hilliard equation) and the force,
-that arises due to the non-zero chemical potential gradient and order parameter. This module is essential for studying binary
-fluid flows in porous materials as well as flows, arising due to the wetting effect of the walls in nanochannels.
+The gradient of chemical potential in a binary fluid mixture gives rise to a flow, whenever the value of the order
+parameter differs from 0. In Ludwig, we first implement the gradient as a vectorial physical property, which can,
+similarly to all other physical properties, be used anywhere in the code. Further on, we use it in the context of binary
+fluid mixture, in the subroutines that account for the time evolution of the order parameter (Cahn-Hilliard equation)
+and the force, that arises due to the non-zero chemical potential gradient and order parameter. This module is essential
+for studying binary fluid flows in porous materials as well as flows, arising due to the wetting effect of the walls in
+nanochannels.
 
 Background Information
 ______________________
@@ -74,7 +75,8 @@ ______________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 This module implements the externally imposed chemical potential gradient (for binary fluid mixture) in the Ludwig code.
-The latter, together with its documentation and tutorial is availiable on the following link: `<https://github.com/ludwig-cf/ludwig>`_.
+The latter, together with its documentation and tutorial is availiable on the following link:
+`<https://github.com/ludwig-cf/ludwig>`_.
 
 Building and Testing
 ____________________
@@ -82,9 +84,9 @@ ____________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 The module is built and run in the same way as any other simulation in Ludwig. A detailed description of the latter is
-available at: `<https://github.com/ludwig-cf/ludwig/tree/master/docs/tutorial>`_. Specifically, an example of a binary fluid
-simulation is available at: `<https://github.com/ludwig-cf/ludwig/tree/master/docs/tutorial/test2>`_. The externally imposed
-chemical potential gradient is specified in the input file, by adding another line, e.g.:
+available at: `<https://github.com/ludwig-cf/ludwig/tree/master/docs/tutorial>`_. Specifically, an example of a binary
+fluid simulation is available at: `<https://github.com/ludwig-cf/ludwig/tree/master/docs/tutorial/test2>`_. The
+externally imposed chemical potential gradient is specified in the input file, by adding another line, e.g.:
 
 .. code:: bash
 
@@ -93,6 +95,7 @@ chemical potential gradient is specified in the input file, by adding another li
 Source code
 ___________
 
-The module has been provided as a pull request on the github repository of Ludwig, availiable at: `<https://github.com/ludwig-cf/ludwig/pull/80>`_.
+The module has been provided as a pull request on the github repository of Ludwig, availiable at:
+`<https://github.com/ludwig-cf/ludwig/pull/80>`_.
 
 
