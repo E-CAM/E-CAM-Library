@@ -265,4 +265,16 @@ The third ESDW for the Classical MD workpackage was held in Turin, Italy in July
     ./modules/HTC/easybuild/readme
     ./modules/HTC/mpi4py_tasks/readme
 
+ESDW Clifden 2019
+------------------
+
+The ESDW on "Inverse Molecular Design & Inference: building a Molecular Foundry" in 
+Clifden, Ireland in November 2019 was the starting point for the modules below.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/Comparative-Metadynamics/readme
+
 .. _E-CAM: https://www.e-cam2020.eu/
