@@ -87,6 +87,7 @@ their system.
 ************
 Applications
 ************
+
 This module is particularly relevant to anywhere MD is being used to design systems through an iterative process such 
 as chemical or biological labs. However, it can also be applied to areas where one needs to analyse many similar 
 systems through MD.
@@ -148,7 +149,7 @@ A brief summary of what indicator_run.ipynb does is provided below
 
 Once this is complete the user may use the Analysis subfolder to analyse the output of the simulations
 In this folder a single plumed data file needs to be created. An example file is provided which may also be used
-Then the file analyse.ipynb may be run. Again, this file will guide the user through the neccessary steps/
+Then the file analyse.ipynb may be run. Again, this file will guide the user through the necessary steps
 
 A brief summary of what analyse.ipynb does is provided below
 
