@@ -11,7 +11,8 @@ Comparative Metadynamics
         Python (3+)
     
     Licence
-        This module is licensed under the terms of the MIT License
+        This module is licensed under the terms of the `CC BY-NC-SA 4.0 
+        <https://creativecommons.org/licenses/by-nc-sa/4.0/>`_ licence 
     
     Documentation Tool
         `pdoc`_, numpydoc format (ReST)    
@@ -21,7 +22,7 @@ Comparative Metadynamics
 
     Relevant Training Material
         See usage example at
-        * https://gitlab.com/aestheses/comparative-metadynamics/examples
+        https://gitlab.com/aestheses/comparative-metadynamics/examples
 
     Software Module Developed by
         Zein Jaafar, Shrinath Kumar and Donal MacKernan
@@ -118,7 +119,6 @@ additional software is required:
 5. Additional Python 
     * mpi4py
     * matplotlib
-
 
 
 *****
