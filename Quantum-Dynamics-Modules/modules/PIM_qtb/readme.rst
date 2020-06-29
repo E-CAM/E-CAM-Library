@@ -483,22 +483,22 @@ html and latex format, by executing the following command in the ``./doc`` direc
 References
 ==========
 .. [Dam] H. Dammak, Y. Chalopin, M. Laroche, M. Hayoun, J.-J. Greffet,  
-Quantum Thermal Bath for Molecular Dynamics Simulation, Phys. Rev. Lett. 103 (2009) 190601.
+   Quantum Thermal Bath for Molecular Dynamics Simulation, Phys. Rev. Lett. 103 (2009) 190601.
 
 .. [Man] E. Mangaud,  S. Huppert,  T. Plé,  P. Depondt,  S. Bonella,  F. Finocchi,
-The Fluctuation–Dissipation Theorem as a Diagnosis and Cure for Zero-Point Energy Leakage 
-in Quantum Thermal Bath Simulations, J. Chem. Th. Comput. 15 (2019) 2863-2880.
+   The Fluctuation–Dissipation Theorem as a Diagnosis and Cure for Zero-Point Energy Leakage 
+   in Quantum Thermal Bath Simulations, J. Chem. Th. Comput. 15 (2019) 2863-2880.
 
 .. [Bri] F. Brieuc, Y. Bronstein, H. Dammak, P. Depondt, F. Finocchi, M. Hayoun, 
-Zero-point energy leakage in quantum thermal bath molecular dynamics simulations,  
-J. Chem. Th. Comput. 12 (2016) 5688–5697.
+   Zero-point energy leakage in quantum thermal bath molecular dynamics simulations,  
+   J. Chem. Th. Comput. 12 (2016) 5688–5697.
 
 .. [Hern] J.  Hern'andez-Rojas,  F.  Calvo,  E.  G.  Noya,  
-Applicability  of  Quantum Thermal Baths to Complex Many-Body Systems with Various
-Degrees of Anharmonicity, Journal of Chemical Theory and Computation 11 (2015) 861–870.
+   Applicability  of  Quantum Thermal Baths to Complex Many-Body Systems with Various
+   Degrees of Anharmonicity, Journal of Chemical Theory and Computation 11 (2015) 861–870.
 
 .. [Lei] B. Leimkuhler,  C. Matthews,  Rational Construction of Stochastic Numerical Methods
-for Molecular Sampling, Applied Mathematics Research eXpress (2012).
+   for Molecular Sampling, Applied Mathematics Research eXpress (2012).
 
 
 
