@@ -3,9 +3,36 @@ image: cloudcompass/docker-rtdsphinx
 spelling:
   script:
   - pip3 install codespell
-  - codespell --skip=".git,_static,_build,Diff*,*.patch,*.f90" --quiet-level=2 --ignore-words-list="adress,catalogue,noe"
+  - codespell --skip=".git,_static,_build,Diff*,*.patch,*.f90" --quiet-level=2 --ignore-words-list="adress,catalogue,noe,soler"
   only:
   - master
+  - merge_requests
+
+lint:
+  script:
+  - pip3 install doc8
+  - git diff-tree --no-commit-id --name-only -r $CI_COMMIT_SHA
+  # Run linter over files in last commit exclude deleted files
+  - ( set -e; for file in $(git diff-tree --no-commit-id --name-only --diff-filter=d -r $CI_COMMIT_SHA); do doc8 --max-line-length 120 --ignore D002 $file; done )
+  only:
+  - master
+
+lint_MR:
+  # Explicit cloning to prevent git remote pollution from previous jobs
+  variables:
+    GIT_STRATEGY: clone  
+  script:
+  - pip3 install doc8
+  # Add the target project as a remote
+  - git remote add upstream $CI_MERGE_REQUEST_PROJECT_URL
+  # fetch upstream branches
+  - git fetch upstream
+  - echo upstream/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME
+  - git diff --no-commit-id --name-only upstream/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME
+  # Run linter over files that diff between branch and target upstream branch 
+  # excluding deleted files
+  - ( set -e; for file in $(git diff --no-commit-id --name-only --diff-filter=d upstream/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME); do doc8 --max-line-length 120 --ignore D002 $file; done )
+  only:
   - merge_requests
 
 orphans:

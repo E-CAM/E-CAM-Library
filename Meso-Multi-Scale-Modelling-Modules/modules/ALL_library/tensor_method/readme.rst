@@ -28,7 +28,7 @@
     Dr. Horacio V. Guzman
 
 
-.. _ALL_tensor_method:
+.. _ALL_tensor:
 
 #########################
 ALL Tensor-Product method
