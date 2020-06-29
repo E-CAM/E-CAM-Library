@@ -309,9 +309,11 @@ observables.
 
     ./modules/PIM_qtb/readme
 
-**PIM_qtb**  implements different methods based on Langevin dynamics. The trajectories generated can be exploited directly or used to sample initial conditions for 
+**PIM_qtb**  implements different methods based on Langevin dynamics. 
+The trajectories generated can be exploited directly or used to sample initial conditions for 
 Linearized Semi-Classical Initial Value Representation (LSC-IVR) calculations.
-The methods implemented are: classical Langevin dynamics, Quantum Thermal Bath (QTB) and two variants of adaptive QTB (adQTB-r and adQTB-f).
+The methods implemented are: classical Langevin dynamics, Quantum Thermal Bath (QTB)
+and two variants of adaptive QTB (adQTB-r and adQTB-f).
 
 
 .. toctree::

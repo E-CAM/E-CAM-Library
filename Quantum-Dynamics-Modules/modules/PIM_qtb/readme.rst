@@ -128,7 +128,7 @@ adjusted with a first-order differential equation and an adaptation coefficient
 
 during a preliminary “adaptation time” until they reach convergence. 
 Observables are then computed while the adaptive process is kept active.
-Further informations and precise implementation details can be found in ref. [Man]_.
+Further information and precise implementation details can be found in ref. [Man]_.
 
 Two implementations are currently available in PaPIM:
 
