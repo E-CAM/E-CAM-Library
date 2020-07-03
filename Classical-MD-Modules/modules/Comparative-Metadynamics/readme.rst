@@ -18,11 +18,11 @@ Comparative Metadynamics
         `pdoc`_, numpydoc format (ReST)    
     
     Application Documentation
-        `Documentation <https://gitlab.com/aestheses/comparative-metadynamics/docs>`_
+        `Documentation <https://gitlab.e-cam2020.eu:10443/aestheses-public/comparative-metadynamics/-/tree/master/docs>`_
 
     Relevant Training Material
         See usage example at
-        https://gitlab.com/aestheses/comparative-metadynamics/examples
+        https://gitlab.e-cam2020.eu:10443/aestheses-public/comparative-metadynamics/-/tree/master/examples
 
     Software Module Developed by
         Zein Jaafar, Shrinath Kumar and Donal MacKernan
