@@ -87,7 +87,7 @@ The module is built and run in the same way as any other simulation in Ludwig. A
 available at: `<https://github.com/ludwig-cf/ludwig/tree/master/docs/tutorial>`_. Specifically, an example of the input
 file for a binary fluid simulation with externally imposed chemical potential gradient is available at:
 `<https://github.com/ludwig-cf/ludwig/blob/develop/tests/regression/d3q19-short/serial-muex-st1.inp>`_.
-The externally imposed chemical potential gradient is specified in the input file, by the following lines, e.g.:
+The externally imposed chemical potential gradient is specified in the input file, by the following lines:
 
 .. code:: bash
 
@@ -98,6 +98,6 @@ Source code
 ___________
 
 The module has been implemented in the development version of Ludwig, available at:
-`<https://github.com/ludwig-cf/ludwig/tree/develop>`_, and will be included in the new release of the code. 
+`<https://github.com/ludwig-cf/ludwig/tree/develop>`_, and will be included in the new release of the code.
 
 
