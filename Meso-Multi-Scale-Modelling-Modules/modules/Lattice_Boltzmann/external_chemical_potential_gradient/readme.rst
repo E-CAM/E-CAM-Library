@@ -97,7 +97,8 @@ The externally imposed chemical potential gradient is specified in the input fil
 Source code
 ___________
 
-The module has been implemented in the development version of Ludwig, available at:
-`<https://github.com/ludwig-cf/ludwig/tree/develop>`_, and will be included in the new release of the code.
+The module has been provided as a pull request on Ludwig's github repository `<https://github.com/ludwig-cf/ludwig/pull/
+88>`_. The changes have been implemented in the development version of Ludwig, available at: `<https://github.com/ludwig
+-cf/ludwig/tree/develop>`_, and will be included in the new release of the code.
 
 
