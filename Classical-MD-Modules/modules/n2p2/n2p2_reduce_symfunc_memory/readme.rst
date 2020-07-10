@@ -91,8 +91,8 @@ _________________
 Training high-dimensional neural network potentials (HDNNPs) means to minimize
 the error between predictions and the reference information in a data set of
 atomic configurations. There, the desired potential energy surface is supplied
-in the form of an energy per configuration and forces on each atom. Consider the
-HDNNP expression for forces
+in the form of an energy per configuration and forces acting on each atom.
+Consider the HDNNP expression for forces
 
 .. math::
 
@@ -123,7 +123,9 @@ sensitive to neighbor atoms of type C) with respect to :math:`i`'s coordinates
 vanishes. Hence, by taking these element combination relations automatically into
 account a significant portion of the memory usage can be avoided. Depending on
 the symmetry function setup savings of about 30 to 50% can be achieved for
-typical systems.
+typical systems. These improvements will be particularly helpful for `developing
+HDNNPs for coarse-grained models
+<https://www.e-cam2020.eu/neural-network-potentials-for-cg-models/>`__.
 
 Code changes cover most of the classes in the `libnnp` core library where they
 add functionality to identify relevant (nonzero) element combinations for the
@@ -206,6 +208,36 @@ ____________________
    explaining if necessary any deviations from the normal build procedure of the application (and links to information
    about the normal build process needs to be provided).
 
+Because the change in memory management affects the core library of *n2p2*
+several applications shipped with *n2p2* will benefit from reduced memory
+consumption. However, the biggest effect can be observed during training with
+the ``nnp-train`` application. In the ``src`` directory type
+
+.. code-block:: shell
+
+   make nnp-train
+
+to build this *n2p2* tool (see the `build documentation
+<https://compphysvienna.github.io/n2p2/Topics/build.html>`__ for more details).
+Switch to one of the folders inside the ``examples/nnp-train`` directory and run
+``nnp-train`` (after a successful build the binary is copied to the ``bin``
+directory). The screen output will contain a section labelled ``SETUP: SYMMETRY
+FUNCTION MEMORY`` which will highlight the memory savings.
+
+The code changes from this module are already merged with the main repository of
+*n2p2* (see `pull request <https://github.com/CompPhysVienna/n2p2/pull/28>`__).
+The improved memory management is enabled by default, see the documentation
+about the corresponding `compilation flag
+<https://compphysvienna.github.io/n2p2/Topics/build.html#improved-symmetry-function-derivative-memory>`__.
+There, also benchmark results which demonstrate the memory savings can be found.
+
+Regression testing is implemented in *n2p2* and automatically performed upon
+submission of a pull request via `Travis CI <https://travis-ci.org>`__. The log
+file showing the successful pass of all tests for the specific pull request can
+be found `here
+<https://travis-ci.org/github/CompPhysVienna/n2p2/builds/640902050>`__.
+
+
 Source Code
 ___________
 
@@ -279,6 +311,12 @@ ___________
     cross-referencing problems
 
 .. you can reference it with :ref:`patch`
+
+The easiest way to view the source code changes covered by this module is to use
+the `GitHub pull request page
+<https://github.com/CompPhysVienna/n2p2/pull/28>`__. There, use the *Files
+changed* `tab <https://github.com/CompPhysVienna/n2p2/pull/28/files>`__ to
+review all changes.
 
 .. Here are the URL references used (which is alternative method to the one described above)
 
