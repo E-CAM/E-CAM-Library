@@ -10,7 +10,7 @@
 ..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
     progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
 
-..  sidebar:: Software Technical Information
+.. sidebar:: Software Technical Information
 
   The information in this section describes *n2p2* as a whole.
   Information specific to the additions in this module are in subsequent
@@ -191,12 +191,12 @@ ______________________
    encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
    the links they need should be already in this module.
 
-This module is based on N2P2, a C++ code for generation and application of
+This module is based on *n2p2*, a C++ code for generation and application of
 neural network potentials used in molecular dynamics simulations. The source
 code and documentation are located here:
 
-* N2P2 documentation: http://compphysvienna.github.io/n2p2/
-* N2P2 source code: http://github.com/CompPhysVienna/n2p2
+* *n2p2* documentation: http://compphysvienna.github.io/n2p2/
+* *n2p2* source code: http://github.com/CompPhysVienna/n2p2
 
 
 Building and Testing
@@ -287,10 +287,10 @@ ___________
 .. .. _ReST: http://www.sphinx-doc.org/en/stable/rest.html
 .. .. _Sphinx: http://www.sphinx-doc.org/en/stable/markup/index.html
 
-.. [1] Zhang, L.; Han, J.; Wang, H.; Car, R.; E, W. DeePCG: Constructing
+.. [1] `Zhang, L.; Han, J.; Wang, H.; Car, R.; E, W. DeePCG: Constructing
    Coarse-Grained Models via Deep Neural Networks. J. Chem. Phys. 2018, 149 (3),
-   034101. https://doi.org/10.1063/1.5027645.
+   034101. <https://doi.org/10.1063/1.5027645>`__
 
-.. [2] John, S. T.; Csányi, G. Many-Body Coarse-Grained Interactions Using
+.. [2] `John, S. T.; Csányi, G. Many-Body Coarse-Grained Interactions Using
    Gaussian Approximation Potentials. J. Phys. Chem. B 2017, 121 (48), 10934–10949.
-   https://doi.org/10.1021/acs.jpcb.7b09636.
+   <https://doi.org/10.1021/acs.jpcb.7b09636>`__
