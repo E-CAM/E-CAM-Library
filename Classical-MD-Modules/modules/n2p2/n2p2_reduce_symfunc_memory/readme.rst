@@ -62,28 +62,29 @@ This module improves memory management in *n2p2*. More specifically, a new
 strategy to store symmetry function derivatives is implemented. In this way the
 memory footprint during training is drastically reduced.
 
-.. The E-CAM library is purely a set of documentation that describes software development efforts related to the project. A
-   *module* for E-CAM is the documentation of the single development of effort associated to the project.In that sense, a
-   module does not directly contain source code but instead contains links to source code, typically stored elsewhere. Each
-   module references the source code changes to which it directly applies (usually via a URL), and provides detailed
-   information on the relevant *application* for the changes as well as how to build and test the associated software.
+.. The E-CAM library is purely a set of documentation that describes software development efforts related to the
+   project. A *module* for E-CAM is the documentation of the single development of effort associated to the project.In
+   that sense, a module does not directly contain source code but instead contains links to source code, typically
+   stored elsewhere. Each module references the source code changes to which it directly applies (usually via a URL),
+   and provides detailed information on the relevant *application* for the changes as well as how to build and test the
+   associated software.
 
-.. The original source of this page (:download:`readme.rst`) contains lots of additional comments to help you create your
-   documentation *module* so please use this as a starting point. We use Sphinx_ (which in turn uses ReST_) to create this
-   documentation. You are free to add any level of complexity you wish (within the bounds of what Sphinx_ and ReST_ can
-   do). More general instructions for making your contribution can be found in ":ref:`contributing`".
+.. The original source of this page (:download:`readme.rst`) contains lots of additional comments to help you create
+   your documentation *module* so please use this as a starting point. We use Sphinx_ (which in turn uses ReST_) to
+   create this documentation. You are free to add any level of complexity you wish (within the bounds of what Sphinx_
+   and ReST_ can do). More general instructions for making your contribution can be found in ":ref:`contributing`".
 
-.. Remember that for a module to be accepted into the E-CAM repository, your source code changes in the target application
-   must pass a number of acceptance criteria:
-   * Style *(use meaningful variable names, no global variables,...)*
+.. Remember that for a module to be accepted into the E-CAM repository, your source code changes in the target
+   application must pass a number of acceptance criteria: * Style *(use meaningful variable names, no global
+   variables,...)*
    
    * Source code documentation *(each function should be documented with each argument explained)*
    
    * Tests *(everything you add should have either unit or regression tests)*
    
-   * Performance *(If what you introduce has a significant computational load you should make some performance optimisation
-     effort using an appropriate tool. You should be able to verify that your changes have not introduced unexpected
-     performance penalties, are threadsafe if needed,...)*
+   * Performance *(If what you introduce has a significant computational load you should make some performance
+     optimisation effort using an appropriate tool. You should be able to verify that your changes have not
+     introduced unexpected performance penalties, are threadsafe if needed,...)*
 
 Purpose of Module
 _________________
@@ -135,8 +136,8 @@ results are not affected.
 .. Keep the helper text below around in your module by just adding "..  " in
    front of it, which turns it into a comment
 
-.. Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
-   it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
+.. Give a brief overview of why the module is/was being created, explaining a little of the scientific background and
+   how it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
    non-expert in the domain area of the software module.
    
    This section should also include the following (where appropriate):
@@ -151,9 +152,9 @@ results are not affected.
    
    * Was it used in a thesis, a scientific collaboration, or was it cited in a publication?
    
-   * If there are published results obtained using this code, describe them briefly in terms readable for non-expert users.
-     If you have few pictures/graphs illustrating the power or utility of the module, please include them with
-     corresponding explanatory captions.
+   * If there are published results obtained using this code, describe them briefly in terms readable for non-expert
+     users. If you have few pictures/graphs illustrating the power or utility of the module, please include them
+     with corresponding explanatory captions.
 
 .. .. note::
    
@@ -184,12 +185,12 @@ ______________________
 
 .. If the modifications are to an existing code base (which is typical) then this would be the place to name that
    application. List any relevant urls and explain how to get access to that code. There needs to be enough information
-   here so that the person reading knows where to get the source code for the application, what version this information is
-   relevant for, whether this requires any additional patches/plugins, etc.
+   here so that the person reading knows where to get the source code for the application, what version this information
+   is relevant for, whether this requires any additional patches/plugins, etc.
 
-.. Overall, this module is supposed to be self-contained, but linking to specific URLs with more detailed information is
-   encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
-   the links they need should be already in this module.
+.. Overall, this module is supposed to be self-contained, but linking to specific URLs with more detailed information
+   is encouraged. In other words, the reader should not need to do a websearch to understand the context of this module,
+   all the links they need should be already in this module.
 
 This module is based on *n2p2*, a C++ code for generation and application of
 neural network potentials used in molecular dynamics simulations. The source
@@ -204,9 +205,9 @@ ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-.. Provide the build information for the module here and explain how tests are run. This needs to be adequately detailed,
-   explaining if necessary any deviations from the normal build procedure of the application (and links to information
-   about the normal build process needs to be provided).
+.. Provide the build information for the module here and explain how tests are run. This needs to be adequately
+   detailed, explaining if necessary any deviations from the normal build procedure of the application (and links to
+   information about the normal build process needs to be provided).
 
 Because the change in memory management affects the core library of *n2p2*
 several applications shipped with *n2p2* will benefit from reduced memory
@@ -243,9 +244,9 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
 
-.. Here link the source code *that was created for the module*. If you are using Github or GitLab and the `Gitflow Workflow
-   <https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature branch.
-   Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits.
+.. Here link the source code *that was created for the module*. If you are using Github or GitLab and the `Gitflow
+   Workflow <https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your
+   feature branch.  Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits.
    
    * `Link to a merge request containing my source code changes
      <https://github.com/easybuilders/easybuild-easyblocks/pull/1106>`_
@@ -254,8 +255,8 @@ ___________
    file to highlight my source code changes, for that reason I would need to explain what code (including exact version
    information), the source code is for.
    
-   You can create a similar patch file by (for example if you are using git for your version control) making your changes
-   for the module in a feature branch and then doing something like the following:
+   You can create a similar patch file by (for example if you are using git for your version control) making your
+   changes for the module in a feature branch and then doing something like the following:
 
 .. Don't forget the white space around the "literal block" (a literal block keeps all spacing and is a good way to
    include terminal output, file contents, etc.)
