@@ -29,7 +29,7 @@ ESL Easyconfigs
 
 The ESL Easyconfigs aims at providing for all the `CECAM Electronic
 Structure Library <http://esl.cecam.org>`_ modules and their dependencies
-easybuild easyconfigs to allow easy installaiton on supercomputers around
+easybuild easyconfigs to allow easy installation on supercomputers around
 the world that use EasyBuild package manager.
 
 
@@ -54,7 +54,7 @@ ____________
 One needs to install firstly `Easybuild`__ by following the preferred instructions
 
 To install the full set of ESL modules and their dependencies for foss toolchain version
-2019a (latest release at time of wrtiing) one needs to do
+2019a (latest release at time of writing) one needs to do
 
 .. code-block:: bash
 

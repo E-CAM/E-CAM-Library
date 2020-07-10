@@ -97,7 +97,7 @@ Notice that the quantum momentum tracks the spatial variation of the nuclear den
 Applications of the Module
 __________________________
 
-The module is designed to apply the CTMQC procedure to one-, two-, and three-dimensional model systems where an arbitrary number of electronic states are coupled via the nuclear dynamics. Tully model systems [Tully]_ are within the class of problems that can be treated by the module, as well as a wide class of multidimensional problems involving, for instance, ultrafast radiationless relaxation of photo-excited molecules [CI]_ through conical intersections.
+The module is designed to apply the CTMQC procedure to one-, two-, and three-dimensional model systems where an arbitrary number of electronic states are coupled via the nuclear dynamics. Tully model systems [Tully]_ are within the class of problems that can be treated by the module, as well as a wide class of multidimensional problems involving, for instance, ultrafast radiationless relaxation of photo-excited molecules [CI1]_ through conical intersections.
 
 
 Installation
@@ -259,7 +259,7 @@ __________
           **93** (1990) 1061 `DOI: 10.1063/1.459170
           <https://doi.org/10.1063/1.459170>`_
 
-.. [CI] B. F. E. Curchod, F. Agostini, *J. Phys. Chem. Lett.* 
+.. [CI1] B. F. E. Curchod, F. Agostini, *J. Phys. Chem. Lett.* 
           **8** (2017) 831 `DOI: 10.1021/acs.jpclett.7b00043
           <https://doi.org/10.1021/acs.jpclett.7b00043>`_
 
