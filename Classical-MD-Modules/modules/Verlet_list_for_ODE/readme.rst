@@ -13,10 +13,10 @@
     sphynx
 
   Application Documentation
-    `doxygen documentation <https://gitlab.e-cam2020.eu/carrivain/verlet_list_for_ode/blob/master/refman.pdf>`_
+    `doxygen documentation <https://gitlab.com/pcarrivain/fibre_ode/-/blob/master/latex/refman.pdf>`_
 
   Relevant Training Material
-    `pdf documentation <https://gitlab.e-cam2020.eu/carrivain/verlet_list_for_ode>`_
+    `pdf documentation <https://gitlab.com/pcarrivain/fibre_ode>`_
 
   Software Module Developed by
     Pascal Carrivain
@@ -57,13 +57,13 @@ We run a Langevin dynamics and check that our `Verlet-list <https://en.wikipedia
 Background Information
 ______________________
 
-You can find a detailed description on the `Verlet_list_for_ODE GitLab repository <https://gitlab.e-cam2020.eu/carrivain/verlet_list_for_ode>`_.
+You can find a detailed description on the `Verlet_list_for_ODE GitLab repository <https://gitlab.com/pcarrivain/fibre_ode>`_.
 
 Building and Testing
 ____________________
 
 First of all you need to download and build the 0.16 version of *Open-Dynamics-Engine*.
-You can find the steps on the `Verlet_list_for_ODE GitLab repository <https://gitlab.e-cam2020.eu/carrivain/verlet_list_for_ode>`_.
+You can find the steps on the `Verlet_list_for_ODE GitLab repository <https://gitlab.com/pcarrivain/fibre_ode>`_.
 In order to compile the two examples (tests) I provide a simple make file you can find at the same location that the source code.
 You need C++11 in order to use pseudo-random number generator.
 It has `OpenMP <https://www.openmp.org>`_ acceleration. Edit the make file to enable it.
@@ -74,4 +74,4 @@ The `Verlet-list <https://en.wikipedia.org/wiki/Verlet_list>`_ implementation re
 Source Code
 ___________
 
-The source code and more informations can be find at `Verlet_list_for_ODE GitLab repository <https://gitlab.e-cam2020.eu/carrivain/verlet_list_for_ode>`_.
+The source code and more informations can be find at `Verlet_list_for_ODE GitLab repository <https://gitlab.com/pcarrivain/fibre_ode>`_.
