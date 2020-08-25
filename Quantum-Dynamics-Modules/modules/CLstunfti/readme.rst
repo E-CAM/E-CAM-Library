@@ -75,9 +75,14 @@ in liquids, it was decided to make the source code publicly available. For thus
 purpose, within the E-CAM module a documentation for the code was written and 
 examples were designed to test the code and learn how to use CLstunfti.
 
-.. [01] Suzuki, Nishizawa, Kurahashi, Suzuki, *Effective attenuation length of an electron in liquid water between 10 and 600 eV*, Phys. Rev. E 90, 010302 (2014).
-.. [02] Thürmer, Seidel, Faubel, Eberhardt, Hemminger, Bradforth, Winter, *Photoelectron Angular Distributions from Liquid Water: Effects of Electron Scattering*, Phys. Rev. Lett. 111, 173005 (2013).
-.. [03] Schild, Peper, Perry, Rattenbacher, Wörner, *An alternative approach for the determination of mean free paths of electron scattering in liquid water based on experimental data*, submitted.
+.. [01] Suzuki, Nishizawa, Kurahashi, Suzuki, *Effective attenuation length of
+   an electron in liquid water between 10 and 600 eV*, Phys. Rev. E 90, 010302 (2014).
+.. [02] Thürmer, Seidel, Faubel, Eberhardt, Hemminger, Bradforth, Winter,
+   *Photoelectron Angular Distributions from Liquid Water: Effects of Electron
+   Scattering*, Phys. Rev. Lett. 111, 173005 (2013).
+.. [03] Schild, Peper, Perry, Rattenbacher, Wörner, *An alternative approach for
+   the determination of mean free paths of electron scattering in liquid water
+   based on experimental data*, submitted.
 
 Background Information
 ______________________
