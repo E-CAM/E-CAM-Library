@@ -118,11 +118,9 @@ ____________________
 
 These three scripts present one way to calculate the thermodynamics force.
 
-::
-
-:download:`TF calculation script: <./TF_calc_water_xplit_sphere.sh>`
-:download:`Density interpolation script: <./smooth_dens.sh>`
-:download:`Script to call TF calculation: <./run_tf_water_xplsit_sphere.sh>`
+* :download:`TF calculation script: <./TF_calc_water_xplit_sphere.sh>`
+* :download:`Density interpolation script: <./smooth_dens.sh>`
+* :download:`Script to call TF calculation: <./run_tf_water_xplsit_sphere.sh>`
 
 
 The central script is *smooth_dens.sh*. This is a Python 2.7 script which interpolates the density and generates the gradient of the density and provides the force as an ascii table. 
