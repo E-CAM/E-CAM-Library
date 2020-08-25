@@ -41,9 +41,9 @@
 
 .. CLstunfti:
 
-####################
+#########
 CLstunfti
-####################
+#########
 
 ..  contents:: :local:
 
@@ -96,12 +96,12 @@ ____________________
 To use CLstunfti, the following steps are necessary:
 
 * A few Python packages are needed. Specifically, you need:
-    - h5py 
-    - scipy 
-    - matplotlib 
-    - matplotlib 
-    - numexpr 
-    - numpy
+    - h5py==2.10.0
+    - matplotlib==3.2.2
+    - scipy==1.5.0
+    - numexpr==2.7.1
+    - numpy==1.19.0
+
 * Move the main folder ``CLstunfti`` in a folder named e.g. ``My_Python_Modules``.
   Then, either run
 
@@ -160,7 +160,7 @@ The following examples are provided (note that part of the code is in the file
   It is run as 
   ::
       
-    python 01_02_compute_eal.py
+    python 02_compute_eal.py
   
   and creates ``02_eal.pdf`` which can be compared with ``02_eal_ref.pdf``.
   *The calculation takes ca. 1 minute* on a 3.40GHz CPU. 
