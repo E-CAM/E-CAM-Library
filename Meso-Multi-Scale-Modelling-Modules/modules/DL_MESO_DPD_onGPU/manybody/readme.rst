@@ -139,7 +139,7 @@ same input (but large system) using 8 GPUs and for 35k time steps.
 
 .. raw:: html
 
-   <video controls src="../../../../_static/videos/final_8GPUs.mp4"></video>
+   <p align="center"><video controls src="../../../../_static/videos/final_8GPUs.mp4" width="50%"></video></p>
 
 Source Code
 ___________
