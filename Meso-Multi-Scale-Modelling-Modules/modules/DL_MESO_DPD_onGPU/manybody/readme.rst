@@ -54,27 +54,26 @@ Many body DPD on DL_MESO_DPD multi-GPU
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-This module implement the many body DPD algorithm on the multi-GPU version of DL\_MESO\_DPD.
+This module implements the many body DPD algorithm on the multi-GPU version of DL\_MESO\_DPD.
 
 Purpose of Module
 _________________
 
-One of the main weak point of the DPD simulation is in its equation of state.
-For example, compressible gas or vapor liquid mixtures are difficult, if not impossible, to correctly be simulated.
-The many body DPD approach allow to overcome this limit extending the potential of neighbour 
+One of the main weak points of the DPD simulation is in its equation of state.
+For example, compressible gas or vapor liquid mixtures are difficult, if not impossible, to be simulated correctly.
+The many-body DPD approach allows us to overcome this limitation by extending the potential of neighbour 
 beads to a large cut off radius.
 
-This module consists in the implementation of the many 
-body DPD on the multi GPU version of DL\_MESO\_DPD. 
-The new feature will allow to 
+This module consists in the implementation of many-body DPD on the multi GPU version of DL\_MESO\_DPD. 
+The new feature will allow us to 
 simulate complex systems liquid drops, phase interactions, etc.
 
-From an implementation point of view, the algorithm requires a 
+From an implementation point of view, the algorithm requires us to 
 first loop over the internal cells of a typical domain 
 to calculate the local densities, followed by a second loop to 
 find the forces acting between particles.
 To achieve good scaling across multiple GPUs, we must allow the overlap of the 
-computation of local densities and forces with the swap of the particle's 
+computation of local densities and forces with the swapping of the particle's 
 positions and local densities.
 This is achieved with a partial sum of the forces based on the 
 internal particles first and then adding the forces from the border particles later.
@@ -115,14 +114,14 @@ checkout the GPU branch and look into the ``DPD/gpu_version`` folder, i.e:
 
 To compile and run the code you need to have installed the CUDA-toolkit (>=8.0) 
 and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw).
-For the MPI library the OpenMPI 3.1.0 has been used. Install ``hwloc`` if you want 
+For the MPI library, OpenMPI 3.1.0 has been used. Install ``hwloc`` if you want 
 to set the GPU affinity between devices and CPU cores, otherwise remove the 
-DHWLOC flag in the Makefile.
-Finally, you need to install the ALL library. 
-See for details 
-https://e-cam.readthedocs.io/en/latest/Meso-Multi-Scale-Modelling-Modules/index.html#all-background 
-and make sure the ALL path is set correctly. 
-Use ``make all`` to compile and obtained the executable ``dpd_gpu.exe``.   
+``-DHWLOC`` flag in the Makefile.
+
+Finally, you need to install the ALL library and make sure the ALL path is set correctly.
+ALL handles the load balancing among the GPUs, for details see :ref:`dl_meso_gpu_loadBalance`. 
+
+Use ``make all`` to compile, resulting in the executable ``dpd_gpu.exe``.   
 
 A testloop is added in the ``tests`` folder. Type ``./Tesloop_All`` 
 followed by option 2 to and specify 8 as number of GPUs.
@@ -132,8 +131,8 @@ values (the final printed positions are randomly particles chosen
 and can be different at every run).
 
 For the current module, the ``test/SurfaceDrop`` test case is a 
-good example of combined manybody DPD and load balanced 
-presented in https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library/-/merge_requests/180.
+good example of combining manybody DPD and load balanced as
+presented in :ref:`dl_meso_gpu_loadBalance`.
 Below is an snapshot from the simulation based on the 
 same input (but large system) using 8 GPUs and for 35k time steps.
 
