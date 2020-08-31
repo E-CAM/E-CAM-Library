@@ -13,7 +13,7 @@ lint:
   - pip3 install doc8
   - git diff-tree --no-commit-id --name-only -r $CI_COMMIT_SHA
   # Run linter over files in last commit exclude deleted files
-  - ( set -e; for file in $(git diff-tree --no-commit-id --name-only --diff-filter=d -r $CI_COMMIT_SHA); do doc8 --max-line-length 120 $file; done )
+  - ( set -e; for file in $(git diff-tree --no-commit-id --name-only --diff-filter=d -r $CI_COMMIT_SHA); do doc8 --max-line-length 120 --ignore D002 $file; done )
   only:
   - master
 
@@ -31,7 +31,7 @@ lint_MR:
   - git diff --no-commit-id --name-only upstream/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME
   # Run linter over files that diff between branch and target upstream branch 
   # excluding deleted files
-  - ( set -e; for file in $(git diff --no-commit-id --name-only --diff-filter=d upstream/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME); do doc8 --max-line-length 120 $file; done )
+  - ( set -e; for file in $(git diff --no-commit-id --name-only --diff-filter=d upstream/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME); do doc8 --max-line-length 120 --ignore D002 $file; done )
   only:
   - merge_requests
 

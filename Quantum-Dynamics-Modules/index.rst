@@ -309,9 +309,11 @@ observables.
 
     ./modules/PIM_qtb/readme
 
-**PIM_qtb** implements various classical and semi-classical methods based on Langevin dynamics (classical Langevin
-dynamics, Quantum Thermal Bath (QTB) and two variants of adaptive QTB (adQTB-r and adQTB-f). The generated trajectories
-can be used to sample initial conditions for intramolecular vibrational-energy redistribution (IVR) dynamics.
+**PIM_qtb**  implements different methods based on Langevin dynamics. 
+The trajectories generated can be exploited directly or used to sample initial conditions for 
+Linearized Semi-Classical Initial Value Representation (LSC-IVR) calculations.
+The methods implemented are: classical Langevin dynamics, Quantum Thermal Bath (QTB)
+and two variants of adaptive QTB (adQTB-r and adQTB-f).
 
 
 .. toctree::
@@ -440,6 +442,24 @@ by the group of Nadja Doslic in Zagreb.
 
 The **Quantics_openmp** module is an initial effort at OpenMP parallelisation improvements to Quantics.
 
+CLstunfti
+---------
+
+`CLstunfti <https://gitlab.com/axelschild/CLstunfti>`_ is an extendable Python 
+toolbox to compute scattering of electrons with a given kinetic energy in 
+liquids and amorphous solids. It uses a continuum trajectory model with 
+differential ionization and scattering cross sections as input to simulate the 
+motion of the electrons through the medium. 
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/CLstunfti/readme
+
+The module **CLstunfti** makes CLstunfti available to the world by providing 
+a documentation of the toolbox and inline documentations of the source code, 
+as well as a set of examples that can also be used for testing.
 
 .. toctree::
         :glob:
@@ -451,7 +471,8 @@ The **Spin orbit coupling smoothing** module is to smooth spin orbit couplings a
 
 
 References
-==========
+----------
+
 
 .. [Curc] B. F. E. Curchod, T. J. Penfold, U. Rothlisberger, I. Tavernelli *Phys. Rev. A*
           **84** (2012) 042507 `DOI: 10.1103/PhysRevA.84.042507
