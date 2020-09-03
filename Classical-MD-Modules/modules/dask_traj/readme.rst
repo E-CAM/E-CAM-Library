@@ -59,7 +59,8 @@ _________________
 Using `MDTraj <http://mdtraj.org/>`_ is a fast and easy way to analyze MD trajectories.
 However, MDTraj has a couple limitations:
 
-* The whole trajectory needs to fit into memory
+* The whole trajectory needs to fit into memory, or gathering results becomes
+  inconvenient
 
 * The result of the computation also needs to fit into memory
 
@@ -108,6 +109,10 @@ ____________________
 This code can be installed with pip by running
 ``pip install dask-traj``
 
+.. Uncomment the following lines once conda-forge is active
+.. Antoher way this code can be installed is with conda, by running:
+.. ``conda install -c conda-forge dask_traj``
+
 This code can also be installed by downloading the source code (see the ``Source
 Code`` section below), and running ``python setup.py install`` from the root
 directory.
@@ -116,6 +121,8 @@ Tests for this module can be run with pytest. Install pytest with ``pip
 install pytest`` and then run the command ``py.test`` from within the
 directory with the source code, or ``py.test --pyargs dask_traj`` from
 anywhere after installation.
+
+
 
 Examples
 --------
@@ -130,4 +137,4 @@ using ``jupyter notebook`` from that directory (see ``Jupyter notebook`` documen
 Source Code
 ___________
 
-The source code for this module, and modules that build on it, is hosted at https://github.com/sroet/dask-traj. This module specifically includes everything up to and including `release 0.1.0 <https://github.com/sroet/dask-traj/releases/tag/v0.1.0>`_
+The source code for this module, and modules that build on it, is hosted at https://github.com/sroet/dask-traj. This module specifically includes everything up to and including `release 0.2.2 <https://github.com/sroet/dask-traj/releases/tag/v0.2.2>`_
