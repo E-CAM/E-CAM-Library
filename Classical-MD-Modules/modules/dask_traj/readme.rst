@@ -126,6 +126,12 @@ anywhere after installation.
 
 Examples
 --------
+The examples require some extra dependencies to be installed, namely:
+* jupyter
+* distributed
+* python-graphviz
+
+Which are all installable through `conda` and `pip`.
 
 * An example on how to do analysis using Dask-traj can be found in `dask-traj_example.ipynb <https://github.com/sroet/dask-traj/blob/master/examples/dask-traj_example.ipynb>`_
 
