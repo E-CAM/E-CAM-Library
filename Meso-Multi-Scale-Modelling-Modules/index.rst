@@ -201,3 +201,4 @@ The modules listed here account for the modifications of the code Ludwig, carrie
     :maxdepth: 1
     
     ./modules/Lattice_Boltzmann/external_chemical_potential_gradient/readme
+    ./modules/Lattice_Boltzmann/crystalline_capillaries/readme
