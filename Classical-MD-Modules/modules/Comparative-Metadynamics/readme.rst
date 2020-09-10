@@ -11,18 +11,18 @@ Comparative Metadynamics
         Python (3+)
     
     Licence
-        This module is licensed under the terms of the `CC BY-NC-SA 4.0 
-        <https://creativecommons.org/licenses/by-nc-sa/4.0/>`_ licence 
+        `CC BY-NC-SA 4.0 
+        <https://creativecommons.org/licenses/by-nc-sa/4.0/>`_
     
     Documentation Tool
         `pdoc`_, numpydoc format (ReST)    
     
     Application Documentation
-        `Documentation <https://gitlab.e-cam2020.eu:10443/aestheses-public/comparative-metadynamics/-/tree/master/docs>`_
+        `Documentation <https://gitlab.com/aestheses/comparative-metadynamics/-/tree/master/docs>`_
 
     Relevant Training Material
-        See usage example at
-        https://gitlab.e-cam2020.eu:10443/aestheses-public/comparative-metadynamics/-/tree/master/examples
+        See usage examples `here
+        <https://gitlab.com/aestheses/comparative-metadynamics/-/tree/master/examples>`_
 
     Software Module Developed by
         Zein Jaafar, Shrinath Kumar and Donal MacKernan
@@ -125,6 +125,7 @@ additional software is required:
 Usage
 *****
 
+All files discussed in this section can be found in the examples folder.
 This module mutates a system and then runs a metadynamics simulation of them using lammps. Thus the user needs to 
 provide 3 scripts in advance.
 
@@ -151,7 +152,7 @@ Once this is complete the user may use the Analysis subfolder to analyse the out
 In this folder a single plumed data file needs to be created. An example file is provided which may also be used
 Then the file analyse.ipynb may be run. Again, this file will guide the user through the necessary steps
 
-A brief summary of what analyse.ipynb does is provided below
+A brief summary of what Analyse.ipynb does is provided below
 
 1. Reads in all the the data created by indicator_run.ipynb (the COLVAR files mainly)
 2. Creates histograms/probability densities from the restarted simulations
@@ -163,7 +164,16 @@ A brief summary of what analyse.ipynb does is provided below
 Examples
 ********
 
-Examples can be found in the examples folder.
+`Examples can be found here
+<https://gitlab.com/aestheses/comparative-metadynamics/-/tree/master/examples>`_.
+
+********
+Source Code
+********
+
+`Module Source Code <https://gitlab.com/aestheses/comparative-metadynamics>`_
+
+However, please note that the source code is currently under embargo until associated works are published, if you would like to be obtain a copy of the code, please contact Dr. Donal MacKernan at donal.mackernan@ucd.ie or Ali Jaafar at ali.jafaar@ucd.ie.
 
 .. _pdoc: <https://pdoc3.github.io/pdoc/>
 .. _LICENSE:
