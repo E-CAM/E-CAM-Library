@@ -167,13 +167,15 @@ Examples
 `Examples can be found here
 <https://gitlab.com/aestheses/comparative-metadynamics/-/tree/master/examples>`_.
 
-********
+***********
 Source Code
-********
+***********
 
 `Module Source Code <https://gitlab.com/aestheses/comparative-metadynamics>`_
 
-However, please note that the source code is currently under embargo until associated works are published, if you would like to be obtain a copy of the code, please contact Dr. Donal MacKernan at donal.mackernan@ucd.ie or Ali Jaafar at ali.jafaar@ucd.ie.
+However, please note that the source code is currently under embargo until associated works are published, 
+if you would like to be obtain a copy of the code, please contact Dr. Donal MacKernan at donal.mackernan@ucd.ie 
+or Ali Jaafar at ali.jafaar@ucd.ie.
 
 .. _pdoc: <https://pdoc3.github.io/pdoc/>
 .. _LICENSE:
