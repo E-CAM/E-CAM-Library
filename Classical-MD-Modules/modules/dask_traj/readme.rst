@@ -106,14 +106,14 @@ not yet present in dask-traj, please `make an issue <https://github.com/sroet/da
 Building and Testing
 ____________________
 
-This code can be installed with pip by running
+This code can be installed with conda using ``conda install -c dask_traj``. To
+instal the specific version associated with this module, use ``conda install -c
+dask_traj==0.2.2``
+
+This code can also be installed with pip by running
 ``pip install dask-traj``
 
-.. Uncomment the following lines once conda-forge is active
-.. Antoher way this code can be installed is with conda, by running:
-.. ``conda install -c conda-forge dask_traj``
-
-This code can also be installed by downloading the source code (see the ``Source
+Finally, this code can also be installed by downloading the source code (see the ``Source
 Code`` section below), and running ``python setup.py install`` from the root
 directory.
 
