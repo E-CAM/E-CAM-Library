@@ -107,7 +107,7 @@ Building and Testing
 ____________________
 
 This code can be installed with conda using ``conda install -c dask_traj``. To
-instal the specific version associated with this module, use ``conda install -c
+install the specific version associated with this module, use ``conda install -c
 dask_traj==0.2.2``
 
 This code can also be installed with pip by running
