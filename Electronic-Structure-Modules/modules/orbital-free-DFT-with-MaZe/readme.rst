@@ -59,12 +59,17 @@ _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-The program performs Orbital-Free Density Functional Theory Molecular Dynamics (OF-DFT-MD) using the Mass-Zero (MaZe) constrained molecular dynamics approach as discussed in [BONELLA2020]_.
-This method enforces, at each time step, the Born-Oppenheimer condition that the system relax instantaneously to the ground state through the formalism of mass-zero constraints.
-The adiabatic separation between the degrees of freedom is enforced rigorously, while the algorithm is exactly symplectic and time-reversible in both physical and additional set of degrees of freedom.
+The program performs Orbital-Free Density Functional Theory Molecular Dynamics (OF-DFT-MD) using the Mass-Zero (MaZe)
+constrained molecular dynamics approach as discussed in [BONELLA2020]_.
+This method enforces, at each time step, the Born-Oppenheimer condition that the system relax instantaneously to the
+ground state through the formalism of mass-zero constraints.
+The adiabatic separation between the degrees of freedom is enforced rigorously, while the algorithm is exactly
+symplectic and time-reversible in both physical and additional set of degrees of freedom.
 ..  Formal details are discussed at length in Alessandro Coretti's Ph.D. Thesis.
-The computation of the electronic density is carried on in reciprocal space through a plane-waves expansion so that the mass-zero degrees of freedom are represented by the Fourier coefficients of the electronic density field.
-The evolution of the ions is performed using Velocity-Verlet algorithm, while the SHAKE algorithm is used for computation of the additional degrees of freedom.
+The computation of the electronic density is carried on in reciprocal space through a plane-waves expansion so that
+the mass-zero degrees of freedom are represented by the Fourier coefficients of the electronic density field.
+The evolution of the ions is performed using Velocity-Verlet algorithm, while the SHAKE algorithm is used for
+computation of the additional degrees of freedom.
 
 Background Information
 ______________________
@@ -81,9 +86,12 @@ ____________
 The execution of the code depends on the following libraries:
 
 * `FFTW <http://www.fftw.org>`_: a library for computing the discrete Fourier transform;
-* `Libxc <https://www.tddft.org/programs/Libxc/>`_: a library of exchange-correlation functionals for density-functional theory;
-* `BLAS <https://www.netlib.org/blas/>`_: a library that provides standard building blocks for performing basic vector and matrix operations;
-* `Argp <https://www.gnu.org/software/libc/manual/html_node/Argp.html>`_: an interface for parsing unix-style argument vectors;
+* `Libxc <https://www.tddft.org/programs/Libxc/>`_: a library of exchange-correlation functionals for
+  density-functional theory;
+* `BLAS <https://www.netlib.org/blas/>`_: a library that provides standard building blocks for
+  performing basic vector and matrix operations;
+* `Argp <https://www.gnu.org/software/libc/manual/html_node/Argp.html>`_: an interface for parsing
+  unix-style argument vectors;
 
 On macOS, `Homebrew <https://brew.sh>`_ is strongly recommended to install compiler and dependencies.
 
@@ -93,7 +101,6 @@ Examples can be found in the './configuration_files/' folder.
 The structure of the './config.mk' file is as follows:
 
 .. code-block:: bash
-   :linenos:
 
    #Compiler Configuration
    #Compiler command
@@ -120,28 +127,36 @@ _______
 The test for the code and for regressions are launched through a python script which can be found in './tests/'.
 Move into this folder and run ``python regression_tests.py -s MaZe``.
 The scripts can take other options in order to launch different suites of tests.
-Default is 'all' which can take up to 20 minutes. Run ``python regression_tests.py --help`` for more information on regression tests script.
+Default is 'all' which can take up to 20 minutes.
+Run ``python regression_tests.py --help`` for more information on regression tests script.
 
 By default the script tests an MD simulation of solid Sodium using different parameters:
 
 * **Pseudopotential**: 'Gaussian (Gauss)' pseudopotential and 'Topp and Hopfield (Topp)' pseudopotential;
-* **Jacob's ladder rung**: 'LDA' for Local Density Approximation and 'GGA' for Generalized Gradient Approximation. The approximation refers only to the kinetic functional which is 'Thomas-Fermi (TF)' for LDA and 'Thomas-Fermi plus von Weiszaecker correction (TFvW)' and 'Perrot' functional for GGA;
-* **Kinetic functional**: As above 'Thomas-Fermi (TF)', 'Thomas-Fermi plus von Weiszaecker correction (TFvW)' and 'Perrot' functionals;
-* **Explicit enforcing of additional constraint**: When the suffix '_additional_constraint' appears in the name of the text, the conservation of the number of electrons is explicitly enforced as discussed in [BONELLA2020]_.
+* **Jacob's ladder rung**: 'LDA' for Local Density Approximation and 'GGA' for Generalized Gradient Approximation.
+  The approximation refers only to the kinetic functional which is 'Thomas-Fermi (TF)' for LDA and 'Thomas-Fermi
+  plus von Weiszaecker correction (TFvW)' and 'Perrot' functional for GGA;
+* **Kinetic functional**: As above 'Thomas-Fermi (TF)', 'Thomas-Fermi plus von Weiszaecker correction (TFvW)'
+  and 'Perrot' functionals;
+* **Explicit enforcing of additional constraint**: When the suffix '_additional_constraint' appears in the name of the
+  text, the conservation of the number of electrons is explicitly enforced as discussed in [BONELLA2020]_.
 
 All the simulation in the tests are run using a Slater exchange functional and no correlation functional.
 
-The subfolders inside './tests' can also be conveniently used as examples and references for the format of the input file 'runtime.inpt' and of the configuration file 'configuration.inpt'.
+The subfolders inside './tests' can also be conveniently used as examples and references for the format
+of the input file 'runtime.inpt' and of the configuration file 'configuration.inpt'.
 
 Source Code
 ___________
 
-The source code is available from the `E-CAM Gitlab <https://gitlab.e-cam2020.eu/>`_ under the `MaZe <https://gitlab.e-cam2020.eu/acoretti/shake-dft/>`_
+The source code is available from the `E-CAM Gitlab <https://gitlab.e-cam2020.eu/>`_ under the
+`MaZe <https://gitlab.e-cam2020.eu/acoretti/shake-dft/>`_
 project.
 
 The repository contains the following directories:
 
-* **./source/:** contains the source code. The subfolder './source/headers/' contains the modules' headers, while the subfolder './source/obj/' is used for compilation file outputs;
+* **./source/:** contains the source code. The subfolder './source/headers/' contains the modules'
+  headers, while the subfolder './source/obj/' is used for compilation file outputs;
 * **./tests/:** contains regression tests;
 * **./scripts/:** contains useful python scripts to run simulations over different sets of parameters;
 * **./documentation/:** contains the documentation generated with Doxygen together with the wiki of the project;
