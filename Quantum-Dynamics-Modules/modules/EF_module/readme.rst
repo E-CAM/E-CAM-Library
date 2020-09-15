@@ -111,7 +111,7 @@ __________
 
 .. [Gross_PRL2010] Abedi,  A., Maitra, N. T., Gross, E. K. U. *Phys. Rev. Lett.* 
 	**105** (2010) 123002 Exact factorization of the time-dependent electron-nuclear wave
-  function. 
+        function. 
 
 .. [Gross_JCP2012] Abedi,  A., Maitra, N. T., Gross, E. K. U. *Phys. Rev. Lett.* 
 	**137** (2012) 22A530 Correlated electron-nuclear dynamics: Exact factorization of the
