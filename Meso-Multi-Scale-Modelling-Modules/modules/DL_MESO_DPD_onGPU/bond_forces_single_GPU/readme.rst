@@ -53,8 +53,8 @@ Bond forces on DL_MESO_DPD (single GPU)
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
 
-This module add the bond forces to the single GPU version of DL_MESO (DPD). These take in account on the itneractiions between
-different chemical species
+This module add the bond forces to the single GPU version of DL_MESO (DPD). These take in account
+in the interactions between different chemical species
 which allow to create complex molecules more representative of real systems. An example of an application is the
 ternary solution where a primary component is bonds interacting with the other two phases.
 
@@ -64,12 +64,15 @@ _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-The algorithm used is the same of the DL_MESO serial version, but of course adapted for SIMT (Single Instruction Multiple Threads) architecture.
-The module includes also the angle and dihedral forces, all divived according a classical ortogonal domain decomposition.
+The algorithm used is the same of the DL_MESO serial version, but of course adapted for SIMT (Single
+Instruction Multiple Threads) architecture.
+The module includes also the angle and dihedral forces, all divived according a classical
+orthogonal domain decomposition.
 
-Considering that in a real case the number of bounds is usually much lower than the total number of particles, different CUDA streams
-for the three kernels (``k_findBondForce``, ``k_findAngleForce`` and ``k_findDihedralForce``) are used. This allow to launch them in parallel
-to improve the performance of the overall simulation.
+Considering that in a real case the number of bounds is usually much lower than the total number of
+particles, different CUDA streams
+for the three kernels (``k_findBondForce``, ``k_findAngleForce`` and ``k_findDihedralForce``) are used. This allow
+to launch them in parallel to improve the performance of the overall simulation.
 
 
 
@@ -109,7 +112,9 @@ ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-The DL_MESO code is developed using git version control. Currently there are a single GPU version and a multi GPU version is under a two different branches. After downloading the code, checkout to the ``single_GPU_version`` branch and look into the ``DPD/gpu_version`` folder, i.e::
+The DL_MESO code is developed using git version control. Currently there are a single GPU version and a
+multi GPU version is under a two different branches. After downloading the code, checkout
+the ``single_GPU_version`` branch and look into the ``DPD/gpu_version`` folder, i.e::
 
   git clone DL_MESO_repository_path
   cd dl_meso
@@ -117,10 +122,12 @@ The DL_MESO code is developed using git version control. Currently there are a s
   cd /DPD/gpu_version
   make all
 
-To compile and run the code you need to have installed the CUDA-toolkit and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw).
+To compile and run the code you need to have installed the CUDA-toolkit and have a
+CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw).
 
 To run the case, compile the code using the ``make all`` command from the ``bin`` directory, copy
-the ``FIELD`` and ``CONTROL`` files from the ``gpu_version/test/Solvent`` folder in this directory and run ``./dpd_gpu.exe``.
+the ``FIELD`` and ``CONTROL`` files from the ``gpu_version/test/Solvent`` folder
+in this directory and run ``./dpd_gpu.exe``.
 
 
 
@@ -136,7 +143,8 @@ following commits (you need to be register as developer):
 * https://gitlab.stfc.ac.uk/dl_meso/dl_meso/commit/8b3dd9c071a60cbfb6e5fc285e82049efcc603f7
 * https://gitlab.stfc.ac.uk/dl_meso/dl_meso/commit/9c6452d2340c53dc68d1eabbee37992d14e071b5
 
-The DL_MESO code is developed using git version control. Currently the GPU version is under a branch named "add_gpu_version". 
+The DL_MESO code is developed using git version control. Currently the GPU version is under a
+branch named "add_gpu_version". 
 
 .. Here are the URL references used (which is alternative method to the one described above)
 
