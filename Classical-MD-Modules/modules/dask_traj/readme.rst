@@ -1,4 +1,3 @@
-
 .. sidebar:: Software Technical Information
 
   Name
@@ -108,7 +107,7 @@ ____________________
 
 This code can be installed with conda using ``conda install -c dask_traj``. To
 install the specific version associated with this module, use ``conda install -c
-dask_traj==0.2.2``
+conda-forge dask_traj==0.2.2``
 
 This code can also be installed with pip by running
 ``pip install dask-traj``
