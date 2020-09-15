@@ -211,6 +211,7 @@ Below are listed all the modules from the E-CAM ESDWs in Quantum Dynamic develop
     :maxdepth: 1
 
     ./modules/CTMQC/readme
+    ./modules/EF_module/readme
 
 The **CTMQC** module allows to simulate excited-state dynamics in model systems of one to three spatial (nuclear)
 dimensions, with an arbitrary number of electronic states. The algorithm is based on the quantum-classical approximation
@@ -370,7 +371,8 @@ It also contains a library of adapted MPI subroutines for easier programming of 
 **Openmpbeads** is a patch to the PaPIM code which enables parallelization of the sampling of the
 polymer chains within the PIM algorithm, improving efficiency in sampling of the Wigner density.
 
-**PerGauss** is an implementation of periodic boundary conditions for gaussian basis functions to be used within the quantics program package.
+**PerGauss** is an implementation of periodic boundary conditions for gaussian basis functions
+to be used within the quantics program package.
 
 .. toctree::
     :glob:
