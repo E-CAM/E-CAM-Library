@@ -139,7 +139,6 @@ following order:
 In this 2d case, the 2nd degrees of freedom is the independent variable while the first degrees of freedom is
 fixed at the value of 0.2. The ``processing.x`` will use ``Density001.dat`` and ``Epsilon001.dat`` files,
 containing the information after 1 fs of propagation.
- 	
 
 Source Code
 ___________
