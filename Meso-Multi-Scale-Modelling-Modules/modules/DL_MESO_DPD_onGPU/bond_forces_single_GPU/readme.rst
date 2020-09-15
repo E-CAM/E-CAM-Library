@@ -55,9 +55,10 @@ Bond forces on DL_MESO_DPD (single GPU)
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
 
-This module add the bond forces to the single GPU version of DL_MESO (DPD). These take in account on the itneractiions between different chemical species
-which allow to create complex molecules more rapresentative of real systems. An example of application is the ternary solution where a main component 
-contains bonds interacting with the other two phases.
+This module add the bond forces to the single GPU version of DL_MESO (DPD). These take in account on the itneractiions between
+different chemical species
+which allow to create complex molecules more representative of real systems. An example of an application is the
+ternary solution where a primary component is bonds interacting with the other two phases.
 
 
 Purpose of Module
@@ -110,17 +111,18 @@ ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-The DL_MESO code is developed using git version control. Currently there are a single GPU version and a multi GPU version is under a two different branches. After downloading the code, checkout to the single_GPU_version branch and look into the "DPD/gpu_version" folder, i.e:
+The DL_MESO code is developed using git version control. Currently there are a single GPU version and a multi GPU version is under a two different branches. After downloading the code, checkout to the ``single_GPU_version`` branch and look into the ``DPD/gpu_version`` folder, i.e::
 
-* git clone DL_MESO_repository_path
-* cd dl_meso
-* git checkout single_GPU_version
-* cd /DPD/gpu_version
-* make all
+  git clone DL_MESO_repository_path
+  cd dl_meso
+  git checkout single_GPU_version
+  cd /DPD/gpu_version
+  make all
 
 To compile and run the code you need to have installed the CUDA-toolkit and have a CUDA enabled GPU device (see http://docs.nvidia.com/cuda/#axzz4ZPtFifjw).
 
-To run the case, compile the code using the "make all" command from the "bin" directory, copy the "FIELD" and "CONTROL" files from the gpu_version/test/Solvent folder in this directory and run "./dpd_gpu.exe".
+To run the case, compile the code using the ``make all`` command from the ``bin`` directory, copy
+the ``FIELD`` and ``CONTROL`` files from the ``gpu_version/test/Solvent`` folder in this directory and run ``./dpd_gpu.exe``.
 
 
 
