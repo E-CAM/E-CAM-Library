@@ -1,3 +1,5 @@
+:orphan:
+
 .. _ops_new_storage:
 
 #########################
@@ -11,7 +13,7 @@ OPS New Storage Subsystem
   sections.
 
   Language
-    Python (2.7)
+    Python (3.6+)
 
   Documentation Tool
     Sphinx, numpydoc format (ReST)
@@ -29,9 +31,11 @@ OPS New Storage Subsystem
 
 Authors: David W.H. Swenson
 
-This module provides a new storage subsystem for OpenPathSampling, which is
-more flexible and has better performance than the older storage system. This
-module is also necessary to serialize data for transfer over a network, as is needed for parallelization across multiple nodes.
+This module provides the core of SimStore, a new storage subsystem for
+OpenPathSampling, which is more flexible and has better performance than the
+older storage system. This module is also necessary to serialize data for
+transfer over a network, as is needed for parallelization across multiple
+nodes.
 
 Purpose of Module
 _________________
@@ -50,27 +54,45 @@ reading:
 * OPS source code: http://github.com/openpathsampling/openpathsampling
 
 
-Testing
-_______
+Installation and Testing
+________________________
 
-Tests in OpenPathSampling use the `nose`_ package.
+The source code for this is in an unmerged branch of OpenPathSampling. The
+easiest installation procedure is to install the ``conda`` package manager,
+and then to download and use the OpenPathSampling developer install script.
+Once ``conda``, ``curl``, and ``git`` are available, change to the directory
+where you would like the OpenPathSampling repository to exist, and the
+following commands suffice:
 
-.. IF YOUR MODULE IS IN OPS CORE:
+.. code:: bash
 
-.. This module has been included in the OpenPathSampling core. Its tests can
-.. be run by setting up a developer install of OpenPathSampling and running
-.. the command ``nosetests`` from the root directory of the repository.
+    curl -OLk https://raw.githubusercontent.com/openpathsampling/openpathsampling/master/devtools/conda_ops_dev_install.sh
+    OPS_ENV=ops_new_storage source conda_ops_dev_install.sh dwhswenson storage
 
-.. IF YOUR MODULE IS IN A SEPARATE REPOSITORY
+This will create and activate a ``conda`` environment called
+``ops_new_storage``, with this module installed. If you want to install the
+code into your currently active environment, leave off the
+``OPS_ENV=ops_new_storage``.
 
-.. The tests for this module can be run by downloading its source code, 
-.. installing its requirements, and running the command ``nosetests`` from the
-.. root directory of the repository.
+The tests for this module are split between unit tests included in the
+OpenPathSampling repository and integration tests in a separate repository.
+The easiest way to run both sets of tests is to download or clone the
+integration test repository at
+https://github.com/dwhswenson/ops-storage-notebooks. Install the required
+testing software, e.g., with:
+
+.. code:: bash
+
+    conda install -c conda-forge pytest pytest-cov nbval
+
+Then just run the ``test-storage`` script in that notebook.
 
 Examples
 ________
 
-Link to examples, if you have one. May be a file within your source code.
+An example for this module can be found at:
+
+* https://github.com/dwhswenson/ops-storage-notebooks/blob/master/examples/02_load_old_cvs.ipynb
 
 Source Code
 ___________
