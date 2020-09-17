@@ -5,33 +5,39 @@
 
 .. _readme:
 
-**************************
-The E-CAM Software Library
-**************************
+.. sidebar:: Links
 
-.. sidebar:: Scientific Areas
+    **Scientific Areas**
 
     * :ref:`readme_classical_md`
     * :ref:`readme_electronic_structure`
     * :ref:`readme_quantum_dynamics`
-    * :ref:`readme_meso_multi`   
+    * :ref:`readme_meso_multi`
 
     **Best Practices**
 
     * :ref:`best_practices`
 
-    **Quicklinks**
+    **On this page**
 
     .. contents:: :local:
 
     * :ref:`search`
 
-.. figure:: ./Electronic-Structure-Modules/images/wake_nova-rgb.png 
-   :figwidth: 25 % 
+**************************
+The E-CAM Software Library
+**************************
+
+.. figure:: ./Electronic-Structure-Modules/images/protein-metal-cluster.png
+   :figwidth: 35 %
    :align: left
 
-This is a collection of the software modules that have been documented by E-CAM_ (http://www.e-cam2020.eu) community
-within the four initial target areas of E-CAM_:
+Formally, E-CAM is a European HPC Centre of Excellence supporting HPC simulations in industry and academia through
+software development, training and discussion in simulation and modeling. Collected in this website we have a
+compilation of the *software modules* that have been documented by the E-CAM_ community
+within the four initial target areas of E-CAM_. These four areas represent the relative diversity of the broad domain
+of interest relevant to E-CAM_, and indeed the wider `CECAM <https://www.cecam.org/>`_ community, and try to perform a
+rough categorisation of the areas of interest:
 
 .. toctree::
     :maxdepth: 1
@@ -40,7 +46,10 @@ within the four initial target areas of E-CAM_:
     ./Electronic-Structure-Modules/index
     ./Quantum-Dynamics-Modules/index
     ./Meso-Multi-Scale-Modelling-Modules/index
- 
+
+
+.. toctree::
+    :maxdepth: 2
 
 What is a module?
 =================
@@ -88,10 +97,10 @@ The software stored in E-CAM_ repositories is developed via two main activities:
 Pilot Projects
 --------------
 
-One of primary activity of E-CAM_ is to engage with pilot projects with industrial partners. These projects are conceived
-together with the partner and typically are to facilitate or improve the scope of computational simulation within the
-partner. The related code development for the pilot projects are open source (where the licence of the underlying
-software allows this) and are described in the modules associated with the pilot projects.
+One of primary activity of E-CAM_ is to engage with pilot projects with industrial partners. These projects are
+conceived together with the partner and typically are to facilitate or improve the scope of computational simulation
+within the partner. The related code development for the pilot projects are open source (where the licence of the
+underlying software allows this) and are described in the modules associated with the pilot projects.
 
 Below is a list of the current pilot projects within E-CAM_:
 

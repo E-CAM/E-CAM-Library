@@ -17,4 +17,4 @@ Gamification
 
 One of the big advantages of the automated CI is that it helps to gamify the development experience. Having all your
 unit tests pass or having 100% code coverage for your tests (and getting a little badge to appear notifying you), gives
-a (small) feeling of accomplishment and can be a good motivator to write better merge requests,
+a (small) feeling of accomplishment and can be a good motivator to write better merge requests.
