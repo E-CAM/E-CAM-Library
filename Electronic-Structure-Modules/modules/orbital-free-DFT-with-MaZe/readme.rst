@@ -22,7 +22,7 @@
     `MIT <https://opensource.org/licenses/mit-license>`_.
 
   Documentation Tool
-    `Doxygen <https://www.doxygen.nl>`_.
+    `Doxygen <https://www.doxygen.nl/>`_.
 
   Application Documentation
     `GitLab <https://gitlab.e-cam2020.eu/acoretti/shake-dft>`_.
@@ -76,7 +76,7 @@ evolution of the additional degrees of freedom.
 The code is intended for condensed matter physicists and for material scientists and it can be used for various purposes
 related to the subject.
 Even though some analysis tool is included in the package, the main goal of the software is to produce particles
-trajectories to be analyzed in post-production by means of external softwares.
+trajectories to be analyzed in post-production by means of external software.
 
 In computing trajectories, MaZe is intended to stand in the middle between force-field based MD and Kohn-Sham MD in
 terms of efficiency and accuracy.
@@ -135,7 +135,7 @@ The structure of the './config.mk' file is as follows:
 
 The command ``make`` will then build the executables.
 The command ``make clean`` cleans the files resulting from the compilation.
-Detailed documentation can be build using `Doxygen <http://doxygen.nl>`_ through the command ``make documentation``.
+Detailed documentation can be build using `Doxygen`_ through the command ``make documentation``.
 The whole suite of regression tests can be run through the command ``make tests``.
 
 Testing
