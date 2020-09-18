@@ -126,6 +126,7 @@ Modules not coming from ESDWs
      ./modules/libvdwxc/readme
      ./modules/MatrixSwitchDBCSR/readme
      ./modules/orbital-free-DFT-with-MaZe/readme
+     ./modules/orbital-free-DFT-with-NLCG/readme
 
 Pilot Projects
 ==============
