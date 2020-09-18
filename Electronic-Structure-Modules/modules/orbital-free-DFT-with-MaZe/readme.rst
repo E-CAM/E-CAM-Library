@@ -22,7 +22,7 @@
     `MIT <https://opensource.org/licenses/mit-license>`_.
 
   Documentation Tool
-    `Doxygen <https://www.doxygen.nl/index.html>`_.
+    `Doxygen <https://www.doxygen.nl>`_.
 
   Application Documentation
     `GitLab <https://gitlab.e-cam2020.eu/acoretti/shake-dft>`_.
@@ -42,7 +42,7 @@
 .. _maze_ofdft:
 
 ##########################################################################
-Mass Zero Constrained Dynamics for Orbital Free Density Functional Theory.
+Mass-Zero Constrained Dynamics for Orbital Free Density Functional Theory.
 ##########################################################################
 
 ..  Let's add a local table of contents to help people navigate the page
@@ -61,15 +61,32 @@ _________________
 
 The program performs Orbital-Free Density Functional Theory Molecular Dynamics (OF-DFT-MD) using the Mass-Zero (MaZe)
 constrained molecular dynamics approach as discussed in [BONELLA2020]_.
-This method enforces, at each time step, the Born-Oppenheimer condition that the system relax instantaneously to the
-ground state through the formalism of mass-zero constraints.
-The adiabatic separation between the degrees of freedom is enforced rigorously, while the algorithm is exactly
-symplectic and time-reversible in both physical and additional set of degrees of freedom.
-..  Formal details are discussed at length in Alessandro Coretti's Ph.D. Thesis.
+The method is based on an extended Lagrangian and the dynamics enforces, at each timestep, the Born-Oppenheimer
+condition that the system relaxes instantaneously to the ground state through the formalism of holonomic constraints
+of zero mass.
+The adiabatic separation between the degrees of freedom is enforced rigorously, while the numerical
+algorithm is exactly symplectic and time-reversible in both physical and additional set of degrees of freedom.
+Mathematical details about the implementation of the methods are discussed at length in Alessandro Coretti's
+Ph.D. thesis.
 The computation of the electronic density is carried on in reciprocal space through a plane-waves expansion so that
 the mass-zero degrees of freedom are represented by the Fourier coefficients of the electronic density field.
 The evolution of the ions is performed using Velocity-Verlet algorithm, while the SHAKE algorithm is used for
-computation of the additional degrees of freedom.
+evolution of the additional degrees of freedom.
+
+The code is intended for condensed matter physicists and for material scientists and it can be used for various purposes
+related to the subject.
+Even though some analysis tool is included in the package, the main goal of the software is to produce particles
+trajectories to be analyzed in post-production by means of external softwares.
+
+In computing trajectories, MaZe is intended to stand in the middle between force-field based MD and Kohn-Sham MD in
+terms of efficiency and accuracy.
+Indeed, while the forces are computed on-the-fly at each timestep, the optimization is done on
+the electronic density field instead of the Kohn-Sham orbitals. This feature avoids the need for satisfying the
+orthonormality constraint among orbitals and allows the
+computational complexity of the code to scale linearly with the dimensionality of the system.
+On the other hand, no information on the
+orbitals is available. The accuracy of the simulation relies on the choice of the kinetic energy functional, which has
+to be provided in terms of the electronic density alone.
 
 Background Information
 ______________________
@@ -118,13 +135,13 @@ The structure of the './config.mk' file is as follows:
 
 The command ``make`` will then build the executables.
 The command ``make clean`` cleans the files resulting from the compilation.
-Detailed documentation can be build using `Doxygen <http://doxygen.nl> through the command ``make documentation``.
+Detailed documentation can be build using `Doxygen <http://doxygen.nl>`_ through the command ``make documentation``.
 The whole suite of regression tests can be run through the command ``make tests``.
 
 Testing
 _______
 
-The test for the code and for regressions are launched through a python script which can be found in './tests/'.
+Tests for the code and for regressions are launched through a python script which can be found in './tests/'.
 Move into this folder and run ``python regression_tests.py -s MaZe``.
 The scripts can take other options in order to launch different suites of tests.
 Default is 'all' which can take up to 20 minutes.
