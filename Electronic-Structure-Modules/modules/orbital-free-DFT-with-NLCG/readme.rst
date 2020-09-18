@@ -61,7 +61,7 @@ The program performs Orbital-Free Density Functional Theory Molecular Dynamics (
 approach.
 The condition that the system relaxes instantaneously to the ground state is enforced, at each time step,
 finding the minimum of the energy for a given nuclear configuration using a nonlinear conjugate gradient method.
-The results of these simulations are used as benchmarks in [BONELLA2020]_ and in the simulations presented in
+The results of these simulations are used as benchmarks in [BONELLA2020a]_ and in the simulations presented in
 Alessandro Coretti's Ph.D. thesis.
 The computation of the electronic density is carried on in reciprocal space through a plane-waves expansion so that
 the electronic degrees of freedom are represented by the Fourier coefficients of the electronic density field.
@@ -174,4 +174,4 @@ The repository contains the following directories:
 References
 __________
 
-.. [BONELLA2020] Phys. Chem. Chem. Phys., 2020, 22, 10775-10785
+.. [BONELLA2020a] Phys. Chem. Chem. Phys., 2020, 22, 10775-10785
