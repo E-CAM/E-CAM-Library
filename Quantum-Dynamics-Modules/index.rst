@@ -423,6 +423,15 @@ The **Zagreb_sh** module is an interface between between Quantics package and th
 
 The **Quantics_openmp** module is an initial effort at OpenMP parallelisation improvements to Quantics.
 
+.. toctree::
+        :glob:
+        :maxdepth: 1
+
+        ./modules/Direct_Dynamics_Database/readme
+
+The **Direct Dynamics Database** The Direct Dynamics Database module is an improved, more efficient version of the database used to provide the potential energy surfaces in the Direct Dynamics variational multi-configuration Gaussian wavepacket (DD-vMCG) method [Wor1]_ which is included in the powerful and flexible Quantics_ package program [Wor2]_.
+
+
 References
 ==========
 
@@ -445,4 +454,7 @@ References
 .. [Mey]  H.-D. Meyer, G. A. Worth *Theor. Chem. Acc.* **109** (2003) 251 `DOI: 10.1007/s00214-003-0439-1 <https://doi.org/10.1007/s00214-003-0439-1>`_
 .. [Ric]  G. W. Richings, I. Polyak, K. E. Spinlove, G. A. Worth, I. Burghardt, B. Lasorne 
           *Int. Rev. Phys. Chem.* **34** (2015) 269 `DOI: 10.1080/0144235X.2015.1051354 <https://doi.org/10.1080/0144235X.2015.1051354>`_
-
+.. [Wor1]  G. A. Worth, M. A. Robb, B. L. Lasorne
+          *Mol. Phys.* **106** (2008) 2077–2091 `DOI: 10.1080/00268970802172503 <https://doi.org/10.1080/00268970802172503>`_
+.. [Wor2]  G. A. Worth, K. Giri, G. W. Richings, M. H. Beck, A. Jäckle, H.-D. Meyer
+            Quantics package, version 1.1, (2015)
