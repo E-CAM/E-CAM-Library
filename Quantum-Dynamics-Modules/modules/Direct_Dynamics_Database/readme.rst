@@ -5,7 +5,7 @@
 ###########################################
 Direct Dynamics Database improvements code
 ########################################### 
-#test
+
 .. sidebar:: Software Technical Information
 
   Language
@@ -26,9 +26,8 @@ Direct Dynamics Database improvements code
 
   Software Module Developed by
     Quantics code: G. A. Worth,  K. Giri,  G. W. Richings,  M. H. Beck,  A. J ̈ackle,  and H.-D. Meyer.  Module: Georgia Christopoulou and Graham Worth.    
+    
 .. contents:: :local:
-
-.. Add technical info as a sidebar and allow text below to wrap around it
 
 Purpose of Module
 _________________
