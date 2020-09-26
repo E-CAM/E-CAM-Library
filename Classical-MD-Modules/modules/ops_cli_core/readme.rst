@@ -124,7 +124,7 @@ The source code for the OpenPathSampling CLI can be found in the its
 GitHub repository:  http://github.com/openpathsampling/openpathsampling-cli.
 
 This module covers the "core" code for the OpenPathSampling CLI as of
-release version 0.1.   TODO: don't merge module until release 0.1
+release version 0.1.
 
 Specifically, it includes the following files, and their associated test
 suites:
