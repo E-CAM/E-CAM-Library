@@ -1,9 +1,9 @@
 :orphan:
 
-.. _ops_new_storage_3:
+.. _ops_new_storage_2:
 
 #########################
-OPS New Storage Subsystem
+SimStore: New 
 #########################
 
 .. sidebar:: Software Technical Information
@@ -25,7 +25,7 @@ OPS New Storage Subsystem
     http://openpathsampling.org/latest/examples/
 
   Licence
-    LGPL, v. 2.1 or later
+    MIT
 
 .. contents:: :local:
 
@@ -40,6 +40,8 @@ Purpose of Module
 _________________
 
 .. Give a brief overview of why the module is/was being created.
+
+The overall discussion of the need
 
 
 Background Information
