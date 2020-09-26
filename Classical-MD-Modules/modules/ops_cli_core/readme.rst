@@ -72,7 +72,8 @@ Key functionality included here:
   for a single project, but are not intended to be widely distributed and
   maintained for the long term.
 
-.. _native namespace packages: https://packaging.python.org/guides/packaging-namespace-packages/#native-namespace-packages
+.. _native namespace packages: 
+  https://packaging.python.org/guides/packaging-namespace-packages/#native-namespace-packages
 
 
 Background Information
