@@ -114,9 +114,11 @@ Examples
 ________
 
 This module deals with the underlying platform on which the rest of the OPS
-CLI is built. As such, there are no direct examples. The concrete
-implementation of specific commands in the OPS CLI will be the subject of a
-second module.
+CLI is built. As such, there are no direct examples. However, there are
+examples of how to use the platform, i.e., how to write plugins. Some of
+these can be found in the ``example_plugins`` directory. Additionally, the
+specific commands implemented for the OPS CLI 0.1, which will be the subject
+of a second module, can be thought of as examples.
 
 Source Code
 ___________
