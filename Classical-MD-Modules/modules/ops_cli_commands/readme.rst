@@ -103,6 +103,11 @@ With the package and its testing tools installed, tests can be run with:
 Examples
 ________
 
+Basic examples of how to use the OPS CLI can be found in:
+
+* http://openpathsampling.org/latest/cli.html
+* https://gitlab.e-cam2020.eu:10443/dwhswenson/ops_tutorial/-/blob/master/5_advanced_customize_shooting.ipynb
+
 
 Source Code
 ___________
@@ -110,8 +115,8 @@ ___________
 The source code for the OpenPathSampling CLI can be found in the its
 GitHub repository:  http://github.com/openpathsampling/openpathsampling-cli.
 
-This module covers the "core" code for the OpenPathSampling CLI as of
-release version 0.1.
+This module covers the code for commands included in the OpenPathSampling
+CLI as of release version 0.1.
 
 Specifically, it includes the following files, and their associated test
 suites:
