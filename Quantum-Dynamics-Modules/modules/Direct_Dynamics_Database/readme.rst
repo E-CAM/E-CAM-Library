@@ -90,6 +90,4 @@ of the project to clone it into your computer, then type::
 
   $  git clone https://gitlab.com/quantics/quantics.git
 
-  $  git checkout ECAM 
-
 .. _Quantics.gitlab: https://gitlab.com/quantics/quantics.git
