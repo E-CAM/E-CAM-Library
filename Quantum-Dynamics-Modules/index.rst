@@ -485,7 +485,11 @@ The **Spin orbit coupling smoothing** module is to smooth spin orbit couplings a
 
         ./modules/Direct_Dynamics_Database/readme
 
-The **Direct Dynamics Database** The Direct Dynamics Database module is an improved, more efficient version of the database used to provide the potential energy surfaces in the Direct Dynamics variational multi-configuration Gaussian wavepacket (DD-vMCG) method [Wor1]_ which is included in the powerful and flexible Quantics_ package program [Wor2]_.
+The **Direct Dynamics Database** The Direct Dynamics Database module is an improved, 
+more efficient version of the database used to provide the potential energy surfaces 
+in the Direct Dynamics variational multi-configuration Gaussian wavepacket (DD-vMCG) 
+method [Wor1]_ which is included in the powerful and flexible Quantics_ package 
+program [Wor2]_.
 
 
 References
