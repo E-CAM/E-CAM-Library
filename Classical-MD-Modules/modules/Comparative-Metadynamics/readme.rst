@@ -11,8 +11,8 @@ Comparative Metadynamics
         Python (3+)
     
     Licence
-        `CC BY-NC-SA 4.0 
-        <https://creativecommons.org/licenses/by-nc-sa/4.0/>`_
+        The software for this specific module "Comparative Metadynamics" is licensed under `BSD-3-Clause 
+        <https://opensource.org/licenses/BSD-3-Clause>`_
     
     Documentation Tool
         `pdoc`_, numpydoc format (ReST)    
