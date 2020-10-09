@@ -98,6 +98,7 @@ Below are listed the pilot project modules created so far:
     :maxdepth: 1
 
     ./modules/LocConQubit/readme
+    ./modules/Pergauss/readme
 ..    ./modules/module_faster/readme
 
 **LocConQubit** is a code for the construction of controlled pulses on isolated qubit systems using the Local Control
@@ -210,6 +211,7 @@ Below are listed all the modules from the E-CAM ESDWs in Quantum Dynamic develop
     :maxdepth: 1
 
     ./modules/CTMQC/readme
+    ./modules/EF_module/readme
 
 The **CTMQC** module allows to simulate excited-state dynamics in model systems of one to three spatial (nuclear)
 dimensions, with an arbitrary number of electronic states. The algorithm is based on the quantum-classical approximation
@@ -369,6 +371,14 @@ It also contains a library of adapted MPI subroutines for easier programming of 
 **Openmpbeads** is a patch to the PaPIM code which enables parallelization of the sampling of the
 polymer chains within the PIM algorithm, improving efficiency in sampling of the Wigner density.
 
+**PerGauss** is an implementation of periodic boundary conditions for gaussian basis functions
+to be used within the quantics program package.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/Pergauss/readme
 
 
 Quantics
@@ -442,6 +452,24 @@ by the group of Nadja Doslic in Zagreb.
 
 The **Quantics_openmp** module is an initial effort at OpenMP parallelisation improvements to Quantics.
 
+CLstunfti
+---------
+
+`CLstunfti <https://gitlab.com/axelschild/CLstunfti>`_ is an extendable Python 
+toolbox to compute scattering of electrons with a given kinetic energy in 
+liquids and amorphous solids. It uses a continuum trajectory model with 
+differential ionization and scattering cross sections as input to simulate the 
+motion of the electrons through the medium. 
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/CLstunfti/readme
+
+The module **CLstunfti** makes CLstunfti available to the world by providing 
+a documentation of the toolbox and inline documentations of the source code, 
+as well as a set of examples that can also be used for testing.
 
 .. toctree::
         :glob:
@@ -453,7 +481,8 @@ The **Spin orbit coupling smoothing** module is to smooth spin orbit couplings a
 
 
 References
-==========
+----------
+
 
 .. [Curc] B. F. E. Curchod, T. J. Penfold, U. Rothlisberger, I. Tavernelli *Phys. Rev. A*
           **84** (2012) 042507 `DOI: 10.1103/PhysRevA.84.042507
