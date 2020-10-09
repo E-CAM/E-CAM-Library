@@ -98,7 +98,7 @@ The OPS CLI can be installed with either pip or conda:
 
    pip install openpathsampling-cli
    # or
-   conda install openpathsampling-cli
+   conda install -c conda-forge openpathsampling-cli
 
 Tests in the OpenPathSampling CLI use `pytest`_. The requirements for
 testing are ``pytest`` and ``nose``, both of which can also be installed
