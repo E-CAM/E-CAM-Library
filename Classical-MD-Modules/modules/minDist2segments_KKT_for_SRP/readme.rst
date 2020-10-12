@@ -65,7 +65,7 @@ in the `SRP fix <https://lammps.sandia.gov/doc/pair_srp.html>`_ for LAMMPS.
   We would use it to avoid topology violation in an entangled polymer system.
 
 .. [Sirk2012] An enhanced entangled polymer model for dissipative particle dynamics,
-	      J. Chem. Phys. 136, 134903 (2012); `<https://doi.org/10.1063/1.3698476>`_.
+              J. Chem. Phys. 136, 134903 (2012); `<https://doi.org/10.1063/1.3698476>`_.
 
 Background Information
 ______________________
