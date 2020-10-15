@@ -41,8 +41,37 @@ _________________
 
 .. Give a brief overview of why the module is/was being created.
 
-The overall discussion of the need
+Trajectory-based methods to study rare events, such as transition path
+sampling (TPS), frequently require calculation of some collective variables
+during the simulation. In some cases, these collective variables can be
+relatively expensive to calculate, and my be calculated hundreds of
+thousands of times during simulation.
 
+For some types of simulations, such as the one-way shooting variable in TPS,
+parts of trajectories can be reused, making it advantageous to store the
+results of collective variables in memory. Furthermore, those same
+collective variables are frequently used in analysis, make it advantageous
+to store the results to disk.
+
+This module introduces the parts of SimStore that manage that storage. This
+includes the ``StorableFunction`` class itself, which wraps around a
+user-defined function and handles caching results in memory, and looking up
+results cached to disk. The user-defined function must take a data object
+(such as a snapshot or a trajectory), which has a unique universal
+identifier (UUID), and must return the same value every time it operates on
+the same input (i.e., it must be a "pure" function).
+
+A ``StorableFunction`` can be used in different modes: in ``'analysis'``
+mode, it first searches the memory cache, then the disk storage, then
+finally evaluates the internal function. In ``'production'`` mode, it first
+searches the memory cache, then evaluates the function. Finally, in
+``'no-caching'`` mode, it always evaluates the internal function.
+
+One of the challenges in designing the new storable function infrastructure
+was to ensure that it would be compatible with parallelization. This module
+includes functionality so that the memory caches from different remote
+workers can be returned with the other results, and combined into a master
+memory cache of the process that also stores results to disk.
 
 Background Information
 ______________________
