@@ -54,7 +54,7 @@ The latest version of quantics package and the code developed
 related to this module within the Quantics 
 software package are merged and available through Quantics.gitlab_.
 
-.. _Quantics.gitlab: https://gitlab.com/quantics/quantics.git
+.. _Quantics.gitlab: https://gitlab.com/quantics
 
 
 Application
@@ -90,4 +90,4 @@ of the project to clone it into your computer, then type::
 
   $  git clone https://gitlab.com/quantics/quantics.git
 
-.. _Quantics.gitlab: https://gitlab.com/quantics/quantics.git
+.. _Quantics.gitlab: https://gitlab.com/quantics
