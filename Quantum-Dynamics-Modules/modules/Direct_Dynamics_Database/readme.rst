@@ -85,8 +85,9 @@ ___________
 The source code for this module can be found within the 
 Quantics software which can be downloaded via Quantics.gitlab_. 
 You firstly need to make an account (gitlab). The quantics 
-project has a private repository so you also need to be a member 
-of the project to clone it into your computer, then type::
+project has a private repository so you also need to ask 
+for access by emailing Graham Worth (g.a.worth@ucl.ac.uk).
+In order to clone it into your computer, then type::
 
   $  git clone https://gitlab.com/quantics/quantics.git
 
