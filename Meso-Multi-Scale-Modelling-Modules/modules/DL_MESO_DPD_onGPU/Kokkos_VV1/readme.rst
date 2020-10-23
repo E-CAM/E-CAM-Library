@@ -56,30 +56,40 @@ Its focus is on the first loop of the Verlet Velocity (VV) scheme for the time m
 
 Purpose of Module
 _________________
-In this module we present a first version of DL_MESO (DPD) with `Kokkos <https://github.com/kokkos/kokkos>`_ library which offloads 
-one of the main steps of the time marching scheme during the force integration. This allows to run DL_MESO on NVidia GPUs as well 
-as on other GPUs or architectures (many-core hardware like KNL), allowing performance portability as well as separation of concern 
+In this module we present a first version of DL_MESO (DPD) with `Kokkos <https://github.com/kokkos/kokkos>`_ 
+library which offloads one of the main steps of the time marching scheme during the force integration. 
+This allows to run DL_MESO on NVidia GPUs as well 
+as on other GPUs or architectures (many-core hardware like KNL), allowing performance portability 
+as well as separation of concern 
 between computational science and HPC.
 
-The VV scheme is made of 3 steps: 1) a first velocity and particle positions integration by $\Delta t/2$, 2) a force calculation 
-and 3) a second velocity integration by $\Delta t/2$. In this module we are porting to Kokkos the first step. 
+The VV scheme is made of 3 steps: 1) a first velocity and particle positions integration 
+by $\Delta t/2$, 2) a force calculation 
+and 3) a second velocity integration by $\Delta t/2$. In this module we are porting to 
+Kokkos the first step. 
 
-Note: Kokkos is a C++ library, while DL_MESO (DPD) is in Fortran90 Language. The current implementation requires a transfer 
-between Fortran to C++, due to the use of Fortran pointers not binded via ISO_C_BINDING standard. This constrain will be removed 
+Note: Kokkos is a C++ library, while DL_MESO (DPD) is in Fortran90 Language. The current 
+implementation requires a transfer 
+between Fortran to C++, due to the use of Fortran pointers not binded via ISO_C_BINDING 
+standard. This constrain will be removed 
 in successive versions.  
 
 
 Background Information
 ______________________
-With the advent of heterogeneous hardware, achieving performance portability across different architectures is one of the main 
-challenges in HPC. In fact, while specific languages, like CUDA, can give best performance for the NVidia hardware, they cannot 
+With the advent of heterogeneous hardware, achieving performance portability across 
+different architectures is one of the main 
+challenges in HPC. In fact, while specific languages, like CUDA, can give best 
+performance for the NVidia hardware, they cannot 
 be used with different GPU vendors limiting the usage across supercomputers world wide.
 
-In this module we use Kokkos, developed at Sandia National Laboratories, which consist of several C++ templated libraries able 
-to offload to workload to several different architectures, taking care of the memory layout and transfer between host and device.
+In this module we use Kokkos, developed at Sandia National Laboratories, which consist 
+of several C++ templated libraries able 
+to offload to workload to several different architectures, taking care of the memory layout and 
+transfer between host and device.
 
-To install Kokkos focus the instructions at: `Kokkos Tutorial <https://github.com/kokkos/kokkos/blob/master/BUILD.md>`_. This 
-module has been build on the Kokkos installation using the following flags:
+To install Kokkos focus the instructions at: `Kokkos Tutorial <https://github.com/kokkos/kokkos/blob/master/BUILD.md>`_. 
+This module has been build on the Kokkos installation using the following flags:
 
   cmake ../ -CMAKE_CXX_COMPILER=$HOME/Kokkos/kokkos/bin/nvcc_wrapper -DKokkos_ENABLE_CUDA=ON -DKokkos_ENABLE_OPENMP=ON 
   -DKokkos_ENABLE_CUDA_LAMBDA=ON -DCMAKE_INSTALL_PREFIX=$HOME/Kokkos/kokkos
@@ -136,17 +146,27 @@ For a fair comparison, this data should be transferred upstream the time marchin
 
 Experience in porting to Kokkos
 _______________________________
-Compared to other paradigms used for GPU programming, like OpenACC or OpenMP, Kokkos has a quite steep learning curve. 
-This is due to several concepts which needs to be assimilated by the programmer before starting the porting. 
-Some of these concepts are familiar to C++ programmers, like the use of lambda functions and function objects 
-(commonly known as functors). Another important concept is the Memory Space which is different according to the hardware used. 
-The transfer between host and device is based around the concept of View laying in the Memory Space, an array of one 
-or more dimensions which can be set at compile time or runtime. Programmers familiar with CUDA with will easily 
-recognize some similarity when porting to GPU, like the concepts of host and device asynchronism and the Unified Memory 
+Compared to other paradigms used for GPU programming, like OpenACC or OpenMP, Kokkos has a 
+quite steep learning curve. 
+This is due to several concepts which needs to be assimilated by the programmer 
+before starting the porting. 
+Some of these concepts are familiar to C++ programmers, like the use of lambda 
+functions and function objects 
+(commonly known as functors). Another important concept is the Memory Space which is 
+different according to the hardware used. 
+The transfer between host and device is based around the concept of View laying in 
+the Memory Space, an array of one 
+or more dimensions which can be set at compile time or runtime. Programmers familiar 
+with CUDA with will easily 
+recognize some similarity when porting to GPU, like the concepts of host and device 
+asynchronism and the Unified Memory 
 memory space. After following the first `on line tutorial <https://www.youtube.com/watch?v=rUIcWtFU5qM&t=3000s>`_ , 
-the porting of a simple loop should be straight forward. However, more advanced concepts are required for more complex 
-scientific kernels to achieve performance portability. Finally, the error messages are not always very easy to interpret 
-and the online threads to similar issues are still relatively few. With time, a wider spread of the library will definitely 
+the porting of a simple loop should be straight forward. However, more advanced concepts 
+are required for more complex 
+scientific kernels to achieve performance portability. Finally, the error messages are not 
+always very easy to interpret 
+and the online threads to similar issues are still relatively few. With time, a wider spread 
+of the library will definitely 
 improve the usage and make more user friendly making it less verbose.
 
 
