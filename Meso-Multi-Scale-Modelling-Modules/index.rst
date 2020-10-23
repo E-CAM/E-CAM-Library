@@ -90,6 +90,7 @@ while for the GPU version we have:
     ./modules/DL_MESO_DPD_onGPU/fftw/readme
     ./modules/DL_MESO_DPD_onGPU/improvedOverlap/readme
     ./modules/DL_MESO_DPD_onGPU/bond_forces_single_GPU/readme
+    ./modules/DL_MESO_DPD_onGPU/Kokkos_VV1/readme
 
 ESPResSo++
 ----------
