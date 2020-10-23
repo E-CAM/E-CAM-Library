@@ -142,8 +142,8 @@ using a Volta V100 NVidia card.
 For a 5.12 million particles of the Large Mixture test case, we get a 0.00117s (very close to the fist loop, 
 despite the 
 reduction operations) per kernel execution with both versions, 
-which indicate no loss of performance in using Kokkos compared to native CUDA code. However, the data transfer
- between 
+which indicate no loss of performance in using Kokkos compared to native CUDA code. However, the data 
+transfer between 
 host and device currently occurs at every time step in the Kokkos version, taking 0.4689s 
 and then with a negative 
 impact on the overall performance.
