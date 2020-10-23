@@ -135,15 +135,20 @@ Compare the ``OUTPUT`` and the ``export`` files to verify your results.
 Performance
 ___________
 
-We timed the execution for the VV second step kernel using Kokkos and compared to the same loop written in CUDA language 
+We timed the execution for the VV second step kernel using Kokkos and compared to the same loop written 
+in CUDA language 
 (see `DL_MESO GPU version modules <https://e-cam.readthedocs.io/en/latest/Meso-Multi-Scale-Modelling-Modules/index.html>`_) 
 using a Volta V100 NVidia card.
-For a 5.12 million particles of the Large Mixture test case, we get a 0.00117s (very close to the fist loop, despite the 
+For a 5.12 million particles of the Large Mixture test case, we get a 0.00117s (very close to the fist loop, 
+despite the 
 reduction operations) per kernel execution with both versions, 
-which indicate no loss of performance in using Kokkos compared to native CUDA code. However, the data transfer between 
-host and device currently occurs at every time step in the Kokkos version, taking 0.4689s and then with a negative 
+which indicate no loss of performance in using Kokkos compared to native CUDA code. However, the data transfer
+ between 
+host and device currently occurs at every time step in the Kokkos version, taking 0.4689s 
+and then with a negative 
 impact on the overall performance.
-For a fair comparison, this data should be transferred upstream the time marching loop as done in the CUDA version. 
+For a fair comparison, this data should be transferred upstream the time marching loop as 
+done in the CUDA version. 
 
 
 
