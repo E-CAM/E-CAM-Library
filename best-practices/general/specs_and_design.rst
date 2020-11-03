@@ -83,9 +83,9 @@ An example of a test-driven development cycle would be:
 #. Run tests
 #. Refactor code
 
-Such an approach is very task-oriented and if a wider perspective is required (for example if one is beginning a software
-project or implementing a redesign) we advise the creation of a `Software Requirements Specification`_ to supplement
-this and provide an overarching structure.
+Such an approach is very task-oriented and if a wider perspective is required (for example if one is beginning a
+software project or implementing a redesign) we advise the creation of a `Software Requirements Specification`_ to
+supplement this and provide an overarching structure.
 
 In addition, when dealing with numerical methods the creation of adequate tests can be difficult since bit-wise
 reproducibility of results is frequently not possible due to floating point precision and/or the use of random numbers.

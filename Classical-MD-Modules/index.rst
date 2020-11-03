@@ -3,6 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. sidebar:: General Information
+
+    .. contents:: :depth: 2
+
+    * :ref:`contributing`
+    * :ref:`search`
+
 .. _readme_classical_md:
 
 ********************
@@ -11,13 +18,6 @@ Classical MD Modules
 
 Introduction
 ============
-
-.. sidebar:: General Information
-
-    .. contents:: :depth: 2
-
-    * :ref:`contributing`
-    * :ref:`search`
 
 .. image:: ./images/lipid.jpg
    :width: 15 %
@@ -148,14 +148,14 @@ to enumerate -- both academics and industry will benefit greatly from having
 software for these methods.
 
 The modules listed here deal with software to perform path sampling methods,
-as well as other approaches to rare events. 
+as well as other approaches to rare events.
 
 OpenPathSampling
 ================
 
-Several modules were developed based on 
-`OpenPathSampling (OPS) <http://openpathsampling.org>`_. These include modules 
-that have been incorporated into the core of OPS, as well as some that remain 
+Several modules were developed based on
+`OpenPathSampling (OPS) <http://openpathsampling.org>`_. These include modules
+that have been incorporated into the core of OPS, as well as some that remain
 separate projects. The modules that were incorporated into the core are:
 
 .. toctree::
@@ -173,13 +173,17 @@ separate projects. The modules that were incorporated into the core are:
     ./modules/OpenPathSampling/ops_channel_analysis/readme
     ./modules/OpenPathSampling/ops_new_tis_analysis/readme
     ./modules/OpenPathSampling/ops_resampling_statistics/readme
- 
+    ./modules/OpenPathSampling/ops_gromacs_engine/readme
+    ./modules/OpenPathSampling/ops_visit_all_states/readme
+    ./modules/OpenPathSampling/ops_interface_shooting/readme
+    ./modules/OpenPathSampling/ops_progress_meters/readme
+
 The modules that are based on OPS, but remain separate, are:
 
 .. toctree::
     :glob:
     :maxdepth: 1
-   
+
     ./modules/annotated_trajectories/readme
     ./modules/ops_piggybacker/readme
     ./modules/contact_maps/readme
@@ -187,9 +191,9 @@ The modules that are based on OPS, but remain separate, are:
     ./modules/dw_dimer_testsystem/readme
     ./modules/lammps_ops/readme
 
-Nine of these modules were part of 
+Nine of these modules were part of
 `E-CAM Deliverable 1.2 <https://www.e-cam2020.eu/deliverables/>`_. Those modules
-provided improvements and new features in software for trajectory sampling and 
+provided improvements and new features in software for trajectory sampling and
 for studying the thermodynamics and kinetics of rare events.
 
 Pilot Projects
@@ -214,12 +218,16 @@ The following modules were developed specifically for the Classical MD pilot pro
     ./modules/contact_maps/readme
     ./modules/contact_maps_parallelization/readme
     ./modules/contact_concurrences/readme
+    ./modules/PIcore/readme
+    ./modules/PIhydration/readme
+    ./modules/MSJuly2019_minDist2segments_KKT/readme
+    ./modules/MSJuly2019_velocities_resolve_EVC/readme
 
 Extended Software Development Workshops (ESDWs)
 ===============================================
 
-The first ESDW for the Classical MD workpackage was held in Traunkirchen, 
-Austria, in November 2016, with a follow-up to be held in Vienna in April 2017. 
+The first ESDW for the Classical MD workpackage was held in Traunkirchen,
+Austria, in November 2016, with a follow-up to be held in Vienna in April 2017.
 The following modules have been produced:
 
 .. toctree::
@@ -231,7 +239,7 @@ The following modules have been produced:
     ./modules/OpenPathSampling/ops_maxlikelihood/readme
     ./modules/OpenPathSampling/ops_interface_optimization/readme
 
-The second ESDW for the Classical MD workpackage was held in Leiden, Holland, in 
+The second ESDW for the Classical MD workpackage was held in Leiden, Holland, in
 August 2017. The following modules have been produced:
 
 .. toctree::
@@ -251,6 +259,13 @@ The third ESDW for the Classical MD workpackage was held in Turin, Italy in July
     :glob:
     :maxdepth: 1
 
+    ./modules/pyscal/readme
     ./modules/HTC/decorators/readme
+    ./modules/HTC/configuration/readme
+    ./modules/HTC/mpi/readme
+    ./modules/HTC/easybuild/readme
+    ./modules/HTC/mpi4py_tasks/readme
+    ./modules/HTC/mpi_runtimes/readme
+    ./modules/dask_traj/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/
