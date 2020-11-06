@@ -61,13 +61,13 @@ In such a fine-graining step, each CG polymer chain is replaced with
 a more fine-grained chain, by dividing a CG blob into several FG blobs.
 
 The present module provides the python script which performs this fine-graining procedure.
-The implementation detail is in following bellow.
+The implementation detail is in following below.
 
 1. The microscopic configuration of :math:`N` polymers consisted of :math:`M` monomers is prepared. The system size :math:`L` is determined by the number of density :math:`\rho= (N \times M) /L^3 \approx 0.85`. :math:`m` and :math:`\sigma` stands for the mass and the diameter of monomers.
 
    We presuppose that equilibrated CG chain at :math:`N_{b}` is already obtained.
 
-2. The softblobs at :math:`N_{b}` is devided into 2 softblobs at :math:`N_{b}/2` under the constraint conditions defined as
+2. The softblobs at :math:`N_{b}` is divided into 2 softblobs at :math:`N_{b}/2` under the constraint conditions defined as
 
 
    :math:`\mathbf{R}_i^{N_{b}} = \frac{\mathbf{R}_{2i-1}^{N_{b}/2} + \mathbf{R}_{2i}^{N_{b}/2}}{2} \equiv \mathbf{r}_{\rm{com}}^i`,

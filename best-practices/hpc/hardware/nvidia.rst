@@ -49,9 +49,9 @@ GPU-GPU bandwidth communication (the latest greatly improved through NVlink), di
 Addressing <https://devblogs.nvidia.com/parallelforall/beyond-gpu-memory-limits-unified-memory-pascal/>`_, the presence
 of new APIs for programming (such as `Tensor Core
 <https://devblogs.nvidia.com/parallelforall/cuda-9-features-revealed>`_ multiplications specifically designed for deep
-learning alogrithms).
+learning algorithms).
 
-Finally, it is important to stress the improvements made by NVidia on the implemenation of `Unified Memory
+Finally, it is important to stress the improvements made by NVidia on the implementation of `Unified Memory
 <https://devblogs.nvidia.com/parallelforall/beyond-gpu-memory-limits-unified-memory-pascal/>`_. This
 allows the system to automatically migrate data allocated in Unified Memory between host and device so that it looks
 like CPU memory to code running on the CPU, and like GPU memory to code running on the GPU making programmability
@@ -61,6 +61,6 @@ At this stage, GPU programming is quite mainstream and there are many training c
 example the `NVidia education site <https://developer.nvidia.com/cuda-education>`_ for material related to CUDA and
 OpenACC. Material for OpenMP is more limited, but as an increasing number of compilers begin to support the OpenMP 4.5
 standard, we expect the amount of such material to grow (see `this presentation on performance of the Clang OpenMP 4.5
-implementaion on NVIDIA gpus 
+implementation on NVIDIA gpus
 <http://on-demand.gputechconf.com/gtc/2016/presentation/s6510-jeff-larkin-targeting-gpus-openmp.pdf>`_ for a status
 report as of 2016).

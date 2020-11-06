@@ -8,7 +8,7 @@ C++17
 C++17 is the name for the most recent revision of the `ISO/IEC 14882 <https://en.wikipedia.org/wiki/ISO/IEC_14882>`_
 standard for the C++ programming language.
 
-The previous C++ versions show very limited parallel processing capabilities when using mutli/many core architectures.
+The previous C++ versions show very limited parallel processing capabilities when using multi/many core architectures.
 This situation will change with the C++17, in which the parallelised version of `Standard Template Library
 <https://en.wikipedia.org/wiki/Standard_Template_Library>`_ is
 included. The STL is a software library for C++ programming which has 4 components: Algorithms, Containers, Functors
@@ -23,7 +23,7 @@ Fortran 2015
 ~~~~~~~~~~~~
 
 `Fortran 2015 <http://fortranwiki.org/fortran/show/Fortran+2015>`_ is a minor revision of Fortran 2008 (which was when
-Fortran became a Partioned Global Address Space (PGAS) language with the introduction of `coarrays
+Fortran became a Partitioned Global Address Space (PGAS) language with the introduction of `coarrays
 <https://en.wikipedia.org/wiki/Coarray_Fortran>`_). The revisions mostly target additional parallelisation features and
 increased interoperability with C.
 
@@ -91,8 +91,8 @@ developed by Cray, CAPS, Nvidia
 and PGI. The standard is designed to simplify parallel programming of heterogeneous CPU/GPU systems. Since the
 paradigm is very similar to the latest OpenMP specs, a future merger into OpenMP is not unlikely.
 It should be noted that CUDA (with the `nvcc compiler
-<http://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html>`_) is still the most commonly used (and highest performing)
-library for programming NVIDIA GPUs.
+<http://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html>`_) is still the most commonly used (and highest
+performing) library for programming NVIDIA GPUs.
 
 **OpenCL**
 
@@ -103,7 +103,7 @@ hardware accelerators.
 
 OpenCL 2.2 brings the OpenCL C++ kernel language into the core specification for significantly enhanced parallel
 programming productivity. When releasing OpenCL version 2.2, the Khronos Group announced that OpenCL would
-be merging into `Vulkan <https://en.wikipedia.org/wiki/Vulkan_(API)>`_ (which targets high-performance realtime 
+be merging into `Vulkan <https://en.wikipedia.org/wiki/Vulkan_(API)>`_ (which targets high-performance realtime
 3D graphics applications) in the future, leaving some uncertainty as to how this may affect the HPC space.
 
 Runtime System Approaches
@@ -115,21 +115,22 @@ programming standards.
 
 There are number of programming models that leverage runtime systems under development. They promise to abstract
 away hardware during the development process, with the proviso that tuning at runtime may be required. Our
-experience to date with these systems is limited so we simply provide a list of three such systems here (which is certainly
-not exhaustive) in no particular order:
+experience to date with these systems is limited so we simply provide a list of three such systems here (which is
+certainly not exhaustive) in no particular order:
 
-* `HPX <https://github.com/STEllAR-GROUP/hpx>`_, a C++ Standard Library for concurrency and parallelism. The goal of the HPX project is to create a high
-  quality, freely available, open source implementation of `ParalleX <http://stellar.cct.lsu.edu/pubs/icpp09.pdf>`_ concepts for conventional and future systems
-  by building a modular and standards conforming runtime system for SMP and distributed application environments.
-  (Most recent release: v1.0, April 2017)
-* `Kokkos <https://github.com/kokkos/kokkos>`_ implements a programming model in C++ for writing performance portable applications targeting all
-  major HPC platforms. For that purpose it provides abstractions for both parallel execution of code and data
-  management. Kokkos is designed to target complex node architectures with N-level memory hierarchies and
-  multiple types of execution resources. It currently can use OpenMP, Pthreads and CUDA as backend programming
+* `HPX <https://github.com/STEllAR-GROUP/hpx>`_, a C++ Standard Library for concurrency and parallelism. The goal of the
+  HPX project is to create a high quality, freely available, open source implementation of
+  `ParalleX <http://stellar.cct.lsu.edu/pubs/icpp09.pdf>`_ concepts for conventional and future systems by building a
+  modular and standards conforming runtime system for SMP and distributed application environments. (Most recent
+  release: v1.0, April 2017)
+* `Kokkos <https://github.com/kokkos/kokkos>`_ implements a programming model in C++ for writing performance portable
+  applications targeting all major HPC platforms. For that purpose it provides abstractions for both parallel execution
+  of code and data management. Kokkos is designed to target complex node architectures with N-level memory hierarchies
+  and multiple types of execution resources. It currently can use OpenMP, Pthreads and CUDA as backend programming
   models. (Most recent release: v2.04.04, 11 Sept 2017)
-* `OmpSs <https://pm.bsc.es/ompss>`_ is an effort to integrate features from the StarSs programming model developed at Barcelona Supercomputing
-  Centre (BSC) into a single programming model. In particular, the objective is to extend OpenMP with
-  new directives to support asynchronous parallelism and heterogeneity (devices like GPUs). However, it can
+* `OmpSs <https://pm.bsc.es/ompss>`_ is an effort to integrate features from the StarSs programming model developed at
+  Barcelona Supercomputing Centre (BSC) into a single programming model. In particular, the objective is to extend
+  OpenMP with new directives to support asynchronous parallelism and heterogeneity (devices like GPUs). However, it can
   also be understood as new directives extending other accelerator based APIs like CUDA or OpenCL. The OmpSs
   environment is built on top of BSCs Mercurium compiler and Nanos++ runtime system. (Most recent release:
   v17.06, June 2017)
@@ -138,9 +139,9 @@ Feedback for software developers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Awareness of the latest standards and the status of their implementations are critical at all times during application
-development. The adoption of new features from standards are likely to have large impact on the scalability of application
-codes precisely because it is very likely that these features exist to target the scalability challenges on modern
-systems. Nevertheless, you should be aware that there can be very long gaps between the publication of a standard
+development. The adoption of new features from standards are likely to have large impact on the scalability of
+application codes precisely because it is very likely that these features exist to target the scalability challenges on
+modern systems. Nevertheless, you should be aware that there can be very long gaps between the publication of a standard
 and the implementation in compilers (which is frequently also biased by who is pushing which standard and why: Intel
 pushes OpenMP because of their Xeon Phi line, NVIDIA who now own PGI pushes OpenACC because of their GPUs,
 AMD pushed OpenCL for their own GPUs to compete with CUDA). The likelihood of there being a single common (set
@@ -158,14 +159,14 @@ As you may have noticed in the previous discussion, the computer scientists deve
 mostly in C++, and the implementation of new standards in compilers is also seen first for C++. From a practical
 perspective this has some clear implications: if you want to access the latest software technologies then you had better
 consider C++ for your application. This may appear harsh given that the Fortran standard has clear capabilities in this
-space, but it is a current reality that cannot be ignored. Also, given that the vast majority of researchers will eventually
-transition to industry (because there simply aren’t enough permanent jobs in academia) it is more responsible to
-ensure they have programming expertise in a language that is heavily used in the commercial space. Finally, the ecosystem
-surrounding C++ (IDEs, testing frameworks, libraries,. . . ) is much richer because of it’s use in industry and
-computer science.
+space, but it is a current reality that cannot be ignored. Also, given that the vast majority of researchers will
+eventually transition to industry (because there simply aren’t enough permanent jobs in academia) it is more responsible
+to ensure they have programming expertise in a language that is heavily used in the commercial space. Finally, the
+ecosystem surrounding C++ (IDEs, testing frameworks, libraries,. . . ) is much richer because of it’s use in industry
+and computer science.
 
-Taking all of the above into consideration, if you are starting out with an application we would distil the discussion into
-the following advice: prototype your application using Python leveraging the Python APIs to the libraries you need;
+Taking all of the above into consideration, if you are starting out with an application we would distil the discussion
+into the following advice: prototype your application using Python leveraging the Python APIs to the libraries you need;
 write unit tests as you go; and, when you start doing computationally intensive work, use C++ with Python interfaces
 to allow you to squeeze out maximal performance using the latest software technologies.
 
