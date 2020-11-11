@@ -463,8 +463,8 @@ The **Quantics_openmp** module is an initial effort at OpenMP parallelisation im
 
         ./modules/Quantics_DD_MPIOMP/readme
 
-The **Quantics_DD_MPIOMP** module is a further improvement on the parallel version of DD-vMCG in Quantics by adding an extra 
-layer of MPI parallelization to the existing OpenMP paralellization.
+The **Quantics_DD_MPIOMP** module is a further improvement on the parallel version of DD-vMCG in 
+Quantics by adding an extra layer of MPI parallelization to the existing OpenMP paralellization.
 
 CLstunfti
 ---------
