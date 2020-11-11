@@ -1,9 +1,9 @@
 .. 
 
-.. _Direct_Dynamics_Database:
+.. _Quantics_DD_MPIOMP:
 
 ###########################################
-Direct Dynamics Database improvements code
+Quantics Direct Dynamics MPI and OMP code
 ########################################### 
 
 .. sidebar:: Software Technical Information
