@@ -46,8 +46,8 @@ There is already an existing OpenMP parallelization of the code and the
 purpose of this module is to add an extra MPI layer to it to allow 
 affordable simulation of large system by spreading the calculations across
 multiple computation nodes.
-The module has been added and tested within the Quantics quantum 
-dynamics package which is available on Gitlab.
+The module has been added and tested within the Quantics quantum dynamics 
+package which is available on Gitlab.
 
 Background Information
 ______________________
