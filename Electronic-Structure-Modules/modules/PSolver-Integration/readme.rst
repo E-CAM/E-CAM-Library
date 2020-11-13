@@ -4,7 +4,7 @@
     psolver_integration
 
   Language
-    Fortran, with YAML I/O.
+    Fortran 95, with YAML I/O.
 
   Licence
     `GPL <https://opensource.org/licenses/gpl-license>`_
@@ -38,32 +38,37 @@ Integration of PSolver in SIESTA and Octopus
 A Poisson solver is an efficient tool to determine electromagnetic fields produced by an electric charge distributed in
 space. The integration of PSolver into SIESTA and Octopus has opened the way for these software programs to access more
 complex physical systems.
+The PSolver library allows solving the Poisson equation in much more general ways than using Fourier Transforms.
 
 
 Purpose of Module
 _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
+ Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
+ it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
+ non-expert in the domain area of the software module.
 
-Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
-it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
-non-expert in the domain area of the software module.
+ This section should also include the following (where appropriate):
 
-This section should also include the following (where appropriate):
+ * Who will use the module? in what area(s) and in what context?
 
-* Who will use the module? in what area(s) and in what context?
+ * What kind of problems can be solved by the code?
 
-* What kind of problems can be solved by the code?
+ * Are there any real-world applications for it?
 
-* Are there any real-world applications for it?
+ * Has the module been interfaced with other packages?
 
-* Has the module been interfaced with other packages?
+ * Was it used in a thesis, a scientific collaboration, or was it cited in a publication?
 
-* Was it used in a thesis, a scientific collaboration, or was it cited in a publication?
-
-* If there are published results obtained using this code, describe them briefly in terms readable for non-expert users.
+ * If there are published results obtained using this code, describe them briefly in terms readable for non-expert users.
   If you have few pictures/graphs illustrating the power or utility of the module, please include them with
   corresponding explanatory captions.
+
+The PSolver library solves the Poisson equation using wavelets. With this approximation one can more easily take into account certain boundary conditions such as molecules (no boundaries), wires (periodic along 1 direction) and slabs (periodic along 2 directions). This is in contrast to Fourier transforms which assumes periodic boundary conditions along all lattice vectors. Additionally it allows cavities for different dielectric constants. 
+
+This implementation integrates the PSolver library into the DFT codes SIESTA and Octopus such that they may be used for end-users who require the functionalities.
+
 
 .. note::
 
@@ -78,37 +83,34 @@ This section should also include the following (where appropriate):
   this one is part of) is your pilot project. In this case, you could point to the pilot project page on the main
   website (and you must ensure that this module is linked there).
 
-If needed you can include latex mathematics like
-:math:`\frac{ \sum_{t=0}^{N}f(t,k) }{N}`
-which won't show up on GitLab/GitHub but will in final online documentation.
 
-If you want to add a citation, such as [CIT2009]_, please check the source code to see how this is done. Note that
-citations may get rearranged, e.g., to the bottom of the "page".
-
-.. [CIT2009] This is a citation (as often used in journals).
 
 Background Information
 ______________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-If the modifications are to an existing code base (which is typical) then this would be the place to name that
-application. List any relevant urls and explain how to get access to that code. There needs to be enough information
-here so that the person reading knows where to get the source code for the application, what version this information is
-relevant for, whether this requires any additional patches/plugins, etc.
+Users of the SIESTA code have always been using the Fourier transforms for solving the Poisson equation. However, a great deal of users are dealing with, in particular, slab systems given the advent of graphene, 2D materials and surface calculations.
+This integration allows users to control the boundaries in a very strict way without any approximations.
+The latest PSolver library (shipped with BigDFT 1.9.0) will work.
 
-Overall, this module is supposed to be self-contained, but linking to specific URLs with more detailed information is
-encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
-the links they need should be already in this module.
+The have been added tests in SIESTA to ensure that everything works.
+
 
 Building and Testing
 ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-Provide the build information for the module here and explain how tests are run. This needs to be adequately detailed,
-explaining if necessary any deviations from the normal build procedure of the application (and links to information
-about the normal build process needs to be provided).
+To compile SIESTA with PSolver users should add this to their `arch.make`
+
+.. code-block:: make
+
+  LIBS += -L<build-dir>/install/lib -lPSolver-1 -latlab-1 -lfutile-1 -ldicts -lfmalloc-1 -lyaml
+  INCFLAGS += -I<build-dir>/install/include
+  FPPFLAGS += -DSIESTA__PSOLVER
+
+After building there are two tests, `h2o_psolver` and `si2x1h-psolver` which can be compared with `h2o` and `si2x1h`, respectively. They should be comparable.
 
 Source Code
 ___________
