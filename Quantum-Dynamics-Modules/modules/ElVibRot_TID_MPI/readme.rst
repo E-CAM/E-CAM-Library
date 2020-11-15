@@ -25,7 +25,7 @@
     Doxygen
 
   Application Documentation
-    See documentations for `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana/tree/master/doc/>`_ and `Tnum <http://pagesperso.lcp.u-psud.fr/lauvergnat/ElVibRot/Tnum-manual-v24.4-09_09_2013.pdf>`_
+    See documents for `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana/tree/master/doc/>`_ and `Tnum <http://pagesperso.lcp.u-psud.fr/lauvergnat/ElVibRot/Tnum-manual-v24.4-09_09_2013.pdf>`_
 
   Relevant Training Material
     Not currently available
