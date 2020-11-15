@@ -122,7 +122,7 @@ _________________
 ..  If you want to add a citation, such as [CIT2009]_, please check the source code to see how this is done. Note that
 ..  citations may get rearranged, e.g., to the bottom of the "page".
 
-The ElVibRot time-dependent MPI (ElVibRot-TD-MPI) module is a parallelized time-dependent quantum simulation program. It is a part of the `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ package designed for general quantum dynamics simulation using curvilinear coordinates. There is no built-in limitation on the degrees of freedom for the target system. The code employed a numerical but exact kinetic energy operator with Tnum [Tnum]_. The Smolyak algorithm [Smo]_ is applied to avoid the direct-product basis sets and grids in the simulation. 
+The ElVibRot time-dependent MPI (ElVibRot-TD-MPI) module is a parallelized time-dependent quantum simulation program. It is a part of the `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ package designed for general quantum dynamics simulation using curvilinear coordinates. There is no built-in limitation on the degrees of freedom for the target system. The code employed a numerical but exact kinetic energy operator with Tnum [Tn]_. The Smolyak algorithm [Sm]_ is applied to avoid the direct-product basis sets and grids in the simulation. 
 
 
 Background Information
@@ -222,7 +222,7 @@ See the `MPI branch <https://github.com/lauvergn/ElVibRot-TnumTana/tree/MPI_work
 References
 ==========
 
-.. [Tnum] D. Lauvergnat, A. Nauts, *Phys. Chem. Chem. Phys.* **12** (2010) 8405-8412 `DOI: 10.1039/C001944E <http://dx.doi.org/10.1039/C001944E>`_
-.. [Smo]  S. A. Smolyak, *Dokl. Akad. Nauk SSSR* **148** (1963) 1042–1045 `<http://mi.mathnet.ru/eng/dan27586>`_
+.. [Tn] D. Lauvergnat, A. Nauts, *Phys. Chem. Chem. Phys.* **12** (2010) 8405-8412 `DOI: 10.1039/C001944E <http://dx.doi.org/10.1039/C001944E>`_
+.. [Sm]  S. A. Smolyak, *Dokl. Akad. Nauk SSSR* **148** (1963) 1042–1045 `<http://mi.mathnet.ru/eng/dan27586>`_
 
 
