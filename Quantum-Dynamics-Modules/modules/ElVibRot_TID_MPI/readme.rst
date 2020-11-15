@@ -41,9 +41,9 @@
 
 .. _ElVibRot Time-independent MPI:
 
-#######
-TID_MPI
-#######
+################
+ElVibRot-TID-MPI
+################
 
 ..  Let's add a local table of contents to help people navigate the page
 
