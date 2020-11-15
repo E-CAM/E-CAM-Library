@@ -25,7 +25,7 @@
     Doxygen
 
   Application Documentation
-    See documents for `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana/tree/master/doc/>`_ and `Tnum <http://pagesperso.lcp.u-psud.fr/lauvergnat/ElVibRot/Tnum-manual-v24.4-09_09_2013.pdf>`_
+    See `ElVibRot doc <https://github.com/lauvergn/ElVibRot-TnumTana/tree/master/doc/>`_ and `Tnum doc <http://pagesperso.lcp.u-psud.fr/lauvergnat/ElVibRot/Tnum-manual-v24.4-09_09_2013.pdf>`_
 
   Relevant Training Material
     Not currently available
@@ -42,7 +42,7 @@
 .. _ElVibRot Time-dependent MPI:
 
 ###############
-ElVibRot_TD_MPI
+ElVibRot-TD-MPI
 ###############
 
 ..  Let's add a local table of contents to help people navigate the page
