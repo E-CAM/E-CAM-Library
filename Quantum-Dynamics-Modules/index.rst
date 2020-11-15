@@ -448,7 +448,7 @@ ElVibRot
     :glob:
     :maxdepth: 1
 
-    ./modules/ElVibRot-TD-MPI/readme
+    ./modules/ElVibRot_TD_MPI/readme
 
 The **ElVibRot-TD-MPI** (ElVibRot Time-dependent MPI) module is a parallelized time-dependent quantum simulation program. The available propagation methods include Chebyshev, Runge-Kunta, short iterative Lanczos and Taylor expansion, etc.
 
