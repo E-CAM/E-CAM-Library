@@ -123,7 +123,7 @@ _________________
 ..  citations may get rearranged, e.g., to the bottom of the "page".
 
 
-The ElVibRot-TID-MPI (ElVibRot time-independent MPI) module is a parallelized time-independent quantum simulation program. The Davidson algorithm is the main method employed for getting the Eigen levels of the Hamiltonian. This module is a part of the `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ package designed for general quantum dynamics simulation using curvilinear coordinates. The code has no built-in limitation in terms of the number of degrees of freedom. It applied a numerical but exact kinetic energy operator with Tnum [Tnum]_, which enables much flexibility in the choice of the curvilinear coordinates. To avoid the conventional direct-product basis sets and grids, the Smolyak algorithm [Smo]_ is employed to make possible the simulation of larger systems. 
+The ElVibRot-TID-MPI (ElVibRot time-independent MPI) module is a parallelized time-independent quantum simulation program. The Davidson algorithm is the main method employed for getting the Eigen levels of the Hamiltonian. This module is a part of the `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ package designed for general quantum dynamics simulation using curvilinear coordinates. The code has no built-in limitation in terms of the number of degrees of freedom. It applied a numerical but exact kinetic energy operator with Tnum [Tn]_, which enables much flexibility in the choice of the curvilinear coordinates. To avoid the conventional direct-product basis sets and grids, the Smolyak algorithm [Sm]_ is employed to make possible the simulation of larger systems. 
 
 
 Background Information
@@ -223,8 +223,8 @@ See the `MPI branch <https://github.com/lauvergn/ElVibRot-TnumTana/tree/MPI_work
 References
 ==========
 
-.. [Tnum] D. Lauvergnat, A. Nauts, *Phys. Chem. Chem. Phys.* **12** (2010) 8405-8412 `DOI: 10.1039/C001944E <http://dx.doi.org/10.1039/C001944E>`_
-.. [Smo]  S. A. Smolyak, *Dokl. Akad. Nauk SSSR* **148** (1963) 1042–1045 `<http://mi.mathnet.ru/eng/dan27586>`_
+.. [Tn] D. Lauvergnat, A. Nauts, *Phys. Chem. Chem. Phys.* **12** (2010) 8405-8412 `DOI: 10.1039/C001944E <http://dx.doi.org/10.1039/C001944E>`_
+.. [Sm]  S. A. Smolyak, *Dokl. Akad. Nauk SSSR* **148** (1963) 1042–1045 `<http://mi.mathnet.ru/eng/dan27586>`_
 
 
 
