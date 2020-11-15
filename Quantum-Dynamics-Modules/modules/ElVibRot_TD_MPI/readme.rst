@@ -13,7 +13,7 @@
 ..  sidebar:: Software Technical Information
 
   Name
-    Quantum_Smolyak_MPI
+    ElVibRot Time-dependent MPI
 
   Language
     Fortran 90
@@ -39,11 +39,11 @@
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
     reference to work (so don't insert a comment between).
 
-.. _Quantum_Smolyak_MPI:
+.. _ElVibRot Time-dependent MPI:
 
-###################
-Quantum_Smolyak_MPI
-###################
+###############
+ElVibRot_TD_MPI
+###############
 
 ..  Let's add a local table of contents to help people navigate the page
 
@@ -77,10 +77,6 @@ Quantum_Smolyak_MPI
 ..  * Performance *(If what you introduce has a significant computational load you should make some performance optimisation
 ..  effort using an appropriate tool. You should be able to verify that your changes have not introduced unexpected
 ..  performance penalties, are threadsafe if needed,...)*
-
-
-This module is an MPI implementation of quantum dynamics with Smolyak algorithm, 
-designed for the general simulation of molecules. 
 
 
 Purpose of Module
@@ -126,15 +122,7 @@ _________________
 ..  If you want to add a citation, such as [CIT2009]_, please check the source code to see how this is done. Note that
 ..  citations may get rearranged, e.g., to the bottom of the "page".
 
-This module is intended to provide an MPI implementation of quantum dynamics in the frameworks of Smolyak method. 
-The parallelization, taking advantage of the Smolyak method, is designed to be applicable for various levels of machine, from small 
-to massive clusters. This code, in the meantime, is also capable of the simulation of general molecules. 
-
-The final code will be available for switching among different types of MPI methods, openMP and non-parallel case according to 
-the interested system and the cluster resource available. An MPI-openMP hybrid implementation might be also available according to the
-progress. 
-
-The code is compatible with gfortran, mpifort, ifort, pgf90, etc.
+The ElVibRot time-dependent MPI (ElVibRot-TD-MPI) module is a parallelized time-dependent quantum simulation program. It is a part of the `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ package designed for general quantum dynamics simulation using curvilinear coordinates. There is no built-in limitation on the degrees of freedom for the target system. The code employed a numerical but exact kinetic energy operator with Tnum [Tnum]_. The Smolyak algorithm [Smo]_ is applied to avoid the direct-product basis sets and grids in the simulation. 
 
 
 Background Information
@@ -151,15 +139,13 @@ ______________________
 ..  encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
 ..  the links they need should be already in this module.
 
-This module is a MPI implementation of the Smolyak algorithm in ElVibRot-TnumTana, which is a general quantum dynamics code using curvilinear coordinates and a numerical kinetic energy operator. One should refer to the relevant modules and the details of code in the `code develop page <https://github.com/lauvergn/ElVibRot-TnumTana>`_. 
+The quantum dynamics simulation has provided powerful insight into the underlying mechanism of chemical reactions, laser molecular interaction, etc. The simulation, with the conventional expansion on the direct-product basis, is limited by the exponential growth of computational cost with the increase of degrees of freedom. The multi-configuration time-dependent Hartree, a well-known package developed with the aim of generality, expands the wavefunction as a sum of Hartree products with single-particle functions, leading to a very efficient wavepackage propagation. The quantum diffusion Monte Carlo and the Feynman path integral approaches get around the problem by avoiding expending the wavefunction on a basis set. The variational multi-configuration Gaussian applies on-the-fly quantum chemical calculation of the potential energy to approach the quantum effects in the photochemistry. However, the Smolyak method provides another way to deal with high-dimensional problems, without losing accuracy and universality. The application of Smolyak algorithm enables the simulation of large systems (> 12 degrees of freedom) as the wavefunction is expanded as a weighted sum of small  Smolyak wavefunction contributions. MPI is implemented depends on this framework. The module is designed to works on different levels of clusters. Three MPI schemes are provided in accord with a series of well-known propagation methods, including the Chebyshev, Runge-Kunta, short iterative Lanczos and Taylor expansion, etc. The three MPI schemes correspond to the simulation with the mode of most efficiency, memory saving, and massive cluster parallelization, respectively. The default setting will automatically choose the scheme according to the balance of resource consumed and the parallelization efficiency.  
 
 
 Applications of the Module
 __________________________
 
-The code could be applied to the simulation of generally molecules with properly prepared potential. 
-
-The code is currently applied for the simulation of clathrate hydrogen. 
+This module is intended to provide a parallel program for general wavepackage propagation. The general capability of the simulation could be up to tens of degrees of freedom. The propagation time could be up to hundreds of picosecond with general computation time, according to the selected propagation method. The code has been applied for the simulation of Pyrazine (:math:`C_4H_4N_2`), which is of 24 degrees of freedom. This module could be a practical tool for general quantum molecular simulation, supporting the further study of molecular dynamics in chemical reactions, ultrafast process, etc.
 
 
 Building and Testing
@@ -171,23 +157,45 @@ ____________________
 .. explaining if necessary any deviations from the normal build procedure of the application (and links to information
 ..  about the normal build process needs to be provided).
 
-Building the program requires OpenMPI v3.0 or above. OpenMPI should be built as 64-bit for a full access of the functions 
-when requiring extremely big memory
+The code is compatible with gfortran, mpifort, ifort, pgf90, etc. Building the program requires OpenMPI v2.0 or above. OpenMPI should be built as 64-bit for the simulation of very large system. 
 
-To build code:
+* build with MPI
+
+set makefile: ::
+
+  F90=mpifort
+  MPICORE=gfortran ! gfortran or ifort according to the compiler for MPI
+
+
+other main options:
+
+::
+ 
+  F90=gfortran    ! compile with gfortran
+  F90=ifort       ! compile with ifort
+  F90=pgf90       ! compile with pgf90
+  parallel_make=1 ! enable parallel make with -j argument
+  OMP=1           ! enable openMP
+  OPT=1           ! enable code optimization
+  INT=4           ! 4 or 8 for 32-bits or 64-bits integer
+  LAPACK=1        ! enable LAPACK
+  ARPACK=1        ! enable ARPACK
+  QML=1           ! enable QMLib
+
+
+To build:
 
 .. code-block:: c
   :linenos:
 
   make
 
-To test code:
+To test:
 
 .. code-block:: c
   :linenos:
 
   make test 
-
 
 To clean test files
 
@@ -196,43 +204,25 @@ To clean test files
 
   make cleantest
 
-
-
-
-* build with MPI
-
-
-set makefile: ::
-
-  F90=mpifort
-  MPICORE=gfortran ! gfortran or ifort according to the compiler for MPI
-
-
-* build with openMP
-
-
-set makefile: ::
-
-  F90=gfortran
-  OMP=1           ! enable openMP
-
-* other main options 
+Three MPI schemes will be tested for 12 and 24 degrees of freedom systems. In directory 
 
 ::
- 
-  F90=ifort       ! compile with ifort
-  F90=pgf90       ! compile with pgf90
-  parallel_make=1 ! enable parallel make with -j argument
-  OPT=1           ! enable optimization
-  INT=4           ! 4 or 8 for 32-bits or 64-bits integer
-  LAPACK=1        ! enable LAPACK
-  ARPACK=1        ! enable ARPACK
-  QML=1           ! enable QMLib
+  
+  ./Working_tests/MPI_tests
 
-
+check folders 12D_propagation_* and 24D_propagation_* for examples. For more details, see `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_.
 
 Source Code
 ___________
 
 See the `MPI branch <https://github.com/lauvergn/ElVibRot-TnumTana/tree/MPI_working>`_ of ElVibRot-TnumTana  
+
+
+
+References
+==========
+
+.. [Tnum] D. Lauvergnat, A. Nauts, *Phys. Chem. Chem. Phys.* **12** (2010) 8405-8412 `DOI: 10.1039/C001944E <http://dx.doi.org/10.1039/C001944E>`_
+.. [Smo]  S. A. Smolyak, *Dokl. Akad. Nauk SSSR* **148** (1963) 1042–1045 `<http://mi.mathnet.ru/eng/dan27586>`_
+
 
