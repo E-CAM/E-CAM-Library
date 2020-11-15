@@ -488,3 +488,4 @@ References
 .. [Smo]  S. A. Smolyak, *Dokl. Akad. Nauk SSSR* **148** (1963) 1042–1045 `<http://mi.mathnet.ru/eng/dan27586>`_
 
 
+
