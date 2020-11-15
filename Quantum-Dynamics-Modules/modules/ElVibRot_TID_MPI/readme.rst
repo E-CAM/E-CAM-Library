@@ -25,7 +25,7 @@
     Doxygen
 
   Application Documentation
-    See `Docs for ElVibRot-TnumTana <https://github.com/lauvergn/ElVibRot-TnumTana/tree/master/doc/>`_ and `Docs for Tnum <http://pagesperso.lcp.u-psud.fr/lauvergnat/ElVibRot/Tnum-manual-v24.4-09_09_2013.pdf>`_
+    See `Docs for ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana/tree/master/doc/>`_ and `Docs for Tnum <http://pagesperso.lcp.u-psud.fr/lauvergnat/ElVibRot/Tnum-manual-v24.4-09_09_2013.pdf>`_
 
   Relevant Training Material
     Not currently available
@@ -216,7 +216,7 @@ check folders 6D_Davidson_* and 21D_Davidson_* for examples. For more details, s
 Source Code
 ___________
 
-See the `MPI branch <https://github.com/lauvergn/ElVibRot-TnumTana/tree/MPI_working>`_ of ElVibRot-TnumTana  
+See the `MPI branch <https://github.com/lauvergn/ElVibRot-TnumTana/tree/MPI_working>`_ of ElVibRot  
 
 
 
