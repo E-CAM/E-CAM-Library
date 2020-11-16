@@ -500,7 +500,16 @@ program [Wor2]_.
 ElVibRot
 --------
 
-`ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ is a package for general quantum dynamics simulation using curvilinear coordinates. The code has no built-in limitation in terms of the number of degrees of freedom. It applied a numerical but exact kinetic energy operator with Tnum (Automatic differentiation), which enables much flexibility in the choice of the curvilinear coordinates [Tnum]_. Moreover, the Smolyak algorithm [Smo]_ is employed to avoid the conventional direct-product basis sets and grids, which allows the simulation of larger systems. Typically, the package could be used for 1) Vibrational levels, intensities for floppy molecular systems; 2) Wave-packet propagation with or without time dependent Hamiltonian; 3) Quantum gate and optimal control; 4) Optimization with the given set of curvilinear coordinates.
+`ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ is a package for general quantum dynamics simulation using curvilinear coordinates. 
+The code has no built-in limitation in terms of the number of degrees of freedom. 
+It applied a numerical but exact kinetic energy operator with Tnum (Automatic differentiation), 
+which enables much flexibility in the choice of the curvilinear coordinates [Tnum]_. 
+Moreover, the Smolyak algorithm [Smo]_ is employed to avoid the conventional direct-product basis sets and grids, 
+which allows the simulation of larger systems. Typically, the package could be used for 
+1) Vibrational levels, intensities for floppy molecular systems; 
+2) Wave-packet propagation with or without time dependent Hamiltonian; 
+3) Quantum gate and optimal control; 
+4) Optimization with the given set of curvilinear coordinates.
 
 .. toctree::
     :glob:
@@ -508,8 +517,8 @@ ElVibRot
 
     ./modules/ElVibRot_TID_MPI/readme
 
-The **ElVibRot-TID-MPI** (ElVibRot Time-independent MPI) module is a parallelized time-independent quantum simulation program. The Davidson algorithm is the main method employed for getting the Eigen levels of the Hamiltonian.
-
+The **ElVibRot-TID-MPI** (ElVibRot Time-independent MPI) module is a parallelized time-independent quantum simulation program. 
+The Davidson algorithm is the main method employed for getting the Eigen levels of the Hamiltonian.
 
 References
 ----------
