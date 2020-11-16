@@ -25,7 +25,8 @@
     Doxygen
 
   Application Documentation
-    See `ElVibRot doc <https://github.com/lauvergn/ElVibRot-TnumTana/tree/master/doc/>`_ and `Tnum doc <http://pagesperso.lcp.u-psud.fr/lauvergnat/ElVibRot/Tnum-manual-v24.4-09_09_2013.pdf>`_
+    See `ElVibRot doc <https://github.com/lauvergn/ElVibRot-TnumTana/tree/master/doc/>`_ 
+    and `Tnum doc <http://pagesperso.lcp.u-psud.fr/lauvergnat/ElVibRot/Tnum-manual-v24.4-09_09_2013.pdf>`_
 
   Relevant Training Material
     Not currently available
@@ -123,7 +124,15 @@ _________________
 ..  citations may get rearranged, e.g., to the bottom of the "page".
 
 
-The ElVibRot-TID-MPI (ElVibRot time-independent MPI) module is a parallelized time-independent quantum simulation program. The Davidson algorithm is the main method employed for getting the Eigen levels of the Hamiltonian. This module is a part of the `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ package designed for general quantum dynamics simulation using curvilinear coordinates. The code has no built-in limitation in terms of the number of degrees of freedom. It applied a numerical but exact kinetic energy operator with Tnum [Tn]_, which enables much flexibility in the choice of the curvilinear coordinates. To avoid the conventional direct-product basis sets and grids, the Smolyak algorithm [Sm]_ is employed to make possible the simulation of larger systems. 
+The ElVibRot-TID-MPI (ElVibRot time-independent MPI) module is a parallelized time-independent quantum simulation program. 
+The Davidson algorithm is the main method employed for getting the Eigen levels of the Hamiltonian. 
+This module is a part of the `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ package designed 
+for general quantum dynamics simulation using curvilinear coordinates. 
+The code has no built-in limitation in terms of the number of degrees of freedom. 
+It applied a numerical but exact kinetic energy operator with Tnum [Tn]_, 
+which enables much flexibility in the choice of the curvilinear coordinates. 
+To avoid the conventional direct-product basis sets and grids, 
+the Smolyak algorithm [Sm]_ is employed to make possible the simulation of larger systems. 
 
 
 Background Information
@@ -140,13 +149,29 @@ ______________________
 ..  encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
 ..  the links they need should be already in this module.
 
-The core of the quantum simulation lies in solving the Schrodinger equation with the Hamiltonian of the considered system. The principle fence of the simulation comes from the exponential growth of computational demand with the increasing of the degrees of freedom of the system, the curse of dimensionality. It prompts numbers of algorithms in the past decades to deal with this difficulty. The Smolyak algorithm, proposed by Smolyak in 1963 [Smo]_, provides a powerful method to deal with high-dimensional problems. By introducing the Smolyak algorithm in this module, the wavefunction is expanded as a weighted sum of small  Smolyak wavefunction contributions, thus significantly reduce the computational demand of the simulation. Taking advantage of the structure of the newly transformed wavefunction, the MPI can be well implemented. As a result, the simulation could be performed with high accuracy, and in the meantime, impressive parallel efficiency. The code is designed to works on different levels of clusters. The module provides three MPI schemes to adapt the simulation of different kinds of systems and working machines. The default setting will automatically choose the scheme according to the balance of resource consumed and the parallelization efficiency.  
+The core of the quantum simulation lies in solving the Schrodinger equation with the Hamiltonian of the considered system. 
+The principle fence of the simulation comes from the exponential growth of computational demand 
+with the increasing of the degrees of freedom of the system, the curse of dimensionality. 
+It prompts numbers of algorithms in the past decades to deal with this difficulty. 
+The Smolyak algorithm, proposed by Smolyak in 1963 [Smo]_, provides a powerful method to deal with high-dimensional problems. 
+By introducing the Smolyak algorithm in this module, the wavefunction is expanded as a weighted sum of small  
+Smolyak wavefunction contributions, thus significantly reduce the computational demand of the simulation. 
+Taking advantage of the structure of the newly transformed wavefunction, the MPI can be well implemented. 
+As a result, the simulation could be performed with high accuracy, and in the meantime, impressive parallel efficiency. 
+The code is designed to works on different levels of clusters. 
+The module provides three MPI schemes to adapt the simulation of different kinds of systems and working machines. 
+The default setting will automatically choose the scheme according to the balance of resource consumed 
+and the parallelization efficiency.  
 
 
 Applications of the Module
 __________________________
 
-This module is intended to provide a parallel program for the quantum simulation of general molecular system. Typically, it could be used to calculate the vibrational levels of molecular systems. The general capability of the simulation could be up to tens of degrees of freedom. The code has been applied for the simulation of Malondialdehyde (:math:`C_3H_4O_2`), which is of 21 degrees of freedom. The parallelization of the code enables the simulation of larger systems. 
+This module is intended to provide a parallel program for the quantum simulation of general molecular system. 
+Typically, it could be used to calculate the vibrational levels of molecular systems. 
+The general capability of the simulation could be up to tens of degrees of freedom. 
+The code has been applied for the simulation of Malondialdehyde (:math:`C_3H_4O_2`), 
+which is of 21 degrees of freedom. The parallelization of the code enables the simulation of larger systems. 
 
 
 Building and Testing
@@ -158,7 +183,8 @@ ____________________
 .. explaining if necessary any deviations from the normal build procedure of the application (and links to information
 ..  about the normal build process needs to be provided).
 
-The code is compatible with gfortran, mpifort, ifort, pgf90, etc. Building the program requires OpenMPI v2.0 or above. OpenMPI should be built as 64-bit for the simulation of very large system. 
+The code is compatible with gfortran, mpifort, ifort, pgf90, etc. 
+Building the program requires OpenMPI v2.0 or above. OpenMPI should be built as 64-bit for the simulation of very large system. 
 
 * build with MPI
 
@@ -211,7 +237,8 @@ Three MPI schemes will be tested for 6 and 21 degrees of freedom systems. In dir
  
   ./Working_tests/MPI_tests
 
-check folders 6D_Davidson_* and 21D_Davidson_* for examples. For more details, see `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_.
+check folders 6D_Davidson_* and 21D_Davidson_* for examples. For more details, 
+see `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_.
 
 Source Code
 ___________
