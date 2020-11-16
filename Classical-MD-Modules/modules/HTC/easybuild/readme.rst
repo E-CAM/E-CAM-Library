@@ -106,7 +106,7 @@ There is an open `Pull Request for the JURECA software stack <https://github.com
 provides all necessary dependencies for the library.
 
 The
-:download:`configuration file required for the library on JURECA <./jobqueue_features-0.0.4-intel-para-2018b-Python-3.6.6.eb>`
+:download:`configuration file required for JURECA <./jobqueue_features-0.0.4-intel-para-2018b-Python-3.6.6.eb>`
 is included below (a version for Python 2 can also be created by simply changing the Python dependency version):
 
 .. literalinclude:: ./jobqueue_features-0.0.4-intel-para-2018b-Python-3.6.6.eb

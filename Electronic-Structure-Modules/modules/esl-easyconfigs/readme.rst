@@ -29,7 +29,7 @@ ESL Easyconfigs
 
 The ESL Easyconfigs aims at providing for all the `CECAM Electronic
 Structure Library <http://esl.cecam.org>`_ modules and their dependencies
-easybuild easyconfigs to allow easy installaiton on supercomputers around
+easybuild easyconfigs to allow easy installation on supercomputers around
 the world that use EasyBuild package manager.
 
 

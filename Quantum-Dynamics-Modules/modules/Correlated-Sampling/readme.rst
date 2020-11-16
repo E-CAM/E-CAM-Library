@@ -76,7 +76,7 @@ degrees of freedom.
 
 The software module developed here is based on a Trotter-based scheme for simulating
 quantum-classical Liouville dynamics in terms of an ensemble of surface-hopping trajectories. The method can be used to compute the dynamics for longer times with fewer trajectories than the
-sequential short-time propagation (SSTP) algorithm, which is also based on surface-hopping trajectories. This module builds on the single path version of the trotter-based sampling scheme [Mackernan1]_ but introduces a ket improvement
+sequential short-time propagation (SSTP) algorithm, which is also based on surface-hopping trajectories. This module builds on the single path version of the trotter-based sampling scheme [Mackernan1]_ but introduces a key improvement
 of correlated sampling to drastically reduce the variance associated with sampling. It also builds on the C++ formulation of the single path code. For mathematical details, 
 we refer the reader to eq.30-35 of the paper.
 
