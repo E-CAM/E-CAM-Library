@@ -215,12 +215,7 @@ check folders 12D_propagation_* and 24D_propagation_* for examples. For more det
 Source Code
 ___________
 
-<<<<<<< HEAD
 See the `MPI branch <https://github.com/lauvergn/ElVibRot-TnumTana/tree/MPI_working>`_ of ElVibRot 
-=======
-See the `MPI branch <https://github.com/lauvergn/ElVibRot-TnumTana/tree/MPI_working>`_ of ElVibRot  
->>>>>>> 2e265b9522c4f298972aa6c3b5263e843f02842a
-
 
 
 References
