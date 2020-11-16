@@ -197,8 +197,9 @@ ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-.. Provide the build information for the module here and explain how tests are run. This needs to be adequately detailed,
-.. explaining if necessary any deviations from the normal build procedure of the application (and links to information
+.. Provide the build information for the module here and explain how tests are run. 
+.. This needs to be adequately detailed, explaining if necessary any deviations from the 
+.. normal build procedure of the application (and links to information
 ..  about the normal build process needs to be provided).
 
 The code is compatible with gfortran, mpifort, ifort, pgf90, etc. 
@@ -232,21 +233,18 @@ other main options:
 To build:
 
 .. code-block:: c
-  :linenos:
 
   make
 
 To test:
 
 .. code-block:: c
-  :linenos:
 
   make test 
 
 To clean test files
 
 .. code-block:: c
-  :linenos:
 
   make cleantest
 
