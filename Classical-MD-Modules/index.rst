@@ -176,6 +176,7 @@ separate projects. The modules that were incorporated into the core are:
     ./modules/OpenPathSampling/ops_gromacs_engine/readme
     ./modules/OpenPathSampling/ops_visit_all_states/readme
     ./modules/OpenPathSampling/ops_interface_shooting/readme
+    ./modules/OpenPathSampling/ops_progress_meters/readme
 
 The modules that are based on OPS, but remain separate, are:
 
@@ -215,13 +216,12 @@ The following modules were developed specifically for the Classical MD pilot pro
     :maxdepth: 1
 
     ./modules/contact_maps/readme
-    ./modules/contact_maps_parallelization/readme 
+    ./modules/contact_maps_parallelization/readme
     ./modules/contact_concurrences/readme
     ./modules/PIcore/readme
     ./modules/PIhydration/readme
     ./modules/MSJuly2019_minDist2segments_KKT/readme
     ./modules/MSJuly2019_velocities_resolve_EVC/readme
-    
 
 Extended Software Development Workshops (ESDWs)
 ===============================================
@@ -264,5 +264,8 @@ The third ESDW for the Classical MD workpackage was held in Turin, Italy in July
     ./modules/HTC/configuration/readme
     ./modules/HTC/mpi/readme
     ./modules/HTC/easybuild/readme
+    ./modules/HTC/mpi4py_tasks/readme
+    ./modules/HTC/mpi_runtimes/readme
+    ./modules/dask_traj/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/

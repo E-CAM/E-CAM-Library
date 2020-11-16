@@ -215,7 +215,8 @@ check folders 12D_propagation_* and 24D_propagation_* for examples. For more det
 Source Code
 ___________
 
-See the `MPI branch <https://github.com/lauvergn/ElVibRot-TnumTana/tree/MPI_working>`_ of ElVibRot 
+See the `MPI branch <https://github.com/lauvergn/ElVibRot-TnumTana/tree/MPI_working>`_ of ElVibRot  
+
 
 
 References
@@ -223,5 +224,6 @@ References
 
 .. [Tn] D. Lauvergnat, A. Nauts, *Phys. Chem. Chem. Phys.* **12** (2010) 8405-8412 `DOI: 10.1039/C001944E <http://dx.doi.org/10.1039/C001944E>`_
 .. [Sm]  S. A. Smolyak, *Dokl. Akad. Nauk SSSR* **148** (1963) 1042–1045 `<http://mi.mathnet.ru/eng/dan27586>`_
+
 
 
