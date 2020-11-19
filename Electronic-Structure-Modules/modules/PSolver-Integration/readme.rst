@@ -96,6 +96,18 @@ The latest PSolver library (shipped with BigDFT 1.9.0) will work.
 The have been added tests in SIESTA to ensure that everything works.
 
 
+The OCTOPUS code has various options to solve the Poisson equations. Amongst others were the ISF library,
+which is a predecessor of the PSolver library. In the later OCTOPUS versions, an older version of PSolver 
+was packaged with the OCTOPUS sources. For the recently released OCTOPUS 10, the interface to PSolver has 
+been updated, so that  both the old and the new API of PSolver can be used.
+This also prepares OCTOPUS to use the GPU version of PSolver, once it becomes available. The configure scripts of OCTOPUS 
+have been adapted to correctly detect and configure an installed PSolver library, and tests using the library have been added
+to the OCTOPUS buildbot.
+
+
+
+
+
 Building and Testing
 ____________________
 
@@ -111,10 +123,22 @@ To compile SIESTA with PSolver users should add this to their `arch.make`
 
 After building there are two tests, `h2o_psolver` and `si2x1h-psolver` which can be compared with `h2o` and `si2x1h`, respectively. They should be comparable.
 
+
+In order to compile OCTOPUS with the PSolver library, add the options `--with-psolver-prefix` and `--with-futile-prefix` to the `configure` command of OCTOPUS:
+
+.. code-block:: sh
+
+  ./configure --with-psolver-prefix=<PSolver-top-dir> --with-futile-prefix=<Futile-top-dir> ... 
+
+
+The OCTOPUS test `components/16-hartree_3d_psolver.test` is testing the correct functionality of the PSolver library in OCTOPUS.
+
+
 Source Code
 ___________
 
 * `PSolver in SIESTA <https://gitlab.com/siesta-project/siesta/-/merge_requests/10>`_
+* `PSolver in OCTOPUS <https://gitlab.com/octopus-code/octopus/-/merge_requests?scope=all&utf8=%E2%9C%93&state=merged&search=psolver>`_
 
 
 .. Here are the URL references used (which is alternative method to the one described above)
