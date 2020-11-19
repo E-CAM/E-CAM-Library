@@ -165,7 +165,7 @@ In the main CTMQC directory the
 
         tests
 
-directory provides examples of input files to run one-dimensional calculations for Tully's models [TSH]_ and some reference calculations.
+directory provides examples of input files to run one-dimensional calculations with CT-MQC, surface hopping and Ehrenfest on Tully model #3 [TSH]_ and some reference calculations.
 
 
 
@@ -174,6 +174,8 @@ directory provides examples of input files to run one-dimensional calculations f
       &SYSTEM
        TYP_CAL            = "XX"       !*character* XX = CT (CT-MQC calculations), EH (Ehrenfest calculations), SH (surface hopping calculations)
        SPIN_DIA           = X          !*logical* X = T only for calculations with spin-orbit coupling in the spin-diabatic basis, otherwise X = F
+       NRG_CHECK          = X          !*logical* X = T to switch off the spin-orbit coupling when the energy between states is larger than NRG_GAP
+       NRG_GAP            = X          !*real* only for calculations with spin-orbit coupling in the spin-diabatic basis
        MODEL_POTENTIAL    = "XXXXX"    !*character* XXXXX = definition of the model as it appears in QuantumModelLib
        OPTION             = X          !*integer* X = 1, 2, 3 for Tully's models #1, #2, #3 (only used for Tully's models calculations)
        N_DOF              = X          !*integer* X = number of nuclear degrees of freedom
@@ -181,8 +183,10 @@ directory provides examples of input files to run one-dimensional calculations f
        PERIODICITY        = X,X,X...   !*real* one value for each nuclear degree of freedom with X = the period in units of PI
        NSTATES            = X          !*integer* X = number of electronic states         
        M_PARAMETER        = X,X,X...   !*real* one value for each nuclear degree of freedom with X = typical distance to tune the coupling among the trajectories in CT calculations
+       QMOM_FORCE         = X          !*logical* X = F to switch off the force from the quantum momentum (only) in CT calculations
        DECOHERENCE        = X          !*logical* X = F for surface hopping or T for surface hopping with energy decoherence corrections
        C_PARAMETER        = X          !*real* energy parameter for the energy decoherence correction in surface hopping
+       JUMP_SEED          = X          !*integer* seed for random number generator for the hopping algorithm in SH calculation
      /
      &DYNAMICS
       FINAL_TIME       = X             !*real* X = length of the simulation in atomic units
@@ -208,7 +212,7 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
 
-The **G-CTMQC** source code and test files can be found following this `link <https://gitlab.com/agostini.work/ctmqc>`_.
+The **G-CTMQC** source code and test files can be found following this `link <https://gitlab.com/agostini.work/ctmqc/-/tree/G-CTMQC>`_.
 
 
 References
