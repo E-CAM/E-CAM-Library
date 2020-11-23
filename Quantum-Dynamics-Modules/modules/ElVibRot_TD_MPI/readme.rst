@@ -191,7 +191,7 @@ __________________________
 
 This module is intended to provide a parallel program for general wavepackage propagation. 
 The general capability of the simulation could be up to tens of degrees of freedom. 
-The propagation time could be up to hundreds of picosecond with general computation time, 
+The propagation time could be up to hundreds of femtoseconds with general computation time, 
 according to the selected propagation method. The code has been applied for the simulation 
 of Pyrazine (:math:`C_4H_4N_2`), which is of 24 degrees of freedom. This module could be a 
 practical tool for general quantum molecular simulation, supporting the further study of 
