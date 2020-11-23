@@ -74,12 +74,17 @@ _______
 After Quantics code has been successfully installed. The Quantics 
 README file will help you to install the Quantics code. 
 All the tests available for Direct Dynamics are suitable to test 
-this module and can be found at ``inputs/``. A good and quick 
-example is Butatriene. After you have copied the ``test.inp`` 
-file and the ``but_dddata`` directory, the test can be done 
-through the following command::
+this module and can be found at ``inputs/``. A good example to test
+the MPI version of Quantics is butatriene . After you have copied the 
+``but_dd.inp`` file in ``inputs/butatriene`` and the ``but_dddata`` 
+directory, the test can be done through the following command::
 
-  $ mpirun quantics.mix -mpi test.inp  
+  $ mpirun quantics.mpi -mpi test.inp  
+
+The following command should be in case the code is compiled with both OMP 
+and MPI::
+
+  $ mpirun quantics.mix -mpi test.inp
 
 
 Source Code
