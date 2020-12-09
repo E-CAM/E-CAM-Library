@@ -51,10 +51,6 @@ between the two points associated to the minimal distance. Here, we propose to c
 between overlapped bonds to resolve the excluded volume constraint in one time-step of molecular dynamics.
 We propose to implement this functionality as a new fix for `LAMMPS <https://lammps.sandia.gov>`_.
 
-* Polymer simulation.
-
-* To resolve the excluded volume constraints.
-
 * It is used in a scientific collaboration.
 
 * Publications: not currently available.
@@ -64,8 +60,8 @@ We propose to implement this functionality as a new fix for `LAMMPS <https://lam
   We would use the present module to avoid topology violation in an entangled polymer system.
   The present module uses the E-CAM module **minDist2segments_KKT_for_SRP** you can find
   on the `minDist2segments_KKT GitLab repository <https://gitlab.com/pcarrivain/mindist2segments_kkt>`_.
-  It also uses the E-CAM module **velocities_resolve_EVC** you can find
-  on the `minDist2segments_KKT GitLab repository <https://gitlab.com/pcarrivain/velocities_resolve_evc>`_.
+  It also uses the E-CAM module **velocities_resolve_EVC** you can find on the
+  `velocities_resolve_EVC GitLab repository <https://gitlab.com/pcarrivain/velocities_resolve_evc>`_.
   This module is a part of a E-CAM post-doc
   `pilot project <https://www.e-cam2020.eu/contact-joint-to-resolve-volume-constraints/>`_.
 
