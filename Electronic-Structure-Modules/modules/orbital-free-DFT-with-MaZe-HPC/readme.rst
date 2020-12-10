@@ -58,7 +58,7 @@ _________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 The program performs Orbital-Free Density Functional Theory Molecular Dynamics (OF-DFT-MD) using the Mass-Zero (MaZe)
-constrained molecular dynamics approach as discussed in [BONELLA2020]_.
+constrained molecular dynamics approach as discussed in [BONELLA2020b]_.
 The method is based on an extended Lagrangian and the dynamics enforces, at each timestep, the Born-Oppenheimer
 condition that the system relaxes instantaneously to the ground state through the formalism of holonomic constraints
 of zero mass.
@@ -93,17 +93,19 @@ This version of the module has been optimized by the IIT in Genova through the f
 
 * Improved FFTW usage:
 
-	- single plan creation (reuse of same FFTW plan for all FFT/iFFT);
-	- use FFTW patient planning;
-	- memory aligned allocation of FFT/iFFT vectors to exploit FFTW simd implementation;
+   - single plan creation (reuse of same FFTW plan for all FFT/iFFT);
+   - use FFTW patient planning;
+   - memory aligned allocation of FFT/iFFT vectors to exploit FFTW simd implementation;
 
 * Async FFT/iFFT execution via pthread threadpool (`C-Thread-Pool <https://github.com/Pithikos/C-Thread-Pool>`_);
 
 * ComputeForcesFromStructureFactor / ComputeStructureFactor loops parallelization through OpenMP;
 
-The proposed optimizations on the FFT/iFFT routines allow a reduction of the execution time on all the GGA test cases by roughly 50%.
+The proposed optimizations on the FFT/iFFT routines allow a reduction of the execution time on all the GGA test cases
+by roughly 50%.
 
-The parallelized ``for`` loops, tested on a compute node with 24 cores, allow to reduce by roughly 60% the execution time on the LDA test cases (with the exception of the ones using b-splines that needs further work).
+The parallelized ``for`` loops, tested on a compute node with 24 cores, allow to reduce by roughly 60% the execution
+time on the LDA test cases (with the exception of the ones using b-splines that needs further work).
 
 Background Information
 ______________________
@@ -173,7 +175,7 @@ By default the script tests an MD simulation of solid Sodium using different par
 * **Kinetic functional**: As above 'Thomas-Fermi (TF)', 'Thomas-Fermi plus von Weiszaecker correction (TFvW)'
   and 'Perrot' functionals;
 * **Explicit enforcing of additional constraint**: When the suffix '_additional_constraint' appears in the name of the
-  text, the conservation of the number of electrons is explicitly enforced as discussed in [BONELLA2020]_.
+  text, the conservation of the number of electrons is explicitly enforced as discussed in [BONELLA2020b]_.
 
 All the simulation in the tests are run using a Slater exchange functional and no correlation functional.
 
@@ -199,4 +201,4 @@ The repository contains the following directories:
 References
 __________
 
-.. [BONELLA2020] Phys. Chem. Chem. Phys., 2020, 22, 10775-10785
+.. [BONELLA2020b] Phys. Chem. Chem. Phys., 2020, 22, 10775-10785
