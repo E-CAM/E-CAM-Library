@@ -100,14 +100,19 @@ ______________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-.. If the modifications are to an existing code base (which is typical) then this would be the place to name that
-   application. List any relevant urls and explain how to get access to that code. There needs to be enough information
-   here so that the person reading knows where to get the source code for the application, what version this information is
-   relevant for, whether this requires any additional patches/plugins, etc.
+.. If the modifications are to an existing code base (which is typical)
+   then this would be the place to name that application. List any
+   relevant urls and explain how to get access to that code. There needs
+   to be enough information here so that the person reading knows where to
+   get the source code for the application, what version this information
+   is relevant for, whether this requires any additional patches/plugins,
+   etc.
 
-.. Overall, this module is supposed to be self-contained, but linking to specific URLs with more detailed information is
-   encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
-   the links they need should be already in this module.
+.. Overall, this module is supposed to be self-contained, but linking to
+   specific URLs with more detailed information is encouraged. In other
+   words, the reader should not need to do a websearch to understand the
+   context of this module, all the links they need should be already in
+   this module.
 
 The load balancing library ALL is integrated into the material point
 method simulation code GMPM-PoC, which is written by Stephan Schulz during

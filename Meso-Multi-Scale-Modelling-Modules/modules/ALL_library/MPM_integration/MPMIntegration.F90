@@ -5,7 +5,7 @@
 ! - The domain_bounds_old will only be used during initialisation for the
 !   initial domain configuration.
 ! - ``this_image()`` returns the current image index, i.e. current MPI rank+1.
-! - The work ist estimated using ``lb_estimate_work`` which takes the current
+! - The work is estimated using ``lb_estimate_work`` which takes the current
 !   domain size and number of particles as arguments.
 
     function domain_decomposition_jall(bounds, dh, num_images3, domain_bounds_old, work, output) result(domain_bounds)
