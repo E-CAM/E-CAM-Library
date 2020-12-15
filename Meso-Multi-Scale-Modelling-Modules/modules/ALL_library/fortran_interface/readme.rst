@@ -68,9 +68,13 @@ _________________
 This module is necessary for any Fortran developers trying to use this
 library.
 
+.. It is currently in use by the Fortran Multi Particle Method written for
+   the thesis of Stephan Schulz. This application of the interface is
+   documented in the according :ref:`module<all_mpm_integration>`.
+
 It is currently in use by the Fortran Multi Particle Method written for
 the thesis of Stephan Schulz. This application of the interface is
-documented in the according :ref:`module<all_mpm_integration>`.
+documented in the according module.
 
 .. TODO:
 
