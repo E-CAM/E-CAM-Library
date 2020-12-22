@@ -1,0 +1,12 @@
+7		!num_states 
+100		!num_bath
+240000		!num_traj
+165366		!num_timestep
+5.d0 		!timestep 
+50		!timestep_block
+1		!initial state  
+FMO_7-state.dat	!H_s filename in cm^-1 
+106.14d0	!omega_c in cm^-1
+77.d0		!temperatue in K
+35.d0		!reorganization energy in cm^-1
+86913721       	!IDUM 
