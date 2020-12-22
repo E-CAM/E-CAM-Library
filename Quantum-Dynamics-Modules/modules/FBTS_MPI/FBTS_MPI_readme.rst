@@ -68,7 +68,9 @@ trajectories through time and the matrix elements of the average value of a time
 
 is calculated by the FBTS method using,  
 
-:math:`B_W^{\lambda \lambda'}(X,t) = \sum_{\mu \mu'} \int dx dx' \phi(x) \phi(x') \frac{1}{\sqrt{2\hbar}} (q_\lambda + i p_\lambda)({q'}_\lambda - i {p'}_\lambda) B_W^{\mu \mu'}(X_t) \frac{1}{\sqrt{2\hbar}} (q_\mu(t) - i p_\mu (t))({q'}_{\mu'}(t) + i {p'}_{\mu'}(t))`
+:math:`B_W^{\lambda \lambda'}(X,t) = \sum_{\mu \mu'} \int dx dx' \phi(x) \phi(x') \frac{1}{\sqrt{2\hbar}} 
+* (q_\lambda + i p_\lambda)({q'}_\lambda - i {p'}_\lambda) B_W^{\mu \mu'}(X_t) \frac{1}{\sqrt{2\hbar}} 
+* (q_\mu(t) - i p_\mu (t))({q'}_{\mu'}(t) + i {p'}_{\mu'}(t))`
 
 where :math:`(X,x,x') = (R,P,q,q',p,p')` and :math:`\phi = (2\pi\hbar^{-N}) e^{-\sum(q^2_\nu + p^2_\nu / 2\hbar)}`.
 
@@ -107,9 +109,9 @@ Debye spectral density given below:
 
 The initial application for this module is in examining the mechanisms of exciton transport, 
 which can be studied through the time-dependent exciton site populations for a given light-harvesting complex.
- The approximate nature of this dynamics method combined with the parallelization of the 
- trajectory ensemble allows one to model exciton transport in large systems with many pigments 
- that would otherwise be prohibitively expensive to simulate. 
+The approximate nature of this dynamics method combined with the parallelization of the 
+trajectory ensemble allows one to model exciton transport in large systems with many pigments 
+that would otherwise be prohibitively expensive to simulate. 
 
 
 
@@ -125,21 +127,25 @@ in the ``./source`` sub-directory and can be compiled using:
         mpifort FBTS_MPI.f90 luxury.f90 -o FBTS_MPI.x
 
 Upon successful compilation of the code execution of the code requires two input files, 
-one containing relevant information concerning the simulation and the subsystem Hamiltonian matrix in units of wavenumbers. 
+one containing relevant information concerning the simulation and the subsystem Hamiltonian 
+matrix in units of wavenumbers. 
 
 The file Input_Data.dat contains the simulation parameters and can be easily modified. 
 The number of states of the system, the state in which the initial excitation will occur 
 and the number of trajectories this module will complete can be changed. 
-The influence of the bath can also be adjusted through the parameters that will define the Debye spectral density, 
-the characteristic frequency of the bath, `:math:\omega_c`, the reorganization energy and the number of bath oscillators. 
+The influence of the bath can also be adjusted through the parameters that will define the
+Debye spectral density, the characteristic frequency of the bath, `:math:\omega_c`, 
+the reorganization energy and the number of bath oscillators. 
 
 There are three parameters that concern the time length of the simulation, num_timestep, 
-timestep and timestep_block. The total time length of the simulation is determined by: num_timestep * timestep. 
-The parameter timestep_block determines at what interval the time-dependent observables will be calculated and collected.
+timestep and timestep_block. The total time length of the simulation is determined 
+by: num_timestep * timestep. The parameter timestep_block determines at what interval 
+the time-dependent observables will be calculated and collected.
 
-An example of this Input_Data.dat file and subsystem Hamiltonian matrix can be found in the ``./tests/Dimer_Model`` sub-directory. 
-In order to test the code move the executable to the this sub-directory and compare the 
-output site populations against the exact results from [IshizakiFleming2009] Figure 4(b). 
+An example of this Input_Data.dat file and subsystem Hamiltonian matrix can be found in 
+the ``./tests/Dimer_Model`` sub-directory. In order to test the code move the executable 
+to the this sub-directory and compare the output site populations against the exact results 
+from [IshizakiFleming2009] Figure 4(b). 
 Remember that the output provided by the module is given in atomic units of time and must be converted 
 to femtoseconds to compare. 
 
