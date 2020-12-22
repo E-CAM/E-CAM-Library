@@ -29,7 +29,7 @@
     Katherine Parsons and Aaron Kelly 
 
 
-.. _FBTS_MPI:
+.. _FBTS_MPI_module:
 
 ########
 FBTS_MPI
@@ -41,17 +41,28 @@ FBTS_MPI
 Purpose of Module
 _________________
 
-The FBTS-MPI module implements the Forward-Backward Trajectory Solution (FBTS) to the quantum-classical Liouville equation [KapralCiccotti1999] developed by Hsieh and Kapral [HsiehKapral2012], [HsiehKapral2013]. 
+The FBTS-MPI module implements the Forward-Backward Trajectory Solution (FBTS) to the 
+quantum-classical Liouville equation [KapralCiccotti1999] developed by Hsieh and Kapral 
+[HsiehKapral2012], [HsiehKapral2013]. 
 
-In the case of a many-body system that can be partitioned into a quantum subsystem and classical environment, this module can be used in the calculation of time-dependent observables. The purpose of this module is to provide an efficient and approximate method to study the nonadiabatic dynamics of these systems. 
+In the case of a many-body system that can be partitioned into a quantum subsystem and 
+classical environment, this module can be used in the calculation of time-dependent 
+observables. The purpose of this module is to provide an efficient and approximate method 
+to study the nonadiabatic dynamics of these systems. 
   
   
 Background Information
 ______________________
 
-In this approximate quantum dynamics method both the quantum subsystem and classical-like environment are transformed into a continuous phase space representation. This is achieved through a partial Wigner transfrom over the environmental degrees of freedom and a mapping representation for the quantum subsystem, wherein the subsystem degrees of freedom are represented by coherent state variables: :math:`z_\lambda = (q_\lambda + ip_\lambda) / \sqrt{2\hbar}`. 
+In this approximate quantum dynamics method both the quantum subsystem and classical-like 
+environment are transformed into a continuous phase space representation. This is achieved
+through a partial Wigner transform over the environmental degrees of freedom and a 
+mapping representation for the quantum subsystem, wherein the subsystem degrees of freedom 
+are represented by coherent state variables: :math:`z_\lambda = (q_\lambda + ip_\lambda) / \sqrt{2\hbar}`. 
 
-Classical-like equations of motion are then used to evolve an ensemble of Monte Carlo sampled trajectories through time and the matrix elements of the average value of a time-dependent operator, (having undergone the Wigner transform):
+Classical-like equations of motion are then used to evolve an ensemble of Monte Carlo sampled 
+trajectories through time and the matrix elements of the average value of a time-dependent operator, 
+(having undergone the Wigner transform):
 
 :math:`\langle B(t) \rangle = \sum_{\lambda \lambda'} \int dX B_W^{\lambda \lambda'}(X,t) \rho_W^{\lambda' \lambda}(X)`
 
@@ -65,11 +76,19 @@ where :math:`(X,x,x') = (R,P,q,q',p,p')` and :math:`\phi = (2\pi\hbar^{-N}) e^{-
 Applications 
 ____________________
 
-The particular system that this FBTS-MPI module has been built for is in the study of excitation energy transfer in biological light harvesting systems, so-called protein-pigment complexes, through the use of the Frenkel exciton model. The total Hamiltonian of this system is: :math:`\hat{H}_{total} = \hat{H}_{s} + \hat{H}_{b} + \hat{H}_{sb}`.
+The particular system that this FBTS-MPI module has been built for is in the study of 
+excitation energy transfer in biological light harvesting systems, so-called protein-pigment complexes, 
+through the use of the Frenkel exciton model. The total Hamiltonian of this system 
+is: :math:`\hat{H}_{total} = \hat{H}_{s} + \hat{H}_{b} + \hat{H}_{sb}`.
 
-In this model the quantum subsystem of interest, :math:`\hat{H}_{s}`, is the electronic excited states of the pigment molecules, the surrounding vibrational environment, :math:`\hat{H}_{b}`, is represented as a collection of harmonic oscillatorsand the interaction between the two, :math:`\hat{H}_{sb}`, is characterized by the spectral density. 
+In this model the quantum subsystem of interest, :math:`\hat{H}_{s}`, is the electronic excited states 
+of the pigment molecules, the surrounding vibrational environment, :math:`\hat{H}_{b}`, 
+is represented as a collection of harmonic oscillatorsand the interaction between the 
+two, :math:`\hat{H}_{sb}`, is characterized by the spectral density. 
 
-Specifically, the subsystem Hamiltonian is built such that the diagonal elements is the site energy, :math:`\epsilon_j` of a particular pigment, j, with the coupling between the pigments on the diagonals, :math:`\Delta_{kj}`:
+Specifically, the subsystem Hamiltonian is built such that the diagonal elements is the 
+site energy, :math:`\epsilon_j` of a particular pigment, j, with the coupling between the 
+pigments on the diagonals, :math:`\Delta_{kj}`:
 
 :math:`\hat{H}_s = \sum_{j=1}^J \epsilon_j |j \rangle \langle j| + \sum_{k \neq j} \Delta_{kj} |k \rangle \langle j|`
 
@@ -81,32 +100,51 @@ Lastly, the coupling Hamiltonian:
 
 :math:`\hat{H}_{sb} = -\sum_{j,n} c_{j,n} \hat{Q}_{j,n} |j\rangle \langle j|`
 
-In this module an approximate form of the spectral density is used, known as the Debye spectral density given below:
+In this module an approximate form of the spectral density is used, known as the 
+Debye spectral density given below:
 
 :math:`J_D(\omega) = \frac{2\lambda\omega_c\omega}{\omega^2 + \omega_c^2}`
 
-The initial application for this module is in examining the mechanisms of exciton transport, which can be studied through the time-dependent exciton site populations for a given light-harvesting complex. The approximate nature of this dynamics method combined with the parallelization of the trajectory ensemble allows one to model exciton transport in large systems with many pigments that would otherwise be prohibitively expensive to simulate. 
+The initial application for this module is in examining the mechanisms of exciton transport, 
+which can be studied through the time-dependent exciton site populations for a given light-harvesting complex.
+ The approximate nature of this dynamics method combined with the parallelization of the 
+ trajectory ensemble allows one to model exciton transport in large systems with many pigments 
+ that would otherwise be prohibitively expensive to simulate. 
 
 
 
 Building and Testing
 ____________________
 
-In order to compile this module, two files are required, FBTS_MPI.f90 and luxury.f90, one contains the FBTS method and the other returns arandom number. Both of these files are located in the ``./source`` sub-directory and can be compiled using:
+In order to compile this module, two files are required, FBTS_MPI.f90 and luxury.f90, one contains 
+the FBTS method and the other returns arandom number. Both of these files are located 
+in the ``./source`` sub-directory and can be compiled using:
 
 ::
 
         mpifort FBTS_MPI.f90 luxury.f90 -o FBTS_MPI.x
 
-Upon successful compilation of the code execution of the code requires two input files, one containing relavent information concerning the simulation and the subsystem Hamiltonian matrix in units of wavenumbers. 
+Upon successful compilation of the code execution of the code requires two input files, 
+one containing relevant information concerning the simulation and the subsystem Hamiltonian matrix in units of wavenumbers. 
 
-The file Input_Data.dat contains the simulation parameters and can be easily modified. The number of states of the system, the state in which the initial excitation will occur and the number of trajectories this module will complete can be changed. The influence of the bath can also be adjusted through the parameters that will define the Debye spectral density, the characteristic frequency of the bath, `:math:\omega_c`, the reorganization energy and the number of bath oscillators. 
+The file Input_Data.dat contains the simulation parameters and can be easily modified. 
+The number of states of the system, the state in which the initial excitation will occur 
+and the number of trajectories this module will complete can be changed. 
+The influence of the bath can also be adjusted through the parameters that will define the Debye spectral density, 
+the characteristic frequency of the bath, `:math:\omega_c`, the reorganization energy and the number of bath oscillators. 
 
-There are three parameters that concern the time length of the simulation, num_timestep, timestep and timestep_block. The total time length of the simulation is determined by: num_timestep * timestep. The parameter timestep_block determines at what interval the time-dependent observables will be calculated and collected.
+There are three parameters that concern the time length of the simulation, num_timestep, 
+timestep and timestep_block. The total time length of the simulation is determined by: num_timestep * timestep. 
+The parameter timestep_block determines at what interval the time-dependent observables will be calculated and collected.
 
-An example of this Input_Data.dat file and subsystem Hamiltonian matrix can be found in the ``./tests/Dimer_Model`` sub-directory. In order to test the code move the executable to the this sub-directory and compare the output site populations against the exact results from [IshizakiFleming2009] Figure 4(b). Remember that the output provided by the module is given in atomic units of time and must be converted to femtoseconds to compare. 
+An example of this Input_Data.dat file and subsystem Hamiltonian matrix can be found in the ``./tests/Dimer_Model`` sub-directory. 
+In order to test the code move the executable to the this sub-directory and compare the 
+output site populations against the exact results from [IshizakiFleming2009] Figure 4(b). 
+Remember that the output provided by the module is given in atomic units of time and must be converted 
+to femtoseconds to compare. 
 
-Another model is provided for testing, the light harvesting complex known as the Fenna-Matthews-Olson (FMO) complex that contains 7 states, the exact results are from [WilkinsDattani2015].
+Another model is provided for testing, the light harvesting complex known as the 
+Fenna-Matthews-Olson (FMO) complex that contains 7 states, the exact results are from [WilkinsDattani2015].
 
 The output from the FBTS_MPI module should be in good agreement to the exact results. 
 
