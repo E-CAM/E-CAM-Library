@@ -5,8 +5,6 @@
 
 ..  We allow the template to be standalone, so that the library maintainers add it in the right place
 
-:orphan:
-
 ..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
     progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
 
@@ -74,7 +72,7 @@ library.
 
 It is currently in use by the Fortran Multi Particle Method written for
 the thesis of Stephan Schulz. This application of the interface is
-documented in the according module.
+documented in the module :ref:`all_mpm_integration`.
 
 .. TODO:
 
@@ -122,7 +120,7 @@ ___________
 
 The source code for this interface consists of the C wrapper
 `src/ALL_fortran.cpp <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/-/blob/master/src/ALL_fortran.cpp>`_
-and the Fortran module ALL
+and the Fortran module `ALL`
 `src/ALL_module.F90 <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/-/blob/master/src/ALL_module.F90>`_.
 
 .. vim: et sw=2 ts=2 tw=74 spell spelllang=en_us:
