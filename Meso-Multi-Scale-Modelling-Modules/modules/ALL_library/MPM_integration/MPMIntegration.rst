@@ -83,7 +83,7 @@ further work is needed when integrating.
    :ref:`ALL<ALL_background>`.
 
 This module also shows a real world application of the Fortran interface
-provided with :ref:`ALL<ALL_background>`.
+provided with :ref:`ALL<ALL_background>` (documented in :ref:`all_fortran_interface`).
 
 The MPM simulation code with integrated ALL is used by Stephan Schulz in
 his thesis.
@@ -170,7 +170,7 @@ ____________________
 To build the code just run ``make LB=ALL`` and everything should be build
 automatically including dependencies. Make sure the correct compiler are
 found in the path and if you want to use Intel compilers you need to set
-``COPMILER=INTEL`` as well. The normal caveats and required modules for
+``COMPILER=INTEL`` as well. The normal caveats and required modules for
 some HPC systems are the described in the main code's ``README``.
 
 Source Code
