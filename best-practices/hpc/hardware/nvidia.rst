@@ -61,6 +61,6 @@ At this stage, GPU programming is quite mainstream and there are many training c
 example the `NVidia education site <https://developer.nvidia.com/cuda-education>`_ for material related to CUDA and
 OpenACC. Material for OpenMP is more limited, but as an increasing number of compilers begin to support the OpenMP 4.5
 standard, we expect the amount of such material to grow (see `this presentation on performance of the Clang OpenMP 4.5
-implementation on NVIDIA gpus 
+implementation on NVIDIA gpus
 <http://on-demand.gputechconf.com/gtc/2016/presentation/s6510-jeff-larkin-targeting-gpus-openmp.pdf>`_ for a status
 report as of 2016).
