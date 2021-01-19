@@ -1,5 +1,3 @@
-:orphan:
-
 ..  sidebar:: Software Technical Information
    
    This module is extends the lammps python interface to allow accessing 
