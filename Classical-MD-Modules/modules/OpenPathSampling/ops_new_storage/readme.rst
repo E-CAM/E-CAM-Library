@@ -136,17 +136,21 @@ reading:
 Installation and Testing
 ________________________
 
-The source code for this is in an unmerged branch of OpenPathSampling. The
-easiest installation procedure is to install the ``conda`` package manager,
-and then to download and use the OpenPathSampling developer install script.
-Once ``conda``, ``curl``, and ``git`` are available, change to the directory
-where you would like the OpenPathSampling repository to exist, and the
-following commands suffice:
+This will be included in the version 1.4 release of OpenPathSampling. Once
+that is the case, it can be installed via the ``conda`` package manager
+with:
+
+.. code:: bash
+
+    conda install -c conda-forge openpathsampling
+
+Until then, it can be installed using a developer install, which (assuming
+``conda``, ``curl``, and ``git`` are installed) can be performed with:
 
 .. code:: bash
 
     curl -OLk https://raw.githubusercontent.com/openpathsampling/openpathsampling/master/devtools/conda_ops_dev_install.sh
-    OPS_ENV=ops_new_storage source conda_ops_dev_install.sh dwhswenson storage
+    OPS_ENV=ops_new_storage source conda_ops_dev_install.sh
 
 This will create and activate a ``conda`` environment called
 ``ops_new_storage``, with this module installed. If you want to install the
@@ -180,11 +184,10 @@ An example for this module can be found at:
 Source Code
 ___________
 
-This module includes the general SimStore components of the pull request at: https://github.com/openpathsampling/openpathsampling/pull/928
-
-In particular, includes the files in ??the
+This module includes the general SimStore components of the pull request at: https://github.com/openpathsampling/openpathsampling/pull/928.
+In particular, this module is for the files in the
 ``openpathsampling.experimental.storage.simstore`` subpackage within that
-pull request.??
+pull request.
 
 .. link the source code
 
