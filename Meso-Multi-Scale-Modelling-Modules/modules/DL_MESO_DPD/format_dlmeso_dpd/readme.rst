@@ -22,7 +22,7 @@ Formatting the HISTORY files of DL_MESO_DPD
     See the Testing section
 
 .. contents:: :local:
-	      
+
 
 Purpose of Module
 _________________
@@ -82,7 +82,7 @@ to ``.TRUE.``, this output should be printed on the screen
 .. literalinclude:: ./out-ch
 
 and the HISTORY-F file should be
-		    
+
 .. literalinclude:: ./HISTORY-F
 
 If the simulation is run in parallel, the particles may not necessarily
@@ -96,7 +96,7 @@ ___________
 .. literalinclude:: ./format_history.f90
    :language: fortran
    :linenos:
-		    
+
 .. Here are the URL references used
 .. _DL_MESO: http://www.ccp5.ac.uk/DL_MESO
 .. _ReST: http://docutils.sourceforge.net/docs/user/rst/quickref.html
