@@ -43,8 +43,9 @@ The base code for this module is DL_MESO_DPD, the Dissipative Particle
 Dynamics code from the mesoscopic simulation package DL_MESO_,
 developed by M. Seaton at Daresbury Laboratory.
 This open source code is available from STFC under both academic (free) and
-commercial (paid) licenses. The module is to be used with DL_MESO
-in its last released version, version 2.6 (dating November 2015).
+commercial (paid) licenses. The module can be used with DL_MESO
+from version 2.6 (dated November 2015) onwards, including its currently 
+released version, version 2.7 (dating December 2018).
 
 Testing
 _______
@@ -80,7 +81,7 @@ for the :download:`FIELD <FIELD>` file
 
 .. literalinclude:: ./FIELD
 
-and for the :download:`CONFIG <CONFIG>` file this (correct labeling) one, where
+and for the :download:`CONFIG <CONFIG>` file this (correct labelling) one, where
 the beads are randomly located in the cubic box
 
 .. literalinclude:: ./CONFIG
@@ -95,7 +96,7 @@ standard output
 Instead, altering just two particle species in the CONFIG file given above:
 
 - `"B   3"`  changes into `"A   3"`
-- `"C  20"` changes into `"B 20"`
+- `"C  20"`  changes into `"B  20"`
 
 an error message is given
 
@@ -117,7 +118,7 @@ the error message is
 **Test 4**
 
 Here instead we propose to add a hard wall orthogonal to the `z` axis: this
-is done uncommenting the ``surface hard z`` line in the CONTROL file.
+is done by uncommenting the ``surface hard z`` line in the CONTROL file.
 Running the utility, one obtains
 
 .. literalinclude:: ./out-4
@@ -137,4 +138,4 @@ To download the source code for ``check_config.f90``, :download:`click here<chec
 .. Here are the URL references used
 .. _DL_MESO: http://www.ccp5.ac.uk/DL_MESO
 .. _ReST: http://docutils.sourceforge.net/docs/user/rst/quickref.html
-.. [1] Compilation has been tested with the GNU compiler GCC, version 8.1.1.
+.. [1] Compilation has been tested with the GNU compiler GCC, version 10.2.0.
