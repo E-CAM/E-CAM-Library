@@ -150,7 +150,8 @@ and we also include its contents below (as well as in the test tarball).
 
 .. Here are the URL and references used
 .. _DL_MESO: http://www.ccp5.ac.uk/DL_MESO
-.. [Duboue2015]  E. Duboué-Dijon, A. Laage, *Characterization of the local structure in liquid water by various order parameters*, J. Phys. Chem. B, **119**, 8406 (2015).
+.. [Duboue2015]  E. Duboué-Dijon, A. Laage, *Characterization of the local structure in liquid water
+      by various order parameters*, J. Phys. Chem. B, **119**, 8406 (2015).
 .. [1] The angle
        :math:`\theta_{ijk}=\cos^{-1}\left\{\frac{\vec{r}_{ij}\cdot\vec{r}_{kj}}{r_{ij}r_{kj}}\right\}`
        where :math:`\vec{r_{ij}} = \vec{r_i} -\vec{r_j}` and :math:`r=|\vec{r}|`. 
