@@ -22,7 +22,7 @@ Analysis of local tetrahedral ordering for DL_MESO_DPD
     See the Testing section
 
 .. contents:: :local:	      
-	      
+
 
 Purpose of Module
 _________________
@@ -109,22 +109,23 @@ the `FIELD` file
 .. literalinclude:: ./FIELD
 
 and the `CONFIG` file
-		    
+
 .. literalinclude:: ./CONFIG
 
 This configuration corresponds to a diamond cubic lattice [3]_, while the ``nfold``
 directive in the `CONTROL` file replicates the configuration twice in all three dimensions.
-		    
-Analyzing the resulting trajectory (``HISTORY``) file with ``tetrahedral.exe`` (compiled as indicated above) and inputing :math:`1`
-for the runtime argument, the following output is printed to the standard output:
+
+Analyzing the resulting trajectory (``HISTORY``) file with ``tetrahedral.exe``
+(compiled as indicated above) and inputing :math:`1` for the runtime argument,
+the following output is printed to the standard output:
 
 .. literalinclude:: ./out
-		    
+
 The output file `TETRADAT`
 
 .. literalinclude:: ./TETRADAT
    :lines: 1-13
-	   
+
 contains the values of :math:`q` and :math:`S_k` for each snapshot and their
 averages are also produced.
 
@@ -139,7 +140,8 @@ system is roughly uniform.
 Source Code
 ___________
 
-You can directly download the source file :download:`tetrahedral.f90 <./tetrahedral.f90>` and we also include its contents below (as well as in the test tarball).
+You can directly download the source file :download:`tetrahedral.f90 <./tetrahedral.f90>`
+and we also include its contents below (as well as in the test tarball).
 
 .. literalinclude:: ./tetrahedral.f90
       :language: fortran
@@ -148,8 +150,7 @@ You can directly download the source file :download:`tetrahedral.f90 <./tetrahed
 
 .. Here are the URL and references used
 .. _DL_MESO: http://www.ccp5.ac.uk/DL_MESO
-.. [Duboue2015]  E. Duboué-Dijon, A. Laage, *Characterization of the local structure in liquid water by various order parameters*,
-		 J. Phys. Chem. B, **119**, 8406 (2015).
+.. [Duboue2015]  E. Duboué-Dijon, A. Laage, *Characterization of the local structure in liquid water by various order parameters*, J. Phys. Chem. B, **119**, 8406 (2015).
 .. [1] The angle
        :math:`\theta_{ijk}=\cos^{-1}\left\{\frac{\vec{r}_{ij}\cdot\vec{r}_{kj}}{r_{ij}r_{kj}}\right\}`
        where :math:`\vec{r_{ij}} = \vec{r_i} -\vec{r_j}` and :math:`r=|\vec{r}|`. 
@@ -161,5 +162,6 @@ You can directly download the source file :download:`tetrahedral.f90 <./tetrahed
        One can check that, with the minimum image convention, each
        particle has its 4 closest neighbours at a distance :math:`\sqrt{3}`, and all the angles are
        :math:`\textrm{acos}(-1/3)`.
-       For this configuration (also if repeated periodically along the three Cartesian axis), :math:`q=1` and :math:`S_k=1`.
+       For this configuration (also if repeated periodically along the three Cartesian axis),
+       :math:`q=1` and :math:`S_k=1`.
 
