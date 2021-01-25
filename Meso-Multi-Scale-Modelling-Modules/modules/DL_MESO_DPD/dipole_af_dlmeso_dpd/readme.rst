@@ -22,7 +22,7 @@ Autocorrelation functions of charge dipole moments in DL_MESO_DPD
     See the Testing section
 
 .. contents:: :local:	      
-	      
+
 
 Purpose of Module
 _________________
@@ -161,7 +161,7 @@ it correctly gives 96 molecules of two beads.
 Since internally the module checks that each molecule is a connected cluster [1]_,
 this line should always give a histogram with the molecule sizes
 (shown up to the maximum number of beads per molecule).
-		    
+
 The `DIPAFDAT` file is (only the first fifteen lines are shown):
 
 .. literalinclude:: ./DIPAFDAT
@@ -171,10 +171,11 @@ and the `DIPAFFFT` file is (only the first fifteen lines are shown):
 
 .. literalinclude:: ./DIPAFFFT
    :lines: 1-15
-		    
-Below we show a plot of the normalized AF :math:`\frac {\langle \vec{P}(0)\vec{P}(t)\rangle}{\langle\vec{P}(0)\vec{P}(0)\rangle}`
+
+Below we show a plot of the normalized AF
+:math:`\frac {\langle \vec{P}(0)\vec{P}(t)\rangle}{\langle\vec{P}(0)\vec{P}(0)\rangle}`
 (obtained using the first and third columns of `DIPAFDAT`) 
-		    
+
 .. image:: ./af-dimers.jpg
    :width: 30 %
    :align: center
