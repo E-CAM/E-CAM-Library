@@ -55,7 +55,8 @@ total charge dipole moment of the simulated volume :math:`V` is
 :math:`\vec{P}=\sum_{mol\in V} \vec{p}_{mol}`.
 If more than one molecular species are present, one can split :math:`\vec{P}`
 into the different species contributions:
-:math:`\vec{P}=\sum_{j = 1}^{N_{moldef}} \vec{P}^{(j)}=\sum_{j = 1}^{N_{moldef}} \sum_{k = 1}^{N_{mol}^{(j)}} \vec{p}_k^{\,(j)}`,
+:math:`\vec{P}=\sum_{j=1}^{N_{moldef}} \vec{P}^{(j)}=
+\sum_{j=1}^{N_{moldef}} \sum_{k=1}^{N_{mol}^{(j)}} \vec{p}_k^{\,(j)}`,
 where :math:`N_{moldef}` is the number of molecule types (definitions) and
 :math:`N_{mol}^{(j)}` the number of molecules of type :math:`j`.
 
