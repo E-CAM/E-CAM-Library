@@ -133,9 +133,9 @@ and the FIELD file:
 
 .. literalinclude:: ./FIELD
 
-		    
+
 Analyzing the HISTORY file with `gen_dipole.exe`, this output is printed on the standard output
-		    
+
 .. literalinclude:: ./out-d
 
 The first line shows the histogram of cluster sizes: in this case,
@@ -143,7 +143,7 @@ it correctly gives 10 molecules of two beads, and 10 molecules of 4 beads.
 Since internally the module checks that each molecule is a connected cluster [2]_,
 this line should always give a histogram with the molecule sizes
 (up to the detected maximum number of beads per molecule).
-		    
+
 The resulting `dipole_BD` file is
 
 .. literalinclude:: ./dipole_BD
@@ -190,10 +190,10 @@ The resulting `dipole_BD` file is
 and the `dipole_BRANCH` one is
 
 .. literalinclude:: ./dipole_BRANCH-2
-		    
+
 The results of this test will not depend on the number of nodes used to run the
 simulation [3]_.
-		    
+
 **Third test: water in oil**
 
 Here we suggest considering a fluid made up of harmonically bonded dimers
