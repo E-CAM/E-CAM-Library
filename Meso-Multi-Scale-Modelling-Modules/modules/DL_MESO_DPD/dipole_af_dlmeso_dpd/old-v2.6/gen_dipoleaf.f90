@@ -2,122 +2,118 @@ PROGRAM gen_dipoleaf
 !*************************************************************************************
 ! module to compute autocorrelation functions of charge dipole moments in DL_MESO_DPD
 !
-! authors: m. a. seaton and s. chiacchiera, March 2017 (amended August 2017, January
-! 2021)
+! authors: m. a. seaton and s. chiacchiera, March 2017 (amended August 2017)
 !*************************************************************************************         
-      USE, INTRINSIC :: iso_c_binding
       IMPLICIT none
       INTEGER, PARAMETER :: dp = SELECTED_REAL_KIND (15, 307)
-      INTEGER, PARAMETER :: li = SELECTED_INT_KIND (12)
       INTEGER, PARAMETER :: ntraj=10
-      INTEGER, PARAMETER :: endversion = 1
       REAL(KIND=dp), PARAMETER :: pi=3.141592653589793_dp
       
-      CHARACTER(80) :: text
+      CHARACTER(80) :: text, a2
       CHARACTER(8), ALLOCATABLE :: namspe (:), nammol (:)
-
-      INTEGER, ALLOCATABLE :: ltp (:), ltm (:), mole (:), bndtbl (:,:)
-      INTEGER, ALLOCATABLE :: nbdmol (:), readint (:)
+      CHARACTER(6) :: chan
+      CHARACTER(8) :: a1
+      
+      INTEGER, ALLOCATABLE :: ltp (:), ltm (:), mole (:), bndtbl (:,:), beads (:), bonds (:) 
+      INTEGER, ALLOCATABLE :: nbdmol (:)
       INTEGER, ALLOCATABLE :: visit (:), from (:)
       INTEGER :: nrtout
-      INTEGER :: chain, imol, ioerror, i, numtraj, j, k, l, nmoldef, ibond, nbdmolmx
-      INTEGER :: nspe, nbeads, nusyst, nmbeads, nsyst, numbond, global, species, molecule
+      INTEGER :: chain, imol, ioerror, i, numtraj, j, k, l, nmoldef, ibond
+      INTEGER :: nspe, numnodes, nbeads, nusyst, nmbeads, nsyst, nbonds, numbond, global, species, molecule
       INTEGER :: nummol, lfrzn, rnmol, keytrj, srfx, srfy, srfz
-      INTEGER :: naf, nsamp, n1
-      INTEGER :: endver, Dlen, nstep, framesize, lend, leni
-      INTEGER(KIND=li) :: filesize, mypos, currentpos, lend_li, leni_li, framesizeli, numbeadsli
-
-      REAL(KIND=dp), ALLOCATABLE :: xxx (:), yyy (:), zzz (:), readdata (:)
+      INTEGER :: n1, n2, n3, n4
+      INTEGER :: bead1, bead2
+      INTEGER :: naf, nsamp
+      
+      REAL(KIND=dp), ALLOCATABLE :: xxx (:), yyy (:), zzz (:)
       REAL(KIND=dp), ALLOCATABLE :: nmol (:), chg (:), molchg (:)
       REAL(KIND=dp), ALLOCATABLE :: dipx_box (:), dipy_box (:), dipz_box (:)
       REAL(KIND=dp), ALLOCATABLE :: dipdata (:,:,:), dipdata_box (:,:), corrdata (:)
-      REAL(KIND=dp) :: dimx, dimy, dimz, shrdx, shrdy, shrdz
+      REAL(KIND=dp) :: volm, dimx, dimy, dimz, shrdx, shrdy, shrdz
       REAL(KIND=dp) :: amass, rcii
-      REAL(KIND=dp) :: time
+      REAL(KIND=dp) :: time, mbeads, mglobal, x, y, z, vx, vy, vz, fx, fy, fz
+      REAL(KIND=dp) :: r1, r2, r3, r4
       REAL(KIND=dp) :: domega, dt, time0
       REAL(KIND=dp) :: dx0, dy0, dz0 
 
       INTEGER :: nftpts
-      COMPLEX(C_DOUBLE_COMPLEX), ALLOCATABLE :: fftdata (:)
+      COMPLEX(KIND=dp), ALLOCATABLE :: fftdata (:)
       
-      LOGICAL :: eof, lfft, swapend, bigend
+      LOGICAL :: eof, lfft
       
-!     determine number of bytes for selected double precision and integer kinds
-!     (the default SELECTED_REAL_KIND (15, 307) should return 8 bytes)
+      ! Get number of nodes 
 
-      lend = STORAGE_SIZE (1.0_dp) / 8
-      leni = BIT_SIZE (1) / 8
-      lend_li = INT (lend, KIND=li)
-      leni_li = INT (leni, KIND=li)
+      WRITE (*,*) "Number of nodes used in calculations ?"
+      READ (*,*) numnodes
+      
+      ALLOCATE (beads (numnodes), bonds (numnodes))
+      
+      ! Determine if HISTORY files exist
 
-!     check endianness of machine
-
-      bigend = (IACHAR(TRANSFER(1,"a"))==0)
-
-!     determine if HISTORY file exists, which endianness to use,
-!     if type of real is correct
-
-      INQUIRE (file = 'HISTORY', EXIST = eof)
+      IF (numnodes>1) THEN
+         INQUIRE (file = 'HISTORY000000', EXIST = eof)
+      ELSE
+         INQUIRE (file = 'HISTORY', EXIST = eof)
+      END IF
       IF (.NOT. eof) THEN
-        PRINT *, "ERROR: cannot find HISTORY file"
-        STOP
+         WRITE (*,*) "ERROR: cannot find HISTORY files"
+         STOP
       END IF
 
-      OPEN (ntraj, file = 'HISTORY', access = 'stream', form = 'unformatted', status = 'unknown')
-
-      swapend = .false.
-      READ (ntraj) endver, Dlen
-
-      IF (endver/=endversion) THEN
-        swapend = .true.
-        CLOSE (ntraj)
-        IF (bigend) THEN
-          OPEN (ntraj, file = 'HISTORY', access = 'stream', form = 'unformatted', status = 'unknown', convert = 'little_endian')
-        ELSE
-          OPEN (ntraj, file = 'HISTORY', access = 'stream', form = 'unformatted', status = 'unknown', convert = 'big_endian')
-        END IF
-        READ (ntraj) endver, Dlen
-        IF (endver/=endversion) THEN
-          PRINT *, "ERROR: corrupted HISTORY file or created with incorrect version of DL_MESO"
-          STOP
-        END IF
-      END IF
-
-      IF (Dlen/=lend) THEN
-        PRINT *, "ERROR: incorrect type of real number used in HISTORY file"
-        PRINT *, "       recompile gen_dipoleaf.f90 with reals of ", Dlen, " bytes"
-        STOP
-      END IF
-
-!     read file size, number of frames and timestep numbers
-
-      READ (ntraj) filesize, numtraj, nstep
-
-      ! Read where the number of beads, molecules and bonds are determined
+      ! First reading, where the number of beads, molecules and bonds are determined
       ! Arrays are filled with names of particles and molecules
+      ! If multiple HISTORY files are present, it is checked they are compatible
+      
+      numbond = 0
 
-      READ (ntraj) text
+      DO j = 1, numnodes
+         WRITE (chan, '(i6.6)') j-1
+         IF (numnodes>1) THEN
+            OPEN (ntraj+j-1, file = 'HISTORY'//chan, access = 'sequential', form = 'unformatted', status = 'unknown')
+         ELSE
+            OPEN (ntraj, file = 'HISTORY', access = 'sequential', form = 'unformatted', status = 'unknown')
+         END IF
+         
+         IF (j == 1) THEN
+            READ (ntraj+j-1) nspe, nmoldef, nusyst, nsyst, nbeads, nbonds
+            READ (ntraj+j-1) dimx, dimy, dimz, volm
+            READ (ntraj+j-1) keytrj, srfx, srfy, srfz
+         ELSE
+            READ (ntraj+j-1) n1, n2, n3, n4, nbeads, nbonds
+            READ (ntraj+j-1) r1, r2, r3, r4
+            IF (n1 /= nspe .OR. n2 /= nmoldef .OR. n3 /= nusyst .OR. n4 /= nsyst &
+                .OR. r1 /= dimx .OR. r2 /= dimy .OR. r3 /= dimz .OR. r4 /= volm) THEN
+               WRITE (*,*) "ERROR: HISTORY files do not refer to the same system!"
+               STOP
+            ENDIF
+            READ (ntraj+j-1) n1, n2, n3, n4
+            IF (n1 /= keytrj .OR. n2 /= srfx .OR. n3 /= srfy .OR. n4 /= srfz) THEN
+               WRITE (*,*) "ERROR: HISTORY files do not refer to the same system!"
+               STOP
+            ENDIF
+         ENDIF
 
-      READ (ntraj) nspe, nmoldef, nusyst, nsyst, numbond, keytrj, srfx, srfy, srfz
+         beads (j) = nbeads
+         bonds (j) = nbonds
+         numbond = numbond + nbonds
+      END DO ! loop over nodes
 
       IF (numbond==0) THEN
-        PRINT *, 'ERROR: no molecules in trajectory data!'
+	PRINT *, 'ERROR: no molecules in trajectory data!'
         STOP
       END IF
       
-      IF (srfx>1 .OR. srfy>1 .OR. srfz>1) THEN
+      IF (srfx == 1 .OR. srfy == 1 .OR. srfz == 1) THEN
          WRITE (*,*) "ERROR: Hard walls, electrostatics not implemented in DL_MESO_DPD yet!"
          STOP
       END IF
 
-      IF (srfx==1 .OR. srfy==1 .OR. srfz==1) THEN
-         WRITE (*,*) "ERROR: Systems under shear not yet implemented!"
+      IF (srfx == 3 .OR. srfy == 3 .OR. srfz == 3) THEN
+         WRITE (*,*) "ERROR: System under shear, not implemented yet!"
          STOP
       END IF
 
-      framesize = (keytrj+1) * 3
-      ALLOCATE (readint (1:nsyst), readdata (1:framesize))
-
+      
 !     get number of beads to be tracked when reading trajectory file (molecular beads)
       nmbeads = nsyst - nusyst
 
@@ -129,54 +125,156 @@ PROGRAM gen_dipoleaf
       ALLOCATE (bndtbl (numbond, 2))
       ALLOCATE (visit (nmbeads), from (nmbeads)) 
 
-      DO i = 1, nspe
-        READ (ntraj) namspe (i), amass, rcii, chg (i), lfrzn
-      END DO
+      DO j = 1, numnodes
+         DO i = 1, nspe
+            IF (j == 1) THEN
+               READ (ntraj+j-1) namspe (i), amass, rcii, lfrzn
+            ELSE
+               READ (ntraj+j-1) a1, amass, rcii, lfrzn
+               IF (a1 /= namspe (i))THEN
+                  WRITE (*,*) "ERROR: HISTORY files do not refer to the same system!"
+                  STOP
+               ENDIF
+            ENDIF
+         END DO
 
-      DO i = 1, nmoldef
-        READ (ntraj) nammol (i)
-      END DO
+         IF (nmoldef>0) THEN
+            DO i = 1, nmoldef
+               IF (j==1) THEN
+                  READ (ntraj+j-1) nammol (i)
+               ELSE
+                  READ (ntraj+j-1) a1
+                  IF (a1 /= nammol (i))THEN
+                     WRITE (*,*) "ERROR: HISTORY files do not refer to the same system!"
+                     STOP
+                  ENDIF
+               END IF
+            END DO
+         END IF
 
-      ! reading of bead species and molecule types
+         IF (j == 1) THEN
+            READ (ntraj+j-1) text
+         ELSE
+            READ (ntraj+j-1) a2
+            IF (a2 /= text) THEN 
+               WRITE (*,*) "ERROR: HISTORY files do not refer to the same system!"            
+               STOP
+            ENDIF
+         ENDIF
+            
+      ENDDO ! end of loop over nodes
 
-      nummol = 0 !counter for number of molecules
-      ibond = 0  !counter for bonds
-
-      DO i = 1, nsyst
-        READ (ntraj) global, species, molecule, chain
-        IF (global>nusyst .AND. global<=nsyst) THEN
-          ltp (global-nusyst) = species
-          ltm (global-nusyst) = molecule
-          mole (global-nusyst) = chain
-          nummol = MAX (nummol, chain)
-        END IF
-      END DO
-
-      ! reading of bond tables
-
-      IF (numbond>0) THEN
-        DO i = 1, numbond
-          READ (ntraj) bndtbl (i, 1), bndtbl (i, 2)
-        END DO
+      ! reading of ONLY one HISTORY file till the end to get numtraj
+      DO i = 1, beads (1)
+         READ (ntraj) !global, species, molecule, chain
+      ENDDO
+      IF (bonds (1)>0) THEN
+         DO i = 1, bonds (1)
+            READ (ntraj) !bead1, bead2
+         END DO
       END IF
 
+      numtraj = 0
+      dt = 0.0_dp
+      time0 = 0.0_dp
+      
+      DO WHILE (.true.)
+         
+         READ (ntraj, IOSTAT=ioerror) time, mbeads, dimx, dimy, dimz, shrdx, shrdy, shrdz
+
+         IF (ioerror/=0) THEN
+            EXIT
+         ELSE
+            numtraj = numtraj + 1
+            IF (numtraj==1) time0 = time
+            nbeads = NINT (mbeads)
+            SELECT CASE (keytrj)
+            CASE (0)
+               DO i = 1, nbeads
+                  READ (ntraj) mglobal, x, y, z
+               END DO
+            CASE (1)
+               DO i = 1, nbeads
+                  READ (ntraj) mglobal, x, y, z, vx, vy, vz
+               END DO
+            CASE (2)
+               DO i = 1, nbeads
+                  READ (ntraj) mglobal, x, y, z, vx, vy, vz, fx, fy, fz
+               END DO
+            END SELECT
+         END IF
+         
+      END DO
+      
+      DO j = 1, numnodes
+         CLOSE (ntraj+j-1)
+      END DO
+
+      dt = (time - time0) / REAL (numtraj-1, KIND=dp)
+
+      ! Second reading, where arrays are filled with properties of beads and molecules.
+      ! Then, the snapshots of trajectories are read.
+
+      DO j = 1, numnodes
+         WRITE (chan, '(i6.6)') j-1
+         IF (numnodes>1) THEN
+            OPEN (ntraj+j-1, file = 'HISTORY'//chan, access = 'sequential', form = 'unformatted', status = 'unknown')
+         ELSE
+            OPEN (ntraj, file = 'HISTORY', access = 'sequential', form = 'unformatted', status = 'unknown')
+         END IF     
+      
+         READ (ntraj+j-1) !nspe, nmoldef, nusyst, nsyst, nbeads, nbonds
+         READ (ntraj+j-1) !dimx, dimy, dimz, volm
+         READ (ntraj+j-1) !keytrj, srfx, srfy, srfz
+
+         DO i = 1, nspe
+            READ (ntraj+j-1) !namspe (i), amass, rcii, lfrzn
+         END DO
+         
+         DO i = 1, nmoldef
+            READ (ntraj+j-1) !nammol (i)
+         END DO
+         
+         READ (ntraj+j-1) !text
+      END DO
+
+      nummol = 0 !counter for number of molecules      
+      ibond = 0  !counter for bonds
+      
+      !     fill in arrays for beads and bonds
+      DO j = 1, numnodes
+         !Build ltp, ltm, mole
+         DO i = 1, beads (j)
+            READ (ntraj+j-1) global, species, molecule, chain
+            IF (global>nusyst .AND. global<=nsyst) THEN
+               ltp (global-nusyst) = species
+               ltm (global-nusyst) = molecule
+               mole (global-nusyst) = chain
+               nummol = MAX (nummol, chain)
+            ENDIF
+         END DO
+         
+         IF (bonds (j)>0) THEN
+            ! Build bndtbl
+            DO i = 1, bonds (j)
+               ibond = ibond + 1
+               READ (ntraj+j-1) bead1, bead2
+               bndtbl (ibond, 1) = bead1
+               bndtbl (ibond, 2) = bead2
+            END DO
+         END IF   
+      END DO ! over nodes
+      
+      IF (ibond /= numbond) THEN
+         WRITE (*,*) "ERROR: bndtbl is not completely full!"
+         STOP
+      ENDIF
+         
       bndtbl = bndtbl - nusyst
 
-!     reached end of header: find current position in file
-
-      INQUIRE (unit=ntraj, POS=currentpos)
-
-      ! find timestep size from times in first two frames
-
-      framesizeli = INT (framesize, KIND=li)
-      numbeadsli = INT (nsyst, KIND=li)
-
-      READ (ntraj, IOSTAT=ioerror, POS=currentpos) time0
-      mypos = currentpos + (numbeadsli + 1_li) * leni_li + (framesizeli * numbeadsli + 7_li) * lend_li
-      READ (ntraj, IOSTAT=ioerror, POS=mypos) time
-
-      dt = time - time0
-
+      ! obtain connectivity information (needed only once)
+      CALL connect (nmbeads, numbond, bndtbl, visit, from) 
+      
       ! determine numbers of molecules and beads per molecule type
       nmol = 0.0_dp
       nbdmol = 0
@@ -199,10 +297,13 @@ PROGRAM gen_dipoleaf
          END IF
       END DO
 
-      nbdmolmx = MAXVAL (nbdmol (1:nmoldef))
+      !Asking the user to input the charges for each particle species
+      DO i = 1, nspe
+         WRITE (*,*) "Charges for SPECIES type ", namspe(i)," :"
+         READ (*,*) chg (i)
+      END DO
 
-      ! obtain connectivity information (needed only once)
-      CALL connect (nmbeads, numbond, bndtbl, nbdmolmx, visit, from)
+      WRITE (*,'("chg=",10(3x,f10.4))') chg
       
       !Checking for charge neutrality of all molecules
       ALLOCATE (molchg (nummol))
@@ -215,7 +316,7 @@ PROGRAM gen_dipoleaf
       END DO
 
       DO i = 1, nummol
-         IF (ABS (molchg (i)) > 1.0e-16_dp) THEN
+         IF (ABS (molchg (i)) > 1.d-16) THEN
             WRITE (*,*) "molecule number",i," is not neutral! (The dipole moment is frame-dependent)"
             WRITE (*,*) "its charge is=", molchg (i)
             WRITE (*,*) "its type is=", nammol (i)
@@ -223,7 +324,7 @@ PROGRAM gen_dipoleaf
          ENDIF
       END DO
 
-      CALL check_molecules !checks that beads are labelled as expected
+      call check_molecules !checks that beads are labelled as expected
 
       ! Get the maximum number of time steps for autocorrelation
       WRITE (*,*) "Number of time steps in autocorrelation profile? "
@@ -240,52 +341,88 @@ PROGRAM gen_dipoleaf
       ALLOCATE (dipx_box (nmoldef), dipy_box (nmoldef), dipz_box (nmoldef))
       
       eof = .false.
+      k = 0
 
-      DO k = 1, numtraj
+      DO WHILE (.true.)
+         READ (ntraj, IOSTAT=ioerror) time, mbeads, dimx, dimy, dimz, shrdx, shrdy, shrdz 
+         
+         IF (ioerror/=0) THEN
+            eof = .true.
+            IF (k==0) THEN
+               WRITE (*,*) 'ERROR: cannot find trajectory data in HISTORY files'
+               STOP
+            END IF
+            EXIT
+         END IF
+         
+         k = k + 1
+         
+         DO j = 1, numnodes
 
-        mypos = currentpos + INT (k-1, KIND=li) * ((numbeadsli + 1_li) * leni_li + (framesizeli * numbeadsli + 7_li) * lend_li)
-        READ (ntraj, POS = mypos, IOSTAT=ioerror) time, nbeads, dimx, dimy, dimz, shrdx, shrdy, shrdz
+            IF (j>1) THEN
+               READ (ntraj+j-1, IOSTAT=ioerror) time, mbeads, dimx, dimy, dimz, shrdx, shrdy, shrdz              
+               IF (ioerror/=0) THEN
+                  eof = .true.
+                  WRITE (*,*) 'ERROR: End of file reached prematurely - ', k-1, ' timesteps written', &
+                       ' to output files' 
+                  EXIT
+               END IF
+            END IF
+            
+            nbeads = NINT (mbeads)
+         
+            SELECT CASE (keytrj)
+            CASE (0)
+               DO i = 1, nbeads
+                  READ (ntraj+j-1) mglobal, x, y, z
+                  global = NINT (mglobal)
+                  IF (global>nusyst .AND. global<=nsyst) THEN
+                     xxx (global-nusyst) = x
+                     yyy (global-nusyst) = y
+                     zzz (global-nusyst) = z
+                  END IF
+               END DO
+            CASE (1)
+               DO i = 1, nbeads
+                  READ (ntraj+j-1) mglobal, x, y, z, vx, vy, vz
+                  global = NINT (mglobal)
+                  IF (global>nusyst .AND. global<=nsyst) THEN
+                     xxx (global-nusyst) = x
+                     yyy (global-nusyst) = y
+                     zzz (global-nusyst) = z
+                  END IF
+               END DO
+            CASE (2)
+               DO i = 1, nbeads
+                  READ (ntraj+j-1) mglobal, x, y, z, vx, vy, vz, fx, fy, fz
+                  global = NINT (mglobal)
+                  IF (global>nusyst .AND. global<=nsyst) THEN
+                     xxx (global-nusyst) = x
+                     yyy (global-nusyst) = y
+                     zzz (global-nusyst) = z
+                  END IF
+               END DO
+            END SELECT
 
-        IF (ioerror/=0) THEN
-          eof = .true.
-          IF (k==1) THEN
-            PRINT *, 'ERROR: cannot find trajectory data in HISTORY files'
-            STOP
-          END IF
-          EXIT
-        END IF
-
-        READ (ntraj) readint (1:nsyst)
-        DO i = 1, nsyst
-          global = readint (i)
-          READ (ntraj) readdata (1:framesize)
-          IF (global>nusyst .AND. global<=nsyst) THEN
-            xxx (global-nusyst) = readdata (1)
-            yyy (global-nusyst) = readdata (2)
-            zzz (global-nusyst) = readdata (3)
-          END IF
-        END DO
-
-        CALL compute_charge_dipoles (dipx_box, dipy_box, dipz_box)
+         END DO ! over nodes
+            
+         call compute_charge_dipoles (dipx_box, dipy_box, dipz_box)
 
          ! the dipole components are stored for all the snapshots 
-        DO j = 1, nmoldef
-          dipdata (1, j, k) = dipx_box (j)
-          dipdata (2, j, k) = dipy_box (j)
-          dipdata (3, j, k) = dipz_box (j)
-          dipdata (4, j, k) = time
-        END DO
-
+         DO j = 1, nmoldef
+            dipdata (1, j, k) = dipx_box (j) 
+            dipdata (2, j, k) = dipy_box (j) 
+            dipdata (3, j, k) = dipz_box (j) 
+            dipdata (4, j, k) = time
+         END DO
+         !
       END DO ! end of loop over trajectories
 
-      IF (k <= numtraj) THEN
+      IF (k /= numtraj)THEN
          WRITE (*,*) "ERROR: problem with the number of snapshots!" 
          STOP
       END IF
-
-      ! Close the trajectory file
-      CLOSE (ntraj)
-
+         
       nsamp = numtraj - naf + 1
       
       ALLOCATE (corrdata (naf))
@@ -293,25 +430,25 @@ PROGRAM gen_dipoleaf
       ! define FFT size if needed
       IF (lfft) THEN
          nftpts = naf ! modify here to change the size of the DFT
-         domega = 2.0_dp * pi / (dt * REAL(nftpts, KIND=dp))
+         domega = 2 * pi / (dt * nftpts)
          ALLOCATE (fftdata (nftpts))
       END IF
          
       ! Open output file, compute the autocorrelation and write it there
-      nrtout = ntraj + 1
+      nrtout = ntraj + numnodes 
       
       IF (numtraj>0) THEN
          
          OPEN (nrtout, file='DIPAFDAT', status='replace')
          WRITE (nrtout, '(a80)') text
-         WRITE (nrtout, '(2i10)') numtraj,naf
+         WRITE (nrtout, '(2i10)') k,naf
          WRITE (nrtout, '(/)')
 
          ! Open the FT otuput file if needed
          IF (lfft) THEN
             OPEN (nrtout+1, file='DIPAFFFT', status='replace')
             WRITE (nrtout+1, '(a80)') text
-            WRITE (nrtout+1, '(2i10)') numtraj,nftpts
+            WRITE (nrtout+1, '(2i10)') k,nftpts
             WRITE (nrtout+1, '(/)')
          END IF
          
@@ -335,7 +472,7 @@ PROGRAM gen_dipoleaf
             WRITE (nrtout, '(/)')
             IF (lfft) THEN
                fftdata (:) = corrdata (:)/ corrdata (1) ! adapt here if nftpts differs from naf
-               CALL fft (fftdata)
+               call fft (fftdata)
                DO i = 1, nftpts
                   WRITE (nrtout+1, '(1p,3e14.6)') REAL (i-1, KIND=dp)*domega, fftdata (i)
                END DO
@@ -373,11 +510,16 @@ PROGRAM gen_dipoleaf
          DEALLOCATE (dipdata_box)
       END IF
     
+      ! Close the trajectory files
+      DO j = 1, numnodes
+         CLOSE (ntraj+j-1)
+      END DO
+
       ! Close the output files
       CLOSE (nrtout)
       IF (lfft) CLOSE (nrtout+1)
       
-      DEALLOCATE (readint, readdata)
+      DEALLOCATE (beads, bonds)
       DEALLOCATE (namspe, nammol)
       DEALLOCATE (xxx, yyy, zzz)
       DEALLOCATE (ltp, ltm, mole)
@@ -506,7 +648,7 @@ PROGRAM gen_dipoleaf
                  dx = xxx (ibd) - xpre  
                  dy = yyy (ibd) - ypre  
                  dz = zzz (ibd) - zpre
-
+                 
                  dx = dx - dimx * ANINT (dx/dimx)
                  dy = dy - dimy * ANINT (dy/dimy)
                  dz = dz - dimz * ANINT (dz/dimz)
@@ -546,21 +688,19 @@ SUBROUTINE fft (x)
 ! Subroutine to call FFTW (v3) one-dimensional complex DFT.
 ! Notice that the input array is overwritten with the its Discrete Fourier Transform.
 !
-! author: s. chiacchiera, August 2017
-! amended: m. a. seaton, January 2021
+! author: s. chiacchiera, August 2017 
 !*************************************************************************************         
-  USE, INTRINSIC :: iso_c_binding
-  IMPLICIT none
-  INCLUDE 'fftw3.f03'
-  COMPLEX(C_DOUBLE_COMPLEX), INTENT(INOUT) :: x (:)
+  IMPLICIT NONE
+  INCLUDE "fftw3.f"
+  COMPLEX(KIND=dp), INTENT(INOUT) :: x (:)
   INTEGER :: n
-  TYPE(C_PTR) :: plan
+  INTEGER*8 :: plan
   
       n = SIZE (x)
 
-      plan = fftw_plan_dft_1d (n, x, x, FFTW_FORWARD, FFTW_ESTIMATE)
-      CALL fftw_execute_dft (plan, x, x)
-      CALL fftw_destroy_plan (plan)
+      call dfftw_plan_dft_1d (plan, n, x, x, FFTW_FORWARD, FFTW_ESTIMATE)
+      call dfftw_execute_dft (plan, x, x)
+      call dfftw_destroy_plan (plan)
       
       RETURN
       
@@ -568,7 +708,7 @@ END SUBROUTINE fft
       
 End PROGRAM gen_dipoleaf
 
-SUBROUTINE connect (nbeads, nbonds, bndtbl, mxmolsize, visit, from)
+SUBROUTINE connect (nbeads, nbonds, bndtbl, visit, from)
 !**********************************************************************
 !  Analyzes all the bonds (bndtbl) to obtain a schedule (visit, from) 
 !  to visit the beads so that each cluster is visited along a connected
@@ -577,14 +717,13 @@ SUBROUTINE connect (nbeads, nbonds, bndtbl, mxmolsize, visit, from)
 !  (Note: vocabulary from infection propagation used to move along
 !  clusters)
 !
-!  author: s. chiacchiera, February 2017
-!  amended: m. a. seaton, January 2021
+!  author: s. chiacchiera, February 2017 
 !**********************************************************************
   IMPLICIT none
       INTEGER, INTENT (IN) :: bndtbl (nbonds,2)
       INTEGER, INTENT (IN) :: nbeads, nbonds
-      INTEGER, INTENT (IN) :: mxmolsize
-      INTEGER :: ic, i, k, nn, nclu, nper, lab, ref, count
+      INTEGER :: ic, i, j, k, nn, nclu, nper, lab, ref, count
+      INTEGER :: mxmolsize
       INTEGER, ALLOCATABLE :: firstnn (:), lastnn (:), deg (:)
       INTEGER, ALLOCATABLE :: labnn (:)
       INTEGER, ALLOCATABLE :: state (:)
@@ -592,6 +731,8 @@ SUBROUTINE connect (nbeads, nbonds, bndtbl, mxmolsize, visit, from)
       INTEGER, ALLOCATABLE :: nchist (:)
       INTEGER, INTENT (OUT) :: visit (nbeads), from (nbeads)
       
+      mxmolsize = 10
+
       ALLOCATE (firstnn (nbeads), lastnn (nbeads), deg (nbeads), labnn (2*nbonds))
       ALLOCATE (state (nbeads))
       ALLOCATE (perlab (nbeads), perref (nbeads))
