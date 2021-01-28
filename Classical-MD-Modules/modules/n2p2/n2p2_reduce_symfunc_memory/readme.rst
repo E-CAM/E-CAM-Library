@@ -115,7 +115,7 @@ easily reaches more than 100 GB for common data set sizes.
 This module alters the core C++ library of *n2p2* in order to reduce the memory
 consumption of all depending applications and provides benchmark results
 quantifying the improvement. The idea is to exploit that for specific
-combinations of neighboring atoms :math:`i` and :math:`j` the expression
+combinations of neighboring atoms :math:`i` and :math:`j`, the expression
 :math:`\frac{\partial G_{j,k}}{\partial x_{i, \alpha}}` always equals zero.
 Consider a three-component system with elements A, B and C. In addition, let
 atoms :math:`i` and :math:`j` be of element A and B, respectively.  Then, the
@@ -123,10 +123,11 @@ derivative of a symmetry function :math:`G_{j,k}` with signature B-C (i.e. only
 sensitive to neighbor atoms of type C) with respect to :math:`i`'s coordinates
 vanishes. Hence, by taking these element combination relations automatically into
 account a significant portion of the memory usage can be avoided. Depending on
-the symmetry function setup savings of about 30 to 50% can be achieved for
+the symmetry function setup, savings of about 30 to 50% can be achieved for
 typical systems. These improvements will be particularly helpful for `developing
 HDNNPs for coarse-grained models
 <https://www.e-cam2020.eu/neural-network-potentials-for-cg-models/>`__.
+<https://www.e-cam2020.eu/implementation-of-neural-network-potentials-for-coarse-grained-models/>`__.
 
 Code changes cover most of the classes in the `libnnp` core library where they
 add functionality to identify relevant (nonzero) element combinations for the
@@ -229,7 +230,7 @@ The code changes from this module are already merged with the main repository of
 *n2p2* (see `pull request <https://github.com/CompPhysVienna/n2p2/pull/28>`__).
 The improved memory management is enabled by default, see the documentation
 about the corresponding `compilation flag
-<https://compphysvienna.github.io/n2p2/Topics/build.html#improved-symmetry-function-derivative-memory>`__.
+<https://compphysvienna.github.io/n2p2/topics/build.html#improved-symmetry-function-derivative-memory>`__.
 There, also benchmark results which demonstrate the memory savings can be found.
 
 Regression testing is implemented in *n2p2* and automatically performed upon
