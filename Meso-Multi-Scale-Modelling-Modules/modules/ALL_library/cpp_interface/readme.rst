@@ -93,7 +93,7 @@ _________________
 
 The C++ interface is a header-based solution, as it uses C++ templating capabilities
 to support different types of floating point numbers to describe domain borders and
-work loads. Internally class inhertiance is used to adminstrate the different included
+work loads. Internally class inheritance is used to administrate the different included
 load-balnacing methods. This should provide an easy way to include future additions of
 new methods into the library.
 
@@ -105,7 +105,7 @@ ________
 As the C++ interface is the default interface of the ALL library, there is
 no need to explicitly enable it. The interface provides functions to create
 an object which handles the computations of new boundaries based on provided
-sets of domain borders and work loads. In addition, if the libary is compiled
+sets of domain borders and work loads. In addition, if the library is compiled
 with VTK support (requires ``CM_ALL_VTK_OUTPUT`` in CMake), functionality to
 create VTK descriptions of the domain structure is provided (for all methods
 working on orthogonal domains).
