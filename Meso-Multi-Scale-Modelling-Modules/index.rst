@@ -202,3 +202,4 @@ time-to-solution of the applications.
     ./modules/ALL_library/cpp_interface/readme
     ./modules/ALL_library/fortran_interface/readme
     ./modules/ALL_library/MPM_integration/MPMIntegration
+    ./modules/ALL_library/all_hemeLB_cooperation/hemeLBcooperation
