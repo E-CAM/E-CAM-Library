@@ -26,7 +26,7 @@
     http://slms.pages.jsc.fz-juelich.de/websites/all-website/sphinx/api/ALL.html
 
   Relevant Training Material
-    `Webinar (YT) <https://www.youtube.com/watch?v=2K2YFdzIJF4&list=PLmhmpa4C4MzY02eaacXImTts2aGJHrdwQ&index=3>`_
+    `Webinar (YT) <https://www.youtube.com/watch?v=cUdvsQyxVh0&list=PLmhmpa4C4MzY02eaacXImTts2aGJHrdwQ>`_
 
   Software Module Developed by
     Rene Halver, Stephan Schulz
@@ -101,6 +101,10 @@ Building
 ________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
+
+General installation instructions for ALL can be found in the 
+`README.md of the ALL repository <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing#installation-and-requirements>`_ 
+(which is also distributed with each release).
 
 As the C++ interface is the default interface of the ALL library, there is
 no need to explicitly enable it. The interface provides functions to create
