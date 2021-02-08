@@ -27,7 +27,7 @@
     `HemeLB website <http://hemelb.org.s3-website.eu-west-2.amazonaws.com/>`_
 
   Relevant Training Material
-    `General ALL web-based seminar <https://www.youtube.com/playlist?list=PLmhmpa4C4MzY02eaacXImTts2aGJHrdwQ>`
+    `General ALL web-based seminar <https://www.youtube.com/playlist?list=PLmhmpa4C4MzY02eaacXImTts2aGJHrdwQ>`_
 
   Software Module Developed by
     Rene Halver
