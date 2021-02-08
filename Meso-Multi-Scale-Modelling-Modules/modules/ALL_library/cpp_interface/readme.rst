@@ -120,7 +120,7 @@ ___________
 .. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
 
 The source code for this interface consists of:
-`src/ALL.hpp <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/-/blob/master/include/ALL.hpp>`_
+`include/ALL.hpp <https://gitlab.version.fz-juelich.de/SLMS/loadbalancing/-/blob/master/include/ALL.hpp>`_
 
 
 .. vim: et sw=2 ts=2 tw=74 spell spelllang=en_us:
