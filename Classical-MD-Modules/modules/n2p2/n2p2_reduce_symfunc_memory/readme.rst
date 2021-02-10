@@ -126,7 +126,6 @@ account a significant portion of the memory usage can be avoided. Depending on
 the symmetry function setup, savings of about 30 to 50% can be achieved for
 typical systems. These improvements will be particularly helpful for `developing
 HDNNPs for coarse-grained models
-<https://www.e-cam2020.eu/neural-network-potentials-for-cg-models/>`__.
 <https://www.e-cam2020.eu/implementation-of-neural-network-potentials-for-coarse-grained-models/>`__.
 
 Code changes cover most of the classes in the `libnnp` core library where they
@@ -228,10 +227,13 @@ FUNCTION MEMORY`` which will highlight the memory savings.
 
 The code changes from this module are already merged with the main repository of
 *n2p2* (see `pull request <https://github.com/CompPhysVienna/n2p2/pull/28>`__).
-The improved memory management is enabled by default, see the documentation
-about the corresponding `compilation flag
-<https://compphysvienna.github.io/n2p2/topics/build.html#improved-symmetry-function-derivative-memory>`__.
-There, also benchmark results which demonstrate the memory savings can be found.
+The improved memory management is enabled by default when *n2p2* is compiled.
+However, there are use cases (see `this discussion
+<https://github.com/CompPhysVienna/n2p2/issues/68>`__) where the "full" memory
+layout is more desirable.  Hence, a `compilation flag
+<https://compphysvienna.github.io/n2p2/topics/build.html#improved-symmetry-function-derivative-memory>`__
+allows to switch between the two choices. The documentation also shows benchmark
+results which demonstrate the potential memory savings.
 
 Regression testing is implemented in *n2p2* and automatically performed upon
 submission of a pull request via `Travis CI <https://travis-ci.org>`__. The log
