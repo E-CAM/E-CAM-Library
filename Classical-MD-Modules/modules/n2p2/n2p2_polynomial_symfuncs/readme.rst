@@ -58,8 +58,9 @@ n2p2 - Polynomial Symmetry Functions
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-This module introduces a new set of atomic environment descriptors in *n2p2*.
-Polynomial symmetry functions [1]_ are designed to mimic closely the behavior of
+This module introduces a new set of atomic environment descriptors for
+high-dimensional neural network potentials (HDNNPs) in *n2p2*.  Polynomial
+symmetry functions [1]_ are designed to mimic closely the behavior of
 traditional Behler-Parrinello symmetry functions [2]_ but with a significantly
 reduced computational cost.
 
@@ -90,7 +91,56 @@ reduced computational cost.
 Purpose of Module
 _________________
 
-TBD
+The symmetry functions proposed in the original work of Behler and Parrinello
+[2]_ contain expressions of the form :math:`exp(-\eta r_{ij}^2) f_c(r_{ij})` in
+the innermost loop over all neighbors of atoms. Often the cutoff function
+:math:`fc(r)` is chosen to be a cosine or hyperbolic tangent. Considering the
+computational cost of these transcendental functions an alternative formulation
+of symmetry functions based on polynomials like
+
+.. math::
+
+   ((15 - 6x) x - 10) x^3 + 1
+
+has been published recently [1]_. Here, cheap polynomials are combined to form
+compact functions in the radial and angular domain which mimic the behavior of
+Behler-Parrinello type symmetry functions at a significantly reduced execution
+time. The benefits, benchmarks and many example applications are presented in
+great detail in [1]_. 
+
+This module's changes to the *n2p2* code comprise of new classes for different
+types of polynomial symmetry functions (PSFs), some helper classes and a
+redesign of the symmetry function caching mechanism:
+
+*  Helper classes ``CoreFunction`` and ``CompactFunction`` allow unified access
+   to the compact function building blocks of PSFs.
+
+*  Six different types of PSFs were implemented in these classes:
+
+   -  ``SymFncCompRad``
+   -  ``SymFncCompAngn``
+   -  ``SymFncCompAngw``
+   -  ``SymFncCompRadWeighted``
+   -  ``SymFncCompAngnWeighted``
+   -  ``SymFncCompAngwWeighted``
+
+   Here, ``Rad`` and ``Angn``/``Angw`` indicate radial and angular symmetry
+   functions variants, respectively. The suffix ``Weighted`` refers to an
+   element weighting proposed in [3]_. For each new class in this list also a
+   symmetry function group [4]_ version was implemented, following the same
+   naming scheme prefixed with ``SymGrp``. See also `this section
+   <https://compphysvienna.github.io/n2p2/topics/descriptors.html#low-cost-polynomial-symmetry-functions-with-compact-support>`__
+   of the *n2p2* documentation for a more detailed description of the PSFs and
+   their parameters.
+
+*  The computation of a set of descriptors allows the reuse of intermediate
+   results across multiple symmetry functions with varying parameters. The
+   previously existing cutoff function caching [4]_ of *n2p2* was significantly
+   improved. By overriding the ``getCacheIdentifiers()`` member function each
+   ``SymFnc..`` class can provide identifier strings for required cache fields.
+   The ``Mode::setupSymmetryFunctionCache()`` function collects the requirements
+   of all symmetry functions and assigns cache positions in the
+   ``Atom::Neighbor::cache`` array.
 
 .. Keep the helper text below around in your module by just adding "..  " in
    front of it, which turns it into a comment
@@ -168,19 +218,49 @@ ____________________
    detailed, explaining if necessary any deviations from the normal build procedure of the application (and links to
    information about the normal build process needs to be provided).
 
-TBD
+The code changes from this module are already merged with the main
+repository of *n2p2* (see `pull request <https://github.com/CompPhysVienna/n2p2/pull/55>`__).
 
-Because the introduction of a new set of symmetry function affects the core
-library of *n2p2* several applications shipped with *n2p2* will benefit from the
-changes.
+Because the introduction of a new set of symmetry function enhances the core
+library of *n2p2* several applications shipped with *n2p2* will be affected by
+the changes. The easiest way to test the new functionality is to run the examples
+provided in these ``examples/nnp-predict/`` folders which make use of PSFs:
 
-TBD
+*  ``Anisole_SCAN``
+*  ``DMABN_SCAN``
+*  ``Ethylbenzene_SCAN``
+
+First, since the changes from this module are already merged with the main
+repository of *n2p2* (see `pull request
+<https://github.com/CompPhysVienna/n2p2/pull/55>`__) it is sufficient to
+`download the latest version <https://github.com/CompPhysVienna/n2p2>`__. Then,
+compile the ``nnp-predict`` tool by running
+
+.. code-block:: bash
+
+   make nnp-predict -j
+   
+in the ``src`` directory. Next, switch to one of the above example directories
+and run the prediction tool:
+
+.. code-block:: bash
+
+   ../../../bin/nnp-predict 0
+
+In the ``SETUP: SYMMETRY FUNCTIONS`` section of the output there should be
+symmetry functions with type (column ``tp``) between 20 and 25 which identifies
+`different variants
+<https://compphysvienna.github.io/n2p2/topics/descriptors.html#low-cost-polynomial-symmetry-functions-with-compact-support>`__
+of PSFs. In addition, the section ``SETUP: SYMMETRY FUNCTION CACHE`` contains an
+overview of the cache usage.
 
 Regression testing is implemented in *n2p2* and automatically performed upon
 submission of a pull request via `Travis CI <https://travis-ci.org>`__. The log
 file showing the successful pass of all tests for the specific pull request can
-be found `TODO
-<https://travis-ci.org/github/CompPhysVienna/n2p2/builds/640902050>`__.
+be found `here 
+<https://travis-ci.org/github/CompPhysVienna/n2p2/builds/750366858>`__. The
+tests include the above prediction examples and also perform a comparison of
+analytic and numeric derivatives of symmetry functions.
 
 
 Source Code
@@ -276,3 +356,13 @@ review all changes.
 .. [2] `Behler, J. Atom-Centered Symmetry Functions for Constructing
    High-Dimensional Neural Network Potentials. J. Chem. Phys. 2011, 134 (7),
    074106. <https://doi.org/10.1063/1.3553717>`__
+
+.. [3] `Gastegger, M.; Schwiedrzik, L.; Bittermann, M.; Berzsenyi, F.;
+   Marquetand, P. WACSF—Weighted Atom-Centered Symmetry Functions as Descriptors in
+   Machine Learning Potentials. J. Chem. Phys. 2018, 148 (24), 241709.
+   <https://doi.org/10.1063/1.5019667>`__
+
+.. [4] `Singraber, A.; Behler, J.; Dellago, C. Library-Based LAMMPS
+   Implementation of High-Dimensional Neural Network Potentials. J. Chem. Theory
+   Comput. 2019, 15 (3), 1827–1840.
+   <https://doi.org/10.1021/acs.jctc.8b00770>`__
