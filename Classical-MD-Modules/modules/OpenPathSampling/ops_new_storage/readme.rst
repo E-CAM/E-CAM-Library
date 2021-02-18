@@ -48,7 +48,7 @@ OpenPathSampling has the following needs from a storage subsystem:
    simulation objects (i.e., the details of how the simulation was run)
    should be stored. This helps track provenance and enhances
    reproducibility.
-2. All objects should have unique universal identifiers (UUIDs). References
+2. All objects should have universally unique identifiers (UUIDs). References
    in data objects to the UUIDs of the simulation objects that generated
    them are important for provenance and reproducibility.
 3. Because users may add new simulation objects, storing simulation objects
