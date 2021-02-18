@@ -159,7 +159,10 @@ testing software, e.g., with:
 
     conda install -c conda-forge pytest pytest-cov nbval
 
-Then just run the ``test-storage.sh`` script in that repository.
+Then just run the ``test-storage.sh`` script in that repository. Note:
+although the module will work with Python 3.6+, some of the notebook tests
+are not compatible with more recent versions of Python, so the tests should
+be run with Python 3.7.
 
 Examples
 ________
