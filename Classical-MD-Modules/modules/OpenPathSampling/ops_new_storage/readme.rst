@@ -136,30 +136,17 @@ reading:
 Installation and Testing
 ________________________
 
-This will be included in the version 1.4 release of OpenPathSampling. Once
-that is the case, it can be installed via the ``conda`` package manager
-with:
+This was included in the version 1.4 release of OpenPathSampling. 
+It can be installed via the ``conda`` package manager with:
 
 .. code:: bash
 
     conda install -c conda-forge openpathsampling
 
-Until then, it can be installed using a developer install, which (assuming
-``conda``, ``curl``, and ``git`` are installed) can be performed with:
-
-.. code:: bash
-
-    curl -OLk https://raw.githubusercontent.com/openpathsampling/openpathsampling/master/devtools/conda_ops_dev_install.sh
-    OPS_ENV=ops_new_storage source conda_ops_dev_install.sh
-
-This will create and activate a ``conda`` environment called
-``ops_new_storage``, with this module installed. If you want to install the
-code into your currently active environment, leave off the
-``OPS_ENV=ops_new_storage``.
-
-In addition to previous OPS requirements, this module requires SQLAlchemy.
-This can be installed with, e.g., ``conda install -c conda-forge
-sqlalchemy``.
+In addition to previous OPS requirements, this module requires SQLAlchemy,
+and other parts of the new storage require Dill.
+These can be installed with, e.g., ``conda install -c conda-forge
+sqlalchemy dill``.
 
 The tests for this module are split between unit tests included in the
 OpenPathSampling repository and integration tests in a separate repository.
