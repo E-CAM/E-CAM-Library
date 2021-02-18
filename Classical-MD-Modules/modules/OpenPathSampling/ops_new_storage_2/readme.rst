@@ -87,22 +87,17 @@ reading:
 Installation and Testing
 ________________________
 
-The source code for this is in an unmerged branch of OpenPathSampling. The
-easiest installation procedure is to install the ``conda`` package manager,
-and then to download and use the OpenPathSampling developer install script.
-Once ``conda``, ``curl``, and ``git`` are available, change to the directory
-where you would like the OpenPathSampling repository to exist, and the
-following commands suffice:
+This was included in the version 1.4 release of OpenPathSampling. 
+It can be installed via the ``conda`` package manager with:
 
 .. code:: bash
 
-    curl -OLk https://raw.githubusercontent.com/openpathsampling/openpathsampling/master/devtools/conda_ops_dev_install.sh
-    OPS_ENV=ops_new_storage source conda_ops_dev_install.sh dwhswenson storage
+    conda install -c conda-forge openpathsampling
 
-This will create and activate a ``conda`` environment called
-``ops_new_storage``, with this module installed. If you want to install the
-code into your currently active environment, leave off the
-``OPS_ENV=ops_new_storage``.
+In addition to previous OPS requirements, this module requires SQLAlchemy,
+and other parts of the new storage require Dill.
+These can be installed with, e.g., ``conda install -c conda-forge
+sqlalchemy dill``.
 
 The tests for this module are split between unit tests included in the
 OpenPathSampling repository and integration tests in a separate repository.
@@ -115,7 +110,11 @@ testing software, e.g., with:
 
     conda install -c conda-forge pytest pytest-cov nbval
 
-Then just run the ``test-storage`` script in that notebook.
+Then just run the ``test-storage.sh`` script in that repository. Note:
+although the module will work with Python 3.6+, some of the notebook tests
+are not compatible with more recent versions of Python, so the tests should
+be run with Python 3.7.
+
 
 Examples
 ________
