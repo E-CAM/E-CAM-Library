@@ -12,27 +12,30 @@
 
 .. sidebar:: Software Technical Information
 
-  The information in this section describes *n2p2* as a whole.
+  The information in this section describes *n2p2* and *LAMMPS* as a whole.
   Information specific to the additions in this module are in subsequent
   sections.
 
   Name
-    n2p2 (NeuralNetworkPotentialPackage)
+    n2p2 (NeuralNetworkPotentialPackage), LAMMPS
 
   Language
     C++
 
   Licence
-    `GPL-3.0-or-later <https://www.gnu.org/licenses/gpl.txt>`__
+    `GPL-3.0-or-later <https://www.gnu.org/licenses/gpl.txt>`__ (n2p2)
+    `GPL-2.0 <https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt>`__ (LAMMPS)
 
   Documentation Tool
     `Doxygen <http://www.doxygen.nl/>`__, `Sphinx <http://www.sphinx-doc.org>`__
 
   Application Documentation
-    http://compphysvienna.github.io/n2p2/
+    http://compphysvienna.github.io/n2p2/ (n2p2)
+    https://lammps.sandia.gov/ (LAMMPS)
 
   Relevant Training Material
-    http://compphysvienna.github.io/n2p2/
+    http://compphysvienna.github.io/n2p2/ (n2p2)
+    https://lammps.sandia.gov/ (LAMMPS)
 
   Software Module Developed by
     Andreas Singraber
@@ -43,11 +46,11 @@
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
     reference to work (so don't insert a comment between).
 
-.. _n2p2_cabanamd_support:
+.. _n2p2_improved_link_hpc:
 
-###########################
-n2p2 - Support for CabanaMD
-###########################
+#######################################
+n2p2 - Improved link to HPC MD software
+#######################################
 
 ..  Let's add a local table of contents to help people navigate the page
 
@@ -89,6 +92,14 @@ Purpose of Module
 _________________
 
 TBD
+links:
+
+https://github.com/CompPhysVienna/n2p2/pull/49
+
+https://github.com/CompPhysVienna/n2p2/pull/49/commits/e084cde64f4946c3885ab02e367ce9ad29343e37
+https://github.com/CompPhysVienna/n2p2/pull/49/commits/887ba87cdbcf723aeeac80292c56d89307a6d123
+
+https://github.com/lammps/lammps/pull/2626
 
 .. Keep the helper text below around in your module by just adding "..  " in
    front of it, which turns it into a comment
