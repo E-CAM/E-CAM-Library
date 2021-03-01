@@ -51,50 +51,57 @@ DL_MESO (DPD) on Kokkos: Verlet Velocity step 1
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-This module is the first version of a performance portable version of DL_MESO (DPD) using `Kokkos library <https://github.com/kokkos/kokkos>`_. 
+This module is the first version of a performance portable version of DL_MESO (DPD)
+using the `Kokkos library <https://github.com/kokkos/kokkos>`_. 
 Its focus is on the first loop of the Verlet Velocity (VV) scheme for the time marching scheme.
 
 Purpose of Module
 _________________
+
 In this module we present a first version of DL_MESO (DPD) with `Kokkos <https://github.com/kokkos/kokkos>`_ 
 library which offloads one of the main steps of the time marching scheme during the force integration. 
-This allows to run DL_MESO on NVidia GPUs as well 
+This allows us to run DL_MESO on NVidia GPUs as well 
 as on other GPUs or architectures (many-core hardware like KNL), allowing performance portability 
-as well as separation of concern 
+as well as a separation of concerns 
 between computational science and HPC.
 
-The VV scheme is made of 3 steps: 1) a first velocity and particle positions integration 
-by $\Delta t/2$, 2) a force calculation 
-and 3) a second velocity integration by $\Delta t/2$. In this module we are porting to 
-Kokkos the first step. 
+The VV scheme is made of 3 steps:
+
+  1) a first velocity and particle positions integration by $\Delta t/2$, 
+  2) a force calculation, and
+  3) a second velocity integration by $\Delta t/2$.
+  
+In this module we are porting to Kokkos the first step. 
 
 Note: Kokkos is a C++ library, while DL_MESO (DPD) is in Fortran90 Language. The current 
 implementation requires a transfer 
-between Fortran to C++, due to the use of Fortran pointers not binded via ISO_C_BINDING 
-standard. This constrain will be removed 
-in successive versions.  
+between Fortran to C++, due to the use of Fortran pointers not bound using the ``ISO_C_BINDING`` 
+standard. This constraint will be removed 
+in future versions of DL_MESO.  
 
 
 Background Information
 ______________________
+
 With the advent of heterogeneous hardware, achieving performance portability across 
 different architectures is one of the main 
 challenges in HPC. In fact, while specific languages, like CUDA, can give best 
-performance for the NVidia hardware, they cannot 
+performance for the NVIDIA hardware, they cannot 
 be used with different GPU vendors limiting the usage across supercomputers world wide.
 
 In this module we use Kokkos, developed at Sandia National Laboratories, which consist 
 of several C++ templated libraries able 
-to offload to workload to several different architectures, taking care of the memory layout and 
+to offload the workload to several different architectures, taking care of the memory layout and 
 transfer between host and device.
 
-To install Kokkos focus the instructions at: `Kokkos Tutorial <https://github.com/kokkos/kokkos/blob/master/BUILD.md>`_. 
-This module has been build on the Kokkos installation using the following flags:
+To install Kokkos follow the instructions at:
+`Kokkos Tutorial <https://github.com/kokkos/kokkos/blob/master/BUILD.md>`_. 
+This module has been built with a Kokkos installation using the following flags:
 
   cmake ../ -CMAKE_CXX_COMPILER=$HOME/Kokkos/kokkos/bin/nvcc_wrapper -DKokkos_ENABLE_CUDA=ON -DKokkos_ENABLE_OPENMP=ON 
   -DKokkos_ENABLE_CUDA_LAMBDA=ON -DCMAKE_INSTALL_PREFIX=$HOME/Kokkos/kokkos
 
-which allows to translate the Kokkos kernel to CUDA language and run on NVidia GPUs. 
+which allows for the translation of the Kokkos kernel to CUDA for running on NVidia GPUs. 
 
 This module is part of the DL_MESO (DPD) code. Full support and documentation is available at:
 
@@ -104,18 +111,16 @@ This module is part of the DL_MESO (DPD) code. Full support and documentation is
 To download the DL_MESO_DPD code you need to register at https://gitlab.stfc.ac.uk. Please contact Dr. Michael
 Seaton at Daresbury Laboratory (STFC) for further details.
 
-
-
-
 Building and Testing
 ____________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-To compile and run the code you need to have installed a Fortran and C++ compiler (GCC>7.x), CMake (>3.11.4) and Kokkos.
+To compile and run the code you need to have installed a Fortran and C++ compiler (GCC>7.x), CMake (>3.11.4)
+and Kokkos.
 
 The DL_MESO code is developed using git version control. Currently, the Kokkos GPU version is under a branch
 named ``Kokkos_version``. After downloading the code, checkout the Kokkos branch and move to the ``DPD`` folder.
-Use cmake to build and compile the executable:
+Use ``cmake`` to build and compile the executable:
 
 .. code-block:: bash
 
@@ -138,26 +143,29 @@ ___________
 We timed the execution for the VV kernel using Kokkos and compared to the same loop written in CUDA language 
 (see `DL_MESO GPU version modules <https://e-cam.readthedocs.io/en/latest/Meso-Multi-Scale-Modelling-Modules/index.html>`_) 
 using a Volta V100 NVidia card.
-For a 5.12 million particles of the Large Mixture test case, we get a 0.00114s per kernel execution with both versions, 
+
+For 5.12 million particles of the Large Mixture test case, we get a 0.00114s per kernel execution with both versions, 
 which indicate no loss of performance in using Kokkos compared to native CUDA code. However, the data transfer between 
-host and device currently occurs at every time step in the Kokkos version, taking 0.5721s and then with a negative 
-impact on the overall performance. 
-For a fair comparison, this data should be transferred upstream the time marching loop as done in the CUDA version. 
+host and device currently occurs at every time step in the Kokkos version, taking 0.5721s and therefore a negative 
+impact on the overall performance.
+
+For a fair comparison, this data should be transferred upstream to the time marching loop as done in the CUDA version. 
 
 Experience in porting to Kokkos
 _______________________________
-Compared to other paradigms used for GPU programming, like OpenACC or OpenMP, Kokkos has a 
-quite steep learning curve. 
-This is due to several concepts which needs to be assimilated by the programmer 
+
+Compared to other paradigms used for GPU programming, like OpenACC or OpenMP, Kokkos has 
+quite a steep learning curve. 
+This is due to several concepts which needs to be considered by the programmer 
 before starting the porting. 
 Some of these concepts are familiar to C++ programmers, like the use of lambda 
 functions and function objects 
-(commonly known as functors). Another important concept is the Memory Space which is 
+(commonly known as functors). Another important concept is the *Memory Space* which is 
 different according to the hardware used. 
-The transfer between host and device is based around the concept of View laying in 
+The transfer between host and device is based around the concept of the *View* layout in 
 the Memory Space, an array of one 
 or more dimensions which can be set at compile time or runtime. Programmers familiar 
-with CUDA with will easily 
+with CUDA will easily 
 recognize some similarity when porting to GPU, like the concepts of host and device 
 asynchronism and the Unified Memory 
 memory space. After following the first `on line tutorial <https://www.youtube.com/watch?v=rUIcWtFU5qM&t=3000s>`_ , 
@@ -165,9 +173,9 @@ the porting of a simple loop should be straight forward. However, more advanced 
 are required for more complex 
 scientific kernels to achieve performance portability. Finally, the error messages are not 
 always very easy to interpret 
-and the online threads to similar issues are still relatively few. With time, a wider spread 
+and the online threads to similar issues are still relatively few. With time, wider usage 
 of the library will definitely 
-improve the usage and make more user friendly making it less verbose.
+improve the usability and make it more user friendly (and less verbose).
 
 
 Source Code
