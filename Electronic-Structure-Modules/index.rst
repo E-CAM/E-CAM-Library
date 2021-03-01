@@ -129,6 +129,14 @@ Modules not coming from ESDWs
      ./modules/orbital-free-DFT-with-MaZe-HPC/readme
      ./modules/orbital-free-DFT-with-NLCG/readme
 
+Additonally, a module from an ESDW of WP4 was more relevant to this Work Package and so is reported here
+
+.. toctree::
+     :glob:
+     :maxdepth: 1
+
+     ./modules/gpaw-cuda/readme.rst
+
 Pilot Projects
 ==============
 
