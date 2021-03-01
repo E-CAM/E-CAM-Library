@@ -285,4 +285,16 @@ Clifden, Ireland in November 2019 was the starting point for the modules below.
 
     ./modules/PI/PIutils/README.rst
 
+ESDW Clifden 2019
+------------------
+
+The ESDW on "Inverse Molecular Design & Inference: building a Molecular Foundry" in 
+Clifden, Ireland in November 2019 was the starting point for the modules below.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/Comparative-Metadynamics/readme
+
 .. _E-CAM: https://www.e-cam2020.eu/
