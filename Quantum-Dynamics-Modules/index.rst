@@ -31,19 +31,24 @@ In the context of E-CAM, the definition of a software module is any piece of sof
 community and that encapsulates some additional functionality, enhanced performance or improved usability for people
 performing computational simulations in the domain areas of interest to the project.
 
-This definition is deliberately broader than the traditional concept of a module as defined in the semantics of most
-high-level programming languages and is intended to capture internal workflow scripts, analysis tools and test suites
-as well as traditional subroutines and functions. Because such E-CAM modules will form a heterogeneous collection we
-prefer to refer to this as an E-CAM software repository rather than a library (since the word library carries a
-particular meaning in the programming world). The modules do however share with the traditional computer science
-definition the concept of hiding the internal workings of a module behind simple and well-defined interfaces. It is
-probable that in many cases the modules will result from the abstraction and refactoring of useful ideas from existing
-codes rather than being written entirely de novo.
+This definition is deliberately broader than the traditional concept of a module as 
+defined in the semantics of most high-level programming languages and is intended 
+to capture internal workflow scripts, analysis tools and test suites
+as well as traditional subroutines and functions. Because such E-CAM modules 
+will form a heterogeneous collection we prefer to refer to this as an E-CAM 
+software repository rather than a library (since the word library carries a 
+particular meaning in the programming world). The modules do however share with 
+the traditional computer science definition the concept of hiding the internal 
+workings of a module behind simple and well-defined interfaces. 
+It is probable that in many cases the modules will result from the abstraction 
+and refactoring of useful ideas from existing codes rather than being written entirely de novo.
 
-Perhaps more important than exactly what a module is, is how it is written and used. A final E-CAM module adheres to
-current best-practice programming style conventions, is well documented and comes with either regression or unit tests
-(and any necessary associated data). E-CAM modules should be written in such a way that they can potentially take
-advantage of anticipated hardware developments in the near future (this is one of the training objectives of E-CAM).
+Perhaps more important than exactly what a module is, is how it is written and used. 
+A final E-CAM module adheres to current best-practice programming style conventions, 
+is well documented and comes with either regression or unit tests
+(and any necessary associated data). E-CAM modules should be written in such a way 
+that they can potentially take advantage of anticipated hardware developments in the 
+near future (this is one of the training objectives of E-CAM).
 
 
 
@@ -98,6 +103,7 @@ Below are listed the pilot project modules created so far:
     :maxdepth: 1
 
     ./modules/LocConQubit/readme
+    ./modules/Pergauss/readme
 ..    ./modules/module_faster/readme
 
 **LocConQubit** is a code for the construction of controlled pulses on isolated qubit systems using the Local Control
@@ -210,6 +216,7 @@ Below are listed all the modules from the E-CAM ESDWs in Quantum Dynamic develop
     :maxdepth: 1
 
     ./modules/CTMQC/readme
+    ./modules/EF_module/readme
 
 The **CTMQC** module allows to simulate excited-state dynamics in model systems of one to three spatial (nuclear)
 dimensions, with an arbitrary number of electronic states. The algorithm is based on the quantum-classical approximation
@@ -309,9 +316,11 @@ observables.
 
     ./modules/PIM_qtb/readme
 
-**PIM_qtb** implements various classical and semi-classical methods based on Langevin dynamics (classical Langevin
-dynamics, Quantum Thermal Bath (QTB) and two variants of adaptive QTB (adQTB-r and adQTB-f). The generated trajectories
-can be used to sample initial conditions for intramolecular vibrational-energy redistribution (IVR) dynamics.
+**PIM_qtb**  implements different methods based on Langevin dynamics. 
+The trajectories generated can be exploited directly or used to sample initial conditions for 
+Linearized Semi-Classical Initial Value Representation (LSC-IVR) calculations.
+The methods implemented are: classical Langevin dynamics, Quantum Thermal Bath (QTB)
+and two variants of adaptive QTB (adQTB-r and adQTB-f).
 
 
 .. toctree::
@@ -367,6 +376,14 @@ It also contains a library of adapted MPI subroutines for easier programming of 
 **Openmpbeads** is a patch to the PaPIM code which enables parallelization of the sampling of the
 polymer chains within the PIM algorithm, improving efficiency in sampling of the Wigner density.
 
+**PerGauss** is an implementation of periodic boundary conditions for gaussian basis functions
+to be used within the quantics program package.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/Pergauss/readme
 
 
 Quantics
@@ -440,6 +457,24 @@ by the group of Nadja Doslic in Zagreb.
 
 The **Quantics_openmp** module is an initial effort at OpenMP parallelisation improvements to Quantics.
 
+CLstunfti
+---------
+
+`CLstunfti <https://gitlab.com/axelschild/CLstunfti>`_ is an extendable Python 
+toolbox to compute scattering of electrons with a given kinetic energy in 
+liquids and amorphous solids. It uses a continuum trajectory model with 
+differential ionization and scattering cross sections as input to simulate the 
+motion of the electrons through the medium. 
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/CLstunfti/readme
+
+The module **CLstunfti** makes CLstunfti available to the world by providing 
+a documentation of the toolbox and inline documentations of the source code, 
+as well as a set of examples that can also be used for testing.
 
 .. toctree::
         :glob:
@@ -449,9 +484,22 @@ The **Quantics_openmp** module is an initial effort at OpenMP parallelisation im
 
 The **Spin orbit coupling smoothing** module is to smooth spin orbit couplings along internuclear distance.
 
+.. toctree::
+        :glob:
+        :maxdepth: 1
+
+        ./modules/Direct_Dynamics_Database/readme
+
+The **Direct Dynamics Database** The Direct Dynamics Database module is an improved, 
+more efficient version of the database used to provide the potential energy surfaces 
+in the Direct Dynamics variational multi-configuration Gaussian wavepacket (DD-vMCG) 
+method [Wor1]_ which is included in the powerful and flexible Quantics_ package 
+program [Wor2]_.
+
 
 References
-==========
+----------
+
 
 .. [Curc] B. F. E. Curchod, T. J. Penfold, U. Rothlisberger, I. Tavernelli *Phys. Rev. A*
           **84** (2012) 042507 `DOI: 10.1103/PhysRevA.84.042507
@@ -472,4 +520,7 @@ References
 .. [Mey]  H.-D. Meyer, G. A. Worth *Theor. Chem. Acc.* **109** (2003) 251 `DOI: 10.1007/s00214-003-0439-1 <https://doi.org/10.1007/s00214-003-0439-1>`_
 .. [Ric]  G. W. Richings, I. Polyak, K. E. Spinlove, G. A. Worth, I. Burghardt, B. Lasorne
           *Int. Rev. Phys. Chem.* **34** (2015) 269 `DOI: 10.1080/0144235X.2015.1051354 <https://doi.org/10.1080/0144235X.2015.1051354>`_
-
+.. [Wor1]  G. A. Worth, M. A. Robb, B. L. Lasorne
+          *Mol. Phys.* **106** (2008) 2077–2091 `DOI: 10.1080/00268970802172503 <https://doi.org/10.1080/00268970802172503>`_
+.. [Wor2]  G. A. Worth, K. Giri, G. W. Richings, M. H. Beck, A. Jäckle, H.-D. Meyer
+            Quantics package, version 1.1, (2015)
