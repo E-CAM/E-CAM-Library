@@ -282,6 +282,6 @@ Clifden, Ireland in November 2019 was the starting point for the modules below.
     :glob:
     :maxdepth: 1
 
-    ./modules/PIutils/README.rst
+    ./modules/PI/PIutils/README.rst
 
 .. _E-CAM: https://www.e-cam2020.eu/
