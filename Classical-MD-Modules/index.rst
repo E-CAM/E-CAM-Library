@@ -220,8 +220,8 @@ The following modules were developed specifically for the Classical MD pilot pro
     ./modules/contact_maps/readme
     ./modules/contact_maps_parallelization/readme
     ./modules/contact_concurrences/readme
-    ./modules/PIcore/readme
-    ./modules/PIhydration/readme
+    ./modules/PI/PIcore/readme
+    ./modules/PI/PIhydration/readme
     ./modules/PI/lammps_pyinterfaceExt/readme
     ./modules/MSJuly2019_minDist2segments_KKT/readme
     ./modules/MSJuly2019_velocities_resolve_EVC/readme
