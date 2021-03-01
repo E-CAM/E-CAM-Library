@@ -135,7 +135,7 @@ Additonally, a module from an ESDW of WP4 was more relevant to this Work Package
      :glob:
      :maxdepth: 1
 
-     ./modules/gpaw-cuda/readme.rst
+     ./modules/gpaw-cuda/readme
 
 Pilot Projects
 ==============
