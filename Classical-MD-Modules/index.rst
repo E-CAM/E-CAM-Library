@@ -192,6 +192,7 @@ The modules that are based on OPS, but remain separate, are:
     ./modules/dw_dimer_testsystem/readme
     ./modules/lammps_ops/readme
     ./modules/ops_cli_core/readme
+    ./modules/ops_cli_commands/readme
 
 Nine of these modules were part of
 `E-CAM Deliverable 1.2 <https://www.e-cam2020.eu/deliverables/>`_. Those modules

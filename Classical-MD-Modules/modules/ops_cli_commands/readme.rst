@@ -1,5 +1,3 @@
-:orphan:
-
 .. _ops_cli_commands:
 
 #############################
@@ -146,4 +144,3 @@ suites:
 .. Here are the URL references used
 
 .. _pytest: http://pytest.org/
-
