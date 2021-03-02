@@ -7,7 +7,7 @@ Analysis of local tetrahedral ordering for DL_MESO_DPD
 .. sidebar:: Software Technical Information
 
   Language
-    Fortran 2003
+    FORTRAN 90
 
   Licence
     BSD 
@@ -22,14 +22,14 @@ Analysis of local tetrahedral ordering for DL_MESO_DPD
     See the Testing section
 
 .. contents:: :local:	      
-
+	      
 
 Purpose of Module
 _________________
 
 This module, ``tetrahedral.f90``, is a postprocessing utility for DL_MESO_DPD,
 the Dissipative Particle Dynamics (DPD) code from the DL_MESO_ package.
-It processes trajectory (HISTORY) files and analyzes the local tetrahedral
+It processes the trajectory (HISTORY) files and analyzes the local tetrahedral
 ordering, a feature that is relevant, for example, in water-like systems.
 
 The local ordering in liquid water can be assessed considering the coordinates
@@ -53,7 +53,7 @@ Concerning the limiting values of these parameters:
 in a regular tetrahedron (if the four vertices are referred to the
 center of the solid) one has :math:`q=S_k=1`.
 In an ideal gas, where the angle :math:`\psi_{ik}` is randomly distributed,
-:math:`q\simeq0`. On the other hand, :math:`S_k\simeq 0` if the density
+:math:`q\simeq0`. On the other side, :math:`S_k\simeq 0` if the density
 fluctuations are large enough.
 
 As a result of the analysis, a file `TETRADAT` is produced, whose columns are
@@ -70,24 +70,25 @@ Dynamics code from the mesoscopic simulation package DL_MESO_,
 developed by M. Seaton at Daresbury Laboratory.
 This open source code is available from STFC under both academic (free) and
 commercial (paid) licenses. The module is to be used with DL_MESO_
-in its latest released version, version 2.7 (released December 2018).
-A variant of this module to be used with a previous version of DL_MESO,
-version 2.6 (dating November 2015), can be found in the ``old-v2.6``
-directory.
+in its second to last released version, version 2.6 (dating November 2015).
+A variant of this module to be used with its last released version,
+version 2.7 (released December 2018), will be provided soon.
 
 Testing
 _______
 
 The utility ``tetrahedral.f90`` is compiled with the available
-Fortran 2003 compiler [2]_, e.g.:
+Fortran90 compiler [2]_, e.g.:
 
 ``gfortran -o tetrahedral.exe tetrahedral.f90``
    
 and the executable must be in the same directory of the HISTORY file.
-The user is asked to provide the number of the species for which ordering has to be
-analyzed. To input the user-defined parameter, one can enter it interactively
-at runtime or write it into a text file (say, ``input.txt``) and run the program
-in this way:
+The user is asked to provide the number of nodes used to run the
+simulation and the number of the species for which ordering has to be
+analyzed. To input the user-defined parameters one can enter them interactively
+at runtime or write them
+into a text file (say, ``input.txt``), one per line
+(in the right order) and run the program in this way:
 
 ``tetrahedral.exe < input.txt``
 
@@ -100,62 +101,60 @@ and rapidly goes into an orientationally disordered one.
 The sources used for this test are available to :download:`download <./tetra_example.tgz>`. 
 
 Run the DL_MESO_DPD simulation on a single node (serial run)
-using the `CONTROL` file,
+using the `CONTROL` file
 
 .. literalinclude:: ./CONTROL
 
-the `FIELD` file
+, the `FIELD` file
 
 .. literalinclude:: ./FIELD
 
 and the `CONFIG` file
-
+		    
 .. literalinclude:: ./CONFIG
 
-This configuration corresponds to a diamond cubic lattice [3]_, while the ``nfold``
-directive in the `CONTROL` file replicates the configuration twice in all three dimensions.
-
-Analyzing the resulting trajectory (``HISTORY``) file with ``tetrahedral.exe``
-(compiled as indicated above) and inputing :math:`1` for the runtime argument,
-the following output is printed to the standard output:
+This configuration corresponds to a diamond cubic lattice [3]_.
+		    
+Analyzing the resulting trajectory (``HISTORY``) file with ``tetrahedral.exe`` (compiled as indicated above) and input :math:`1`
+for both runtime arguments, the following output is printed on the standard output
 
 .. literalinclude:: ./out
-
+		    
 The output file `TETRADAT`
 
 .. literalinclude:: ./TETRADAT
    :lines: 1-13
+	   
+containing the values of :math:`q` and :math:`S_k` for each snapshot and their
+averages is produced too.
 
-contains the values of :math:`q` and :math:`S_k` for each snapshot and their
-averages are also produced.
-
-One can see that in the initial snapshot, both order parameters detect an
+One can see that in the initial snapshot both order parameters detect an
 ordered state (i.e., :math:`S_k=q=1`).
-With the evolution in time, since the system is a dilute fluid without bonds
-between particles, the orientational ordering is rapidly lost (i.e., :math:`q\simeq 0`).
-On the other hand, the translational order parameter stays close to one since the density of the
+With the evolution in time, since the system is a dilute fluid, 
+the orientational ordering is rapidly lost (i.e., :math:`q\simeq 0`).
+On the other side, the translational order parameter stays close to one since the density of the
 system is roughly uniform.
 
 
 Source Code
 ___________
 
-You can directly download the source file :download:`tetrahedral.f90 <./tetrahedral.f90>`
-and we also include its contents below (as well as in the test tarball).
+You can directly download the source file :download:`tetrahedral.f90 <./tetrahedral.f90>` and we also include it's contents below (as well as in the test tarball).
 
 .. literalinclude:: ./tetrahedral.f90
       :language: fortran
       :linenos:
 
-
+	 
 .. Here are the URL and references used
 .. _DL_MESO: http://www.ccp5.ac.uk/DL_MESO
-.. [Duboue2015]  E. Duboué-Dijon, A. Laage, *Characterization of the local structure in liquid water
-      by various order parameters*, J. Phys. Chem. B, **119**, 8406 (2015).
+.. [Duboue2015]  E. Duboué-Dijon, A. Laage, *Characterization of the                                                                                             
+		 local structure in liquid water by various order parameters*,
+		 J. Phys. Chem. B, **119**, 8406 (2015).	 
 .. [1] The angle
        :math:`\theta_{ijk}=\cos^{-1}\left\{\frac{\vec{r}_{ij}\cdot\vec{r}_{kj}}{r_{ij}r_{kj}}\right\}`
        where :math:`\vec{r_{ij}} = \vec{r_i} -\vec{r_j}` and :math:`r=|\vec{r}|`. 
-.. [2] Compilation has been tested with the GNU compiler GCC, version 10.2.0.
+.. [2] Compilation has been tested with the GNU compiler GCC, version 8.2.1.
 .. [3] The diamond cubic crystal lattice (https://en.wikipedia.org/wiki/Diamond_cubic) is a repeating pattern of
        8 atoms. Their coordinates may be given as:
        :math:`A=(0,0,0)`, :math:`B=(0,2,2)`, :math:`C=(2,0,2)`, :math:`D=(2,2,0)`, :math:`E=(3,3,3)`,
@@ -163,6 +162,6 @@ and we also include its contents below (as well as in the test tarball).
        One can check that, with the minimum image convention, each
        particle has its 4 closest neighbours at a distance :math:`\sqrt{3}`, and all the angles are
        :math:`\textrm{acos}(-1/3)`.
-       For this configuration (also if repeated periodically along the three Cartesian axis),
-       :math:`q=1` and :math:`S_k=1`.
+       For this configuration (also if repeated periodically along the three Cartesian axis), :math:`q=1` and :math:`S_k=1`.
 
+   
