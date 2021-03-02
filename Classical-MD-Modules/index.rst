@@ -177,6 +177,7 @@ separate projects. The modules that were incorporated into the core are:
     ./modules/OpenPathSampling/ops_visit_all_states/readme
     ./modules/OpenPathSampling/ops_interface_shooting/readme
     ./modules/OpenPathSampling/ops_progress_meters/readme
+    ./modules/OpenPathSampling/ops_new_storage/readme
 
 The modules that are based on OPS, but remain separate, are:
 
@@ -190,6 +191,8 @@ The modules that are based on OPS, but remain separate, are:
     ./modules/contact_maps_parallelization/readme
     ./modules/dw_dimer_testsystem/readme
     ./modules/lammps_ops/readme
+    ./modules/ops_cli_core/readme
+    ./modules/ops_cli_commands/readme
 
 Nine of these modules were part of
 `E-CAM Deliverable 1.2 <https://www.e-cam2020.eu/deliverables/>`_. Those modules
@@ -218,8 +221,8 @@ The following modules were developed specifically for the Classical MD pilot pro
     ./modules/contact_maps/readme
     ./modules/contact_maps_parallelization/readme
     ./modules/contact_concurrences/readme
-    ./modules/PIcore/readme
-    ./modules/PIhydration/readme
+    ./modules/PI/PIcore/readme
+    ./modules/PI/PIhydration/readme
     ./modules/PI/lammps_pyinterfaceExt/readme
     ./modules/MSJuly2019_minDist2segments_KKT/readme
     ./modules/MSJuly2019_velocities_resolve_EVC/readme
@@ -268,5 +271,30 @@ The third ESDW for the Classical MD workpackage was held in Turin, Italy in July
     ./modules/HTC/mpi4py_tasks/readme
     ./modules/HTC/mpi_runtimes/readme
     ./modules/dask_traj/readme
+
+
+ESDW Clifden 2019
+------------------
+
+The ESDW on "Inverse Molecular Design & Inference: building a Molecular Foundry" in 
+Clifden, Ireland in November 2019 was the starting point for the modules below.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/PI/PIutils/README.rst
+
+ESDW Clifden 2019
+------------------
+
+The ESDW on "Inverse Molecular Design & Inference: building a Molecular Foundry" in 
+Clifden, Ireland in November 2019 was the starting point for the modules below.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/Comparative-Metadynamics/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/
