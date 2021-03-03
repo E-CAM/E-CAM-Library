@@ -221,6 +221,7 @@ The following modules were developed specifically for the Classical MD pilot pro
     ./modules/PIhydration/readme
     ./modules/MSJuly2019_minDist2segments_KKT/readme
     ./modules/MSJuly2019_velocities_resolve_EVC/readme
+    ./modules/n2p2/n2p2_improved_link_hpc/readme
 
 Extended Software Development Workshops (ESDWs)
 ===============================================

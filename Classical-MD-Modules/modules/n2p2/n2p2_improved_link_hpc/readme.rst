@@ -17,7 +17,7 @@
   sections.
 
   Name
-    n2p2 (NeuralNetworkPotentialPackage), LAMMPS
+    n2p2, LAMMPS
 
   Language
     C++
@@ -27,7 +27,8 @@
     `GPL-2.0 <https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt>`__ (LAMMPS)
 
   Documentation Tool
-    `Doxygen <http://www.doxygen.nl/>`__, `Sphinx <http://www.sphinx-doc.org>`__
+    `Doxygen <http://www.doxygen.nl/>`__,
+    `Sphinx <http://www.sphinx-doc.org>`__
 
   Application Documentation
     http://compphysvienna.github.io/n2p2/ (n2p2)
@@ -61,8 +62,9 @@ n2p2 - Improved link to HPC MD software
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-This module reorganizes how interfaces to third-party software using *n2p2* are
-organized. This became necessary with the user contribution of CabanaMD.
+This module documents efforts to improve the interaction of *n2p2* with existing
+HPC software, in particular the molecular dynamics (MD) software package `LAMMPS
+<https://lammps.sandia.gov/>`__.
 
 .. The E-CAM library is purely a set of documentation that describes software development efforts related to the
    project. A *module* for E-CAM is the documentation of the single development of effort associated to the project.In
@@ -91,15 +93,44 @@ organized. This became necessary with the user contribution of CabanaMD.
 Purpose of Module
 _________________
 
-TBD
-links:
+Although *n2p2* had already been shipped with source files for patching LAMMPS,
+the build process had required manual intervention of users. To avoid this in
+future versions of *LAMMPS* a pull request was created to include the
+*n2p2*/*LAMMPS* interface by default as a `user package
+<https://lammps.sandia.gov/doc/Packages_user.html>`__. In order to conform with
+*LAMMPS* `contribution guidelines
+<https://lammps.sandia.gov/doc/Modify_contribute.html>`__ multiple issues were
+resolved, triggering these changes/additions to *LAMMPS* and *n2p2*:
 
-https://github.com/CompPhysVienna/n2p2/pull/49
+*  Modify the traditional build process (via makefiles) to include *n2p2*
+*  Modify the CMake build process to search and include *n2p2*
+*  Create additional documentation about the build settings
+*  Adapt documentation of the LAMMPS ``pair_style nnp`` command
+*  Create a suitable example which can be shipped with LAMMPS
+*  Change *n2p2* to conform with *LAMMPS* ``bigbig`` settings (see `here
+   <https://lammps.sandia.gov/doc/Build_settings.html#size>`__)
+*  Change the source files ``pair_nnp.(cpp/h)`` to conform with the *LAMMPS* coding
+   style
 
-https://github.com/CompPhysVienna/n2p2/pull/49/commits/e084cde64f4946c3885ab02e367ce9ad29343e37
-https://github.com/CompPhysVienna/n2p2/pull/49/commits/887ba87cdbcf723aeeac80292c56d89307a6d123
+Furthermore, the *n2p2* build system was adapted to allow for multiple
+interfaces to other software packages, with an option to select/deselect only
+those of interest to the user.  This can be achieved by providing the
+``INTERFACES`` variable in the build stage, e.g. use
 
-https://github.com/lammps/lammps/pull/2626
+.. code-block:: bash
+
+   make libnnpif INTERFACES="LAMMPS CabanaMD"
+
+to build both the ``LAMMPS`` and the ``CabanaMD`` interface and include it in
+the ``libnnpif`` library.
+
+As a first application, the user contributed `CabanaMD
+<https://github.com/ECP-copa/CabanaMD>`__ `interface
+<https://github.com/CompPhysVienna/n2p2/pull/49>`__ was integrated in the new
+build process. *CabanaMD* is an `ECP proxy application
+<https://proxyapps.exascaleproject.org/>`__ which makes use of the `Kokkos
+<https://github.com/kokkos/kokkos>`__ performance portability and *n2p2* to port
+neural network potentials in MD simulations to GPUs and other HPC hardware.
 
 .. Keep the helper text below around in your module by just adding "..  " in
    front of it, which turns it into a comment
@@ -167,6 +198,13 @@ code and documentation are located here:
 * *n2p2* documentation: http://compphysvienna.github.io/n2p2/
 * *n2p2* source code: http://github.com/CompPhysVienna/n2p2
 
+In addition the source files for the LAMMPS patch are based on *LAMMPS*, a C++
+code for massively parallelized molecular dynamics simulations. The source code
+and documentation are located here:
+
+* *LAMMPS* documentation: https://lammps.sandia.gov/
+* *LAMMPS* source code: http://github.com/lammps/lammps
+
 
 Building and Testing
 ____________________
@@ -177,7 +215,29 @@ ____________________
    detailed, explaining if necessary any deviations from the normal build procedure of the application (and links to
    information about the normal build process needs to be provided).
 
-TBD
+.. code-block:: bash
+
+   git clone https://github.com/CompPhysVienna/n2p2
+   cd n2p2/src
+   make libnnpif -j
+   cd ../..
+
+.. code-block:: bash
+
+   git clone -b pair-style-nnp --single-branch https://github.com/singraber/lammps
+
+.. code-block:: bash
+
+   mkdir build
+   cd build
+   cmake -D PKG_USER-NNP=yes -D N2P2_DIR=<path-to-n2p2> ../cmake
+   make -j
+
+.. code-block:: bash
+
+   cd src
+   make yes-user-nnp
+   make N2P2_DIR=<path-to-n2p2> mpi -j
 
 Source Code
 ___________
@@ -252,6 +312,15 @@ ___________
     cross-referencing problems
 
 .. you can reference it with :ref:`patch`
+
+links:
+
+https://github.com/CompPhysVienna/n2p2/pull/49
+
+https://github.com/CompPhysVienna/n2p2/pull/49/commits/e084cde64f4946c3885ab02e367ce9ad29343e37
+https://github.com/CompPhysVienna/n2p2/pull/49/commits/887ba87cdbcf723aeeac80292c56d89307a6d123
+
+https://github.com/lammps/lammps/pull/2626
 
 TBD
 
