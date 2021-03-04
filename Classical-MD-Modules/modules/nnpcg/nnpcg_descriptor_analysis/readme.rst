@@ -121,7 +121,7 @@ descriptor-force correlation.
 In order to perform the analysis described above *n2p2* was extended by two
 separate software pieces:
 
-   1. **A new application based on the C++ libraries:** `nnp-sfclust`
+   1. **A new application based on the C++ libraries:** ``nnp-atomenv``
 
    This application allows to generate files containing the atomic environment
    data required for the cluster analysis.
@@ -129,7 +129,7 @@ separate software pieces:
    2. **A new Jupyter notebook with the actual analysis:** `analyze-descriptors.ipynb`
 
    The script depends on common Python libraries (*numpy*, *scipy*,
-   *scikit-learn*) and reads in data provided by `nnp-sfclust`. It then clusters
+   *scikit-learn*) and reads in data provided by ``nnp-atomenv``. It then clusters
    the data, performs statistical tests and presents graphical results.
 
 
