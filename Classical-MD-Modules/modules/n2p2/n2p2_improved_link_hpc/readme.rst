@@ -23,7 +23,7 @@
     C++
 
   Licence
-    `GPL-3.0-or-later <https://www.gnu.org/licenses/gpl.txt>`__ (n2p2)
+    `GPL-3.0-or-later <https://www.gnu.org/licenses/gpl.txt>`__ (n2p2),
     `GPL-2.0 <https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt>`__ (LAMMPS)
 
   Documentation Tool
@@ -93,8 +93,8 @@ HPC software, in particular the molecular dynamics (MD) software package `LAMMPS
 Purpose of Module
 _________________
 
-Although *n2p2* had already been shipped with source files for patching LAMMPS,
-the build process had required manual intervention of users. To avoid this in
+Although *n2p2* was already shipped with source files for patching LAMMPS before,
+the build process required manual intervention of users. To avoid this in
 future versions of *LAMMPS* a pull request was created to include the
 *n2p2*/*LAMMPS* interface by default as a `user package
 <https://lammps.sandia.gov/doc/Packages_user.html>`__. In order to conform with
@@ -113,7 +113,7 @@ resolved, triggering these changes/additions to *LAMMPS* and *n2p2*:
    style
 
 Furthermore, the *n2p2* build system was adapted to allow for multiple
-interfaces to other software packages, with an option to select/deselect only
+interfaces to other software packages, with an option to select only
 those of interest to the user.  This can be achieved by providing the
 ``INTERFACES`` variable in the build stage, e.g. use
 
@@ -129,8 +129,9 @@ As a first application, the user contributed `CabanaMD
 <https://github.com/CompPhysVienna/n2p2/pull/49>`__ was integrated in the new
 build process. *CabanaMD* is an `ECP proxy application
 <https://proxyapps.exascaleproject.org/>`__ which makes use of the `Kokkos
-<https://github.com/kokkos/kokkos>`__ performance portability and *n2p2* to port
-neural network potentials in MD simulations to GPUs and other HPC hardware.
+<https://github.com/kokkos/kokkos>`__ performance portability library and *n2p2*
+to port neural network potentials in MD simulations to GPUs and other HPC
+hardware.
 
 .. Keep the helper text below around in your module by just adding "..  " in
    front of it, which turns it into a comment
@@ -215,16 +216,40 @@ ____________________
    detailed, explaining if necessary any deviations from the normal build procedure of the application (and links to
    information about the normal build process needs to be provided).
 
+.. important::
+
+   By the time of reading these instructions the packages were most likely
+   developed further and it cannot be guaranteed that the procedures given below
+   will give the desired results. To retrieve the state of each software at the
+   time of writing these lines please uncomment and use the lines with ``git
+   checkout <commit-hash>``.
+
+LAMMPS user package
+"""""""""""""""""""
+
+To test whether the *LAMMPS* user package ``USER-NNP`` works together with
+*n2p2* as expected we have to download *LAMMPS* from the ``pair-style-nnp``
+feature branch and use the current ``master`` version of *n2p2*. First, to get
+and compile *n2p2*:
+
 .. code-block:: bash
 
    git clone https://github.com/CompPhysVienna/n2p2
    cd n2p2/src
+   # git checkout 428db3ee61f9943feaeedfaaeb5e096289983d46
    make libnnpif -j
    cd ../..
+
+Next we retrieve the *LAMMPS* feature branch:
 
 .. code-block:: bash
 
    git clone -b pair-style-nnp --single-branch https://github.com/singraber/lammps
+   cd lammps
+   # git checkout ed53e2bbff2465dd05ba015a05843b2bb328360c
+
+and compile the code with the ``USER-NNP`` package enabled using the CMake
+build approach:
 
 .. code-block:: bash
 
@@ -233,11 +258,37 @@ ____________________
    cmake -D PKG_USER-NNP=yes -D N2P2_DIR=<path-to-n2p2> ../cmake
    make -j
 
+Alternatively, we could also use the traditional build process using makefiles:
+
 .. code-block:: bash
 
    cd src
    make yes-user-nnp
    make N2P2_DIR=<path-to-n2p2> mpi -j
+
+In either case the *LAMMPS* binary should be created (``lammps/build/lmp`` or
+``lammps/src/lmp_mpi``) and we can test if works correctly with the provided
+example:
+
+.. code-block:: bash
+
+   cd ../examples/USER/nnp
+   # Binary from CMake build process:
+   mpirun -np 4 ../../../build/lmp -in in.nnp
+   # or from the traditional build process:
+   # mpirun -np 4 ../../../src/lmp_mpi -in in.nnp
+
+CabanaMD interface
+""""""""""""""""""
+
+While the *n2p2* build process for the *CabanaMD* interface is trivial (it
+requires only the collection of some header files) the compilation steps on the
+CabanaMD side are not trivial. Furthermore, testing requires a suitable GPU with
+a compatible compiler environment. Hence it is not feasible to provide general
+build instructions for testing here. However, the *n2p2* documentation offers an
+example build procedure for a specific hardware setup `here
+<https://compphysvienna.github.io/n2p2/misc/cabanamd_build_example.html>`__.
+
 
 Source Code
 ___________
@@ -313,16 +364,44 @@ ___________
 
 .. you can reference it with :ref:`patch`
 
-links:
+Changes in LAMMPS
+"""""""""""""""""
 
-https://github.com/CompPhysVienna/n2p2/pull/49
+The easiest way to view the source code changes in LAMMPS covered by this module
+is to use the `GitHub pull request page
+<https://github.com/lammps/lammps/pull/2626>`__. There, use the *Files
+changed* `tab <https://github.com/lammps/lammps/pull/2626/files>`__ to
+review all changes.
 
-https://github.com/CompPhysVienna/n2p2/pull/49/commits/e084cde64f4946c3885ab02e367ce9ad29343e37
-https://github.com/CompPhysVienna/n2p2/pull/49/commits/887ba87cdbcf723aeeac80292c56d89307a6d123
+Changes in n2p2
+"""""""""""""""
 
-https://github.com/lammps/lammps/pull/2626
+The following commits collect all changes required to follow the *LAMMPS*
+contribution guidelines:
 
-TBD
+*  `Updated makefiles for new LAMMPS build process
+   <https://github.com/CompPhysVienna/n2p2/commit/4b5c50030300f2060ba1cf214ca13c868c346d4b>`__
+*  `Add flag information when n2p2 runs
+   <https://github.com/CompPhysVienna/n2p2/commit/a3b3dadc75be445b80b9e3737f6176b14a98ad06>`__
+*  `Changed build flags prefix from NNP_ to N2P2_
+   <https://github.com/CompPhysVienna/n2p2/commit/d489a2491f6fdeb5dc39278418f21efc6341b289>`__
+*  `Changed Atom::(Neighbor::)tag to int64_t
+   <https://github.com/CompPhysVienna/n2p2/commit/428db3ee61f9943feaeedfaaeb5e096289983d46>`__
+
+The commits which restructured the makefiles to allow multiple selectable
+interface library parts can be found here (they are part of the `CabanaMD pull
+request <https://github.com/CompPhysVienna/n2p2/pull/49>`__):
+
+*  `Restructured interface library
+   <https://github.com/CompPhysVienna/n2p2/pull/49/commits/e084cde64f4946c3885ab02e367ce9ad29343e37>`__
+*  `Renamed source files and updated docs
+   <https://github.com/CompPhysVienna/n2p2/pull/49/commits/887ba87cdbcf723aeeac80292c56d89307a6d123>`__
+
+The *CabanaMD* example build instructions were added to the *n2p2* documentation
+in this commit:
+
+*  `Add CabanaMD build example docs for reference
+   <https://github.com/CompPhysVienna/n2p2/commit/995f0b593615cb0270063c491226c9ee94ab5f2a>`__
 
 .. Here are the URL references used (which is alternative method to the one described above)
 
