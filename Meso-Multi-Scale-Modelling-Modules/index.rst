@@ -59,7 +59,7 @@ Software related to Extended Software Development Workshops
 DL_MESO_DPD
 -----------
 
-The following modules connected to the DL_MESO_DPD code have been produced so far:
+The following modules connected to the DL_MESO_DPD code (master version) have been produced so far:
 
 .. toctree::
     :glob:
@@ -69,10 +69,7 @@ The following modules connected to the DL_MESO_DPD code have been produced so fa
     ./modules/DL_MESO_DPD/format_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD/dipole_af_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD/moldip_af_dlmeso_dpd/readme
-    ./modules/DL_MESO_DPD_onGPU/add_gpu_version/readme
-    ./modules/DL_MESO_DPD_onGPU/fftw/readme
     ./modules/DL_MESO_DPD/check_dlmeso_dpd/readme
-    ./modules/DL_MESO_DPD_onGPU/Ewald/readme
     ./modules/DL_MESO_DPD/tetra_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD_onGPU/multi_gpu/readme
     ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme
@@ -80,6 +77,20 @@ The following modules connected to the DL_MESO_DPD code have been produced so fa
     ./modules/DL_MESO_DPD_onGPU/loadBalance/readme
     ./modules/DL_MESO_DPD_onGPU/manybody_singleGPU/readme
     ./modules/DL_MESO_DPD_onGPU/longInteger/readme
+    ./modules/DL_MESO_DPD_onGPU/manybody/readme
+
+while for the GPU version we have:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/DL_MESO_DPD_onGPU/add_gpu_version/readme
+    ./modules/DL_MESO_DPD_onGPU/Ewald/readme
+    ./modules/DL_MESO_DPD_onGPU/fftw/readme
+    ./modules/DL_MESO_DPD_onGPU/improvedOverlap/readme
+    ./modules/DL_MESO_DPD_onGPU/bond_forces_single_GPU/readme
+    ./modules/DL_MESO_DPD_onGPU/Kokkos_VV1/readme
 
 ESPResSo++
 ----------
@@ -189,3 +200,7 @@ time-to-solution of the applications.
     ./modules/ALL_library/unstructured_method/readme
     ./modules/ALL_library/voronoi_method/readme
     ./modules/ALL_library/histogram_method/readme
+    ./modules/ALL_library/cpp_interface/readme
+    ./modules/ALL_library/fortran_interface/readme
+    ./modules/ALL_library/MPM_integration/MPMIntegration
+    ./modules/ALL_library/all_hemeLB_cooperation/hemeLBcooperation

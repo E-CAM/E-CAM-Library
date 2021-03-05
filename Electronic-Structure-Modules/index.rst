@@ -125,6 +125,17 @@ Modules not coming from ESDWs
      ./modules/libgridxc/readme
      ./modules/libvdwxc/readme
      ./modules/MatrixSwitchDBCSR/readme
+     ./modules/orbital-free-DFT-with-MaZe/readme
+     ./modules/orbital-free-DFT-with-MaZe-HPC/readme
+     ./modules/orbital-free-DFT-with-NLCG/readme
+
+Additionally, a module from an ESDW of WP4 was more relevant to this Work Package and so is reported here
+
+.. toctree::
+     :glob:
+     :maxdepth: 1
+
+     ./modules/gpaw-cuda/readme
 
 Pilot Projects
 ==============
