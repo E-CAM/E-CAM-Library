@@ -267,7 +267,7 @@ Alternatively, we could also use the traditional build process using makefiles:
    make N2P2_DIR=<path-to-n2p2> mpi -j
 
 In either case the *LAMMPS* binary should be created (``lammps/build/lmp`` or
-``lammps/src/lmp_mpi``) and we can test if works correctly with the provided
+``lammps/src/lmp_mpi``) and we can test if it works correctly with the provided
 example:
 
 .. code-block:: bash
