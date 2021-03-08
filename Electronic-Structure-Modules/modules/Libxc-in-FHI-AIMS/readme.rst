@@ -72,7 +72,7 @@ ______________________
 While point one from above (Implementation of a unified Libxc interface) is straightforward to implement from the
 `documentation of Libxc <https://www.tddft.org/programs/libxc/manual/>`_ the second part needs some further explanation.
 
-The XC potential is needed at two points of a regular DFT calculation in FHI-aims. First, during the initilization
+The XC potential is needed at two points of a regular DFT calculation in FHI-aims. First, during the initialization
 generating the minimal basis (i.e. the NAOs) and the initial density. Second, during the usual SCF iterations.
 
 The minimal basis is calculated by solving the scalar-relativistic Schrödinger equation of the free atom for each species.
