@@ -7,7 +7,7 @@
     Fortran, C
 
   Licence
-    Proprietary.
+    Proprietary
 
   Documentation Tool
     Manual
@@ -16,7 +16,8 @@
     `FHI-AIMS User Manual <https://mycourses.aalto.fi/pluginfile.php/748992/mod_resource/content/2/FHI-aims-user-manual.pdf>`_
 
   Relevant Training Material
-    You can download training material for the use of FHI-aims from the program of the Hands-On workshop here: `FHI-aims tutorials <https://th.fhi-berlin.mpg.de/meetings/dft-workshop-2019/index.php?n=Meeting.Program>`_.
+    You can download training material for the use of FHI-aims from the program of the Hands-On workshop
+    here: `FHI-aims tutorials <https://th.fhi-berlin.mpg.de/meetings/dft-workshop-2019/index.php?n=Meeting.Program>`_.
 
   Software Module Developed by
     Libxc Developers, FHI-AIMS Developers.
@@ -52,13 +53,13 @@ The purpose of the module is twofold:
   meta-GGA functionals (see detailed information in the Background Information Chapter). This interfaces the scalar-
   relativistic atomic solver of FHI-aims (default version) with Libxc.
 
-An interface to Libxc has been implemented before, but remained on a "proof-of-concept" stage. Libxc in FHI-aims is not
+An interface to Libxc has been implemented before, but remained at a "proof-of-concept" stage. Libxc in FHI-aims is not
 only used for DFT calculations, but is needed for DFPT and the calculation magnetic and optical response properties.
 After full integration of Libxc, it will form an essential part of each simulation and will be used by most of the
 FHI-aims user.
 
-In a long term perspective we hope that Libxc can extend and finally replace the internal FHI-aims XC library helping to
-move FHI-aims from a monolithic to a more modular software architecture. On the other hand, we expect that the Libxc
+In the long term, we hope that Libxc can extend and finally replace the internal FHI-aims XC library helping to
+move FHI-aims from a monolithic to a more modular software architecture. At the same time, we expect that the Libxc
 project will benefit from the increase of usability and visibility.
 
 .. [Blum2009] Blum, V., et al. (2009). Ab initio molecular simulations with numeric atom-centered orbitals. CPC, 180 (11), 2175–2196. https://doi.org/10.1016/j.cpc.2009.06.022
@@ -71,7 +72,7 @@ ______________________
 While point one from above (Implementation of a unified Libxc interface) is straightforward to implement from the
 `documentation of Libxc <https://www.tddft.org/programs/libxc/manual/>`_ the second part needs some further explanation.
 
-The XC potential is needed at two points of a regular DFT calculation in FHIa-aims. First, during the initilization
+The XC potential is needed at two points of a regular DFT calculation in FHI-aims. First, during the initilization
 generating the minimal basis (i.e. the NAOs) and the initial density. Second, during the usual SCF iterations.
 
 The minimal basis is calculated by solving the scalar-relativistic Schrödinger equation of the free atom for each species.
