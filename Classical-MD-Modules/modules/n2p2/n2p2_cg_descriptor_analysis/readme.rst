@@ -228,7 +228,7 @@ repository (see the section below for corresponding pull requests).
       git checkout 3cfe391377d2792ac29baf8394b3dce712afdad2
 
 To build the new tool ``nnp-atomenv`` the usual `n2p2 build instructions
-<https://compphysvienna.github.io/n2p2/topics/build.html>` apply:
+<https://compphysvienna.github.io/n2p2/topics/build.html>`__ apply:
 
 .. code-block:: bash
 
