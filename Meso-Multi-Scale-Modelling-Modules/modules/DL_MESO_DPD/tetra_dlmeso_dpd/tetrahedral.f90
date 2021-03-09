@@ -3,40 +3,39 @@ PROGRAM tetrahedral
 !
 ! module to analyze tetrahedral ordering in dl_meso HISTORY files
 !
-! authors - m. a. seaton & s. chiacchiera, january 2018 (tidied up on march 2019)
+! authors - m. a. seaton & s. chiacchiera, january 2018 (tidied up and amended
+!           january 2021)
 !
 !**********************************************************************************
   IMPLICIT none
   INTEGER, PARAMETER :: dp = SELECTED_REAL_KIND (15, 307)
   INTEGER, PARAMETER :: si = SELECTED_INT_KIND (8)
   INTEGER, PARAMETER :: li = SELECTED_INT_KIND (12)
-  
+  INTEGER, PARAMETER :: endversion = 1
+
   REAL(KIND=dp), PARAMETER :: pi=3.141592653589793_dp
 
   INTEGER, PARAMETER :: ntraj=10
   
-  CHARACTER(80) :: text, a2
+  CHARACTER(80) :: text
   CHARACTER(8), ALLOCATABLE :: namspe (:), nammol (:)
-  CHARACTER(6) :: chan
-  CHARACTER(8) :: a1
-  
-  INTEGER, ALLOCATABLE :: ltp (:), ltm (:), beads (:), bonds (:), nspec (:)
+
+  INTEGER, ALLOCATABLE :: ltp (:), nspec (:), readint (:)
   INTEGER :: nrtout
-  INTEGER :: chain, imol, ibead, ioerror, i, numtraj, j, k, l, m, nmoldef, ibond
-  INTEGER :: nspe, numnodes, nbeads, nusyst, nmbeads, nsyst, nbonds, numbond, global, species, molecule
-  INTEGER :: nummol, lfrzn, rnmol, keytrj, srfx, srfy, srfz
-  INTEGER :: indx, nav
-  INTEGER :: n1, n2, n3, n4
+  INTEGER :: chain, ioerror, i, numtraj, j, k, nmoldef, ibond
+  INTEGER :: nspe, nbeads, nusyst, nsyst, numbond, global, species, molecule
+  INTEGER :: lfrzn, keytrj, srfx, srfy, srfz
+  INTEGER :: nav
   INTEGER :: bead1, bead2
-      
-  REAL(KIND=dp), ALLOCATABLE :: xxx (:), yyy (:), zzz (:)
-  REAL(KIND=dp), ALLOCATABLE :: nmol (:)
-  REAL(KIND=dp) :: volm, dimx, dimy, dimz, shrdx, shrdy, shrdz
-  REAL(KIND=dp) :: amass, rcii
-  REAL(KIND=dp) :: time, mbeads, mglobal, x, y, z, vx, vy, vz, fx, fy, fz, rsq
-  REAL(KIND=dp) :: r1, r2, r3, r4
-  
-  LOGICAL :: eof
+  INTEGER :: endver, Dlen, nstep, framesize, lend
+  INTEGER(KIND=li) :: filesize
+
+  REAL(KIND=dp), ALLOCATABLE :: xxx (:), yyy (:), zzz (:), readdata (:)
+  REAL(KIND=dp) :: dimx, dimy, dimz, shrdx, shrdy, shrdz
+  REAL(KIND=dp) :: amass, rcii, chg
+  REAL(KIND=dp) :: time
+
+  LOGICAL :: eof, swapend, bigend
 
 ! Variables for tetrahedral ordering
   INTEGER :: nnlab(4), npart, sp, count
@@ -45,168 +44,99 @@ PROGRAM tetrahedral
   REAL(KIND=dp) :: q2_sum, sk2_sum, q2_ave, sk2_ave
 
   !-----------------------------------------------------------------------------------------
-  
-  ! Get number of nodes 
 
-  WRITE (*,*) "Number of nodes used in calculations?"
-  READ (*,*) numnodes
-      
-  ALLOCATE (beads (numnodes), bonds (numnodes))
-      
-  ! Determine if HISTORY files exist
+  ! determine number of bytes for selected double precision kind
+  ! (the default SELECTED_REAL_KIND (15, 307) should return 8 bytes)
 
-  IF (numnodes>1) THEN
-     INQUIRE (file = 'HISTORY000000', EXIST = eof)
-  ELSE
-     INQUIRE (file = 'HISTORY', EXIST = eof)
-  END IF
+  lend = STORAGE_SIZE (1.0_dp) / 8
+
+  ! check endianness of machine
+
+  bigend = (IACHAR(TRANSFER(1,"a"))==0)
+
+  ! Determine if HISTORY file exists, which endianness to use,
+  ! if type of real is correct
+
+  INQUIRE (file = 'HISTORY', EXIST = eof)
   IF (.NOT. eof) THEN
-     WRITE (*,*) "ERROR: cannot find HISTORY files"
-     STOP
+    PRINT *, "ERROR: cannot find HISTORY file"
+    STOP
   END IF
-  
-  ! First reading, where the number of beads, molecules and bonds are determined
-  ! Arrays are filled with names of particles and molecules
-  ! If multiple HISTORY files are present, it is checked they are compatible
 
-  numbond = 0
-  
-  DO j = 1, numnodes
-     WRITE (chan, '(i6.6)') j-1
-     IF (numnodes>1) THEN
-        OPEN (ntraj+j-1, file = 'HISTORY'//chan, access = 'sequential', form = 'unformatted', status = 'unknown')
-     ELSE
-        OPEN (ntraj, file = 'HISTORY', access = 'sequential', form = 'unformatted', status = 'unknown')
-     END IF
-     
-     IF (j == 1) THEN
-        READ (ntraj+j-1) nspe, nmoldef, nusyst, nsyst, nbeads, nbonds
-        READ (ntraj+j-1) dimx, dimy, dimz, volm
-        READ (ntraj+j-1) keytrj, srfx, srfy, srfz
-     ELSE
-        READ (ntraj+j-1) n1, n2, n3, n4, nbeads, nbonds
-        READ (ntraj+j-1) r1, r2, r3, r4
-        IF (n1 /= nspe .OR. n2 /= nmoldef .OR. n3 /= nusyst .OR. n4 /= nsyst &
-             .OR. r1 /= dimx .OR. r2 /= dimy .OR. r3 /= dimz .OR. r4 /= volm) THEN
-           WRITE (*,*) "ERROR: HISTORY files do not refer to the same system!"
-           STOP
-        ENDIF
-        READ (ntraj+j-1) n1, n2, n3, n4
-        IF (n1 /= keytrj .OR. n2 /= srfx .OR. n3 /= srfy .OR. n4 /= srfz) THEN
-           WRITE (*,*) "ERROR: HISTORY files do not refer to the same system!"
-           STOP
-        ENDIF
-     ENDIF
-     
-     beads (j) = nbeads
-     bonds (j) = nbonds
-     numbond = numbond + nbonds
-  END DO ! loop over nodes
+  OPEN (ntraj, file = 'HISTORY', access = 'stream', form = 'unformatted', status = 'unknown')
 
-  ! IF (srfx == 3 .OR. srfy == 3 .OR. srfz == 3) THEN
-  !    WRITE (*,*) "ERROR: System under shear, not implemented yet!"
-  !    STOP
-  ! END IF
+  swapend = .false.
+  READ (ntraj) endver, Dlen
 
-  ALLOCATE (namspe (nspe), nammol (nmoldef), nspec (nspe)) !NB: nspec here counts ALL beads of a type, not only unbonded ones
+  IF (endver/=endversion) THEN
+    swapend = .true.
+    CLOSE (ntraj)
+    IF (bigend) THEN
+      OPEN (ntraj, file = 'HISTORY', access = 'stream', form = 'unformatted', status = 'unknown', convert = 'little_endian')
+    ELSE
+      OPEN (ntraj, file = 'HISTORY', access = 'stream', form = 'unformatted', status = 'unknown', convert = 'big_endian')
+    END IF
+    READ (ntraj) endver, Dlen
+    IF (endver/=endversion) THEN
+      PRINT *, "ERROR: corrupted HISTORY file or created with incorrect version of DL_MESO"
+      STOP
+    END IF
+  END IF
+
+  IF (Dlen/=lend) THEN
+    PRINT *, "ERROR: incorrect type of real number used in HISTORY file"
+    PRINT *, "       recompile tetrahedral.f90 with reals of ", Dlen, " bytes"
+    STOP
+  END IF
+
+  ! read file size, number of trajectory frames and timestep numbers
+
+  READ (ntraj) filesize, numtraj, nstep
+
+  ! Read the number of beads, molecules and bonds
+  ! Arrays are filled with names of particles and molecules: if checking molecules,
+  ! arrays for species, molecule types etc. also filled
+
+  READ (ntraj) text
+  READ (ntraj) nspe, nmoldef, nusyst, nsyst, numbond, keytrj, srfx, srfy, srfz
+
+  ALLOCATE (namspe (nspe), nammol (nmoldef), nspec (nspe)) ! NB: nspec here counts ALL beads of a type, not only unbonded ones
   ALLOCATE (xxx (1:nsyst), yyy (1:nsyst), zzz (1:nsyst))
   ALLOCATE (ltp (1:nsyst))
-  
-  DO j = 1, numnodes
-     DO i = 1, nspe
-        IF (j == 1) THEN
-           READ (ntraj+j-1) namspe (i), amass, rcii, lfrzn
-        ELSE
-           READ (ntraj+j-1) a1, amass, rcii, lfrzn
-           IF (a1 /= namspe (i))THEN
-              WRITE (*,*) "ERROR: HISTORY files do not refer to the same system!"
-              STOP
-           ENDIF
-        ENDIF
-     END DO
-     
-     IF (nmoldef>0) THEN
-        DO i = 1, nmoldef
-           IF (j==1) THEN
-              READ (ntraj+j-1) nammol (i)
-           ELSE
-              READ (ntraj+j-1) a1
-              IF (a1 /= nammol (i))THEN
-                 WRITE (*,*) "ERROR: HISTORY files do not refer to the same system!"
-                 STOP
-              ENDIF
-           END IF
-        END DO
-     END IF
 
-     IF (j == 1) THEN
-        READ (ntraj+j-1) text
-     ELSE
-        READ (ntraj+j-1) a2
-        IF (a2 /= text) THEN 
-           WRITE (*,*) "ERROR: HISTORY files do not refer to the same system!"            
-           STOP
-        ENDIF
-     ENDIF
-     
-  ENDDO ! end of loop over nodes
-  
-  DO j = 1, numnodes
-     CLOSE (ntraj+j-1)
-  END DO 
-  
-  ! Second reading, where arrays are filled with properties of beads and molecules.
-  ! Then, the snapshots of trajectories are read.
-  
-  DO j = 1, numnodes
-     WRITE (chan, '(i6.6)') j-1
-     IF (numnodes>1) THEN
-        OPEN (ntraj+j-1, file = 'HISTORY'//chan, access = 'sequential', form = 'unformatted', status = 'unknown')
-     ELSE
-        OPEN (ntraj, file = 'HISTORY', access = 'sequential', form = 'unformatted', status = 'unknown')
-     END IF
-     
-     READ (ntraj+j-1) !nspe, nmoldef, nusyst, nsyst, nbeads, nbonds
-     READ (ntraj+j-1) !dimx, dimy, dimz, volm
-     READ (ntraj+j-1) !keytrj, srfx, srfy, srfz
-     
-     DO i = 1, nspe
-        READ (ntraj+j-1) !namspe (i), amass, rcii, lfrzn
-     END DO
-     
-     DO i = 1, nmoldef
-        READ (ntraj+j-1) !nammol (i)
-     END DO
-     
-     READ (ntraj+j-1) !text
+  framesize = (keytrj+1) * 3
+  ALLOCATE (readint (1:nsyst), readdata (1:framesize))
+
+  DO i = 1, nspe
+    READ (ntraj) namspe (i), amass, rcii, chg, lfrzn
   END DO
-  
-  ibond = 0  !counter for bonds
+
+  DO i = 1, nmoldef
+    READ (ntraj) nammol (i)
+  END DO
+
+  ! Read properties of beads and molecules
+
   nspec (:) = 0 ! populations
- !     fill in arrays for beads and bonds
-  DO j = 1, numnodes
-     !Build ltp, ltm, mole
-     DO i = 1, beads (j)
-        READ (ntraj+j-1) global, species, molecule, chain
-        ltp (global) = species
-        nspec (species) = nspec (species) + 1
-     END DO
+  ibond = 0  !counter for bonds
 
-     IF (bonds (j)>0) THEN
-        DO i = 1, bonds (j)
-           ibond = ibond + 1
-           READ (ntraj+j-1) bead1, bead2
-        END DO
-     END IF
-     
-  END DO ! over nodes
+  DO i = 1, nsyst
+    READ (ntraj) global, species, molecule, chain
+    ltp (global) = species
+    nspec (species) = nspec (species) + 1
+  END DO
 
-  IF (ibond /= numbond) THEN
-     WRITE (*,*) "ERROR: mismatch in number of bonds!"
-     STOP
-  ENDIF
-  
-! Find number of beads for which trajectories are needed  
+  IF (numbond>0) THEN
+    DO i = 1, numbond
+      READ (ntraj) bead1, bead2
+    END DO
+  END IF
+
+! Find number of beads for which trajectories are needed
+
+  DO i = 1, nspe
+    WRITE(*,*) "Species ",i,": ",namspe (i)
+  END DO
   WRITE(*,*) "Which species number has to be analyzed?"
   READ(*,*) sp  
   IF (sp<0 .OR. sp>nspe) THEN
@@ -222,8 +152,8 @@ PROGRAM tetrahedral
   
   ! Open and write output file
       
-  nrtout = ntraj + numnodes 
-  OPEN(nrtout, file = 'TETRADAT', status ='replace')
+  nrtout = ntraj + 1
+  OPEN (nrtout, file = 'TETRADAT', status ='replace')
   WRITE (nrtout,*) "# Local ordering for beads of species: ", namspe (sp)
   WRITE (nrtout,*) "# dimx, dimy, dimz=", dimx, dimy, dimz
   WRITE (nrtout,*) "# snapshot number, q, sk"  
@@ -236,147 +166,102 @@ PROGRAM tetrahedral
   sk_sum = 0
   q2_sum = 0
   sk2_sum = 0
-  
-  DO WHILE (.true.)
-     READ (ntraj, IOSTAT=ioerror) time, mbeads, dimx, dimy, dimz, shrdx, shrdy, shrdz 
+
+  ! Read snapshots of trajectories
+
+  DO k = 1, numtraj
+     READ (ntraj, IOSTAT=ioerror) time, nbeads, dimx, dimy, dimz, shrdx, shrdy, shrdz
      IF (ioerror/=0) THEN
         eof = .true.
-        IF (k==0) THEN
+        IF (k==1) THEN
            WRITE (*,*) 'ERROR: cannot find trajectory data in HISTORY files'
            STOP
         END IF
         EXIT
      END IF
      
-     k = k + 1
      nav = nav + 1
      
-     DO j = 1, numnodes
-        
-        IF (j>1) THEN
-           READ (ntraj+j-1, IOSTAT=ioerror) time, mbeads, dimx, dimy, dimz, shrdx, shrdy, shrdz              
-           IF (ioerror/=0) THEN
-              eof = .true.
-              WRITE (*,*) 'ERROR: End of file reached prematurely - ', k-1, ' timesteps written', &
-                   ' to output files' 
-              EXIT
-           END IF
-        END IF
-        
-        nbeads = NINT (mbeads)
+! The full coordinate arrays are used to avoid re-labelling, but they are filled *only* for particles of species "sp"
+     xxx (:) = 0.0_dp
+     yyy (:) = 0.0_dp
+     zzz (:) = 0.0_dp
 
-! The full coordinate arrays are used to avoid re-labeling, but they are filled *only* for particles of species "sp"
-        xxx (:) = 0._dp 
-        yyy (:) = 0._dp
-        zzz (:) = 0._dp
+     count = 0
 
-        count = 0 
-        
-        SELECT CASE (keytrj)
-        CASE (0)
-           DO i = 1, nbeads
-              READ (ntraj+j-1) mglobal, x, y, z
-              global = NINT (mglobal)
-              IF (ltp (global) == sp) THEN
-                 xxx (global) = x
-                 yyy (global) = y
-                 zzz (global) = z
-                 count = count + 1
-              END IF
-           END DO
-        CASE (1)
-           DO i = 1, nbeads
-              READ (ntraj+j-1) mglobal, x, y, z, vx, vy, vz
-              global = NINT (mglobal)
-              IF (ltp (global) == sp) THEN
-                 xxx (global) = x
-                 yyy (global) = y
-                 zzz (global) = z
-                 count = count + 1
-              END IF
-           END DO
-        CASE (2)
-           DO i = 1, nbeads
-              READ (ntraj+j-1) mglobal, x, y, z, vx, vy, vz, fx, fy, fz
-              global = NINT (mglobal)
-              IF (ltp (global) == sp) THEN
-                 xxx (global) = x
-                 yyy (global) = y
-                 zzz (global) = z
-                 count = count + 1
-              END IF
-           END DO
-        END SELECT
+     READ (ntraj) readint (1:nbeads)
+     DO i = 1, nbeads
+       global = readint (i)
+       READ (ntraj) readdata (1:framesize)
+       IF (ltp (global) == sp) THEN
+         xxx (global) = readdata (1)
+         yyy (global) = readdata (2)
+         zzz (global) = readdata (3)
+         count = count + 1
+       END IF
+     END DO
 
-        IF (count /= npart) THEN
-           WRITE (*,*) " Number of particles of species ",sp," differs from expected!" 
-           STOP
-        END IF
+     IF (count /= npart) THEN
+       WRITE (*,*) " Number of particles of species ",sp," differs from expected!"
+       STOP
+     END IF
            
-     END DO ! over nodes
-
 ! ... Analyze the trajectories (snapshot by snapshot) ...
-     q = 0._dp
-     sk = 0._dp
+     q = 0.0_dp
+     sk = 0.0_dp
 
      DO i = 1, nsyst
-     IF (ltp(i) /= sp) CYCLE
-     CALL closest4 (i,nnlab)
-     ! WRITE (*,*) i, nnlab  ! uncomment to see nn labels 
-     call compute_tetra_label (i,nnlab, qtetra, stetra)
-!     print*,"q=",qtetra ! uncomment to print q for each single set of 5 particles
-!     print*,"s=",stetra ! uncomment to print sk for each single set of 5 particles
-     q = q + qtetra
-     sk = sk + stetra     
-  END DO
-  q = q / npart
-  sk = sk / npart
+       IF (ltp (i) /= sp) CYCLE
+       CALL closest4 (i, nnlab, npart)
+       ! WRITE (*,*) i, nnlab  ! uncomment to see nn labels
+       CALL compute_tetra_label (i, nnlab, qtetra, stetra)
+!       print*,"q=",qtetra ! uncomment to print q for each single set of 5 particles
+!       print*,"s=",stetra ! uncomment to print sk for each single set of 5 particles
+       q = q + qtetra
+       sk = sk + stetra
+     END DO
+     q = q / REAL(npart, KIND=dp)
+     sk = sk / REAL(npart, KIND=dp)
 
-  WRITE (nrtout,'(1p,I8,2(2x,e14.6))') nav, q, sk  
+     WRITE (nrtout,'(1p,I8,2(2x,e14.6))') nav, q, sk
   
-  q_sum = q_sum + q
-  sk_sum = sk_sum + sk
-  q2_sum = q2_sum + q ** 2
-  sk2_sum = sk2_sum + sk ** 2
+     q_sum = q_sum + q
+     sk_sum = sk_sum + sk
+     q2_sum = q2_sum + q * q
+     sk2_sum = sk2_sum + sk * sk
 
   ! ...        
   END DO ! end of loop over trajectories
 
-  q_ave = q_sum / nav ! average over snapshots
-  sk_ave = sk_sum / nav
+  q_ave = q_sum / REAL(nav, KIND=dp) ! average over snapshots
+  sk_ave = sk_sum / REAL(nav, KIND=dp)
 
-  q2_ave = q2_sum / nav ! average over snapshots
-  sk2_ave = sk2_sum / nav
+  q2_ave = q2_sum / REAL(nav, KIND=dp) ! average over snapshots
+  sk2_ave = sk2_sum / REAL(nav, KIND=dp)
 
   WRITE (nrtout,*)
   WRITE (nrtout,*)
   
-  WRITE (*,'(A9,2x,e14.6)') " <q> = ", q_ave 
-  WRITE (*,'(A9,2x,e14.6)') " error = ", sqrt( q2_ave - q_ave **2)/sqrt(1._dp*nav)
+  WRITE (*,'(A9,2x,e14.6)') " <q>   = ", q_ave
+  WRITE (*,'(A9,2x,e14.6)') " error = ", SQRT ((q2_ave - q_ave * q_ave)/REAL(nav, KIND=dp))
   WRITE (*,'(A9,2x,e14.6)') " <s_k> = ", sk_ave
-  WRITE (*,'(A9,2x,e14.6)') " error = ", sqrt( sk2_ave - sk_ave **2)/sqrt(1._dp*nav)
+  WRITE (*,'(A9,2x,e14.6)') " error = ", SQRT ((sk2_ave - sk_ave * sk_ave)/REAL(nav, KIND=dp))
   
   WRITE (nrtout,'(A11,2x,e14.6)') " # <q>   = ", q_ave
-  WRITE (nrtout,'(A11,2x,e14.6)') " # error = ", sqrt( q2_ave - q_ave **2)/sqrt(1._dp*nav)
+  WRITE (nrtout,'(A11,2x,e14.6)') " # error = ", SQRT ((q2_ave - q_ave * q_ave)/REAL(nav, KIND=dp))
   WRITE (nrtout,'(A11,2x,e14.6)') " # <s_k> = ", sk_ave
-  WRITE (nrtout,'(A11,2x,e14.6)') " # error = ", sqrt( sk2_ave - sk_ave **2)/sqrt(1._dp*nav)
+  WRITE (nrtout,'(A11,2x,e14.6)') " # error = ", SQRT ((sk2_ave - sk_ave * sk_ave)/REAL(nav, KIND=dp))
   
-  ! Close the trajectory files
-  DO j = 1, numnodes
-     CLOSE (ntraj+j-1)
-  END DO
-  
+  ! Close the trajectory file
+  CLOSE (ntraj)
+
   !close output file
   CLOSE (nrtout)
 
-  DEALLOCATE (beads, bonds)
   DEALLOCATE (namspe, nammol, nspec)
   DEALLOCATE (xxx, yyy, zzz)
   DEALLOCATE (ltp)
   
-99 FORMAT(f10.1,2x,9(e13.6,2x))
-98 FORMAT(1p,9(e13.6,3x))
-
  !-----------------------------------------------------------------------------------------
   CONTAINS 
 
@@ -401,7 +286,7 @@ SUBROUTINE compute_tetra_label (gb0, nnlab, qtetra, stetra)
   INTEGER :: nn1, nn2, i,j,k !change if needed
 
 !-----------------------------------------------------------------------------------------
-  qtetra = 0._dp
+  qtetra = 0.0_dp
   ! angle_ave = 0._dp 
   ! cangle_ave = 0._dp 
 
@@ -448,7 +333,7 @@ SUBROUTINE compute_tetra_label (gb0, nnlab, qtetra, stetra)
         IF (ABS(ctheta)>1.0_dp) ctheta = SIGN(1.0_dp, ctheta) ! could add a check of how much >1 it is
         theta = ACOS (ctheta)
 !-----------------------------------------------------------------------------------------  
-        qtetra = qtetra + (ctheta + 1._dp/3) ** 2
+        qtetra = qtetra + (ctheta + 1.0_dp/3.0_dp) * (ctheta + 1.0_dp/3.0_dp)
         ! angle_ave = angle_ave + theta 
         ! cangle_ave = cangle_ave + ctheta 
 !-----------------------------------------------------------------------------------------
@@ -456,7 +341,7 @@ SUBROUTINE compute_tetra_label (gb0, nnlab, qtetra, stetra)
      END DO
   END DO
 
-  qtetra = 1 - 3._dp/8 * qtetra
+  qtetra = 1.0_dp - 0.375_dp * qtetra
   
   ! angle_ave = angle_ave/ 6.
   ! cangle_ave = cangle_ave/ 6.
@@ -465,8 +350,8 @@ SUBROUTINE compute_tetra_label (gb0, nnlab, qtetra, stetra)
   ! print*,"average cosine angle=", cangle_ave,"-> angle", ACOS(cangle_ave)," and in degrees ",ACOS(cangle_ave)/pi*180
 !-----------------------------------------------------------------------------------------
 
-  r_ave = 0._dp
-  r2_ave = 0._dp
+  r_ave = 0.0_dp
+  r2_ave = 0.0_dp
   
   j = gb0 ! central particle for distance computations
   DO nn1 = 1, 4
@@ -484,19 +369,20 @@ SUBROUTINE compute_tetra_label (gb0, nnlab, qtetra, stetra)
      rab = SQRT(xab * xab + yab * yab + zab * zab)
      
      r_ave = r_ave + rab
-     r2_ave = r2_ave + rab ** 2
+     r2_ave = r2_ave + rab * rab
      
   END DO
   
-  r_ave = r_ave / 4
-  r2_ave = r2_ave / 4
+  r_ave = 0.25_dp * r_ave
+  r2_ave = 0.25_dp * r2_ave
   
-  stetra = 1 - 1./(3*r_ave**2) * (r2_ave - r_ave ** 2)
+  stetra = 1.0_dp - 1.0_dp/(3.0_dp*r_ave*r_ave) * (r2_ave - r_ave * r_ave)
   
   RETURN
+
 END SUBROUTINE compute_tetra_label
 
-SUBROUTINE closest4 (gb0, sorted)
+SUBROUTINE closest4 (gb0, sorted, npart)
 !*************************************************************************************
 ! subroutine to find the four closest particles of a given species to a given particle
 !
@@ -508,23 +394,24 @@ SUBROUTINE closest4 (gb0, sorted)
   ! output: the (ordered by distance) labels of the four closest "sp" particles to it
   IMPLICIT none
 
-  INTEGER, INTENT(IN) :: gb0
+  INTEGER, INTENT(IN) :: gb0, npart
   INTEGER, INTENT(OUT) :: sorted (4)
   INTEGER :: i, count, ncut, indx, size
 
-  REAL(KIND=dp) :: x, y, z, r
+  REAL(KIND=dp) :: x, y, z, r, volm
   REAL(KIND=dp) :: rcut, rmin, sorted_r (4)
   REAL(KIND=dp), ALLOCATABLE :: list (:,:)
 
   ncut = 15 !10 ! a bit more than 4, to be safe.
-  
+
+  volm = dimx*dimy*dimz
   size = MIN (npart - 1, 2 * ncut)
-  rcut = (3/(4*pi) * ncut / npart * volm) ** (1./3.)
-  count =0 
+  rcut = (0.75_dp/pi * ncut / npart * volm) ** (1.0_dp/3.0_dp)
+  count = 0
  
   ALLOCATE (list (size, 2))
 
-  list = 0._dp
+  list = 0.0_dp
   
   DO i = 1, nsyst
      IF (i == gb0) CYCLE  
@@ -546,8 +433,8 @@ SUBROUTINE closest4 (gb0, sorted)
         WRITE(*,*) "error: too many particles!"
         STOP
      END IF
-     list (count,1) = i ! store the global index
-     list (count,2) = r ! store the distance to gb0
+     list (count, 1) = REAL(i, KIND=dp) ! store the global index
+     list (count, 2) = r ! store the distance to gb0
   END DO
 
 !  WRITE (*,*) "rcut=", rcut  ! uncomment to see radius of search region
@@ -561,16 +448,16 @@ SUBROUTINE closest4 (gb0, sorted)
   
   ! sorting by distance 
   sorted (:) = 0
-  sorted_r (:) = 0._dp
+  sorted_r (:) = 0.0_dp
   DO j = 1, 4
      rmin = rcut
      indx = 0
      DO i = 1, count
-        IF ((list (i,1) == sorted (1)) .OR. (list (i,1) == sorted (2)) .OR. &
-             (list (i,1) == sorted (3)) .OR. (list (i,1) == sorted (4))) CYCLE
+        IF ((NINT(list (i,1)) == sorted (1)) .OR. (NINT(list (i,1)) == sorted (2)) .OR. &
+             (NINT(list (i,1)) == sorted (3)) .OR. (NINT(list (i,1)) == sorted (4))) CYCLE
         IF (list (i,2) < rmin) THEN 
            rmin = list(i,2)
-           indx = list(i,1)
+           indx = NINT(list(i,1))
         END IF
      END DO
      sorted (j) = indx
