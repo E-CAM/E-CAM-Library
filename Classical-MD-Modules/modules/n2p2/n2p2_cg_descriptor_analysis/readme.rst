@@ -43,11 +43,11 @@
     unique otherwise you will cause cross-referencing errors. The reference must come right before the heading for the
     reference to work (so don't insert a comment between).
 
-.. _nnpcg_descriptor_analysis:
+.. _n2p2_cg_descriptor_analysis:
 
-############################
-NNP-CG - Descriptor analysis
-############################
+#############################
+n2p2 - CG descriptor analysis
+#############################
 
 ..  Let's add a local table of contents to help people navigate the page
 
@@ -97,13 +97,13 @@ is replaced by a simpler description with CG particles sitting at the
 center-of-mass coordinates of the actual molecules. The corresponding
 interactions between CG sites can be modelled with empirical force fields but
 also, as has been recently shown in [1]_ and [2]_, with machine learning
-potentials. This module is the first part of a series which implement
-coarse-grained models in *n2p2* and provides tools to estimate the quality of
-atomic environment descriptors, which in turn hints on the expected performance
-of the coarse-grained description.
+potentials. To simplify the construction of NNP based coarse-grained models in
+*n2p2* this module adds software to estimate the quality of atomic environment
+descriptors, which in turn hints on the expected performance of the
+coarse-grained description.
 
-The overall goal of the analysis is to show qualitatively whether there is a
-correlation between the raw atomic environment descriptors (and their
+The overall goal of the descriptor analysis is to show qualitatively whether
+there is a correlation between the raw atomic environment descriptors (and their
 derivatives) and the atomic forces. If no or very little correlation can be
 found we can assume that the descriptors do not encode enough information to
 construct a (free) energy landscape. On the other hand, if "similar" descriptors
@@ -120,17 +120,20 @@ percentage of clusters which show a clear link is then an indicator for a good
 descriptor-force correlation.
 
 In order to perform the analysis described above *n2p2* was extended by two
-separate software pieces:
+software pieces:
 
-   1. **A new application based on the C++ libraries:** `nnp-sfclust`
+1. **A new application based on the C++ libraries:** `nnp-atomenv
+   <https://compphysvienna.github.io/n2p2/tools/nnp-atomenv.html>`__
 
    This application allows to generate files containing the atomic environment
    data required for the cluster analysis.
 
-   2. **A new Jupyter notebook with the actual analysis:** `analyze-descriptors.ipynb`
+2. **A new Jupyter notebook with the actual analysis:**
+   `analyze-descriptors.ipynb
+   <https://compphysvienna.github.io/n2p2/misc/cg_descriptor_analysis.html>`__
 
    The script depends on common Python libraries (*numpy*, *scipy*,
-   *scikit-learn*) and reads in data provided by `nnp-sfclust`. It then clusters
+   *scikit-learn*) and reads in data provided by ``nnp-atomenv``. It then clusters
    the data, performs statistical tests and presents graphical results.
 
 
@@ -209,6 +212,49 @@ ____________________
    detailed, explaining if necessary any deviations from the normal build procedure of the application (and links to
    information about the normal build process needs to be provided).
 
+The code changes from this module are already merged with the main *n2p2*
+repository (see the section below for corresponding pull requests).
+
+.. note::
+
+   By the time of reading these instructions *n2p2* was most likely
+   developed further. To recall the state of the software at the time of writing
+   these instructions please use these commands:
+
+   .. code-block:: bash
+
+      git clone https://github.com/CompPhysVienna/n2p2
+      cd n2p2
+      git checkout 3cfe391377d2792ac29baf8394b3dce712afdad2
+
+To build the new tool ``nnp-atomenv`` the usual `n2p2 build instructions
+<https://compphysvienna.github.io/n2p2/topics/build.html>` apply:
+
+.. code-block:: bash
+
+   cd src
+   make nnp-atomenv -j
+
+The ``analyze-descriptors.ipynb`` Jupyter notebook requires some Python packages
+to be installed:
+
+*  numpy
+*  scipy
+*  matplotlib
+*  seaborn
+*  scikit-learn
+*  hdbscan
+*  pickle
+
+Step-by-step instructions on how the descriptor analysis is prepared and
+performed is available at `this dedicated documentation page
+<https://compphysvienna.github.io/n2p2/misc/cg_descriptor_analysis.html>`__
+
+Regression testing is used in *n2p2* automatically for each commit to the main
+repository. This module also adds the corresponding tests for the
+``nnp-atomenv`` tool in ``test/cpp/``. The build log showing the correct run of
+tests is available `here <https://travis-ci.org/github/CompPhysVienna/n2p2/builds/762153549>`__.
+
 Source Code
 ___________
 
@@ -282,6 +328,14 @@ ___________
     cross-referencing problems
 
 .. you can reference it with :ref:`patch`
+
+The new functionality introduced by this module is collected in two pull requests:
+
+*  `New tool for symmetry function quality analysis <https://github.com/CompPhysVienna/n2p2/pull/27>`__
+*  `Complete coarse-graining/descriptor analysis documentation <https://github.com/CompPhysVienna/n2p2/pull/95>`__
+
+The easiest way to view the source code changes is to use the *Files changed*
+tab in the above pull request pages.
 
 .. Here are the URL references used (which is alternative method to the one described above)
 
