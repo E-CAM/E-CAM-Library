@@ -53,10 +53,12 @@ particular, it should be easy to guess what scope a name is defined in, what it 
 value, and whether its referent is callable. The following rules provide these distinctions.
 
 * ``lowercase_with_underscore`` for modules and internal variables (including function/method parameters).
-* ``MixedCase`` for classes and public properties, and for factory functions that act like additional constructors for a class.
+* ``MixedCase`` for classes and public properties, and for factory functions that act like additional constructors for a
+  class.
 * ``mixedCaseExceptFirstWord`` for public methods and functions.
 * ``_lowercase_with_leading_underscore`` for private functions, methods, and properties.
-* ``__lowercase_with_two_leading_underscores`` for private properties and functions that must not be overwritten by a subclass.
+* ``__lowercase_with_two_leading_underscores`` for private properties and functions that must not be overwritten by a
+  subclass.
 * ``CAPS_WITH_UNDERSCORES`` for named constants.
 
 Underscores can be left out if the words read OK run together. ``infile`` and ``outfile`` rather than ``in_file`` and
@@ -79,11 +81,11 @@ greater detail on the exact steps required (at :ref:`contributing`) but the basi
   appropriate  of the E-CAM library. This gives other developers an opportunity to review the changes before they become
   a part of the main codebase.
 
-Code review (see below) is a major benefit of merge requests, but merge requests are actually designed to be a generic way to talk
-about code. You can think of merge requests as a discussion dedicated to a particular branch. This means that they can
-also be used much earlier in the development process. For example, if a developer needs help with a particular feature,
-all they have to do is file a merge request. Interested parties will be notified automatically, and they'll be able to
-see the question right next to the relevant commits.
+Code review (see below) is a major benefit of merge requests, but merge requests are actually designed to be a generic
+way to talk about code. You can think of merge requests as a discussion dedicated to a particular branch. This means
+that they can also be used much earlier in the development process. For example, if a developer needs help with a
+particular feature, all they have to do is file a merge request. Interested parties will be notified automatically, and
+they'll be able to see the question right next to the relevant commits.
 
 Code Review and Checklist
 ^^^^^^^^^^^^^^^^^^^^^^^^^
