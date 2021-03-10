@@ -112,6 +112,18 @@ The ESDW in Dublin in January 2019 was the starting point for the modules below.
     ./modules/esl-easyconfigs/readme
     ./modules/ELSI/readme
 
+ESDW Lausanne 2020
+------------------
+
+The ESDW in Lausanne in February/March 2020 was the starting point for the modules below.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/Libxc-in-FHI-AIMS/readme
+    ./modules/PSolver-Integration/readme
+
 Other Modules
 -------------
 
@@ -128,6 +140,14 @@ Modules not coming from ESDWs
      ./modules/orbital-free-DFT-with-MaZe/readme
      ./modules/orbital-free-DFT-with-MaZe-HPC/readme
      ./modules/orbital-free-DFT-with-NLCG/readme
+
+Additionally, a module from an ESDW of WP4 was more relevant to this Work Package and so is reported here
+
+.. toctree::
+     :glob:
+     :maxdepth: 1
+
+     ./modules/gpaw-cuda/readme
 
 Pilot Projects
 ==============
