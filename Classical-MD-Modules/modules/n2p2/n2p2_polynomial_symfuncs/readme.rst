@@ -94,7 +94,7 @@ _________________
 The symmetry functions proposed in the original work of Behler and Parrinello
 [2]_ contain expressions of the form :math:`exp(-\eta r_{ij}^2) f_c(r_{ij})` in
 the innermost loop over all neighbors of atoms. Often the cutoff function
-:math:`fc(r)` is chosen to be a cosine or hyperbolic tangent. Considering the
+:math:`f_c(r)` is chosen to be a cosine or hyperbolic tangent. Considering the
 computational cost of these transcendental functions an alternative formulation
 of symmetry functions based on polynomials like
 
