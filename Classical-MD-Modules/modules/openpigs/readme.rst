@@ -60,20 +60,18 @@ ____________________
 
 **Installation**
 
-TODO
+Up to date installation instructions can be found
+at https://gitlab.com/clangi/pytbc#installation 
 
-**Testing**
+**Testing and Examples**
 
-TODO
-
-**Examples**
-
-TODO
+Example notebooks that leverage the package can be found at
+https://gitlab.com/clangi/pytbc/-/tree/master/docs/source/notebooks
 
 Source Code
 ___________
 
-The `source code <https://gitlab.com/clangi/pytbc>`_.  of the module can be found on GitHub.
+The `source code of ``pytbc`` is available on GitLab.com <https://gitlab.com/clangi/pytbc>`_.
 
 
 .. [Vitalis2012] A. Vitalis and A. Caflisch. Efficient Construction of Mesostate Networks from Molecular Dynamics Trajectories. 
