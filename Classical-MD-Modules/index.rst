@@ -272,6 +272,14 @@ The third ESDW for the Classical MD workpackage was held in Turin, Italy in July
     ./modules/HTC/mpi_runtimes/readme
     ./modules/dask_traj/readme
 
+ESDW Lyon 2019
+------------------
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/n2p2/n2p2_training_size/readme
 
 ESDW Clifden 2019
 ------------------
