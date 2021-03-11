@@ -293,7 +293,7 @@ Clifden, Ireland in November 2019 was the starting point for the modules below.
     :glob:
     :maxdepth: 1
 
-    ./modules/PI/PIutils/README.rst
+    ./modules/PI/PIutils/README
     ./modules/Comparative-Metadynamics/readme
 
 European Environment for Scientific Software Installations
@@ -318,5 +318,11 @@ architectures (Intel, AMD, ARM, POWER, RISC-V).
 The pilot instance of the EESSI software stack includes GROMACS, and benchmarking is
 being done by E-CAM using that application, which is why we include these modules in
 this section.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/EESSI/singularity
 
 .. _E-CAM: https://www.e-cam2020.eu/
