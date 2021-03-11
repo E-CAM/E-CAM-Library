@@ -6,6 +6,7 @@
  lconfzero =        T
  srftype   =        1
  srfx, srfy, srfz =           0           0           1
+ srfpos           =   0.0000000000000000     
  nspe      =        3
  nmoldef   =        2
  mxmolsize =        3

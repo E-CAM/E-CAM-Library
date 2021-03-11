@@ -11,7 +11,7 @@ Spring Shooting in OpenPathSampling
   sections.
 
   Language
-    Python (2.7, 3.5, 3.6)
+    Python (2.7, 3.6, 3.7)
 
   Documentation Tool
     Sphinx, numpydoc format (ReST)
@@ -23,7 +23,7 @@ Spring Shooting in OpenPathSampling
     http://openpathsampling.org/latest/examples/
 
   Licence
-    LGPL, v. 2.1 or later
+    MIT
 
 .. contents:: :local:
 
@@ -97,7 +97,7 @@ The implementation introduces the following new classes:
   run dynamics but will build a ``Sample`` with an acceptance probability of 
   0.0.
 
-* ``SpringShootingMover`` inherits from ``RandomChoiceMover`` and behaves 
+* ``SpringShootingMover`` inherits from ``SpecializedRandomChoiceMover`` and behaves 
   similar, except it takes the extra arguments: ``delta_max``, ``k_spring`` and
   ``initial_guess``. These are then used to make the ``SpringShootingSelector``
   and this selector is given to both the forward and backward mover.
@@ -127,29 +127,29 @@ reading:
 Testing
 _______
 
-Tests in OpenPathSampling use the `nose`_ package.
+.. Tests in OpenPathSampling use the `nose`_ package.
 
 .. IF YOUR MODULE IS IN OPS CORE:
 
-.. This module has been included in the OpenPathSampling core. Its tests can
-.. be run by setting up a developer install of OpenPathSampling and running
-.. the command ``nosetests`` from the root directory of the repository.
+This module has been included in the OpenPathSampling core. Its tests can
+be run by setting up a developer install of OpenPathSampling and running
+the command ``py.test`` from the root directory of the repository.
 
 .. IF YOUR MODULE IS IN A SEPARATE REPOSITORY
 
-The tests for this module can be run by downloading its source code (see the 
-``Source Code`` section below), installing its requirements and installing it
-by running ``python setup.py install`` from the root directory of the package.
-Test this module by running the command ``nosetests`` from the root directory of the
-repository.
+.. The tests for this module can be run by downloading its source code (see the 
+.. ``Source Code`` section below), installing its requirements and installing it
+.. by running ``python setup.py install`` from the root directory of the package.
+.. Test this module with the `nose`_ package, by running the command ``nosetests``
+.. from the root directory of the repository.
 
 Examples
 ________
 
 * An example on how to set up a simulation using the ``SpringShootingMoveScheme``
   and the comparison with the ``UniformSelector`` can be found in 
-  ``spring_shooting_example.ipynb`` in the ``examples`` directory 
-  (https://gitlab.e-cam2020.eu/sroet/spring_shooting/tree/master/examples).
+  ``spring_shooting_example.ipynb`` in the ``examples/misc`` directory 
+  (https://github.com/openpathsampling/openpathsampling/tree/master/examples/misc).
   Open it using ``jupyter notebook spring_shooting_example.ipynb`` (see 
   ``Jupyter notebook`` documentation at http://jupyter.org/ for more details)
 
@@ -160,15 +160,17 @@ ___________
 
 .. IF YOUR MODULE IS IN OPS CORE
 
-.. This module has been merged into OpenPathSampling. It is composed of the
-.. following pull requests:
+This module has been merged into OpenPathSampling. It was added in the
+following pull request:
+
+* https://github.com/openpathsampling/openpathsampling/pull/850
 
 .. * link PRs
 
 .. IF YOUR MODULE IS A SEPARATE REPOSITORY
 
-The source code for this module can be found in: 
-https://gitlab.e-cam2020.eu/sroet/spring_shooting/tree/master.
+.. The source code for this module can be found in: 
+.. https://gitlab.e-cam2020.eu/sroet/spring_shooting/tree/master.
 
 .. CLOSING MATERIAL -------------------------------------------------------
 
