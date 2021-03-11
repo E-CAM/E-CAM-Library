@@ -80,7 +80,7 @@ case $dens_sys in
   seq -f%g 0 $rstep $rbox | sed 's/,/./' | awk 'BEGIN{OFS="\t"}{print $1, "1000.0"}' > $l
 
 #folding and symmetrizing density for smoothing:
-# give asbolute values back: z=${res/#-/}; echo $z
+# give absolute values back: z=${res/#-/}; echo $z
 awk '{d=$1-'$rref'; print ((d>0)?d:-d), $2}' $l > ref_dens_t
 awk '{d=$1-'$rref'; print ((d>0)?d:-d), $2}' $k >  calc_dens_t
 

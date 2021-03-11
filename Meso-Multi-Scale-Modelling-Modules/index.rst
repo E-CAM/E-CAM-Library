@@ -3,6 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. sidebar:: General Information
+
+    .. contents:: :depth: 2
+
+    * :ref:`contributing`
+    * :ref:`search`
+
 .. _readme_meso_multi:
 
 *****************************
@@ -12,29 +19,31 @@ Meso- and Multi-scale Modules
 Introduction
 ============
 
-.. sidebar:: General Information
-
-    .. contents:: :depth: 2
-
-    * :ref:`contributing`
-    * :ref:`search`
-
 .. image:: ./images/DPD1.jpg
    :width: 10 %
    :align: left
 
-This is a collection of the modules that have been created by E-CAM community 
-within the area of Meso- and Multi-scale Modelling. This documentation is 
-created using ReStructured Text and the git repository for the documentation 
-source files can be found at 
-https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are
-public and open to contributions.
+This is a collection of the modules that have been created by E-CAM community within the area of Meso- and Multi-scale
+Modelling. This documentation is created using ReStructured Text and the git repository for the documentation source
+files can be found at https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are public and open to contributions.
 
-In the context of E-CAM, the definition of a software module is any piece of software that could be of use to the E-CAM community and that encapsulates some additional functionality, enhanced performance or improved usability for people performing computational simulations in the domain areas of interest to us. 
+In the context of E-CAM, the definition of a software module is any piece of software that could be of use to the E-CAM
+community and that encapsulates some additional functionality, enhanced performance or improved usability for people
+performing computational simulations in the domain areas of interest to us.
 
-This definition is deliberately broader than the traditional concept of a module as defined in the semantics of most high-level programming languages and is intended to capture inter alia workflow scripts, analysis tools and test suites as well as traditional subroutines and functions. Because such E-CAM modules will form a heterogeneous collection we prefer to refer to this as an E-CAM software repository rather than a library (since the word library carries a particular meaning in the programming world). The modules do however share with the traditional computer science definition the concept of hiding the internal workings of a module behind simple and well-defined interfaces. It is probable that in many cases the modules will result from the abstraction and refactoring of useful ideas from existing codes rather than being written entirely de novo.
+This definition is deliberately broader than the traditional concept of a module as defined in the semantics of most
+high-level programming languages and is intended to capture inter alia workflow scripts, analysis tools and test suites
+as well as traditional subroutines and functions. Because such E-CAM modules will form a heterogeneous collection we
+prefer to refer to this as an E-CAM software repository rather than a library (since the word library carries a
+particular meaning in the programming world). The modules do however share with the traditional computer science
+definition the concept of hiding the internal workings of a module behind simple and well-defined interfaces. It is
+probable that in many cases the modules will result from the abstraction and refactoring of useful ideas from existing
+codes rather than being written entirely de novo.
 
-Perhaps more important than exactly what a module is, is how it is written and used. A final E-CAM module adheres to current best-practice programming style conventions, is well documented and comes with either regression or unit tests (and any necessary associated data). E-CAM modules should be written in such a way that they can potentially take advantage of anticipated hardware developments in the near future (and this is one of the training objectives of E-CAM). 
+Perhaps more important than exactly what a module is, is how it is written and used. A final E-CAM module adheres to
+current best-practice programming style conventions, is well documented and comes with either regression or unit tests
+(and any necessary associated data). E-CAM modules should be written in such a way that they can potentially take
+advantage of anticipated hardware developments in the near future (and this is one of the training objectives of E-CAM).
 
 Pilot Projects
 ==============
@@ -50,7 +59,7 @@ Software related to Extended Software Development Workshops
 DL_MESO_DPD
 -----------
 
-The following modules connected to the DL_MESO_DPD code have been produced so far:
+The following modules connected to the DL_MESO_DPD code (master version) have been produced so far:
 
 .. toctree::
     :glob:
@@ -60,18 +69,34 @@ The following modules connected to the DL_MESO_DPD code have been produced so fa
     ./modules/DL_MESO_DPD/format_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD/dipole_af_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD/moldip_af_dlmeso_dpd/readme
-    ./modules/DL_MESO_DPD_onGPU/add_gpu_version/readme
-    ./modules/DL_MESO_DPD_onGPU/fftw/readme
     ./modules/DL_MESO_DPD/check_dlmeso_dpd/readme
-    ./modules/DL_MESO_DPD_onGPU/Ewald/readme
     ./modules/DL_MESO_DPD/tetra_dlmeso_dpd/readme
     ./modules/DL_MESO_DPD_onGPU/multi_gpu/readme
     ./modules/DL_MESO_DPD/sionlib_dlmeso_dpd/readme
+    ./modules/DL_MESO_DPD_onGPU/surfaces/readme
+    ./modules/DL_MESO_DPD_onGPU/loadBalance/readme
+    ./modules/DL_MESO_DPD_onGPU/manybody_singleGPU/readme
+    ./modules/DL_MESO_DPD_onGPU/longInteger/readme
+    ./modules/DL_MESO_DPD_onGPU/manybody/readme
+
+while for the GPU version we have:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/DL_MESO_DPD_onGPU/add_gpu_version/readme
+    ./modules/DL_MESO_DPD_onGPU/Ewald/readme
+    ./modules/DL_MESO_DPD_onGPU/fftw/readme
+    ./modules/DL_MESO_DPD_onGPU/improvedOverlap/readme
+    ./modules/DL_MESO_DPD_onGPU/bond_forces_single_GPU/readme
+    ./modules/DL_MESO_DPD_onGPU/Kokkos_VV1/readme
 
 ESPResSo++
 ----------
 
-The following modules connected to the ESPResSo++ code have been produced so far in the context of an `associated Pilot Project <https://www.e-cam2020.eu/pilot-project-composite-materials/>`_:
+The following modules connected to the ESPResSo++ code have been produced so far in the context of an
+`associated Pilot Project <https://www.e-cam2020.eu/pilot-project-composite-materials/>`_:
 
 .. toctree::
     :glob:
@@ -108,10 +133,10 @@ The following modules connected to the ParaDiS code have been produced so far:
     ./modules/paradis_precipitate/paradis_precipitate_HPC/readme
 
 
-GC-AdResS 
+GC-AdResS
 ---------
 
-This modules are connected to the Adaptive Resolution Simulation implementation in GROMACS. 
+This modules are connected to the Adaptive Resolution Simulation implementation in GROMACS.
 
 .. toctree::
     :glob:
@@ -159,7 +184,8 @@ load balancing that is both efficient and widely applicable implies highly non-t
 not yet been implemented in a number of important codes of the E-CAM community, e.g. DL_Meso, DL_Poly, Espresso,
 Espresso++, to name a few. Other codes (e.g. LAMMPS) have implemented somewhat simpler schemes, which however might turn
 out to lack sufficient flexibility to accommodate all important cases. Therefore, the ALL library was created in the
-context of an Extended Software Development Workshop (ESDW) within E-CAM (see `ALL ESDW event details <https://www.e-cam2020.eu/legacy_event/extended-software-development-workshop-for-atomistic-meso-and-multiscale-methods-on-hpc-systems/>`_
+context of an Extended Software Development Workshop (ESDW) within E-CAM (see
+`ALL ESDW event details <https://www.e-cam2020.eu/legacy_event/extended-software-development-workshop-for-atomistic-meso-and-multiscale-methods-on-hpc-systems/>`_
 ), where code developers of CECAM community codes were invited together with E-CAM postdocs, to work on the
 implementation of load balancing strategies. The goal of this activity was to increase the scalability of these
 applications to a larger number of cores on HPC systems, for spatially inhomogeneous systems, and thus to reduce the
@@ -170,3 +196,11 @@ time-to-solution of the applications.
     :maxdepth: 1
 
     ./modules/ALL_library/tensor_method/readme
+    ./modules/ALL_library/staggered_method/readme
+    ./modules/ALL_library/unstructured_method/readme
+    ./modules/ALL_library/voronoi_method/readme
+    ./modules/ALL_library/histogram_method/readme
+    ./modules/ALL_library/cpp_interface/readme
+    ./modules/ALL_library/fortran_interface/readme
+    ./modules/ALL_library/MPM_integration/MPMIntegration
+    ./modules/ALL_library/all_hemeLB_cooperation/hemeLBcooperation
