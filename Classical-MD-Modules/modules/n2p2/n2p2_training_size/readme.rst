@@ -56,7 +56,7 @@ _________________
 
 NNTSSD is a module that allows
 
-* automatized dataset creation of varied sizes
+* automated dataset creation of varied sizes
 * training of the neural network
 * analysis of the learning curves obtained in the training process
 
