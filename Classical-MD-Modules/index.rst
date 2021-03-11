@@ -279,7 +279,9 @@ ESDW Lyon 2019
     :glob:
     :maxdepth: 1
 
+    ./modules/n2p2/n2p2_symfunc_param_generator/readme
     ./modules/n2p2/n2p2_training_size/readme
+    ./modules/openpigs/readme    
 
 ESDW Clifden 2019
 ------------------
@@ -295,13 +297,4 @@ Clifden, Ireland in November 2019 was the starting point for the modules below.
     ./modules/Comparative-Metadynamics/readme
 
 
-ESDW Lyon 2019
-------------------
-
-.. toctree::
-    :glob:
-    :maxdepth: 1
-
-    ./modules/n2p2/n2p2_symfunc_param_generator/readme
-    ./modules/openpigs/readme
 .. _E-CAM: https://www.e-cam2020.eu/
