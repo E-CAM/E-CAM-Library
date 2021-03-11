@@ -16,10 +16,10 @@
     n2p2: Symmetry Function Parameter Generator
 
   Language
-    Python (3.7)
+    Python3_ (3.7)
 
   Licence
-    `GPL <https://opensource.org/licenses/gpl-license>`_
+    `GPL-3.0-or-later <https://www.gnu.org/licenses/gpl.txt>`__
 
   Documentation Tool
     Sphinx_, ReST_
@@ -64,8 +64,8 @@ _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-.. Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
-   it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
+.. Give a brief overview of why the module is/was being created, explaining a little of the scientific background and
+   how it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
    non-expert in the domain area of the software module.
 
 To represent potential energy surfaces via an artificial neural network, in a first step, the n2p2 software package
@@ -113,12 +113,12 @@ ______________________
 
 .. If the modifications are to an existing code base (which is typical) then this would be the place to name that
    application. List any relevant urls and explain how to get access to that code. There needs to be enough information
-   here so that the person reading knows where to get the source code for the application, what version this information is
-   relevant for, whether this requires any additional patches/plugins, etc.
+   here so that the person reading knows where to get the source code for the application, what version this information
+   is relevant for, whether this requires any additional patches/plugins, etc.
 
 .. Overall, this module is supposed to be self-contained, but linking to specific URLs with more detailed information is
-   encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
-   the links they need should be already in this module.
+   encouraged. In other words, the reader should not need to do a websearch to understand the context of this module,
+   all the links they need should be already in this module.
 
 This module is designed to be used in conjunction with n2p2, a software package for high-dimensional neural network
 potentials in computational physics and chemistry. For more information on n2p2 itself, see:
@@ -182,6 +182,7 @@ request, see `here <https://github.com/CompPhysVienna/n2p2/pull/15>`__.
 
 .. _ReST: http://www.sphinx-doc.org/en/stable/rest.html
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/markup/index.html
+.. _Python3: https://www.python.org/
 .. _pytest: https://docs.pytest.org/en/latest/
 .. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
 

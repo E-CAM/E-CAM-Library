@@ -287,4 +287,13 @@ Clifden, Ireland in November 2019 was the starting point for the modules below.
     ./modules/Comparative-Metadynamics/readme
 
 
+ESDW Lyon 2019
+------------------
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/n2p2/n2p2_training_size/readme
+
 .. _E-CAM: https://www.e-cam2020.eu/
