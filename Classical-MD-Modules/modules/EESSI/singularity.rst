@@ -14,7 +14,7 @@
     European Environment for Scientific Software Installations
 
   Language
-    Ansible for infrastructure, Python for installations
+    Ansible for infrastructure, Python for installation framework
 
   Licence
     `GPL v2 <https://opensource.org/licenses/GPL-2.0>`_
@@ -48,7 +48,7 @@ MPI support for EESSI-based containers
 
 The European Environment for
 Scientific Software
-Installations `EESSI <https://eessi.github.io/docs/>`_ is a collaboration
+Installations (`EESSI <https://eessi.github.io/docs/>`_) is a collaboration
 between a number of academic and industrial partners in the HPC community to set up a
 shared stack of scientific software installations
 to avoid the installation and execution of
@@ -154,7 +154,7 @@ ___________
 EESSI is still in a pilot phase, and for this reason the final version of this script
 cannot be created until the underlying requirements have stabilised. For the time being
 the script is contained in an
-`issue in the EESSI filesystem layer repository <https://github.com/EESSI/filesystem-layer/issues/37#issue-701122823>`_
+`issue in the EESSI filesystem layer repository <https://github.com/EESSI/filesystem-layer/issues/37#issue-701122823>`_.
 
 .. _ReST: http://www.sphinx-doc.org/en/stable/rest.html
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/markup/index.html
