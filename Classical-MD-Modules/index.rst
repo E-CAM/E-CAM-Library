@@ -295,5 +295,5 @@ ESDW Lyon 2019
     :maxdepth: 1
 
     ./modules/n2p2/n2p2_symfunc_param_generator/readme
-
+    ./modules/openpigs/readme
 .. _E-CAM: https://www.e-cam2020.eu/
