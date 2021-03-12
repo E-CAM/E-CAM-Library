@@ -132,19 +132,48 @@ variables, e.g.,
   export SINGULARITY_BIND="/p/project/cecam/singularity/cecam/alien_2020.12:/shared_alien,/tmp:/local_alien,/p/project/cecam/singularity/cecam/ocais1/home/default.local:/etc/cvmfs/default.local"
   export SINGULARITY_SCRATCH="/var/lib/cvmfs,/var/run/cvmfs"
 
+It will also tell you how to start a shell session within the container
 
-The EESSI pilot stack includes GROMACS and in the following command we show how one
+.. code-block:: bash
+
+    singularity shell --fusemount "$EESSI_CONFIG" --fusemount "$EESSI_PILOT" /p/project/cecam/singularity/cecam/ocais1/client-pilot_centos7-x86_64.sif
+
+Once inside the shell you are able to initialise the EESSI computing environment, which
+will give you access to all the software available within EESSI, and which you can
+access via environment
+modules. You can use the modules to access the software you are interested in, and to
+find the path to the executables you are interested in within the container. Let's do
+this for GROMACS executable ``gmx_mpi``.
+
+.. code-block:: bash
+    :emphasize-lines: 1,9,10
+
+    Singularity> source /cvmfs/pilot.eessi-hpc.org/2020.12/init/bash
+    Found EESSI pilot repo @ /cvmfs/pilot.eessi-hpc.org/2020.12!
+    Using x86_64/intel/skylake_avx512 as software subdirectory.
+    Using /cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/intel/skylake_avx512/modules/all as the directory to be added to MODULEPATH.
+    Found Lmod configuration file at /cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/intel/skylake_avx512/.lmod/lmodrc.lua
+    Initializing Lmod...
+    Prepending /cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/intel/skylake_avx512/modules/all to $MODULEPATH...
+    Environment set up to use EESSI pilot software stack, have fun!
+    [EESSI pilot 2020.12] $ module load GROMACS
+    [EESSI pilot 2020.12] $ which gmx_mpi
+    /cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/intel/skylake_avx512/software/GROMACS/2020.1-foss-2020a-Python-3.8.2/bin/gmx_mpi
+
+Now that we know the path to the executable within the container, we can call it
+directly from outside the container and use it within a batch job.
+We show how one
 can execute a GROMACS benchwork using the installation found inside EESSI (on
 `JUWELS <https://www.fz-juelich.de/ias/jsc/EN/Expertise/Supercomputers/JUWELS/Configuration/Configuration_node.html>`_):
 
 .. code-block:: bash
 
-  [juwels01 ~]$ SLURM_MPI_TYPE=pspmix OMP_NUM_THREADS=2 \
-                srun --time=00:05:00 --nodes=1 --ntasks-per-node=24 --cpus-per-task=2 \
-                singularity exec --fusemount "$EESSI_CONFIG" --fusemount "$EESSI_PILOT" \
-                ~/client-pilot_centos7-2020.08.sif \
-                /cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/intel/skylake_avx512/software/GROMACS/2020.1-foss-2020a-Python-3.8.2/bin/gmx_mpi \
-                mdrun -s ion_channel.tpr -maxh 0.50 -resethway -noconfout -nsteps 10 -g logfile
+    [juwels01 ~]$ SLURM_MPI_TYPE=pspmix OMP_NUM_THREADS=2 \
+                  srun --time=00:05:00 --nodes=1 --ntasks-per-node=24 --cpus-per-task=2 \
+                  singularity exec --fusemount "$EESSI_CONFIG" --fusemount "$EESSI_PILOT" \
+                  /p/project/cecam/singularity/cecam/ocais1/client-pilot_centos7-x86_64.sif \
+                  /cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/intel/skylake_avx512/software/GROMACS/2020.1-foss-2020a-Python-3.8.2/bin/gmx_mpi \
+                  mdrun -s ion_channel.tpr -maxh 0.50 -resethway -noconfout -nsteps 10 -g logfile
 
 Source Code
 ___________
