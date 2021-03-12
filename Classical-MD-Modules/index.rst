@@ -256,7 +256,7 @@ August 2017. The following modules have been produced:
     ./modules/OpenPathSampling/ops_plumed_wrapper/readme
     ./modules/OpenPathSampling/ops_s_shooting/readme
 
-The third ESDW for the Classical MD workpackage was held in Turin, Italy in July
+The third ESDW for the Classical MD work package was held in Turin, Italy in July
 2018. The following have been produced as a result:
 
 .. toctree::
@@ -293,8 +293,36 @@ Clifden, Ireland in November 2019 was the starting point for the modules below.
     :glob:
     :maxdepth: 1
 
-    ./modules/PI/PIutils/README.rst
+    ./modules/PI/PIutils/README
     ./modules/Comparative-Metadynamics/readme
 
+European Environment for Scientific Software Installations
+==========================================================
+
+A number of modules related to the E-CAM support of the European Environment for
+Scientific Software
+Installations `EESSI <https://eessi.github.io/docs/>`_ which is is a collaboration
+between a number of academic and industrial partners in the HPC community. Through the
+EESSI project, they want to set up a shared stack of scientific software installations
+to avoid not only duplicate work across HPC sites but also the execution of
+sub-optimal applications on HPC resources.
+
+For end users, EESSI wants to provide a uniform user experience with respect to
+available
+scientific software, regardless of which system they use. The software stack is
+intended to work on laptops, personal workstations, HPC clusters and in the cloud,
+which means the project will need to support different CPUs, networks, GPUs, and so on.
+The intention is to make this work for any Linux distribution, and a wide variety of CPU
+architectures (Intel, AMD, ARM, POWER, RISC-V).
+
+The pilot instance of the EESSI software stack includes GROMACS, and benchmarking is
+being done by E-CAM using that application, which is why we include these modules in
+this section.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/EESSI/singularity
 
 .. _E-CAM: https://www.e-cam2020.eu/
