@@ -324,5 +324,6 @@ this section.
     :maxdepth: 1
 
     ./modules/EESSI/singularity
+    ./modules/EESSI/learnhpc_gpu
 
 .. _E-CAM: https://www.e-cam2020.eu/
