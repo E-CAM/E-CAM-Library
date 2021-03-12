@@ -33,10 +33,9 @@
 .. _G-CTMQC:
 
 
-####################
+######
 G-CTMQC
-####################
-
+######
 .. image:: ./SOC_figure.png
    :width: 50%
    :align: center
