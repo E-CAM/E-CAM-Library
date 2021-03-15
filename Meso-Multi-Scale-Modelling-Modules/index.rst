@@ -203,8 +203,7 @@ time-to-solution of the applications.
     ./modules/ALL_library/cpp_interface/readme
     ./modules/ALL_library/fortran_interface/readme
     ./modules/ALL_library/MPM_integration/MPMIntegration
-<<<<<<< HEAD
-
+    ./modules/ALL_library/all_hemeLB_cooperation/hemeLBcooperation
 
 Ludwig: A lattice Boltzmann code for complex fluids
 ---------------------------------------------------
@@ -217,6 +216,3 @@ The modules listed here account for the modifications of the code Ludwig, carrie
     
     ./modules/Lattice_Boltzmann/external_chemical_potential_gradient/readme
     ./modules/Lattice_Boltzmann/crystalline_capillaries/readme
-=======
-    ./modules/ALL_library/all_hemeLB_cooperation/hemeLBcooperation
->>>>>>> 0b118f9dd0a9501c690791298e7981a036482e84
