@@ -1,0 +1,24 @@
+Two kinds of molecules: branched and dimer
+
+volume 3.0  3.0  3.0
+temperature 1.0
+cutoff 1.0
+
+timestep 0.01
+steps 1000
+equilibration steps 0
+traj  0  100  0
+stats every 100
+stack size 100
+print every 100
+job time 1000.0
+close time 10.0
+
+ensemble nvt mdvv
+conf origin zero
+
+ewald sum 1.0 5 5 5
+bjerrum  1.0
+smear gauss equal
+
+finish
