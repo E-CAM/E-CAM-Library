@@ -90,8 +90,8 @@ while for the GPU version we have:
     ./modules/DL_MESO_DPD_onGPU/fftw/readme
     ./modules/DL_MESO_DPD_onGPU/improvedOverlap/readme
     ./modules/DL_MESO_DPD_onGPU/bond_forces_single_GPU/readme
-    ./modules/DL_MESO_DPD_onGPU/Kokkos_VV2/readme
-
+    ./modules/DL_MESO_DPD_onGPU/Kokkos_VV1/readme
+    ./modules/DL_MESO_DPD_onGPU/Kokkos_VV1/readme
 
 ESPResSo++
 ----------
@@ -201,3 +201,7 @@ time-to-solution of the applications.
     ./modules/ALL_library/unstructured_method/readme
     ./modules/ALL_library/voronoi_method/readme
     ./modules/ALL_library/histogram_method/readme
+    ./modules/ALL_library/cpp_interface/readme
+    ./modules/ALL_library/fortran_interface/readme
+    ./modules/ALL_library/MPM_integration/MPMIntegration
+    ./modules/ALL_library/all_hemeLB_cooperation/hemeLBcooperation

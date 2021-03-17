@@ -457,6 +457,15 @@ by the group of Nadja Doslic in Zagreb.
 
 The **Quantics_openmp** module is an initial effort at OpenMP parallelisation improvements to Quantics.
 
+.. toctree::
+        :glob:
+        :maxdepth: 1
+
+        ./modules/Quantics_DD_MPIOMP/readme
+
+The **Quantics_DD_MPIOMP** module is a further improvement on the parallel version of DD-vMCG in 
+Quantics by adding an extra layer of MPI parallelization to the existing OpenMP parallelization.
+
 CLstunfti
 ---------
 
