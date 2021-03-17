@@ -51,12 +51,14 @@ DL_MESO (DPD) on Kokkos: Verlet Velocity step 2
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-This module is related to the implementation in DL_MESO (DPD) `Kokkos library <https://github.com/kokkos/kokkos>`_ to achieve performance portability. 
-Its focus is on the second loop of the Verlet Velocity (VV) scheme for the time marching scheme.
+This module is related to the implementation in DL_MESO (DPD)
+`Kokkos library <https://github.com/kokkos/kokkos>`_ to achieve performance portability. 
+It's focus is on the second loop of the Verlet Velocity (VV) scheme for the time marching scheme.
 
 Purpose of Module
 _________________
-In this module we are porting to DL_MESO (DPD) the second loop of the Verlet Velocity scheme to `Kokkos <https://github.com/kokkos/kokkos>`_. 
+In this module we are porting to DL_MESO (DPD) the second loop of the Verlet Velocity scheme to
+`Kokkos <https://github.com/kokkos/kokkos>`_. 
 This allows to run DL_MESO on NVidia GPUs as well 
 as on other GPUs or architectures (many-core hardware like KNL), allowing performance portability 
 as well as separation of concern 
@@ -65,14 +67,15 @@ between computational science and HPC.
 The VV scheme is made of 3 steps: 1) a first velocity and particle positions integration 
 by $\Delta t/2$, 2) a force calculation 
 and 3) a second velocity integration by $\Delta t/2$. We have already offloaded the first loop 
-in a previous module. The main difference here is that we are using a `parallel_reduce` loop
-rather than `parallel_for` as we need to calculate also the stress tensor via reduction operations. 
+in another module (:ref:`dl_meso_kokkos_VV1`). The main difference here is that we are using
+a ``parallel_reduce`` loop
+rather than ``parallel_for`` as we need to calculate also the stress tensor via reduction operations. 
 
 Note: Kokkos is a C++ library, while DL_MESO (DPD) is in Fortran90 Language. The current 
 implementation requires a transfer 
-between Fortran to C++, due to the use of Fortran pointers not binded via ISO_C_BINDING 
-standard. This constrain will be removed 
-in successive versions.
+between Fortran and C++, due to the use of Fortran pointers not binded via the ISO_C_BINDING 
+standard. This constraint will be removed 
+in future versions.
 
 
 Background Information
@@ -81,20 +84,23 @@ With the advent of heterogeneous hardware, achieving performance portability acr
 different architectures is one of the main 
 challenges in HPC. In fact, while specific languages, like CUDA, can give best 
 performance for the NVidia hardware, they cannot 
-be used with different GPU vendors limiting the usage across supercomputers world wide.
+be used with different GPU vendors limiting the usage across supercomputers worldwide.
 
 In this module we use Kokkos, developed at Sandia National Laboratories, which consist 
-of several C++ templated libraries able 
-to offload to workload to several different architectures, taking care of the memory layout and 
+of several C++ templated libraries which provide the capability 
+to offload a workload to several different architectures, taking care of the memory layout and 
 transfer between host and device.
 
-To install Kokkos focus the instructions at: `Kokkos Tutorial <https://github.com/kokkos/kokkos/blob/master/BUILD.md>`_. 
-This module has been build on the Kokkos installation using the following flags:
+To install Kokkos follow the instructions at:
+`Kokkos Tutorial <https://github.com/kokkos/kokkos/blob/master/BUILD.md>`_. 
+This module has been built on a Kokkos installation using the following flags:
+
+.. code-block:: bash
 
   cmake ../ -CMAKE_CXX_COMPILER=$HOME/Kokkos/kokkos/bin/nvcc_wrapper -DKokkos_ENABLE_CUDA=ON -DKokkos_ENABLE_OPENMP=ON 
   -DKokkos_ENABLE_CUDA_LAMBDA=ON -DCMAKE_INSTALL_PREFIX=$HOME/Kokkos/kokkos
 
-which allows to translate the Kokkos kernel to CUDA language and run on NVidia GPUs. 
+which allows us to translate the Kokkos kernel to CUDA language and run on NVidia GPUs. 
 
 This module is part of the DL_MESO (DPD) code. Full support and documentation is available at:
 
@@ -136,8 +142,8 @@ Performance
 ___________
 
 We timed the execution for the VV second step kernel using Kokkos and compared to the same loop written 
-in CUDA language 
-(see `DL_MESO GPU version modules <https://e-cam.readthedocs.io/en/latest/Meso-Multi-Scale-Modelling-Modules/index.html>`_) 
+in CUDA language (see
+`DL_MESO GPU version modules <https://e-cam.readthedocs.io/en/latest/Meso-Multi-Scale-Modelling-Modules/index.html>`_) 
 using a Volta V100 NVidia card.
 For a 5.12 million particles of the Large Mixture test case, we get a 0.00117s (very close to the fist loop, 
 despite the 
@@ -147,7 +153,7 @@ transfer between
 host and device currently occurs at every time step in the Kokkos version, taking 0.4689s 
 and then with a negative 
 impact on the overall performance.
-For a fair comparison, this data should be transferred upstream the time marching loop as 
+For a fair comparison, this data should be transferred upstream to the time marching loop as 
 done in the CUDA version. 
 
 
