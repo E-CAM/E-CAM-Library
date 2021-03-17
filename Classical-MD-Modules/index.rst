@@ -325,5 +325,6 @@ this section.
 
     ./modules/EESSI/singularity
     ./modules/EESSI/learnhpc_gpu
+    ./modules/EESSI/eessi_github_action
 
 .. _E-CAM: https://www.e-cam2020.eu/
