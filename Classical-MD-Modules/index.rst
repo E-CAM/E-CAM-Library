@@ -199,6 +199,80 @@ Nine of these modules were part of
 provided improvements and new features in software for trajectory sampling and
 for studying the thermodynamics and kinetics of rare events.
 
+Machine Learning Potentials
+===========================
+
+Many systems in computational physics and chemistry can be successfully studied
+with empirical force fields at the atomistic level. In the context of these
+"molecular mechanics" models, atoms are treated as particles without internal
+structure and their interactions are defined via rather simple expressions
+deduced from physical/chemical intuition. Usually a small number of free
+parameters is enough to tune the potential to reproduce experimental properties
+with good agreement. However, there are systems for which a satisfying
+description within this framework is not possible. Take as an example the
+formation and breaking of covalent bonds. This is the territory of *ab
+initio* methods which use quantum mechanics to accurately model the behavior of
+the system. Unfortunately the additional level of detail comes at a cost. Even
+in small systems *ab initio* methods are usually many orders of magnitude
+slower than empirical force fields. Moreover, the computational cost increases
+unfavorably with the number of atoms which makes it impractical to perform large
+simulations.
+
+With rising influence of machine learning algorithms in science and technology a
+new category of interatomic potentials has emerged. Machine learning potentials
+(MLPs) aim at bridging the gap between *ab initio* methods and empirical
+force fields. In contrast to the latter, MLPs are not bound by a predetermined
+fixed functional form of the interaction but rather build on the flexibility of
+an underlying machine learning model, such as artificial neural networks. These
+are known for their capability to reproduce any complicated function, which in
+this case is the desired potential energy surface, but rely on a separate
+training stage before they are ready for use. During this phase the MLP "learns"
+from a large data set how energies and forces depend on atomic positions. The
+reference energy landscape is typically computed from expensive *ab
+initio* methods. Once the training is completed the MLP can accurately predict
+energies and forces for new (unseen during training) atomic configurations at a
+fraction of the cost of the reference method. Hence, with MLPs times scales
+become accessible in molecular dynamics simulations close to those of empirical
+potentials while maintaining the *ab initio* level of accuracy.
+
+Today MLPs exist in various forms and combine different atomic environment
+descriptors as inputs for all kinds of machine learning models.
+
+* `Overview of machine learning potentials <https://doi.org/10.1063/1.4966192>`__
+
+A very successful variant is the high-dimensional neural network potential
+(HDNNP) which combines make use of artificial neural networks to predict
+atomic energy contributions:
+
+* `Original publication introducing HDNNPs by Behler and Parrinello <https://doi.org/10.1103/PhysRevLett.98.146401>`__
+* `Descriptors used in HDNNPs: Atom-centered symmetry functions <https://doi.org/10.1063/1.3553717>`__
+* `About the construction of HDNNPs <https://doi.org/10.1002/qua.24890>`__
+
+n2p2
+====
+
+The software `n2p2 <https://compphysvienna.github.io/n2p2/>`__ (**N**\ eural\
+**N**\ etwork\ **P**\ otential\ **P**\ ackage) implements the HDNNP method in a
+C++ library and applications for training and prediction. Its most important
+feature in the HPC context is the interface to the popular molecular dynamics
+package `LAMMPS <https://lammps.sandia.gov/>`__ which allows to use HDNNPs in
+massively parallelized simulation runs. Further information can be found in
+these two publications:
+
+* `n2p2 design and LAMMPS parallel performance <https://doi.org/10.1021/acs.jctc.8b00770>`__
+* `Parallel training implemented in n2p2 <https://doi.org/10.1021/acs.jctc.8b01092>`__
+
+The following modules extend the functionality of n2p2, some are already merged
+into the `main repository <https://github.com/CompPhysVienna/n2p2>`__, others
+will also work independently and will be integrated in the future:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/n2p2/n2p2_symfunc_param_generator/readme
+    ./modules/n2p2/n2p2_training_size/readme
+
 Pilot Projects
 ==============
 
