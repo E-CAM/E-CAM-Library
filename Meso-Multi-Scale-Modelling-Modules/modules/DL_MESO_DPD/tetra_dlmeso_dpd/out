@@ -1,9 +1,10 @@
- Number of nodes used in calculations?
+ Species            1 : A       
  Which species number has to be analyzed?
+1
  total number of beads:                64
  number of beads by species:           64
  number of analyzed beads:             64
-   <q> =     0.127967E+00
- error =     0.165168E-01
- <s_k> =     0.986985E+00
- error =     0.277033E-03
+ <q>   =     0.132069E+00
+ error =     0.159218E-01
+ <s_k> =     0.986906E+00
+ error =     0.243544E-03
