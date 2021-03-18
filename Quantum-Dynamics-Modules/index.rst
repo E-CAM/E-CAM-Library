@@ -255,7 +255,7 @@ spin-orbit coupling is included in CT-MQC (G-CT-MQC algorithm).
     :glob:
     :maxdepth: 1
 
-    ./modules/QuantumModelLib/readme
+    ./modules/PhysConst_module/readme
 
 The **PhysConst** enables the use of physical constants and the correct isotopic masses.
 
