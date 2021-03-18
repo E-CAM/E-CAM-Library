@@ -121,13 +121,22 @@ Detailed information about the exact factorization and CT-MQC [EF]_ can be found
 where the original version of the module is described. The generalized CTMQC, **G-CTMQC**, includes 
 various new features to original module:
 
-*  spin-allowed, between electronic states of the same spin multiplicity, and spin-forbidden, between electronic states of different spin multiplicity, transitions can be simulated; the former are mediated by the kinetic, also  called nonadiabatic, coupling between electronic and nuclear motion, whereas the latter are induced by spin-orbit coupling;
+*  spin-allowed, between electronic states of the same spin multiplicity, and spin-forbidden, 
+   between electronic states of different spin multiplicity, transitions can be simulated; the 
+   former are mediated by the kinetic, also  called nonadiabatic, coupling between electronic and 
+   nuclear motion, whereas the latter are induced by spin-orbit coupling;
 
-*  G-CT-MQC calculations, based on the generalized coupled-trajectory mixed quantum-classical algorithm, can be performed in the spin-diabatic and spin-adiabatic basis for the electronic subsystem;
+*  G-CT-MQC calculations, based on the generalized coupled-trajectory mixed quantum-classical 
+   algorithm, can be performed in the spin-diabatic and spin-adiabatic basis for the electronic subsystem;
 
-*  nonadiabatic calculations based on trajectory surface hopping [TSH]_ and on the Ehrenfest approach [EH]_ can be carried out, including energy decoherence corrections in surface hopping [TSH-EDC]_; the fewest switches scheme is used for surface hopping;
+*  nonadiabatic calculations based on trajectory surface hopping [TSH]_ and on the Ehrenfest 
+   approach [EH]_ can be carried out, including energy decoherence corrections in surface 
+   hopping [TSH-EDC]_; the fewest switches scheme is used for surface hopping;
 
-*  on-the-fly dynamics can be performed based on the calculation of electronic structure information, namely energies, gradients and couplings, along the trajectories via the interface to the `QuantumModelLib <https://e-cam.readthedocs.io/en/latest/Quantum-Dynamics-Modules/modules/QuantumModelLib/readme.html>`_ library.
+*  on-the-fly dynamics can be performed based on the calculation of electronic structure 
+   information, namely energies, gradients and couplings, along the trajectories via the 
+   interface to the `QuantumModelLib <https://e-cam.readthedocs.io/en/latest/Quantum-
+   Dynamics-Modules/modules/QuantumModelLib/readme.html>`_ library.
 
 
 The new features introduced in **G-CTMQC** are documented in Refs. [SOC]_ and [G-CT-MQC]_ concerning 
@@ -311,8 +320,8 @@ __________
 .. [TSH-EDC] G. Granucci, M. Persico, *J. Chem. Phys.*
              **126** (2007) 134114 `DOI: 10.1063/1.2715585 <https://doi.org/10.1063/1.2715585>`_
 
-.. [G-CT-MQC] F. Talotta, S. Morisset, N. Rougeau, D. Lauvergnat, F. Agostini, 
-	  *J. Chem. Theory Comput.* **16** (2020) 4833-4848 `DOI: 10.1021/acs.jctc.0c00493 
+.. [G-CT-MQC] F. Talotta, S. Morisset, N. Rougeau, D. Lauvergnat, F. Agostini,
+          *J. Chem. Theory Comput.* **16** (2020) 4833-4848 `DOI: 10.1021/acs.jctc.0c00493 
           <https://dx.doi.org/10.1021/acs.jctc.0c00493>`_
 
 .. [PSB3] E. Marsili, M. Olivucci, D. Lauvergnat and F. Agostini, *J. Chem. Theory Comput.*
@@ -322,4 +331,4 @@ __________
          **124** (2020) 033001 `DOI: 10.1103/PhysRevLett.124.033001 <https://doi.org/10.1103/PhysRevLett.124.033001>`_
 
 .. [IC] C. Pieoroni, E. Marsili, D. Lauvergnat and F. Agostini, *J. Chem. Phys.*
-	**154** (2021) 034104   `DOI: 10.1063/5.0036726 <https://doi.org/10.1063/5.0036726>`_
+        **154** (2021) 034104   `DOI: 10.1063/5.0036726 <https://doi.org/10.1063/5.0036726>`_
