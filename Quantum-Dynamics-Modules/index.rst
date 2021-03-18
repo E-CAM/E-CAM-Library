@@ -242,6 +242,19 @@ simulation through an effective Hamiltonian.
     :glob:
     :maxdepth: 1
 
+    ./modules/G-CTMQC/readme
+
+The **G-CTMQC** module extends the previous **CTMQC** module, introducing new methodological and 
+technical features. G-CTMQC is interfaced with the **QuantumModelLib** library of potentials, 
+which gives more flexibility in the choice of systems that can be studied. The present 
+implementation allows to perform surface hopping calculations, also with inclusion of energy 
+decoherence corrections, and Ehrenfest dynamics, as well as CT-MQC calculations. Finally, 
+spin-orbit coupling is included in CT-MQC (G-CT-MQC algorithm).
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
     ./modules/PhysConst_module/readme
 
 The **PhysConst** enables the use of physical constants and the correct isotopic masses.
