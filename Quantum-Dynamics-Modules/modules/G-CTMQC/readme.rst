@@ -211,7 +211,7 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
 
-The **G-CTMQC** source code and test files can be found following this `link <https://gitlab.com/agostini.work/ctmqc/-/tree/G-CTMQC>`_.
+The **G-CTMQC** source code and test files can be found following this `link <https://gitlab.com/agostini.work/g-ctmqc>`_.
 
 
 References
