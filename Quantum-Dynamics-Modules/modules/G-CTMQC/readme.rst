@@ -86,13 +86,9 @@ of G-CTMQC with QuantumModelLib (E-CAM module).
 Purpose of Module
 _________________
 
-.. Keep the helper text below around in your module by just adding "..  " in 
-front of it, which turns it into a comment
-
 
 **G-CTMQC** is a module for excited-state molecular dynamics simulations with various 
 trajectory-based algorithms, including nonadiabatic coupling and spin-orbit coupling.
-
 Nuclear dynamics can be performed based on the quantum-classical algorithm derived from 
 the exact factorization of the electron-nuclear wavefunction [EF]_, dubbed CT-MQC [CT-MQC]_. 
 Recently, the extension of the exact-factorization theory has been proposed to include 
@@ -100,7 +96,7 @@ spin-orbit coupling [SOC]_. Therefore, the “generalized” algorithm is now ab
 (i) standard nonadiabatic situations, where spin-allowed electronic transitions among 
 states with the same spin multiplicity are mediated by the coupling to nuclear motion, 
 and (ii) spin-orbit interactions, where spin-forbidden electronic transitions among 
-states of different spin multiplicity are induced by the spin-orbit coupling. 
+states of different spin multiplicity are induced by the spin-orbit coupling.
 
 Electronic evolution is carried out in the adiabatic basis for standard nonadiabatic problems. 
 In the case of spin-orbit interactions, **G-CTMQC** offers the options to use the spin-diabatic 
