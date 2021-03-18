@@ -115,9 +115,6 @@ Ehrenfest, only nonadiabatic couplings are currently implemented.
 Background Information
 ______________________
 
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which 
-turns it into a comment
-
 
 Detailed information about the exact factorization and CT-MQC [EF]_ can be found in 
 `CTMQC <https://e-cam.readthedocs.io/en/latest/Quantum-Dynamics-Modules/modules/CTMQC/readme.html>`_ 
@@ -150,9 +147,6 @@ possibilities of sampling the initial conditions.
 
 Building and Testing
 ____________________
-
-.. Keep the helper text below around in your module by just adding "..  " in front of it, which turns 
-it into a comment
 
 **G-CTMQC** is a fortran90 based code. Compilation of the code requires the gfortran compiler, and 
 Lapack libraries. Tests have been performed with GCC 7.x. Note that, before compiling **G-CTMQC** it 
