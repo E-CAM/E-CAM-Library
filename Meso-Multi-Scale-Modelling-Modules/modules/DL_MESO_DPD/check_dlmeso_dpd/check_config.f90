@@ -4,7 +4,7 @@ PROGRAM check_config
 ! It is checked that the provided CONFIG file (optional input) 
 ! is consistent with the CONTROL and FIELD files (necessary input).
 !
-! authors: m. a. seaton and s. chiacchiera, February 2018 
+! authors: m. a. seaton and s. chiacchiera, February 2018, January 2021
 !***********************************************************************
 !NB: frozen wall or shearing surface not included yet
 
@@ -67,6 +67,8 @@ PROGRAM check_config
   INTEGER :: srftype
 ! surface dimensions
   INTEGER :: srfx, srfy, srfz
+! wall interaction position
+  REAL(KIND=dp) :: srfpos
 ! maximum value for numbers of beads
   INTEGER, POINTER :: maxdim 
 ! switch to determine whether to ignore global bead numbers in CONFIG file
@@ -134,7 +136,8 @@ PROGRAM check_config
 
   srftype = 0
   srfx = 0; srfy = 0; srfz = 0
-  
+  srfpos = 0._dp
+
   ligindex = .false.
   lconfzero = .false.
     
@@ -191,7 +194,10 @@ PROGRAM check_config
   WRITE (*,'(" levcfg    =",1x,I8)') levcfg
   WRITE (*,'(" lconfzero =",1x,L8)') lconfzero
   WRITE (*,'(" srftype   =",1x,I8)') srftype
-  IF (srftype/=0)   WRITE (*,*) "srfx, srfy, srfz =", srfx, srfy, srfz
+  IF (srftype/=0) THEN
+    WRITE (*,*) "srfx, srfy, srfz =", srfx, srfy, srfz
+    WRITE (*,*) "srfpos           =", srfpos
+  END IF
   
   CALL scan_field
 
@@ -312,19 +318,19 @@ PROGRAM check_config
         bead1 = bndtbl (i,1)
         bead2 = bndtbl (i,2)        
         IF (srfx==1) THEN
-           IF (ABS(xxx (bead1) - xxx (bead2)) > dimx/2) THEN
+           IF (ABS(xxx (bead1) - xxx (bead2)) > 0.5_dp*dimx-srfpos) THEN
               WRITE (*,"('error: bond between beads',2x,i7,2x,'and',2x,i7,2x,'crosses hard wall perp. to x')")bead1, bead2 
               safe = .false.
            END IF
         END IF
         IF (srfy==1) THEN
-           IF (ABS(yyy (bead1) - yyy (bead2)) > dimy/2) THEN
+           IF (ABS(yyy (bead1) - yyy (bead2)) > 0.5_dp*dimy-srfpos) THEN
               WRITE (*,"('error: bond between beads',2x,i7,2x,'and',2x,i7,2x,'crosses hard wall perp. to y')")bead1, bead2 
               safe = .false.
            END IF
         END IF
         IF (srfz==1) THEN
-           IF (ABS(zzz (bead1) - zzz (bead2)) > dimz/2) THEN
+           IF (ABS(zzz (bead1) - zzz (bead2)) > 0.5_dp*dimz-srfpos) THEN
               WRITE (*,"('error: bond between beads',2x,i7,2x,'and',2x,i7,2x,'crosses hard wall perp. to z')")bead1, bead2 
               safe = .false.
            END IF
@@ -333,7 +339,7 @@ PROGRAM check_config
      
      IF (.NOT. safe) THEN
         WRITE (*,"(/'error: at least one stretching bond is crossing a hard wall, please correct the CONFIG file')")
-        IF (nfold>1) WRITE (*,"('(hint: the bonds needing corrections are easier to indetify if nfold=1)')")        
+        IF (nfold>1) WRITE (*,"('(hint: the bonds needing corrections are easier to identify if nfold=1)')")
      ELSE
         WRITE (*,*)
         WRITE (*,"(/,1x,'OK: none of the stretching bonds is crossing a hard wall')")             
@@ -368,21 +374,21 @@ CONTAINS
 !     read CONTROL file for system and simulation data
 !
 !     copyright stfc daresbury laboratory
-!     authors - w. smith & m. a. seaton july 2015
+!     authors - w. smith & m. a. seaton december 2019
 !
 !***********************************************************************
-!     This is a stripped down version, adapted by s. chiacchiera 2017
+!     This is a stripped down version, adapted by s. chiacchiera 2017, m. a. seaton 2021
 !     Details on its behaviour:
 !     input: CONTROL
 !     output: may alter from default the values of these global variables
 !     lnfold, nfold, nfoldx, nfoldy, nfoldz
 !     lvol, dimxcell, dimycell, dimzcell
 !     ligindex, lconfzero
-!     srftype, srfx, srfy, srfz    
+!     srftype, srfx, srfy, srfz, srfpos
 !***********************************************************************    
     IMPLICIT none
   
-    CHARACTER(LEN=mxword) :: key1, key2, word1, word2, word3!, word4
+    CHARACTER(LEN=mxword) :: key1, key2, word1, word2, word3, word4
     CHARACTER(LEN=200) :: record
     INTEGER :: ioerror
     LOGICAL :: safe  
@@ -452,6 +458,11 @@ CONTAINS
              IF (word1(1:1)=="x" .OR. word2(1:1)=="x".OR. word3(1:1)=="x") srfx = 1
              IF (word1(1:1)=="y" .OR. word2(1:1)=="y".OR. word3(1:1)=="y") srfy = 1
              IF (word1(1:1)=="z" .OR. word2(1:1)=="z".OR. word3(1:1)=="z") srfz = 1
+             IF (word2(1:4)=="spec" .OR. word3(1:4)=="spec" .OR. word4(1:4)=="spec" .OR. &
+                &word2(1:4)=="boun" .OR. word3(1:4)=="boun" .OR. word4(1:4)=="boun") THEN
+                srfpos = getdble (record, 4+srfx+srfy+srfz)
+             END IF
+
           !     ELSE IF (key2 (1:4) =="froz") THEN
           !       srftype = 2
           !       word1 = getword (record, 3)
@@ -1421,24 +1432,24 @@ SUBROUTINE scan_config
 ! !
 ! ! dl_meso module for parsing text input
 ! !
-! ! copyright - stfc daresbury laboratory
-! ! authors   - w. smith & m. a. seaton november 2015
-! ! 
+! ! copyright - ukri stfc daresbury laboratory
+! ! authors   - w. smith & m. a. seaton december 2019
+! !
 ! !*********************************************************************
 
 ! !      USE constants
 !       IMPLICIT none
 
-!       PUBLIC :: getword, parseint, parsedble, getint, getdble
+!       PUBLIC :: getword, parseint, parsedble, getint, getdble, lowercase
 
 ! CONTAINS
 
       CHARACTER(LEN=mxword) FUNCTION getword (txt, n)
 
 !*********************************************************************
-!  
-!     copyright - stfc daresbury laboratory
-!     author    - w. smith 2001
+!
+!     copyright - ukri stfc daresbury laboratory
+!     author    - w. smith & m. a. seaton 2019
 !
 !*********************************************************************
 
@@ -1446,14 +1457,15 @@ SUBROUTINE scan_config
 
       CHARACTER(LEN=1) :: u
       CHARACTER(LEN=*), INTENT(IN) :: txt
-      INTEGER :: a, b, c, k, n, m
+      INTEGER, INTENT(IN) :: n
+      INTEGER :: a, b, c, k, m
       CHARACTER(LEN=mxword) :: word
 
       k = 0
       a = 1
       b = 0
       c = 1
-      m = LEN (txt)
+      m = LEN_TRIM (txt)
 
       word = " "
 
@@ -1461,7 +1473,7 @@ SUBROUTINE scan_config
 
         u = txt (c:c)
 
-        IF (u=="," .OR. u==" " .OR. u==ACHAR(9)) THEN
+        IF (u==" " .OR. u=="," .OR. ICHAR (u)==9) THEN
 
           IF (b>a) k = k + 1
           IF (k<n) a = c + 1
@@ -1478,6 +1490,7 @@ SUBROUTINE scan_config
 
       IF (k==n) THEN
 
+        b = b - 1
         word = txt (a:b)
 
       ELSE IF (k==(n-1) .AND. c==m) THEN
@@ -1495,50 +1508,35 @@ SUBROUTINE scan_config
 
 !*********************************************************************
 !
-!     copyright - daresbury laboratory
-!     author    - w. smith 2001
+!     copyright - ukri stfc daresbury laboratory
+!     author    - w. c. swope & m. a. seaton 2016
 !
 !*********************************************************************
 
       IMPLICIT none
 
-      CHARACTER(LEN=1) :: u
       CHARACTER(LEN=*), INTENT(IN) :: word
-      INTEGER :: i, m
+      CHARACTER(LEN=12) :: number
+      INTEGER :: i, n
       INTEGER(KIND=li) :: k, s
 
+      number = '0123456789-.'
       k = 0_li
       s = 1_li
-      m = LEN (word)
 
-      DO i = 1, m
+      DO i = 1, LEN_TRIM (word)
 
-        u = word (i:i)
+        n = INDEX (number, word(i:i))
 
-        SELECT CASE (u)
-        CASE ("-")
-          s = -1
-        CASE ("0")
-          k = 10_li * k
-        CASE ("1")
-          k = 10_li * k + 1_li
-        CASE ("2")
-          k = 10_li * k + 2_li
-        CASE ("3")
-          k = 10_li * k + 3_li
-        CASE ("4")
-          k = 10_li * k + 4_li
-        CASE ("5")
-          k = 10_li * k + 5_li
-        CASE ("6")
-          k = 10_li * k + 6_li
-        CASE ("7")
-          k = 10_li * k + 7_li
-        CASE ("8")
-          k = 10_li * k + 8_li
-        CASE ("9")
-          k = 10_li * k + 9_li
-        CASE (".")
+        SELECT CASE (n)
+        CASE (1:10)
+          k = 10_li * k + INT (n-1, KIND=li)
+        CASE (11)
+          s = -1_li
+        CASE (12)
+          EXIT
+        CASE DEFAULT
+          k = 0_li
           EXIT
         END SELECT
 
@@ -1553,135 +1551,57 @@ SUBROUTINE scan_config
 
 !*********************************************************************
 !
-!     copyright - daresbury laboratory
+!     copyright - ukri stfc daresbury laboratory
 !     author    - w. smith 2001
-!     revision  - m. a. seaton may 2012
+!     revision  - w. c. swope & m. a. seaton 2019
 !
 !*********************************************************************
 
       IMPLICIT none
 
-      CHARACTER(1) :: u
       CHARACTER(LEN=*), INTENT(IN) :: word
-      INTEGER :: i, m, z, p, e, y
+      CHARACTER(LEN=15) :: number
+      INTEGER :: i, z, p, e, y, n
       REAL(KIND=dp) :: x, s
 
+      number = '0123456789+-.eE'
       z = 1
       p = 0
       e = 0
       y = 0
       s = 1.0_dp
       x = 0.0_dp
-      m = LEN (word)
 
-      DO i = 1, m
+      DO i = 1, LEN_TRIM (word)
 
-        u = word (i:i)
-
-        SELECT CASE (u)
-
-        CASE ("-")
-
+        n = INDEX (number, word(i:i))
+        SELECT CASE (n)
+        CASE (1:10)
+          IF (e==0) THEN
+            x = 10.0_dp * x + REAL(n-1, KIND=dp)
+            IF (p>0) p = p + 1
+          ELSE
+            y = 10 * y + n - 1
+          END IF
+        CASE (11)
+          IF (e==0) THEN
+            s = 1.0_dp
+          ELSE
+            z = 1
+          END IF
+        CASE (12)
           IF (e==0) THEN
             s = -1.0_dp
           ELSE
             z = -1
           END IF
-
-        CASE (".")
+        CASE (13)
           p = 1
-        CASE ("e", "E")
+        CASE (14,15)
           e = 1
-        CASE ("0")
-
-          IF (e==0) THEN
-            x = 10.0_dp * x
-            IF (p>0) p = p + 1
-          ELSE
-            y = 10 * y
-          END IF
-
-        CASE ("1")
-
-          IF (e==0) THEN
-            x = 10.0_dp * x + 1.0_dp
-            IF (p>0) p = p + 1
-          ELSE
-            y = 10 * y + 1
-          END IF
-
-        CASE ("2")
-
-          IF (e==0) THEN
-            x = 10.0_dp * x + 2.0_dp
-            IF (p>0) p = p + 1
-          ELSE
-            y = 10 * y + 2
-          END IF
-
-        CASE ("3")
-
-          IF (e==0) THEN
-            x = 10.0_dp * x + 3.0_dp
-            IF (p>0) p = p + 1
-          ELSE
-            y = 10 * y + 3
-          END IF
-
-        CASE ("4")
-
-          IF (e==0) THEN
-            x = 10.0_dp * x + 4.0_dp
-            IF (p>0) p = p + 1
-          ELSE
-            y = 10 * y + 4
-          END IF
-
-        CASE ("5")
-
-          IF (e==0) THEN
-            x = 10.0_dp * x + 5.0_dp
-            IF (p>0) p = p + 1
-          ELSE
-            y = 10 * y + 5
-          END IF
-
-        CASE ("6")
-
-          IF (e==0) THEN
-            x = 10.0_dp * x + 6.0_dp
-            IF (p>0) p = p + 1
-          ELSE
-            y = 10 * y + 6
-          END IF
-
-        CASE ("7")
-
-          IF (e==0) THEN
-            x = 10.0_dp * x + 7.0_dp
-            IF (p>0) p = p + 1
-          ELSE
-            y = 10 * y + 7
-          END IF
-
-        CASE ("8")
-
-          IF (e==0) THEN
-            x = 10.0_dp * x + 8.0_dp
-            IF (p>0) p = p + 1
-          ELSE
-            y = 10 * y + 8
-          END IF
-
-        CASE ("9")
-
-          IF (e==0) THEN
-            x = 10.0_dp * x + 9.0_dp
-            IF (p>0) p = p + 1
-          ELSE
-            y = 10 * y + 9
-          END IF
-
+        CASE DEFAULT
+          x = 0.0_dp
+          EXIT
         END SELECT
 
       END DO
@@ -1696,58 +1616,19 @@ SUBROUTINE scan_config
 
 !*********************************************************************
 !
-!     copyright - daresbury laboratory
-!     author    - w. smith 2001
+!     copyright - ukri stfc daresbury laboratory
+!     author    - w. smith & m. a. seaton 2019
 !
 !*********************************************************************
 
       IMPLICIT none
 
-      CHARACTER(1) :: u
       CHARACTER(LEN=mxword) :: word
       CHARACTER(LEN=*), INTENT(IN) :: txt
-      INTEGER :: a, b, c, n, k, m
-      INTEGER(KIND=li) :: d
+      INTEGER, INTENT(IN) :: n
 
-      a = 1
-      b = 0
-      c = 1
-      d = 0_li
-      k = 0
-      m = LEN (txt)
-
-      DO WHILE (k<n .AND. c<m)
-
-        u = txt (c:c)
-
-        IF (u=="," .OR. u==" ") THEN
-
-          IF (b>a) k = k + 1
-          IF (k<n) a = c + 1
-
-        ELSE
-
-          b = c + 1
-
-        END IF
-
-        c = c + 1
-
-      END DO
-
-      IF (k==n) THEN
-
-        word = txt (a:b)
-        d = parseint (word)
-
-      ELSE IF (k==(n-1) .AND. c==m) THEN
-
-        word = txt (a:m)
-        d = parseint (word)
-
-      END IF
-
-      getint = d
+      word = getword (txt, n)
+      getint = parseint (word)
 
       RETURN
       END FUNCTION getint
@@ -1756,58 +1637,19 @@ SUBROUTINE scan_config
 
 !*********************************************************************
 !
-!     copyright - daresbury laboratory
-!     author    - w. smith 2001
+!     copyright - ukri stfc daresbury laboratory
+!     author    - w. smith & m. a. seaton 2019
 !
 !*********************************************************************
 
       IMPLICIT none
 
-      CHARACTER(LEN=1) :: u
       CHARACTER(LEN=mxword) :: word
       CHARACTER(LEN=*), INTENT(IN) :: txt
-      INTEGER :: a, b, c, k, m, n
-      REAL(KIND=dp) :: d
+      INTEGER, INTENT(IN) :: n
 
-      a = 1
-      b = 0
-      c = 1
-      k = 0
-      d = 0.0_dp
-      m = LEN (txt)
-
-      DO WHILE (k<n .AND. c<m)
-
-        u = txt (c:c)
-
-        IF (u==" " .OR. u==",") THEN
-
-          IF (b>a) k = k + 1
-          IF (k<n) a = c + 1
-
-        ELSE
-
-          b = c + 1
-
-        END IF
-
-        c = c + 1
-
-      END DO
-
-      IF (k==n) THEN
-
-        word = txt (a:b)
-        d = parsedble (word)
-
-      ELSE IF (k==(n-1) .AND. c==m) THEN
-
-        word = txt (a:m)
-        d = parsedble (word)
-
-      END IF
-
-      getdble = d
+      word = getword (txt, n)
+      getdble = parsedble (word)
 
       RETURN
       END FUNCTION getdble
@@ -1815,73 +1657,25 @@ SUBROUTINE scan_config
       SUBROUTINE lowercase (word)
 
 !*********************************************************************
-!  
-!     copyright - stfc daresbury laboratory
-!     author    - i. t. todorov & m. a. seaton 2011
+!
+!     copyright - ukri stfc daresbury laboratory
+!     author    - w. c. swope & m. a. seaton 2016
 !
 !*********************************************************************
 
       IMPLICIT none
 
       CHARACTER(LEN=*), INTENT(INOUT) :: word
-      INTEGER :: i
+      CHARACTER(LEN=26) :: upper, lower
+      INTEGER :: i, k
+
+      upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      lower = 'abcdefghijklmnopqrstuvwxyz'
 
       DO i = 1, LEN(word)
 
-        SELECT CASE (word(i:i))
-        CASE ('A')
-          word(i:i) = 'a'
-        CASE ('B')
-          word(i:i) = 'b'
-        CASE ('C')
-          word(i:i) = 'c'
-        CASE ('D')
-          word(i:i) = 'd'
-        CASE ('E')
-          word(i:i) = 'e'
-        CASE ('F')
-          word(i:i) = 'f'
-        CASE ('G')
-          word(i:i) = 'g'
-        CASE ('H')
-          word(i:i) = 'h'
-        CASE ('I')
-          word(i:i) = 'i'
-        CASE ('J')
-          word(i:i) = 'j'
-        CASE ('K')
-          word(i:i) = 'k'
-        CASE ('L')
-          word(i:i) = 'l'
-        CASE ('M')
-          word(i:i) = 'm'
-        CASE ('N')
-          word(i:i) = 'n'
-        CASE ('O')
-          word(i:i) = 'o'
-        CASE ('P')
-          word(i:i) = 'p'
-        CASE ('Q')
-          word(i:i) = 'q'
-        CASE ('R')
-          word(i:i) = 'r'
-        CASE ('S')
-          word(i:i) = 's'
-        CASE ('T')
-          word(i:i) = 't'
-        CASE ('U')
-          word(i:i) = 'u'
-        CASE ('V')
-          word(i:i) = 'v'
-        CASE ('W')
-          word(i:i) = 'w'
-        CASE ('X')
-          word(i:i) = 'x'
-        CASE ('Y')
-          word(i:i) = 'y'
-        CASE ('Z')
-          word(i:i) = 'z'
-        END SELECT
+        k = INDEX (upper, word(i:i))
+        IF (k/=0) word(i:i) = lower(k:k)
 
       END DO
 
