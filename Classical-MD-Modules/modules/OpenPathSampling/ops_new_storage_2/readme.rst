@@ -1,4 +1,3 @@
-:orphan:
 
 .. _ops_new_storage_2:
 
