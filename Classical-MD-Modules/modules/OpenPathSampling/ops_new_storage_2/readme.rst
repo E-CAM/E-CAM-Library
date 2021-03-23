@@ -130,10 +130,12 @@ ___________
 
 .. IF YOUR MODULE IS IN OPS CORE
 
-.. This module has been merged into OpenPathSampling. It is composed of the
-.. following pull requests:
+This module has been merged into OpenPathSampling. It is composed of the
+following pull requests:
 
-.. * link PRs
+* https://github.com/openpathsampling/openpathsampling/pull/929
+* https://github.com/openpathsampling/openpathsampling/pull/985
+
 
 .. IF YOUR MODULE IS A SEPARATE REPOSITORY
 
