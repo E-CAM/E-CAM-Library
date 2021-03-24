@@ -112,6 +112,18 @@ The ESDW in Dublin in January 2019 was the starting point for the modules below.
     ./modules/esl-easyconfigs/readme
     ./modules/ELSI/readme
 
+ESDW Lausanne 2020
+------------------
+
+The ESDW in Lausanne in February/March 2020 was the starting point for the modules below.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/Libxc-in-FHI-AIMS/readme
+    ./modules/PSolver-Integration/readme
+
 Other Modules
 -------------
 

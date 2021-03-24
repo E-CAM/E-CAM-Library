@@ -1,6 +1,6 @@
-********************************************************************************
+########################
 Comparative Metadynamics
-********************************************************************************
+########################
 
 .. sidebar:: Software Technical information
 
@@ -29,17 +29,15 @@ Comparative Metadynamics
 
 ..  contents:: :local:
 
-********
 Abstract
-********
+________
 
 The module performs a long simulation of some given system and then many shorter simulations of mutations of the 
 aforementioned system. Using the Free Energy Surface (FES) of the original system as a basepoint allows for meaningful 
 information about the impact of a mutation on the system's FES to be extracted from only the short simulations.
 
-**********************
 Background Information
-**********************
+______________________
 
 The use of Molecular Dynamics (MD) is highly relevant in nearly all STEM fields. Analysing MD simulations can be done 
 by defining Collective Variables (CVs), functions of the positions of some or all of the atoms in a simulation. Then, 
@@ -59,9 +57,8 @@ three steps, which are usually repeated many times.
 2. Simulating through Metadynamics
 3. Analysing the FES
 
-*****************
 Purpose of Module
-*****************
+_________________
 
 The purpose of this module is to speed up the process of optimisation through mutation by quickly classifying roughly 
 how much a mutation will optimise the system or not. This quick classification will allow a much wider exploration of 
@@ -85,25 +82,24 @@ mutations best optimised the system by comparing which mutations caused the grea
 fixed time interval. Thus, this module allows one to test many mutations and narrow down which ones will best optimise 
 their system.
 
-************
 Applications
-************
+____________
 
 This module is particularly relevant to anywhere MD is being used to design systems through an iterative process such 
 as chemical or biological labs. However, it can also be applied to areas where one needs to analyse many similar 
 systems through MD.
 
-***********
 Performance
-***********
+___________
 
 For a simple water in salt system, when changing the charge on the salt ions a simulation time of 100ps was sufficient 
 to analyse the changes that had occurred in the FES. By contrast a full simulation of the system required at least 4ns 
 to converge.
 
-**********************
+
 Software Prerequisites
-**********************
+______________________
+
 The core software requirements are:
 
 1. Python 3
@@ -121,9 +117,8 @@ additional software is required:
     * matplotlib
 
 
-*****
 Usage
-*****
+_____
 
 All files discussed in this section can be found in the examples folder.
 This module mutates a system and then runs a metadynamics simulation of them using lammps. Thus the user needs to 
@@ -160,16 +155,15 @@ A brief summary of what Analyse.ipynb does is provided below
    between the max and min value of the FES)
 4. Visualises the resulting data
 
-********
 Examples
-********
+~~~~~~~~
 
 `Examples can be found here
 <https://gitlab.com/aestheses/comparative-metadynamics/-/tree/master/examples>`_.
 
-***********
+
 Source Code
-***********
+___________
 
 `Module Source Code <https://gitlab.com/aestheses/comparative-metadynamics>`_
 
