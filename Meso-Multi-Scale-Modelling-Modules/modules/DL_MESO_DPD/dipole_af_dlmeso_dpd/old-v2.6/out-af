@@ -1,0 +1,7 @@
+ Number of nodes used in calculations ?
+ nchist:            0          96           0           0           0           0           0           0           0           0
+ Charges for SPECIES type solp     :
+ Charges for SPECIES type solm     :
+chg=       0.4600      -0.4600
+ Number of time steps in autocorrelation profile? 
+ switch for FFT computation? (1=yes, 0 or any other integer=no)
