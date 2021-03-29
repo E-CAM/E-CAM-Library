@@ -157,7 +157,9 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
-
 The source code is freely available for download at
-`Cubble sources <https://github.com/KJLankinen/cubble>` and the module
+`Cubble sources<https://github.com/KJLankinen/cubble>`. This is the multiGPU version of
+the code running simultaneously on several GPUs to allow for simulations beyond 10
+million bubbles.
+The module
 specifically refers to the commit 3216d46c7e523e7885d12607197390496b379597.
