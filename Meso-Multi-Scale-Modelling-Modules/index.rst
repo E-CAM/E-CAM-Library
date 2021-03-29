@@ -144,6 +144,7 @@ foams, have been produced so far:
 
     ./modules/cubble_coarsening/cubble_coarsening_static/readme
     ./modules/cubble_coarsening/cubble_coarsening_flow/readme
+    ./modules/cubble_coarsening/cubble_hip/readme
 
 GC-AdResS
 ---------
