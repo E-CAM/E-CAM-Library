@@ -98,7 +98,7 @@ center-of-mass coordinates of the actual molecules. The corresponding
 interactions between CG sites can be modelled with empirical force fields but
 also, as has been recently shown in [1]_ and [2]_, with machine learning
 potentials. To simplify the construction of NNP based coarse-grained models in
-*n2p2* this module adds software to estimate the quality of atomic environment
+*n2p2*, this module adds software to estimate the quality of atomic environment
 descriptors, which in turn hints on the expected performance of the
 coarse-grained description.
 
