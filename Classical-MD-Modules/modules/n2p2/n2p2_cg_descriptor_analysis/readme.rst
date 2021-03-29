@@ -5,8 +5,6 @@
 
 ..  We allow the template to be standalone, so that the library maintainers add it in the right place
 
-.. :orphan:
-
 ..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
     progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
 
