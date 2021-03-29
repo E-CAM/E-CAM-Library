@@ -1,0 +1,80 @@
+{
+  "phiTargetExpl": "The target volume fraction.",
+  "phiTarget": 0.9,
+
+  "kappaExpl": "Relative strength of liquid-intermediated diffusion versus diffusion through thin films.",
+  "kappa": 0.1,
+
+  "numBubblesInExpl": "Total number of bubbles to simulate.",
+  "numBubblesIn": 3e5,
+
+  "minNumBubblesExpl": "The simulation runs as long as there are at least this many bubbles.",
+  "minNumBubbles": 3000,
+
+  "kParameterExpl": "A bundle of constants related to gas exchange. Should be small relative to AvgRad.",
+  "kParameter": 0.001,
+
+  "wallDragStrengthExpl" : "How strong the drag from the wall is. Should be between 0.0 and 1.0",
+  "wallDragStrength" : 0.1,
+
+  "boxRelDimExpl": "The relative dimension of the box.",
+  "boxRelDim": {
+    "x": 1.0,
+    "y": 1.0,
+    "z": 1.0
+  },
+
+  "flowLbbExpl": "(Relative) Lower-back-bottom of flow area.",
+  "flowLbb": {
+    "x": 0.0,
+    "y": 0.475,
+    "z": 0.0
+  },
+
+  "flowTfrExpl": "(Relative) Top-front-right of flow area.",
+  "flowTfr": {
+    "x": 1.0,
+    "y": 0.525,
+    "z": 0.0
+  },
+
+  "flowVelExpl": "Flow velocity inside flow area.",
+  "flowVel": {
+    "x": 0.01,
+    "y": 0.0,
+    "z": 0.0
+  },
+
+  "muZeroExpl": "The viscosity of the fluid",
+  "muZero": 1.0,
+
+  "sigmaZeroExpl": "The surface tension (spring constant) of the fluid.",
+  "sigmaZero": 1.0,
+
+  "avgRadExpl": "The average radius of the bubbles.",
+  "avgRad": 1.0,
+
+  "stdDevRadExpl": "The standard deviation of the bubble radii.",
+  "stdDevRad": 0.21,
+
+  "errorToleranceExpl": "The error tolerance level for the integration.",
+  "errorTolerance": 1e-5,
+
+  "timeStepInExpl": "The initial time step with which to increment the simulation time.",
+  "timeStepIn": 1e-3,
+
+  "rngSeedExpl": "The seed for the RNG.",
+  "rngSeed": 4,
+
+  "numBubblesPerCellExpl": "How many bubbles per cell.",
+  "numBubblesPerCell": 32,
+
+  "numStepsToRelaxExpl": "How many steps to take per 'relaxation round' when equilibrating the bubble bath.",
+  "numStepsToRelax": 1e4,
+
+  "maxDeltaEnergyExpl": "Maximum allowed energy change when relaxing the bubble bath.",
+  "maxDeltaEnergy": 1e-5,
+
+  "snapshotFrequencyExpl" : "How often are snapshots saved. Bigger number can be used to get smoother animations, 0.0 means no snapshots.",
+  "snapshotFrequency" : 1.0
+}
