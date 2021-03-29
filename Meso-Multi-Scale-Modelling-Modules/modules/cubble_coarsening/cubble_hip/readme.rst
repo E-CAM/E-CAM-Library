@@ -64,9 +64,12 @@ _________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 
-The goal was set to be able to run simulations involving up to one million bubbles reaching a scaling state in systems
-with non-periodic boundary conditions in three dimensions, an undoable task for even the most efficient single core CPU implementation.
-The Cubble code demonstrates the power of efficiently used GPU code, and provides a model implementation strategy for
+The goal was set to be able to run simulations involving up to one million
+bubbles reaching a scaling state in systems
+with non-periodic boundary conditions in three dimensions, an undoable task
+for even the most efficient single core CPU implementation.
+The Cubble code demonstrates the power of efficiently used GPU code, and
+provides a model implementation strategy for
 mesoscale DEM simulators. 
 
 
@@ -84,11 +87,15 @@ Building and Testing
 ____________________
 
 
-Converting the Cubble code to use HIP instead of Cuda enables it to run on AMD GPUs, in addition to Nvidia GPUs. The conversion process is easy.
+Converting the Cubble code to use HIP instead of Cuda enables it to run
+on AMD GPUs, in addition to Nvidia GPUs. The conversion process is easy.
 
-First the source code needs to be converted from Cuda to HIP, this is doen by converting everything in the src directory using the hipify-perl script. All .cu files are changed to cpp files and .cuh changed to .h, we then need to update any include statements to reflect this.
+First the source code needs to be converted from Cuda to HIP, this is done
+by converting everything in the src directory using the ``hipify-perl``
+script. All ``.cu`` files are changed to cpp files and ``.cuh`` changed
+to ``.h``, we then need to update any include statements to reflect this.
 
-When converting Util.h the converter will emit the following warnings
+When converting ``Util.h`` the converter will emit the following warnings
 
 ::
 
@@ -97,13 +104,34 @@ When converting Util.h the converter will emit the following warnings
     warning: old/Util.h:#125 : inline bool cudaCallAndLog(hipError_t result, const char *callStr,
     warning: old/Util.h:#137 : inline void cudaCallAndThrow(hipError_t result, const char *callStr,
   
-This is due to the cubble program using the same naming scheme as cuda form some functions, i.e the name is cudaSomething and the converter is warning that it was uable to convert them, however in this case these are not actual cuda calls and it should not covert thse, so it is safe to ignore the warnings
+This is due to the cubble program using the same naming scheme as cuda
+for some functions, i.e the name is cudaSomething and the converter is
+warning that it was uable to convert them, however in this case these
+are not actual cuda calls and it should not covert these, so it is safe
+to ignore the warnings.
 
-The cubble code also uses the NVTX library for better profiling, this library does not work on AMD hardware and while comparable functionality exists this will not be automatically converted. The Cubble program will work without NVTX so in this case we just remove the inclusion of nvToolsExt.h and not enable profiling when compiling the Cubble program.
+The cubble code also uses the NVTX library for better profiling, this
+library does not work on AMD hardware and while comparable functionality
+exists this will not be automatically converted. The Cubble program
+will work without NVTX so in this case we just remove the inclusion
+of ``nvToolsExt.h`` and not enable profiling when compiling the
+Cubble program.
 
-On some systems we may need to add "-DENABLE_HIP_PROFILE=0" to the compilation flags to suppress errors about some profiling headers not being found.
+On some systems we may need to add ``-DENABLE_HIP_PROFILE=0`` to the
+compilation flags to suppress errors about some profiling headers not
+being found.
 
-After this we should have a version of the code that can be compiled with the included makefile. Unfortunately this version will not run with the current version of HIP, tested with version 3.1. The program will fail with not finding symbols in hipGetSymbolAddress calls or complaining it does not have device functions for certain calls. The cubble code places the majority of its code in the cubble namespace, unfortunately currently the HIP compiler struggles with device symbols and functions being in a namespace. The easiest solution in this case is to move all the code out of the cubble namespace, this will give you a code that will run on AMD hardware. It is likely this will improve in the future and this step will no longer be needed.
+After this we should have a version of the code that can be compiled
+with the included ``makefile``. Unfortunately this version will not run
+with the current version of HIP, tested with version 3.1. The program
+will fail with not finding symbols in ``hipGetSymbolAddress`` calls or
+complaining it does not have device functions for certain calls. The
+cubble code places the majority of its code in the cubble namespace,
+unfortunately currently the HIP compiler struggles with device symbols
+and functions being in a namespace. The easiest solution in this case
+is to move all the code out of the cubble namespace, this will give
+you a code that will run on AMD hardware. It is likely this will
+improve in the future and this step will no longer be needed.
 
 
 
@@ -112,4 +140,7 @@ ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_
 
-The source code used as a base for the conversion is freely available for download in at `Cubble sources<https://github.com/KJLankinen/cubble>`. In addition the modified makefile is included in this repository.
+The source code used as a base for the conversion is freely available
+for download in `Cubble sources <https://github.com/KJLankinen/cubble>`.
+In addition the modified ``makefile`` is included in this repository:
+:download:`makefile <./makefile>`
