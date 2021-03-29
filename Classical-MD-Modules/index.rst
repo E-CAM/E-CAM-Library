@@ -271,6 +271,7 @@ will also work independently and will be integrated in the future:
     :glob:
     :maxdepth: 1
 
+    ./modules/n2p2/n2p2_cg_descriptor_analysis/readme
     ./modules/n2p2/n2p2_improved_link_hpc/readme
     ./modules/n2p2/n2p2_polynomial_symfuncs/readme
     ./modules/n2p2/n2p2_reduce_symfunc_memory/readme
@@ -304,6 +305,7 @@ The following modules were developed specifically for the Classical MD pilot pro
     ./modules/PI/lammps_pyinterfaceExt/readme
     ./modules/MSJuly2019_minDist2segments_KKT/readme
     ./modules/MSJuly2019_velocities_resolve_EVC/readme
+    ./modules/n2p2/n2p2_cg_descriptor_analysis/readme
     ./modules/n2p2/n2p2_improved_link_hpc/readme
     ./modules/n2p2/n2p2_polynomial_symfuncs/readme
     ./modules/n2p2/n2p2_reduce_symfunc_memory/readme
