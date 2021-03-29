@@ -36,9 +36,9 @@
 
 .. _cubble_hip:
 
-########################################################
-Cubble: Static foam coarsening simulator using c++/CUDA
-########################################################
+##########################
+Cubble: Hip implementation
+##########################
 
 ..  Let's add a local table of contents to help people navigate the page
 

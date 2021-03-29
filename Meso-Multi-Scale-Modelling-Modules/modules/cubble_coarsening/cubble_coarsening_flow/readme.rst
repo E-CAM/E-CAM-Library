@@ -37,7 +37,7 @@
 .. _cubble_coarsening_flow:
 
 ########################################################
-Cubble: Static foam coarsening simulator using c++/CUDA
+Cubble: Flowing foam coarsening simulator using c++/CUDA
 ########################################################
 
 ..  Let's add a local table of contents to help people navigate the page
