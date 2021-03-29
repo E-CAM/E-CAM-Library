@@ -37,7 +37,7 @@ USE_PROFILING := 0
 # 'make clean' will completely remove bin and its contents.
 BIN_PATH := bin
 
-# All the source files recide here.
+# All the source files reside here.
 SRC_PATH := ../src
 
 # Included (external) headers
