@@ -1,9 +1,9 @@
 
 .. _ops_new_storage_2:
 
-#########################
-SimStore: New 
-#########################
+############################
+SimStore: Storable Functions
+############################
 
 .. sidebar:: Software Technical Information
 
