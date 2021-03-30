@@ -1,0 +1,27 @@
+ Number of nodes used in calculations ?
+ nchist:            0          96           0           0           0           0           0           0           0           0
+ Charges for SPECIES type solp     :
+ Charges for SPECIES type solm     :
+chg=       0.4600      -0.4600
+ Number of snapshots:          501
+ <P_x>, <P_y>, <P_z>:
+-3.627184E-02   -1.790324E-01    5.466988E-02
+ error:
+ 9.792086E-02    1.066997E-01    9.685359E-02
+ <P^2>/V:
+ 2.381825E-01
+ error:
+ 8.641061E-03
+ <p^2>:
+ 1.419998E-01
+ error:
+ 4.556992E-04
+ kirkwood factor:
+ 1.118229E+00
+ error:
+ 4.415698E-02
+ Bjerrum length?
+ epsilon_r:
+ 4.290325E+01
+ error:
+ 1.520215E+00

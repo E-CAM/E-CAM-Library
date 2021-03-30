@@ -15,6 +15,6 @@ The scope of these workshops was always expected to vary significantly depending
 the project lifetime. For this reason the document itself is quite broad and (in many places) introductory in nature.
 
 Until there are a lot of different contributors it should probably be considered more of a blog than a good
-representation of the spectrum of scientific software developers. For many communities there may well be better guidelines
-to be found elsewhere.
+representation of the spectrum of scientific software developers. For many communities there may well be better
+guidelines to be found elsewhere.
 
