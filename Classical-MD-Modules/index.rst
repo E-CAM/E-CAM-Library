@@ -309,6 +309,7 @@ The following modules were developed specifically for the Classical MD pilot pro
     ./modules/n2p2/n2p2_improved_link_hpc/readme
     ./modules/n2p2/n2p2_polynomial_symfuncs/readme
     ./modules/n2p2/n2p2_reduce_symfunc_memory/readme
+    ./modules/velocities_resolve_EVC_for_LAMMPS/readme
 
 Extended Software Development Workshops (ESDWs)
 ===============================================
