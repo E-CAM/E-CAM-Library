@@ -53,16 +53,18 @@ Implementation of simple cubic, body-centered cubic, and face-centered cubic cry
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
 We present a module that implements simple cubic (SCC), body-centered cubic (BCC), and face-centered cubic (FCC)
-crystalline geometries as a utility to create capillaries in the Lattice Boltzmann code Ludwig. The thus created
-crystalline geometries are used as porous materials in Lattice Boltzmann simulations.
+crystalline geometries as a utility to create capillaries in the Lattice Boltzmann code Ludwig. The
+crystalline geometries created are used as porous materials in Lattice Boltzmann simulations.
 
 Purpose of Module
 _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-The crystalline structures represent various types of porous materials. We can attribute to them wetting properties,
-via which the solid parts of the geometries interact with the fluid. This module is essential for the studies of various
+The crystalline structures represent various types of porous materials. We can attribute to them
+wetting properties,
+via which the solid parts of the geometries interact with the fluid. This module is essential for the studies
+of various
 types of flows through such materials. In particular, we focus on flows of binary fluid mixtures, driven by an
 externally imposed chemical potential gradient, through porous media.
 
@@ -80,15 +82,16 @@ ____________________
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
 The module is run by specifying the name of the output file, the output type, the crystalline type, the size of the
-crystalline cell, and the size of the whole system in the file "capillary.c" (`<https://github.com/ludwig-cf/ludwig/blob
-/master/util/capillary.c>`_). The file is then compiled and run by:
+crystalline cell, and the size of the whole system in the file ``capillary.c``
+(`<https://github.com/ludwig-cf/ludwig/blob/master/util/capillary.c>`_). The file is then compiled and run by:
 
 .. code:: bash
 
     make capillary
     ./capillary
 
-This generates the output file (e.g. "capillary.001-001"). The thus generated capillary file, together with the desired
+This generates the output file (e.g. "capillary.001-001"). The thus generated capillary file, together with the
+desired
 output data, is then specified in the input file of the simulation. An example of this specification is:
 
 .. code:: bash
@@ -97,8 +100,8 @@ output data, is then specified in the input file of the simulation. An example o
     porous_media_file	capillary
     porous_media_type	status_with_c_h
 
-The latter line "porous_media_type" should match the output type, defined in the "capillary.c" file, prior to its
-compilation.
+The latter line ``porous_media_type`` should match the output type, defined in the ``capillary.c`` file, prior
+to its compilation.
 
 Source code
 ___________
