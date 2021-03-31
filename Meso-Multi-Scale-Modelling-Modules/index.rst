@@ -133,6 +133,7 @@ The following modules connected to the ParaDiS code have been produced so far:
     ./modules/paradis_precipitate/paradis_precipitate_GC/readme
     ./modules/paradis_precipitate/paradis_precipitate_HPC/readme
     ./modules/paradis_precipitate/paradis_precipitate_amd_rome/readme
+    ./modules/paradis_precipitate/paradis_precipitate_intel_avx512/readme
 
 Cubble
 ------
