@@ -117,19 +117,29 @@ SHARC [5]_ [6]_ and the set of QUANTUM methods implemented in QUANTICS [7]_.
 
 ..  References:
 
-.. [1] J.C. Tully, R. K. Preston:   Trajectory  surface  hopping  approach  to  nonadiabatic molecular collisions:  The reaction of H+ with D2,J. Chem. Phys,55, 562 (1971).
+.. [1] J.C. Tully, R. K. Preston:   Trajectory  surface  hopping  approach  to  nonadiabatic
+       molecular collisions:  The reaction of H+ with D2,J. Chem. Phys,55, 562 (1971).
 
-.. [2] M.H.  Beck,A.  Jackle, G.  A.  Worth, H.-D.  Meyer:   The  multiconfiguration time-dependent  hartree  (MCTDH)  method:  a  highly  efficient  algorithm  for  propagating wavepackets,Phys. Rep.,324, 1 (2000).
+.. [2] M.H.  Beck,A.  Jackle, G.  A.  Worth, H.-D.  Meyer:   The  multiconfiguration
+       time-dependent  hartree  (MCTDH)  method:  a  highly  efficient  algorithm  for
+       propagating wavepackets,Phys. Rep.,324, 1 (2000).
 
-.. [3] G.W. Richings, I. Polyak, K.E. Spinlove, G.A. Worth,I. Burghardt, B. La-sorne:  Quantum dynamics simulations using Gaussian wavepackets:  the vMCG method,Int Rev Phys Chem,34, 269 (2015).
+.. [3] G.W. Richings, I. Polyak, K.E. Spinlove, G.A. Worth,I. Burghardt, B. La-sorne:  Quantum
+       dynamics simulations using Gaussian wavepackets:  the vMCG method,Int Rev Phys Chem,34, 269 (2015).
 
-.. [4] S.Gomez, M. Heindl, A. SzabadiandL. Gonzalez:  From Surface Hopping to Quantum  Dynamics  and  Back.  Finding  Essential  Electronic  and  Nuclear  Degrees  of  Freedom and Optimal Surface Hopping Parameters,J. Phys. Chem. A,123, 8321 (2019).
+.. [4] S.Gomez, M. Heindl, A. SzabadiandL. Gonzalez:  From Surface Hopping to Quantum  Dynamics  and
+       Back.  Finding  Essential  Electronic  and  Nuclear  Degrees  of  Freedom and Optimal Surface
+       Hopping Parameters,J. Phys. Chem. A,123, 8321 (2019).
 
-.. [5]  S.Mai, P. Marquetand, L. Gonzalez: Nonadiabatic Dynamics: The SHARC Approach,WIREs Comput. Mol. Sci.,8, e1370 (2018)
+.. [5] S.Mai, P. Marquetand, L. Gonzalez: Nonadiabatic Dynamics: The SHARC Approach,
+       WIREs Comput. Mol. Sci.,8, e1370 (2018)
 
-.. [6] S.Mai, M. Richter, M. Heindl, M. F. S. J. Menger, A. Atkins, M. Ruckenbauer, F.  Plasser, L.  M.  Ibele, S.  Kropf, M.  Oppel, P.  Marquetand, L.  Gonzalez:SHARC2.1:  Surface Hopping Including Arbitrary Couplings — Program Package for Non-Adiabatic Dynamics, (2019)
+.. [6] S.Mai, M. Richter, M. Heindl, M. F. S. J. Menger, A. Atkins, M. Ruckenbauer, F.  Plasser,
+       L.  M.  Ibele, S.  Kropf, M.  Oppel, P.  Marquetand, L.  Gonzalez:SHARC2.1:  Surface Hopping
+       Including Arbitrary Couplings — Program Package for Non-Adiabatic Dynamics, (2019)
 
-.. [7] G.A. Worth, K. Giri, G. W. Richings, M. H. Beck, A. J ̈ackle, H.-D. Meyer:QUANTICS, a suite of programs for molecular QUANTum dynamICS simulations, Version1.1 (2015)
+.. [7] G.A. Worth, K. Giri, G. W. Richings, M. H. Beck, A. J ̈ackle, H.-D. Meyer:QUANTICS, a suite of
+       programs for molecular QUANTum dynamICS simulations, Version1.1 (2015)
 
 Background Information
 ______________________
