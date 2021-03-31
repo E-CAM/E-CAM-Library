@@ -1,5 +1,3 @@
-:orphan:
-
 ..  sidebar:: Software Technical Information
 
   Name
@@ -32,7 +30,7 @@ ParaDiS with precipitates optimized for AMD Zen2
 
 ..  contents:: :local:
 
-Discrete dislocation dynamics (DDD) simulations usually treat with “pure”
+Discrete dislocation dynamics (DDD) simulations usually treat with "pure"
 crystals and dislocations in them. An extension of the ParaDIS DDD code (LLNL,
 http://paradis.stanford.edu/) that includes dislocation/precipitate
 interactions has been developed (E-CAM module: `ParaDiS with precipitates`_).
@@ -40,13 +38,19 @@ interactions has been developed (E-CAM module: `ParaDiS with precipitates`_).
 This module provides a guide for optimal porting of the
 `ParaDiS with precipitates`_ to the AMD Rome CPUs, in preparation for the
 `Mahti supercomputer`_ service at CSC, Finland.
-Mahti is an Atos BullSequana XH2000 system consisting of 1404 nodes each with two 64-core AMD Zen2 CPUs (AMD EPYC 7H42, 2.6GHz). 
+Mahti is an Atos BullSequana XH2000 system consisting of 1404 nodes each with
+two 64-core AMD Zen2 CPUs (AMD EPYC 7H42, 2.6GHz). 
 Since Mahti is not ready for general access at this moment, the module was
-prepared based on a single testing node which has 2 AMD EPYC 7742 @2.25GHz (128 cores in total).
+prepared based on a single testing node which has 2 AMD EPYC 7742 @2.25GHz
+(128 cores in total).
 
-By choosing a suitable compiler and compiler optimization flags, the application works
-more efficiently on the target platform. On the testing node, Intel compilers with either AVX or
-AVX2 vector sets gives the best performance for *ParaDiS with precipitates*. Alternatively, GCC compilers with AVX2 vector works as competitive as the Intel ones.
+By choosing a suitable compiler and compiler optimization flags, the application
+works
+more efficiently on the target platform. On the testing node, Intel compilers with
+either AVX or
+AVX2 vector sets gives the best performance for *ParaDiS with precipitates*.
+Alternatively, GCC compilers with AVX2 vector support is competitive with
+the Intel compilers.
 
 
 Purpose of Module
@@ -75,13 +79,15 @@ Different compilers and compiler options were tested to find the most optimal
 ones for the Zen2 architecture. Figure 1 (below) shows a comparison
 of normalized running times between different vectorization extensions and
 compilers. On the testing platform, Intel compilers with either AVX or AVX2 helps the
-application to achieve good performance. Alternatively, GCC compilers with AVX2 can be used to obtain the same performance as the Intel ones.
+application to achieve good performance. Alternatively, GCC compilers with AVX2 can
+be used to obtain the same performance as the Intel ones.
 
 Table 1 presents a comparison of different optimization flags
-for the Intel and GCC compilers. For the Intel compilers, the optimal performance is reached with the compiler 
+for the Intel and GCC compilers. For the Intel compilers, the optimal performance
+is reached with the compiler 
 options: ``-O3 -mavx2`` or ``-O3 -mavx``. For the GCC compilers,
 ``-O2 -march=znver2 -pipe -fomit-frame-pointer -ftree-vectorize`` compiler options
-help the application to gain a good performance.
+help the application to achieve good performance.
 
 
 .. figure:: chart.png
@@ -89,7 +95,7 @@ help the application to gain a good performance.
   :width: 600px
 
   Figure 1: Comparison of normalized times between different compilers and
-  vectorization extentions (smaller is better)
+  vectorization extensions (smaller is better)
 
 
 *Table 1: Comparison between different optimization flag options*
@@ -135,12 +141,13 @@ help the application to gain a good performance.
      - -O2 -march=haswell -pipe -fomit-frame-pointer -ftree-vectorize
      - 352
 
-``*`` *The input case in these tests is different to the one at* `ParaDiS with precipitates optimized for Puhti`_ .
+``*`` *The input case in these tests are different to the ones at*
+`ParaDiS with precipitates optimized for Puhti`_ .
 
 
-Besides, in the `ParaDiS with precipitates optimized to HPC environment`_,
+In the `ParaDiS with precipitates optimized to HPC environment`_,
 it's written that using multiple threads through a hybrid OpenMP and MPI model speeds up
-the calculation up to 1.5 factors, especially for large-scale simulations.
+the calculation up to a factor of 1.5, especially for large-scale simulations.
 However, this combination did not give an advantage of performance on the Zen2
 testing machine. Thus, using a single thread for each MPI process is recommended.
 
