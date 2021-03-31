@@ -118,8 +118,11 @@ options: ``-O2 -axCASCADELAKE``.
      - 270
 
 
-Besides, in the `ParaDiS with precipitates optimized to HPC environment`_, it's written that using multi threads through the hybrid OpenMP and MPI model speeds up
-the calculation up to 1.5 factors, especially for the large-scale simulations. However, this combination did not give an advantage of performance on the Puhti. Thus,
+In the `ParaDiS with precipitates optimized to HPC environment`_, it's written
+that using multi threads through the hybrid OpenMP and MPI model speeds up
+the calculation up a factor of 1.5, especially for the large-scale simulations.
+However, this combination did not give an advantage of performance on the Puhti.
+Thus,
 using single thread for each MPI process is recommended.
 
 
