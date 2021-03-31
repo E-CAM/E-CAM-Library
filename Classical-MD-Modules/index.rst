@@ -304,12 +304,13 @@ The following modules were developed specifically for the Classical MD pilot pro
     ./modules/PI/PIhydration/readme
     ./modules/PI/lammps_pyinterfaceExt/readme
     ./modules/MSJuly2019_minDist2segments_KKT/readme
+    ./modules/minDist2segments_KKT_for_SRP/readme
     ./modules/MSJuly2019_velocities_resolve_EVC/readme
+    ./modules/velocities_resolve_EVC_for_LAMMPS/readme
     ./modules/n2p2/n2p2_cg_descriptor_analysis/readme
     ./modules/n2p2/n2p2_improved_link_hpc/readme
     ./modules/n2p2/n2p2_polynomial_symfuncs/readme
     ./modules/n2p2/n2p2_reduce_symfunc_memory/readme
-    ./modules/velocities_resolve_EVC_for_LAMMPS/readme
 
 Extended Software Development Workshops (ESDWs)
 ===============================================
