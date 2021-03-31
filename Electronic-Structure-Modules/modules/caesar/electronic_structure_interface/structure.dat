@@ -1,0 +1,32 @@
+Lattice
+L_xx L_xy L_xz
+L_yx L_yy L_yz
+L_zx L_zy L_zz
+Reciprocal Lattice
+L'_xx L'_xy L'_xz
+L'_yx L'_yy L'_yz
+L'_zx L'_zy L'_zz
+Atoms
+z_1 r_1x r_1y r_1z
+z_2 r_2x r_2y r_2z
+...
+z_n r_nx r_ny r_nz
+Supercell
+S_xx S_xy S_xz
+S_yx S_yy S_yz
+S_zx S_zy S_zz
+Reciprocal Supercell
+S'_xx S'_xy S'_xz
+S'_yx S'_yy S'_yz
+S'_zx S'_zy S'_zz
+R-vectors
+R_1x R_1y R_1z
+R_2x R_2y R_2z
+...
+R_Nx R_Ny R_Nz
+G-vectors
+G_1x G_1y G_1z
+G_2x G_2y G_2z
+...
+G_Nx G_Ny G_Nz
+End
