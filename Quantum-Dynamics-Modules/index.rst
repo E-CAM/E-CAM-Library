@@ -479,6 +479,15 @@ The **Quantics_openmp** module is an initial effort at OpenMP parallelisation im
 The **Quantics_DD_MPIOMP** module is a further improvement on the parallel version of DD-vMCG in 
 Quantics by adding an extra layer of MPI parallelization to the existing OpenMP parallelization.
 
+.. toctree::
+        :glob:
+        :maxdepth: 1
+
+        ./modules/sharc_gym/readme
+
+The **SHARC-gym** module uses the surface hopping code
+SHARC and enables the use of a more accurate set of quantum methods implemented in QUANTICS.
+
 CLstunfti
 ---------
 
