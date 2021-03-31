@@ -1,0 +1,14 @@
+ Number of nodes used in calculations ?
+ # Check of beads: i, ltp(i), ltm(i), mole(i)
+           1           1           0           0
+           2           1           1           1
+           3           2           1           1
+           4           1           2           2
+           5           3           2           2
+ # Check of molecules: nammol(i), nbdmol(i), nbomol(i), nmol(i)
+ AB                 2           1           1
+ AC                 2           1           1
+ # Total number of molecules =            2
+ # Check of bonds: bndbtl(i,1), bndbtl(i,2)
+           2           3
+           4           5
