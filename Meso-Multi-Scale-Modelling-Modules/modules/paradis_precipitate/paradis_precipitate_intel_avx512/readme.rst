@@ -87,7 +87,7 @@ options: ``-O2 -axCASCADELAKE``.
   :width: 600px
 
   *Figure 1: Comparison of normalized times between different compilers and
-  vectorization extentions (smaller is better)*
+  vectorization extensions (smaller is better)*
 
 
 *Table 1: Comparison between different optimization flag options*
