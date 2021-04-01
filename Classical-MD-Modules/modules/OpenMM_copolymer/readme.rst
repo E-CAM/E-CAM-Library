@@ -6,7 +6,7 @@
     openmm_copolymer
 
   Language
-    Python 3.7, OpenMM API
+    Python 3.7, `OpenMM API <http://openmm.org>`_
 
   Licence
     `MIT <https://opensource.org/licenses/mit-license>`_
@@ -29,12 +29,17 @@
 E-CAM openmm_copolymer module
 #############################
 
+..  contents:: :local:
+
 The *openmm_copolymer* is a module that sample conformation of
-a *block-copolymer* given an *epigenome* state file.
+a
+`block-copolymer <https://en.wikipedia.org/wiki/Copolymer#Block_copolymers>`_
+given an *epigenome* state file.
 This module takes advantage of the
-`OpenMM software <http://openmm.org>`_
+`OpenMM API <http://openmm.org>`_
 and GPU acceleration.
-It builds a `Kremer-Grest <https://aip.scitation.org/doi/10.1063/1.458541>`_
+It builds a
+`Kremer-Grest <https://aip.scitation.org/doi/10.1063/1.458541>`_
 polymer model with uni-dimensional epigenetic information and construct
 the epigenetic interactions based on the model you design.
 You simply need to feed the module with an *epigenome* state file,
@@ -46,13 +51,16 @@ Purpose of Module
 _________________
 
 The epigenetic and the tri-dimensional structure of fly genome
-is studied by means of *block-copolymer*.
-The *block-copolymer* is a polymer made of more
-than one monomer species.
+is studied by means of
+`block-copolymer <https://en.wikipedia.org/wiki/Copolymer#Block_copolymers>`_
+(polymer made of more than one monomer species).
 The epigenetic information do not involve alterations in the DNA but
-`histone <https://en.wikipedia.org/wiki/Histone>`_ tails modifications.
+`histone <https://en.wikipedia.org/wiki/Histone>`_
+tails modifications.
 This uni-dimensional information can be projected along
-the contour of a *block-copolymer* model.
+the contour of a
+`block-copolymer <https://en.wikipedia.org/wiki/Copolymer#Block_copolymers>`_
+model.
 Then, every pairwise of monomers interacts according to the
 epigenetic states leading to specific pattern of interactions.
 The interaction patterns can be visualized using contacts map:
@@ -72,19 +80,20 @@ of the genome with the help of
 `FISH <https://en.wikipedia.org/wiki/Fluorescence_in_situ_hybridization>`_
 and high-resolution methods.
 All the spatial distances can be simply extracted from
-the model built with the help of *openmm_copolymer* module.
+the model we built with the help of *openmm_copolymer* module.
 
 The module we propose uses the
-`OpenMM software <http://openmm.org>`_
-with GPU
-acceleration to sample as many as possible epigenetic parameters.
+`OpenMM API <http://openmm.org>`_
+with GPU acceleration to sample as many as
+possible epigenetic parameters.
 It is possible to use effective interactions
 (gaussian overlap or
 `Lennard-Jones potential <https://en.wikipedia.org/wiki/Lennard-Jones_potential>`_)
 to model the epigenetic.
 The module introduces the possibility to replace
 effective epigenetic interactions with
-`binders model <https://www.ncbi.nlm.nih.gov/pubmed/22988072>`_ too.
+`binders model <https://www.ncbi.nlm.nih.gov/pubmed/22988072>`_
+too.
 In this case, the binder is like a protein that can
 bind to a specific site of the genome.
 A simple input file is enough to tell the script about
@@ -93,30 +102,26 @@ the binder-binder and monomer-binder interactions.
 The module includes pairing potential, nucleus confinement potential
 as-well-as genome examples.
 
-..
-   The present module assists the creation of polymer described
-   by FENE bond and WCA repulsive potential
-   to resolve the excluded volume constraints.
-   On top of that, it builds the epigenetic interactions
-   based on a simple input file.
-
 It can be used by polymer physicists, biophysicists
 for epigenetic modeling, to understand the link between
 epigenetic and tri-dimensional structure
 of a genome, to estimate first-passage-time encounter of two locii.
 It is used in a scientific collaboration to study
-a specific promoter-enhancer
-system in the fruit-fly organism (ENS Lyon, France).
+a specific promoter-enhancer system and
+`homeotic gene <https://en.wikipedia.org/wiki/Homeotic_gene>`_
+complexes in the fruit-fly organism (ENS Lyon, France).
 However, the publication is not currently available.
 
 Background Information
 ______________________
 
-We use the OpenMM toolkit for molecular dynamics.
+We use the `OpenMM API <http://openmm.org>`_
+for molecular dynamics.
 We implemented functionalities to build a
 `Kremer-Grest <https://aip.scitation.org/doi/10.1063/1.458541>`_
 polymer system with uni-dimensional epigenetic information.
-We also implement functions to build the quantities biologists extract from
+We also implement functions to build the
+quantities biologists extract from
 `high-throughput-sequencing <https://en.wikipedia.org/wiki/Chromosome_conformation_capture>`_
 and
 `FISH <https://en.wikipedia.org/wiki/Fluorescence_in_situ_hybridization>`_
@@ -128,7 +133,8 @@ The module will be constantly improved with new functionalities.
 Building and Testing
 ____________________
 
-The instructions to install, test and run the module can be find on the
+The instructions to install, test and run
+the module can be find on the
 `openmm_copolymer GitLab repository <https://gitlab.com/pcarrivain/openmm_copolymer>`_.
 
 Source Code
