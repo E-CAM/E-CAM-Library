@@ -90,6 +90,8 @@ while for the GPU version we have:
     ./modules/DL_MESO_DPD_onGPU/fftw/readme
     ./modules/DL_MESO_DPD_onGPU/improvedOverlap/readme
     ./modules/DL_MESO_DPD_onGPU/bond_forces_single_GPU/readme
+    ./modules/DL_MESO_DPD_onGPU/Kokkos_VV1/readme
+    ./modules/DL_MESO_DPD_onGPU/Kokkos_VV2/readme
 
 ESPResSo++
 ----------
@@ -130,7 +132,21 @@ The following modules connected to the ParaDiS code have been produced so far:
 
     ./modules/paradis_precipitate/paradis_precipitate_GC/readme
     ./modules/paradis_precipitate/paradis_precipitate_HPC/readme
+    ./modules/paradis_precipitate/paradis_precipitate_amd_rome/readme
+    ./modules/paradis_precipitate/paradis_precipitate_intel_avx512/readme
 
+Cubble
+------
+The following modules connected to the Cubble code, a mesoscale CUDA/C++ simulator of
+foams, have been produced so far:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/cubble_coarsening/cubble_coarsening_static/readme
+    ./modules/cubble_coarsening/cubble_coarsening_flow/readme
+    ./modules/cubble_coarsening/cubble_hip/readme
 
 GC-AdResS
 ---------
@@ -199,3 +215,19 @@ time-to-solution of the applications.
     ./modules/ALL_library/unstructured_method/readme
     ./modules/ALL_library/voronoi_method/readme
     ./modules/ALL_library/histogram_method/readme
+    ./modules/ALL_library/cpp_interface/readme
+    ./modules/ALL_library/fortran_interface/readme
+    ./modules/ALL_library/MPM_integration/MPMIntegration
+    ./modules/ALL_library/all_hemeLB_cooperation/hemeLBcooperation
+
+Ludwig: A lattice Boltzmann code for complex fluids
+---------------------------------------------------
+
+The modules listed here account for the modifications of the code Ludwig, carried out within the E-CAM project.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+    
+    ./modules/Lattice_Boltzmann/external_chemical_potential_gradient/readme
+    ./modules/Lattice_Boltzmann/crystalline_capillaries/readme

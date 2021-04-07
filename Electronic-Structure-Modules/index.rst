@@ -23,27 +23,43 @@ Introduction
    :figwidth: 25 %
    :align: left
 
-This is a collection of the modules that have been created by E-CAM community within the area of Electronic Structure.
-This documentation is created using ReStructured Text and the git repository for the documentation source files can be
-found at https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are public and open to contributions.
+This is a collection of the modules that have been created by E-CAM community within
+the area of Electronic Structure.
+This documentation is created using ReStructured Text and the git repository for the
+documentation source files can be
+found at https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library which are public and open to
+contributions.
 
-In the context of E-CAM, the definition of a software module is any piece of software that could be of use to the E-CAM
-community and that encapsulates some additional functionality, enhanced performance or improved usability for people
+In the context of E-CAM, the definition of a software module is any piece of software
+that could be of use to the E-CAM
+community and that encapsulates some additional functionality, enhanced performance or
+improved usability for people
 performing computational simulations in the domain areas of interest to us.
 
-This definition is deliberately broader than the traditional concept of a module as defined in the semantics of most
-high-level programming languages and is intended to capture inter alia workflow scripts, analysis tools and test suites
-as well as traditional subroutines and functions. Because such E-CAM modules will form a heterogeneous collection we
-prefer to refer to this as an E-CAM software repository rather than a library (since the word library carries a
-particular meaning in the programming world). The modules do however share with the traditional computer science
-definition the concept of hiding the internal workings of a module behind simple and well-defined interfaces. It is
-probable that in many cases the modules will result from the abstraction and refactoring of useful ideas from existing
+This definition is deliberately broader than the traditional concept of a module as
+defined in the semantics of most
+high-level programming languages and is intended to capture inter alia workflow
+scripts, analysis tools and test suites
+as well as traditional subroutines and functions. Because such E-CAM modules will form
+a heterogeneous collection we
+prefer to refer to this as an E-CAM software repository rather than a library (since
+the word library carries a
+particular meaning in the programming world). The modules do however share with the
+traditional computer science
+definition the concept of hiding the internal workings of a module behind simple and
+well-defined interfaces. It is
+probable that in many cases the modules will result from the abstraction and
+refactoring of useful ideas from existing
 codes rather than being written entirely de novo.
 
-Perhaps more important than exactly what a module is, is how it is written and used. A final E-CAM module adheres to
-current best-practice programming style conventions, is well documented and comes with either regression or unit tests
-(and any necessary associated data). E-CAM modules should be written in such a way that they can potentially take
-advantage of anticipated hardware developments in the near future (and this is one of the training objectives of E-CAM).
+Perhaps more important than exactly what a module is, is how it is written and used.
+A final E-CAM module adheres to
+current best-practice programming style conventions, is well documented and comes with
+either regression or unit tests
+(and any necessary associated data). E-CAM modules should be written in such a way that
+they can potentially take
+advantage of anticipated hardware developments in the near future (and this is one of
+the training objectives of E-CAM).
 
 Extended Software Development Workshops
 =======================================
@@ -51,7 +67,8 @@ Extended Software Development Workshops
 ESDW Zaragoza 2016
 ------------------
 
-The first Electronic Structure ESDW in Zaragoza in June 2016 was the starting point for the modules below.
+The first Electronic Structure ESDW in Zaragoza in June 2016 was the starting point for
+the modules below.
 
 .. toctree::
     :glob:
@@ -112,6 +129,18 @@ The ESDW in Dublin in January 2019 was the starting point for the modules below.
     ./modules/esl-easyconfigs/readme
     ./modules/ELSI/readme
 
+ESDW Lausanne 2020
+------------------
+
+The ESDW in Lausanne in February/March 2020 was the starting point for the modules below.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/Libxc-in-FHI-AIMS/readme
+    ./modules/PSolver-Integration/readme
+
 Other Modules
 -------------
 
@@ -125,16 +154,33 @@ Modules not coming from ESDWs
      ./modules/libgridxc/readme
      ./modules/libvdwxc/readme
      ./modules/MatrixSwitchDBCSR/readme
+     ./modules/orbital-free-DFT-with-MaZe/readme
+     ./modules/orbital-free-DFT-with-MaZe-HPC/readme
+     ./modules/orbital-free-DFT-with-NLCG/readme
+
+Additionally, a module from an ESDW of WP4 was more relevant to this Work Package and so
+is reported here
+
+.. toctree::
+     :glob:
+     :maxdepth: 1
+
+     ./modules/gpaw-cuda/readme
 
 Pilot Projects
 ==============
 
-One of primary activity of E-CAM is to engage with pilot projects with industrial partners. These projects are conceived
-together with the partner and typically are to facilitate or improve the scope of computational simulation within the
-partner. The related code development for the pilot projects are open source (where the licence of the underlying
-software allows this) and are described in the modules associated with the pilot projects.
+One of primary activity of E-CAM is to engage with pilot projects with industrial
+partners. These projects are conceived
+together with the partner and typically are to facilitate or improve the scope of
+computational simulation within the
+partner. The related code development for the pilot projects are open source (where
+the licence of the underlying
+software allows this) and are described in the modules associated with the pilot
+projects.
 
-Below is a list of the modules developed directly within the context of the pilot projects within E-CAM:
+Below is a list of the modules developed directly within the context of the pilot
+projects within E-CAM:
 
 .. toctree::
     :glob:
@@ -163,7 +209,9 @@ Below is a list of the modules developed directly within the context of the pilo
 
 QMCPack interfaces
 ------------------
-The following modules related to interfaces for the QMCPack code have been produced so far in the context of an
+
+The following modules related to interfaces for the QMCPack code have been produced so
+far in the context of an
 `associated Pilot Project <https://www.e-cam2020.eu/qmcpack-interfaces-for-es-computations/>`_:
 
 .. toctree::
@@ -174,5 +222,23 @@ The following modules related to interfaces for the QMCPack code have been produ
     ./modules/ESHDF5Interface/readme
     ./modules/ESPWSCFInterface/readme
     ./modules/QMCQEPack_qepatch/readme
+
+Caesar
+------
+
+The following modules related to the development of the `Caesar <https://github.com/veryreverie/caesar>`_ 
+software package which
+calculates the vibrational free energy, and a number of related vibrational
+properties, of periodic crystals.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/caesar/readme
+    ./modules/caesar/documentation_and_testing/readme
+    ./modules/caesar/electronic_structure_interface/readme
+    ./modules/caesar/harmonic/readme
+    ./modules/caesar/anharmonic/readme
 
 .. _E-CAM: https://www.e-cam2020.eu/

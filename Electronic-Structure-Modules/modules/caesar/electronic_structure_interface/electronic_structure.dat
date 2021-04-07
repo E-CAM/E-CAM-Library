@@ -1,0 +1,27 @@
+Energy (Hartree):
+V
+Forces (Hartree/Bohr):
+f_1x f_1y f_1z
+f_2x f_2y f_2z
+...
+f_nx f_ny f_nz
+Hessian (Hartree/Borh^2):
+Atoms: ( 1 1 )
+H_11_xx H_11_xy H_11_xz
+H_11_yx H_11_yy H_11_yz
+H_11_zx H_11_zy H_11_zz
+
+Atoms: ( 2 1 )
+H_21_xx H_21_xy H_21_xz
+H_21_yx H_21_yy H_21_yz
+H_21_zx H_21_zy H_21_zz
+
+...
+Atoms: ( n n )
+H_nn_xx H_nn_xy H_nn_xz
+H_nn_yx H_nn_yy H_nn_yz
+H_nn_zx H_nn_zy H_nn_zz
+Stress (Hartree/Bohr^3):
+sigma_xx sigma_xy sigma_xz
+sigma_yx sigma_yy sigma_yz
+sigma_zx sigma_zy sigma_zz
