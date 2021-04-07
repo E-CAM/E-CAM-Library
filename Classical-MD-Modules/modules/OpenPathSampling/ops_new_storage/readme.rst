@@ -174,7 +174,7 @@ ___________
 
 This module includes the general SimStore components of the pull request at: https://github.com/openpathsampling/openpathsampling/pull/928.
 In particular, this module is for the files in the
-``openpathsampling.experimental.storage.simstore`` subpackage within that
+``openpathsampling.experimental.simstore`` subpackage within that
 pull request.
 
 .. link the source code

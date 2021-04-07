@@ -39,6 +39,24 @@ _________________
 
 .. Give a brief overview of why the module is/was being created.
 
+The motivation for this is described in depth in the module
+:ref:`ops_new_storage`. That module focused on the underlying, reusable
+library SimStore that was developed to meet the storage needs of
+OpenPathSampling. This module represents the software that integrates the
+generic code with OPS.
+
+In particular, this includes:
+
+* Design of the OPS serialization schema
+* Custom handling of some objects, such as snapshots, for which the
+  dimensionality is only known at runtime.
+* Workarounds so that some objects could be stored.
+* Custom subclass of the storable functions introduced in
+  :ref:`ops_new_storage_2` that meet the requirements of OpenPathSampling.
+  For example, when a collective variable is calculated on a trajectory, it
+  should return a list with the value for each snapshot within the
+  trajectory.
+
 
 Background Information
 ______________________
@@ -54,22 +72,17 @@ reading:
 Installation and Testing
 ________________________
 
-The source code for this is in an unmerged branch of OpenPathSampling. The
-easiest installation procedure is to install the ``conda`` package manager,
-and then to download and use the OpenPathSampling developer install script.
-Once ``conda``, ``curl``, and ``git`` are available, change to the directory
-where you would like the OpenPathSampling repository to exist, and the
-following commands suffice:
+This was included in the version 1.4 release of OpenPathSampling. 
+It can be installed via the ``conda`` package manager with:
 
 .. code:: bash
 
-    curl -OLk https://raw.githubusercontent.com/openpathsampling/openpathsampling/master/devtools/conda_ops_dev_install.sh
-    OPS_ENV=ops_new_storage source conda_ops_dev_install.sh dwhswenson storage
+    conda install -c conda-forge openpathsampling
 
-This will create and activate a ``conda`` environment called
-``ops_new_storage``, with this module installed. If you want to install the
-code into your currently active environment, leave off the
-``OPS_ENV=ops_new_storage``.
+In addition to previous OPS requirements, this module requires SQLAlchemy,
+and other parts of the new storage require Dill.
+These can be installed with, e.g., ``conda install -c conda-forge
+sqlalchemy dill``.
 
 The tests for this module are split between unit tests included in the
 OpenPathSampling repository and integration tests in a separate repository.
@@ -82,7 +95,10 @@ testing software, e.g., with:
 
     conda install -c conda-forge pytest pytest-cov nbval
 
-Then just run the ``test-storage`` script in that notebook.
+Then just run the ``test-storage.sh`` script in that repository. Note:
+although the module will work with Python 3.6+, some of the notebook tests
+are not compatible with more recent versions of Python, so the tests should
+be run with Python 3.7.
 
 Examples
 ________
@@ -93,6 +109,11 @@ An example for this module can be found at:
 
 Source Code
 ___________
+
+This module includes the general SimStore components of the pull request at: https://github.com/openpathsampling/openpathsampling/pull/928.
+In particular, this module is for the files in the
+``openpathsampling.experimental.storage`` subpackage within that
+pull request.
 
 .. link the source code
 
