@@ -1,4 +1,5 @@
 module variables
+implicit none
 
 integer :: num_states
 integer :: num_bath
