@@ -1,0 +1,12 @@
+2		!num_states 
+500		!num_bath
+480000		!num_traj
+42000		!num_timestep
+1.d0 		!timestep 
+100		!timestep_block
+1		!initial state  
+Dimer_H_sub.f90	!H_s filename in cm^-1 
+58.08d0  	!omega_c in cm^-1
+300.d0		!temperatue in K
+20.d0		!reorganization energy in cm^-1
+86913721       	!IDUM 
