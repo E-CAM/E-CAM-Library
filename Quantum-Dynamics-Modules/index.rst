@@ -242,6 +242,19 @@ simulation through an effective Hamiltonian.
     :glob:
     :maxdepth: 1
 
+    ./modules/G-CTMQC/readme
+
+The **G-CTMQC** module extends the previous **CTMQC** module, introducing new methodological and 
+technical features. G-CTMQC is interfaced with the **QuantumModelLib** library of potentials, 
+which gives more flexibility in the choice of systems that can be studied. The present 
+implementation allows to perform surface hopping calculations, also with inclusion of energy 
+decoherence corrections, and Ehrenfest dynamics, as well as CT-MQC calculations. Finally, 
+spin-orbit coupling is included in CT-MQC (G-CT-MQC algorithm).
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
     ./modules/PhysConst_module/readme
 
 The **PhysConst** enables the use of physical constants and the correct isotopic masses.
@@ -456,6 +469,24 @@ by the group of Nadja Doslic in Zagreb.
         ./modules/Quantics_Openmp_Improvements_Module/Quantics_omp_module
 
 The **Quantics_openmp** module is an initial effort at OpenMP parallelisation improvements to Quantics.
+
+.. toctree::
+        :glob:
+        :maxdepth: 1
+
+        ./modules/Quantics_DD_MPIOMP/readme
+
+The **Quantics_DD_MPIOMP** module is a further improvement on the parallel version of DD-vMCG in 
+Quantics by adding an extra layer of MPI parallelization to the existing OpenMP parallelization.
+
+.. toctree::
+        :glob:
+        :maxdepth: 1
+
+        ./modules/sharc_gym/readme
+
+The **SHARC-gym** module uses the surface hopping code
+SHARC and enables the use of a more accurate set of quantum methods implemented in QUANTICS.
 
 CLstunfti
 ---------
