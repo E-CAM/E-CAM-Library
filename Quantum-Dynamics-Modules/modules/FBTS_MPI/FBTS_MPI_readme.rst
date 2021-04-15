@@ -42,8 +42,8 @@ Purpose of Module
 _________________
 
 The FBTS-MPI module implements the Forward-Backward Trajectory Solution (FBTS) to the 
-quantum-classical Liouville equation [KapralCiccotti1999] developed by Hsieh and Kapral 
-[HsiehKapral2012], [HsiehKapral2013]. 
+quantum-classical Liouville equation [KapralCiccotti1999]_ developed by Hsieh and Kapral 
+[HsiehKapral2012]_, [HsiehKapral2013]_. 
 
 In the case of a many-body system that can be partitioned into a quantum subsystem and 
 classical environment, this module can be used in the calculation of time-dependent 
@@ -80,7 +80,7 @@ ____________________
 
 The particular system that this FBTS-MPI module has been built for is in the study of 
 excitation energy transfer in biological light harvesting systems, so-called protein-pigment complexes, 
-through the use of the Frenkel exciton model. The total Hamiltonian of this system 
+through the use of the Frenkel exciton model. [IshizakiFleming2009PNAS]_ The total Hamiltonian of this system 
 is: :math:`\hat{H}_{total} = \hat{H}_{s} + \hat{H}_{b} + \hat{H}_{sb}`.
 
 In this model the quantum subsystem of interest, :math:`\hat{H}_{s}`, is the electronic excited states 
@@ -145,12 +145,12 @@ the time-dependent observables will be calculated and collected.
 An example of this Input_Data.dat file and subsystem Hamiltonian matrix can be found in 
 the ``./tests/Dimer_Model`` sub-directory. In order to test the code move the executable 
 to the this sub-directory and compare the output site populations against the exact results 
-from [IshizakiFleming2009] Figure 4(b). 
+from [IshizakiFleming2009]_ Figure 4(b). 
 Remember that the output provided by the module is given in atomic units of time and must be converted 
 to femtoseconds to compare. 
 
 Another model is provided for testing, the light harvesting complex known as the 
-Fenna-Matthews-Olson (FMO) complex that contains 7 states, the exact results are from [WilkinsDattani2015].
+Fenna-Matthews-Olson (FMO) complex that contains 7 states, the exact results are from [WilkinsDattani2015]_.
 
 The output from the FBTS_MPI module should be in good agreement to the exact results. 
 
