@@ -1,4 +1,3 @@
-:orphan:
 
 ..  sidebar:: Software Technical Information
 
