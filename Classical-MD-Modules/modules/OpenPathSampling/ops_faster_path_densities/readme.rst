@@ -1,4 +1,3 @@
-:orphan:
 
 .. _ops_faster_path_densities:
 
