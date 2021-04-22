@@ -269,6 +269,15 @@ The **PhysConst** enables the use of physical constants and the correct isotopic
 The **QuantumModelLib** use potential energy surfaces extracted from the literature and can be linked to quantum
 dynamics codes.
 
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/FBTS_MPI/FBTS_MPI_readme
+
+The **FBTS_MPI_** module implements the Forward-Backward Trajectory Solution (FBTS) to the
+quantum-classical Liouville equation developed by Hsieh and Kapral.
+
 
 PaPIM
 -----

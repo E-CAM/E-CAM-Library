@@ -3,8 +3,6 @@
     template. Make sure that any time you use ReST syntax (such as for ".. sidebar::" below), it needs to be preceded
     and followed by white space (if you see warnings when this file is built they this is a common origin for problems).
 
-:orphan:
-
 ..  sidebar:: Software Technical Information
 
   Name
@@ -118,8 +116,8 @@ that would otherwise be prohibitively expensive to simulate.
 Building and Testing
 ____________________
 
-In order to compile this module, two files are required, FBTS_MPI.f90 and luxury.f90, one contains 
-the FBTS method and the other returns arandom number. Both of these files are located 
+In order to compile this module, two files are required, ``FBTS_MPI.f90`` and ``luxury.f90``, one contains 
+the FBTS method and the other returns a random number. Both of these files are located 
 in the ``./source`` sub-directory and can be compiled using:
 
 ::
@@ -130,19 +128,19 @@ Upon successful compilation of the code execution of the code requires two input
 one containing relevant information concerning the simulation and the subsystem Hamiltonian 
 matrix in units of wavenumbers. 
 
-The file Input_Data.dat contains the simulation parameters and can be easily modified. 
+The file ``Input_Data.dat`` contains the simulation parameters and can be easily modified. 
 The number of states of the system, the state in which the initial excitation will occur 
 and the number of trajectories this module will complete can be changed. 
 The influence of the bath can also be adjusted through the parameters that will define the
 Debye spectral density, the characteristic frequency of the bath, `:math:\omega_c`, 
 the reorganization energy and the number of bath oscillators. 
 
-There are three parameters that concern the time length of the simulation, num_timestep, 
-timestep and timestep_block. The total time length of the simulation is determined 
-by: num_timestep * timestep. The parameter timestep_block determines at what interval 
+There are three parameters that concern the time length of the simulation, ``num_timestep``, 
+``timestep`` and ``timestep_block``. The total time length of the simulation is determined 
+by: ``num_timestep * timestep``. The parameter ``timestep_block`` determines at what interval 
 the time-dependent observables will be calculated and collected.
 
-An example of this Input_Data.dat file and subsystem Hamiltonian matrix can be found in 
+An example of this ``Input_Data.dat`` file and subsystem Hamiltonian matrix can be found in 
 the ``./tests/Dimer_Model`` sub-directory. In order to test the code move the executable 
 to the this sub-directory and compare the output site populations against the exact results 
 from [IshizakiFleming2009]_ Figure 4(b). 
@@ -157,7 +155,7 @@ The output from the FBTS_MPI module should be in good agreement to the exact res
 Source Code
 ___________
 
-The FBTS_MPI module source code is located at: `FBTS_MPI <https://gitlab.e-cam2020.eu:10443/Quantum-Dynamics/FBTS_MPI>`_.
+The FBTS_MPI module source code is located at: `FBTS_MPI <https://gitlab.e-cam2020.eu/Quantum-Dynamics/FBTS_MPI>`_.
 
 References
 __________
