@@ -112,8 +112,8 @@ The instructions to install, test and run the module can be find on the
 `openmm_plectoneme GitLab repository <https://gitlab.com/pcarrivain/openmm_plectoneme>`_.
 The test of the twist implementation can be find at the same location.
 
-We are currently working on a benchmark between the present module and alread
- published `Monte-Carlo <https://www.sciencedirect.com/science/article/pii/S0378437119307204>`_
+We are currently working on a benchmark between the present module and already
+published `Monte-Carlo <https://www.sciencedirect.com/science/article/pii/S0378437119307204>`_
 and
 `rigid body dynamics <https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003456>`_
 codes.
