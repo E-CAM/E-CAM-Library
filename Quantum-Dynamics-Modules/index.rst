@@ -537,6 +537,36 @@ method [Wor1]_ which is included in the powerful and flexible Quantics_ package
 program [Wor2]_.
 
 
+ElVibRot
+--------
+
+`ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ is a package for general
+quantum dynamics simulation using curvilinear coordinates. 
+The code has no built-in limitation in terms of the number of degrees of freedom. 
+It applied a numerical but exact kinetic energy operator with Tnum (Automatic
+differentiation), 
+which enables much flexibility in the choice of the curvilinear coordinates [Tnum]_. 
+Moreover, the Smolyak algorithm [Smo]_ is employed to avoid the conventional direct-product
+basis sets and grids, 
+which allows the simulation of larger systems. Typically, the package could be used for
+
+1) Vibrational levels, intensities for floppy molecular systems; 
+2) Wave-packet propagation with or without time dependent Hamiltonian; 
+3) Quantum gate and optimal control; 
+4) Optimization with the given set of curvilinear coordinates.
+
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/ElVibRot_TD_MPI/readme
+
+The **ElVibRot-TD-MPI** (ElVibRot Time-dependent MPI) module is a parallelized 
+time-dependent quantum simulation program. The available propagation methods 
+include Chebyshev, Runge-Kunta, short iterative Lanczos and Taylor expansion, etc.
+
+
 References
 ----------
 
@@ -564,3 +594,5 @@ References
           *Mol. Phys.* **106** (2008) 2077–2091 `DOI: 10.1080/00268970802172503 <https://doi.org/10.1080/00268970802172503>`_
 .. [Wor2]  G. A. Worth, K. Giri, G. W. Richings, M. H. Beck, A. Jäckle, H.-D. Meyer
             Quantics package, version 1.1, (2015)
+.. [Tnum] D. Lauvergnat, A. Nauts, *Phys. Chem. Chem. Phys.* **12** (2010) 8405-8412 `DOI: 10.1039/C001944E <http://dx.doi.org/10.1039/C001944E>`_
+.. [Smo]  S. A. Smolyak, *Dokl. Akad. Nauk SSSR* **148** (1963) 1042–1045 `<http://mi.mathnet.ru/eng/dan27586>`_
