@@ -12,48 +12,51 @@
     `MIT <https://opensource.org/licenses/mit-license>`_
 
   Documentation Tool
-    sphynx
+    Doxygen
 
   Application Documentation
-    `doxygen documentation <https://gitlab.com/pcarrivain/fibre_ode/-/blob/master/latex/refman.pdf>`_
+    `Doxygen documentation <https://gitlab.com/pcarrivain/fibre_ode/-/blob/master/latex/refman.pdf>`_
 
   Relevant Training Material
-    `pdf documentation <https://gitlab.com/pcarrivain/fibre_ode>`_
-
+    None
+  
   Software Module Developed by
     Pascal Carrivain
 
 
 .. _Verlet_list_for_ODE:
 
-################################
-E-CAM Verlet_list_for_ODE module
-################################
+####################################
+E-CAM ``Verlet_list_for_ODE`` module
+####################################
 
 ..  contents:: :local:
 
-The Verlet_list_for_ODE introduces `Verlet-list <https://en.wikipedia.org/wiki/Verlet_list>`_
-for the rigid body dynamics `Open-Dynamics-Engine software <http://ode.org>`_.
+The ``Verlet_list_for_ODE`` module introduces
+`Verlet-list <https://en.wikipedia.org/wiki/Verlet_list>`_
+for the rigid-body dynamics
+`Open-Dynamics-Engine software <http://ode.org>`_.
 
 Purpose of Module
 _________________
 
-The rigid-body-dynamics is useful for mechanical articulated system.
-In addition to that the tool allows the user to simulate complex shape
-and resolve excluded volume constraint.
+Rigid-body dynamics is useful for mechanical articulated systems.
+In addition, the tool allows the user to simulate complex shape
+and resolve excluded volume constraints.
 It is used in the industry of video games to accurately reproduce physics.
 However, a software like `Open-Dynamics-Engine <http://ode.org>`_
-compute pairwise overlap every time-step.
+computes pairwise overlap every time-step.
 The engine starts with a partition of the space and then
-loop over all the blocks of partition.
-For each blocks it runs a nested loops to check the overlaps
+loops over all the blocks of partition.
+For each blocks it runs nested loops to check the overlaps
 between the objects inside the block.
-The module implements external functions that can be used to compute
+
+The module implements external functions that can be used to compute the
 `Verlet-list <https://en.wikipedia.org/wiki/Verlet_list>`_.
 Therefore, the user does not call the pairwise overlap check every time-step.
 He only needs to loop over
 the `Verlet-list <https://en.wikipedia.org/wiki/Verlet_list>`_
-with the pairwise of objects within a given cut-off distance.
+with the pairwise objects within a given cut-off distance.
 However, the `Verlet-list <https://en.wikipedia.org/wiki/Verlet_list>`_
 has to be updated according to the displacement length of the objects.
 
@@ -85,14 +88,17 @@ First of all you need to download and build the 0.16
 version of `Open-Dynamics-Engine <http://ode.org>`_.
 You can find the steps on the
 `Verlet_list_for_ODE GitLab repository <https://gitlab.com/pcarrivain/fibre_ode>`_.
-In order to compile the two examples (tests) I provide a simple make file
+
+In order to compile the two examples (tests) I provide a template ``Makefile``
 you can find at the same location that the source code.
 You need C++11 in order to use pseudo-random number generator.
-It has `OpenMP <https://www.openmp.org>`_ acceleration.
-Edit the make file to enable it.
-The example uses threads from std as well.
+
+It has `OpenMP <https://www.openmp.org>`_ acceleration,
+edit the ``Makefile`` to enable it. The example uses threads
+from ``std`` as well.
+
 Before the compilation you can clean the
-previous build with *make mrproper* command.
+previous build with ``make mrproper`` command.
 The `Verlet-list <https://en.wikipedia.org/wiki/Verlet_list>`_
 implementation returns
 the number of collisions that can be confronted
