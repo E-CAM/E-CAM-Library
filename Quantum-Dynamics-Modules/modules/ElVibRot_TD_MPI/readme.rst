@@ -137,11 +137,13 @@ _________________
 
 
 The ElVibRot time-dependent MPI (ElVibRot-TD-MPI) module is a parallelized time-dependent 
-quantum simulation program. It is a part of the `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ 
+quantum simulation program. It is a part of the
+`ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ 
 package designed for general quantum dynamics simulation using curvilinear coordinates. 
 There is no built-in limitation on the degrees of freedom for the target system. 
 The code employed a numerical but exact kinetic energy operator with Tnum [Tn]_. 
-The Smolyak algorithm [Sm]_ is applied to avoid the direct-product basis sets and grids in the simulation. 
+The Smolyak algorithm [Sm]_ is applied to avoid the direct-product basis sets
+and grids in the simulation. 
 
 
 Background Information
@@ -163,7 +165,7 @@ ______________________
 
 
 
-The quantum dynamics simulation has provided powerful insight into the underlying 
+Quantum dynamics simulation has provided powerful insight into the underlying 
 mechanism of chemical reactions, laser molecular interaction, etc. The simulation, 
 with the conventional expansion on the direct-product basis, is limited by the 
 exponential growth of computational cost with the increase of degrees of freedom. 
@@ -195,7 +197,7 @@ The propagation time could be up to hundreds of femtoseconds with general comput
 according to the selected propagation method. The code has been applied for the simulation 
 of Pyrazine (:math:`C_4H_4N_2`), which is of 24 degrees of freedom. This module could be a 
 practical tool for general quantum molecular simulation, supporting the further study of 
-molecular dynamics in chemical reactions, ultrafast process, etc.
+molecular dynamics in chemical reactions, ultrafast processes, etc.
 
 
 Building and Testing
@@ -210,13 +212,16 @@ ____________________
 
 
 
-The code is compatible with gfortran, mpifort, ifort, pgf90, etc. Building the program 
+The code is compatible with ``gfortran``, ``mpifort``, ``ifort``, ``pgf90``, etc.
+Building the program 
 requires OpenMPI v2.0 or above. OpenMPI should be built as 64-bit for the simulation 
-of very large system. 
+of very large systems. 
 
 * build with MPI
 
-set makefile: ::
+set makefile:
+
+.. code-block:: bash
 
   F90=mpifort
   MPICORE=gfortran ! gfortran or ifort according to the compiler for MPI
@@ -224,7 +229,7 @@ set makefile: ::
 
 other main options:
 
-::
+.. code-block:: bash
  
   F90=gfortran    ! compile with gfortran
   F90=ifort       ! compile with ifort
@@ -240,25 +245,25 @@ other main options:
 
 To build:
 
-.. code-block:: c
+.. code-block:: bash
 
   make
 
 To test:
 
-.. code-block:: c
+.. code-block:: bash
 
   make test 
 
 To clean test files
 
-.. code-block:: c
+.. code-block:: bash
 
   make cleantest
 
 Three MPI schemes will be tested for 12 and 24 degrees of freedom systems. In directory 
 
-::
+.. code-block:: bash
   
   ./Working_tests/MPI_tests
 
