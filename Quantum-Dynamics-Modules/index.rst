@@ -242,6 +242,19 @@ simulation through an effective Hamiltonian.
     :glob:
     :maxdepth: 1
 
+    ./modules/G-CTMQC/readme
+
+The **G-CTMQC** module extends the previous **CTMQC** module, introducing new methodological and 
+technical features. G-CTMQC is interfaced with the **QuantumModelLib** library of potentials, 
+which gives more flexibility in the choice of systems that can be studied. The present 
+implementation allows to perform surface hopping calculations, also with inclusion of energy 
+decoherence corrections, and Ehrenfest dynamics, as well as CT-MQC calculations. Finally, 
+spin-orbit coupling is included in CT-MQC (G-CT-MQC algorithm).
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
     ./modules/PhysConst_module/readme
 
 The **PhysConst** enables the use of physical constants and the correct isotopic masses.
@@ -255,6 +268,15 @@ The **PhysConst** enables the use of physical constants and the correct isotopic
 
 The **QuantumModelLib** use potential energy surfaces extracted from the literature and can be linked to quantum
 dynamics codes.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/FBTS_MPI/FBTS_MPI_readme
+
+The **FBTS_MPI_** module implements the Forward-Backward Trajectory Solution (FBTS) to the
+quantum-classical Liouville equation developed by Hsieh and Kapral.
 
 
 PaPIM
@@ -457,6 +479,24 @@ by the group of Nadja Doslic in Zagreb.
 
 The **Quantics_openmp** module is an initial effort at OpenMP parallelisation improvements to Quantics.
 
+.. toctree::
+        :glob:
+        :maxdepth: 1
+
+        ./modules/Quantics_DD_MPIOMP/readme
+
+The **Quantics_DD_MPIOMP** module is a further improvement on the parallel version of DD-vMCG in 
+Quantics by adding an extra layer of MPI parallelization to the existing OpenMP parallelization.
+
+.. toctree::
+        :glob:
+        :maxdepth: 1
+
+        ./modules/sharc_gym/readme
+
+The **SHARC-gym** module uses the surface hopping code
+SHARC and enables the use of a more accurate set of quantum methods implemented in QUANTICS.
+
 CLstunfti
 ---------
 
@@ -500,12 +540,16 @@ program [Wor2]_.
 ElVibRot
 --------
 
-`ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ is a package for general quantum dynamics simulation using curvilinear coordinates. 
+`ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ is a package for general
+quantum dynamics simulation using curvilinear coordinates. 
 The code has no built-in limitation in terms of the number of degrees of freedom. 
-It applied a numerical but exact kinetic energy operator with Tnum (Automatic differentiation), 
+It applied a numerical but exact kinetic energy operator with Tnum (Automatic
+differentiation), 
 which enables much flexibility in the choice of the curvilinear coordinates [Tnum]_. 
-Moreover, the Smolyak algorithm [Smo]_ is employed to avoid the conventional direct-product basis sets and grids, 
-which allows the simulation of larger systems. Typically, the package could be used for 
+Moreover, the Smolyak algorithm [Smo]_ is employed to avoid the conventional direct-product
+basis sets and grids, 
+which allows the simulation of larger systems. Typically, the package could be used for
+
 1) Vibrational levels, intensities for floppy molecular systems; 
 2) Wave-packet propagation with or without time dependent Hamiltonian; 
 3) Quantum gate and optimal control; 
@@ -518,8 +562,19 @@ which allows the simulation of larger systems. Typically, the package could be u
     ./modules/ElVibRot_TID_MPI/readme
 
 The **ElVibRot-TID-MPI** (ElVibRot Time-independent MPI) module is a parallelized 
-time-independent quantum simulation program. The Davidson algorithm is the main method employed 
+time-independent quantum simulation program. The Davidson algorithm is the main
+method employed 
 for getting the Eigen levels of the Hamiltonian.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/ElVibRot_TD_MPI/readme
+
+The **ElVibRot-TD-MPI** (ElVibRot Time-dependent MPI) module is a parallelized 
+time-dependent quantum simulation program. The available propagation methods 
+include Chebyshev, Runge-Kunta, short iterative Lanczos and Taylor expansion, etc.
 
 References
 ----------

@@ -177,6 +177,11 @@ separate projects. The modules that were incorporated into the core are:
     ./modules/OpenPathSampling/ops_visit_all_states/readme
     ./modules/OpenPathSampling/ops_interface_shooting/readme
     ./modules/OpenPathSampling/ops_progress_meters/readme
+    ./modules/OpenPathSampling/ops_faster_path_densities/readme
+    ./modules/OpenPathSampling/ops_new_storage/readme
+    ./modules/OpenPathSampling/ops_new_storage_2/readme
+    ./modules/OpenPathSampling/ops_new_storage_3/readme.rst
+    ./modules/OpenPathSampling/ops_new_storage_openmm/readme
 
 The modules that are based on OPS, but remain separate, are:
 
@@ -190,11 +195,91 @@ The modules that are based on OPS, but remain separate, are:
     ./modules/contact_maps_parallelization/readme
     ./modules/dw_dimer_testsystem/readme
     ./modules/lammps_ops/readme
+    ./modules/ops_cli_core/readme
+    ./modules/ops_cli_commands/readme
 
 Nine of these modules were part of
 `E-CAM Deliverable 1.2 <https://www.e-cam2020.eu/deliverables/>`_. Those modules
 provided improvements and new features in software for trajectory sampling and
 for studying the thermodynamics and kinetics of rare events.
+
+Machine Learning Potentials
+===========================
+
+Many systems in computational physics and chemistry can be successfully studied
+with empirical force fields at the atomistic level. In the context of these
+"molecular mechanics" models, atoms are treated as particles without internal
+structure and their interactions are defined via rather simple expressions
+deduced from physical/chemical intuition. Usually a small number of free
+parameters is enough to tune the potential to reproduce experimental properties
+with good agreement. However, there are systems for which a satisfying
+description within this framework is not possible. Take as an example the
+formation and breaking of covalent bonds. This is the territory of *ab
+initio* methods which use quantum mechanics to accurately model the behavior of
+the system. Unfortunately the additional level of detail comes at a cost. Even
+in small systems *ab initio* methods are usually many orders of magnitude
+slower than empirical force fields. Moreover, the computational cost increases
+unfavorably with the number of atoms which makes it impractical to perform large
+simulations.
+
+With rising influence of machine learning algorithms in science and technology a
+new category of interatomic potentials has emerged. Machine learning potentials
+(MLPs) aim at bridging the gap between *ab initio* methods and empirical
+force fields. In contrast to the latter, MLPs are not bound by a predetermined
+fixed functional form of the interaction but rather build on the flexibility of
+an underlying machine learning model, such as artificial neural networks. These
+are known for their capability to reproduce any complicated function, which in
+this case is the desired potential energy surface, but rely on a separate
+training stage before they are ready for use. During this phase the MLP "learns"
+from a large data set how energies and forces depend on atomic positions. The
+reference energy landscape is typically computed from expensive *ab
+initio* methods. Once the training is completed the MLP can accurately predict
+energies and forces for new (unseen during training) atomic configurations at a
+fraction of the cost of the reference method. Hence, with MLPs times scales
+become accessible in molecular dynamics simulations close to those of empirical
+potentials while maintaining the *ab initio* level of accuracy.
+
+Today MLPs exist in various forms and combine different atomic environment
+descriptors as inputs for all kinds of machine learning models.
+
+* `Overview of machine learning potentials <https://doi.org/10.1063/1.4966192>`__
+
+A very successful variant is the high-dimensional neural network potential
+(HDNNP) which combines make use of artificial neural networks to predict
+atomic energy contributions:
+
+* `Original publication introducing HDNNPs by Behler and Parrinello <https://doi.org/10.1103/PhysRevLett.98.146401>`__
+* `Descriptors used in HDNNPs: Atom-centered symmetry functions <https://doi.org/10.1063/1.3553717>`__
+* `About the construction of HDNNPs <https://doi.org/10.1002/qua.24890>`__
+
+n2p2
+====
+
+The software `n2p2 <https://compphysvienna.github.io/n2p2/>`__ (**N**\ eural\
+**N**\ etwork\ **P**\ otential\ **P**\ ackage) implements the HDNNP method in a
+C++ library and applications for training and prediction. Its most important
+feature in the HPC context is the interface to the popular molecular dynamics
+package `LAMMPS <https://lammps.sandia.gov/>`__ which allows to use HDNNPs in
+massively parallelized simulation runs. Further information can be found in
+these two publications:
+
+* `n2p2 design and LAMMPS parallel performance <https://doi.org/10.1021/acs.jctc.8b00770>`__
+* `Parallel training implemented in n2p2 <https://doi.org/10.1021/acs.jctc.8b01092>`__
+
+The following modules extend the functionality of n2p2, some are already merged
+into the `main repository <https://github.com/CompPhysVienna/n2p2>`__, others
+will also work independently and will be integrated in the future:
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/n2p2/n2p2_cg_descriptor_analysis/readme
+    ./modules/n2p2/n2p2_improved_link_hpc/readme
+    ./modules/n2p2/n2p2_polynomial_symfuncs/readme
+    ./modules/n2p2/n2p2_reduce_symfunc_memory/readme
+    ./modules/n2p2/n2p2_symfunc_param_generator/readme
+    ./modules/n2p2/n2p2_training_size/readme
 
 Pilot Projects
 ==============
@@ -218,10 +303,17 @@ The following modules were developed specifically for the Classical MD pilot pro
     ./modules/contact_maps/readme
     ./modules/contact_maps_parallelization/readme
     ./modules/contact_concurrences/readme
-    ./modules/PIcore/readme
-    ./modules/PIhydration/readme
+    ./modules/PI/PIcore/readme
+    ./modules/PI/PIhydration/readme
+    ./modules/PI/lammps_pyinterfaceExt/readme
     ./modules/MSJuly2019_minDist2segments_KKT/readme
+    ./modules/minDist2segments_KKT_for_SRP/readme
     ./modules/MSJuly2019_velocities_resolve_EVC/readme
+    ./modules/velocities_resolve_EVC_for_LAMMPS/readme
+    ./modules/n2p2/n2p2_cg_descriptor_analysis/readme
+    ./modules/n2p2/n2p2_improved_link_hpc/readme
+    ./modules/n2p2/n2p2_polynomial_symfuncs/readme
+    ./modules/n2p2/n2p2_reduce_symfunc_memory/readme
 
 Extended Software Development Workshops (ESDWs)
 ===============================================
@@ -252,7 +344,7 @@ August 2017. The following modules have been produced:
     ./modules/OpenPathSampling/ops_plumed_wrapper/readme
     ./modules/OpenPathSampling/ops_s_shooting/readme
 
-The third ESDW for the Classical MD workpackage was held in Turin, Italy in July
+The third ESDW for the Classical MD work package was held in Turin, Italy in July
 2018. The following have been produced as a result:
 
 .. toctree::
@@ -267,5 +359,60 @@ The third ESDW for the Classical MD workpackage was held in Turin, Italy in July
     ./modules/HTC/mpi4py_tasks/readme
     ./modules/HTC/mpi_runtimes/readme
     ./modules/dask_traj/readme
+
+ESDW Lyon 2019
+------------------
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/n2p2/n2p2_symfunc_param_generator/readme
+    ./modules/n2p2/n2p2_training_size/readme
+    ./modules/openpigs/readme    
+
+ESDW Clifden 2019
+------------------
+
+The ESDW on "Inverse Molecular Design & Inference: building a Molecular Foundry" in 
+Clifden, Ireland in November 2019 was the starting point for the modules below.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/PI/PIutils/README
+    ./modules/Comparative-Metadynamics/readme
+
+European Environment for Scientific Software Installations
+==========================================================
+
+A number of modules related to the E-CAM support of the European Environment for
+Scientific Software
+Installations `EESSI <https://eessi.github.io/docs/>`_ which is is a collaboration
+between a number of academic and industrial partners in the HPC community. Through the
+EESSI project, they want to set up a shared stack of scientific software installations
+to avoid not only duplicate work across HPC sites but also the execution of
+sub-optimal applications on HPC resources.
+
+For end users, EESSI wants to provide a uniform user experience with respect to
+available
+scientific software, regardless of which system they use. The software stack is
+intended to work on laptops, personal workstations, HPC clusters and in the cloud,
+which means the project will need to support different CPUs, networks, GPUs, and so on.
+The intention is to make this work for any Linux distribution, and a wide variety of CPU
+architectures (Intel, AMD, ARM, POWER, RISC-V).
+
+The pilot instance of the EESSI software stack includes GROMACS, and benchmarking is
+being done by E-CAM using that application, which is why we include these modules in
+this section.
+
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/EESSI/singularity
+    ./modules/EESSI/learnhpc_gpu
+    ./modules/EESSI/eessi_github_action
 
 .. _E-CAM: https://www.e-cam2020.eu/
