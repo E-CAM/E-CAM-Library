@@ -5,8 +5,6 @@
 
 ..  We allow the template to be standalone, so that the library maintainers add it in the right place
 
-:orphan:
-
 ..  Firstly, let's add technical info as a sidebar and allow text below to wrap around it. This list is a work in
     progress, please help us improve it. We use *definition lists* of ReST_ to make this readable.
 
@@ -141,10 +139,10 @@ The Davidson algorithm is the main method employed for getting the Eigen levels 
 This module is a part of the `ElVibRot <https://github.com/lauvergn/ElVibRot-TnumTana>`_ package 
 designed for general quantum dynamics simulation using curvilinear coordinates. 
 The code has no built-in limitation in terms of the number of degrees of freedom. 
-It applied a numerical but exact kinetic energy operator with Tnum [Tn]_, 
+It applied a numerical but exact kinetic energy operator with Tnum [Tn1]_, 
 which enables much flexibility in the choice of the curvilinear coordinates. 
 To avoid the conventional direct-product basis sets and grids, 
-the Smolyak algorithm [Sm]_ is employed to make possible the simulation of larger systems. 
+the Smolyak algorithm [Sm1]_ is employed to make possible the simulation of larger systems. 
 
 
 Background Information
@@ -169,7 +167,7 @@ equation with the Hamiltonian of the considered system.
 The principle fence of the simulation comes from the exponential growth of computational demand 
 with the increasing of the degrees of freedom of the system, the curse of dimensionality. 
 It prompts numbers of algorithms in the past decades to deal with this difficulty. 
-The Smolyak algorithm, proposed by Smolyak in 1963 [Sm]_, provides a powerful method 
+The Smolyak algorithm, proposed by Smolyak in 1963 [Sm1]_, provides a powerful method 
 to deal with high-dimensional problems. 
 By introducing the Smolyak algorithm in this module, the wavefunction is expanded as a weighted sum of small  
 Smolyak wavefunction contributions, thus significantly reduce the computational demand of the simulation. 
@@ -202,13 +200,15 @@ ____________________
 .. normal build procedure of the application (and links to information
 ..  about the normal build process needs to be provided).
 
-The code is compatible with gfortran, mpifort, ifort, pgf90, etc. 
+The code is compatible with ``gfortran``, ``mpifort``, ``ifort``, ``pgf90``, etc. 
 Building the program requires OpenMPI v2.0 or above. OpenMPI should be built as 64-bit for 
 the simulation of very large system. 
 
 * build with MPI
 
-set makefile: ::
+set makefile:
+
+.. code-block:: bash
 
   F90=mpifort
   MPICORE=gfortran ! gfortran or ifort according to the compiler for MPI
@@ -216,7 +216,7 @@ set makefile: ::
 
 other main options:
 
-::
+.. code-block:: bash
  
   F90=gfortran    ! compile with gfortran
   F90=ifort       ! compile with ifort
@@ -232,25 +232,25 @@ other main options:
 
 To build:
 
-.. code-block:: c
+.. code-block:: bash
 
   make
 
 To test:
 
-.. code-block:: c
+.. code-block:: bash
 
   make test 
 
 To clean test files
 
-.. code-block:: c
+.. code-block:: bash
 
   make cleantest
 
 Three MPI schemes will be tested for 6 and 21 degrees of freedom systems. In directory 
 
-::
+.. code-block:: bash
  
   ./Working_tests/MPI_tests
 
@@ -267,8 +267,8 @@ See the `MPI branch <https://github.com/lauvergn/ElVibRot-TnumTana/tree/MPI_work
 References
 __________
 
-.. [Tn] D. Lauvergnat, A. Nauts, *Phys. Chem. Chem. Phys.* **12** (2010) 8405-8412 `DOI: 10.1039/C001944E <http://dx.doi.org/10.1039/C001944E>`_
-.. [Sm] S. A. Smolyak, *Dokl. Akad. Nauk SSSR* **148** (1963) 1042–1045 `<http://mi.mathnet.ru/eng/dan27586>`_
+.. [Tn1] D. Lauvergnat, A. Nauts, *Phys. Chem. Chem. Phys.* **12** (2010) 8405-8412 `DOI: 10.1039/C001944E <http://dx.doi.org/10.1039/C001944E>`_
+.. [Sm1] S. A. Smolyak, *Dokl. Akad. Nauk SSSR* **148** (1963) 1042–1045 `<http://mi.mathnet.ru/eng/dan27586>`_
 
 
 
