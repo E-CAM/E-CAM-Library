@@ -177,9 +177,10 @@ separate projects. The modules that were incorporated into the core are:
     ./modules/OpenPathSampling/ops_visit_all_states/readme
     ./modules/OpenPathSampling/ops_interface_shooting/readme
     ./modules/OpenPathSampling/ops_progress_meters/readme
+    ./modules/OpenPathSampling/ops_faster_path_densities/readme
     ./modules/OpenPathSampling/ops_new_storage/readme
     ./modules/OpenPathSampling/ops_new_storage_2/readme
-    ./modules/OpenPathSampling/ops_faster_path_densities/readme
+    ./modules/OpenPathSampling/ops_new_storage_3/readme.rst
     ./modules/OpenPathSampling/ops_new_storage_openmm/readme
 
 The modules that are based on OPS, but remain separate, are:
