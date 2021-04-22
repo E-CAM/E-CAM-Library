@@ -312,6 +312,7 @@ The following modules were developed specifically for the Classical MD pilot pro
     ./modules/velocities_resolve_EVC_for_LAMMPS/readme
     ./modules/Verlet_list_for_ODE/readme
     ./modules/OpenMM_copolymer/readme
+    ./modules/OpenMM_plectoneme/readme
     ./modules/n2p2/n2p2_cg_descriptor_analysis/readme
     ./modules/n2p2/n2p2_improved_link_hpc/readme
     ./modules/n2p2/n2p2_polynomial_symfuncs/readme
