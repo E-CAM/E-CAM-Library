@@ -555,6 +555,16 @@ which allows the simulation of larger systems. Typically, the package could be u
 3) Quantum gate and optimal control; 
 4) Optimization with the given set of curvilinear coordinates.
 
+.. toctree::
+    :glob:
+    :maxdepth: 1
+
+    ./modules/ElVibRot_TID_MPI/readme
+
+The **ElVibRot-TID-MPI** (ElVibRot Time-independent MPI) module is a parallelized 
+time-independent quantum simulation program. The Davidson algorithm is the main
+method employed 
+for getting the Eigen levels of the Hamiltonian.
 
 .. toctree::
     :glob:
@@ -565,7 +575,6 @@ which allows the simulation of larger systems. Typically, the package could be u
 The **ElVibRot-TD-MPI** (ElVibRot Time-dependent MPI) module is a parallelized 
 time-dependent quantum simulation program. The available propagation methods 
 include Chebyshev, Runge-Kunta, short iterative Lanczos and Taylor expansion, etc.
-
 
 References
 ----------
