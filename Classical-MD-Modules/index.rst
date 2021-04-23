@@ -314,6 +314,7 @@ The following modules were developed specifically for the Classical MD pilot pro
     ./modules/OpenMM_copolymer/readme
     ./modules/OpenMM_plectoneme/readme
     ./modules/polymer_data_analysis/readme
+    ./modules/2spaces_on_gpu/readme
     ./modules/n2p2/n2p2_cg_descriptor_analysis/readme
     ./modules/n2p2/n2p2_improved_link_hpc/readme
     ./modules/n2p2/n2p2_polynomial_symfuncs/readme
