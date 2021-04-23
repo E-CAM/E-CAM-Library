@@ -36,7 +36,9 @@ Integration of ELSI-RCI in DFTB+
     into YYYY process, which in turn should allow ZZZZ to be simulated. If successful, this could make it possible to
     produce compound AAAA while avoiding expensive process BBBB and CCCC."
 
-ELSI-RCI provides and enhances open-source software packages which solve mathematical equations related to the simulation
+DFTB+ is a software package for carrying out fast quantum mechanical atomistic calculations based on the
+Density Functional Tight Binding method. ELSI-RCI provides and enhances open-source software
+packages which solve mathematical equations related to the simulation
 of materials and molecules at the atomic scale.
 
 
@@ -45,47 +47,9 @@ _________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-Give a brief overview of why the module is/was being created, explaining a little of the scientific background and how
-it fits into the larger picture of what you want to achieve. The overview should be comprehensible to a scientist
-non-expert in the domain area of the software module.
-
-This section should also include the following (where appropriate):
-
-* Who will use the module? in what area(s) and in what context?
-
-* What kind of problems can be solved by the code?
-
-* Are there any real-world applications for it?
-
-* Has the module been interfaced with other packages?
-
-* Was it used in a thesis, a scientific collaboration, or was it cited in a publication?
-
-* If there are published results obtained using this code, describe them briefly in terms readable for non-expert users.
-  If you have few pictures/graphs illustrating the power or utility of the module, please include them with
-  corresponding explanatory captions.
-
-.. note::
-
-  If the module is an ingredient for a more general workflow (e.g. the module was the necessary foundation for later
-  code; the module is part of a group of modules that will be used to calculate certain property or have certain
-  application, etc.) mention this, and point to the place where you specify the applications of the more general
-  workflow (that could be in another module, in another section of this repository, an application’s website, etc.).
-
-.. note::
-
-  If you are a post-doc who works in E-CAM, an obvious application for the module (or for the group of modules that
-  this one is part of) is your pilot project. In this case, you could point to the pilot project page on the main
-  website (and you must ensure that this module is linked there).
-
-If needed you can include latex mathematics like
-:math:`\frac{ \sum_{t=0}^{N}f(t,k) }{N}`
-which won't show up on GitLab/GitHub but will in final online documentation.
-
-If you want to add a citation, such as [CIT2009]_, please check the source code to see how this is done. Note that
-citations may get rearranged, e.g., to the bottom of the "page".
-
-.. [CIT2009] This is a citation (as often used in journals).
+Integrating the ELSI library into DFTB+ makes the
+the additional ELPA, OMM, PEXSI and NTPoly solvers available. These solvers are particularly useful for
+large scale systems.
 
 
 Background Information
@@ -93,14 +57,13 @@ ______________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-If the modifications are to an existing code base (which is typical) then this would be the place to name that
-application. List any relevant urls and explain how to get access to that code. There needs to be enough information
-here so that the person reading knows where to get the source code for the application, what version this information is
-relevant for, whether this requires any additional patches/plugins, etc.
+This module is developed in connection with the Extended Software Development Workshop
+`"Integration of ESL modules into electronic-structure codes" <https://www.e-cam2020.eu/event/integration-of-esl-modules-into-electronic-structure-codes/>`_
+held in Lausanne in February 2020.
 
-Overall, this module is supposed to be self-contained, but linking to specific URLs with more detailed information is
-encouraged. In other words, the reader should not need to do a websearch to understand the context of this module, all
-the links they need should be already in this module.
+An associated paper which includes a description of the ELSI integration is DFTB+ has also been published [DFTB]_. 
+
+.. [DFTB] B. Hourahine, B. Aradi, V. Blum, F. Bonafé, A. Buccheri, C. Camacho, C. Cevallos, M. Y. Deshaye, T. Dumitrică, A. Dominguez, S. Ehlert, M. Elstner, T. van der Heide, J. Hermann, S. Irle, J. J. Kranz, C. Köhler, T. Kowalczyk, T. Kubař, I. S. Lee, V. Lutsker, R. J. Maurer, S. K. Min, I. Mitchell, C. Negre, T. A. Niehaus, A. M. N. Niklasson, A. J. Page, A. Pecchia, G. Penazzi, M. P. Persson, J. Řezáč, C. G. Sánchez, M. Sternberg, M. Stöhr, F. Stuckenberg, A. Tkatchenko, V. W.-z. Yu, and T. Frauenheim , "DFTB+, a software package for efficient approximate density functional theory based atomistic simulations" , The Journal of Chemical Physics 152, 124101 (2020) https://doi.org/10.1063/1.5143190
 
 
 Building and Testing
@@ -108,86 +71,21 @@ ____________________
 
 .. Keep the helper text below around in your module by just adding "..  " in front of it, which turns it into a comment
 
-Provide the build information for the module here and explain how tests are run. This needs to be adequately detailed,
-explaining if necessary any deviations from the normal build procedure of the application (and links to information
-about the normal build process needs to be provided).
+ELSI support is available in the latest releases of DFTB+. Full installation and testing documentation is
+available in the
+`Install.rst <https://github.com/dftbplus/dftbplus/blob/20.2.1/INSTALL.rst>`_
+file of the DFTB+ release.
+
+Specifically to enable the ELSI support, one would require the CMake option ``-DWITH_ELSI`` (and also ``-DWITH_PEXSI``
+if the PEXSI solver is also to be supported). 
 
 Source Code
 ___________
 
 .. Notice the syntax of a URL reference below `Text <URL>`_ the backticks matter!
 
-Here link the source code *that was created for the module*. If you are using Github or GitLab and the `Gitflow Workflow
-<https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow>`_ you can point to your feature branch.
-Linking to your pull/merge requests is even better. Otherwise you can link to the explicit commits.
-
-* `Link to a merge request containing my source code changes
-  <https://github.com/easybuilders/easybuild-easyblocks/pull/1106>`_
-
-There may be a situation where you cannot do such linking. In this case, I'll go through an example that uses a patch
-file to highlight my source code changes, for that reason I would need to explain what code (including exact version
-information), the source code is for.
-
-You can create a similar patch file by (for example if you are using git for your version control) making your changes
-for the module in a feature branch and then doing something like the following:
-
-..  Don't forget the white space around the "literal block" (a literal block keeps all spacing and is a good way to
-    include terminal output, file contents, etc.)
-
-::
-
-  [adam@mbp2600 example (master)]$ git checkout -b tmpsquash
-  Switched to a new branch "tmpsquash"
-
-  [adam@mbp2600 example (tmpsquash)]$ git merge --squash newlines
-  Updating 4d2de39..b6768b2
-  Fast forward
-  Squash commit -- not updating HEAD
-   test.txt |    2 ++
-   1 files changed, 2 insertions(+), 0 deletions(-)
-
-  [adam@mbp2600 example (tmpsquash)]$ git commit -a -m "My squashed commits"
-  [tmpsquash]: created 75b0a89: "My squashed commits"
-   1 files changed, 2 insertions(+), 0 deletions(-)
-
-  [adam@mbp2600 example (tmpsquash)]$ git format-patch master
-  0001-My-squashed-commits.patch
-
-
-To include a patch file do something like the following (take a look at the source code of this document to see the
-syntax required to get this):
-
-..  Below I am telling Sphinx that the included file is C code, if possible it will then do syntax highlighting. I can
-    even emphasise partiuclar lines (here 2 and 9-11)
-
-.. .. literalinclude:: ./simple.patch
-      :language: c
-      :emphasize-lines: 2,9-11
-      :linenos:
-
-
-..  I can't highlight the language syntax of a patch though so I have to exclude
-    :language: c
-
-.. literalinclude:: ./simple.patch
-   :emphasize-lines: 2,9-11
-   :linenos:
-
-If the patch is very long you will probably want to add it as a subpage which can be done as follows
-
-.. toctree::
-   :glob:
-   :maxdepth: 1
-
-   patch
-
-..  Remember to change the reference "patch" for something unique in your patch file subpage or you will have
-    cross-referencing problems
-
-you can reference it with :ref:`patch`
-
-
-.. Here are the URL references used (which is alternative method to the one described above)
+* `Link to a merge request containing relevant source code changes
+  <https://github.com/dftbplus/dftbplus/pull/175>`_
 
 .. _ReST: http://www.sphinx-doc.org/en/stable/rest.html
 .. _Sphinx: http://www.sphinx-doc.org/en/stable/markup/index.html
