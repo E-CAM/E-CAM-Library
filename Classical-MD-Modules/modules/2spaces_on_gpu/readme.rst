@@ -12,7 +12,7 @@
     `MIT <https://opensource.org/licenses/mit-license>`_
 
   Documentation Tool
-    doxygen
+    Doxygen
 
   Application Documentation
     'https://gitlab.com/pcarrivain/2spaces_gpu/-/blob/master/latex/refman.pdf'
@@ -32,24 +32,24 @@ E-CAM 2spaces_on_gpu module
 ..  contents:: :local:
 
 The 2spaces_on_gpu module implements the 2-spaces
-algorithm on GPU (see Background information section).
+algorithm on a GPU (see "Background Information" section).
 This algorithm is designed to move one-half of the polymer
 in one Monte-Carlo iteration.
 It also preserves the excluded volume constraints.
-I wrote a `OpenCL <https://www.khronos.org/opencl>`_
-implementation to be used on CPUs or GPUs.
+An `OpenCL <https://www.khronos.org/opencl>`_
+implementation has been written so it can be used on CPUs or GPUs.
 
 Purpose of Module
 _________________
 
-Polymer of size L is supposed to reach equilibrium
-after a time like :math:`L^3`.
+A polymer of size L is supposed to reach equilibrium
+after a time of order :math:`L^3`.
 Therefore, it could be difficult to study the equilibrium
 properties of large polymers.
-The 2-spaces algorithm already improves the efficient
-of each Monte-Carlo by moving half of the polymer.
-We can use the GPU units to take care one of the sub-move
-among st the Monte-Carlo step.
+The 2-spaces algorithm improves the efficiency
+of each Monte-Carlo iteration by moving half of the polymer.
+We can use the GPUs to take care of one of the sub-moves
+in each Monte-Carlo step.
 
 It is used in a scientific collaboration (ENS Lyon).
 
@@ -65,12 +65,13 @@ for details about the method.
 Building and Testing
 ____________________
 
-I provide a simple make file as well as `OpenCL <https://www.khronos.org/opencl>`_
+I provide a simple ``Makefile`` as well as an
+`OpenCL <https://www.khronos.org/opencl>`_
 kernel and main source code to run the model.
 You need C++11 in order to use pseudo-random number generator.
 Before the compilation you can clean the previous build
-with "make mrproper" command.
-Details about build, test and run are available on the
+with the ``make mrproper`` command.
+Details about building, testing and running the code is available in the
 `2spaces_on_gpu GitLab repository <https://gitlab.com/pcarrivain/2spaces_gpu>`_.
 
 Source Code
