@@ -140,6 +140,7 @@ The ESDW in Lausanne in February/March 2020 was the starting point for the modul
 
     ./modules/Libxc-in-FHI-AIMS/readme
     ./modules/PSolver-Integration/readme
+    ./modules/ELSI-RCI-in-DFTB+/readme
 
 Other Modules
 -------------
