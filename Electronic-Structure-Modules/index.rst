@@ -192,9 +192,7 @@ projects within E-CAM:
     ./modules/GROMACS_interface/README
     ./modules/Gaussian_interface/README
     ./modules/Selectively-Localized-Wannier-Functions/readme
-    ./modules/Gaussian_interface/README
     ./modules/Differential_Evolution/README
-    ./modules/Gaussian_interface/README
     ./modules/WLRR/README
     ./modules/SCDM_WFs/readme
     ./modules/W90_MaX_collab/readme
