@@ -32,8 +32,8 @@ PI-auto-utility
 ..  local table of contents
 ..  contents:: :local:
 
-This module ports the already existing modules `PICore <https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library/-/tree/master/Classical-MD-Modules/modules/PIcore>`_ 
-and `PIhydration <https://gitlab.e-cam2020.eu/e-cam/E-CAM-Library/-/tree/master/Classical-MD-Modules/modules/PIhydration>`_ 
+This module ports the already existing modules :ref:`Particle_Insertion_core` 
+and :ref:`Particle_Insertion_hydration` 
 from the LAMMPS scripting language to Python. It allows to apply the method described in 
 those modules to a larger variety of systems. Additionally it also generalizes the method, 
 thereby allowing use of different forcefields. 
