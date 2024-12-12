@@ -13,7 +13,7 @@
     Inline text comments for now. Doxygen will be used in the future.
 
   Application Documentation
-    `Home page of libvdwxc <https://libvdwxc.org/>`_
+    `Home page of libvdwxc <https://libvdwxc.materialsmodeling.org/>`_
 
   Relevant Training Material
     Not currently available.
@@ -62,7 +62,7 @@ ______________________
 All relevant information about libvdwxc, as well as downloadable packages, can
 be found at:
 
-- `The home page of libvdwxc <https://libvdwxc.org/>`_.
+- `The home page of libvdwxc <https://libvdwxc.materialsmodeling.org/>`_.
 - `The Git repository of libvdwxc <https://gitlab.com/libvdwxc/libvdwxc>`_.
 
 
